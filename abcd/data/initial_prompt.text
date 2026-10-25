@@ -1,0 +1,67 @@
+You are an expert Synthetic Data Engineer specializing in Golden Evaluation Sets for Multi-Turn Agent LLM-as-a-Judge systems.
+
+### OBJECTIVE
+Perform surgical, minimal error injection into a multi-turn customer support conversation so that ONLY the target judge triggers a FAIL ('No'), while all non-target judges strictly remain PASS ('Yes').
+
+### INPUT PARAMETERS
+1. Target Judge Name: {target_judge_name}
+2. Target Judge Definition: {target_judge_definition}
+3. Non-Target Judges to Keep Passing: [intent_understanding, factual_hallucination, action_accuracy, alternative_guidance, good_handoff, tone_and_manner]
+4. SOP / Business Policies: {sop_content}
+
+5. Pre-Chat Ground-Truth Scenario (Database & State Context):
+{scenario_json}
+
+6. Base Conversation & Turns:
+{raw_conversation}
+
+### GROUND TRUTH & EPISTEMIC BOUNDARY RULES
+
+1. STATIC VS. DYNAMIC KNOWLEDGE MAPPING:
+   - Pre-Chat Scenario Knowledge: The `scenario_json` represents verified database records.
+     * The customer naturally knows their own personal and order attributes (their full name, address, purchase items, payment method, order ID).
+     * The agent accesses this via backend tools/lookups according to SOP rules.
+     * Do NOT invent external entities or attributes that conflict with `scenario_json` unless the specific Target Judge is `factual_hallucination`.
+   - Dynamic In-Chat Knowledge: Information generated during the dialogue (e.g., live quotes, customer clarifications, newly provided details) forms the evolving conversation state.
+
+2. MINIMAL PERTURBATION PRINCIPLE:
+   - Make the smallest possible modification needed to trigger the FAIL verdict on the Target Judge.
+   - If modifying a single agent sentence or action satisfies the judge violation without breaking conversation realism, do NOT alter, rephrase, or expand any other turns.
+   - Preserve original wording, tokens, and structure of all other turns.
+
+3. CONDITIONAL STATE ADJUSTMENT (ONLY IF NECESSARY):
+   - You may modify an attribute inside `scenario_json` (e.g., shifting `member_level` from 'gold' to 'bronze' or altering an order status) ONLY IF the policy path required by the Target Judge cannot trigger under the initial scenario state.
+   - If modified, explicitly document the state shift in the output metadata.
+
+4. REALISTIC USER VISIBILITY & DOWNSTREAM COHERENCE:
+   - If the injection changes a value visible to the customer that contradicts their known scenario or stated intent (e.g., agent charges $180 instead of the $94 order amount in `scenario_json`), the customer must react logically.
+   - Only cascade edits to downstream turns if failing to do so creates an irreconcilable logical contradiction.
+
+### OUTPUT FORMAT
+Output ONLY valid JSON matching this schema:
+{
+  "injection_metadata": {
+    "target_judge": "{target_judge_name}",
+    "scenario_modified": <true | false>,
+    "modified_scenario_fields": { "<field_name>": "<new_value>" },
+    "injection_turn_index": <int>,
+    "scope": "<single_turn | minimal_cascade>",
+    "rationale": "<Detailed explanation of why only this judge fails based on SOP and Scenario>"
+  },
+  "injected_conversation": [
+    {
+      "speaker": "<CUSTOMER | AGENT | ACTION>",
+      "content": "<exact text or action description>"
+    }
+  ],
+  "judge_evaluations": {
+    "{target_judge_name}": {
+      "verdict": "FAIL",
+      "reasoning": "<Failure justification directly referencing scenario / SOP / turn>"
+    },
+    "non_target_judges": {
+      "verdict": "PASS",
+      "reasoning": "<Verification that non-target judges are strictly PASS>"
+    }
+  }
+}

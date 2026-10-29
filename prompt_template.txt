@@ -1,0 +1,78 @@
+You are an expert Synthetic Data Engineer specializing in Golden Evaluation Sets for Multi-Turn Agent LLM-as-a-Judge systems.
+
+### OBJECTIVE
+Perform surgical error injection into a multi-turn customer support conversation by executing the EXACT injection parameters provided below so that ONLY the target judge triggers a FAIL ('No'), while all non-target judges strictly remain PASS ('Yes'). If the base conversation already naturally triggers a FAIL for the target judge without introducing modifications, identify the existing defective turns directly without altering the text.
+
+### INPUT PARAMETERS
+1. Target Judge Name: {target_judge_name}
+2. Target Judge Definition: {target_judge_definition}
+3. Non-Target Judges to Keep Passing: {non_target_judges}
+4. SOP / Business Policies: {sop_content}
+5. Pre-Chat Ground-Truth Scenario: {scenario_json}
+6. Base Conversation & Turns:
+{raw_conversation}
+
+### INJECTION CONTROL PARAMETERS (STRICT EXECUTION)
+7. Exact Number of Errors to Inject: {target_error_count}
+8. Target Dialogue Phase: {target_dialogue_phase} // Allowed values: "early" (information gathering / identity verification), "middle" (policy application / condition checks), "late" (resolution / action execution / wrap-up)
+
+### GROUND TRUTH & EXECUTION RULES
+
+1. STATIC VS. DYNAMIC KNOWLEDGE MAPPING:
+   - The `scenario_json` represents verified database records.
+   - Do NOT invent external entities or attributes that conflict with `scenario_json` unless the specific Target Judge is `factual_hallucination`.
+
+2. PRE-EXISTING DEFECT HANDLING:
+   - First check if the base conversation already violates the target judge contract.
+   - If the conversation is ALREADY defective naturally, set `"already_defective": true`, log all pre-existing defective turns in `injected_turn_indices`, record them in the `violations` list, and leave the conversation text untouched (ignore Parameters 7 and 8 in this case).
+
+3. STRICT PARAMETERIZED INJECTION (WHEN CLEAN):
+   - If the conversation is clean (`"already_defective": false`), you MUST inject the exact number of procedural errors specified in `{target_error_count}` adhering strictly to the contract in `{target_judge_definition}`.
+   - You MUST place the injected error(s) within the conversational window designated by `{target_dialogue_phase}`:
+     * "early": Focus injection on identity verification, account lookup, or initial intake steps.
+     * "middle": Focus injection on eligibility evaluation, branching logic, or condition validations.
+     * "late": Focus injection on final action execution, refund/compensation amounts, or post-action wrap-up procedures.
+   - Ensure the injected errors do NOT trigger FAIL verdicts on non-target judges.
+
+4. CONDITIONAL STATE ADJUSTMENT (STRICT LAST RESORT):
+   - You may modify an attribute inside `scenario_json` ONLY IF the policy path required by the Target Judge cannot trigger under the initial scenario state.
+   - Default to keeping `scenario_json` untouched. If a modification is unavoidable to make the violation logically possible, document the exact change in `modified_scenario_fields` and set `"scenario_modified": true`.
+
+5. REALISTIC USER VISIBILITY & DOWNSTREAM COHERENCE:
+   - If an injected agent error omits asking for an attribute, remove or adjust the customer's response so they do not volunteer unasked information.
+   - If an injected error changes a value visible to the customer, adjust the immediate customer reaction only as needed to maintain logical dialogue coherence.
+
+### OUTPUT FORMAT
+Output ONLY valid JSON matching this schema:
+{{
+  "injection_metadata": {{
+    "target_judge": "{target_judge_name}",
+    "already_defective": <true | false>,
+    "scenario_modified": <true | false>,
+    "modified_scenario_fields": {{ "<field_name>": "<new_value>" }},
+    "injected_turn_indices": [<int>, ...],
+    "total_injected_errors": <int>,
+    "target_dialogue_phase": "{target_dialogue_phase}",
+    "scope": "<pre_existing | single_turn | multi_turn_injection>"
+  }},
+  "injected_conversation": [
+    {{
+      "turn_id": <int>,
+      "speaker": "<CUSTOMER | AGENT | ACTION>",
+      "content": "<exact text or action description>"
+    }}
+  ],
+  "judge_evaluations": {{
+    "{target_judge_name}": {{
+      "verdict": "FAIL",
+      "violations": [
+        {{
+          "turn_id": <int>,
+          "speaker": "<CUSTOMER | AGENT | ACTION>",
+          "explanation": "<Specific SOP / Policy clause violated at this turn>"
+        }}
+      ],
+      "overall_reasoning": "<Comprehensive summary of all procedural defects across the dialogue>"
+    }}
+  }}
+}}

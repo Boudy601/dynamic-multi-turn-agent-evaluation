@@ -19,7 +19,7 @@ Perform surgical, minimal error injection into a multi-turn customer support con
 
 1. STATIC VS. DYNAMIC KNOWLEDGE MAPPING:
    - Pre-Chat Scenario Knowledge: The `scenario_json` represents verified database records.
-     * The customer naturally knows their own personal and order attributes (their full name, address, purchase items, payment method, order ID).
+     * The customer naturally knows their own personal and order attributes "unless they stated otherwise in the Base Conversation" (their full name, address, purchase items, payment method, order ID).
      * The agent accesses this via backend tools/lookups according to SOP rules.
      * Do NOT invent external entities or attributes that conflict with `scenario_json` unless the specific Target Judge is `factual_hallucination`.
    - Dynamic In-Chat Knowledge: Information generated during the dialogue (e.g., live quotes, customer clarifications, newly provided details) forms the evolving conversation state.
@@ -46,7 +46,6 @@ Output ONLY valid JSON matching this schema:
     "modified_scenario_fields": { "<field_name>": "<new_value>" },
     "injection_turn_index": <int>,
     "scope": "<single_turn | minimal_cascade>",
-    "rationale": "<Detailed explanation of why only this judge fails based on SOP and Scenario>"
   },
   "injected_conversation": [
     {
@@ -59,9 +58,5 @@ Output ONLY valid JSON matching this schema:
       "verdict": "FAIL",
       "reasoning": "<Failure justification directly referencing scenario / SOP / turn>"
     },
-    "non_target_judges": {
-      "verdict": "PASS",
-      "reasoning": "<Verification that non-target judges are strictly PASS>"
-    }
   }
 }

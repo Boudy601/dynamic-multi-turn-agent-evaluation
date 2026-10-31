@@ -1,0 +1,26 @@
+{
+  "account_access": {
+    "reset_2fa": "Reset Two-Factor Auth"
+  },
+  "order_issue": {
+    "status_delivery_date": "Status Delivery Time"
+  },
+  "product_defect": {
+    "refund_initiate": "Initiate Refund",
+    "refund_update": "Update Refund"
+  },
+  "shipping_issue": {
+    "status": "Shipping Status",
+    "manage": "Manage Shipping",
+    "cost": "Shipping Cost"
+  },
+  "subscription_inquiry": {
+    "status_questions": "Status Active"
+  },
+  "troubleshoot_site": {
+    "credit_card": "Invalid Credit Card",
+    "shopping_cart": "Cart Not Updating",
+    "search_results": "Search Not Working",
+    "slow_speed": "Website Too Slow"
+  }
+}

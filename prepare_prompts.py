@@ -13,6 +13,9 @@ from typing import Any, Iterator, Mapping, Sequence
 
 
 PROMPT_TEMPLATE_PATH = Path(__file__).with_name("prompt_template.txt")
+DEFAULT_GUIDELINE_ALIASES_PATH = Path(__file__).with_name(
+    "guideline_aliases.json"
+)
 
 
 def load_prompt_template() -> str:
@@ -24,12 +27,12 @@ def load_prompt_template() -> str:
         ) from exc
 
 
+CONVERSATION_COUNT = 10
 ERROR_COUNTS = (1, 2, 3)
 ERROR_COUNT_WEIGHTS = (0.5, 0.35, 0.15)
 DIALOGUE_PHASES = ("early", "middle", "late")
 GUIDELINE_STOP_WORDS = {"due", "to", "faq", "how", "other", "general", "one", "item"}
 TARGET_JUDGES = ("intent_understanding",)
-CONVERSATION_COUNT = 2
 
 
 class InputDataError(ValueError):
@@ -44,6 +47,30 @@ def load_json(path: Path) -> Any:
         raise InputDataError(f"Input file not found: {path}") from exc
     except json.JSONDecodeError as exc:
         raise InputDataError(f"Invalid JSON in {path}: {exc}") from exc
+
+
+def load_guideline_aliases(path: Path) -> dict[str, dict[str, str]]:
+    data = load_json(path)
+    if not isinstance(data, Mapping):
+        raise InputDataError(f"{path} must contain a JSON object")
+
+    aliases: dict[str, dict[str, str]] = {}
+    for flow, flow_aliases in data.items():
+        if not isinstance(flow_aliases, Mapping):
+            raise InputDataError(
+                f"Guideline aliases for flow {flow!r} in {path} "
+                "must be an object"
+            )
+        normalized_flow = normalize_name(flow)
+        aliases[normalized_flow] = {}
+        for subflow, guideline in flow_aliases.items():
+            if not isinstance(guideline, str) or not guideline.strip():
+                raise InputDataError(
+                    f"Guideline alias {flow!r}/{subflow!r} in {path} "
+                    "must map to a non-empty string"
+                )
+            aliases[normalized_flow][normalize_name(subflow)] = guideline
+    return aliases
 
 
 def normalize_name(value: Any) -> str:
@@ -127,10 +154,39 @@ def conversation_subflow(conversation: Mapping[str, Any], index: int) -> str:
     return str(value)
 
 
-def find_guideline(guidelines: Mapping[str, Any], requested: str) -> Any:
+def conversation_flow(conversation: Mapping[str, Any], index: int) -> str:
+    value = conversation.get("flow")
+    if value is None:
+        scenario = conversation.get("scenario")
+        if isinstance(scenario, Mapping):
+            value = scenario.get("flow")
+    if not value:
+        raise InputDataError(f"Conversation at index {index} is missing flow")
+    return str(value)
+
+
+def find_guideline(
+    guidelines: Mapping[str, Any],
+    requested: str,
+    flow: str | None = None,
+    aliases: Mapping[str, Mapping[str, str]] | None = None,
+) -> Any:
     exact = normalize_name(requested)
     if exact in guidelines:
         return guidelines[exact]
+
+    if flow and aliases:
+        flow_aliases = aliases.get(normalize_name(flow), {})
+        mapped_name = flow_aliases.get(exact)
+        if mapped_name is not None:
+            mapped_key = normalize_name(mapped_name)
+            if mapped_key in guidelines:
+                return guidelines[mapped_key]
+            raise InputDataError(
+                f"Guideline alias for flow/subflow {flow!r}/{requested!r} "
+                f"points to missing guideline {mapped_name!r}"
+            )
+
     alias = semantic_name(requested)
     if alias in guidelines:
         return guidelines[alias]
@@ -212,6 +268,7 @@ def prepare_records(
     requested_judges: Sequence[str] | None,
     conversation_count: int,
     rng: random.Random,
+    guideline_aliases: Mapping[str, Mapping[str, str]] | None = None,
 ) -> list[dict[str, Any]]:
     if isinstance(conversations, Mapping):
         split_records = [
@@ -243,8 +300,9 @@ def prepare_records(
             errors.append(f"Conversation at index {index} is not an object")
             continue
         try:
+            flow = conversation_flow(conversation, index)
             subflow = conversation_subflow(conversation, index)
-            sop = find_guideline(guidelines, subflow)
+            sop = find_guideline(guidelines, subflow, flow, guideline_aliases)
             for judge_name in target_judges:
                 error_count = rng.choices(
                     ERROR_COUNTS, weights=ERROR_COUNT_WEIGHTS, k=1
@@ -294,6 +352,12 @@ def parse_args() -> argparse.Namespace:
         default=Path(r"abcd\data\guidelines.json"),
     )
     parser.add_argument(
+        "--guideline-aliases",
+        type=Path,
+        default=DEFAULT_GUIDELINE_ALIASES_PATH,
+        help="Explicit flow/subflow-to-guideline mappings.",
+    )
+    parser.add_argument(
         "--conversations",
         type=Path,
         default=Path(r"abcd\data\abcd_v1.1.json"),
@@ -326,6 +390,7 @@ def main() -> int:
     args = parse_args()
     try:
         guidelines = flatten_guidelines(load_json(args.guidelines), args.guidelines)
+        guideline_aliases = load_guideline_aliases(args.guideline_aliases)
         judges = load_judges(load_json(args.judges), args.judges)
         rng = random.Random(args.seed)
         records = prepare_records(
@@ -335,6 +400,7 @@ def main() -> int:
             args.target_judge or TARGET_JUDGES,
             args.conversation_count,
             rng,
+            guideline_aliases,
         )
         write_jsonl(args.output, records)
     except InputDataError as exc:

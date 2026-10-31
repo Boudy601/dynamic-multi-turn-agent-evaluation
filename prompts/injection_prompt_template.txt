@@ -22,23 +22,27 @@ Perform surgical error injection into a multi-turn customer support conversation
    - The `scenario_json` represents verified database records.
    - Do NOT invent external entities or attributes that conflict with `scenario_json` unless the specific Target Judge is `factual_hallucination`.
 
-2. PRE-EXISTING DEFECT HANDLING:
-   - First check if the base conversation already violates the target judge contract.
-   - If the conversation is ALREADY defective naturally, set `"already_defective": true`, log all pre-existing defective turns in `injected_turn_indices`, record them in the `violations` list, and leave the conversation text untouched (ignore Parameters 7 and 8 in this case).
+2. EVALUATION FOCUS & AGENT DEFECTS:
+   - The evaluation targets the assistant's performance. Therefore, all injected defects must be reflected in AGENT turns or ACTION calls.
+   - The customer's dialogue represents the end-user interaction. Injected error indices (`injected_turn_indices`) and logged violations should reference the relevant AGENT or ACTION turns.
 
-3. STRICT PARAMETERIZED INJECTION (WHEN CLEAN):
-   - If the conversation is clean (`"already_defective": false`), you MUST inject the exact number of procedural errors specified in `{target_error_count}` adhering strictly to the contract in `{target_judge_definition}`.
-   - You MUST place the injected error(s) within the conversational window designated by `{target_dialogue_phase}`:
+3. PRE-EXISTING DEFECT HANDLING:
+   - First check if the base conversation already violates the target judge contract.
+   - If the conversation is already defective naturally, set `"already_defective": true`, log all pre-existing defective turns in `injected_turn_indices`, record them in the `violations` list, and leave the conversation text untouched (ignore Parameters 7 and 8 in this case).
+
+4. PARAMETERIZED INJECTION (WHEN CLEAN):
+   - If the conversation is clean (`"already_defective": false`), inject the exact number of errors specified in `{target_error_count}` adhering to the criteria in `{target_judge_definition}`.
+   - Place the injected error(s) within the conversational window designated by `{target_dialogue_phase}`:
      * "early": Focus injection on identity verification, account lookup, or initial intake steps.
      * "middle": Focus injection on eligibility evaluation, branching logic, or condition validations.
      * "late": Focus injection on final action execution, refund/compensation amounts, or post-action wrap-up procedures.
    - Ensure the injected errors do NOT trigger FAIL verdicts on non-target judges.
 
-4. CONDITIONAL STATE ADJUSTMENT (STRICT LAST RESORT):
-   - You may modify an attribute inside `scenario_json` ONLY IF the policy path required by the Target Judge cannot trigger under the initial scenario state.
-   - Default to keeping `scenario_json` untouched. If a modification is unavoidable to make the violation logically possible, document the exact change in `modified_scenario_fields` and set `"scenario_modified": true`.
+5. SCENARIO ADJUSTMENT:
+   - You may modify attributes in `scenario_json` if doing so makes the conversational flow or the injected defect more realistic and coherent.
+   - If modified, document the changed attributes in `modified_scenario_fields` and set `"scenario_modified": true`. Otherwise, keep `scenario_json` unchanged with `"scenario_modified": false` and `"modified_scenario_fields": {{}}.
 
-5. REALISTIC USER VISIBILITY & DOWNSTREAM COHERENCE:
+6. REALISTIC USER VISIBILITY & DOWNSTREAM COHERENCE:
    - If an injected agent error omits asking for an attribute, remove or adjust the customer's response so they do not volunteer unasked information.
    - If an injected error changes a value visible to the customer, adjust the immediate customer reaction only as needed to maintain logical dialogue coherence.
 
@@ -68,11 +72,11 @@ Output ONLY valid JSON matching this schema:
       "violations": [
         {{
           "turn_id": <int>,
-          "speaker": "<CUSTOMER | AGENT | ACTION>",
-          "explanation": "<Specific SOP / Policy clause violated at this turn>"
+          "speaker": "<AGENT | ACTION>",
+          "explanation": "<Specific SOP / Policy clause or criteria violated at this turn>"
         }}
       ],
-      "overall_reasoning": "<Comprehensive summary of all procedural defects across the dialogue>"
+      "overall_reasoning": "<Comprehensive summary of the injected defects across the dialogue>"
     }}
   }}
 }}

@@ -12,10 +12,9 @@ from pathlib import Path
 from typing import Any, Iterator, Mapping, Sequence
 
 
-PROMPT_TEMPLATE_PATH = Path(__file__).with_name("prompt_template.txt")
-DEFAULT_GUIDELINE_ALIASES_PATH = Path(__file__).with_name(
-    "guideline_aliases.json"
-)
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+PROMPT_TEMPLATE_PATH = PROJECT_ROOT / "prompts" / "injection_prompt_template.txt"
+DEFAULT_GUIDELINE_ALIASES_PATH = PROJECT_ROOT / "config" / "guideline_aliases.json"
 
 
 def load_prompt_template() -> str:
@@ -349,7 +348,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--guidelines",
         type=Path,
-        default=Path(r"abcd\data\guidelines.json"),
+        default=PROJECT_ROOT / "data" / "source" / "abcd" / "data" / "guidelines.json",
     )
     parser.add_argument(
         "--guideline-aliases",
@@ -360,13 +359,13 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--conversations",
         type=Path,
-        default=Path(r"abcd\data\abcd_v1.1.json"),
-        help="Conversation JSON file; defaults to abcd\\data\\abcd_v1.1.json.",
+        default=PROJECT_ROOT / "data" / "source" / "abcd" / "data" / "abcd_v1.1.json",
+        help="Conversation JSON file; defaults to the source AB-CD dataset.",
     )
     parser.add_argument(
         "--judges",
         type=Path,
-        default=Path("judges_definations.json"),
+        default=PROJECT_ROOT / "config" / "judges_definitions.json",
     )
     parser.add_argument(
         "--target-judge",
@@ -380,7 +379,9 @@ def parse_args() -> argparse.Namespace:
         help="Number of conversations to process; 0 processes all.",
     )
     parser.add_argument(
-        "--output", type=Path, default=Path("prepared_prompts.jsonl")
+        "--output",
+        type=Path,
+        default=PROJECT_ROOT / "data" / "generated" / "prepared_prompts.jsonl",
     )
     parser.add_argument("--seed", type=int, help="Seed the local sampler for reproducibility.")
     return parser.parse_args()

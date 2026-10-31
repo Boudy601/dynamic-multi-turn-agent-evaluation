@@ -36,6 +36,7 @@ MAX_NETWORK_RETRIES = 5
 BACKOFF_BASE_SECONDS = 1.0
 BACKOFF_MAX_SECONDS = 30.0
 DEFAULT_TIMEOUT_SECONDS = 120.0
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 # Default service and model (can also be overridden via CLI arguments --platform and --model).
 # Put the selected platform's API key in your .env file.
@@ -523,9 +524,18 @@ async def process_record(
 def parse_args() -> argparse.Namespace:
     """Parse CLI arguments."""
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--input", default="prepared_prompts.jsonl")
-    parser.add_argument("--output", default="golden_dataset_injected.jsonl")
-    parser.add_argument("--failed", default="failed_generations.jsonl")
+    parser.add_argument(
+        "--input",
+        default=str(PROJECT_ROOT / "data" / "generated" / "prepared_prompts.jsonl"),
+    )
+    parser.add_argument(
+        "--output",
+        default=str(PROJECT_ROOT / "data" / "generated" / "golden_dataset_injected.jsonl"),
+    )
+    parser.add_argument(
+        "--failed",
+        default=str(PROJECT_ROOT / "data" / "generated" / "failed_generations.jsonl"),
+    )
     parser.add_argument("--platform", default=PLATFORM)
     parser.add_argument("--model", default=MODEL)
     parser.add_argument("--timeout", type=float, default=DEFAULT_TIMEOUT_SECONDS)

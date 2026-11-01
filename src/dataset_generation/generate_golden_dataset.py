@@ -9,7 +9,7 @@ import json
 import os
 import random
 from pathlib import Path
-from typing import Any, Literal
+from typing import Any, Generic, Literal, TypeVar
 
 from anthropic import (
     APIConnectionError as AnthropicConnectionError,
@@ -31,7 +31,7 @@ from tqdm.asyncio import tqdm_asyncio
 
 
 MAX_VALIDATION_RETRIES = 3
-DEFAULT_CONCURRENCY = 5
+DEFAULT_CONCURRENCY = 1
 MAX_NETWORK_RETRIES = 5
 BACKOFF_BASE_SECONDS = 1.0
 BACKOFF_MAX_SECONDS = 30.0
@@ -85,8 +85,11 @@ def is_model_not_found_error(exc: Exception) -> bool:
     )
 
 
-class InjectionMetadata(BaseModel):
-    """Metadata describing the error injection operation and parameters."""
+DATA_JUDGES: set[str] = {"missing_data", "data_conflict"}
+
+
+class BaseInjectionMetadata(BaseModel):
+    """Base metadata describing the error injection operation."""
 
     model_config = ConfigDict(extra="forbid", strict=True)
 
@@ -98,6 +101,26 @@ class InjectionMetadata(BaseModel):
     total_injected_errors: int = Field(ge=0)
     target_dialogue_phase: Literal["early", "middle", "late"]
     scope: Literal["pre_existing", "single_turn", "multi_turn_injection"]
+
+
+class GeneralInjectionMetadata(BaseInjectionMetadata):
+    """Metadata for general injection prompt records."""
+
+
+class DataJudgesInjectionMetadata(BaseInjectionMetadata):
+    """Metadata for data judges (missing_data, data_conflict) records."""
+
+    injection_mechanism: Literal[
+        "mutate_sop_for_existing_ask",
+        "inject_new_customer_ask",
+    ]
+    sop_modified: bool
+    original_sop_content: str | dict[str, Any] | list[Any] | None = None
+    modified_sop_content: str | dict[str, Any] | list[Any] | None = None
+
+
+# Alias for backward-compatibility or generic typing
+InjectionMetadata = GeneralInjectionMetadata | DataJudgesInjectionMetadata
 
 
 class Turn(BaseModel):
@@ -130,19 +153,22 @@ class JudgeEvaluationDetail(BaseModel):
     overall_reasoning: str
 
 
-class GoldenRecordOutput(BaseModel):
-    """Top-level schema for the generated golden dataset record."""
+MetadataT = TypeVar("MetadataT", bound=BaseInjectionMetadata)
+
+
+class BaseGoldenRecordOutput(BaseModel, Generic[MetadataT]):
+    """Base schema for generated golden dataset record outputs."""
 
     model_config = ConfigDict(extra="forbid", strict=True)
 
-    injection_metadata: InjectionMetadata
+    injection_metadata: MetadataT
     injected_conversation: list[Turn] = Field(min_length=1)
     judge_evaluations: dict[str, JudgeEvaluationDetail]
 
-    @model_validator(mode="after")
-    def validate_structure(self) -> "GoldenRecordOutput":
+    def _validate_common_structure(
+        self, metadata: BaseInjectionMetadata
+    ) -> None:
         """Validate cross-field business rules and consistency."""
-        metadata = self.injection_metadata
         target_judge = metadata.target_judge
         if target_judge not in self.judge_evaluations:
             raise ValueError(
@@ -201,6 +227,11 @@ class GoldenRecordOutput(BaseModel):
                     f"Violation at turn {violation.turn_id} lists speaker {violation.speaker!r}, "
                     f"but injected_conversation has speaker {expected_speaker!r}"
                 )
+            if violation.speaker == "CUSTOMER":
+                raise ValueError(
+                    f"Violation at turn {violation.turn_id} has speaker 'CUSTOMER'; "
+                    "violations must strictly reference AGENT or ACTION turns"
+                )
 
         if metadata.scenario_modified and not metadata.modified_scenario_fields:
             raise ValueError(
@@ -212,18 +243,90 @@ class GoldenRecordOutput(BaseModel):
                 "modified_scenario_fields must be {} when "
                 "scenario_modified is false"
             )
+
+
+class GeneralGoldenRecordOutput(BaseGoldenRecordOutput[GeneralInjectionMetadata]):
+    """Schema for records generated from the general injection prompt."""
+
+    @model_validator(mode="after")
+    def validate_structure(self) -> "GeneralGoldenRecordOutput":
+        self._validate_common_structure(self.injection_metadata)
+        if self.injection_metadata.target_judge in DATA_JUDGES:
+            raise ValueError(
+                f"target_judge {self.injection_metadata.target_judge!r} is a data judge. "
+                f"Use DataJudgesGoldenRecordOutput for {sorted(DATA_JUDGES)}."
+            )
         return self
 
 
-def validate_record(
-    payload: Any,
+class DataJudgesGoldenRecordOutput(BaseGoldenRecordOutput[DataJudgesInjectionMetadata]):
+    """Schema for records generated from the data judges injection prompt."""
+
+    @model_validator(mode="after")
+    def validate_structure(self) -> "DataJudgesGoldenRecordOutput":
+        self._validate_common_structure(self.injection_metadata)
+        if self.injection_metadata.target_judge not in DATA_JUDGES:
+            raise ValueError(
+                f"target_judge {self.injection_metadata.target_judge!r} is not a valid data judge. "
+                f"Expected one of: {sorted(DATA_JUDGES)}."
+            )
+        return self
+
+
+class GoldenRecordOutput:
+    """Validator factory that dispatches to General or DataJudges output schema."""
+
+    @classmethod
+    def model_validate(
+        cls,
+        obj: Any,
+        *,
+        strict: bool | None = None,
+        from_attributes: bool | None = None,
+        context: dict[str, Any] | None = None,
+    ) -> GeneralGoldenRecordOutput | DataJudgesGoldenRecordOutput:
+        judge = None
+        if isinstance(obj, dict):
+            meta = obj.get("injection_metadata")
+            if isinstance(meta, dict):
+                judge = meta.get("target_judge")
+        elif hasattr(obj, "injection_metadata"):
+            meta = getattr(obj, "injection_metadata")
+            judge = getattr(meta, "target_judge", None)
+
+        if judge in DATA_JUDGES:
+            return DataJudgesGoldenRecordOutput.model_validate(
+                obj,
+                strict=strict,
+                from_attributes=from_attributes,
+                context=context,
+            )
+        return GeneralGoldenRecordOutput.model_validate(
+            obj,
+            strict=strict,
+            from_attributes=from_attributes,
+            context=context,
+        )
+
+
+def _has_sop_content(content: Any) -> bool:
+    """Check if SOP snippet contains non-empty text, dict, or list content."""
+    if content is None:
+        return False
+    if isinstance(content, str):
+        return bool(content.strip())
+    if isinstance(content, (dict, list)):
+        return len(content) > 0
+    return False
+
+
+def _validate_common_sampled_rules(
+    record: BaseGoldenRecordOutput,
     sampled_params: dict[str, Any],
     expected_target_judge: str | None = None,
-) -> GoldenRecordOutput:
-    """Validate schema and sampled-parameter business rules."""
-    record = GoldenRecordOutput.model_validate(payload)
-    metadata = record.injection_metadata
-
+) -> None:
+    """Validate sampled parameters common to both general and data judges."""
+    metadata: BaseInjectionMetadata = getattr(record, "injection_metadata")
     if expected_target_judge and metadata.target_judge != expected_target_judge:
         raise ValueError(
             f"target_judge {metadata.target_judge!r} does not match expected "
@@ -231,20 +334,24 @@ def validate_record(
         )
 
     target_error_count = sampled_params.get("target_error_count")
+
     if metadata.already_defective:
         if metadata.scope != "pre_existing":
             raise ValueError(
                 "scope must be 'pre_existing' when already_defective is true"
             )
     else:
-        if metadata.total_injected_errors != target_error_count:
+        if (
+            target_error_count is not None
+            and metadata.total_injected_errors != target_error_count
+        ):
             raise ValueError(
                 "total_injected_errors "
                 f"{metadata.total_injected_errors} does not equal sampled "
                 f"target_error_count {target_error_count}"
             )
         target_phase = sampled_params.get("target_dialogue_phase")
-        if metadata.target_dialogue_phase != target_phase:
+        if target_phase and metadata.target_dialogue_phase != target_phase:
             raise ValueError(
                 f"target_dialogue_phase {metadata.target_dialogue_phase!r} does "
                 f"not equal sampled target_dialogue_phase {target_phase!r}"
@@ -259,6 +366,126 @@ def validate_record(
                 f"scope must be {expected_scope!r} when total_injected_errors "
                 f"is {metadata.total_injected_errors}"
             )
+
+
+def validate_general_rules(
+    record: GeneralGoldenRecordOutput,
+    sampled_params: dict[str, Any],
+    expected_target_judge: str | None = None,
+) -> None:
+    """Validate business rules specific to general prompt outputs."""
+    _validate_common_sampled_rules(record, sampled_params, expected_target_judge)
+
+
+def validate_data_judges_rules(
+    record: DataJudgesGoldenRecordOutput,
+    sampled_params: dict[str, Any],
+    expected_target_judge: str | None = None,
+) -> None:
+    """Validate business rules specific to data judges prompt outputs."""
+    _validate_common_sampled_rules(record, sampled_params, expected_target_judge)
+    metadata = record.injection_metadata
+
+    sampled_mechanism = sampled_params.get("injection_mechanism")
+    if sampled_mechanism and metadata.injection_mechanism != sampled_mechanism:
+        raise ValueError(
+            f"injection_mechanism {metadata.injection_mechanism!r} does not "
+            f"match sampled injection_mechanism {sampled_mechanism!r}"
+        )
+
+    if metadata.already_defective:
+        if metadata.sop_modified:
+            raise ValueError(
+                "sop_modified must be false when already_defective is true"
+            )
+        if metadata.original_sop_content is not None:
+            raise ValueError(
+                "original_sop_content must be null when already_defective is true"
+            )
+        if metadata.modified_sop_content is not None:
+            raise ValueError(
+                "modified_sop_content must be null when already_defective is true"
+            )
+        if metadata.scenario_modified:
+            raise ValueError(
+                "scenario_modified must be false when already_defective is true"
+            )
+    else:
+        if not metadata.sop_modified:
+            if metadata.original_sop_content is not None:
+                raise ValueError(
+                    "original_sop_content must be null when sop_modified is false"
+                )
+            if metadata.modified_sop_content is not None:
+                raise ValueError(
+                    "modified_sop_content must be null when sop_modified is false"
+                )
+        else:
+            if not _has_sop_content(metadata.original_sop_content):
+                raise ValueError(
+                    "original_sop_content must be a non-empty string, object, "
+                    "or list when sop_modified is true"
+                )
+            if not _has_sop_content(metadata.modified_sop_content):
+                raise ValueError(
+                    "modified_sop_content must be a non-empty string, object, "
+                    "or list when sop_modified is true"
+                )
+            if metadata.modified_sop_content == metadata.original_sop_content:
+                raise ValueError(
+                    "modified_sop_content must differ from original_sop_content "
+                    "when sop_modified is true"
+                )
+
+            original_sop = sampled_params.get("sop_content")
+            if (
+                original_sop is not None
+                and metadata.modified_sop_content == original_sop
+            ):
+                raise ValueError(
+                    "modified_sop_content must differ from the input sop_content "
+                    "when sop_modified is true"
+                )
+
+        if (
+            metadata.target_judge == "data_conflict"
+            and not (metadata.sop_modified or metadata.scenario_modified)
+        ):
+            raise ValueError(
+                "data_conflict records must modify the SOP or scenario when "
+                "already_defective is false"
+            )
+
+        if (
+            metadata.target_judge == "missing_data"
+            and metadata.injection_mechanism == "mutate_sop_for_existing_ask"
+            and not metadata.sop_modified
+        ):
+            raise ValueError(
+                "missing_data records using mutate_sop_for_existing_ask must "
+                "modify the SOP when already_defective is false"
+            )
+
+
+def validate_record(
+    payload: Any,
+    sampled_params: dict[str, Any],
+    expected_target_judge: str | None = None,
+) -> GeneralGoldenRecordOutput | DataJudgesGoldenRecordOutput:
+    """Validate schema and sampled-parameter business rules based on judge type."""
+    judge = expected_target_judge
+    if not judge and isinstance(payload, dict):
+        metadata = payload.get("injection_metadata")
+        if isinstance(metadata, dict):
+            judge = metadata.get("target_judge")
+
+    if judge in DATA_JUDGES:
+        record = DataJudgesGoldenRecordOutput.model_validate(payload)
+        validate_data_judges_rules(record, sampled_params, expected_target_judge)
+    else:
+        record = GeneralGoldenRecordOutput.model_validate(payload)
+        validate_general_rules(record, sampled_params, expected_target_judge)
+
     return record
 
 
@@ -498,11 +725,14 @@ async def process_record(
                 ]
             )
         else:
+            dumped = record.model_dump(mode="json")
             await append_jsonl(
                 output_path,
                 {
                     "conversation_id": conversation_id,
-                    **record.model_dump(mode="json"),
+                    "injection_metadata": dumped["injection_metadata"],
+                    "injected_conversation": dumped["injected_conversation"],
+                    "judge_evaluations": dumped["judge_evaluations"],
                 },
                 output_lock,
             )

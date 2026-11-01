@@ -33,6 +33,15 @@ Prepare injection prompts:
 python src\dataset_generation\prepare_prompts.py
 ```
 
+For Data Judges prompts, control the injection-mechanism mix with percentages
+that must total 100:
+
+```powershell
+python src\dataset_generation\prepare_prompts.py `
+  --mutate-sop-percentage 70 `
+  --inject-ask-percentage 30
+```
+
 Generate and validate the golden dataset:
 
 ```powershell

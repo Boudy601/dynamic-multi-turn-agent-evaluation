@@ -7,33 +7,46 @@ import argparse
 import json
 import random
 import re
+import string
 import sys
 from pathlib import Path
 from typing import Any, Iterator, Mapping, Sequence
 
-
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
-PROMPT_TEMPLATE_PATH = PROJECT_ROOT / "prompts" / "injection_prompt_template.txt"
-DEFAULT_GUIDELINE_ALIASES_PATH = PROJECT_ROOT / "config" / "guideline_aliases.json"
+PROMPTS_DIR = PROJECT_ROOT / "prompts"
+
+# ==============================================================================
+# BATCH CONFIGURATION: Set the conversation counts and paths directly here
+# ==============================================================================
+BATCH_CONFIGS = [
+    {
+        "name": "general",
+        "template_path": PROMPTS_DIR / "general_injection_prompt_template.txt",
+        "count": 0,
+        "target_judges": ("intent_understanding", "procedure_following"),
+    },
+    {
+        "name": "data_judges",
+        "template_path": PROMPTS_DIR / "Data Judges_Injection Prompt Template.txt",
+        "count": 5,
+        "target_judges": ("missing_data", "data_conflict"),
+    },
+]
 
 
-def load_prompt_template() -> str:
-    try:
-        return PROMPT_TEMPLATE_PATH.read_text(encoding="utf-8")
-    except OSError as exc:
-        raise InputDataError(
-            f"Unable to read prompt template {PROMPT_TEMPLATE_PATH}: {exc}"
-        ) from exc
-
-
-CONVERSATION_COUNT = 10
 ERROR_COUNTS = (1, 2, 3)
-ERROR_COUNT_WEIGHTS = (0.5, 0.35, 0.15)
+ERROR_COUNT_WEIGHTS = (1, 0, 0)
 DIALOGUE_PHASES = ("early", "middle", "late")
 GUIDELINE_STOP_WORDS = {"due", "to", "faq", "how", "other", "general", "one", "item"}
-TARGET_JUDGES = ("intent_understanding",)
 
 
+
+
+DEFAULT_GUIDELINE_ALIASES_PATH = PROJECT_ROOT / "config" / "guideline_aliases.json"
+INJECTION_MECHANISMS = (
+    "mutate_sop_for_existing_ask",
+    "inject_new_customer_ask",
+)
 class InputDataError(ValueError):
     """Raised when an input file does not meet the supported schema."""
 
@@ -48,7 +61,37 @@ def load_json(path: Path) -> Any:
         raise InputDataError(f"Invalid JSON in {path}: {exc}") from exc
 
 
+def resolve_prompt_template_path(template_path: Path | str) -> Path:
+    """Resolve explicit file path with automatic fallback to project prompts directory."""
+    path = Path(template_path)
+    if path.is_file():
+        return path
+    fallback = PROMPTS_DIR / path.name
+    if fallback.is_file():
+        return fallback
+    raise InputDataError(f"Prompt template file does not exist: {path} (also checked {fallback})")
+
+
+def load_prompt_template(path: Path) -> str:
+    try:
+        return path.read_text(encoding="utf-8")
+    except OSError as exc:
+        raise InputDataError(f"Unable to read prompt template {path}: {exc}") from exc
+
+
+def get_template_placeholders(template_text: str) -> set[str]:
+    """Extract all top-level variable names from a format string without formatting errors."""
+    formatter = string.Formatter()
+    return {
+        field_name
+        for _, field_name, _, _ in formatter.parse(template_text)
+        if field_name is not None
+    }
+
+
 def load_guideline_aliases(path: Path) -> dict[str, dict[str, str]]:
+    if not path.exists():
+        return {}
     data = load_json(path)
     if not isinstance(data, Mapping):
         raise InputDataError(f"{path} must contain a JSON object")
@@ -57,8 +100,7 @@ def load_guideline_aliases(path: Path) -> dict[str, dict[str, str]]:
     for flow, flow_aliases in data.items():
         if not isinstance(flow_aliases, Mapping):
             raise InputDataError(
-                f"Guideline aliases for flow {flow!r} in {path} "
-                "must be an object"
+                f"Guideline aliases for flow {flow!r} in {path} must be an object"
             )
         normalized_flow = normalize_name(flow)
         aliases[normalized_flow] = {}
@@ -73,15 +115,12 @@ def load_guideline_aliases(path: Path) -> dict[str, dict[str, str]]:
 
 
 def normalize_name(value: Any) -> str:
-    """Make underscore, space, hyphen, and case differences irrelevant."""
     return re.sub(r"[^a-z0-9]+", "", str(value).casefold())
 
 
 def semantic_name(value: Any) -> str:
     tokens = re.findall(r"[a-z0-9]+", str(value).casefold())
-    meaningful = [
-        token for token in tokens if token not in GUIDELINE_STOP_WORDS
-    ]
+    meaningful = [token for token in tokens if token not in GUIDELINE_STOP_WORDS]
     return "".join(meaningful).rstrip("0123456789")
 
 
@@ -99,9 +138,7 @@ def load_judges(data: Any, path: Path) -> dict[str, dict[str, Any]]:
                 raise InputDataError(f"Each judge in {path} must be an object")
             name = definition.get("dimension_node_name")
             if not name:
-                raise InputDataError(
-                    f"Each judge in {path} needs dimension_node_name"
-                )
+                raise InputDataError(f"Each judge in {path} needs dimension_node_name")
             definitions[str(name)] = dict(definition)
     else:
         raise InputDataError(f"{path} must contain a judge object or list")
@@ -238,26 +275,107 @@ def find_judge(judges: Mapping[str, dict[str, Any]], requested: str) -> str:
 
 
 def assemble_prompt(
-    conversation: Mapping[str, Any],
-    index: int,
-    judge_name: str,
-    judge_definition: Mapping[str, Any],
-    non_target_judges: Sequence[str],
-    sop: Any,
-    target_error_count: int,
-    target_dialogue_phase: str,
+    template_text: str,
+    available_placeholders: set[str],
+    context: Mapping[str, Any],
 ) -> str:
+    """Format template using only placeholders expected by the template, ignoring extraneous parameters."""
+    missing = [name for name in available_placeholders if name not in context]
+    if missing:
+        raise InputDataError(f"Prompt template missing required variables: {sorted(missing)}")
+
+    # Filter context so we don't accidentally pass unexpected kwargs
+    filtered_context = {
+        name: context[name]
+        for name in available_placeholders
+    }
+    return template_text.format(**filtered_context)
+
+
+def load_existing_conversation_ids(path: Path) -> set[str]:
+    """Read existing conversation IDs from a JSONL file."""
+    if not path.is_file():
+        return set()
+    ids: set[str] = set()
+    try:
+        with path.open(encoding="utf-8") as file:
+            for line in file:
+                line = line.strip()
+                if not line:
+                    continue
+                try:
+                    record = json.loads(line)
+                    cid = record.get("conversation_id", record.get("convo_id"))
+                    if cid is not None:
+                        ids.add(str(cid))
+                except json.JSONDecodeError:
+                    continue
+    except OSError:
+        pass
+    return ids
+
+
+def prepare_single_record(
+    conversation: Mapping[str, Any],
+    judge_name: str,
+    judges: Mapping[str, dict[str, Any]],
+    guidelines: Mapping[str, Any],
+    guideline_aliases: Mapping[str, Mapping[str, str]] | None,
+    template_text: str,
+    required_placeholders: set[str],
+    needs_mechanism: bool,
+    mechanisms: list[str],
+    weights: list[float],
+    rng: random.Random,
+    index: int = 0,
+) -> dict[str, Any]:
+    """Assemble a single prompt record for a given conversation and target judge."""
+    flow = conversation_flow(conversation, index)
+    subflow = conversation_subflow(conversation, index)
+    sop = find_guideline(guidelines, subflow, flow, guideline_aliases)
     scenario = conversation.get("scenario", {})
-    return load_prompt_template().format(
-        target_judge_name=judge_name,
-        target_judge_definition=json_text(judge_definition),
-        non_target_judges=json_text(list(non_target_judges)),
-        sop_content=json_text(sop),
-        scenario_json=json_text(scenario),
-        raw_conversation=format_turns(conversation, index),
-        target_error_count=target_error_count,
-        target_dialogue_phase=target_dialogue_phase,
+    turns_text = format_turns(conversation, index)
+
+    error_count = rng.choices(
+        ERROR_COUNTS, weights=ERROR_COUNT_WEIGHTS, k=1
+    )[0]
+    phase = rng.choice(DIALOGUE_PHASES)
+    non_targets = [name for name in judges if name != judge_name]
+
+    sampled_params: dict[str, Any] = {
+        "target_error_count": error_count,
+        "target_dialogue_phase": phase,
+        "sop_content": sop,
+    }
+
+    prompt_context: dict[str, Any] = {
+        "target_judge_name": judge_name,
+        "target_judge_definition": json_text(judges[judge_name]),
+        "non_target_judges": json_text(non_targets),
+        "sop_content": json_text(sop),
+        "scenario_json": json_text(scenario),
+        "raw_conversation": turns_text,
+        "target_error_count": error_count,
+        "target_dialogue_phase": phase,
+    }
+
+    if needs_mechanism:
+        injection_mechanism = rng.choices(mechanisms, weights=weights, k=1)[0]
+        sampled_params["injection_mechanism"] = injection_mechanism
+        prompt_context["injection_mechanism"] = injection_mechanism
+
+    assembled = assemble_prompt(
+        template_text=template_text,
+        available_placeholders=required_placeholders,
+        context=prompt_context,
     )
+
+    return {
+        "conversation_id": conversation_id(conversation, index),
+        "target_judge": judge_name,
+        "sampled_params": sampled_params,
+        "assembled_prompt": assembled,
+    }
 
 
 def prepare_records(
@@ -267,7 +385,10 @@ def prepare_records(
     requested_judges: Sequence[str] | None,
     conversation_count: int,
     rng: random.Random,
+    prompt_template_path: Path,
     guideline_aliases: Mapping[str, Mapping[str, str]] | None = None,
+    mechanism_percentages: Mapping[str, float] | None = None,
+    used_conversation_ids: set[str] | None = None,
 ) -> list[dict[str, Any]]:
     if isinstance(conversations, Mapping):
         split_records = [
@@ -281,64 +402,129 @@ def prepare_records(
                 "Conversations object must contain non-empty list splits"
             )
         conversations = split_records
+
     if not isinstance(conversations, list):
         raise InputDataError("Conversations input must contain a JSON list")
     if conversation_count < 0:
         raise InputDataError("conversation_count must be zero or greater")
-    if conversation_count:
-        conversations = conversations[:conversation_count]
+
     target_judges = (
         [find_judge(judges, name) for name in requested_judges]
         if requested_judges
         else list(judges)
     )
+
+    template_text = load_prompt_template(prompt_template_path)
+    required_placeholders = get_template_placeholders(template_text)
+
+    needs_mechanism = "injection_mechanism" in required_placeholders
+    percentages = mechanism_percentages or {
+        INJECTION_MECHANISMS[0]: 50.0,
+        INJECTION_MECHANISMS[1]: 50.0,
+    }
+    mechanisms = list(percentages)
+    weights = [percentages[mech] for mech in mechanisms]
+
+    if used_conversation_ids is None:
+        used_conversation_ids = set()
+
     records: list[dict[str, Any]] = []
-    errors: list[str] = []
-    for index, conversation in enumerate(conversations):
-        if not isinstance(conversation, Mapping):
-            errors.append(f"Conversation at index {index} is not an object")
-            continue
-        try:
-            flow = conversation_flow(conversation, index)
-            subflow = conversation_subflow(conversation, index)
-            sop = find_guideline(guidelines, subflow, flow, guideline_aliases)
-            for judge_name in target_judges:
-                error_count = rng.choices(
-                    ERROR_COUNTS, weights=ERROR_COUNT_WEIGHTS, k=1
-                )[0]
-                phase = rng.choice(DIALOGUE_PHASES)
-                non_targets = [
-                    name for name in judges if name != judge_name
-                ]
-                records.append(
-                    {
-                        "conversation_id": conversation_id(conversation, index),
-                        "target_judge": judge_name,
-                        "sampled_params": {
-                            "target_error_count": error_count,
-                            "target_dialogue_phase": phase,
-                        },
-                        "assembled_prompt": assemble_prompt(
-                            conversation,
-                            index,
-                            judge_name,
-                            judges[judge_name],
-                            non_targets,
-                            sop,
-                            error_count,
-                            phase,
-                        ),
-                    }
+
+    # Number of distinct conversations to assign to each individual target judge
+    per_judge_target = (
+        conversation_count
+        if conversation_count > 0
+        else max(1, len(conversations) // max(1, len(target_judges)))
+    )
+
+    conv_iter = iter(enumerate(conversations))
+
+    for judge_name in target_judges:
+        judge_count = 0
+        for index, conversation in conv_iter:
+            if not isinstance(conversation, Mapping):
+                continue
+            try:
+                cid = str(conversation_id(conversation, index))
+            except InputDataError:
+                continue
+
+            if cid in used_conversation_ids:
+                continue
+
+            try:
+                rec = prepare_single_record(
+                    conversation=conversation,
+                    judge_name=judge_name,
+                    judges=judges,
+                    guidelines=guidelines,
+                    guideline_aliases=guideline_aliases,
+                    template_text=template_text,
+                    required_placeholders=required_placeholders,
+                    needs_mechanism=needs_mechanism,
+                    mechanisms=mechanisms,
+                    weights=weights,
+                    rng=rng,
+                    index=index,
                 )
-        except InputDataError as exc:
-            errors.append(str(exc))
-    if errors:
-        raise InputDataError("Input validation failed:\n- " + "\n- ".join(errors))
+            except InputDataError:
+                continue
+
+            used_conversation_ids.add(cid)
+            records.append(rec)
+            judge_count += 1
+            if judge_count >= per_judge_target:
+                break
+
     return records
 
 
-def write_jsonl(path: Path, records: Sequence[Mapping[str, Any]]) -> None:
-    with path.open("w", encoding="utf-8", newline="\n") as file:
+def prepare_all_batches(
+    all_conversations: list[Any],
+    guidelines: Mapping[str, Any],
+    judges: Mapping[str, dict[str, Any]],
+    rng: random.Random,
+    guideline_aliases: Mapping[str, Mapping[str, str]] | None = None,
+    mechanism_percentages: Mapping[str, float] | None = None,
+    existing_conversation_ids: set[str] | None = None,
+) -> list[dict[str, Any]]:
+    """Process all configured batches sequentially with non-overlapping conversation assignment."""
+    combined_records: list[dict[str, Any]] = []
+    used_conversation_ids = set(existing_conversation_ids or ())
+
+    for batch in BATCH_CONFIGS:
+        count = batch.get("count", 0)
+        if count <= 0:
+            continue
+
+        template_path = resolve_prompt_template_path(batch["template_path"])
+        batch_judges = batch.get("target_judges")
+
+        records = prepare_records(
+            conversations=all_conversations,
+            guidelines=guidelines,
+            judges=judges,
+            requested_judges=batch_judges,
+            conversation_count=count,
+            rng=rng,
+            prompt_template_path=template_path,
+            guideline_aliases=guideline_aliases,
+            mechanism_percentages=mechanism_percentages,
+            used_conversation_ids=used_conversation_ids,
+        )
+        print(
+            f"Batch '{batch['name']}': prepared {len(records)} prompt(s) "
+            f"({count} per judge) using {template_path.name}"
+        )
+        combined_records.extend(records)
+
+    return combined_records
+
+
+def write_jsonl(path: Path, records: Sequence[Mapping[str, Any]], append: bool = False) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    mode = "a" if append else "w"
+    with path.open(mode, encoding="utf-8", newline="\n") as file:
         for record in records:
             file.write(json.dumps(record, ensure_ascii=False) + "\n")
 
@@ -368,46 +554,96 @@ def parse_args() -> argparse.Namespace:
         default=PROJECT_ROOT / "config" / "judges_definitions.json",
     )
     parser.add_argument(
-        "--target-judge",
-        action="append",
-        help="Judge to prepare; repeat for multiple judges. Overrides TARGET_JUDGES.",
-    )
-    parser.add_argument(
-        "--conversation-count",
-        type=int,
-        default=CONVERSATION_COUNT,
-        help="Number of conversations to process; 0 processes all.",
-    )
-    parser.add_argument(
         "--output",
         type=Path,
         default=PROJECT_ROOT / "data" / "generated" / "prepared_prompts.jsonl",
     )
-    parser.add_argument("--seed", type=int, help="Seed the local sampler for reproducibility.")
+    parser.add_argument(
+        "--overwrite",
+        action="store_true",
+        help="Overwrite the output file instead of appending new prompts.",
+    )
+    parser.add_argument(
+        "--allow-duplicates",
+        action="store_true",
+        help="Allow re-selecting conversations that were already prepared or generated.",
+    )
+    parser.add_argument(
+        "--mutate-sop-percentage",
+        type=float,
+        default=50.0,
+        help="Percentage of prompts using mutate_sop_for_existing_ask (when applicable).",
+    )
+    parser.add_argument(
+        "--inject-ask-percentage",
+        type=float,
+        default=50.0,
+        help="Percentage of prompts using inject_new_customer_ask (when applicable).",
+    )
+    parser.add_argument(
+        "--seed",
+        type=int,
+        help="Seed the local sampler for reproducibility.",
+    )
     return parser.parse_args()
 
 
 def main() -> int:
     args = parse_args()
     try:
+        percentages = {
+            INJECTION_MECHANISMS[0]: args.mutate_sop_percentage,
+            INJECTION_MECHANISMS[1]: args.inject_ask_percentage,
+        }
+        if any(value < 0 for value in percentages.values()):
+            raise InputDataError("Mechanism percentages cannot be negative")
+        if abs(sum(percentages.values()) - 100.0) > 1e-9:
+            raise InputDataError("Mechanism percentages must add up to 100")
+
         guidelines = flatten_guidelines(load_json(args.guidelines), args.guidelines)
         guideline_aliases = load_guideline_aliases(args.guideline_aliases)
         judges = load_judges(load_json(args.judges), args.judges)
         rng = random.Random(args.seed)
-        records = prepare_records(
-            load_json(args.conversations),
-            guidelines,
-            judges,
-            args.target_judge or TARGET_JUDGES,
-            args.conversation_count,
-            rng,
-            guideline_aliases,
+
+        raw_conversations = load_json(args.conversations)
+        if isinstance(raw_conversations, Mapping):
+            raw_conversations = [
+                rec for split in raw_conversations.values() if isinstance(split, list) for rec in split
+            ]
+
+        # Shuffle conversations so every run without a fixed seed selects a different random order
+        rng.shuffle(raw_conversations)
+
+        # Collect existing conversation IDs to avoid repeating previously prepared or generated chats
+        existing_ids: set[str] = set()
+        if not args.allow_duplicates:
+            if not args.overwrite and args.output.is_file():
+                existing_ids.update(load_existing_conversation_ids(args.output))
+            golden_path = PROJECT_ROOT / "data" / "generated" / "golden_dataset_injected.jsonl"
+            if golden_path.is_file():
+                existing_ids.update(load_existing_conversation_ids(golden_path))
+
+        if existing_ids:
+            print(f"Excluding {len(existing_ids)} previously prepared/completed conversation ID(s).")
+
+        records = prepare_all_batches(
+            all_conversations=raw_conversations,
+            guidelines=guidelines,
+            judges=judges,
+            rng=rng,
+            guideline_aliases=guideline_aliases,
+            mechanism_percentages=percentages,
+            existing_conversation_ids=existing_ids,
         )
-        write_jsonl(args.output, records)
+
+        should_append = (not args.overwrite) and args.output.is_file()
+        write_jsonl(args.output, records, append=should_append)
     except InputDataError as exc:
         print(f"Error: {exc}", file=sys.stderr)
         return 2
-    print(f"Wrote {len(records)} prepared prompt(s) to {args.output}")
+
+    action_word = "Appended" if should_append else "Wrote"
+    print(f"Done! {action_word} a total of {len(records)} prepared prompt(s) to {args.output}")
     return 0
 
 

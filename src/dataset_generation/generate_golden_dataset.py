@@ -35,7 +35,7 @@ DEFAULT_CONCURRENCY = 1
 MAX_NETWORK_RETRIES = 5
 BACKOFF_BASE_SECONDS = 1.0
 BACKOFF_MAX_SECONDS = 30.0
-DEFAULT_TIMEOUT_SECONDS = 120.0
+DEFAULT_TIMEOUT_SECONDS = 60
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 # Default service and model (can also be overridden via CLI arguments --platform and --model).
@@ -114,6 +114,7 @@ class DataJudgesInjectionMetadata(BaseInjectionMetadata):
         "mutate_sop_for_existing_ask",
         "inject_new_customer_ask",
     ]
+    selected_pattern: str
     sop_modified: bool
     original_sop_content: str | dict[str, Any] | list[Any] | None = None
     modified_sop_content: str | dict[str, Any] | list[Any] | None = None

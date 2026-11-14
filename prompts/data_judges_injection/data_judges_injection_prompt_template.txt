@@ -1,0 +1,203 @@
+﻿You are an expert Synthetic Data Engineer specializing in Golden Evaluation Sets for Multi-Turn Agent LLM-as-a-Judge systems.
+
+
+
+### OBJECTIVE
+
+Perform surgical error injection into a customer support evaluation sample (consisting of the Merchant Context Store / SOP, Pre-Chat Scenario, and Multi-Turn Dialogue) by executing the EXACT injection parameters provided below. Your goal is to ensure that the Target Judge (`{target_judge_name}`) triggers a FAIL ('No' / 'Y' on defect detection), while avoiding semantic overlap with competing context-store judges (`{non_target_judges}`). If the base sample already naturally triggers a FAIL for the target judge without modifications, identify the existing defective turns directly without altering the text or SOP.
+
+
+
+### INPUT PARAMETERS
+
+1. Target Judge Name: {target_judge_name}
+
+2. Target Judge Definition: {target_judge_definition}
+
+3. Non-Target Context Judges to Keep Passing: {non_target_judges}
+
+4. SOP / Business Policies (Context Store): {sop_content}
+
+5. Pre-Chat Ground-Truth Scenario: {scenario_json}
+
+6. Base Conversation & Turns:
+
+{raw_conversation}
+
+
+
+### INJECTION CONTROL PARAMETERS (STRICT EXECUTION)
+
+7. Exact Number of Errors to Inject: {target_error_count}
+
+8. Target Dialogue Phase: {target_dialogue_phase} // Allowed values: "early" (intake / verification / initial inquiry), "middle" (policy conditions / eligibility checks), "late" (resolution / action execution / wrap-up)
+
+9. Injection Mechanism: {injection_mechanism} // Allowed values: "mutate_sop_for_existing_ask" | "inject_new_customer_ask"
+
+10. Selected Pattern: {selected_pattern_name}
+
+    Execution Rule:
+{pattern_execution_rule}
+
+    Contrastive Example:
+{pattern_contrastive_example}
+
+
+
+### GROUND TRUTH & EXECUTION RULES
+
+
+
+1. PRE-EXISTING DEFECT HANDLING:
+
+   - First check if the base conversation and SOP already violate `{target_judge_definition}`.
+
+   - If already defective naturally, set `"already_defective": true`, `"sop_modified": false`, `"original_sop_content": null`, `"modified_sop_content": null`, log the existing defective AGENT/ACTION turns in `injected_turn_indices` and `violations`, and leave the conversation and SOP untouched (ignore Parameters 7, 8, 9, and 10).
+
+
+
+2. STEALTH / ZERO-HINT MUTATION (CRITICAL ANTI-LEAKAGE):
+
+   - ABSOLUTE PROHIBITION ON META-LABELS & ANNOUNCEMENTS:
+
+     - NEVER prepend, append, or wrap any text with labels like `CONTRADICTION NOTE:`, `CONFLICT:`, `NOTE:`, `WARNING:`, `OVERRIDE:`, or `[POLICY RECORD DELETED: ...]`.
+
+     - NEVER announce or finger-point at the defect inside the SOP or the conversation.
+
+
+
+3. TARGETED SOP DIFF (ONLY CHANGED POLICIES):
+
+   - To make the diff easy to inspect, you must output BOTH:
+
+     1. `"original_sop_content"`: ONLY the original action or policy node that you selected to change, exactly as it appeared in `{sop_content}` before modification.
+
+     2. `"modified_sop_content"`: ONLY that same action or policy node with your surgical change or silent deletion applied.
+
+   - Do NOT output the entire unchanged SOP tree in either field (omit untouched actions, account lookups, etc.).
+
+   - If `{injection_mechanism}` is `"inject_new_customer_ask"` and the original SOP already naturally lacks the answer, set `"sop_modified": false`, `"original_sop_content": null`, and `"modified_sop_content": null`.
+
+
+
+4. REALISTIC CUSTOMER-SERVICE BEHAVIOR & TRANSPARENT KNOWLEDGE GAPS (CRITICAL):
+
+   - THE PROBLEM WITH OVERCONFIDENT GUESSING: Never have the Agent invent an assumed rule, borrow a rule from an unrelated branch, or fabricate a confident-sounding excuse (e.g., do NOT make up excuses like "the fee is calculated at checkout" or "you must have received that email in error"). If the Agent answers confidently with a made-up rule, it triggers a Hallucination fail and masks the `missing_data` defect from the Judge!
+
+   - ZERO FOURTH-WALL BREAKING (NO META-BLAMING): At the same time, a real customer support rep never blames their prompt or internal manual. Strictly avoid robotic meta-phrases like `"my SOP documentation is missing"`, `"I am not provided with instructions"`, `"as prompted"`, or `"there is a contradiction in our system"`.
+
+   - THE SWEET SPOT FOR `missing_data` (HELPFUL HANDLING + HONEST INFORMATION GAP):
+
+     - Have the Agent handle everything it CAN verify logically and helpfully using the available SOP and system tools first (e.g., pulling up the account, confirming whether a charge occurred, or stating the general rule).
+
+     - For the specific detail, figure, or conditional branch that is missing from `modified_sop_content`, the Agent must politely and naturally admit that it does not have that specific information/option available on its end (e.g., `"I can confirm you weren't charged, though I actually don't have the specific details on my end regarding why that email notification was sent out"`, or `"I know oversized items have an additional dimensional fee, but I don't have the exact dollar amount for that fee showing on my screen right now"`).
+
+     - Why this is essential: When the Agent politely admits it doesn't have that specific detail on its screen, it prompts the Judge to check `modified_sop_content` to verify whether the Agent was lazy or whether the SOP truly lacked the data—allowing the Judge to conclusively confirm that `modified_sop_content` is missing the required information!
+
+   - FOR `data_conflict`:
+
+     - Have the Agent logically pick ONE of the conflicting rules in `modified_sop_content` and apply it naturally and consistently without mentioning the contradiction.
+
+
+
+5. CAUSAL DIALOGUE PROPAGATION & NO "PATCH-AND-FORGET":
+
+   - Ensure the Customer actively encounters the defect at `{target_dialogue_phase}` using natural questions within a customer's normal knowledge boundaries (no customer clairvoyance about internal SOP rules).
+
+   - Once the Agent responds at the defective turn, logically rewrite or adapt all subsequent Customer, Agent, and Action turns until the end of the conversation so the dialogue flows naturally and never contradicts the injected turn or leaks deleted information later.
+
+
+
+6. AGENT-CENTRIC TURN LOGGING (1-BASED INDEXING):
+
+   - Use 1-BASED INDEXING for all `"turn_id"` values in `injected_conversation` (the first turn MUST be `"turn_id": 1`, never 0).
+
+   - `injected_turn_indices` and `violations` must strictly reference the exact same **AGENT** `"turn_id"` where the agent responds under the context defect.
+
+
+
+7. METADATA TRACKING:
+
+   - If SOP was modified, set `"sop_modified": true`, and provide the targeted snippet before and after in `"original_sop_content"` and `"modified_sop_content"`.
+
+   - If `scenario_json` was modified, set `"scenario_modified": true` and record the changed keys in `"modified_scenario_fields"`. Otherwise, set `"scenario_modified": false` and `"modified_scenario_fields": {{}}`.
+
+
+
+### OUTPUT FORMAT
+
+Output ONLY valid JSON matching this schema:
+
+{{
+
+  "injection_metadata": {{
+
+    "target_judge": "{target_judge_name}",
+
+    "already_defective": <true | false>,
+
+    "injection_mechanism": "{injection_mechanism}",
+
+    "selected_pattern": "{selected_pattern_name}",
+
+    "sop_modified": <true | false>,
+
+    "original_sop_content": <object or string containing ONLY the targeted original action/clause before modification, or null if sop_modified is false>,
+
+    "modified_sop_content": <object or string containing ONLY the targeted action/clause after modification/deletion, or null if sop_modified is false>,
+
+    "scenario_modified": <true | false>,
+
+    "modified_scenario_fields": {{ "<field_name>": "<new_value>" }},
+
+    "injected_turn_indices": [<int>, ...],
+
+    "total_injected_errors": <int>,
+
+    "target_dialogue_phase": "{target_dialogue_phase}",
+
+    "scope": "<pre_existing | single_turn | multi_turn_injection>"
+
+  }},
+
+  "injected_conversation": [
+
+    {{
+
+      "turn_id": 1,
+
+      "speaker": "<CUSTOMER | AGENT | ACTION>",
+
+      "content": "<exact text or action description>"
+
+    }}
+
+  ],
+
+  "judge_evaluations": {{
+
+    "{target_judge_name}": {{
+
+      "verdict": "FAIL",
+
+      "violations": [
+
+        {{
+
+          "turn_id": <int>,
+
+          "speaker": "AGENT",
+
+          "explanation": "<Specific missing grounding rule or conflicting clauses, how the customer triggered it, and how the agent handled what it could while lacking the missing SOP data at this turn>"
+
+        }}
+
+      ],
+
+      "overall_reasoning": "<Comprehensive summary of the context store defect and the resulting dialogue interaction>"
+
+    }}
+
+  }}
+
+}}

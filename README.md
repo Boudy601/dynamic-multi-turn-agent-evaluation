@@ -25,6 +25,15 @@ python -m pip install -r requirements.txt
 For LLM-backed generation, put the provider API key in `.env`, for example
 `GEMINI_API_KEY=...`.
 
+To list the Grok models available to your xAI account:
+
+```powershell
+python tools\list_grok_models.py
+```
+
+Use `--all` to include every model. The selected model can then be passed to
+`generate_golden_dataset.py` with `--platform grok --model <model-id>`.
+
 ## Usage
 
 Prepare injection prompts:

@@ -14,6 +14,10 @@ from typing import Any, Iterator, Mapping, Sequence
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 PROMPTS_DIR = PROJECT_ROOT / "prompts"
+DATA_JUDGES_PROMPTS_DIR = PROMPTS_DIR / "data_judges_injection"
+INJECTION_PATTERNS_PATH = (
+    DATA_JUDGES_PROMPTS_DIR / "data_judges_injection_patterns.json"
+)
 
 # ==============================================================================
 # BATCH CONFIGURATION: Set the conversation counts and paths directly here
@@ -23,19 +27,23 @@ BATCH_CONFIGS = [
         "name": "general",
         "template_path": PROMPTS_DIR / "general_injection_prompt_template.txt",
         "count": 0,
-        "target_judges": ("intent_understanding", "procedure_following"),
+        "target_judges": ("factual_hallucination",),
     },
     {
         "name": "data_judges",
-        "template_path": PROMPTS_DIR / "Data Judges_Injection Prompt Template.txt",
+        "template_path": (
+            DATA_JUDGES_PROMPTS_DIR
+            / "data_judges_injection_prompt_template.txt"
+        ),
         "count": 5,
-        "target_judges": ("missing_data", "data_conflict"),
+        "target_judges": ("missing_data",),
     },
+    
 ]
 
 
 ERROR_COUNTS = (1, 2, 3)
-ERROR_COUNT_WEIGHTS = (1, 0, 0)
+ERROR_COUNT_WEIGHTS = (.7, .3, 0)
 DIALOGUE_PHASES = ("early", "middle", "late")
 GUIDELINE_STOP_WORDS = {"due", "to", "faq", "how", "other", "general", "one", "item"}
 
@@ -46,6 +54,11 @@ DEFAULT_GUIDELINE_ALIASES_PATH = PROJECT_ROOT / "config" / "guideline_aliases.js
 INJECTION_MECHANISMS = (
     "mutate_sop_for_existing_ask",
     "inject_new_customer_ask",
+)
+MUTATION_PATTERN_KEYS = (
+    "pattern_1_ambiguous_unquantified",
+    "pattern_2_incomplete_branch",
+    "pattern_3_truncated_rag_reference",
 )
 class InputDataError(ValueError):
     """Raised when an input file does not meet the supported schema."""
@@ -59,6 +72,30 @@ def load_json(path: Path) -> Any:
         raise InputDataError(f"Input file not found: {path}") from exc
     except json.JSONDecodeError as exc:
         raise InputDataError(f"Invalid JSON in {path}: {exc}") from exc
+
+
+def load_injection_patterns(path: Path) -> dict[str, dict[str, str]]:
+    data = load_json(path)
+    if not isinstance(data, Mapping) or not isinstance(
+        data.get("INJECTION_PATTERNS"), Mapping
+    ):
+        raise InputDataError(f"{path} must contain an INJECTION_PATTERNS object")
+
+    patterns = data["INJECTION_PATTERNS"]
+    for key, pattern in patterns.items():
+        if not isinstance(key, str) or not isinstance(pattern, Mapping):
+            raise InputDataError(f"Invalid injection pattern {key!r} in {path}")
+        if not all(
+            isinstance(pattern.get(field), str) and pattern[field]
+            for field in ("name", "rule", "example")
+        ):
+            raise InputDataError(
+                f"Injection pattern {key!r} in {path} needs name, rule, and example"
+            )
+    return {str(key): dict(pattern) for key, pattern in patterns.items()}
+
+
+INJECTION_PATTERNS = load_injection_patterns(INJECTION_PATTERNS_PATH)
 
 
 def resolve_prompt_template_path(template_path: Path | str) -> Path:
@@ -292,6 +329,30 @@ def assemble_prompt(
     return template_text.format(**filtered_context)
 
 
+def select_injection_pattern(
+    patterns: Mapping[str, Mapping[str, str]],
+    judge_name: str, injection_mechanism: str, sample_index: int
+) -> Mapping[str, str]:
+    if judge_name == "data_conflict":
+        pattern_name = "data_conflict_contradiction"
+    elif judge_name == "missing_data" and injection_mechanism == "inject_new_customer_ask":
+        pattern_name = "missing_data_new_ask"
+    elif (
+        judge_name == "missing_data"
+        and injection_mechanism == "mutate_sop_for_existing_ask"
+    ):
+        pattern_name = MUTATION_PATTERN_KEYS[sample_index % len(MUTATION_PATTERN_KEYS)]
+    else:
+        raise InputDataError(
+            f"No injection pattern is defined for judge {judge_name!r} "
+            f"and mechanism {injection_mechanism!r}"
+        )
+    try:
+        return patterns[pattern_name]
+    except KeyError as exc:
+        raise InputDataError(f"Missing injection pattern definition: {pattern_name}") from exc
+
+
 def load_existing_conversation_ids(path: Path) -> set[str]:
     """Read existing conversation IDs from a JSONL file."""
     if not path.is_file():
@@ -363,6 +424,13 @@ def prepare_single_record(
         injection_mechanism = rng.choices(mechanisms, weights=weights, k=1)[0]
         sampled_params["injection_mechanism"] = injection_mechanism
         prompt_context["injection_mechanism"] = injection_mechanism
+        pattern = select_injection_pattern(INJECTION_PATTERNS, judge_name, injection_mechanism, index)
+        sampled_params["selected_pattern"] = pattern["name"]
+        prompt_context.update(
+            selected_pattern_name=pattern["name"],
+            pattern_execution_rule=pattern["rule"],
+            pattern_contrastive_example=pattern["example"],
+        )
 
     assembled = assemble_prompt(
         template_text=template_text,
@@ -571,13 +639,13 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--mutate-sop-percentage",
         type=float,
-        default=50.0,
+        default=100,
         help="Percentage of prompts using mutate_sop_for_existing_ask (when applicable).",
     )
     parser.add_argument(
         "--inject-ask-percentage",
         type=float,
-        default=50.0,
+        default=0,
         help="Percentage of prompts using inject_new_customer_ask (when applicable).",
     )
     parser.add_argument(

@@ -1,0 +1,8 @@
+.env
+__pycache__/
+*.py[cod]
+golden_dataset_injected.jsonl
+failed_generations.jsonl
+chat_length_distribution.png
+prepared_prompts.jsonl
+data/generated/

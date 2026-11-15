@@ -60,3 +60,7 @@ python src\dataset_generation\generate_golden_dataset.py
 The scripts accept CLI options for alternate input, output, model, provider,
 timeout, and concurrency settings. Generated files are written to
 `data/generated/` by default.
+
+For the factual-hallucination screening, validation, and quality-report
+workflow, see `FACTUAL_HALLUCINATION_README.md`. Implementation details and test
+results are in `FACTUAL_HALLUCINATION_IMPLEMENTATION_REPORT.md`.

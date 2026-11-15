@@ -8,6 +8,7 @@ import asyncio
 import json
 import os
 import random
+from collections.abc import Mapping
 from pathlib import Path
 from typing import Any, Generic, Literal, TypeVar
 
@@ -28,6 +29,11 @@ from openai import (
 )
 from pydantic import BaseModel, ConfigDict, Field, ValidationError, model_validator
 from tqdm.asyncio import tqdm_asyncio
+
+try:  # Support both direct script execution and package imports.
+    from . import factual_hallucination as factual
+except ImportError:  # pragma: no cover - exercised when run as a script
+    import factual_hallucination as factual
 
 
 MAX_VALIDATION_RETRIES = 3
@@ -70,6 +76,36 @@ def validate_platform(platform: str) -> None:
         raise ModelConfigurationError(
             f"Platform {platform!r} does not exist. Choose one of: {supported}."
         )
+
+
+def resolve_api_key(platform: str) -> str:
+    """Return the configured API key name/value for a supported platform."""
+
+    validate_platform(platform)
+    api_key_name = PLATFORM_API_KEYS[platform]
+    api_key = os.getenv(api_key_name)
+    if not api_key:
+        raise RuntimeError(
+            f"{api_key_name} is not set. Add it to the .env file for "
+            f"platform {platform!r}."
+        )
+    return api_key
+
+
+def create_async_client(platform: str, api_key: str, timeout: float) -> Any:
+    """Create the provider client with the shared configuration policy."""
+
+    if platform == "claude":
+        return AsyncAnthropic(api_key=api_key, max_retries=0, timeout=timeout)
+    client_options: dict[str, Any] = {
+        "api_key": api_key,
+        "max_retries": 0,
+        "timeout": timeout,
+    }
+    base_url = OPENAI_COMPATIBLE_BASE_URLS[platform]
+    if base_url:
+        client_options["base_url"] = base_url
+    return AsyncOpenAI(**client_options)
 
 
 def is_model_not_found_error(exc: Exception) -> bool:
@@ -490,6 +526,109 @@ def validate_record(
     return record
 
 
+def _source_conversation_from_record(
+    record: "factual.FactualHallucinationGoldenRecordOutput",
+) -> list[dict[str, Any]]:
+    """Recover the source turns when the prepared record is unavailable."""
+
+    turns = [
+        turn.model_dump(mode="json") for turn in record.judge_input.conversation
+    ]
+    metadata = record.injection_metadata
+    if metadata.injection_status == "injected":
+        for turn in turns:
+            if turn.get("turn_id") != metadata.injection_turn_id:
+                continue
+            content = str(turn.get("content", ""))
+            if metadata.injected_claim in content:
+                turn["content"] = content.replace(
+                    metadata.injected_claim, metadata.original_agent_claim, 1
+                )
+            break
+    return turns
+
+
+def _factual_audit_context(
+    record: "factual.FactualHallucinationGoldenRecordOutput",
+    input_record: Mapping[str, Any] | None,
+) -> dict[str, Any]:
+    """Build the source and screening context needed for independent review."""
+
+    def prepared_value(key: str, fallback: Any) -> Any:
+        if isinstance(input_record, Mapping) and key in input_record:
+            return input_record[key]
+        return fallback
+
+    source_conversation = prepared_value("source_conversation", None)
+    if not isinstance(source_conversation, list):
+        source_conversation = _source_conversation_from_record(record)
+
+    available_evidence = prepared_value("available_evidence", None)
+    if not isinstance(available_evidence, list):
+        available_evidence = [
+            item.model_dump(mode="json") for item in record.judge_input.evidence
+        ]
+
+    source_scenario = prepared_value(
+        "source_scenario", record.judge_input.scenario
+    )
+    if not isinstance(source_scenario, Mapping):
+        source_scenario = record.judge_input.scenario
+
+    judge_definition = prepared_value(
+        "judge_definition", record.judge_input.target_judge_definition
+    )
+    if not isinstance(judge_definition, Mapping):
+        judge_definition = record.judge_input.target_judge_definition
+
+    context: dict[str, Any] = {
+        "source_conversation": [dict(turn) for turn in source_conversation],
+        "source_scenario": dict(source_scenario),
+        "source_sop": prepared_value("source_sop", record.judge_input.sop),
+        "available_evidence": [dict(item) for item in available_evidence],
+        "judge_definition": dict(judge_definition),
+    }
+    if isinstance(input_record, Mapping):
+        if "screening" in input_record:
+            context["screening"] = input_record["screening"]
+        if "screened_candidate" in input_record:
+            context["screened_candidate"] = input_record["screened_candidate"]
+    return context
+
+
+def build_factual_output_record(
+    conversation_id: Any,
+    record: "factual.FactualHallucinationGoldenRecordOutput",
+    input_record: Mapping[str, Any] | None = None,
+) -> dict[str, Any]:
+    """Shape a validated factual record like an original framework JSONL row."""
+
+    metadata = record.injection_metadata
+    explanation = metadata.contradiction_explanation
+    return {
+        "conversation_id": conversation_id,
+        "injection_metadata": metadata.model_dump(mode="json"),
+        "injected_conversation": [
+            turn.model_dump(mode="json") for turn in record.judge_input.conversation
+        ],
+        "judge_evaluations": {
+            metadata.target_judge: {
+                "verdict": "FAIL",
+                "violations": [
+                    {
+                        "turn_id": metadata.injection_turn_id,
+                        "speaker": "AGENT",
+                        "explanation": explanation,
+                    }
+                ],
+                "overall_reasoning": explanation,
+            }
+        },
+        "audit_context": _factual_audit_context(record, input_record),
+        "validation_report": record.validation_report.model_dump(mode="json"),
+    }
+
+
 def parse_json_response(raw_response: str) -> Any:
     """Extract and parse the outermost JSON object from the model response."""
     text = raw_response.strip()
@@ -534,6 +673,26 @@ def load_completed_ids(path: Path) -> set[str]:
         if conversation_id is not None:
             completed.add(str(conversation_id))
     return completed
+
+
+def load_pending_records(
+    input_path: Path, output_path: Path, rejected_path: Path
+) -> list[dict[str, Any]]:
+    """Return input records that are not accepted or structurally rejected.
+
+    REVIEW rows are deliberately excluded from the completed set. A record that
+    was blocked before generation must be retried after the input is corrected,
+    rather than silently skipped forever.
+    """
+
+    completed_ids = load_completed_ids(output_path) | load_completed_ids(
+        rejected_path
+    )
+    return [
+        record
+        for record in load_jsonl(input_path)
+        if str(record.get("conversation_id")) not in completed_ids
+    ]
 
 
 def raw_completion_text(response: Any) -> str:
@@ -641,11 +800,20 @@ async def process_record(
     semaphore: asyncio.Semaphore,
     output_path: Path,
     failed_path: Path,
+    rejected_path: Path,
     output_lock: asyncio.Lock,
     failed_lock: asyncio.Lock,
+    rejected_lock: asyncio.Lock,
     timeout_seconds: float = DEFAULT_TIMEOUT_SECONDS,
+    review_path: Path | None = None,
+    review_lock: asyncio.Lock | None = None,
+    allow_unscreened_factual: bool = False,
 ) -> None:
-    """Process a single prompt record with a self-correcting validation retry loop."""
+    """Process a single prompt record with a self-correcting validation retry loop.
+
+    ``allow_unscreened_factual`` is retained only for source compatibility. The
+    screening gate still fails closed.
+    """
     conversation_id = input_record.get("conversation_id")
     target_judge = input_record.get("target_judge")
     sampled_params = input_record.get("sampled_params")
@@ -656,9 +824,56 @@ async def process_record(
     if not isinstance(assembled_prompt, str) or not assembled_prompt:
         raise ValueError(f"{conversation_id}: assembled_prompt must be non-empty")
 
+    review_path = review_path or failed_path
+    review_lock = review_lock or failed_lock
+
+    if target_judge == factual.FACTUAL_JUDGE:
+        gate = factual.evaluate_generation_gate(
+            input_record, allow_unscreened=allow_unscreened_factual
+        )
+        if not gate.ready:
+            if gate.decision == "REJECT":
+                rejection = factual.FactualRejectionRecord(
+                    conversation_id=conversation_id,
+                    target_judge=factual.FACTUAL_JUDGE,
+                    injection_status="INJECTION_NOT_POSSIBLE",
+                    rejection_code="SCREENING_REJECTED",
+                    rejection_reason=gate.reason,
+                    raw_response=json.dumps(
+                        input_record.get("screening", {}), ensure_ascii=False
+                    ),
+                    sampled_params=sampled_params,
+                )
+                await append_jsonl(
+                    rejected_path,
+                    rejection.model_dump(mode="json"),
+                    rejected_lock,
+                )
+            else:
+                screened_candidate = input_record.get("screened_candidate")
+                review_claim = (
+                    str(screened_candidate.get("target_claim", ""))
+                    if isinstance(screened_candidate, Mapping)
+                    else ""
+                )
+                review = factual.FactualReviewRecord(
+                    conversation_id=conversation_id,
+                    target_judge=factual.FACTUAL_JUDGE,
+                    review_status="REVIEW",
+                    stage="screening",
+                    reason=gate.reason,
+                    target_claim=review_claim,
+                    sampled_params=sampled_params,
+                )
+                await append_jsonl(
+                    review_path, review.model_dump(mode="json"), review_lock
+                )
+            return
+
     messages = [{"role": "user", "content": assembled_prompt}]
     validation_errors: list[str] = []
     raw_output = ""
+    payload: Any = None
 
     for validation_attempt in range(MAX_VALIDATION_RETRIES + 1):
         try:
@@ -704,7 +919,32 @@ async def process_record(
 
         try:
             payload = parse_json_response(raw_output)
-            record = validate_record(payload, sampled_params, target_judge)
+            if target_judge == factual.FACTUAL_JUDGE:
+                if factual.is_injection_not_possible(payload, raw_output):
+                    rejection = factual.normalize_rejection(
+                        payload, raw_output, conversation_id, sampled_params
+                    )
+                    await append_jsonl(
+                        rejected_path,
+                        rejection.model_dump(mode="json"),
+                        rejected_lock,
+                    )
+                    return
+                factual_record = factual.validate_factual_golden_record(
+                    payload, sampled_params, input_record
+                )
+                output_record = build_factual_output_record(
+                    conversation_id, factual_record, input_record
+                )
+            else:
+                record = validate_record(payload, sampled_params, target_judge)
+                dumped = record.model_dump(mode="json")
+                output_record = {
+                    "conversation_id": conversation_id,
+                    "injection_metadata": dumped["injection_metadata"],
+                    "injected_conversation": dumped["injected_conversation"],
+                    "judge_evaluations": dumped["judge_evaluations"],
+                }
         except (ValidationError, ValueError, json.JSONDecodeError) as exc:
             validation_errors.append(str(exc))
             if validation_attempt >= MAX_VALIDATION_RETRIES:
@@ -726,16 +966,30 @@ async def process_record(
                 ]
             )
         else:
-            dumped = record.model_dump(mode="json")
+            await append_jsonl(output_path, output_record, output_lock)
+            return
+
+    if target_judge == factual.FACTUAL_JUDGE:
+        disposition = factual.classify_post_generation_failure(
+            " ".join(validation_errors)
+        )
+        if disposition.disposition == "REVIEW":
+            target_claim, evidence_location, evidence_text = (
+                factual.extract_claim_fields(payload)
+            )
+            review = factual.FactualReviewRecord(
+                conversation_id=conversation_id,
+                target_judge=factual.FACTUAL_JUDGE,
+                review_status="REVIEW",
+                stage="post_generation",
+                reason=disposition.reason,
+                target_claim=target_claim,
+                evidence_location=evidence_location,
+                evidence_text=evidence_text,
+                sampled_params=sampled_params,
+            )
             await append_jsonl(
-                output_path,
-                {
-                    "conversation_id": conversation_id,
-                    "injection_metadata": dumped["injection_metadata"],
-                    "injected_conversation": dumped["injected_conversation"],
-                    "judge_evaluations": dumped["judge_evaluations"],
-                },
-                output_lock,
+                review_path, review.model_dump(mode="json"), review_lock
             )
             return
 
@@ -757,7 +1011,13 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
         "--input",
-        default=str(PROJECT_ROOT / "data" / "generated" / "prepared_prompts.jsonl"),
+        default=str(
+            PROJECT_ROOT
+            / "data"
+            / "generated"
+            / "prepared_prompts_screened.jsonl"
+        ),
+        help="Screened prompt JSONL produced by screen_prompts.py.",
     )
     parser.add_argument(
         "--output",
@@ -766,6 +1026,19 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--failed",
         default=str(PROJECT_ROOT / "data" / "generated" / "failed_generations.jsonl"),
+    )
+    parser.add_argument(
+        "--rejected",
+        default=str(PROJECT_ROOT / "data" / "generated" / "rejected_injections.jsonl"),
+        help="Separate file for structured INJECTION_NOT_POSSIBLE rejections (factual_hallucination).",
+    )
+    parser.add_argument(
+        "--review",
+        default=str(PROJECT_ROOT / "data" / "generated" / "review_samples.jsonl"),
+        help=(
+            "Separate file for ambiguous screening/post-generation REVIEW "
+            "samples (factual_hallucination)."
+        ),
     )
     parser.add_argument("--platform", default=PLATFORM)
     parser.add_argument("--model", default=MODEL)
@@ -786,46 +1059,27 @@ async def run(args: argparse.Namespace) -> None:
     platform = args.platform
     model = args.model
     validate_platform(platform)
-
-    api_key_name = PLATFORM_API_KEYS[platform]
-    api_key = os.getenv(api_key_name)
-    if not api_key:
-        raise RuntimeError(
-            f"{api_key_name} is not set. Add it to the .env file for "
-            f"platform {platform!r}."
-        )
+    api_key = resolve_api_key(platform)
 
     input_path = Path(args.input)
     output_path = Path(args.output)
     failed_path = Path(args.failed)
-    completed_ids = load_completed_ids(output_path)
-    input_records = [
-        record
-        for record in load_jsonl(input_path)
-        if str(record.get("conversation_id")) not in completed_ids
-    ]
+    rejected_path = Path(args.rejected)
+    review_path = Path(args.review)
+    input_records = load_pending_records(
+        input_path, output_path, rejected_path
+    )
     if not input_records:
         print("No pending records.")
         return
 
-    if platform == "claude":
-        client: Any = AsyncAnthropic(
-            api_key=api_key, max_retries=0, timeout=args.timeout
-        )
-    else:
-        client_options: dict[str, Any] = {
-            "api_key": api_key,
-            "max_retries": 0,
-            "timeout": args.timeout,
-        }
-        base_url = OPENAI_COMPATIBLE_BASE_URLS[platform]
-        if base_url:
-            client_options["base_url"] = base_url
-        client = AsyncOpenAI(**client_options)
+    client: Any = create_async_client(platform, api_key, args.timeout)
 
     semaphore = asyncio.Semaphore(args.concurrency)
     output_lock = asyncio.Lock()
     failed_lock = asyncio.Lock()
+    rejected_lock = asyncio.Lock()
+    review_lock = asyncio.Lock()
     tasks = [
         process_record(
             record,
@@ -835,9 +1089,13 @@ async def run(args: argparse.Namespace) -> None:
             semaphore,
             output_path,
             failed_path,
+            rejected_path,
             output_lock,
             failed_lock,
+            rejected_lock,
             args.timeout,
+            review_path=review_path,
+            review_lock=review_lock,
         )
         for record in input_records
     ]

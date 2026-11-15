@@ -9,8 +9,14 @@ import random
 import re
 import string
 import sys
+from collections.abc import Iterator, Mapping, Sequence
 from pathlib import Path
-from typing import Any, Iterator, Mapping, Sequence
+from typing import Any
+
+try:  # Support both direct script execution and package imports.
+    from . import factual_hallucination as factual
+except ImportError:  # pragma: no cover - exercised when run as a script
+    import factual_hallucination as factual
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 PROMPTS_DIR = PROJECT_ROOT / "prompts"
@@ -24,30 +30,28 @@ INJECTION_PATTERNS_PATH = (
 # ==============================================================================
 BATCH_CONFIGS = [
     {
-        "name": "general",
-        "template_path": PROMPTS_DIR / "general_injection_prompt_template.txt",
+        "name": "factual_hallucination",
+        "template_path": (
+            PROMPTS_DIR / "factual_hallucination_injection_prompt_template.txt"
+        ),
         "count": 0,
         "target_judges": ("factual_hallucination",),
     },
     {
         "name": "data_judges",
         "template_path": (
-            DATA_JUDGES_PROMPTS_DIR
-            / "data_judges_injection_prompt_template.txt"
+            DATA_JUDGES_PROMPTS_DIR / "data_judges_injection_prompt_template.txt"
         ),
         "count": 5,
         "target_judges": ("missing_data",),
     },
-    
 ]
 
 
 ERROR_COUNTS = (1, 2, 3)
-ERROR_COUNT_WEIGHTS = (.7, .3, 0)
+ERROR_COUNT_WEIGHTS = (0.7, 0.3, 0)
 DIALOGUE_PHASES = ("early", "middle", "late")
 GUIDELINE_STOP_WORDS = {"due", "to", "faq", "how", "other", "general", "one", "item"}
-
-
 
 
 DEFAULT_GUIDELINE_ALIASES_PATH = PROJECT_ROOT / "config" / "guideline_aliases.json"
@@ -60,6 +64,8 @@ MUTATION_PATTERN_KEYS = (
     "pattern_2_incomplete_branch",
     "pattern_3_truncated_rag_reference",
 )
+
+
 class InputDataError(ValueError):
     """Raised when an input file does not meet the supported schema."""
 
@@ -106,7 +112,9 @@ def resolve_prompt_template_path(template_path: Path | str) -> Path:
     fallback = PROMPTS_DIR / path.name
     if fallback.is_file():
         return fallback
-    raise InputDataError(f"Prompt template file does not exist: {path} (also checked {fallback})")
+    raise InputDataError(
+        f"Prompt template file does not exist: {path} (also checked {fallback})"
+    )
 
 
 def load_prompt_template(path: Path) -> str:
@@ -212,7 +220,9 @@ def flatten_guidelines(data: Any, path: Path) -> dict[str, Any]:
 def conversation_id(conversation: Mapping[str, Any], index: int) -> Any:
     value = conversation.get("conversation_id", conversation.get("convo_id"))
     if value is None:
-        raise InputDataError(f"Conversation at index {index} is missing conversation_id")
+        raise InputDataError(
+            f"Conversation at index {index} is missing conversation_id"
+        )
     return value
 
 
@@ -263,12 +273,12 @@ def find_guideline(
     alias = semantic_name(requested)
     if alias in guidelines:
         return guidelines[alias]
-    raise InputDataError(
-        f"subflow/intent {requested!r} does not match any guideline"
-    )
+    raise InputDataError(f"subflow/intent {requested!r} does not match any guideline")
 
 
-def iter_turns(conversation: Mapping[str, Any], index: int) -> Iterator[tuple[int, str, str]]:
+def iter_turns(
+    conversation: Mapping[str, Any], index: int
+) -> Iterator[tuple[int, str, str]]:
     turns = conversation.get("turns")
     if turns is None:
         turns = conversation.get("original", conversation.get("delexed"))
@@ -296,7 +306,8 @@ def iter_turns(conversation: Mapping[str, Any], index: int) -> Iterator[tuple[in
 
 def format_turns(conversation: Mapping[str, Any], index: int) -> str:
     return "\n".join(
-        f"{speaker}\n{content}" for _, speaker, content in iter_turns(conversation, index)
+        f"{speaker}\n{content}"
+        for _, speaker, content in iter_turns(conversation, index)
     )
 
 
@@ -319,23 +330,27 @@ def assemble_prompt(
     """Format template using only placeholders expected by the template, ignoring extraneous parameters."""
     missing = [name for name in available_placeholders if name not in context]
     if missing:
-        raise InputDataError(f"Prompt template missing required variables: {sorted(missing)}")
+        raise InputDataError(
+            f"Prompt template missing required variables: {sorted(missing)}"
+        )
 
     # Filter context so we don't accidentally pass unexpected kwargs
-    filtered_context = {
-        name: context[name]
-        for name in available_placeholders
-    }
+    filtered_context = {name: context[name] for name in available_placeholders}
     return template_text.format(**filtered_context)
 
 
 def select_injection_pattern(
     patterns: Mapping[str, Mapping[str, str]],
-    judge_name: str, injection_mechanism: str, sample_index: int
+    judge_name: str,
+    injection_mechanism: str,
+    sample_index: int,
 ) -> Mapping[str, str]:
     if judge_name == "data_conflict":
         pattern_name = "data_conflict_contradiction"
-    elif judge_name == "missing_data" and injection_mechanism == "inject_new_customer_ask":
+    elif (
+        judge_name == "missing_data"
+        and injection_mechanism == "inject_new_customer_ask"
+    ):
         pattern_name = "missing_data_new_ask"
     elif (
         judge_name == "missing_data"
@@ -350,7 +365,9 @@ def select_injection_pattern(
     try:
         return patterns[pattern_name]
     except KeyError as exc:
-        raise InputDataError(f"Missing injection pattern definition: {pattern_name}") from exc
+        raise InputDataError(
+            f"Missing injection pattern definition: {pattern_name}"
+        ) from exc
 
 
 def load_existing_conversation_ids(path: Path) -> set[str]:
@@ -376,6 +393,89 @@ def load_existing_conversation_ids(path: Path) -> set[str]:
     return ids
 
 
+def prepare_factual_hallucination_record(
+    conversation: Mapping[str, Any],
+    judge_name: str,
+    judges: Mapping[str, dict[str, Any]],
+    sop: Any,
+    scenario: Mapping[str, Any],
+    template_text: str,
+    required_placeholders: set[str],
+    index: int,
+) -> dict[str, Any]:
+    """Assemble one factual-hallucination prompt from eligible Agent claims.
+
+    Conversations without a claim that literally states trusted scenario
+    evidence are rejected during preparation instead of being sent to the model.
+    """
+
+    turns = factual.extract_conversation_turns(conversation)
+    evidence = factual.filter_supported_evidence(
+        factual.build_available_evidence(scenario), scenario
+    )
+    selection = factual.select_factual_candidates(turns, scenario, evidence, sop=sop)
+    clear_defects, review_flags = factual._assess_pre_existing_non_target_defects(
+        turns, scenario, sop, evidence
+    )
+    if clear_defects:
+        raise InputDataError(
+            "Conversation at index "
+            f"{index} has a clear pre-existing non-target or baseline defect: "
+            + "; ".join(clear_defects)
+        )
+    if not selection.eligible:
+        raise InputDataError(
+            f"Conversation at index {index} has no eligible factual "
+            f"candidate ({selection.primary_exclusion_code or 'NO_SUPPORTED_EVIDENCE'})"
+        )
+
+    screening_stage = factual.python_screening_stage(selection)
+
+    non_targets = [name for name in judges if name != judge_name]
+    prompt_context = {
+        "target_judge_name": judge_name,
+        "target_judge_definition": json_text(judges[judge_name]),
+        "non_target_judges": json_text(non_targets),
+        "sop_content": json_text(sop),
+        "scenario_json": json_text(scenario),
+        "available_evidence": json_text(evidence),
+        "eligible_candidates": json_text(
+            [candidate.as_prompt_item() for candidate in selection.eligible]
+        ),
+        "raw_conversation": factual.format_numbered_turns(turns),
+    }
+    assembled = assemble_prompt(
+        template_text=template_text,
+        available_placeholders=required_placeholders,
+        context=prompt_context,
+    )
+
+    sampled_params: dict[str, Any] = {
+        "eligible_candidate_count": len(selection.eligible),
+        "screening_decision": screening_stage.decision,
+        "screening_requires_llm": screening_stage.requires_llm,
+        "screening_reason": screening_stage.reason,
+        "candidate_id": screening_stage.candidate_id,
+    }
+    if review_flags:
+        sampled_params["human_review_flags"] = review_flags
+
+    return {
+        "conversation_id": conversation_id(conversation, index),
+        "target_judge": judge_name,
+        "sampled_params": sampled_params,
+        "assembled_prompt": assembled,
+        "source_conversation": turns,
+        "source_scenario": dict(scenario),
+        "source_sop": sop,
+        "available_evidence": evidence,
+        "judge_definition": judges[judge_name],
+        "human_review_flags": review_flags,
+        "factual_selection": selection.to_dict(),
+        "screening": screening_stage.to_dict(),
+    }
+
+
 def prepare_single_record(
     conversation: Mapping[str, Any],
     judge_name: str,
@@ -395,11 +495,20 @@ def prepare_single_record(
     subflow = conversation_subflow(conversation, index)
     sop = find_guideline(guidelines, subflow, flow, guideline_aliases)
     scenario = conversation.get("scenario", {})
+    if judge_name == factual.FACTUAL_JUDGE:
+        return prepare_factual_hallucination_record(
+            conversation=conversation,
+            judge_name=judge_name,
+            judges=judges,
+            sop=sop,
+            scenario=scenario if isinstance(scenario, Mapping) else {},
+            template_text=template_text,
+            required_placeholders=required_placeholders,
+            index=index,
+        )
     turns_text = format_turns(conversation, index)
 
-    error_count = rng.choices(
-        ERROR_COUNTS, weights=ERROR_COUNT_WEIGHTS, k=1
-    )[0]
+    error_count = rng.choices(ERROR_COUNTS, weights=ERROR_COUNT_WEIGHTS, k=1)[0]
     phase = rng.choice(DIALOGUE_PHASES)
     non_targets = [name for name in judges if name != judge_name]
 
@@ -424,7 +533,9 @@ def prepare_single_record(
         injection_mechanism = rng.choices(mechanisms, weights=weights, k=1)[0]
         sampled_params["injection_mechanism"] = injection_mechanism
         prompt_context["injection_mechanism"] = injection_mechanism
-        pattern = select_injection_pattern(INJECTION_PATTERNS, judge_name, injection_mechanism, index)
+        pattern = select_injection_pattern(
+            INJECTION_PATTERNS, judge_name, injection_mechanism, index
+        )
         sampled_params["selected_pattern"] = pattern["name"]
         prompt_context.update(
             selected_pattern_name=pattern["name"],
@@ -555,15 +666,21 @@ def prepare_all_batches(
     guideline_aliases: Mapping[str, Mapping[str, str]] | None = None,
     mechanism_percentages: Mapping[str, float] | None = None,
     existing_conversation_ids: set[str] | None = None,
+    batch_names: set[str] | None = None,
 ) -> list[dict[str, Any]]:
     """Process all configured batches sequentially with non-overlapping conversation assignment."""
     combined_records: list[dict[str, Any]] = []
     used_conversation_ids = set(existing_conversation_ids or ())
 
     for batch in BATCH_CONFIGS:
+        if batch_names and batch["name"] not in batch_names:
+            continue
         count = batch.get("count", 0)
         if count <= 0:
-            continue
+            if batch_names and batch["name"] in batch_names:
+                count = 5
+            else:
+                continue
 
         template_path = resolve_prompt_template_path(batch["template_path"])
         batch_judges = batch.get("target_judges")
@@ -589,7 +706,9 @@ def prepare_all_batches(
     return combined_records
 
 
-def write_jsonl(path: Path, records: Sequence[Mapping[str, Any]], append: bool = False) -> None:
+def write_jsonl(
+    path: Path, records: Sequence[Mapping[str, Any]], append: bool = False
+) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     mode = "a" if append else "w"
     with path.open(mode, encoding="utf-8", newline="\n") as file:
@@ -630,6 +749,12 @@ def parse_args() -> argparse.Namespace:
         "--overwrite",
         action="store_true",
         help="Overwrite the output file instead of appending new prompts.",
+    )
+    parser.add_argument(
+        "--batch",
+        action="append",
+        choices=[batch["name"] for batch in BATCH_CONFIGS],
+        help="Only prepare the named batch; repeat to select more than one.",
     )
     parser.add_argument(
         "--allow-duplicates",
@@ -676,7 +801,10 @@ def main() -> int:
         raw_conversations = load_json(args.conversations)
         if isinstance(raw_conversations, Mapping):
             raw_conversations = [
-                rec for split in raw_conversations.values() if isinstance(split, list) for rec in split
+                rec
+                for split in raw_conversations.values()
+                if isinstance(split, list)
+                for rec in split
             ]
 
         # Shuffle conversations so every run without a fixed seed selects a different random order
@@ -687,12 +815,16 @@ def main() -> int:
         if not args.allow_duplicates:
             if not args.overwrite and args.output.is_file():
                 existing_ids.update(load_existing_conversation_ids(args.output))
-            golden_path = PROJECT_ROOT / "data" / "generated" / "golden_dataset_injected.jsonl"
+            golden_path = (
+                PROJECT_ROOT / "data" / "generated" / "golden_dataset_injected.jsonl"
+            )
             if golden_path.is_file():
                 existing_ids.update(load_existing_conversation_ids(golden_path))
 
         if existing_ids:
-            print(f"Excluding {len(existing_ids)} previously prepared/completed conversation ID(s).")
+            print(
+                f"Excluding {len(existing_ids)} previously prepared/completed conversation ID(s)."
+            )
 
         records = prepare_all_batches(
             all_conversations=raw_conversations,
@@ -702,6 +834,7 @@ def main() -> int:
             guideline_aliases=guideline_aliases,
             mechanism_percentages=percentages,
             existing_conversation_ids=existing_ids,
+            batch_names=set(args.batch) if args.batch else None,
         )
 
         should_append = (not args.overwrite) and args.output.is_file()
@@ -711,7 +844,9 @@ def main() -> int:
         return 2
 
     action_word = "Appended" if should_append else "Wrote"
-    print(f"Done! {action_word} a total of {len(records)} prepared prompt(s) to {args.output}")
+    print(
+        f"Done! {action_word} a total of {len(records)} prepared prompt(s) to {args.output}"
+    )
     return 0
 
 

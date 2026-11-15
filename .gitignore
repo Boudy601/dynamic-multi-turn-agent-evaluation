@@ -1,8 +1,79 @@
-.env
+# ==============================
+# Python
+# ==============================
 __pycache__/
 *.py[cod]
-golden_dataset_injected.jsonl
-failed_generations.jsonl
-chat_length_distribution.png
-prepared_prompts.jsonl
-data/generated/
+*$py.class
+*.so
+.Python
+
+# ==============================
+# Virtual Environments
+# ==============================
+.venv/
+venv/
+env/
+
+# ==============================
+# Environment & Secrets
+# ==============================
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+credentials/
+
+# ==============================
+# IDE & OS
+# ==============================
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ==============================
+# Logs & Temporary Files
+# ==============================
+*.log
+*.tmp
+*.temp
+*.bak
+
+# ==============================
+# Generated Dataset Artifacts
+# ==============================
+data/generated/*
+!data/generated/README.md
+
+# ==============================
+# Model Artifacts
+# ==============================
+*.pkl
+*.joblib
+*.pt
+*.pth
+*.h5
+*.onnx
+
+# ==============================
+# Test & Coverage
+# ==============================
+.coverage
+htmlcov/
+.pytest_cache/
+.tox/
+
+# ==============================
+# Jupyter
+# ==============================
+.ipynb_checkpoints/
+
+# ==============================
+# Build Artifacts
+# ==============================
+build/
+dist/
+*.egg-info/

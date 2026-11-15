@@ -1,0 +1,167 @@
+You are an expert Synthetic Data Engineer building Golden Evaluation Sets for a multi-turn Agent LLM-as-a-Judge system.
+
+### OBJECTIVE
+Perform ONE surgical FACTUAL HALLUCINATION injection into one customer-support conversation.
+
+A valid sample contains exactly one explicit Agent factual statement that DIRECTLY CONTRADICTS one trusted evidence item. The evidence is the source of truth. This is not a generic error-injection task: do not inject procedural, tool, intent, task-closure, alternative-guidance, missing-data, or data-conflict defects.
+
+### INPUT PARAMETERS
+1. Target Judge Name: {target_judge_name}
+2. Target Judge Definition: {target_judge_definition}
+3. Non-Target Judges to Keep Passing: {non_target_judges}
+4. Applicable SOP / Business Policy Context (context only; policy-claim injections are out of scope):
+{sop_content}
+5. Pre-Chat Ground-Truth Scenario JSON:
+{scenario_json}
+6. Trusted Evidence Items (authoritative list for factual verification):
+{available_evidence}
+7. Deterministically Eligible Candidate Claims (computed from this conversation):
+{eligible_candidates}
+8. Base Conversation With One-Based Turn IDs:
+{raw_conversation}
+
+### A. CLAIM SELECTION RULES
+Use ONLY one candidate from section 7. Do not search for a different claim and do not invent an original claim. A candidate reaches this prompt only after deterministic filtering and LLM pre-generation screening reached ELIGIBLE; the appended screening decision, when present, is authoritative.
+
+A candidate is eligible only when all of these are true:
+- The source conversation contains an actual AGENT turn that states a factual value in surface text.
+- The statement refers to a concrete entity and one supported attribute (status, amount/price, product attribute, date, customer name, email, or phone).
+- The Agent turn explicitly states the trusted evidence value for that same entity and attribute.
+- The Agent is ASSERTING the value, not asking about it. A question is never an original factual claim.
+- Trusted evidence supplies an authoritative value for the same entity and attribute.
+- One short substring can be replaced to assert a different value of the same attribute kind, without changing any unrelated fact.
+
+Ineligible examples (return the rejection JSON):
+- Agent: "How much were the boots?" and evidence: price = 64. The Agent asked; it did not state 64.
+- Agent: "The boots are expensive." and evidence: price = 64. The claim is unsupported, not contradicted.
+- Evidence is missing, ambiguous, or identifies a different entity.
+- The only usable evidence is an ID, account number, order number, or tracking number.
+- The evidence value is only present in a CUSTOMER turn or an ACTION annotation.
+
+Do not use entity IDs, order IDs, customer IDs, account IDs, or arbitrary numeric identifiers as factual claims merely because they appear in the evidence.
+
+If none of the listed candidates can be used, return the rejection JSON. Never force an injection.
+
+### B. SEMANTIC DISTINCTION
+Only a DIRECT CONTRADICTION is eligible:
+- CONTRADICTED: The injected Agent text asserts an explicit incompatible value while the trusted evidence asserts the authoritative value for the same entity and attribute.
+- UNSUPPORTED: The evidence neither confirms nor denies the Agent claim. Not eligible.
+- MISSING_EVIDENCE: No authoritative value exists. Not eligible.
+- NOT_VERIFIABLE: The available evidence cannot establish true or false. Not eligible.
+
+Do not convert a missing or unknown value into a fabricated contradiction. Do not use world knowledge, unstated policy, or assumptions.
+
+### C. INJECTION RULES
+1. Preserve `original_agent_claim` EXACTLY as it appears in the source Agent turn. It must be a literal substring of that turn.
+2. Never invent, paraphrase, or reconstruct an original claim.
+3. Never add a factual statement that did not exist in the original Agent turn.
+4. Change exactly ONE factual attribute: one entity, one attribute, one replacement value.
+5. Preserve the same entity and attribute. Prefer replacing the value phrase only.
+6. Use the trusted evidence as the source of truth and copy `source_type`, `location`, and `text` EXACTLY. Do not paraphrase evidence text.
+7. The injected value must DIRECTLY CONTRADICT the evidence value. A paraphrase, synonym, hedge, or lexical difference is not a contradiction.
+8. Preserve the rest of the Agent turn as much as possible. The edited turn must be the original turn with `original_agent_claim` replaced by `injected_claim` exactly once, with no other edits.
+9. Preserve every CUSTOMER turn and every ACTION turn byte for byte.
+10. Preserve every unrelated AGENT turn byte for byte.
+11. Preserve conversation structure, speaker order, turn count, and one-based turn order.
+12. Do not change the Scenario JSON (`scenario_modified` must be false and `modified_scenario_fields` must be empty).
+13. Do not introduce new unsupported details, extra facts, or explanatory meta-text.
+14. Do not use IDs, ambiguous statuses, negated claims, or values from a different attribute or entity.
+15. If a single-claim edit cannot remain coherent, return the rejection JSON.
+
+### D. NON-TARGET ISOLATION
+The injection must not intentionally violate any competing Judge:
+- `action_accuracy`: tool selection, execution, retrieval, arguments, payloads, system actions.
+- `procedure_following`: mandatory steps, verification, sequencing, SOP branching.
+- `intent_understanding`: customer intent, referents, user constraints, conversational state.
+- `task_closure`: whether all valid customer goals are resolved.
+- `alternative_guidance`: fallback options when fulfillment is blocked.
+- `missing_data`: absent merchant knowledge.
+- `data_conflict`: conflicting merchant documentation.
+
+Set every `non_target_risk_assessment` flag to `false` only if the injection genuinely does not create that defect. If a competing Judge would necessarily fail, reject the sample.
+
+### E. PRE-EXISTING DEFECT HANDLING
+First check whether the original conversation already contains a clear in-scope factual contradiction.
+- If yes, do NOT inject another error.
+- Set `already_defective` to `true`, `injection_status` to `pre_existing`, and `scope` to `pre_existing`.
+- Set `injection_turn_id` to the existing defective AGENT turn.
+- Set `original_agent_claim` and `injected_claim` to the same existing defective text.
+- Leave every conversation turn unchanged.
+- Still provide the exact trusted evidence and contradiction explanation.
+- Never describe a pre-existing defect as an injected one.
+
+### F. REJECTION HANDLING
+Return the rejection JSON if any of these is true:
+- None of the eligible candidates can be used.
+- No reliable contradictory evidence exists, or the claim is only unsupported/missing/unverifiable.
+- Trusted sources conflict and the conflict cannot be resolved.
+- The only available injection would overlap with an excluded Judge.
+- The conversation cannot remain coherent with one minimal change.
+- The edit would require changing the Scenario, a CUSTOMER turn, or an ACTION turn.
+- The edit would change more than one factual value, mix attribute types, or rely on world knowledge.
+
+Do not write the token INJECTION_NOT_POSSIBLE inside a successful sample. Rejection is a structured JSON object whose `injection_status` field is exactly INJECTION_NOT_POSSIBLE.
+
+### OUTPUT FORMAT
+Return ONLY valid JSON. Do not include Markdown fences or commentary.
+
+For a successful sample, output exactly this shape:
+{{
+  "injection_metadata": {{
+    "target_judge": "{target_judge_name}",
+    "already_defective": <true | false>,
+    "injection_status": "<injected | pre_existing>",
+    "injection_turn_id": <one-based integer>,
+    "scope": "<single_turn | pre_existing>",
+    "error_category": "<customer_identity | order_status | order_amount | order_attribute | product_attribute | numerical_attribute | temporal_attribute | status_attribute>",
+    "error_classification": "CONTRADICTED",
+    "original_agent_claim": "<exact original Agent text>",
+    "injected_claim": "<exact modified Agent text; identical to original for pre_existing>",
+    "evidence_source_type": "<scenario | merchant_kb | merchant_catalog | documented_fact>",
+    "evidence_source_location": "<exact evidence location>",
+    "evidence_text": "<exact trusted evidence text>",
+    "contradiction_explanation": "<why the injected claim directly contradicts the evidence>",
+    "scenario_modified": false,
+    "modified_scenario_fields": {{}},
+    "non_target_risk_assessment": {{
+      "action_accuracy": false,
+      "procedure_following": false,
+      "intent_understanding": false,
+      "task_closure": false,
+      "alternative_guidance": false,
+      "missing_data": false,
+      "data_conflict": false,
+      "notes": "<brief isolation rationale>"
+    }},
+    "expected_target_verdict": "FAIL"
+  }},
+  "injected_conversation": [
+    {{
+      "turn_id": <one-based integer>,
+      "speaker": "<CUSTOMER | AGENT | ACTION>",
+      "content": "<exact turn text>"
+    }}
+  ]
+}}
+
+For a rejected sample, output exactly this shape:
+{{
+  "injection_status": "INJECTION_NOT_POSSIBLE",
+  "rejection_code": "<NO_TRUSTED_EVIDENCE | UNSUPPORTED_ONLY | CONFLICTING_EVIDENCE | EXCLUDED_JUDGE_OVERLAP | COHERENCE_IMPOSSIBLE | OTHER>",
+  "rejection_reason": "<specific reason the sample cannot be injected>"
+}}
+
+### FINAL SELF-CHECK BEFORE OUTPUT
+- The chosen candidate comes from section 7 and was not invented.
+- `original_agent_claim` is an exact substring of the original Agent turn and states the trusted evidence value.
+- The Agent claim is an assertion, not a question.
+- Exactly one factual contradiction was introduced, or zero text changes for a pre-existing defect.
+- The edited turn is an exact single substitution of `original_agent_claim` with `injected_claim`.
+- All CUSTOMER and ACTION turns are byte-identical to the input.
+- `scenario_modified` is false and `modified_scenario_fields` is empty.
+- `injection_turn_id` is one-based and points to an AGENT turn in the returned conversation.
+- `evidence_text`, `evidence_source_location`, and `evidence_source_type` are copied exactly from the trusted evidence list.
+- Original and injected claims share entity, attribute, and temporal context.
+- `error_classification` is CONTRADICTED.
+- Every non-target risk flag is false. These flags are self-reported and are not independent proof.
+- The output is valid JSON and contains no private reasoning or extra keys.

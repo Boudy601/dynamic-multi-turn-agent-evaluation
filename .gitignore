@@ -1,0 +1,15 @@
+
+# Task Closure V5.4 - local supporting tools
+/tools/blind_task_closure_v53_eval.py
+/tools/task_closure_v5_4_judge_only.txt
+/tests/test_task_closure_v54.py
+/src/dataset_generation/chatgpt_oauth_bridge.py
+
+# Local experimental artifacts
+/results_v53_*/
+/results_v54_*/
+/data/generated/
+/**/__pycache__/
+*.pyc
+*.zip
+/prompts/task_closure_injection_prompt_v5_3.txt

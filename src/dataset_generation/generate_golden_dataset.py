@@ -29,7 +29,6 @@ from openai import (
 from pydantic import BaseModel, ConfigDict, Field, ValidationError, model_validator
 from tqdm.asyncio import tqdm_asyncio
 
-from chatgpt_oauth_bridge import ChatGPTOAuthResponsesClient
 
 
 MAX_VALIDATION_RETRIES = 3

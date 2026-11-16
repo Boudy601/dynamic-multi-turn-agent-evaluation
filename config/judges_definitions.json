@@ -204,7 +204,7 @@
     "evaluation_rule_contract": {
       "scope": "Topline failure classification across all actionable root causes (model-capability and knowledge-coverage gaps).",
       "logic": "L2_Model-Capability Gap Only ∨ L2_Knowledge-Coverage Gap Only ∨ L2_Both Gaps"
-    }
+    }  
   },
   "Conversation Success": {
     "level": "L1",

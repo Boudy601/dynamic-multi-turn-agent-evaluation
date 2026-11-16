@@ -162,6 +162,7 @@ class BaseGoldenRecordOutput(BaseModel, Generic[MetadataT]):
 
     model_config = ConfigDict(extra="forbid", strict=True)
 
+    conversation_id: int | str
     injection_metadata: MetadataT
     injected_conversation: list[Turn] = Field(min_length=1)
     judge_evaluations: dict[str, JudgeEvaluationDetail]
@@ -704,6 +705,10 @@ async def process_record(
 
         try:
             payload = parse_json_response(raw_output)
+            if not isinstance(payload, dict):
+                raise ValueError("LLM response must be a JSON object")
+            # The source ID is authoritative; never accept a model-generated value.
+            payload["conversation_id"] = conversation_id
             record = validate_record(payload, sampled_params, target_judge)
         except (ValidationError, ValueError, json.JSONDecodeError) as exc:
             validation_errors.append(str(exc))

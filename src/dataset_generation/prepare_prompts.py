@@ -26,8 +26,8 @@ BATCH_CONFIGS = [
     {
         "name": "general",
         "template_path": PROMPTS_DIR / "general_injection_prompt_template.txt",
-        "count": 0,
-        "target_judges": ("factual_hallucination",),
+        "count": 5,
+        "target_judges": ("alternative_guidance",),
     },
     {
         "name": "data_judges",
@@ -35,7 +35,7 @@ BATCH_CONFIGS = [
             DATA_JUDGES_PROMPTS_DIR
             / "data_judges_injection_prompt_template.txt"
         ),
-        "count": 5,
+        "count": 0,
         "target_judges": ("missing_data",),
     },
     

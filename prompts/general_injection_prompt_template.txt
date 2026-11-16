@@ -48,7 +48,11 @@ Perform surgical error injection into a multi-turn customer support conversation
 
 ### OUTPUT FORMAT
 Output ONLY valid JSON matching this schema:
+
 {{
+
+  "conversation_id": "<conversation_id>",
+
   "injection_metadata": {{
     "target_judge": "{target_judge_name}",
     "already_defective": <true | false>,

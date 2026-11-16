@@ -86,13 +86,13 @@ Perform surgical error injection into a customer support evaluation sample (cons
 
    - ZERO FOURTH-WALL BREAKING (NO META-BLAMING): At the same time, a real customer support rep never blames their prompt or internal manual. Strictly avoid robotic meta-phrases like `"my SOP documentation is missing"`, `"I am not provided with instructions"`, `"as prompted"`, or `"there is a contradiction in our system"`.
 
-   - THE SWEET SPOT FOR `missing_data` (HELPFUL HANDLING + HONEST INFORMATION GAP):
+   - THE SWEET SPOT FOR `missing_data` (CONCISE, PROFESSIONAL & HONEST GAP):
 
-     - Have the Agent handle everything it CAN verify logically and helpfully using the available SOP and system tools first (e.g., pulling up the account, confirming whether a charge occurred, or stating the general rule).
+     - Have the Agent handle everything it CAN verify logically and helpfully using the available SOP and system tools first (e.g., pulling up the account or confirming what it already checked).
 
-     - For the specific detail, figure, or conditional branch that is missing from `modified_sop_content`, the Agent must politely and naturally admit that it does not have that specific information/option available on its end (e.g., `"I can confirm you weren't charged, though I actually don't have the specific details on my end regarding why that email notification was sent out"`, or `"I know oversized items have an additional dimensional fee, but I don't have the exact dollar amount for that fee showing on my screen right now"`).
+     - For the missing detail, figure, or conditional branch, the Agent must state politely, concisely, and naturally—in 1–2 sentences—that it does not have that specific information or option available to assist with that part of the request (e.g., `"I can confirm you weren't charged, though I don't have the details on why that email notification was sent"`, or `"I don't have the return timeframe for Bronze memberships available to confirm that right now"`).
 
-     - Why this is essential: When the Agent politely admits it doesn't have that specific detail on its screen, it prompts the Judge to check `modified_sop_content` to verify whether the Agent was lazy or whether the SOP truly lacked the data—allowing the Judge to conclusively confirm that `modified_sop_content` is missing the required information!
+     - STRICT ANTI-OVER-EXPLAINING RULE: Keep the tone like a real, concise support rep. NEVER narrate what is or isn't "showing on my screen", "listed in my system", or partially visible in the SOP (avoid clunky explanations like `"While my system shows X, for some reason it isn't listing Y on my end right now"`). Also NEVER definitively claim a policy/option doesn't exist company-wide (e.g., `"We don't allow that"`), as that invents a negative policy rule—simply state cleanly that you don't have the required information/option available.
 
    - FOR `data_conflict`:
 
@@ -129,6 +129,8 @@ Perform surgical error injection into a customer support evaluation sample (cons
 Output ONLY valid JSON matching this schema:
 
 {{
+
+  "conversation_id": "<conversation_id>",
 
   "injection_metadata": {{
 

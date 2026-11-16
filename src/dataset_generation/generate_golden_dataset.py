@@ -86,6 +86,7 @@ def is_model_not_found_error(exc: Exception) -> bool:
 
 
 DATA_JUDGES: set[str] = {"missing_data", "data_conflict"}
+PATTERN_JUDGES: set[str] = {"factual_hallucination"}
 
 
 class BaseInjectionMetadata(BaseModel):
@@ -107,6 +108,12 @@ class GeneralInjectionMetadata(BaseInjectionMetadata):
     """Metadata for general injection prompt records."""
 
 
+class FactualHallucinationInjectionMetadata(BaseInjectionMetadata):
+    """Metadata for factual hallucination injection records."""
+
+    selected_pattern: str
+
+
 class DataJudgesInjectionMetadata(BaseInjectionMetadata):
     """Metadata for data judges (missing_data, data_conflict) records."""
 
@@ -121,7 +128,11 @@ class DataJudgesInjectionMetadata(BaseInjectionMetadata):
 
 
 # Alias for backward-compatibility or generic typing
-InjectionMetadata = GeneralInjectionMetadata | DataJudgesInjectionMetadata
+InjectionMetadata = (
+    GeneralInjectionMetadata
+    | FactualHallucinationInjectionMetadata
+    | DataJudgesInjectionMetadata
+)
 
 
 class Turn(BaseModel):
@@ -261,6 +272,22 @@ class GeneralGoldenRecordOutput(BaseGoldenRecordOutput[GeneralInjectionMetadata]
         return self
 
 
+class FactualHallucinationGoldenRecordOutput(
+    BaseGoldenRecordOutput[FactualHallucinationInjectionMetadata]
+):
+    """Schema for factual hallucination injection prompt records."""
+
+    @model_validator(mode="after")
+    def validate_structure(self) -> "FactualHallucinationGoldenRecordOutput":
+        self._validate_common_structure(self.injection_metadata)
+        if self.injection_metadata.target_judge != "factual_hallucination":
+            raise ValueError(
+                "target_judge must be 'factual_hallucination' for factual "
+                "hallucination records"
+            )
+        return self
+
+
 class DataJudgesGoldenRecordOutput(BaseGoldenRecordOutput[DataJudgesInjectionMetadata]):
     """Schema for records generated from the data judges injection prompt."""
 
@@ -286,7 +313,11 @@ class GoldenRecordOutput:
         strict: bool | None = None,
         from_attributes: bool | None = None,
         context: dict[str, Any] | None = None,
-    ) -> GeneralGoldenRecordOutput | DataJudgesGoldenRecordOutput:
+    ) -> (
+        GeneralGoldenRecordOutput
+        | FactualHallucinationGoldenRecordOutput
+        | DataJudgesGoldenRecordOutput
+    ):
         judge = None
         if isinstance(obj, dict):
             meta = obj.get("injection_metadata")
@@ -298,6 +329,13 @@ class GoldenRecordOutput:
 
         if judge in DATA_JUDGES:
             return DataJudgesGoldenRecordOutput.model_validate(
+                obj,
+                strict=strict,
+                from_attributes=from_attributes,
+                context=context,
+            )
+        if judge in PATTERN_JUDGES:
+            return FactualHallucinationGoldenRecordOutput.model_validate(
                 obj,
                 strict=strict,
                 from_attributes=from_attributes,
@@ -377,6 +415,21 @@ def validate_general_rules(
 ) -> None:
     """Validate business rules specific to general prompt outputs."""
     _validate_common_sampled_rules(record, sampled_params, expected_target_judge)
+
+
+def validate_factual_hallucination_rules(
+    record: FactualHallucinationGoldenRecordOutput,
+    sampled_params: dict[str, Any],
+    expected_target_judge: str | None = None,
+) -> None:
+    """Validate business rules specific to factual hallucination outputs."""
+    _validate_common_sampled_rules(record, sampled_params, expected_target_judge)
+    sampled_pattern = sampled_params.get("selected_pattern")
+    if sampled_pattern and record.injection_metadata.selected_pattern != sampled_pattern:
+        raise ValueError(
+            f"selected_pattern {record.injection_metadata.selected_pattern!r} "
+            f"does not match sampled selected_pattern {sampled_pattern!r}"
+        )
 
 
 def validate_data_judges_rules(
@@ -473,7 +526,11 @@ def validate_record(
     payload: Any,
     sampled_params: dict[str, Any],
     expected_target_judge: str | None = None,
-) -> GeneralGoldenRecordOutput | DataJudgesGoldenRecordOutput:
+) -> (
+    GeneralGoldenRecordOutput
+    | FactualHallucinationGoldenRecordOutput
+    | DataJudgesGoldenRecordOutput
+):
     """Validate schema and sampled-parameter business rules based on judge type."""
     judge = expected_target_judge
     if not judge and isinstance(payload, dict):
@@ -484,6 +541,11 @@ def validate_record(
     if judge in DATA_JUDGES:
         record = DataJudgesGoldenRecordOutput.model_validate(payload)
         validate_data_judges_rules(record, sampled_params, expected_target_judge)
+    elif judge in PATTERN_JUDGES:
+        record = FactualHallucinationGoldenRecordOutput.model_validate(payload)
+        validate_factual_hallucination_rules(
+            record, sampled_params, expected_target_judge
+        )
     else:
         record = GeneralGoldenRecordOutput.model_validate(payload)
         validate_general_rules(record, sampled_params, expected_target_judge)

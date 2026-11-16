@@ -1,0 +1,19 @@
+{
+  "INJECTION_PATTERNS": {
+    "entity_or_record_distortion": {
+      "name": "entity_or_record_distortion",
+      "rule": "MANDATORY PATTERN — ENTITY OR RECORD DISTORTION:\n- Have the Agent read scenario_json or an ACTION lookup result and confidently state one incorrect attribute value.\n- Distort a customer-visible record fact such as membership tier, order status, amount, date, item, or eligibility status.\n- Keep the false value plausible and make any customer reaction and later actions follow it naturally.\n- The logged AGENT/ACTION turn must be directly contradicted by the verified scenario or lookup output.",
+      "example": ""
+    },
+    "fabricated_or_distorted_policy": {
+      "name": "fabricated_or_distorted_policy",
+      "rule": "MANDATORY PATTERN — FABRICATED OR DISTORTED POLICY:\n- Have the Agent confidently alter an explicit SOP number, timeframe, fee, benefit, or eligibility rule, or invent a professional-sounding rule absent from the SOP.\n- Apply the false policy coherently in the conversation; do not make the customer act as if they can see internal SOP content.\n- Prefer a same-outcome hallucination when natural, but propagate a changed outcome when the false rule naturally changes the workflow.\n- The logged turn must be demonstrably false or ungrounded against the immutable SOP.",
+      "example": ""
+    },
+    "plausible_system_or_causal_confabulation": {
+      "name": "plausible_system_or_causal_confabulation",
+      "rule": "MANDATORY PATTERN — PLAUSIBLE SYSTEM OR CAUSAL CONFABULATION:\n- When explaining why something happened, how a process works, or what happens next, have the Agent invent a smart, contextually believable backend mechanism, operational cause, or side-condition.\n- The explanation must sound helpful and professional while having zero support in sop_content, scenario_json, or the available ACTION output.\n- Do not use absurd technology, random facts, meta-commentary, or a missing-data disclaimer; the Agent must present the explanation as a confident fact or inference.",
+      "example": ""
+    }
+  }
+}

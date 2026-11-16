@@ -18,16 +18,24 @@ DATA_JUDGES_PROMPTS_DIR = PROMPTS_DIR / "data_judges_injection"
 INJECTION_PATTERNS_PATH = (
     DATA_JUDGES_PROMPTS_DIR / "data_judges_injection_patterns.json"
 )
+FACTUAL_HALLUCINATION_PROMPTS_DIR = PROMPTS_DIR / "factual_hallucination_injection"
+FACTUAL_HALLUCINATION_PATTERNS_PATH = (
+    FACTUAL_HALLUCINATION_PROMPTS_DIR
+    / "factual_hallucination_injection_patterns.json"
+)
 
 # ==============================================================================
 # BATCH CONFIGURATION: Set the conversation counts and paths directly here
 # ==============================================================================
 BATCH_CONFIGS = [
     {
-        "name": "general",
-        "template_path": PROMPTS_DIR / "general_injection_prompt_template.txt",
-        "count": 5,
-        "target_judges": ("alternative_guidance",),
+        "name": "factual_hallucination",
+        "template_path": (
+            FACTUAL_HALLUCINATION_PROMPTS_DIR
+            / "factual_hallucination_injection_prompt_template.txt"
+        ),
+        "count": 6,
+        "target_judges": ("factual_hallucination",),
     },
     {
         "name": "data_judges",
@@ -87,15 +95,22 @@ def load_injection_patterns(path: Path) -> dict[str, dict[str, str]]:
             raise InputDataError(f"Invalid injection pattern {key!r} in {path}")
         if not all(
             isinstance(pattern.get(field), str) and pattern[field]
-            for field in ("name", "rule", "example")
+            for field in ("name", "rule")
         ):
             raise InputDataError(
-                f"Injection pattern {key!r} in {path} needs name, rule, and example"
+                f"Injection pattern {key!r} in {path} needs name and rule"
+            )
+        if "example" in pattern and not isinstance(pattern["example"], str):
+            raise InputDataError(
+                f"Injection pattern {key!r} in {path} has a non-string example"
             )
     return {str(key): dict(pattern) for key, pattern in patterns.items()}
 
 
 INJECTION_PATTERNS = load_injection_patterns(INJECTION_PATTERNS_PATH)
+FACTUAL_HALLUCINATION_PATTERNS = load_injection_patterns(
+    FACTUAL_HALLUCINATION_PATTERNS_PATH
+)
 
 
 def resolve_prompt_template_path(template_path: Path | str) -> Path:
@@ -333,7 +348,13 @@ def select_injection_pattern(
     patterns: Mapping[str, Mapping[str, str]],
     judge_name: str, injection_mechanism: str, sample_index: int
 ) -> Mapping[str, str]:
-    if judge_name == "data_conflict":
+    if judge_name == "factual_hallucination":
+        pattern_name = (
+            "entity_or_record_distortion",
+            "fabricated_or_distorted_policy",
+            "plausible_system_or_causal_confabulation",
+        )[sample_index % 3]
+    elif judge_name == "data_conflict":
         pattern_name = "data_conflict_contradiction"
     elif judge_name == "missing_data" and injection_mechanism == "inject_new_customer_ask":
         pattern_name = "missing_data_new_ask"
@@ -385,6 +406,7 @@ def prepare_single_record(
     template_text: str,
     required_placeholders: set[str],
     needs_mechanism: bool,
+    needs_pattern: bool,
     mechanisms: list[str],
     weights: list[float],
     rng: random.Random,
@@ -420,17 +442,30 @@ def prepare_single_record(
         "target_dialogue_phase": phase,
     }
 
-    if needs_mechanism:
-        injection_mechanism = rng.choices(mechanisms, weights=weights, k=1)[0]
-        sampled_params["injection_mechanism"] = injection_mechanism
-        prompt_context["injection_mechanism"] = injection_mechanism
-        pattern = select_injection_pattern(INJECTION_PATTERNS, judge_name, injection_mechanism, index)
+    if needs_mechanism or needs_pattern:
+        injection_mechanism = (
+            rng.choices(mechanisms, weights=weights, k=1)[0]
+            if needs_mechanism
+            else ""
+        )
+        if needs_mechanism:
+            sampled_params["injection_mechanism"] = injection_mechanism
+            prompt_context["injection_mechanism"] = injection_mechanism
+        pattern_catalog = (
+            FACTUAL_HALLUCINATION_PATTERNS
+            if judge_name == "factual_hallucination"
+            else INJECTION_PATTERNS
+        )
+        pattern = select_injection_pattern(
+            pattern_catalog, judge_name, injection_mechanism, index
+        )
         sampled_params["selected_pattern"] = pattern["name"]
         prompt_context.update(
             selected_pattern_name=pattern["name"],
             pattern_execution_rule=pattern["rule"],
-            pattern_contrastive_example=pattern["example"],
         )
+        if "pattern_contrastive_example" in required_placeholders:
+            prompt_context["pattern_contrastive_example"] = pattern.get("example", "")
 
     assembled = assemble_prompt(
         template_text=template_text,
@@ -486,6 +521,7 @@ def prepare_records(
     required_placeholders = get_template_placeholders(template_text)
 
     needs_mechanism = "injection_mechanism" in required_placeholders
+    needs_pattern = "selected_pattern_name" in required_placeholders
     percentages = mechanism_percentages or {
         INJECTION_MECHANISMS[0]: 50.0,
         INJECTION_MECHANISMS[1]: 50.0,
@@ -530,6 +566,7 @@ def prepare_records(
                     template_text=template_text,
                     required_placeholders=required_placeholders,
                     needs_mechanism=needs_mechanism,
+                    needs_pattern=needs_pattern,
                     mechanisms=mechanisms,
                     weights=weights,
                     rng=rng,

@@ -1,0 +1,166 @@
+You are an expert Synthetic Data Engineer specializing in Golden Evaluation Sets for Multi-Turn Agent LLM-as-a-Judge systems.
+
+### OBJECTIVE
+Perform surgical error injection into a multi-turn customer support conversation by executing the EXACT injection parameters provided below so that ONLY the target judge triggers a FAIL ('No'), while all non-target judges strictly remain PASS ('Yes'). If the base conversation already naturally triggers a FAIL for the target judge without introducing modifications, identify the existing defective turns directly without altering the text.
+
+### INPUT PARAMETERS
+1. Target Judge Name: {target_judge_name}
+2. Target Judge Definition: {target_judge_definition}
+3. Non-Target Judges to Keep Passing: {non_target_judges}
+4. SOP / Business Policies: {sop_content}
+5. Pre-Chat Ground-Truth Scenario: {scenario_json}
+6. Base Conversation & Turns:
+{raw_conversation}
+
+### INJECTION CONTROL PARAMETERS (STRICT EXECUTION)
+7. Exact Number of Errors to Inject: {target_error_count}
+8. Target Dialogue Phase: {target_dialogue_phase} // Allowed values: "early" (information gathering / identity verification), "middle" (policy application / condition checks), "late" (resolution / action execution / wrap-up)
+
+### GROUND TRUTH & EXECUTION RULES
+
+1. STATIC VS. DYNAMIC KNOWLEDGE MAPPING:
+   - The `scenario_json` represents verified database records.
+   - Do NOT invent external entities or attributes that conflict with `scenario_json` unless the specific Target Judge is `factual_hallucination`.
+
+2. EVALUATION FOCUS & AGENT DEFECTS:
+   - The evaluation targets the assistant's performance. Therefore, all injected defects must be reflected in AGENT turns or ACTION calls.
+   - The customer's dialogue represents the end-user interaction. Injected error indices (`injected_turn_indices`) and logged violations should reference the relevant AGENT or ACTION turns.
+
+3. PRE-EXISTING DEFECT HANDLING:
+   - First check if the base conversation already violates the target judge contract.
+   - If the conversation is already defective naturally, set `"already_defective": true`, log all pre-existing defective turns in `injected_turn_indices`, record them in the `violations` list, and leave the conversation text untouched (ignore Parameters 7 and 8 in this case).
+
+
+4.GROUNDING AND ANTI-HALLUCINATION RULES:
+
+1. Use the provided SOP, merchant policies, and explicitly available actions as the authoritative sources for determining valid alternatives.
+2. Do not assume that the merchant offers a service, refund, compensation, exception, discount, replacement, or procedure unless it is explicitly supported by the provided context.
+3. Do not treat general industry practices, common customer-service behavior, or real-world assumptions as evidence that an alternative is available.
+4. An alternative is valid only if its availability and relevant conditions can be supported by the provided context.
+5. If the SOP does not establish that an alternative is available, do not assume that the agent should offer it.
+6. Evaluate the agent based on the information available at the time of its response, without introducing external knowledge or inventing missing business policies.
+7. A valid alternative must be relevant to the customer's underlying goal and provide a realistic, actionable way forward.
+8. A simple apology, refusal, or explanation of the restriction is not sufficient when a valid alternative or useful next step is explicitly available in the SOP.
+9. If the SOP does not establish an alternative, do not create one merely to make the agent fail the Alternative Guidance judge.
+5. ALTERNATIVE GUIDANCE INJECTION WORKFLOW
+
+Follow these steps in the exact order.
+
+STEP 1 — INSPECT THE ORIGINAL CONVERSATION
+- Read the entire conversation and identify the customer's primary request and underlying goal.
+- Determine whether the agent encounters a situation where the primary request cannot be fulfilled.
+- Identify the reason for the blockage, such as:
+  - A policy restriction.
+  - An eligibility restriction.
+  - An unavailable product or service.
+  - An operational limitation.
+  - Missing information that prevents the requested action.
+- Inspect the SOP and available business context to determine whether at least one valid alternative or useful next step is explicitly supported.
+- Evaluate how the agent responds to that situation.
+- If the agent already fails to provide appropriate alternative guidance, follow the PRE-EXISTING DEFECT HANDLING rules and stop.
+STEP 2 — USE AN EXISTING OPPORTUNITY WHEN AVAILABLE
+
+If the original conversation contains a suitable blockage and the agent handles it correctly:
+- Use that existing blockage as the injection opportunity.
+- Identify the valid alternative or useful next step supported by the SOP.
+- Inject the requested error(s) into the agent's response to that blockage.
+- Possible injection types include:
+  - Omitting a valid alternative entirely.
+  - Providing only a refusal or apology despite an available alternative.
+  - Providing irrelevant or inadequate guidance that does not help the customer progress toward their goal.
+  - Failing to mention an important condition required to use the alternative.
+  - Suggesting an alternative that is not supported by the SOP or business context.
+- Preserve the original blockage and the customer's underlying goal.
+- Do not introduce unnecessary changes to the conversation.
+STEP 3 — CREATE AN OPPORTUNITY WHEN NONE EXISTS
+
+If the original conversation does not contain a suitable Alternative Guidance opportunity:
+- Inspect the SOP, merchant policies, scenario data, and explicitly available actions to identify a realistic blockage that can be introduced.
+- Prefer using the customer's existing request and underlying goal. However, you are allowed to modify the conversation more extensively when necessary to make the situation realistic.
+- You may modify existing customer and agent turns, add new turns, remove unnecessary turns, or rearrange turns when needed to establish a natural conversational flow.
+- You may slightly modify the customer's original request, introduce relevant information, or adjust the conversation sequence to establish a realistic blockage.
+- You may also modify the scenario data when necessary, provided that all modifications remain consistent with the SOP and verified business rules.
+- Introduce a blockage only when it is explicitly supported by the provided business context. Examples include:
+  - A policy that prevents the requested action.
+  - An eligibility condition that the customer does not meet.
+  - A product or service that is unavailable.
+  - An operational limitation that prevents direct fulfillment.
+  - Missing information that prevents the requested action.
+- Before introducing the blockage, verify that the SOP or explicitly available business actions establish at least ONE valid, relevant, and actionable alternative or useful next step.
+- The blockage must genuinely prevent direct fulfillment of the customer's primary request, while the supported alternative must provide a legitimate way forward.
+- Establish the blockage naturally through the conversation. Do not make it appear artificially inserted just to create an evaluation failure.
+- Once the blockage and valid alternative are established, inject the error into the agent's response.
+- The agent's response must clearly demonstrate a failure under the target judge definition.
+STRICT RESTRICTIONS:
+- Never invent a business restriction just to create an injection opportunity.
+- Never invent an alternative just to make the injection possible.
+- Never modify the SOP or fabricate a business policy.
+- Never introduce scenario attributes that contradict verified ground-truth data.
+- Do not change the customer's underlying goal unnecessarily.
+- Prioritize a realistic and coherent conversation over preserving the original wording or exact sequence.
+- If the provided context does not support both a realistic blockage and at least one valid alternative, do not fabricate an opportunity. Report that no valid injection opportunity exists.
+STEP 4 — INJECT THE REQUESTED ERRORS
+
+After identifying or creating a valid Alternative Guidance opportunity:
+- Inject exactly {target_error_count} distinct errors, whenever sufficient independent injection opportunities exist.
+- Every injected error must directly violate the target judge's definition.
+- Inject errors into the agent's response to the established blockage, not into unrelated parts of the conversation.
+- Do not count multiple symptoms of the same underlying defect as separate errors.
+- Each error must be independently identifiable and explainable.
+- If multiple independent errors can be injected into the same response, ensure that each represents a genuinely distinct violation.
+- Do not introduce additional errors beyond the requested number.
+- If the available context does not support the requested number of distinct errors, inject only the number that can be validly supported and report the limitation. Never fabricate errors to satisfy the requested count.
+STEP 5 — CONVERSATION COHERENCE & VALIDATION
+
+You are allowed to modify the conversation to make the final result natural and coherent.
+- Adjust customer responses when necessary to reflect the modified conversation.
+- Add customer turns when needed to establish relevant information or clarify the customer's underlying goal.
+- Adjust agent turns to ensure the conversation flows naturally into the blockage and the injected response.
+- Remove unnecessary turns if they contradict the modified scenario or make the conversation illogical.
+- Preserve consistency between the conversation, scenario data, and SOP.
+- Ensure that the injected error is visible and understandable from the conversation itself.
+- Verify that the final conversation triggers a FAIL for the target judge.
+- Verify that non-target judges remain PASS. Avoid introducing unrelated defects in procedure following, identity verification, factual accuracy, task closure, intent understanding, or any other non-target criteria.
+
+6. SCENARIO ADJUSTMENT:
+   - You may modify attributes in `scenario_json` if doing so makes the conversational flow or the injected defect more realistic and coherent.
+   - If modified, document the changed attributes in `modified_scenario_fields` and set `"scenario_modified": true`. Otherwise, keep `scenario_json` unchanged with `"scenario_modified": false` and `"modified_scenario_fields": {{}}.
+
+7. REALISTIC USER VISIBILITY & DOWNSTREAM COHERENCE:
+   - If an injected agent error omits asking for an attribute, remove or adjust the customer's response so they do not volunteer unasked information.
+   - If an injected error changes a value visible to the customer, adjust the immediate customer reaction only as needed to maintain logical dialogue coherence.
+
+### OUTPUT FORMAT
+Output ONLY valid JSON matching this schema:
+{{
+  "injection_metadata": {{
+    "target_judge": "{target_judge_name}",
+    "already_defective": <true | false>,
+    "scenario_modified": <true | false>,
+    "modified_scenario_fields": {{ "<field_name>": "<new_value>" }},
+    "injected_turn_indices": [<int>, ...],
+    "total_injected_errors": <int>,
+    "target_dialogue_phase": "{target_dialogue_phase}",
+    "scope": "<pre_existing | single_turn | multi_turn_injection>"
+  }},
+  "injected_conversation": [
+    {{
+      "turn_id": <int>,
+      "speaker": "<CUSTOMER | AGENT | ACTION>",
+      "content": "<exact text or action description>"
+    }}
+  ],
+  "judge_evaluations": {{
+    "{target_judge_name}": {{
+      "verdict": "FAIL",
+      "violations": [
+        {{
+          "turn_id": <int>,
+          "speaker": "<AGENT | ACTION>",
+          "explanation": "<Specific SOP / Policy clause or criteria violated at this turn>"
+        }}
+      ],
+      "overall_reasoning": "<Comprehensive summary of the injected defects across the dialogue>"
+    }}
+  }}
+}}

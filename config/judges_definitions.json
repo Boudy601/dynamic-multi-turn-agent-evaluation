@@ -103,7 +103,7 @@
     "dimension_node_name": "alternative_guidance",
     "aggregation_role": "Atomic Judge",
     "evaluation_rule_contract": {
-      "scope": "Checks whether the agent provided constructive fallback options, valid secondary steps, substitute recommendations, or clear policy explanations when direct fulfillment of the primary goal was blocked.",
+      "scope": "Evaluates whether the agent provides relevant, accurate, and actionable alternative guidance when a customer's valid primary request cannot be fulfilled due to business policies, eligibility restrictions, product unavailability, operational limitations, or missing information. This includes feasible fallback options, alternative solutions, substitute recommendations, or appropriate secondary steps that help the customer progress toward their underlying goal. All proposed alternatives must be grounded in the provided SOP, merchant policies, or explicitly available actions. The agent must not invent policies, capabilities, compensation options, or procedures that are not supported by the provided context..",
       "logic": "Y if direct completion was blocked (by policy, stock, or missing data) and the agent delivered accurate, actionable fallback guidance or alternatives instead of a dead-end refusal; else N."
     }
   },

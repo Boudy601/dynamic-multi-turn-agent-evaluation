@@ -85,8 +85,8 @@
     "dimension_node_name": "task_closure",
     "aggregation_role": "Atomic Judge",
     "evaluation_rule_contract": {
-      "scope": "Detects complete, verified resolution of all valid discrete customer asks (or successful execution of the required terminal procedural action) across the conversation trajectory.",
-      "logic": "Y if all valid discrete customer goals are demonstrably resolved (and not prematurely truncated by the agent) or the customer explicitly confirms completion; else N."
+      "scope": "Evaluates whether the agent brings every valid customer request to an appropriate terminal outcome within the agent's responsibility, through a completed response, resolution, final action, justified refusal, or transfer of responsibility. Task Closure measures completion of the customer's chosen outcome, not strict SOP compliance, action parameter accuracy, or handoff quality in isolation.",
+      "logic": "Y (FAIL) if, at the end of the complete conversation, at least one valid independent customer request has a demonstrably incomplete agent-owned terminal responsibility; otherwise N (PASS). A terminal action requiring customer communication is closed only when the necessary action has been completed and its actual outcome has been adequately communicated to the customer (including a verifiably customer-visible system confirmation). A prior promise, generic acknowledgment, or materially misleading confirmation does not by itself establish closure. A completed and communicated transfer or escalation closes the agent's responsibility even when another team's final resolution is pending; the transfer's procedural quality belongs to good_handoff. Evaluate all customer requests across the entire conversation: later completion repairs earlier omissions, and a customer-accepted, completed alternative can replace an abandoned resolution path. Include implicit obligations only when necessary to complete the customer's actual chosen goal. Customer satisfaction, missing optional details, non-terminal SOP deviations, and action-accuracy errors do not independently establish Task Closure failure unless they demonstrably leave a requested terminal outcome incomplete. Do not infer action non-execution solely from generic or incomplete logs; distinguish missing evidence from demonstrated failure. If a missing customer prerequisite genuinely blocks further agent action and the agent provides an appropriate final explanation or next step, do not assign Y solely because the external outcome remains pending."
     }
   },
   "intent_clearness": {
@@ -140,7 +140,7 @@
     "aggregation_role": "Terminal State (1 of 7)",
     "evaluation_rule_contract": {
       "scope": "All valid customer goals were completely resolved without model or knowledge defects, verified by task closure.",
-      "logic": "¬ACG ∧ ¬BIG ∧ task_closure ∧ intent_clearness"
+      "logic": "¬ACG ∧ ¬BIG ∧ ¬task_closure ∧ intent_clearness"
     }
   },
   "Partial Resolution": {
@@ -149,7 +149,7 @@
     "aggregation_role": "Terminal State (2 of 7)",
     "evaluation_rule_contract": {
       "scope": "Execution was free of model and knowledge defects, but the dialogue ended without full direct task closure, mitigated by valid alternative guidance or a proper human handoff.",
-      "logic": "¬ACG ∧ ¬BIG ∧ ¬task_closure ∧ (alternative_guidance ∨ good_handoff)"
+      "logic": "¬ACG ∧ ¬BIG ∧ task_closure ∧ (alternative_guidance ∨ good_handoff)"
     }
   },
   "Invalid Conversation Handled": {
@@ -158,7 +158,7 @@
     "aggregation_role": "Terminal State (3 of 7)",
     "evaluation_rule_contract": {
       "scope": "Conversation consisted of spam, abuse, adversarial input, or unclear/nonsensical intent and was safely deflected or handled without model failure.",
-      "logic": "(spam_handling ∨ ¬intent_clearness) ∧ ¬ACG ∧ ¬task_closure"
+      "logic": "(spam_handling ∨ ¬intent_clearness) ∧ ¬ACG ∧ task_closure"
     }
   },
   "Unfinished Conversation Handled": {
@@ -167,7 +167,7 @@
     "aggregation_role": "Terminal State (4 of 7)",
     "evaluation_rule_contract": {
       "scope": "Customer abruptly abandoned an otherwise defect-free dialogue; handled gracefully by the agent up to the drop-off turn.",
-      "logic": "¬ACG ∧ ¬BIG ∧ ¬task_closure ∧ ¬spam_handling ∧ intent_clearness ∧ user_dropoff"
+      "logic": "¬ACG ∧ ¬BIG ∧ task_closure ∧ ¬spam_handling ∧ intent_clearness ∧ user_dropoff"
     }
   },
   "Model-Capability Gap Only": {

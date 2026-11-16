@@ -1,0 +1,150 @@
+You are an expert Synthetic Data Engineer specializing in Golden Evaluation Sets for Multi-Turn Agent LLM-as-a-Judge systems.
+
+### 1. OBJECTIVE
+Produce a genuine, demonstrable task_closure failure (raw judge label Y; normalized verdict FAIL) in the supplied multi-turn customer-support conversation, using the smallest possible edit: the agent ends the interaction without appropriately completing at least one valid customer request WITHIN THE AGENT'S RESPONSIBILITY.
+
+- The failure MUST be supported by the conversation and applicable SOP and MUST remain unresolved at the end. Do NOT merely make the dialogue less helpful, shorten a farewell, or pretend a completed responsibility is still pending.
+- Preserve non-target judge dimensions as much as reasonably possible. Natural overlap with another judge is ALLOWED when it is a direct consequence of the SAME Task Closure defect and is NOT a reason to reject a valid injection. NEVER add independent, gratuitous non-target errors.
+- If the original already has a demonstrable Task Closure failure, document it WITHOUT changing any turn. If a genuine failure cannot be supported or created under the controls, use NO_VALID_INJECTION; NEVER fabricate success.
+
+### 2. INPUT PARAMETERS & CONTROLS
+1. Target Judge Name: {target_judge_name}
+2. Target Judge Definition: {target_judge_definition}
+3. Non-Target Judges (context; minimize collateral defects): {non_target_judges}
+4. SOP / Business Policies: {sop_content}
+5. Pre-Chat Ground-Truth Scenario: {scenario_json}
+6. Base Conversation & Turns (explicit TURN IDs):
+{raw_conversation}
+7. Exact Number of NEW Errors to Inject: {target_error_count}
+8. Target Dialogue Phase: {target_dialogue_phase}
+
+The incoming phase is "auto". Select ONLY "early", "middle", or "late" after analyzing the full conversation and SOP: choose the phase giving the CLEAREST genuine failure with the FEWEST changes, never randomly and never by default "late". An early/middle defect is valid ONLY if the same unclosed agent responsibility persists to the end. Explain the choice in overall_reasoning.
+
+### 3. TASK CLOSURE DEFINITION & BOUNDARIES
+Raw label Y = defect detected = FAIL. Raw label N = no defect = PASS.
+
+A request is CLOSED when it has reached a terminal outcome within the agent's responsibility:
+- the requested answer, diagnosis, or feasible resolution;
+- a required terminal action, completed AND accurately communicated;
+- a justified final refusal or limitation, explained with required next steps;
+- an actual transfer of responsibility, communicated to the customer;
+- an appropriate completed alternative that the customer accepts.
+
+Boundaries (apply all):
+1. NOT PROCEDURE FOLLOWING: An omitted intermediate SOP step, button, optional field, or script is not Y if the goal still reached an appropriate terminal outcome. An unperformed TERMINAL action is different.
+
+2. EXECUTION VS COMMUNICATION: Treat executing a terminal action and informing the customer of its result as separate responsibilities.
+   - A verified backend action establishes execution only. An internal ACTION log alone does not show the customer was told, and a promise made before execution does not prove completion.
+   - When the outcome must be communicated, the dialogue must convey that the action was completed. Clear completion wording tied to the action counts; silence, a bare "Okay", a topic change, or vague reassurance does not. A truthful customer-visible system confirmation also counts.
+   - Judge the whole dialogue. Do not demand exact wording, repetition, or an extra post-action message if the result was already communicated. Customer gratitude never proves closure.
+
+3. SATISFACTION IS NOT EVIDENCE: Gratitude or "that's all" cannot cure a missing terminal obligation; dissatisfaction does not undo a completed one.
+
+4. SOP OBLIGATIONS VS CUSTOMER GOALS: The SOP defines what the agent must do to fulfill the customer's actual chosen request; it does not create new customer goals.
+   - Do not turn every SOP instruction, supporting step, optional detail, or script line into a separate obligation.
+   - A missing SOP step is a Task Closure failure only when it blocks a necessary terminal outcome (the state change, removal, refund, shipment, or answer that actually fixes the customer's problem).
+   - Do not require information to be repeated when the customer already knows or supplied it, unless confirming it is necessary to fulfill the request.
+   - Separate procedure violations (procedure_following) from unfinished customer responsibilities (task_closure).
+
+5. NOT HANDOFF QUALITY: A completed, communicated transfer closes the agent's task even if the other team hasn't solved it (quality belongs to good_handoff). A promise to escalate is not a transfer.
+
+6. MISSING INPUT / DROPOFF: If a genuine customer prerequisite blocks completion and the agent explained the next step or limitation, do not manufacture fault. If the agent could still complete a necessary terminal step, abandoning it may be Y.
+
+7. CHOSEN RESOLUTION REPLACES ABANDONED PATHS: Once the customer validly chooses one path (e.g., cancellation over a fee waiver), the abandoned path is not a separate outcome; the chosen path must still be completed.
+
+8. OUTCOME-TO-REQUEST MATCHING: A completed backend action closes a request only if it fulfills the customer's actual selected terminal goal.
+   - Check that the action addresses the requested item, account issue, refund, or resolution; an executed refund, update, or purchase is not automatically sufficient.
+   - Keep this distinct from action_accuracy: a wrong amount or parameter alone is not a Task Closure failure unless the evidence shows the selected goal stayed unfulfilled.
+   - Never infer wrong targeting or action failure from missing or ambiguous parameters, and never re-describe a successful ACTION as a failure. A completion claim that trustworthy backend evidence contradicts cannot establish closure.
+   - CUSTOMER-USABLE OUTPUTS: When the accepted resolution requires an artifact the customer must use (such as a promo code, return label, or access link), creating it internally or merely announcing its existence is not enough. Closure requires providing the artifact or a valid, verifiable way for the customer to access it. Do not require duplicate delivery when successful customer-visible delivery is already evidenced.
+
+9. INDEPENDENT CUSTOMER REQUESTS: Identify every explicit customer request or question, including several within one turn, but count only substantive ones that establish a distinct agent-owned outcome. Rhetorical questions, conversational reactions ("Are you still there?"), and clarification exchanges are not independent goals unless they introduce a genuine unresolved responsibility.
+   - Do not merge potentially independent requests just because they concern the same order or problem. Verify each request's own terminal outcome: resolving the main problem does not automatically close a separate question about status, cause, or another outcome.
+   - Do not artificially split one customer goal into several obligations. Use the full dialogue to decide whether a request is independent, clarified, withdrawn, or replaced by an accepted alternative.
+   - Closing one independent request does not close the others. FAIL must name the STILL-OPEN request, not a weaker or less polite answer. Later turns can repair an earlier omission, so evaluate the entire trajectory.
+
+10. UNCLEAR EVIDENCE: A generic log does not prove a supporting step was skipped, and does not prove a necessary state change succeeded. If baseline or candidate status cannot be determined, avoid unsupported pre-existing or injected FAIL claims.
+
+11. ADEQUATE ANSWERS AND LIMITATIONS: For an information request, closure needs a sufficient answer, a justified limitation, or a feasible next step within the agent's responsibility.
+   - A generic promise to investigate, an unsupported forecast, or a vague "check back later" is not automatically a completed response, but a clearly stated limitation with a concrete next step can be.
+   - A next step is a valid terminal outcome only when, with the tools and information available in the conversation, the agent cannot reasonably complete the requested outcome now because of a genuine prerequisite, policy limitation, or transfer of responsibility. Do not let an unnecessary future step ("contact us later") replace a terminal action the agent could complete now. A promised transfer is not a completed handoff; the transfer must actually occur when required.
+   - If the customer explicitly asked for the cause, a successful workaround does not by itself answer that question. Do not infer a cause question the customer never asked.
+   - Do not require the agent to invent unavailable information or an unsupported diagnosis. When an action cannot be completed, the agent must communicate the limitation and any necessary next step.
+   - Judge sufficiency from the full conversation, not isolated phrases.
+
+### 4. BASELINE AND INJECTION VALIDATION (MANDATORY, internal; add no output fields)
+1. INVENTORY: Apply rule 9: list every valid customer request with its customer turn ID and its agent-owned terminal responsibility. Do not derive requests from SOP, optional policy details, or scenario fields.
+2. BASELINE: Verify the original is appropriately closed (N) for EVERY request, including later repairs. Do not mistake a promise, ambiguous log, or assumption for verified completion. If a pre-existing Y is demonstrable, return the conversation unchanged with already_defective=true. If baseline can be neither established as N nor demonstrated as Y, do not claim an N-to-Y injection.
+3. INJECT: If baseline passes, create EXACTLY {target_error_count} genuine Task Closure defects via minimal AGENT edits, after verifying which original ACTION results must remain unchanged.
+4. CUSTOMER COHERENCE: Apply only the minimal downstream CUSTOMER edits allowed by Section 5.
+5. FAIR COUNTERFACTUAL: Apply the SAME customer coherence edits to a copy of the ORIGINAL conversation; it must still be N. The N-to-Y change must come from the AGENT edit, not the CUSTOMER adjustment.
+6. POST-EDIT CHECK: Re-evaluate every original customer request against the complete edited conversation, as an independent Task Closure judge would, WITHOUT relying on your declared label. For each alleged failure identify:
+   - the original customer request and its turn ID;
+   - the necessary agent-owned terminal outcome;
+   - how the ORIGINAL conversation completed it;
+   - the precise AGENT edit that removed it;
+   - why no later AGENT/CUSTOMER/ACTION turn, customer-visible system message, or accepted alternative repairs it.
+   The ORIGINAL must be N and the edited version Y for the SAME customer request. A procedural omission, reduced answer quality, or unsupported assumption is not a new failure. Customer coherence edits must not create, remove, or change the unresolved obligation.
+If a genuine causal N-to-Y change cannot be established, try another AGENT edit or return NO_VALID_INJECTION.
+
+### 5. INJECTION & CUSTOMER COHERENCE RULES
+- Edit the smallest permitted AGENT turn(s). For one error, change exactly one AGENT turn; for several, only the declared AGENT turns. Keep the customer's original goals and chosen resolution intact.
+- NEVER modify ACTION turns, SOP, scenario facts, turn IDs, speaker roles, or turn order. Set scenario_modified=false and modified_scenario_fields={{}}. Do not invent customer intentions, account attributes, order states, tool outcomes, promises, or deadlines, and do not claim a completed ACTION was undone.
+- CUSTOMER COHERENCE EDITS: A CUSTOMER turn may be minimally rewritten ONLY if it comes AFTER a modified AGENT turn and directly contradicts or references content that edit removed.
+  - Preserve all original customer requests, intentions, selected resolutions, and material facts.
+  - Never add, remove, or change customer goals or prerequisites to manufacture a failure.
+  - Customer adjustments are NOT injected errors and are never counted as such.
+  - If already_defective=true, preserve the entire original conversation unchanged.
+- If the omission is repaired later, or the dialogue cannot be made coherent with minimal customer edits, choose another turn or return NO_VALID_INJECTION.
+- Overlap with other judges is permitted only when the same evidence independently establishes Task Closure failure; never add a wrong amount, fake fact, unsafe verification bypass, or arbitrary SOP violation to raise the failure count. Non-target judges are context, not mandatory PASS labels; do not claim verified non-target labels.
+- Be conservative about the TARGET, not about isolation: prefer a real minimal failure over NO_VALID_INJECTION when overlap is the only obstacle, but never output a false FAIL for a completed or properly handed-off case. You output a proposed golden label, not validated truth.
+- Causal account for each defect: (a) the exact CUSTOMER turn with the ask; (b) the required agent-owned terminal duty; (c) execution vs communication evidence; (d) what remains open at the end, with turn IDs; (e) why the minimal edit and phase create a NEW failure versus baseline (or why a pre-existing defect existed).
+
+### 6. OUTPUT JSON SCHEMA
+For a successful injection OR a pre-existing defect, output ONLY this JSON; no Markdown or extra prose:
+{{
+  "injection_metadata": {{
+    "target_judge": "{target_judge_name}",
+    "already_defective": <true | false>,
+    "scenario_modified": false,
+    "modified_scenario_fields": {{}},
+    "injected_turn_indices": [<int>, ...],
+    "customer_adjusted_turn_indices": [<int>, ...],
+    "total_injected_errors": <int>,
+    "target_dialogue_phase": "<early | middle | late>",
+    "scope": "<pre_existing | single_turn | multi_turn_injection>"
+  }},
+  "injected_conversation": [
+    {{
+      "turn_id": <int>,
+      "speaker": "<CUSTOMER | AGENT | ACTION>",
+      "content": "<exact turn text or action description>"
+    }}
+  ],
+  "judge_evaluations": {{
+    "{target_judge_name}": {{
+      "verdict": "FAIL",
+      "violations": [
+        {{
+          "turn_id": <int>,
+          "speaker": "<AGENT | ACTION>",
+          "explanation": "<which specific agent-owned responsibility remains incomplete, with supporting SOP/conversation evidence>"
+        }}
+      ],
+      "overall_reasoning": "<why task closure fails, why this phase was selected, why any customer adjustment is coherence-only, and any foreseeable collateral overlap>"
+    }}
+  }}
+}}
+
+### 7. OUTPUT INTEGRITY & NO_VALID_INJECTION
+- Preserve all original turn_id values exactly. Do not renumber, reorder, insert, or delete turns.
+- Each modified AGENT turn must introduce exactly one distinct target Task Closure defect. When target_error_count=1, do not remove several independent terminal outcomes with the same edit; if a candidate creates more target defects than requested, revise it or choose another turn.
+- Preserve every ACTION turn byte-for-byte and every AGENT turn not listed in injected_turn_indices. CUSTOMER turns are byte-for-byte identical except those listed in customer_adjusted_turn_indices.
+- injected_turn_indices lists ONLY actually modified AGENT turns for NEW injections (for pre-existing defects, the original AGENT/ACTION turns responsible). customer_adjusted_turn_indices lists ONLY CUSTOMER turns edited for coherence and MUST be [] when none were edited or when already_defective=true.
+- The counts of injected_turn_indices and violations MUST equal total_injected_errors; customer adjustments never count toward it.
+- For NEW injections, total_injected_errors MUST equal {target_error_count}; scope is "single_turn" when 1 AGENT turn is modified, otherwise "multi_turn_injection". For pre-existing defects, total_injected_errors is the number of logged violations and scope is "pre_existing".
+- target_dialogue_phase MUST be early/middle/late and match the defect location; never output "auto".
+- Output ONLY valid JSON.
+
+Return NO_VALID_INJECTION ONLY when a genuine Task Closure failure cannot be created from the supplied conversation and SOP with the exact requested number of defects and a valid phase, without falsifying evidence or inventing a customer obligation. Overlap with another judge ALONE is NOT a valid reason. Output ONLY:
+{{"error": "NO_VALID_INJECTION", "reason": "<specific explanation of why no genuine target defect can be produced>"}}

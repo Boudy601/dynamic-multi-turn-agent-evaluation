@@ -29,6 +29,8 @@ from openai import (
 from pydantic import BaseModel, ConfigDict, Field, ValidationError, model_validator
 from tqdm.asyncio import tqdm_asyncio
 
+from chatgpt_oauth_bridge import ChatGPTOAuthResponsesClient
+
 
 MAX_VALIDATION_RETRIES = 3
 DEFAULT_CONCURRENCY = 1
@@ -64,7 +66,7 @@ class ModelConfigurationError(ValueError):
 
 def validate_platform(platform: str) -> None:
     """Ensure the selected platform is supported."""
-    supported_platforms = set(PLATFORM_API_KEYS)
+    supported_platforms = set(PLATFORM_API_KEYS) | {"chatgpt_oauth"}
     if platform not in supported_platforms:
         supported = ", ".join(sorted(supported_platforms))
         raise ModelConfigurationError(
@@ -107,6 +109,16 @@ class GeneralInjectionMetadata(BaseInjectionMetadata):
     """Metadata for general injection prompt records."""
 
 
+class TaskClosureInjectionMetadata(GeneralInjectionMetadata):
+    """V5.4 Task Closure metadata (supports downstream CUSTOMER coherence edits).
+
+    The default maintains compatibility with older Task Closure datasets that
+    predate customer_adjusted_turn_indices. Other judges remain strict.
+    """
+
+    customer_adjusted_turn_indices: list[int] = Field(default_factory=list)
+
+
 class DataJudgesInjectionMetadata(BaseInjectionMetadata):
     """Metadata for data judges (missing_data, data_conflict) records."""
 
@@ -120,7 +132,9 @@ class DataJudgesInjectionMetadata(BaseInjectionMetadata):
 
 
 # Alias for backward-compatibility or generic typing
-InjectionMetadata = GeneralInjectionMetadata | DataJudgesInjectionMetadata
+InjectionMetadata = (
+    GeneralInjectionMetadata | TaskClosureInjectionMetadata | DataJudgesInjectionMetadata
+)
 
 
 class Turn(BaseModel):
@@ -176,13 +190,21 @@ class BaseGoldenRecordOutput(BaseModel, Generic[MetadataT]):
                 f"{target_judge!r}"
             )
 
-        expected_turn_ids = list(range(1, len(self.injected_conversation) + 1))
         actual_turn_ids = [turn.turn_id for turn in self.injected_conversation]
-        if actual_turn_ids != expected_turn_ids:
-            raise ValueError(
-                "injected_conversation turn_ids must be strictly sequential "
-                f"starting at 1; got {actual_turn_ids!r}"
-            )
+        if target_judge == "task_closure":
+            # V5.4 preserves source IDs; they need not start at 1 or be contiguous.
+            if any(a >= b for a, b in zip(actual_turn_ids, actual_turn_ids[1:])):
+                raise ValueError(
+                    "task_closure turn_ids must be strictly increasing and unique; "
+                    f"got {actual_turn_ids!r}"
+                )
+        else:
+            expected_turn_ids = list(range(1, len(self.injected_conversation) + 1))
+            if actual_turn_ids != expected_turn_ids:
+                raise ValueError(
+                    "injected_conversation turn_ids must be strictly sequential "
+                    f"starting at 1; got {actual_turn_ids!r}"
+                )
 
         if len(metadata.injected_turn_indices) != metadata.total_injected_errors:
             raise ValueError(
@@ -259,6 +281,17 @@ class GeneralGoldenRecordOutput(BaseGoldenRecordOutput[GeneralInjectionMetadata]
         return self
 
 
+class TaskClosureGoldenRecordOutput(BaseGoldenRecordOutput[TaskClosureInjectionMetadata]):
+    """Task Closure-specific schema; does not relax other judges' contracts."""
+
+    @model_validator(mode="after")
+    def validate_structure(self) -> "TaskClosureGoldenRecordOutput":
+        self._validate_common_structure(self.injection_metadata)
+        if self.injection_metadata.target_judge != "task_closure":
+            raise ValueError("TaskClosureGoldenRecordOutput requires task_closure")
+        return self
+
+
 class DataJudgesGoldenRecordOutput(BaseGoldenRecordOutput[DataJudgesInjectionMetadata]):
     """Schema for records generated from the data judges injection prompt."""
 
@@ -284,7 +317,7 @@ class GoldenRecordOutput:
         strict: bool | None = None,
         from_attributes: bool | None = None,
         context: dict[str, Any] | None = None,
-    ) -> GeneralGoldenRecordOutput | DataJudgesGoldenRecordOutput:
+    ) -> GeneralGoldenRecordOutput | TaskClosureGoldenRecordOutput | DataJudgesGoldenRecordOutput:
         judge = None
         if isinstance(obj, dict):
             meta = obj.get("injection_metadata")
@@ -296,6 +329,13 @@ class GoldenRecordOutput:
 
         if judge in DATA_JUDGES:
             return DataJudgesGoldenRecordOutput.model_validate(
+                obj,
+                strict=strict,
+                from_attributes=from_attributes,
+                context=context,
+            )
+        if judge == "task_closure":
+            return TaskClosureGoldenRecordOutput.model_validate(
                 obj,
                 strict=strict,
                 from_attributes=from_attributes,
@@ -351,7 +391,33 @@ def _validate_common_sampled_rules(
                 f"target_error_count {target_error_count}"
             )
         target_phase = sampled_params.get("target_dialogue_phase")
-        if target_phase and metadata.target_dialogue_phase != target_phase:
+        if target_phase == "auto":
+            if metadata.target_judge != "task_closure":
+                raise ValueError("auto phase is reserved for task_closure")
+            # The LLM must return a concrete phase, never the input sentinel.
+            # Pydantic already enforces early/middle/late in the output schema.
+            # Approximate positional bands overlap because dialogue phases are
+            # semantic, not fixed-size thirds of a conversation.
+            total_turns = len(record.injected_conversation)
+            low, high = {
+                "early": (0.0, 0.45),
+                "middle": (0.20, 0.80),
+                "late": (0.55, 1.0),
+            }[metadata.target_dialogue_phase]
+            turn_positions = {
+                turn.turn_id: index
+                for index, turn in enumerate(record.injected_conversation)
+            }
+            relative_positions = [
+                turn_positions[turn_id] / max(1, total_turns - 1)
+                for turn_id in metadata.injected_turn_indices
+            ]
+            if not all(low <= position <= high for position in relative_positions):
+                raise ValueError(
+                    "LLM-selected phase is inconsistent with the reported "
+                    "injection turn positions"
+                )
+        elif target_phase and metadata.target_dialogue_phase != target_phase:
             raise ValueError(
                 f"target_dialogue_phase {metadata.target_dialogue_phase!r} does "
                 f"not equal sampled target_dialogue_phase {target_phase!r}"
@@ -467,6 +533,98 @@ def validate_data_judges_rules(
             )
 
 
+def validate_task_closure_source(
+    record: TaskClosureGoldenRecordOutput,
+    source_turns: list[dict[str, Any]],
+) -> None:
+    """Validate V5.4 structural edits against original turns.
+
+    Semantic coherence (that a rewritten CUSTOMER line only repairs a direct
+    contradiction and preserves every actual request) requires review: the
+    source turn diff alone cannot establish that reliably.
+    """
+    if not isinstance(source_turns, list) or not source_turns:
+        raise ValueError("task_closure requires non-empty source_turns")
+    generated = record.injected_conversation
+    if len(generated) != len(source_turns):
+        raise ValueError("task_closure must preserve source turn count")
+
+    metadata = record.injection_metadata
+    if metadata.scenario_modified or metadata.modified_scenario_fields:
+        raise ValueError("task_closure cannot modify scenario or scenario fields")
+
+    target_ids = metadata.injected_turn_indices
+    customer_ids = metadata.customer_adjusted_turn_indices
+    if len(target_ids) != len(set(target_ids)):
+        raise ValueError("duplicate injected_turn_indices are not allowed")
+    if len(customer_ids) != len(set(customer_ids)):
+        raise ValueError("duplicate customer_adjusted_turn_indices are not allowed")
+    if any(type(turn_id) is not int or turn_id < 1 for turn_id in customer_ids):
+        raise ValueError("customer_adjusted_turn_indices must contain positive integer turn IDs")
+    if any(type(turn_id) is not int for turn_id in target_ids):
+        raise ValueError("injected_turn_indices must contain integer turn IDs")
+
+    changed_agents: set[int] = set()
+    changed_customers: set[int] = set()
+    original_ids: list[int] = []
+    original_speakers: dict[int, str] = {}
+    for position, (original, edited) in enumerate(zip(source_turns, generated), start=1):
+        original_id = original.get("turn_id")
+        original_speaker = original.get("speaker")
+        original_content = original.get("content")
+        if type(original_id) is not int or original_id < 1:
+            raise ValueError(f"invalid source turn_id at position {position}")
+        if edited.turn_id != original_id:
+            raise ValueError(f"task_closure changed original turn_id at position {position}")
+        if edited.speaker != original_speaker:
+            raise ValueError(f"task_closure changed speaker role at turn {original_id}")
+        if not isinstance(original_content, str):
+            raise ValueError(f"invalid source content at turn {original_id}")
+        original_ids.append(original_id)
+        original_speakers[original_id] = original_speaker
+        if original_content == edited.content:
+            continue
+        if metadata.already_defective:
+            raise ValueError("already_defective must preserve the complete conversation")
+        if edited.speaker == "ACTION":
+            raise ValueError(f"task_closure cannot alter verified ACTION turn {original_id}")
+        if edited.speaker == "AGENT":
+            changed_agents.add(original_id)
+        elif edited.speaker == "CUSTOMER":
+            changed_customers.add(original_id)
+
+    if any(a >= b for a, b in zip(original_ids, original_ids[1:])):
+        raise ValueError("source turn_ids must be strictly increasing and unique")
+
+    if metadata.already_defective:
+        if customer_ids:
+            raise ValueError("already_defective requires empty customer_adjusted_turn_indices")
+        # injected_turn_indices for pre-existing defects identifies existing
+        # offending AGENT/ACTION turns, not edits. They were not changed above.
+        for turn_id in target_ids:
+            if original_speakers.get(turn_id) not in {"AGENT", "ACTION"}:
+                raise ValueError("pre-existing violations must reference AGENT/ACTION turns")
+        return
+
+    if changed_agents != set(target_ids):
+        raise ValueError(
+            "changed AGENT turn IDs do not match injected_turn_indices: "
+            f"actual={sorted(changed_agents)}, claimed={sorted(set(target_ids))}"
+        )
+    if changed_customers != set(customer_ids):
+        raise ValueError(
+            "changed CUSTOMER turn IDs do not match customer_adjusted_turn_indices: "
+            f"actual={sorted(changed_customers)}, claimed={sorted(set(customer_ids))}"
+        )
+    for turn_id in changed_customers:
+        if not any(agent_id < turn_id for agent_id in changed_agents):
+            raise ValueError(
+                f"CUSTOMER coherence edit at turn {turn_id} is not downstream "
+                "of a modified AGENT turn"
+            )
+
+
+
 def validate_record(
     payload: Any,
     sampled_params: dict[str, Any],
@@ -482,6 +640,9 @@ def validate_record(
     if judge in DATA_JUDGES:
         record = DataJudgesGoldenRecordOutput.model_validate(payload)
         validate_data_judges_rules(record, sampled_params, expected_target_judge)
+    elif judge == "task_closure":
+        record = TaskClosureGoldenRecordOutput.model_validate(payload)
+        validate_general_rules(record, sampled_params, expected_target_judge)
     else:
         record = GeneralGoldenRecordOutput.model_validate(payload)
         validate_general_rules(record, sampled_params, expected_target_judge)
@@ -575,6 +736,8 @@ async def request_with_backoff(
     for network_attempt in range(MAX_NETWORK_RETRIES + 1):
         try:
             async with semaphore:
+                if platform == "chatgpt_oauth":
+                    return await client.generate(messages, model, timeout_seconds)
                 if platform == "claude":
                     response = await client.messages.create(
                         model=model,
@@ -703,7 +866,28 @@ async def process_record(
 
         try:
             payload = parse_json_response(raw_output)
+            if isinstance(payload, dict) and payload.get("error") == "NO_VALID_INJECTION":
+                if target_judge != "task_closure":
+                    raise ValueError("NO_VALID_INJECTION is only allowed for task_closure")
+                skip_reason = payload.get("reason")
+                if not isinstance(skip_reason, str) or not skip_reason.strip():
+                    raise ValueError("NO_VALID_INJECTION requires a non-empty reason")
+                # A legitimate non-injectable sample is NOT a malformed generation.
+                await append_jsonl(
+                    failed_path.with_name("skipped_generations.jsonl"),
+                    {
+                        "conversation_id": conversation_id,
+                        "target_judge": target_judge,
+                        "status": "skipped",
+                        "reason": skip_reason,
+                        "sampled_params": sampled_params,
+                    },
+                    failed_lock,
+                )
+                return
             record = validate_record(payload, sampled_params, target_judge)
+            if target_judge == "task_closure":
+                validate_task_closure_source(record, input_record.get("source_turns"))
         except (ValidationError, ValueError, json.JSONDecodeError) as exc:
             validation_errors.append(str(exc))
             if validation_attempt >= MAX_VALIDATION_RETRIES:
@@ -767,7 +951,10 @@ def parse_args() -> argparse.Namespace:
         default=str(PROJECT_ROOT / "data" / "generated" / "failed_generations.jsonl"),
     )
     parser.add_argument("--platform", default=PLATFORM)
-    parser.add_argument("--model", default=MODEL)
+    parser.add_argument("--model", default=None)
+    parser.add_argument("--only-judge", default=None, help="Only run one target judge")
+    parser.add_argument("--oauth-script", default=os.getenv("CHATGPT_OAUTH_SCRIPT"),
+                        help="Path to the authenticated local OAuth script")
     parser.add_argument("--timeout", type=float, default=DEFAULT_TIMEOUT_SECONDS)
     parser.add_argument(
         "--concurrency",
@@ -783,32 +970,49 @@ async def run(args: argparse.Namespace) -> None:
         raise ValueError("--concurrency must be at least 1")
 
     platform = args.platform
-    model = args.model
+    model = args.model or ("gpt-6-luna" if platform == "chatgpt_oauth" else MODEL)
     validate_platform(platform)
+    if platform == "chatgpt_oauth" and model != "gpt-6-luna":
+        raise ValueError("OAuth testing is locked to gpt-6-luna; no Sol fallback")
 
-    api_key_name = PLATFORM_API_KEYS[platform]
-    api_key = os.getenv(api_key_name)
-    if not api_key:
-        raise RuntimeError(
-            f"{api_key_name} is not set. Add it to the .env file for "
-            f"platform {platform!r}."
-        )
+    api_key = None
+    if platform != "chatgpt_oauth":
+        api_key_name = PLATFORM_API_KEYS[platform]
+        api_key = os.getenv(api_key_name)
+        if not api_key:
+            raise RuntimeError(
+                f"{api_key_name} is not set. Add it to the .env file for "
+                f"platform {platform!r}."
+            )
 
     input_path = Path(args.input)
     output_path = Path(args.output)
     failed_path = Path(args.failed)
     completed_ids = load_completed_ids(output_path)
+    # Avoid repeatedly regenerating non-injectable cases after resuming.
+    completed_ids |= load_completed_ids(
+        failed_path.with_name("skipped_generations.jsonl")
+    )
     input_records = [
         record
         for record in load_jsonl(input_path)
         if str(record.get("conversation_id")) not in completed_ids
+        and (args.only_judge is None or record.get("target_judge") == args.only_judge)
     ]
     if not input_records:
         print("No pending records.")
         return
 
-    if platform == "claude":
-        client: Any = AsyncAnthropic(
+    if platform == "chatgpt_oauth":
+        if not args.oauth_script:
+            raise RuntimeError(
+                "Specify --oauth-script with the authenticated "
+                "chatgpt_plus_oauth_fixed.py file. Never supply tokens."
+            )
+        client: Any = ChatGPTOAuthResponsesClient(args.oauth_script)
+        await asyncio.to_thread(client.check_login)
+    elif platform == "claude":
+        client = AsyncAnthropic(
             api_key=api_key, max_retries=0, timeout=args.timeout
         )
     else:

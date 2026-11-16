@@ -26,6 +26,12 @@ BATCH_CONFIGS = [
         "target_judges": ("intent_understanding", "procedure_following"),
     },
     {
+        "name": "task_closure",
+        "template_path": PROMPTS_DIR / "task_closure_injection_prompt_template.txt",
+        "count": 15,
+        "target_judges": ("task_closure",),
+    },
+    {
         "name": "data_judges",
         "template_path": PROMPTS_DIR / "Data Judges_Injection Prompt Template.txt",
         "count": 5,
@@ -334,13 +340,31 @@ def prepare_single_record(
     subflow = conversation_subflow(conversation, index)
     sop = find_guideline(guidelines, subflow, flow, guideline_aliases)
     scenario = conversation.get("scenario", {})
-    turns_text = format_turns(conversation, index)
+    # Explicit IDs only for task_closure: the output validator expects turn_id
+    # to match the AGENT/ACTION turn actually changed.
+    if judge_name == "task_closure":
+        turns_text = "\n".join(
+            f"TURN {turn_id} | {speaker}\n{content}"
+            for turn_id, speaker, content in iter_turns(conversation, index)
+        )
+    else:
+        turns_text = format_turns(conversation, index)
 
     error_count = rng.choices(
         ERROR_COUNTS, weights=ERROR_COUNT_WEIGHTS, k=1
     )[0]
-    phase = rng.choice(DIALOGUE_PHASES)
-    non_targets = [name for name in judges if name != judge_name]
+    # For task_closure, the LLM chooses a concrete phase after reading the
+    # entire conversation. Other judges retain their existing random phase.
+    phase = "auto" if judge_name == "task_closure" else rng.choice(DIALOGUE_PHASES)
+    if judge_name == "task_closure":
+        # Do not pass composites/terminal states as independent competing judges.
+        non_targets = [
+            name
+            for name, definition in judges.items()
+            if name != judge_name and definition.get("aggregation_role") == "Atomic Judge"
+        ]
+    else:
+        non_targets = [name for name in judges if name != judge_name]
 
     sampled_params: dict[str, Any] = {
         "target_error_count": error_count,
@@ -370,12 +394,18 @@ def prepare_single_record(
         context=prompt_context,
     )
 
-    return {
+    record = {
         "conversation_id": conversation_id(conversation, index),
         "target_judge": judge_name,
         "sampled_params": sampled_params,
         "assembled_prompt": assembled,
     }
+    if judge_name == "task_closure":
+        record["source_turns"] = [
+            {"turn_id": turn_id, "speaker": speaker, "content": content}
+            for turn_id, speaker, content in iter_turns(conversation, index)
+        ]
+    return record
 
 
 def prepare_records(
@@ -487,12 +517,13 @@ def prepare_all_batches(
     guideline_aliases: Mapping[str, Mapping[str, str]] | None = None,
     mechanism_percentages: Mapping[str, float] | None = None,
     existing_conversation_ids: set[str] | None = None,
+    batch_configs: Sequence[Mapping[str, Any]] | None = None,
 ) -> list[dict[str, Any]]:
-    """Process all configured batches sequentially with non-overlapping conversation assignment."""
+    """Process batches with non-overlapping assignment; optional per-run overrides."""
     combined_records: list[dict[str, Any]] = []
     used_conversation_ids = set(existing_conversation_ids or ())
 
-    for batch in BATCH_CONFIGS:
+    for batch in (BATCH_CONFIGS if batch_configs is None else batch_configs):
         count = batch.get("count", 0)
         if count <= 0:
             continue
@@ -585,6 +616,30 @@ def parse_args() -> argparse.Namespace:
         type=int,
         help="Seed the local sampler for reproducibility.",
     )
+    parser.add_argument(
+        "--task-closure-only",
+        action="store_true",
+        help="Prepare only task_closure conversations without changing configured batches.",
+    )
+    parser.add_argument(
+        "--task-closure-count",
+        type=int,
+        default=None,
+        help="Override the task_closure count for this run (for example 10).",
+    )
+    parser.add_argument(
+        "--task-closure-template",
+        type=Path,
+        default=None,
+        help="Explicit task_closure prompt template (for example V5.4 Injection).",
+    )
+    parser.add_argument(
+        "--exclude-ids-file",
+        type=Path,
+        action="append",
+        default=[],
+        help="Exclude conversation IDs already in this JSONL; repeatable.",
+    )
     return parser.parse_args()
 
 
@@ -623,8 +678,25 @@ def main() -> int:
             if golden_path.is_file():
                 existing_ids.update(load_existing_conversation_ids(golden_path))
 
+        for excluded_path in args.exclude_ids_file:
+            if not excluded_path.is_file():
+                raise InputDataError(f"Exclusion file not found: {excluded_path}")
+            existing_ids.update(load_existing_conversation_ids(excluded_path))
+
         if existing_ids:
             print(f"Excluding {len(existing_ids)} previously prepared/completed conversation ID(s).")
+
+        batch_configs = [dict(batch) for batch in BATCH_CONFIGS]
+        if args.task_closure_only:
+            batch_configs = [batch for batch in batch_configs if batch["name"] == "task_closure"]
+        for batch in batch_configs:
+            if batch["name"] == "task_closure":
+                if args.task_closure_count is not None:
+                    if args.task_closure_count < 1:
+                        raise InputDataError("--task-closure-count must be at least 1")
+                    batch["count"] = args.task_closure_count
+                if args.task_closure_template is not None:
+                    batch["template_path"] = args.task_closure_template
 
         records = prepare_all_batches(
             all_conversations=raw_conversations,
@@ -634,6 +706,7 @@ def main() -> int:
             guideline_aliases=guideline_aliases,
             mechanism_percentages=percentages,
             existing_conversation_ids=existing_ids,
+            batch_configs=batch_configs,
         )
 
         should_append = (not args.overwrite) and args.output.is_file()

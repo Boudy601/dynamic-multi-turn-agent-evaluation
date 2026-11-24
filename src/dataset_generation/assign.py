@@ -305,87 +305,57 @@ def distribute_snake(
             f"Snake distribution requires {INITIAL_REVIEWER_COUNT} reviewers"
         )
 
+    grouped: dict[str, list[Chat]] = defaultdict(list)
+    for chat in chats:
+        grouped[chat.sop_id].append(chat)
+    for sop_chats in grouped.values():
+        sop_chats.sort(key=chat_sort_key)
+
+    pairs = [items for items in grouped.values() if len(items) == 2]
+    singles = [items[0] for items in grouped.values() if len(items) == 1]
+    invalid_groups = [sop_id for sop_id, items in grouped.items() if len(items) > 2]
+    if invalid_groups or len(pairs) != 15 or len(singles) != 40:
+        raise AssignmentError(
+            "Initial selection must contain 15 two-chat SOP bundles and 40 single-chat SOPs"
+        )
+
+    pairs.sort(
+        key=lambda items: (
+            -sum(chat.message_count for chat in items),
+            -sum(chat.character_count for chat in items),
+            items[0].sop_id,
+        )
+    )
     assignments = {reviewer: [] for reviewer in reviewers}
+    pair_counts = Counter()
+    workloads = Counter()
+    for pair_index, pair in enumerate(pairs):
+        pair_limit = 2 if pair_index < 14 else 3
+        eligible = [
+            reviewer for reviewer in reviewers if pair_counts[reviewer] < pair_limit
+        ]
+        reviewer = min(
+            eligible,
+            key=lambda name: (workloads[name], reviewers.index(name)),
+        )
+        assignments[reviewer].extend(pair)
+        pair_counts[reviewer] += 1
+        workloads[reviewer] += sum(chat.message_count for chat in pair)
+
+    singles.sort(key=chat_sort_key)
     sequence = snake_order(len(reviewers))
-    for position, chat in enumerate(chats):
-        reviewer = reviewers[sequence[position % len(sequence)]]
-        assignments[reviewer].append(chat)
-
-    while True:
-        conflict = next(
-            (
-                (reviewer, sop_id)
-                for reviewer, assigned in assignments.items()
-                for sop_id, count in Counter(
-                    chat.sop_id for chat in assigned
-                ).items()
-                if count > 1
-            ),
-            None,
-        )
-        if conflict is None:
-            break
-
-        reviewer, duplicated_sop = conflict
-        reviewer_sops = {chat.sop_id for chat in assignments[reviewer]}
-        moving_index = next(
-            index
-            for index, chat in enumerate(assignments[reviewer])
-            if chat.sop_id == duplicated_sop
-        )
-        moving_chat = assignments[reviewer][moving_index]
-        other_reviewer_sops = {
-            name: {chat.sop_id for chat in assigned}
-            for name, assigned in assignments.items()
-        }
-        swap_options: list[tuple[tuple[int, int, str], str, int]] = []
-        current_totals = {
-            name: sum(chat.message_count for chat in assigned)
-            for name, assigned in assignments.items()
-        }
-        for other_reviewer, other_assignments in assignments.items():
-            if (
-                other_reviewer == reviewer
-                or duplicated_sop in other_reviewer_sops[other_reviewer]
-            ):
-                continue
-            reviewer_sops_without_moving = reviewer_sops - {duplicated_sop}
-            for other_index, other_chat in enumerate(other_assignments):
-                if other_chat.sop_id in reviewer_sops_without_moving:
-                    continue
-                updated_totals = dict(current_totals)
-                updated_totals[reviewer] += (
-                    other_chat.message_count - moving_chat.message_count
-                )
-                updated_totals[other_reviewer] += (
-                    moving_chat.message_count - other_chat.message_count
-                )
-                spread = max(updated_totals.values()) - min(updated_totals.values())
-                preference = (
-                    spread,
-                    abs(moving_chat.message_count - other_chat.message_count),
-                    other_reviewer,
-                )
-                swap_options.append((preference, other_reviewer, other_index))
-
-        if not swap_options:
-            raise AssignmentError(
-                f"Could not resolve repeated SOP {duplicated_sop!r} in reviewer {reviewer!r}"
-            )
-        _, other_reviewer, other_index = min(swap_options)
-        assignments[reviewer][moving_index], assignments[other_reviewer][other_index] = (
-            assignments[other_reviewer][other_index],
-            assignments[reviewer][moving_index],
-        )
+    slot = 0
+    for chat in singles:
+        while True:
+            reviewer = reviewers[sequence[slot % len(sequence)]]
+            slot += 1
+            if len(assignments[reviewer]) < INITIAL_ASSIGNMENT_COUNT // len(reviewers):
+                assignments[reviewer].append(chat)
+                break
 
     counts = {len(assigned) for assigned in assignments.values()}
     if counts != {INITIAL_ASSIGNMENT_COUNT // INITIAL_REVIEWER_COUNT}:
         raise AssignmentError("Snake distribution did not produce an equal chat count")
-    if any(
-        len({chat.sop_id for chat in assigned}) != len(assigned)
-        for assigned in assignments.values()
-    ):
-        raise AssignmentError("Snake distribution assigned an SOP more than once to a reviewer")
     return assignments
 
 
@@ -442,11 +412,11 @@ def select_top_up_chats(
             for sop_id in grouped
             if global_sop_counts[sop_id] == lowest_count
         ]
-        fresh_sops = [
-            sop_id for sop_id in candidate_sops if reviewer_sop_counts[sop_id] == 0
+        familiar_sops = [
+            sop_id for sop_id in candidate_sops if reviewer_sop_counts[sop_id] > 0
         ]
-        if fresh_sops:
-            candidate_sops = fresh_sops
+        if familiar_sops:
+            candidate_sops = familiar_sops
         winning_sop = min(
             candidate_sops,
             key=lambda sop_id: (
@@ -475,23 +445,30 @@ def write_chat(chat: Chat, reviewer_dir: Path) -> Path:
     return destination
 
 
+def clear_existing_assignments(assignments_dir: Path) -> None:
+    if not assignments_dir.exists():
+        return
+
+    for path in assignments_dir.iterdir():
+        if path.is_dir() and not path.is_symlink():
+            for assignment in path.iterdir():
+                if assignment.is_file() and assignment.suffix.casefold() == ".json":
+                    assignment.unlink()
+            if not any(path.iterdir()):
+                path.rmdir()
+        elif path.is_file() and path.name in {"reviews.json", "coverage_report.csv"}:
+            path.unlink()
+
+
 def initialize_assignments(
     chats: Sequence[Chat],
     reviewers: Sequence[str],
     assignments_dir: Path,
     sop_ids: Sequence[str],
 ) -> dict[str, list[Chat]]:
-    if assignments_dir.exists() and any(
-        path.is_file() and path.suffix.casefold() == ".json"
-        for reviewer_dir in assignments_dir.iterdir()
-        if reviewer_dir.is_dir()
-        for path in reviewer_dir.iterdir()
-    ):
-        raise AssignmentError(
-            f"Assignments already exist in {assignments_dir}; refusing to initialize over them"
-        )
     selected = select_initial_chats(chats, sop_ids)
     assignments = distribute_snake(selected, reviewers)
+    clear_existing_assignments(assignments_dir)
     for reviewer, reviewer_assignments in assignments.items():
         reviewer_dir = assignments_dir / reviewer
         for chat in reviewer_assignments:
@@ -541,7 +518,10 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--initialize",
         action="store_true",
-        help="Create the balanced initial 70-chat assignment for seven reviewers.",
+        help=(
+            "Replace existing assignments with the balanced initial 70-chat set "
+            "and clear old review statuses."
+        ),
     )
     parser.add_argument("--reviewer", help="Reviewer requesting more chats.")
     parser.add_argument("--count", type=int, default=5, help="Number of additional chats.")

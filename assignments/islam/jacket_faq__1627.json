@@ -1,0 +1,1031 @@
+{
+  "convo_id": 1627,
+  "scenario": {
+    "personal": {
+      "customer_name": "rodriguez domingo",
+      "member_level": "gold",
+      "phone": "(142) 740-8121"
+    },
+    "order": {
+      "street_address": "2311 1st ave",
+      "full_address": "2311 1st ave  san mateo, ca 86427",
+      "city": "san mateo",
+      "num_products": "1",
+      "products": "[{'brand': 'calvin_klein', 'product_type': 'jacket', 'amount': 89, 'image_url': 'images/calvin_klein-jacket.jpeg'}]",
+      "state": "ca",
+      "zip_code": "86427"
+    },
+    "product": {
+      "names": [
+        "calvin_klein jacket"
+      ],
+      "amounts": [
+        89
+      ]
+    },
+    "flow": "single_item_query",
+    "subflow": "jacket_other_3"
+  },
+  "original": [
+    [
+      "customer",
+      "Hello!"
+    ],
+    [
+      "customer",
+      "I need your help with a very important task"
+    ],
+    [
+      "customer",
+      "I am going to a job interview for my dream job as a tour guide in New York City and I want to look good at the interview"
+    ],
+    [
+      "customer",
+      "I found a jacket that I think could help me look good and I had some questions about it"
+    ],
+    [
+      "customer",
+      "It's the $89 jacket by Calvin Klein"
+    ],
+    [
+      "customer",
+      "Hello?"
+    ],
+    [
+      "agent",
+      "hi there, sorry, the notification sound didn't work"
+    ],
+    [
+      "agent",
+      "i can help you with that"
+    ],
+    [
+      "customer",
+      "Okay great"
+    ],
+    [
+      "agent",
+      "what would you like to know?"
+    ],
+    [
+      "customer",
+      "Can you tell me if the jacket comes in a large?"
+    ],
+    [
+      "action",
+      "Searching the FAQ pages ..."
+    ],
+    [
+      "action",
+      "System Action: search jacket"
+    ],
+    [
+      "action",
+      "Agent is looking for solutions ..."
+    ],
+    [
+      "action",
+      "Searching the FAQ pages ..."
+    ],
+    [
+      "customer",
+      "Hello?"
+    ],
+    [
+      "customer",
+      "Does it?"
+    ],
+    [
+      "customer",
+      "I wear a large"
+    ],
+    [
+      "agent",
+      "sorry my system is laggy. Does it show on the website that we have a large?"
+    ],
+    [
+      "customer",
+      "Oh, yes"
+    ],
+    [
+      "customer",
+      "Now that I'm looking I see that they have a large"
+    ],
+    [
+      "customer",
+      "Great!"
+    ],
+    [
+      "customer",
+      "Also, I'm a Gold member"
+    ],
+    [
+      "agent",
+      "oh good"
+    ],
+    [
+      "customer",
+      "Do you know if that gives me any deals on the jacket?"
+    ],
+    [
+      "customer",
+      "Or faster shipping for the jacket?"
+    ],
+    [
+      "agent",
+      "well our gold members get free shipping"
+    ],
+    [
+      "customer",
+      "Oh great"
+    ],
+    [
+      "customer",
+      "How about a discount on the jacket?"
+    ],
+    [
+      "customer",
+      "I don't have a lot of money since I'm applying to jobs right now"
+    ],
+    [
+      "agent",
+      "i see. we try to help out our Gold members when we can"
+    ],
+    [
+      "customer",
+      "Great :)"
+    ],
+    [
+      "agent",
+      "i need to verify your identity"
+    ],
+    [
+      "agent",
+      "what is your name?"
+    ],
+    [
+      "customer",
+      "Rodriguez Domingo"
+    ],
+    [
+      "action",
+      "Account has been pulled up for Rodriguez Domingo."
+    ],
+    [
+      "agent",
+      "do you have your account ID?"
+    ],
+    [
+      "customer",
+      "I don't have it right now"
+    ],
+    [
+      "customer",
+      "Sorry"
+    ],
+    [
+      "agent",
+      "i see"
+    ],
+    [
+      "customer",
+      "My address is 2311 1st Ave  San Mateo, CA 86427"
+    ],
+    [
+      "customer",
+      "if that helps"
+    ],
+    [
+      "agent",
+      "could i have your email?"
+    ],
+    [
+      "customer",
+      "it's rdomingo@gmail.com"
+    ],
+    [
+      "action",
+      "Identity verification in progess ..."
+    ],
+    [
+      "agent",
+      "thank you that worked."
+    ],
+    [
+      "action",
+      "Querying the system for subscription status ..."
+    ],
+    [
+      "customer",
+      "Great!"
+    ],
+    [
+      "agent",
+      "your subscription is active, but today is the final day, so let's get that order in"
+    ],
+    [
+      "customer",
+      "So if I order soon I get a discount?"
+    ],
+    [
+      "agent",
+      "let me get the system to generate a promo code for you right now"
+    ],
+    [
+      "agent",
+      "since you are a Gold member"
+    ],
+    [
+      "action",
+      "A promo code has been created."
+    ],
+    [
+      "customer",
+      "Okay great"
+    ],
+    [
+      "agent",
+      "Here you are, use 4C5ID to get 20% off"
+    ],
+    [
+      "customer",
+      "Thanks so much!"
+    ],
+    [
+      "customer",
+      "I will order the jacket today"
+    ],
+    [
+      "agent",
+      "glad that i could help"
+    ],
+    [
+      "agent",
+      "is there anything else?"
+    ],
+    [
+      "customer",
+      "I think that's it"
+    ],
+    [
+      "customer",
+      "I don't have other questions"
+    ],
+    [
+      "agent",
+      "OK don't forget to submit the order! Have a great day!"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "customer",
+      "text": "hello!",
+      "turn_count": 1,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i need your help with a very important task",
+      "turn_count": 2,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i am going to a job interview for my dream job as a tour guide in new york city and i want to look good at the interview",
+      "turn_count": 3,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i found a jacket that i think could help me look good and i had some questions about it",
+      "turn_count": 4,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "it's the $<amount> jacket by calvin klein",
+      "turn_count": 5,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "hello?",
+      "turn_count": 6,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "hi there, sorry, the notification sound didn't work",
+      "turn_count": 7,
+      "targets": [
+        "jacket",
+        "retrieve_utterance",
+        null,
+        [],
+        45
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i can help you with that",
+      "turn_count": 8,
+      "targets": [
+        "jacket",
+        "retrieve_utterance",
+        null,
+        [],
+        85
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay great",
+      "turn_count": 9,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "what would you like to know?",
+      "turn_count": 10,
+      "targets": [
+        "jacket",
+        "retrieve_utterance",
+        null,
+        [],
+        91
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "can you tell me if the jacket comes in a large?",
+      "turn_count": 11,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "searching the faq pages ...",
+      "turn_count": 12,
+      "targets": [
+        "jacket",
+        "take_action",
+        "search-faq",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "system action: search jacket",
+      "turn_count": 15,
+      "targets": [
+        "jacket",
+        "take_action",
+        "search-jacket",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "agent is looking for solutions ...",
+      "turn_count": 17,
+      "targets": [
+        "jacket",
+        "take_action",
+        "instructions",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "searching the faq pages ...",
+      "turn_count": 19,
+      "targets": [
+        "jacket",
+        "take_action",
+        "search-faq",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "hello?",
+      "turn_count": 20,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "does it?",
+      "turn_count": 21,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i wear a large",
+      "turn_count": 22,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "sorry my system is laggy. does it show on the website that we have a large?",
+      "turn_count": 23,
+      "targets": [
+        "jacket",
+        "retrieve_utterance",
+        null,
+        [],
+        88
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "oh, yes",
+      "turn_count": 24,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "now that i'm looking i see that they have a large",
+      "turn_count": 25,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "great!",
+      "turn_count": 26,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "also, i'm a gold member",
+      "turn_count": 27,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "oh good",
+      "turn_count": 28,
+      "targets": [
+        "jacket",
+        "retrieve_utterance",
+        null,
+        [],
+        76
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "do you know if that gives me any deals on the jacket?",
+      "turn_count": 29,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "or faster shipping for the jacket?",
+      "turn_count": 30,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "well our gold members get free shipping",
+      "turn_count": 31,
+      "targets": [
+        "jacket",
+        "retrieve_utterance",
+        null,
+        [],
+        39
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "oh great",
+      "turn_count": 32,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "how about a discount on the jacket?",
+      "turn_count": 33,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i don't have a lot of money since i'm applying to jobs right now",
+      "turn_count": 34,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i see. we try to help out our gold members when we can",
+      "turn_count": 35,
+      "targets": [
+        "jacket",
+        "retrieve_utterance",
+        null,
+        [],
+        94
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "great :)",
+      "turn_count": 36,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i need to verify your identity",
+      "turn_count": 37,
+      "targets": [
+        "jacket",
+        "retrieve_utterance",
+        null,
+        [],
+        31
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "what is your name?",
+      "turn_count": 38,
+      "targets": [
+        "jacket",
+        "retrieve_utterance",
+        null,
+        [],
+        38
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "rodriguez domingo",
+      "turn_count": 39,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for rodriguez domingo.",
+      "turn_count": 40,
+      "targets": [
+        "jacket",
+        "take_action",
+        "pull-up-account",
+        [
+          "rodriguez domingo"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "do you have your account id?",
+      "turn_count": 41,
+      "targets": [
+        "jacket",
+        "retrieve_utterance",
+        null,
+        [],
+        26
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i don't have it right now",
+      "turn_count": 42,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "sorry",
+      "turn_count": 43,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i see",
+      "turn_count": 44,
+      "targets": [
+        "jacket",
+        "retrieve_utterance",
+        null,
+        [],
+        98
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "my address is <street_address>  san mateo, ca <zip_code>",
+      "turn_count": 45,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "if that helps",
+      "turn_count": 46,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "could i have your email?",
+      "turn_count": 47,
+      "targets": [
+        "jacket",
+        "retrieve_utterance",
+        null,
+        [],
+        5
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "it's rdomingo@gmail.com",
+      "turn_count": 48,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "identity verification in progess ...",
+      "turn_count": 49,
+      "targets": [
+        "jacket",
+        "take_action",
+        "verify-identity",
+        [
+          "rodriguez domingo",
+          "86427",
+          "rdomingo@gmail.com"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you that worked.",
+      "turn_count": 50,
+      "targets": [
+        "jacket",
+        "retrieve_utterance",
+        null,
+        [],
+        44
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "querying the system for subscription status ...",
+      "turn_count": 51,
+      "targets": [
+        "jacket",
+        "take_action",
+        "subscription-status",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "great!",
+      "turn_count": 52,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "your subscription is active, but today is the final day, so let's get that order in",
+      "turn_count": 53,
+      "targets": [
+        "jacket",
+        "retrieve_utterance",
+        null,
+        [],
+        54
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "so if i order soon i get a discount?",
+      "turn_count": 54,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "let me get the system to generate a promo code for you right now",
+      "turn_count": 55,
+      "targets": [
+        "jacket",
+        "retrieve_utterance",
+        null,
+        [],
+        33
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "since you are a gold member",
+      "turn_count": 56,
+      "targets": [
+        "jacket",
+        "retrieve_utterance",
+        null,
+        [],
+        95
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "a promo code has been created.",
+      "turn_count": 57,
+      "targets": [
+        "jacket",
+        "take_action",
+        "promo-code",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay great",
+      "turn_count": 58,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "here you are, use 4c5id to get 20% off",
+      "turn_count": 59,
+      "targets": [
+        "jacket",
+        "retrieve_utterance",
+        null,
+        [],
+        3
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thanks so much!",
+      "turn_count": 60,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i will order the jacket today",
+      "turn_count": 61,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "glad that i could help",
+      "turn_count": 62,
+      "targets": [
+        "jacket",
+        "retrieve_utterance",
+        null,
+        [],
+        5
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "is there anything else?",
+      "turn_count": 63,
+      "targets": [
+        "jacket",
+        "retrieve_utterance",
+        null,
+        [],
+        22
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i think that's it",
+      "turn_count": 64,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i don't have other questions",
+      "turn_count": 65,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok don't forget to submit the order! have a great day!",
+      "turn_count": 66,
+      "targets": [
+        "jacket",
+        "retrieve_utterance",
+        null,
+        [],
+        26
+      ]
+    }
+  ]
+}

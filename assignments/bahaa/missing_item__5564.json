@@ -1,0 +1,820 @@
+{
+  "convo_id": 5564,
+  "scenario": {
+    "personal": {
+      "account_id": "ibnmnzxpkf",
+      "customer_name": "crystal minh",
+      "email": "crystalm127@email.com",
+      "member_level": "silver",
+      "phone": "(135) 926-4957",
+      "username": "crystalm127"
+    },
+    "order": {
+      "street_address": "3213 2nd ave",
+      "full_address": "3213 2nd ave  san lima, mi 58607",
+      "city": "san lima",
+      "num_products": "2",
+      "order_id": "8806472327",
+      "products": "[{'brand': 'guess', 'product_type': 'jeans', 'amount': 94, 'image_url': 'images/guess-jeans.jpeg'}, {'brand': 'calvin_klein', 'product_type': 'jeans', 'amount': 79, 'image_url': 'images/calvin_klein-jeans.jpeg'}]",
+      "purchase_date": "2019-09-02",
+      "state": "mi",
+      "zip_code": "58607"
+    },
+    "product": {
+      "names": [
+        "guess jeans",
+        "calvin_klein jeans"
+      ],
+      "amounts": [
+        94,
+        79
+      ]
+    },
+    "flow": "shipping_issue",
+    "subflow": "missing"
+  },
+  "original": [
+    [
+      "agent",
+      "Hello,how can I help you today?"
+    ],
+    [
+      "customer",
+      "I need to check the shipping status of an order I haven't gotten yet."
+    ],
+    [
+      "agent",
+      "Alright, I can help you with that."
+    ],
+    [
+      "agent",
+      "Can I get your full name or Account ID?"
+    ],
+    [
+      "customer",
+      "Crystal Minh"
+    ],
+    [
+      "agent",
+      "Thank you Crystal. While I pull up your account I will just clarify that you wanted to check on the shipping status of your order?"
+    ],
+    [
+      "action",
+      "Account has been pulled up for Crystal Minh."
+    ],
+    [
+      "customer",
+      "That's right"
+    ],
+    [
+      "agent",
+      "Can I also get your account ID and Order ID so I can verify your identity?"
+    ],
+    [
+      "customer",
+      "Account ID: IBNMNZXPKF"
+    ],
+    [
+      "customer",
+      "Order ID: 8806472327"
+    ],
+    [
+      "action",
+      "Identity verification in progress ..."
+    ],
+    [
+      "agent",
+      "One moment while the system searches for this."
+    ],
+    [
+      "customer",
+      "ok"
+    ],
+    [
+      "action",
+      "Querying the system for an answer ..."
+    ],
+    [
+      "agent",
+      "Did you think you should have received your item by now?"
+    ],
+    [
+      "customer",
+      "yes, I should have gotten it 5 days ago"
+    ],
+    [
+      "agent",
+      "So you have been waiting 5 days for it?"
+    ],
+    [
+      "agent",
+      "Are you still there Crystal?"
+    ],
+    [
+      "customer",
+      "yes"
+    ],
+    [
+      "agent",
+      "How long have you been waiting for this? Has it only been 5 days?"
+    ],
+    [
+      "customer",
+      "Yes. i have been waiting 5 days."
+    ],
+    [
+      "agent",
+      "It can take up to 7 days to arrive so it will likely be there soon. If it doesn't arrive after 7 days we can look in to it again."
+    ],
+    [
+      "customer",
+      "I was told it would arrive sooner, and I need it by Monday."
+    ],
+    [
+      "agent",
+      "Do you know the shipping status?"
+    ],
+    [
+      "customer",
+      "No I contacted you to find that out."
+    ],
+    [
+      "customer",
+      "It was my original question"
+    ],
+    [
+      "agent",
+      "Yes, I realize that. But normally the package takes 7 days and it has only been 5."
+    ],
+    [
+      "customer",
+      "I really need them by monday for an event. Can you tell me the status."
+    ],
+    [
+      "agent",
+      "Your order should tell you the shipping status. If it has not been sent yet I can change it to overnight shipping. But without the shipping status I do not know if it has been sent. My system does not give me that information."
+    ],
+    [
+      "customer",
+      "It hasn't given me any notifications on shipping. Can you change it now?"
+    ],
+    [
+      "agent",
+      "I can not change it without knowing if it has left our facility."
+    ],
+    [
+      "customer",
+      "Can you overnight a new order and I'll send the other back if it ever comes?"
+    ],
+    [
+      "customer",
+      "I need these jeans for a photoshoot event"
+    ],
+    [
+      "agent",
+      "I can do that. One moment please."
+    ],
+    [
+      "customer",
+      "thank you so much"
+    ],
+    [
+      "agent",
+      "What is your membership level?"
+    ],
+    [
+      "customer",
+      "Silver"
+    ],
+    [
+      "action",
+      "Membership level of silver has been noted."
+    ],
+    [
+      "agent",
+      "Since your are a silver member I will ship your item overnight free of charge. What brand of jeans were you looking at?"
+    ],
+    [
+      "customer",
+      "One pair was Guess and the other was Calvin Klein"
+    ],
+    [
+      "action",
+      "A purchase of Guess jeans was made."
+    ],
+    [
+      "action",
+      "A purchase of Calvin Klein jeans was made."
+    ],
+    [
+      "agent",
+      "I have ordered those for you Crystal. They will arrive tomorrow morning. When the other package shows up you can call us and we will get you a label for your return."
+    ],
+    [
+      "agent",
+      "Is there anything else I can help you with today?"
+    ],
+    [
+      "customer",
+      "That sounds great!"
+    ],
+    [
+      "customer",
+      "That's all thanks!"
+    ],
+    [
+      "agent",
+      "Have a great day  Crystal."
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "hello,how can i help you today?",
+      "turn_count": 1,
+      "targets": [
+        "missing",
+        "retrieve_utterance",
+        null,
+        [],
+        53
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i need to check the shipping status of an order i haven't gotten yet.",
+      "turn_count": 2,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "alright, i can help you with that.",
+      "turn_count": 3,
+      "targets": [
+        "missing",
+        "retrieve_utterance",
+        null,
+        [],
+        25
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can i get your full name or account id?",
+      "turn_count": 4,
+      "targets": [
+        "missing",
+        "retrieve_utterance",
+        null,
+        [],
+        82
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "crystal minh",
+      "turn_count": 5,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you crystal. while i pull up your account i will just clarify that you wanted to check on the shipping status of your order?",
+      "turn_count": 6,
+      "targets": [
+        "missing",
+        "retrieve_utterance",
+        null,
+        [],
+        1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for crystal minh.",
+      "turn_count": 7,
+      "targets": [
+        "missing",
+        "take_action",
+        "pull-up-account",
+        [
+          "crystal minh"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "that's right",
+      "turn_count": 8,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can i also get your account id and order id so i can verify your identity?",
+      "turn_count": 9,
+      "targets": [
+        "missing",
+        "retrieve_utterance",
+        null,
+        [],
+        5
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "account id: <account_id>",
+      "turn_count": 10,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "order id: <order_id>",
+      "turn_count": 11,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "identity verification in progress ...",
+      "turn_count": 12,
+      "targets": [
+        "missing",
+        "take_action",
+        "verify-identity",
+        [
+          "crystal minh",
+          "ibnmnzxpkf",
+          "8806472327"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "one moment while the system searches for this.",
+      "turn_count": 13,
+      "targets": [
+        "missing",
+        "retrieve_utterance",
+        null,
+        [],
+        32
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok",
+      "turn_count": 14,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "querying the system for an answer ...",
+      "turn_count": 15,
+      "targets": [
+        "missing",
+        "take_action",
+        "ask-the-oracle",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "did you think you should have received your item by now?",
+      "turn_count": 16,
+      "targets": [
+        "missing",
+        "retrieve_utterance",
+        null,
+        [],
+        96
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yes, i should have gotten it 5 days ago",
+      "turn_count": 17,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "so you have been waiting 5 days for it?",
+      "turn_count": 18,
+      "targets": [
+        "missing",
+        "retrieve_utterance",
+        null,
+        [],
+        62
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "are you still there crystal?",
+      "turn_count": 19,
+      "targets": [
+        "missing",
+        "retrieve_utterance",
+        null,
+        [],
+        78
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yes",
+      "turn_count": 20,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "how long have you been waiting for this? has it only been 5 days?",
+      "turn_count": 21,
+      "targets": [
+        "missing",
+        "retrieve_utterance",
+        null,
+        [],
+        69
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yes. i have been waiting 5 days.",
+      "turn_count": 22,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "it can take up to 7 days to arrive so it will likely be there soon. if it doesn't arrive after 7 days we can look in to it again.",
+      "turn_count": 23,
+      "targets": [
+        "missing",
+        "retrieve_utterance",
+        null,
+        [],
+        60
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i was told it would arrive sooner, and i need it by monday.",
+      "turn_count": 24,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "do you know the shipping status?",
+      "turn_count": 25,
+      "targets": [
+        "missing",
+        "retrieve_utterance",
+        null,
+        [],
+        85
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no i contacted you to find that out.",
+      "turn_count": 26,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "it was my original question",
+      "turn_count": 27,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "yes, i realize that. but normally the package takes 7 days and it has only been 5.",
+      "turn_count": 28,
+      "targets": [
+        "missing",
+        "retrieve_utterance",
+        null,
+        [],
+        91
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i really need them by monday for an event. can you tell me the status.",
+      "turn_count": 29,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "your order should tell you the shipping status. if it has not been sent yet i can change it to overnight shipping. but without the shipping status i do not know if it has been sent. my system does not give me that information.",
+      "turn_count": 30,
+      "targets": [
+        "missing",
+        "retrieve_utterance",
+        null,
+        [],
+        52
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "it hasn't given me any notifications on shipping. can you change it now?",
+      "turn_count": 31,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i can not change it without knowing if it has left our facility.",
+      "turn_count": 32,
+      "targets": [
+        "missing",
+        "retrieve_utterance",
+        null,
+        [],
+        74
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "can you overnight a new order and i'll send the other back if it ever comes?",
+      "turn_count": 33,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i need these jeans for a photoshoot event",
+      "turn_count": 34,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i can do that. one moment please.",
+      "turn_count": 35,
+      "targets": [
+        "missing",
+        "retrieve_utterance",
+        null,
+        [],
+        77
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thank you so much",
+      "turn_count": 36,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "what is your membership level?",
+      "turn_count": 37,
+      "targets": [
+        "missing",
+        "retrieve_utterance",
+        null,
+        [],
+        50
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "silver",
+      "turn_count": 38,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "membership level of silver has been noted.",
+      "turn_count": 39,
+      "targets": [
+        "missing",
+        "take_action",
+        "membership",
+        [
+          "silver"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "since your are a silver member i will ship your item overnight free of charge. what brand of jeans were you looking at?",
+      "turn_count": 40,
+      "targets": [
+        "missing",
+        "retrieve_utterance",
+        null,
+        [],
+        77
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "one pair was guess and the other was calvin klein",
+      "turn_count": 41,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "a purchase of <name> was made.",
+      "turn_count": 42,
+      "targets": [
+        "missing",
+        "take_action",
+        "make-purchase",
+        [
+          "guess jeans"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "a purchase of calvin klein jeans was made.",
+      "turn_count": 43,
+      "targets": [
+        "missing",
+        "take_action",
+        "make-purchase",
+        [
+          "calvin klein jeans"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i have ordered those for you crystal. they will arrive tomorrow morning. when the other package shows up you can call us and we will get you a label for your return.",
+      "turn_count": 44,
+      "targets": [
+        "missing",
+        "retrieve_utterance",
+        null,
+        [],
+        21
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "is there anything else i can help you with today?",
+      "turn_count": 45,
+      "targets": [
+        "missing",
+        "retrieve_utterance",
+        null,
+        [],
+        15
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "that sounds great!",
+      "turn_count": 46,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "that's all thanks!",
+      "turn_count": 47,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "have a great day  crystal.",
+      "turn_count": 48,
+      "targets": [
+        "missing",
+        "retrieve_utterance",
+        null,
+        [],
+        46
+      ]
+    }
+  ]
+}

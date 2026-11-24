@@ -1,0 +1,919 @@
+{
+  "convo_id": 365,
+  "scenario": {
+    "personal": {
+      "customer_name": "albert sanders",
+      "email": "alberts5@email.com",
+      "member_level": "guest",
+      "phone": "(960) 023-9579",
+      "username": "alberts5"
+    },
+    "order": {
+      "street_address": "8789 kennedy st",
+      "full_address": "8789 kennedy st  monterey, mi 87795",
+      "city": "monterey",
+      "num_products": "1",
+      "order_id": "5822212930",
+      "packaging": "yes",
+      "payment_method": "debit card",
+      "products": "[{'brand': 'tommy_hilfiger', 'product_type': 'boots', 'amount': 64, 'image_url': 'images/tommy_hilfiger-boots.jpeg'}]",
+      "purchase_date": "2019-07-11",
+      "state": "mi",
+      "zip_code": "87795"
+    },
+    "product": {
+      "names": [
+        "tommy_hilfiger boots"
+      ],
+      "amounts": [
+        64
+      ]
+    },
+    "flow": "product_defect",
+    "subflow": "return_color"
+  },
+  "original": [
+    [
+      "agent",
+      "Hello, thank you for contacting us today."
+    ],
+    [
+      "customer",
+      "Hello"
+    ],
+    [
+      "agent",
+      "What can I help you with today?"
+    ],
+    [
+      "customer",
+      "I want to return the item because it was delivered in wrong color."
+    ],
+    [
+      "customer",
+      "can you help me with that ?"
+    ],
+    [
+      "agent",
+      "Ill do what I can to help and sorry for the inconvenience. Can I have your first and last name in order to pull up your account details?"
+    ],
+    [
+      "customer",
+      "Albert Sanders"
+    ],
+    [
+      "customer",
+      "Order ID: 5822212930"
+    ],
+    [
+      "action",
+      "Account has been pulled up for Albert Sanders."
+    ],
+    [
+      "agent",
+      "Thanks so much for also providing the order number, I'll just need two more things before we can get started, Your username and email address."
+    ],
+    [
+      "customer",
+      "Username: alberts5"
+    ],
+    [
+      "customer",
+      "Email Address: alberts5@email.com"
+    ],
+    [
+      "agent",
+      "Thank you, one moment."
+    ],
+    [
+      "customer",
+      "okay"
+    ],
+    [
+      "action",
+      "Purchase validation in progress ..."
+    ],
+    [
+      "agent",
+      "Alright thank you, do you happen to know your membership level?"
+    ],
+    [
+      "customer",
+      "no"
+    ],
+    [
+      "agent",
+      "Not a problem."
+    ],
+    [
+      "action",
+      "Querying the system for an answer ..."
+    ],
+    [
+      "customer",
+      "What next ?"
+    ],
+    [
+      "agent",
+      "I was just checking your membership level and you are currently a silver member."
+    ],
+    [
+      "agent",
+      "When was the purchase date?"
+    ],
+    [
+      "customer",
+      "okay."
+    ],
+    [
+      "customer",
+      "Actually, I got wrong item"
+    ],
+    [
+      "customer",
+      "I want to return the item for the refund.,"
+    ],
+    [
+      "customer",
+      "Are you able to help me with that issue ?"
+    ],
+    [
+      "agent",
+      "Yes, I;m just making sure it is still within the refund window at the moment."
+    ],
+    [
+      "agent",
+      "I'll also be sending you instructions for a shipping label so the item can be returned."
+    ],
+    [
+      "agent",
+      "Hello Albert? Are you still there?"
+    ],
+    [
+      "customer",
+      "yes"
+    ],
+    [
+      "customer",
+      "yes. i need refund"
+    ],
+    [
+      "customer",
+      "okay i will return\\"
+    ],
+    [
+      "customer",
+      "okay i will return"
+    ],
+    [
+      "agent",
+      "Alright for the shipping label I just need your Address, city m state and zip cone. then we can go ahead and get the item refunded."
+    ],
+    [
+      "customer",
+      "8789 Kennedy St  Monterey, MI 87795"
+    ],
+    [
+      "agent",
+      "Thank you, and woulpd you prefer to drop the item off in store, by mail, or at a drop off center."
+    ],
+    [
+      "customer",
+      "drop the item off in store"
+    ],
+    [
+      "action",
+      "Details of 8789 Kennedy St Monterey, MI 87795 have been entered."
+    ],
+    [
+      "action",
+      "Order has been updated with In store."
+    ],
+    [
+      "agent",
+      "Thank you lets go ahead and get the refund started now"
+    ],
+    [
+      "customer",
+      "okay, Thank you"
+    ],
+    [
+      "agent",
+      "I already have most of the information I need so how would you prefer the refund? Gift Card, Added to your account, back to your card?"
+    ],
+    [
+      "customer",
+      "Gift Card"
+    ],
+    [
+      "agent",
+      "Alright and how much was the item?"
+    ],
+    [
+      "customer",
+      "Amount: $64"
+    ],
+    [
+      "action",
+      "A reason of Gift Card has been recorded."
+    ],
+    [
+      "action",
+      "Details of 8789 Kennedy St Monterey, MI 87795 have been entered."
+    ],
+    [
+      "customer",
+      "ok"
+    ],
+    [
+      "action",
+      "A refund has been made for the amount of $64."
+    ],
+    [
+      "customer",
+      "okay, Thank you"
+    ],
+    [
+      "agent",
+      "Alright, sorry that took so long! Was there anythign else you needed?"
+    ],
+    [
+      "customer",
+      "no"
+    ],
+    [
+      "customer",
+      "bye"
+    ],
+    [
+      "agent",
+      "Have a great day and thank you."
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "hello, thank you for contacting us today.",
+      "turn_count": 1,
+      "targets": [
+        "return_color",
+        "retrieve_utterance",
+        null,
+        [],
+        8
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "hello",
+      "turn_count": 2,
+      "targets": [
+        "return_color",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "what can i help you with today?",
+      "turn_count": 3,
+      "targets": [
+        "return_color",
+        "retrieve_utterance",
+        null,
+        [],
+        22
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i want to return the item because it was delivered in wrong color.",
+      "turn_count": 4,
+      "targets": [
+        "return_color",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "can you help me with that ?",
+      "turn_count": 5,
+      "targets": [
+        "return_color",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ill do what i can to help and sorry for the inconvenience. can i have your first and last name in order to pull up your account details?",
+      "turn_count": 6,
+      "targets": [
+        "return_color",
+        "retrieve_utterance",
+        null,
+        [],
+        67
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "albert sanders",
+      "turn_count": 7,
+      "targets": [
+        "return_color",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "order id: <order_id>",
+      "turn_count": 8,
+      "targets": [
+        "return_color",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for albert sanders.",
+      "turn_count": 9,
+      "targets": [
+        "return_color",
+        "take_action",
+        "pull-up-account",
+        [
+          "albert sanders"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thanks so much for also providing the order number, i'll just need two more things before we can get started, your username and email address.",
+      "turn_count": 10,
+      "targets": [
+        "return_color",
+        "retrieve_utterance",
+        null,
+        [],
+        87
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "username: <username>",
+      "turn_count": 11,
+      "targets": [
+        "return_color",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "email address: <email>",
+      "turn_count": 12,
+      "targets": [
+        "return_color",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you, one moment.",
+      "turn_count": 13,
+      "targets": [
+        "return_color",
+        "retrieve_utterance",
+        null,
+        [],
+        13
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay",
+      "turn_count": 14,
+      "targets": [
+        "return_color",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "purchase validation in progress ...",
+      "turn_count": 15,
+      "targets": [
+        "return_color",
+        "take_action",
+        "validate-purchase",
+        [
+          "alberts5",
+          "alberts5@email.com",
+          "5822212930"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "alright thank you, do you happen to know your membership level?",
+      "turn_count": 16,
+      "targets": [
+        "return_color",
+        "retrieve_utterance",
+        null,
+        [],
+        57
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no",
+      "turn_count": 17,
+      "targets": [
+        "return_color",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "not a problem.",
+      "turn_count": 18,
+      "targets": [
+        "return_color",
+        "retrieve_utterance",
+        null,
+        [],
+        44
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "querying the system for an answer ...",
+      "turn_count": 19,
+      "targets": [
+        "return_color",
+        "take_action",
+        "ask-the-oracle",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "what next ?",
+      "turn_count": 20,
+      "targets": [
+        "return_color",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i was just checking your membership level and you are currently a silver member.",
+      "turn_count": 21,
+      "targets": [
+        "return_color",
+        "retrieve_utterance",
+        null,
+        [],
+        39
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "when was the purchase date?",
+      "turn_count": 22,
+      "targets": [
+        "return_color",
+        "retrieve_utterance",
+        null,
+        [],
+        1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay.",
+      "turn_count": 23,
+      "targets": [
+        "return_color",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "actually, i got wrong item",
+      "turn_count": 24,
+      "targets": [
+        "return_color",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i want to return the item for the refund.,",
+      "turn_count": 25,
+      "targets": [
+        "return_color",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "are you able to help me with that issue ?",
+      "turn_count": 26,
+      "targets": [
+        "return_color",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "yes, i;m just making sure it is still within the refund window at the moment.",
+      "turn_count": 27,
+      "targets": [
+        "return_color",
+        "retrieve_utterance",
+        null,
+        [],
+        32
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i'll also be sending you instructions for a shipping label so the item can be returned.",
+      "turn_count": 28,
+      "targets": [
+        "return_color",
+        "retrieve_utterance",
+        null,
+        [],
+        37
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "hello albert? are you still there?",
+      "turn_count": 29,
+      "targets": [
+        "return_color",
+        "retrieve_utterance",
+        null,
+        [],
+        46
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yes",
+      "turn_count": 30,
+      "targets": [
+        "return_color",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yes. i need refund",
+      "turn_count": 31,
+      "targets": [
+        "return_color",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay i will return\\",
+      "turn_count": 32,
+      "targets": [
+        "return_color",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay i will return",
+      "turn_count": 33,
+      "targets": [
+        "return_color",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "alright for the shipping label i just need your address, city m state and zip cone. then we can go ahead and get the item refunded.",
+      "turn_count": 34,
+      "targets": [
+        "return_color",
+        "retrieve_utterance",
+        null,
+        [],
+        27
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "<street_address>  monterey, mi <zip_code>",
+      "turn_count": 35,
+      "targets": [
+        "return_color",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you, and woulpd you prefer to drop the item off in store, by mail, or at a drop off center.",
+      "turn_count": 36,
+      "targets": [
+        "return_color",
+        "retrieve_utterance",
+        null,
+        [],
+        37
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "drop the item off in store",
+      "turn_count": 37,
+      "targets": [
+        "return_color",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "details of <street_address> monterey, mi <zip_code> have been entered.",
+      "turn_count": 38,
+      "targets": [
+        "return_color",
+        "take_action",
+        "enter-details",
+        [
+          "8789 kennedy st monterey, mi 87795"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "order has been updated with in store.",
+      "turn_count": 39,
+      "targets": [
+        "return_color",
+        "take_action",
+        "update-order",
+        [
+          "by mail"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you lets go ahead and get the refund started now",
+      "turn_count": 40,
+      "targets": [
+        "return_color",
+        "retrieve_utterance",
+        null,
+        [],
+        17
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay, thank you",
+      "turn_count": 41,
+      "targets": [
+        "return_color",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i already have most of the information i need so how would you prefer the refund? gift card, added to your account, back to your card?",
+      "turn_count": 42,
+      "targets": [
+        "return_color",
+        "retrieve_utterance",
+        null,
+        [],
+        13
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "gift card",
+      "turn_count": 43,
+      "targets": [
+        "return_color",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "alright and how much was the item?",
+      "turn_count": 44,
+      "targets": [
+        "return_color",
+        "retrieve_utterance",
+        null,
+        [],
+        98
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "amount: $<amount>",
+      "turn_count": 45,
+      "targets": [
+        "return_color",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "a reason of gift card has been recorded.",
+      "turn_count": 46,
+      "targets": [
+        "return_color",
+        "take_action",
+        "record-reason",
+        [
+          "gift card"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "details of <street_address> monterey, mi <zip_code> have been entered.",
+      "turn_count": 47,
+      "targets": [
+        "return_color",
+        "take_action",
+        "enter-details",
+        [
+          "8789 kennedy st monterey, mi 87795"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok",
+      "turn_count": 48,
+      "targets": [
+        "return_color",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "a refund has been made for the amount of $<amount>.",
+      "turn_count": 49,
+      "targets": [
+        "return_color",
+        "take_action",
+        "offer-refund",
+        [
+          "64"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay, thank you",
+      "turn_count": 50,
+      "targets": [
+        "return_color",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "alright, sorry that took so long! was there anythign else you needed?",
+      "turn_count": 51,
+      "targets": [
+        "return_color",
+        "retrieve_utterance",
+        null,
+        [],
+        87
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no",
+      "turn_count": 52,
+      "targets": [
+        "return_color",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "bye",
+      "turn_count": 53,
+      "targets": [
+        "return_color",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "have a great day and thank you.",
+      "turn_count": 54,
+      "targets": [
+        "return_color",
+        "retrieve_utterance",
+        null,
+        [],
+        99
+      ]
+    }
+  ]
+}

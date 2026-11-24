@@ -1,0 +1,799 @@
+{
+  "convo_id": 326,
+  "scenario": {
+    "personal": {
+      "account_id": "uxfn6q7pvf",
+      "customer_name": "albert sanders",
+      "member_level": "guest",
+      "phone": "(570) 012-2105"
+    },
+    "order": {
+      "street_address": "4681 primrose ave",
+      "full_address": "4681 primrose ave  brighton, wa 63589",
+      "city": "brighton",
+      "num_products": "1",
+      "order_id": "0508197095",
+      "products": "[{'brand': 'michael_kors', 'product_type': 'jeans', 'amount': 69, 'image_url': 'images/michael_kors-jeans.jpeg'}]",
+      "state": "wa",
+      "zip_code": "63589"
+    },
+    "product": {
+      "names": [
+        "michael_kors jeans"
+      ],
+      "amounts": [
+        69
+      ]
+    },
+    "flow": "order_issue",
+    "subflow": "manage_upgrade"
+  },
+  "original": [
+    [
+      "agent",
+      "Hi, thank you for contacting AcmeBrands, how may I help you today?"
+    ],
+    [
+      "agent",
+      "hello, are you still there?"
+    ],
+    [
+      "customer",
+      "Hi sorry"
+    ],
+    [
+      "customer",
+      "I want to make my shipping faster"
+    ],
+    [
+      "agent",
+      "Ok, it sounds like you have a shipping issue"
+    ],
+    [
+      "agent",
+      "To get started, can I please get your full name or account ID?"
+    ],
+    [
+      "customer",
+      "sure my name is Albert Sanders"
+    ],
+    [
+      "action",
+      "Account has been pulled up for Albert Sanders."
+    ],
+    [
+      "agent",
+      "Hi Albert, can you please tell me more about your issue?"
+    ],
+    [
+      "customer",
+      "so yeah I ordered this jeans and I'm wondering if I can have it delivered faster"
+    ],
+    [
+      "agent",
+      "hmm, ok, let me take a look"
+    ],
+    [
+      "agent",
+      "Are you trying to change the time of day it is delivered?"
+    ],
+    [
+      "agent",
+      "Or maybe upgrade to overnight shipping?"
+    ],
+    [
+      "customer",
+      "yeah if I can upgrade so that ships faster that'd be great"
+    ],
+    [
+      "agent",
+      "Ok, to start, I will need to verify your identity"
+    ],
+    [
+      "agent",
+      "can i get your Account ID and Order ID?"
+    ],
+    [
+      "customer",
+      "my account id: UXFN6Q7PVF"
+    ],
+    [
+      "customer",
+      "order id: 0508197095"
+    ],
+    [
+      "action",
+      "Identity verification in progess ..."
+    ],
+    [
+      "agent",
+      "Great, your identity has been verified"
+    ],
+    [
+      "agent",
+      "Next, can you please tell me your shipping status?"
+    ],
+    [
+      "agent",
+      "Has the item shipped yet?"
+    ],
+    [
+      "customer",
+      "yes I think it's in transit"
+    ],
+    [
+      "agent",
+      "Ok, that's a little more difficult"
+    ],
+    [
+      "action",
+      "Shipping status of In transit has been noted."
+    ],
+    [
+      "agent",
+      "Can I please get your member level?"
+    ],
+    [
+      "customer",
+      "it's gold"
+    ],
+    [
+      "agent",
+      "Ok, since your item is in transit, i may be hard to reach"
+    ],
+    [
+      "agent",
+      "However, since you are a gold member, I will do everything I can to make this happen"
+    ],
+    [
+      "action",
+      "Membership level of Gold has been noted."
+    ],
+    [
+      "agent",
+      "Since you want to upgrade to overnight shipping, that means you want it by tomorrow"
+    ],
+    [
+      "agent",
+      "Let me update your order for you"
+    ],
+    [
+      "customer",
+      "that's correct"
+    ],
+    [
+      "action",
+      "Order has been updated with tomorrow."
+    ],
+    [
+      "agent",
+      "Ok, we hope to be able to get this to you as soon as possible"
+    ],
+    [
+      "agent",
+      "Since you are a Gold Member, there are no extra associated fees for the expedited shipping"
+    ],
+    [
+      "agent",
+      "Is there anything else I can help you with?"
+    ],
+    [
+      "customer",
+      "awesome"
+    ],
+    [
+      "customer",
+      "so it's done?"
+    ],
+    [
+      "agent",
+      "yes, to the best of our ability"
+    ],
+    [
+      "customer",
+      "I'll get the order tomorrow?"
+    ],
+    [
+      "agent",
+      "if the item is already in transit, then it is likely to go through tomorrow already"
+    ],
+    [
+      "customer",
+      "I see"
+    ],
+    [
+      "customer",
+      "thanks!"
+    ],
+    [
+      "agent",
+      "is there anything else you need today?"
+    ],
+    [
+      "customer",
+      "no that's all. Thanks a lot!"
+    ],
+    [
+      "agent",
+      "have a wonderful day!"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "hi, thank you for contacting acmebrands, how may i help you today?",
+      "turn_count": 1,
+      "targets": [
+        "manage_upgrade",
+        "retrieve_utterance",
+        null,
+        [],
+        3
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "hello, are you still there?",
+      "turn_count": 2,
+      "targets": [
+        "manage_upgrade",
+        "retrieve_utterance",
+        null,
+        [],
+        20
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "hi sorry",
+      "turn_count": 3,
+      "targets": [
+        "manage_upgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i want to make my shipping faster",
+      "turn_count": 4,
+      "targets": [
+        "manage_upgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok, it sounds like you have a shipping issue",
+      "turn_count": 5,
+      "targets": [
+        "manage_upgrade",
+        "retrieve_utterance",
+        null,
+        [],
+        50
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "to get started, can i please get your full name or account id?",
+      "turn_count": 6,
+      "targets": [
+        "manage_upgrade",
+        "retrieve_utterance",
+        null,
+        [],
+        58
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "sure my name is albert sanders",
+      "turn_count": 7,
+      "targets": [
+        "manage_upgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for albert sanders.",
+      "turn_count": 8,
+      "targets": [
+        "manage_upgrade",
+        "take_action",
+        "pull-up-account",
+        [
+          "albert sanders"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "hi albert, can you please tell me more about your issue?",
+      "turn_count": 9,
+      "targets": [
+        "manage_upgrade",
+        "retrieve_utterance",
+        null,
+        [],
+        46
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "so yeah i ordered this jeans and i'm wondering if i can have it delivered faster",
+      "turn_count": 10,
+      "targets": [
+        "manage_upgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "hmm, ok, let me take a look",
+      "turn_count": 11,
+      "targets": [
+        "manage_upgrade",
+        "retrieve_utterance",
+        null,
+        [],
+        56
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "are you trying to change the time of day it is delivered?",
+      "turn_count": 12,
+      "targets": [
+        "manage_upgrade",
+        "retrieve_utterance",
+        null,
+        [],
+        84
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "or maybe upgrade to overnight shipping?",
+      "turn_count": 13,
+      "targets": [
+        "manage_upgrade",
+        "retrieve_utterance",
+        null,
+        [],
+        29
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yeah if i can upgrade so that ships faster that'd be great",
+      "turn_count": 14,
+      "targets": [
+        "manage_upgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok, to start, i will need to verify your identity",
+      "turn_count": 15,
+      "targets": [
+        "manage_upgrade",
+        "retrieve_utterance",
+        null,
+        [],
+        72
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can i get your account id and order id?",
+      "turn_count": 16,
+      "targets": [
+        "manage_upgrade",
+        "retrieve_utterance",
+        null,
+        [],
+        81
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "my account id: <account_id>",
+      "turn_count": 17,
+      "targets": [
+        "manage_upgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "order id: <order_id>",
+      "turn_count": 18,
+      "targets": [
+        "manage_upgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "identity verification in progess ...",
+      "turn_count": 19,
+      "targets": [
+        "manage_upgrade",
+        "take_action",
+        "verify-identity",
+        [
+          "albert sanders",
+          "uxfn6q7pvf",
+          "0508197095"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "great, your identity has been verified",
+      "turn_count": 20,
+      "targets": [
+        "manage_upgrade",
+        "retrieve_utterance",
+        null,
+        [],
+        1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "next, can you please tell me your shipping status?",
+      "turn_count": 21,
+      "targets": [
+        "manage_upgrade",
+        "retrieve_utterance",
+        null,
+        [],
+        72
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "has the item shipped yet?",
+      "turn_count": 22,
+      "targets": [
+        "manage_upgrade",
+        "retrieve_utterance",
+        null,
+        [],
+        64
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yes i think it's in transit",
+      "turn_count": 23,
+      "targets": [
+        "manage_upgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok, that's a little more difficult",
+      "turn_count": 24,
+      "targets": [
+        "manage_upgrade",
+        "retrieve_utterance",
+        null,
+        [],
+        67
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "shipping status of in transit has been noted.",
+      "turn_count": 25,
+      "targets": [
+        "manage_upgrade",
+        "take_action",
+        "shipping-status",
+        [
+          "in transit"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can i please get your member level?",
+      "turn_count": 26,
+      "targets": [
+        "manage_upgrade",
+        "retrieve_utterance",
+        null,
+        [],
+        68
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "it's gold",
+      "turn_count": 27,
+      "targets": [
+        "manage_upgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok, since your item is in transit, i may be hard to reach",
+      "turn_count": 28,
+      "targets": [
+        "manage_upgrade",
+        "retrieve_utterance",
+        null,
+        [],
+        75
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "however, since you are a gold member, i will do everything i can to make this happen",
+      "turn_count": 29,
+      "targets": [
+        "manage_upgrade",
+        "retrieve_utterance",
+        null,
+        [],
+        81
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "membership level of gold has been noted.",
+      "turn_count": 30,
+      "targets": [
+        "manage_upgrade",
+        "take_action",
+        "membership",
+        [
+          "gold"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "since you want to upgrade to overnight shipping, that means you want it by tomorrow",
+      "turn_count": 31,
+      "targets": [
+        "manage_upgrade",
+        "retrieve_utterance",
+        null,
+        [],
+        96
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "let me update your order for you",
+      "turn_count": 32,
+      "targets": [
+        "manage_upgrade",
+        "retrieve_utterance",
+        null,
+        [],
+        63
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "that's correct",
+      "turn_count": 33,
+      "targets": [
+        "manage_upgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "order has been updated with tomorrow.",
+      "turn_count": 34,
+      "targets": [
+        "manage_upgrade",
+        "take_action",
+        "update-order",
+        [
+          "tomorrow"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok, we hope to be able to get this to you as soon as possible",
+      "turn_count": 35,
+      "targets": [
+        "manage_upgrade",
+        "retrieve_utterance",
+        null,
+        [],
+        70
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "since you are a gold member, there are no extra associated fees for the expedited shipping",
+      "turn_count": 36,
+      "targets": [
+        "manage_upgrade",
+        "retrieve_utterance",
+        null,
+        [],
+        16
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "is there anything else i can help you with?",
+      "turn_count": 37,
+      "targets": [
+        "manage_upgrade",
+        "retrieve_utterance",
+        null,
+        [],
+        13
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "awesome",
+      "turn_count": 38,
+      "targets": [
+        "manage_upgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "so it's done?",
+      "turn_count": 39,
+      "targets": [
+        "manage_upgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "yes, to the best of our ability",
+      "turn_count": 40,
+      "targets": [
+        "manage_upgrade",
+        "retrieve_utterance",
+        null,
+        [],
+        82
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i'll get the order tomorrow?",
+      "turn_count": 41,
+      "targets": [
+        "manage_upgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "if the item is already in transit, then it is likely to go through tomorrow already",
+      "turn_count": 42,
+      "targets": [
+        "manage_upgrade",
+        "retrieve_utterance",
+        null,
+        [],
+        38
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i see",
+      "turn_count": 43,
+      "targets": [
+        "manage_upgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thanks!",
+      "turn_count": 44,
+      "targets": [
+        "manage_upgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "is there anything else you need today?",
+      "turn_count": 45,
+      "targets": [
+        "manage_upgrade",
+        "retrieve_utterance",
+        null,
+        [],
+        33
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no that's all. thanks a lot!",
+      "turn_count": 46,
+      "targets": [
+        "manage_upgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "have a wonderful day!",
+      "turn_count": 47,
+      "targets": [
+        "manage_upgrade",
+        "retrieve_utterance",
+        null,
+        [],
+        32
+      ]
+    }
+  ]
+}

@@ -1,0 +1,814 @@
+{
+  "convo_id": 3740,
+  "scenario": {
+    "personal": {
+      "account_id": "oiatpezgww",
+      "customer_name": "sanya afzal",
+      "email": "sanyaa57@email.com",
+      "member_level": "bronze",
+      "phone": "(220) 098-7834",
+      "username": "sanyaa57"
+    },
+    "order": {
+      "street_address": "0696 1st ave",
+      "full_address": "0696 1st ave  la fayette, ca 51358",
+      "city": "la fayette",
+      "num_products": "1",
+      "order_id": "7724950652",
+      "products": "[{'brand': 'calvin_klein', 'product_type': 'jacket', 'amount': 79, 'image_url': 'images/calvin_klein-jacket.jpeg'}]",
+      "purchase_date": "2020-03-20",
+      "state": "ca",
+      "zip_code": "51358"
+    },
+    "product": {
+      "names": [
+        "calvin_klein jacket"
+      ],
+      "amounts": [
+        79
+      ]
+    },
+    "flow": "shipping_issue",
+    "subflow": "missing"
+  },
+  "original": [
+    [
+      "agent",
+      "Hello! Thank you for choosing AcmeBrands. How may I assist you?"
+    ],
+    [
+      "customer",
+      "Hi"
+    ],
+    [
+      "customer",
+      "I have an issue with my order and I am really upset"
+    ],
+    [
+      "customer",
+      "I wanted to wear this calvin klein jacket that I ordered to a BBQ"
+    ],
+    [
+      "customer",
+      "But it never arrived"
+    ],
+    [
+      "customer",
+      "What's going on?????"
+    ],
+    [
+      "agent",
+      "I'm so sorry about that!"
+    ],
+    [
+      "customer",
+      "I am so upset that I couldn't wear it"
+    ],
+    [
+      "agent",
+      "May I get your full name, please?"
+    ],
+    [
+      "customer",
+      "Sanya Afzal"
+    ],
+    [
+      "action",
+      "Account has been pulled up for Sanya Afzal."
+    ],
+    [
+      "agent",
+      "To validate your purchase, may I please get your Username, Email Address, and Order ID?"
+    ],
+    [
+      "customer",
+      "sanyaa57"
+    ],
+    [
+      "customer",
+      "sanyaa57@email.com"
+    ],
+    [
+      "customer",
+      "7724950652"
+    ],
+    [
+      "action",
+      "Purchase validation in progress ..."
+    ],
+    [
+      "agent",
+      "Thank you so much, Sanya. May I ask how long you've been waiting for your order to arrive?"
+    ],
+    [
+      "customer",
+      "5 WHOLE DAYS"
+    ],
+    [
+      "customer",
+      "It feels like forever"
+    ],
+    [
+      "action",
+      "A reason of 5 has been recorded."
+    ],
+    [
+      "agent",
+      "I completely understand your desire to be bar-be-cute at your get together!"
+    ],
+    [
+      "customer",
+      "lol"
+    ],
+    [
+      "customer",
+      "right"
+    ],
+    [
+      "customer",
+      "the jacket would have been so perfect for the BBQ"
+    ],
+    [
+      "agent",
+      "Because your order has been out for delivery for less than 7 days, it's very likely that it's still in transit and is just delayed."
+    ],
+    [
+      "customer",
+      ":( ughh"
+    ],
+    [
+      "customer",
+      "really???"
+    ],
+    [
+      "customer",
+      "is that allowed?"
+    ],
+    [
+      "agent",
+      "I know, I sincerely apologize for the inconvenience."
+    ],
+    [
+      "agent",
+      "Your patience is greatly appreciated! Please feel free to contact us again if 7 days has passed and your order has not arrived."
+    ],
+    [
+      "customer",
+      "so, you don't need to resend the order?"
+    ],
+    [
+      "customer",
+      "because 5 days is a lot time"
+    ],
+    [
+      "customer",
+      "I feel like there's an issue with the shipment"
+    ],
+    [
+      "customer",
+      "long time, i mean"
+    ],
+    [
+      "agent",
+      "We'll gladly resend the order if/when 7 or more days pass without delivery."
+    ],
+    [
+      "customer",
+      "I guess I'll have to deal with that :)"
+    ],
+    [
+      "agent",
+      "I do apologize again, I know that 5 days can feel like a long while."
+    ],
+    [
+      "customer",
+      "it's okay"
+    ],
+    [
+      "customer",
+      "it's not your fault"
+    ],
+    [
+      "customer",
+      "but it is really annoying"
+    ],
+    [
+      "agent",
+      "Thank you so much Sanya, we appreciate your business and your patience."
+    ],
+    [
+      "customer",
+      "okay"
+    ],
+    [
+      "agent",
+      "Is there anything more I may help you with today?"
+    ],
+    [
+      "customer",
+      "i will see if it comes soon"
+    ],
+    [
+      "customer",
+      "no that was it"
+    ],
+    [
+      "agent",
+      "I'll cross my fingers for you! :)"
+    ],
+    [
+      "customer",
+      "thanks :)"
+    ],
+    [
+      "agent",
+      "Thank you so much for contacting AcmeBrands customer service. Goodbye!"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "hello! thank you for choosing acmebrands. how may i assist you?",
+      "turn_count": 1,
+      "targets": [
+        "missing",
+        "retrieve_utterance",
+        null,
+        [],
+        21
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "hi",
+      "turn_count": 2,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i have an issue with my order and i am really upset",
+      "turn_count": 3,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i wanted to wear this calvin klein jacket that i ordered to a bbq",
+      "turn_count": 4,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "but it never arrived",
+      "turn_count": 5,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "what's going on?????",
+      "turn_count": 6,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i'm so sorry about that!",
+      "turn_count": 7,
+      "targets": [
+        "missing",
+        "retrieve_utterance",
+        null,
+        [],
+        94
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i am so upset that i couldn't wear it",
+      "turn_count": 8,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "may i get your full name, please?",
+      "turn_count": 9,
+      "targets": [
+        "missing",
+        "retrieve_utterance",
+        null,
+        [],
+        29
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "sanya afzal",
+      "turn_count": 10,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for sanya afzal.",
+      "turn_count": 11,
+      "targets": [
+        "missing",
+        "take_action",
+        "pull-up-account",
+        [
+          "sanya afzal"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "to validate your purchase, may i please get your username, email address, and order id?",
+      "turn_count": 12,
+      "targets": [
+        "missing",
+        "retrieve_utterance",
+        null,
+        [],
+        81
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "<username>",
+      "turn_count": 13,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "<email>",
+      "turn_count": 14,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "<order_id>",
+      "turn_count": 15,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "purchase validation in progress ...",
+      "turn_count": 16,
+      "targets": [
+        "missing",
+        "take_action",
+        "validate-purchase",
+        [
+          "sanyaa57",
+          "sanyaa57@email.com",
+          "7724950652"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you so much, sanya. may i ask how long you've been waiting for your order to arrive?",
+      "turn_count": 17,
+      "targets": [
+        "missing",
+        "retrieve_utterance",
+        null,
+        [],
+        10
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "5 whole days",
+      "turn_count": 18,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "it feels like forever",
+      "turn_count": 19,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "a reason of 5 has been recorded.",
+      "turn_count": 20,
+      "targets": [
+        "missing",
+        "take_action",
+        "record-reason",
+        [
+          "5"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i completely understand your desire to be bar-be-cute at your get together!",
+      "turn_count": 21,
+      "targets": [
+        "missing",
+        "retrieve_utterance",
+        null,
+        [],
+        75
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "lol",
+      "turn_count": 22,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "right",
+      "turn_count": 23,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "the jacket would have been so perfect for the bbq",
+      "turn_count": 24,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "because your order has been out for delivery for less than 7 days, it's very likely that it's still in transit and is just delayed.",
+      "turn_count": 25,
+      "targets": [
+        "missing",
+        "retrieve_utterance",
+        null,
+        [],
+        64
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": ":( ughh",
+      "turn_count": 26,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "really???",
+      "turn_count": 27,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "is that allowed?",
+      "turn_count": 28,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i know, i sincerely apologize for the inconvenience.",
+      "turn_count": 29,
+      "targets": [
+        "missing",
+        "retrieve_utterance",
+        null,
+        [],
+        6
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "your patience is greatly appreciated! please feel free to contact us again if 7 days has passed and your order has not arrived.",
+      "turn_count": 30,
+      "targets": [
+        "missing",
+        "retrieve_utterance",
+        null,
+        [],
+        85
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "so, you don't need to resend the order?",
+      "turn_count": 31,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "because 5 days is a lot time",
+      "turn_count": 32,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i feel like there's an issue with the shipment",
+      "turn_count": 33,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "long time, i mean",
+      "turn_count": 34,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "we'll gladly resend the order if/when 7 or more days pass without delivery.",
+      "turn_count": 35,
+      "targets": [
+        "missing",
+        "retrieve_utterance",
+        null,
+        [],
+        85
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i guess i'll have to deal with that :)",
+      "turn_count": 36,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i do apologize again, i know that 5 days can feel like a long while.",
+      "turn_count": 37,
+      "targets": [
+        "missing",
+        "retrieve_utterance",
+        null,
+        [],
+        74
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "it's okay",
+      "turn_count": 38,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "it's not your fault",
+      "turn_count": 39,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "but it is really annoying",
+      "turn_count": 40,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you so much sanya, we appreciate your business and your patience.",
+      "turn_count": 41,
+      "targets": [
+        "missing",
+        "retrieve_utterance",
+        null,
+        [],
+        43
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay",
+      "turn_count": 42,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "is there anything more i may help you with today?",
+      "turn_count": 43,
+      "targets": [
+        "missing",
+        "retrieve_utterance",
+        null,
+        [],
+        79
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i will see if it comes soon",
+      "turn_count": 44,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no that was it",
+      "turn_count": 45,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i'll cross my fingers for you! :)",
+      "turn_count": 46,
+      "targets": [
+        "missing",
+        "retrieve_utterance",
+        null,
+        [],
+        48
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thanks :)",
+      "turn_count": 47,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you so much for contacting acmebrands customer service. goodbye!",
+      "turn_count": 48,
+      "targets": [
+        "missing",
+        "retrieve_utterance",
+        null,
+        [],
+        44
+      ]
+    }
+  ]
+}

@@ -1,0 +1,711 @@
+{
+  "convo_id": 126,
+  "scenario": {
+    "personal": {
+      "customer_name": "joyce wu",
+      "member_level": "guest",
+      "order_id": "any"
+    },
+    "order": {
+      "street_address": "7855 woodshore st",
+      "full_address": "7855 woodshore st  baltimore, mi 16639",
+      "city": "baltimore",
+      "num_products": "1",
+      "products": "[{'brand': 'tommy_hilfiger', 'product_type': 'boots', 'amount': 69, 'image_url': 'images/tommy_hilfiger-boots.jpeg'}]",
+      "state": "mi",
+      "zip_code": "16639"
+    },
+    "product": {
+      "names": [
+        "tommy_hilfiger boots"
+      ],
+      "amounts": [
+        69
+      ]
+    },
+    "flow": "manage_account",
+    "subflow": "manage_change_name"
+  },
+  "original": [
+    [
+      "customer",
+      "Hi there, I need some help with my order."
+    ],
+    [
+      "customer",
+      "I made an order for tommy hilfiger boots."
+    ],
+    [
+      "customer",
+      "But I accidentally entered the wrong name, so I need to change it."
+    ],
+    [
+      "agent",
+      "Good Morning! Can I get some information from you so I can look up your order. I just need your Order Id username and email please"
+    ],
+    [
+      "customer",
+      "My order ID is 1091187 and my email is jwu297@mail.com.  Thank you."
+    ],
+    [
+      "agent",
+      "Just givre me a min to look up the information"
+    ],
+    [
+      "customer",
+      "Okay, thank you.  I hope my order can be fixed soon.  I bought these as a gift for my daughter."
+    ],
+    [
+      "agent",
+      "Can I get your username?"
+    ],
+    [
+      "agent",
+      "Wasthe package address to the worng person?"
+    ],
+    [
+      "customer",
+      "The name I used on the order is Joyce Wu, but that's not the right name.  I don't remember the username."
+    ],
+    [
+      "customer",
+      "The address is right though."
+    ],
+    [
+      "agent",
+      "Okay I can look that up."
+    ],
+    [
+      "customer",
+      "7855 Woodshore St is my address."
+    ],
+    [
+      "customer",
+      "I just need to change the name."
+    ],
+    [
+      "agent",
+      "Can I get a city state and zip please"
+    ],
+    [
+      "agent",
+      "I am sorry but I havr tto be able to up your account. I appriciate your patience"
+    ],
+    [
+      "customer",
+      "Baltimore, Michigan and the zip is 16639"
+    ],
+    [
+      "customer",
+      "I paid $69 for the boots, so I hope I can get them soon."
+    ],
+    [
+      "customer",
+      "Thank you."
+    ],
+    [
+      "customer",
+      "My daughter's birthday is next week and she will be excited to get these.  So that's why I need to make sure they get here in time."
+    ],
+    [
+      "agent",
+      "Soounds like a great gift. What name do you want on the order?"
+    ],
+    [
+      "customer",
+      "My name is Joanne Wu."
+    ],
+    [
+      "agent",
+      "I am sorry I am trouble pulling up your account,"
+    ],
+    [
+      "customer",
+      "The name I entered on the account is Joyce Wu."
+    ],
+    [
+      "agent",
+      "I apologize let me try again."
+    ],
+    [
+      "customer",
+      "But I need it changed to Joanne Wu."
+    ],
+    [
+      "customer",
+      "Did you find the order?"
+    ],
+    [
+      "agent",
+      "What name was on the order?"
+    ],
+    [
+      "customer",
+      "Joyce Wu."
+    ],
+    [
+      "agent",
+      "and the name you want it changed to?"
+    ],
+    [
+      "customer",
+      "I need it changed to Joanne Wu."
+    ],
+    [
+      "agent",
+      "Working on it now"
+    ],
+    [
+      "customer",
+      "Thank you."
+    ],
+    [
+      "customer",
+      "Is the order corrected?"
+    ],
+    [
+      "agent",
+      "Okay I have updated your account. Now it is correct thank you again for your patience."
+    ],
+    [
+      "customer",
+      "Yes, that looks correct, thank you."
+    ],
+    [
+      "agent",
+      "Anything else I can help you with?"
+    ],
+    [
+      "customer",
+      "No, I don't need anymore help."
+    ],
+    [
+      "agent",
+      "Thank you for your business and have a great day!"
+    ],
+    [
+      "customer",
+      "Thank you as well and hope your day goes well."
+    ],
+    [
+      "action",
+      "Identity verification in progess ..."
+    ],
+    [
+      "action",
+      "Order has been updated with Joanne WU."
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "customer",
+      "text": "hi there, i need some help with my order.",
+      "turn_count": 1,
+      "targets": [
+        "manage_change_name",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i made an order for tommy hilfiger boots.",
+      "turn_count": 2,
+      "targets": [
+        "manage_change_name",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "but i accidentally entered the wrong name, so i need to change it.",
+      "turn_count": 3,
+      "targets": [
+        "manage_change_name",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "good morning! can i get some information from you so i can look up your order. i just need your order id username and email please",
+      "turn_count": 4,
+      "targets": [
+        "manage_change_name",
+        "retrieve_utterance",
+        null,
+        [],
+        59
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "my order id is 1091187 and my email is jwu297@mail.com.  thank you.",
+      "turn_count": 5,
+      "targets": [
+        "manage_change_name",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "just givre me a min to look up the information",
+      "turn_count": 6,
+      "targets": [
+        "manage_change_name",
+        "retrieve_utterance",
+        null,
+        [],
+        34
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay, thank you.  i hope my order can be fixed soon.  i bought these as a gift for my daughter.",
+      "turn_count": 7,
+      "targets": [
+        "manage_change_name",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can i get your username?",
+      "turn_count": 8,
+      "targets": [
+        "manage_change_name",
+        "retrieve_utterance",
+        null,
+        [],
+        40
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "wasthe package address to the worng person?",
+      "turn_count": 9,
+      "targets": [
+        "manage_change_name",
+        "retrieve_utterance",
+        null,
+        [],
+        99
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "the name i used on the order is joyce wu, but that's not the right name.  i don't remember the username.",
+      "turn_count": 10,
+      "targets": [
+        "manage_change_name",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "the address is right though.",
+      "turn_count": 11,
+      "targets": [
+        "manage_change_name",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "okay i can look that up.",
+      "turn_count": 12,
+      "targets": [
+        "manage_change_name",
+        "retrieve_utterance",
+        null,
+        [],
+        19
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "<street_address> is my address.",
+      "turn_count": 13,
+      "targets": [
+        "manage_change_name",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i just need to change the name.",
+      "turn_count": 14,
+      "targets": [
+        "manage_change_name",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can i get a city state and zip please",
+      "turn_count": 15,
+      "targets": [
+        "manage_change_name",
+        "retrieve_utterance",
+        null,
+        [],
+        97
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i am sorry but i havr tto be able to up your account. i appriciate your patience",
+      "turn_count": 16,
+      "targets": [
+        "manage_change_name",
+        "retrieve_utterance",
+        null,
+        [],
+        99
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "baltimore, michigan and the zip is <zip_code>",
+      "turn_count": 17,
+      "targets": [
+        "manage_change_name",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i paid $<amount> for the boots, so i hope i can get them soon.",
+      "turn_count": 18,
+      "targets": [
+        "manage_change_name",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thank you.",
+      "turn_count": 19,
+      "targets": [
+        "manage_change_name",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "my daughter's birthday is next week and she will be excited to get these.  so that's why i need to make sure they get here in time.",
+      "turn_count": 20,
+      "targets": [
+        "manage_change_name",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "soounds like a great gift. what name do you want on the order?",
+      "turn_count": 21,
+      "targets": [
+        "manage_change_name",
+        "retrieve_utterance",
+        null,
+        [],
+        42
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "my name is joanne wu.",
+      "turn_count": 22,
+      "targets": [
+        "manage_change_name",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i am sorry i am trouble pulling up your account,",
+      "turn_count": 23,
+      "targets": [
+        "manage_change_name",
+        "retrieve_utterance",
+        null,
+        [],
+        77
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "the name i entered on the account is joyce wu.",
+      "turn_count": 24,
+      "targets": [
+        "manage_change_name",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i apologize let me try again.",
+      "turn_count": 25,
+      "targets": [
+        "manage_change_name",
+        "retrieve_utterance",
+        null,
+        [],
+        76
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "but i need it changed to joanne wu.",
+      "turn_count": 26,
+      "targets": [
+        "manage_change_name",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "did you find the order?",
+      "turn_count": 27,
+      "targets": [
+        "manage_change_name",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "what name was on the order?",
+      "turn_count": 28,
+      "targets": [
+        "manage_change_name",
+        "retrieve_utterance",
+        null,
+        [],
+        96
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "joyce wu.",
+      "turn_count": 29,
+      "targets": [
+        "manage_change_name",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "and the name you want it changed to?",
+      "turn_count": 30,
+      "targets": [
+        "manage_change_name",
+        "retrieve_utterance",
+        null,
+        [],
+        12
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i need it changed to joanne wu.",
+      "turn_count": 31,
+      "targets": [
+        "manage_change_name",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "working on it now",
+      "turn_count": 32,
+      "targets": [
+        "manage_change_name",
+        "retrieve_utterance",
+        null,
+        [],
+        66
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thank you.",
+      "turn_count": 33,
+      "targets": [
+        "manage_change_name",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "is the order corrected?",
+      "turn_count": 34,
+      "targets": [
+        "manage_change_name",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "okay i have updated your account. now it is correct thank you again for your patience.",
+      "turn_count": 35,
+      "targets": [
+        "manage_change_name",
+        "retrieve_utterance",
+        null,
+        [],
+        56
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yes, that looks correct, thank you.",
+      "turn_count": 36,
+      "targets": [
+        "manage_change_name",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "anything else i can help you with?",
+      "turn_count": 37,
+      "targets": [
+        "manage_change_name",
+        "retrieve_utterance",
+        null,
+        [],
+        92
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no, i don't need anymore help.",
+      "turn_count": 38,
+      "targets": [
+        "manage_change_name",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you for your business and have a great day!",
+      "turn_count": 39,
+      "targets": [
+        "manage_change_name",
+        "retrieve_utterance",
+        null,
+        [],
+        21
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thank you as well and hope your day goes well.",
+      "turn_count": 40,
+      "targets": [
+        "manage_change_name",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "identity verification in progess ...",
+      "turn_count": 43,
+      "targets": [
+        "manage_change_name",
+        "take_action",
+        "verify-identity",
+        [
+          "joyce wu",
+          "n/a",
+          "n/a"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "order has been updated with joanne wu.",
+      "turn_count": 44,
+      "targets": [
+        "manage_change_name",
+        "take_action",
+        "update-order",
+        [
+          "next week"
+        ],
+        -1
+      ]
+    }
+  ]
+}

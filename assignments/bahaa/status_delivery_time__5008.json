@@ -1,0 +1,844 @@
+{
+  "convo_id": 5008,
+  "scenario": {
+    "personal": {
+      "account_id": "qszqgifwaf",
+      "customer_name": "david williams",
+      "member_level": "gold",
+      "phone": "(353) 849-9272"
+    },
+    "order": {
+      "street_address": "4814 kennedy st",
+      "full_address": "4814 kennedy st  jacksonville, wa 51638",
+      "city": "jacksonville",
+      "num_products": "1",
+      "order_id": "5272356219",
+      "products": "[{'brand': 'michael_kors', 'product_type': 'shirt', 'amount': 74, 'image_url': 'images/michael_kors-shirt.jpeg'}]",
+      "shipping_status": "in transit",
+      "state": "wa",
+      "zip_code": "51638"
+    },
+    "product": {
+      "names": [
+        "michael_kors shirt"
+      ],
+      "amounts": [
+        74
+      ]
+    },
+    "flow": "order_issue",
+    "subflow": "status_delivery_time"
+  },
+  "original": [
+    [
+      "customer",
+      "Hello"
+    ],
+    [
+      "agent",
+      "Hi, there.  How may I help you?"
+    ],
+    [
+      "customer",
+      "I just tracked my package"
+    ],
+    [
+      "customer",
+      "and the delivery time seems wrong"
+    ],
+    [
+      "agent",
+      "Okay, let me look into that for you.  May I have your full name?"
+    ],
+    [
+      "customer",
+      "David Williams"
+    ],
+    [
+      "action",
+      "Account has been pulled up for David Williams."
+    ],
+    [
+      "agent",
+      "May I please have your Account ID and Order ID?"
+    ],
+    [
+      "customer",
+      "yea"
+    ],
+    [
+      "customer",
+      "account ID is QSZQGIFWAF"
+    ],
+    [
+      "customer",
+      "order id 5272356219"
+    ],
+    [
+      "customer",
+      "the tracking info says it will be delivered in the morning but I won't be home"
+    ],
+    [
+      "action",
+      "Identity verification in progress ..."
+    ],
+    [
+      "customer",
+      "and when I was placing my order, I specifically chose evening delivery"
+    ],
+    [
+      "agent",
+      "Okay, so you chose evening delivery when you placed the order, but now the tracking info indicates morning delivery?"
+    ],
+    [
+      "customer",
+      "yes"
+    ],
+    [
+      "agent",
+      "First, I have to validate your purchase.  May I have your Username and email address?"
+    ],
+    [
+      "customer",
+      "I have neither"
+    ],
+    [
+      "customer",
+      "I don't use email because of privacy reasons"
+    ],
+    [
+      "agent",
+      "I understand.  We will have to recover your Username first."
+    ],
+    [
+      "customer",
+      "are you sure we need to do all this just to change the delivery time?"
+    ],
+    [
+      "customer",
+      "this is too much hassle!!!"
+    ],
+    [
+      "agent",
+      "Yes, I have to validate the purchase before I can move forward in the system.  I apologize for the process, but we have to do this for quality control purposes."
+    ],
+    [
+      "agent",
+      "Can you give me your Zip code and phone number, please?"
+    ],
+    [
+      "customer",
+      "yes"
+    ],
+    [
+      "customer",
+      "zip is 51638"
+    ],
+    [
+      "customer",
+      "phone number (353) 849-9272"
+    ],
+    [
+      "action",
+      "Identity verification in progress ..."
+    ],
+    [
+      "agent",
+      "Okay, your Username is dwilliams1.  Please be sure to write it down for future use."
+    ],
+    [
+      "customer",
+      "ok. thank you"
+    ],
+    [
+      "action",
+      "Querying the system for an answer ..."
+    ],
+    [
+      "agent",
+      "Do you happen to know the status of your shipping?"
+    ],
+    [
+      "customer",
+      "yes"
+    ],
+    [
+      "customer",
+      "in transit"
+    ],
+    [
+      "action",
+      "Details of In transit have been entered."
+    ],
+    [
+      "action",
+      "Shipping status of in transit has been noted."
+    ],
+    [
+      "action",
+      "Purchase validation in progress ..."
+    ],
+    [
+      "action",
+      "Order has been updated with ."
+    ],
+    [
+      "action",
+      "Order has been updated with change order."
+    ],
+    [
+      "action",
+      "Order has been updated with evening delivery."
+    ],
+    [
+      "agent",
+      "Okay, I have updated your order to have it delivered in the evening."
+    ],
+    [
+      "customer",
+      "Thank you so much"
+    ],
+    [
+      "agent",
+      "Thank you for your patience."
+    ],
+    [
+      "agent",
+      "Our system is overloaded now because of COVID."
+    ],
+    [
+      "customer",
+      "yes, I understand"
+    ],
+    [
+      "agent",
+      "May I help you with anything else?"
+    ],
+    [
+      "customer",
+      "that was all"
+    ],
+    [
+      "customer",
+      "thank you"
+    ],
+    [
+      "agent",
+      "Have a great day!"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "customer",
+      "text": "hello",
+      "turn_count": 1,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "hi, there.  how may i help you?",
+      "turn_count": 2,
+      "targets": [
+        "status_delivery_time",
+        "retrieve_utterance",
+        null,
+        [],
+        72
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i just tracked my package",
+      "turn_count": 3,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "and the delivery time seems wrong",
+      "turn_count": 4,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "okay, let me look into that for you.  may i have your full name?",
+      "turn_count": 5,
+      "targets": [
+        "status_delivery_time",
+        "retrieve_utterance",
+        null,
+        [],
+        32
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "david williams",
+      "turn_count": 6,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for david williams.",
+      "turn_count": 7,
+      "targets": [
+        "status_delivery_time",
+        "take_action",
+        "pull-up-account",
+        [
+          "david williams"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "may i please have your account id and order id?",
+      "turn_count": 8,
+      "targets": [
+        "status_delivery_time",
+        "retrieve_utterance",
+        null,
+        [],
+        18
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yea",
+      "turn_count": 9,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "account id is <account_id>",
+      "turn_count": 10,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "order id <order_id>",
+      "turn_count": 11,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "the tracking info says it will be delivered in the morning but i won't be home",
+      "turn_count": 12,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "identity verification in progress ...",
+      "turn_count": 13,
+      "targets": [
+        "status_delivery_time",
+        "take_action",
+        "verify-identity",
+        [
+          "david williams",
+          "qszqgifwaf",
+          "5272356219"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "and when i was placing my order, i specifically chose evening delivery",
+      "turn_count": 14,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "okay, so you chose evening delivery when you placed the order, but now the tracking info indicates morning delivery?",
+      "turn_count": 15,
+      "targets": [
+        "status_delivery_time",
+        "retrieve_utterance",
+        null,
+        [],
+        47
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yes",
+      "turn_count": 16,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "first, i have to validate your purchase.  may i have your username and email address?",
+      "turn_count": 17,
+      "targets": [
+        "status_delivery_time",
+        "retrieve_utterance",
+        null,
+        [],
+        8
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i have neither",
+      "turn_count": 18,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i don't use email because of privacy reasons",
+      "turn_count": 19,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i understand.  we will have to recover your username first.",
+      "turn_count": 20,
+      "targets": [
+        "status_delivery_time",
+        "retrieve_utterance",
+        null,
+        [],
+        96
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "are you sure we need to do all this just to change the delivery time?",
+      "turn_count": 21,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "this is too much hassle!!!",
+      "turn_count": 22,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "yes, i have to validate the purchase before i can move forward in the system.  i apologize for the process, but we have to do this for quality control purposes.",
+      "turn_count": 23,
+      "targets": [
+        "status_delivery_time",
+        "retrieve_utterance",
+        null,
+        [],
+        67
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can you give me your zip code and phone number, please?",
+      "turn_count": 24,
+      "targets": [
+        "status_delivery_time",
+        "retrieve_utterance",
+        null,
+        [],
+        38
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yes",
+      "turn_count": 25,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "zip is <zip_code>",
+      "turn_count": 26,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "phone number <phone>",
+      "turn_count": 27,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "identity verification in progress ...",
+      "turn_count": 28,
+      "targets": [
+        "status_delivery_time",
+        "take_action",
+        "verify-identity",
+        [
+          "david williams",
+          "51638",
+          "(353) 849-9272"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "okay, your username is dwilliams1.  please be sure to write it down for future use.",
+      "turn_count": 29,
+      "targets": [
+        "status_delivery_time",
+        "retrieve_utterance",
+        null,
+        [],
+        81
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok. thank you",
+      "turn_count": 30,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "querying the system for an answer ...",
+      "turn_count": 32,
+      "targets": [
+        "status_delivery_time",
+        "take_action",
+        "ask-the-oracle",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "do you happen to know the status of your shipping?",
+      "turn_count": 33,
+      "targets": [
+        "status_delivery_time",
+        "retrieve_utterance",
+        null,
+        [],
+        35
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yes",
+      "turn_count": 34,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "in transit",
+      "turn_count": 35,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "details of in transit have been entered.",
+      "turn_count": 36,
+      "targets": [
+        "status_delivery_time",
+        "take_action",
+        "enter-details",
+        [
+          "in transit"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "shipping status of in transit has been noted.",
+      "turn_count": 37,
+      "targets": [
+        "status_delivery_time",
+        "take_action",
+        "shipping-status",
+        [
+          "in transit"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "purchase validation in progress ...",
+      "turn_count": 38,
+      "targets": [
+        "status_delivery_time",
+        "take_action",
+        "validate-purchase",
+        [
+          "dwilliams1",
+          "dwilliams@email.com",
+          "5272356219"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "order has been updated with .",
+      "turn_count": 39,
+      "targets": [
+        "status_delivery_time",
+        "take_action",
+        "update-order",
+        [
+          ""
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "order has been updated with change order.",
+      "turn_count": 40,
+      "targets": [
+        "status_delivery_time",
+        "take_action",
+        "update-order",
+        [
+          "change order"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "order has been updated with evening delivery.",
+      "turn_count": 41,
+      "targets": [
+        "status_delivery_time",
+        "take_action",
+        "update-order",
+        [
+          "evening delivery"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "okay, i have updated your order to have it delivered in the evening.",
+      "turn_count": 42,
+      "targets": [
+        "status_delivery_time",
+        "retrieve_utterance",
+        null,
+        [],
+        37
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thank you so much",
+      "turn_count": 43,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you for your patience.",
+      "turn_count": 44,
+      "targets": [
+        "status_delivery_time",
+        "retrieve_utterance",
+        null,
+        [],
+        32
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "our system is overloaded now because of covid.",
+      "turn_count": 45,
+      "targets": [
+        "status_delivery_time",
+        "retrieve_utterance",
+        null,
+        [],
+        41
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yes, i understand",
+      "turn_count": 46,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "may i help you with anything else?",
+      "turn_count": 47,
+      "targets": [
+        "status_delivery_time",
+        "retrieve_utterance",
+        null,
+        [],
+        7
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "that was all",
+      "turn_count": 48,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thank you",
+      "turn_count": 49,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "have a great day!",
+      "turn_count": 50,
+      "targets": [
+        "status_delivery_time",
+        "retrieve_utterance",
+        null,
+        [],
+        91
+      ]
+    }
+  ]
+}

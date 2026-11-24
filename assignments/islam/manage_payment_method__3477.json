@@ -1,0 +1,846 @@
+{
+  "convo_id": 3477,
+  "scenario": {
+    "personal": {
+      "customer_name": "david williams",
+      "member_level": "silver",
+      "pin_number": "712442"
+    },
+    "order": {
+      "street_address": "3888 2nd ave",
+      "full_address": "3888 2nd ave  monterey, mi 57648",
+      "city": "monterey",
+      "num_products": "1",
+      "payment_method": "paypal",
+      "products": "[{'brand': 'guess', 'product_type': 'shirt', 'amount': 59, 'image_url': 'images/guess-shirt.jpeg'}]",
+      "state": "mi",
+      "zip_code": "57648"
+    },
+    "product": {
+      "names": [
+        "guess shirt"
+      ],
+      "amounts": [
+        59
+      ]
+    },
+    "flow": "manage_account",
+    "subflow": "manage_payment_method"
+  },
+  "original": [
+    [
+      "agent",
+      "Hello, how can I help you today?"
+    ],
+    [
+      "customer",
+      "This is so weird! My account isn't showing my payment method correctly at all. Can you help?"
+    ],
+    [
+      "agent",
+      "Happy to help, may I have your full name please?"
+    ],
+    [
+      "customer",
+      "David Williams"
+    ],
+    [
+      "customer",
+      "Maybe it's messed up because I used one of those VISA gift cards last time. Anyway, I want to change my payment method to PayPal."
+    ],
+    [
+      "agent",
+      "thanks David. Just a second."
+    ],
+    [
+      "action",
+      "Account has been pulled up for David Williams."
+    ],
+    [
+      "agent",
+      "Is your VISA gift card a debit card?"
+    ],
+    [
+      "customer",
+      "Nah, that's the old payment method. I want to make sure my primary payment method is PayPal now."
+    ],
+    [
+      "agent",
+      "I need to input your current payment method first, then I will deal with the new method."
+    ],
+    [
+      "agent",
+      "What is your current payment method?"
+    ],
+    [
+      "customer",
+      "Ohhhh, okay. Yeah it was one of those VISA gift cards that acts like a credit card."
+    ],
+    [
+      "agent",
+      "thank you."
+    ],
+    [
+      "action",
+      "A reason of credit card has been recorded."
+    ],
+    [
+      "agent",
+      "To verify your identity, I also need your zip code and phone number please."
+    ],
+    [
+      "customer",
+      "Zipcode is  57648"
+    ],
+    [
+      "agent",
+      "and also PIN number."
+    ],
+    [
+      "customer",
+      "I don't know the phone number that was on this order."
+    ],
+    [
+      "customer",
+      "My PIN is 712442"
+    ],
+    [
+      "agent",
+      "You can provide your username to verify."
+    ],
+    [
+      "customer",
+      "I don't know my username either"
+    ],
+    [
+      "agent",
+      "How about username, email address or order id?"
+    ],
+    [
+      "customer",
+      "I'm really sorry, I don't have many details to give you."
+    ],
+    [
+      "customer",
+      "No username, email address, or Order ID."
+    ],
+    [
+      "agent",
+      "How about telephone number please?"
+    ],
+    [
+      "customer",
+      "Sorry, I don't know the phone number that was used."
+    ],
+    [
+      "action",
+      "Identity verification in progess ..."
+    ],
+    [
+      "agent",
+      "You have the PIN number, then do you have your password that I can verify?"
+    ],
+    [
+      "customer",
+      "I'm so sorry, I don't know the password."
+    ],
+    [
+      "customer",
+      "I can give you my name, membership level, PIN, and address."
+    ],
+    [
+      "agent",
+      "Just a second, let me check."
+    ],
+    [
+      "agent",
+      "Can you locate your order id from the bottom of the order statement?"
+    ],
+    [
+      "customer",
+      "I'm really sorry, there is absolutely no Order ID on this statement."
+    ],
+    [
+      "agent",
+      "Just a second."
+    ],
+    [
+      "agent",
+      "Since I have to verify at least 3 of the above personal data, I am afraid that I can't change the address for you. Sorry about that."
+    ],
+    [
+      "agent",
+      "Maybe try to locate more information then I can do it for you."
+    ],
+    [
+      "customer",
+      "I'm really sorry this taking so long. I wish I had more details to give you."
+    ],
+    [
+      "customer",
+      "Maybe try dwilliams1 as the username? It's just a guess, but that might work."
+    ],
+    [
+      "agent",
+      "okay, just a second."
+    ],
+    [
+      "action",
+      "Identity verification in progess ..."
+    ],
+    [
+      "agent",
+      "Sorry the username doesn't work."
+    ],
+    [
+      "agent",
+      "Please try to get more information and come back at any time. We are happy to help you at any time."
+    ],
+    [
+      "agent",
+      "Does that sound good?"
+    ],
+    [
+      "agent",
+      "Hi are you there?"
+    ],
+    [
+      "customer",
+      "I'm here. I'm really, really sorry this turned out to be such a hassle."
+    ],
+    [
+      "customer",
+      "Unfortunately, I'm missing the information you need."
+    ],
+    [
+      "customer",
+      "Thank you for trying to assist me, I appreciate your assistance!"
+    ],
+    [
+      "agent",
+      "Great, is there anything else that I can help you with?"
+    ],
+    [
+      "customer",
+      "That's it, thank you!"
+    ],
+    [
+      "agent",
+      "Have a nice day!"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "hello, how can i help you today?",
+      "turn_count": 1,
+      "targets": [
+        "manage_payment_method",
+        "retrieve_utterance",
+        null,
+        [],
+        30
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "this is so weird! my account isn't showing my payment method correctly at all. can you help?",
+      "turn_count": 2,
+      "targets": [
+        "manage_payment_method",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "happy to help, may i have your full name please?",
+      "turn_count": 3,
+      "targets": [
+        "manage_payment_method",
+        "retrieve_utterance",
+        null,
+        [],
+        15
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "david williams",
+      "turn_count": 4,
+      "targets": [
+        "manage_payment_method",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "maybe it's messed up because i used one of those visa gift cards last time. anyway, i want to change my payment method to paypal.",
+      "turn_count": 5,
+      "targets": [
+        "manage_payment_method",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thanks david. just a second.",
+      "turn_count": 6,
+      "targets": [
+        "manage_payment_method",
+        "retrieve_utterance",
+        null,
+        [],
+        21
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for david williams.",
+      "turn_count": 7,
+      "targets": [
+        "manage_payment_method",
+        "take_action",
+        "pull-up-account",
+        [
+          "david williams"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "is your visa gift card a debit card?",
+      "turn_count": 8,
+      "targets": [
+        "manage_payment_method",
+        "retrieve_utterance",
+        null,
+        [],
+        99
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "nah, that's the old payment method. i want to make sure my primary payment method is paypal now.",
+      "turn_count": 9,
+      "targets": [
+        "manage_payment_method",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i need to input your current payment method first, then i will deal with the new method.",
+      "turn_count": 10,
+      "targets": [
+        "manage_payment_method",
+        "retrieve_utterance",
+        null,
+        [],
+        58
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "what is your current payment method?",
+      "turn_count": 11,
+      "targets": [
+        "manage_payment_method",
+        "retrieve_utterance",
+        null,
+        [],
+        96
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ohhhh, okay. yeah it was one of those visa gift cards that acts like a credit card.",
+      "turn_count": 12,
+      "targets": [
+        "manage_payment_method",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you.",
+      "turn_count": 13,
+      "targets": [
+        "manage_payment_method",
+        "retrieve_utterance",
+        null,
+        [],
+        79
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "a reason of credit card has been recorded.",
+      "turn_count": 14,
+      "targets": [
+        "manage_payment_method",
+        "take_action",
+        "record-reason",
+        [
+          "credit card"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "to verify your identity, i also need your zip code and phone number please.",
+      "turn_count": 15,
+      "targets": [
+        "manage_payment_method",
+        "retrieve_utterance",
+        null,
+        [],
+        0
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "zipcode is  <zip_code>",
+      "turn_count": 16,
+      "targets": [
+        "manage_payment_method",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "and also pin number.",
+      "turn_count": 17,
+      "targets": [
+        "manage_payment_method",
+        "retrieve_utterance",
+        null,
+        [],
+        18
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i don't know the phone number that was on this order.",
+      "turn_count": 18,
+      "targets": [
+        "manage_payment_method",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "my pin is <pin_number>",
+      "turn_count": 19,
+      "targets": [
+        "manage_payment_method",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "you can provide your username to verify.",
+      "turn_count": 20,
+      "targets": [
+        "manage_payment_method",
+        "retrieve_utterance",
+        null,
+        [],
+        60
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i don't know my username either",
+      "turn_count": 21,
+      "targets": [
+        "manage_payment_method",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "how about username, email address or order id?",
+      "turn_count": 22,
+      "targets": [
+        "manage_payment_method",
+        "retrieve_utterance",
+        null,
+        [],
+        55
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i'm really sorry, i don't have many details to give you.",
+      "turn_count": 23,
+      "targets": [
+        "manage_payment_method",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no username, email address, or order id.",
+      "turn_count": 24,
+      "targets": [
+        "manage_payment_method",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "how about telephone number please?",
+      "turn_count": 25,
+      "targets": [
+        "manage_payment_method",
+        "retrieve_utterance",
+        null,
+        [],
+        71
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "sorry, i don't know the phone number that was used.",
+      "turn_count": 26,
+      "targets": [
+        "manage_payment_method",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "identity verification in progess ...",
+      "turn_count": 27,
+      "targets": [
+        "manage_payment_method",
+        "take_action",
+        "verify-identity",
+        [
+          "57648",
+          "712442",
+          "david williams"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "you have the pin number, then do you have your password that i can verify?",
+      "turn_count": 28,
+      "targets": [
+        "manage_payment_method",
+        "retrieve_utterance",
+        null,
+        [],
+        16
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i'm so sorry, i don't know the password.",
+      "turn_count": 29,
+      "targets": [
+        "manage_payment_method",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i can give you my name, membership level, pin, and address.",
+      "turn_count": 30,
+      "targets": [
+        "manage_payment_method",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "just a second, let me check.",
+      "turn_count": 31,
+      "targets": [
+        "manage_payment_method",
+        "retrieve_utterance",
+        null,
+        [],
+        57
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can you locate your order id from the bottom of the order statement?",
+      "turn_count": 32,
+      "targets": [
+        "manage_payment_method",
+        "retrieve_utterance",
+        null,
+        [],
+        97
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i'm really sorry, there is absolutely no order id on this statement.",
+      "turn_count": 33,
+      "targets": [
+        "manage_payment_method",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "just a second.",
+      "turn_count": 34,
+      "targets": [
+        "manage_payment_method",
+        "retrieve_utterance",
+        null,
+        [],
+        83
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "since i have to verify at least 3 of the above personal data, i am afraid that i can't change the address for you. sorry about that.",
+      "turn_count": 35,
+      "targets": [
+        "manage_payment_method",
+        "retrieve_utterance",
+        null,
+        [],
+        95
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "maybe try to locate more information then i can do it for you.",
+      "turn_count": 36,
+      "targets": [
+        "manage_payment_method",
+        "retrieve_utterance",
+        null,
+        [],
+        74
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i'm really sorry this taking so long. i wish i had more details to give you.",
+      "turn_count": 37,
+      "targets": [
+        "manage_payment_method",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "maybe try dwilliams1 as the username? it's just a guess, but that might work.",
+      "turn_count": 38,
+      "targets": [
+        "manage_payment_method",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "okay, just a second.",
+      "turn_count": 39,
+      "targets": [
+        "manage_payment_method",
+        "retrieve_utterance",
+        null,
+        [],
+        78
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "identity verification in progess ...",
+      "turn_count": 42,
+      "targets": [
+        "manage_payment_method",
+        "take_action",
+        "verify-identity",
+        [
+          "57648",
+          "712442",
+          "dwilliams1"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "sorry the username doesn't work.",
+      "turn_count": 43,
+      "targets": [
+        "manage_payment_method",
+        "retrieve_utterance",
+        null,
+        [],
+        99
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "please try to get more information and come back at any time. we are happy to help you at any time.",
+      "turn_count": 44,
+      "targets": [
+        "manage_payment_method",
+        "retrieve_utterance",
+        null,
+        [],
+        60
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "does that sound good?",
+      "turn_count": 45,
+      "targets": [
+        "manage_payment_method",
+        "retrieve_utterance",
+        null,
+        [],
+        87
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "hi are you there?",
+      "turn_count": 46,
+      "targets": [
+        "manage_payment_method",
+        "retrieve_utterance",
+        null,
+        [],
+        55
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i'm here. i'm really, really sorry this turned out to be such a hassle.",
+      "turn_count": 47,
+      "targets": [
+        "manage_payment_method",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "unfortunately, i'm missing the information you need.",
+      "turn_count": 48,
+      "targets": [
+        "manage_payment_method",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thank you for trying to assist me, i appreciate your assistance!",
+      "turn_count": 49,
+      "targets": [
+        "manage_payment_method",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "great, is there anything else that i can help you with?",
+      "turn_count": 50,
+      "targets": [
+        "manage_payment_method",
+        "retrieve_utterance",
+        null,
+        [],
+        22
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "that's it, thank you!",
+      "turn_count": 51,
+      "targets": [
+        "manage_payment_method",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "have a nice day!",
+      "turn_count": 52,
+      "targets": [
+        "manage_payment_method",
+        "retrieve_utterance",
+        null,
+        [],
+        90
+      ]
+    }
+  ]
+}

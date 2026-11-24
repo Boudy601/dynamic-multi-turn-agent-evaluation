@@ -1,0 +1,706 @@
+{
+  "convo_id": 6475,
+  "scenario": {
+    "personal": {
+      "customer_name": "joyce wu",
+      "member_level": "bronze"
+    },
+    "order": {
+      "street_address": "3635 lincoln ave",
+      "full_address": "3635 lincoln ave  brighton, ca 86538",
+      "city": "brighton",
+      "num_products": "1",
+      "products": "[{'brand': 'guess', 'product_type': 'jeans', 'amount': 59, 'image_url': 'images/guess-jeans.jpeg'}]",
+      "state": "ca",
+      "zip_code": "86538"
+    },
+    "product": {
+      "names": [
+        "guess jeans"
+      ],
+      "amounts": [
+        59
+      ]
+    },
+    "flow": "manage_account",
+    "subflow": "status_shipping_question"
+  },
+  "original": [
+    [
+      "agent",
+      "Hello, how may I help you today?"
+    ],
+    [
+      "customer",
+      "I have a shipping question"
+    ],
+    [
+      "agent",
+      "Sure, no problem. Can you please tell me more about your question?"
+    ],
+    [
+      "customer",
+      "What does the premium shipping service do?"
+    ],
+    [
+      "customer",
+      "Is it worth the money"
+    ],
+    [
+      "customer",
+      "Hello?"
+    ],
+    [
+      "agent",
+      "Are you asking about premium membership?"
+    ],
+    [
+      "customer",
+      "Yes"
+    ],
+    [
+      "customer",
+      "what is the shipping time"
+    ],
+    [
+      "agent",
+      "Are you asking about overnight shipping?"
+    ],
+    [
+      "customer",
+      "Yes"
+    ],
+    [
+      "customer",
+      "does that come with the premium subscription"
+    ],
+    [
+      "action",
+      "Searching the FAQ pages ..."
+    ],
+    [
+      "action",
+      "System Action: search pricing"
+    ],
+    [
+      "customer",
+      "Thank you"
+    ],
+    [
+      "agent",
+      "No, overnight shipping is not included with premium subscription."
+    ],
+    [
+      "agent",
+      "Would you like to know how much it costs?"
+    ],
+    [
+      "customer",
+      "yes"
+    ],
+    [
+      "customer",
+      "please"
+    ],
+    [
+      "agent",
+      "Actually, I can check your account to see if your account includes free international shipping."
+    ],
+    [
+      "customer",
+      "I'm about to do a lot of ordering"
+    ],
+    [
+      "agent",
+      "Is this your question?"
+    ],
+    [
+      "customer",
+      "yea"
+    ],
+    [
+      "customer",
+      "thats all"
+    ],
+    [
+      "customer",
+      "Thank you"
+    ],
+    [
+      "agent",
+      "Can you please give me your full name or account ID?"
+    ],
+    [
+      "customer",
+      "I just lost a bunch of weight so I wanted to see the best shipping plan"
+    ],
+    [
+      "customer",
+      "Joyce Wu"
+    ],
+    [
+      "action",
+      "Account has been pulled up for Joyce Wu."
+    ],
+    [
+      "customer",
+      "I was just seeing about the international shipping costs"
+    ],
+    [
+      "action",
+      "Querying the system for an answer ..."
+    ],
+    [
+      "agent",
+      "I apologize but your account does not include free international shipping."
+    ],
+    [
+      "customer",
+      "ahhh"
+    ],
+    [
+      "customer",
+      "thats ok"
+    ],
+    [
+      "agent",
+      "If you have any further questions about your subscription service, press refer to our FAQ page."
+    ],
+    [
+      "customer",
+      "thank you thought"
+    ],
+    [
+      "action",
+      "A link will be sent."
+    ],
+    [
+      "agent",
+      "I've just sent you a link to our FAQ page."
+    ],
+    [
+      "agent",
+      "Is there anything else I can help you with today?"
+    ],
+    [
+      "customer",
+      "no thank you"
+    ],
+    [
+      "agent",
+      "You are welcome."
+    ],
+    [
+      "agent",
+      "Thank you. Have a great day!"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "hello, how may i help you today?",
+      "turn_count": 1,
+      "targets": [
+        "status_shipping_question",
+        "retrieve_utterance",
+        null,
+        [],
+        8
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i have a shipping question",
+      "turn_count": 2,
+      "targets": [
+        "status_shipping_question",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "sure, no problem. can you please tell me more about your question?",
+      "turn_count": 3,
+      "targets": [
+        "status_shipping_question",
+        "retrieve_utterance",
+        null,
+        [],
+        59
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "what does the premium shipping service do?",
+      "turn_count": 4,
+      "targets": [
+        "status_shipping_question",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "is it worth the money",
+      "turn_count": 5,
+      "targets": [
+        "status_shipping_question",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "hello?",
+      "turn_count": 6,
+      "targets": [
+        "status_shipping_question",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "are you asking about premium membership?",
+      "turn_count": 7,
+      "targets": [
+        "status_shipping_question",
+        "retrieve_utterance",
+        null,
+        [],
+        38
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yes",
+      "turn_count": 8,
+      "targets": [
+        "status_shipping_question",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "what is the shipping time",
+      "turn_count": 9,
+      "targets": [
+        "status_shipping_question",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "are you asking about overnight shipping?",
+      "turn_count": 10,
+      "targets": [
+        "status_shipping_question",
+        "retrieve_utterance",
+        null,
+        [],
+        53
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yes",
+      "turn_count": 11,
+      "targets": [
+        "status_shipping_question",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "does that come with the premium subscription",
+      "turn_count": 12,
+      "targets": [
+        "status_shipping_question",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "searching the faq pages ...",
+      "turn_count": 13,
+      "targets": [
+        "status_shipping_question",
+        "take_action",
+        "search-faq",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "system action: search pricing",
+      "turn_count": 14,
+      "targets": [
+        "status_shipping_question",
+        "take_action",
+        "search-pricing",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thank you",
+      "turn_count": 15,
+      "targets": [
+        "status_shipping_question",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "no, overnight shipping is not included with premium subscription.",
+      "turn_count": 16,
+      "targets": [
+        "status_shipping_question",
+        "retrieve_utterance",
+        null,
+        [],
+        61
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "would you like to know how much it costs?",
+      "turn_count": 17,
+      "targets": [
+        "status_shipping_question",
+        "retrieve_utterance",
+        null,
+        [],
+        99
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yes",
+      "turn_count": 18,
+      "targets": [
+        "status_shipping_question",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "please",
+      "turn_count": 19,
+      "targets": [
+        "status_shipping_question",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "actually, i can check your account to see if your account includes free international shipping.",
+      "turn_count": 20,
+      "targets": [
+        "status_shipping_question",
+        "retrieve_utterance",
+        null,
+        [],
+        82
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i'm about to do a lot of ordering",
+      "turn_count": 21,
+      "targets": [
+        "status_shipping_question",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "is this your question?",
+      "turn_count": 22,
+      "targets": [
+        "status_shipping_question",
+        "retrieve_utterance",
+        null,
+        [],
+        54
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yea",
+      "turn_count": 23,
+      "targets": [
+        "status_shipping_question",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thats all",
+      "turn_count": 24,
+      "targets": [
+        "status_shipping_question",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thank you",
+      "turn_count": 25,
+      "targets": [
+        "status_shipping_question",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can you please give me your full name or account id?",
+      "turn_count": 26,
+      "targets": [
+        "status_shipping_question",
+        "retrieve_utterance",
+        null,
+        [],
+        92
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i just lost a bunch of weight so i wanted to see the best shipping plan",
+      "turn_count": 27,
+      "targets": [
+        "status_shipping_question",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "joyce wu",
+      "turn_count": 28,
+      "targets": [
+        "status_shipping_question",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for joyce wu.",
+      "turn_count": 29,
+      "targets": [
+        "status_shipping_question",
+        "take_action",
+        "pull-up-account",
+        [
+          "joyce wu"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i was just seeing about the international shipping costs",
+      "turn_count": 30,
+      "targets": [
+        "status_shipping_question",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "querying the system for an answer ...",
+      "turn_count": 31,
+      "targets": [
+        "status_shipping_question",
+        "take_action",
+        "ask-the-oracle",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i apologize but your account does not include free international shipping.",
+      "turn_count": 32,
+      "targets": [
+        "status_shipping_question",
+        "retrieve_utterance",
+        null,
+        [],
+        52
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ahhh",
+      "turn_count": 33,
+      "targets": [
+        "status_shipping_question",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thats ok",
+      "turn_count": 34,
+      "targets": [
+        "status_shipping_question",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "if you have any further questions about your subscription service, press refer to our faq page.",
+      "turn_count": 35,
+      "targets": [
+        "status_shipping_question",
+        "retrieve_utterance",
+        null,
+        [],
+        97
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thank you thought",
+      "turn_count": 36,
+      "targets": [
+        "status_shipping_question",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "a link will be sent.",
+      "turn_count": 37,
+      "targets": [
+        "status_shipping_question",
+        "take_action",
+        "send-link",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i've just sent you a link to our faq page.",
+      "turn_count": 38,
+      "targets": [
+        "status_shipping_question",
+        "retrieve_utterance",
+        null,
+        [],
+        85
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "is there anything else i can help you with today?",
+      "turn_count": 39,
+      "targets": [
+        "status_shipping_question",
+        "retrieve_utterance",
+        null,
+        [],
+        14
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no thank you",
+      "turn_count": 40,
+      "targets": [
+        "status_shipping_question",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "you are welcome.",
+      "turn_count": 41,
+      "targets": [
+        "status_shipping_question",
+        "retrieve_utterance",
+        null,
+        [],
+        96
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you. have a great day!",
+      "turn_count": 42,
+      "targets": [
+        "status_shipping_question",
+        "retrieve_utterance",
+        null,
+        [],
+        80
+      ]
+    }
+  ]
+}

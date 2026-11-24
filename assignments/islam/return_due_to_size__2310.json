@@ -1,0 +1,947 @@
+{
+  "convo_id": 2310,
+  "scenario": {
+    "personal": {
+      "customer_name": "crystal minh",
+      "email": "cm144162@email.com",
+      "member_level": "silver",
+      "phone": "(748) 973-7885",
+      "username": "cm144162"
+    },
+    "order": {
+      "street_address": "6839 1st ave",
+      "full_address": "6839 1st ave  jacksonville, tx 43215",
+      "city": "jacksonville",
+      "num_products": "1",
+      "order_id": "1141735767",
+      "packaging": "no",
+      "payment_method": "paypal",
+      "products": "[{'brand': 'guess', 'product_type': 'jacket', 'amount': 49, 'image_url': 'images/guess-jacket.jpeg'}]",
+      "purchase_date": "2020-02-04",
+      "state": "tx",
+      "zip_code": "43215"
+    },
+    "product": {
+      "names": [
+        "guess jacket"
+      ],
+      "amounts": [
+        49
+      ]
+    },
+    "flow": "product_defect",
+    "subflow": "return_size"
+  },
+  "original": [
+    [
+      "customer",
+      "Hi"
+    ],
+    [
+      "agent",
+      "Hello. How can I help you today?"
+    ],
+    [
+      "customer",
+      "So I have a kind upsetting issue"
+    ],
+    [
+      "customer",
+      "I bought this jacket from Guess"
+    ],
+    [
+      "customer",
+      "It was $49"
+    ],
+    [
+      "customer",
+      "I bought it when I was exercising a ton"
+    ],
+    [
+      "customer",
+      "But then I broke my leg"
+    ],
+    [
+      "customer",
+      "and I gained a lot of weight"
+    ],
+    [
+      "customer",
+      "Now the jacket is the wrong size"
+    ],
+    [
+      "customer",
+      "Can you help me return it?"
+    ],
+    [
+      "agent",
+      "Lets take a look. Can I have your name please?"
+    ],
+    [
+      "customer",
+      "Crystal Minh"
+    ],
+    [
+      "action",
+      "Account has been pulled up for Crystal Minh."
+    ],
+    [
+      "agent",
+      "So Crystal you are looking to return the jacket because it is the wrong size?"
+    ],
+    [
+      "customer",
+      "yup"
+    ],
+    [
+      "agent",
+      "Can you tell me your username, email, and order ID?"
+    ],
+    [
+      "customer",
+      "ok"
+    ],
+    [
+      "customer",
+      "cm144162@email.com"
+    ],
+    [
+      "customer",
+      "cm144162"
+    ],
+    [
+      "customer",
+      "1141735767"
+    ],
+    [
+      "action",
+      "Purchase validation in progress ..."
+    ],
+    [
+      "agent",
+      "Thanks for that Crystal. What is your membership level?"
+    ],
+    [
+      "customer",
+      "silver"
+    ],
+    [
+      "agent",
+      "What was the purchase date of the jacket?"
+    ],
+    [
+      "customer",
+      "2020-02-04"
+    ],
+    [
+      "agent",
+      "Great. Thank you. You are eligible to make a return."
+    ],
+    [
+      "customer",
+      "okay great"
+    ],
+    [
+      "action",
+      "Membership level of silver has been noted."
+    ],
+    [
+      "customer",
+      "how do i do that"
+    ],
+    [
+      "agent",
+      "Can I have your address for the return label?"
+    ],
+    [
+      "agent",
+      "I will send you a return label for you to print."
+    ],
+    [
+      "customer",
+      "6839 1st Ave  Jacksonville, TX 43215"
+    ],
+    [
+      "agent",
+      "Then you can drop it in the mail, bring to a store, or bring to a drop off location."
+    ],
+    [
+      "agent",
+      "One moment please."
+    ],
+    [
+      "action",
+      "Details of 6839 1st Ave Jacksonville, TX 43215 have been entered."
+    ],
+    [
+      "agent",
+      "Which method will you be returning by?"
+    ],
+    [
+      "customer",
+      "I'll just drop it off at a store i think"
+    ],
+    [
+      "customer",
+      "I want to get rid of it"
+    ],
+    [
+      "customer",
+      "It's depressing to look at clothes that I don't fit into any more"
+    ],
+    [
+      "agent",
+      "Great that sounds easy enough. Anything else I can do for you?"
+    ],
+    [
+      "customer",
+      "So I just take it to the store near me?"
+    ],
+    [
+      "action",
+      "Order has been updated with store."
+    ],
+    [
+      "agent",
+      "Yes with the return label that I am sending you."
+    ],
+    [
+      "customer",
+      "Okay. So I will wait for the label, then go to the store"
+    ],
+    [
+      "agent",
+      "Should already have it."
+    ],
+    [
+      "customer",
+      "I don't need anything else"
+    ],
+    [
+      "customer",
+      "That was it"
+    ],
+    [
+      "agent",
+      "Thats it."
+    ],
+    [
+      "agent",
+      "Great have a nice day."
+    ],
+    [
+      "customer",
+      "So I am confused, do I need a label or not?"
+    ],
+    [
+      "customer",
+      "I don't have the label yet"
+    ],
+    [
+      "agent",
+      "Yes so that the store can ship it to us."
+    ],
+    [
+      "customer",
+      "oh okay"
+    ],
+    [
+      "customer",
+      "I understand"
+    ],
+    [
+      "customer",
+      "Well, that's all I needed"
+    ],
+    [
+      "agent",
+      "Great have a nice day."
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "customer",
+      "text": "hi",
+      "turn_count": 1,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "hello. how can i help you today?",
+      "turn_count": 2,
+      "targets": [
+        "return_size",
+        "retrieve_utterance",
+        null,
+        [],
+        54
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "so i have a kind upsetting issue",
+      "turn_count": 3,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i bought this jacket from guess",
+      "turn_count": 4,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "it was $<amount>",
+      "turn_count": 5,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i bought it when i was exercising a ton",
+      "turn_count": 6,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "but then i broke my leg",
+      "turn_count": 7,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "and i gained a lot of weight",
+      "turn_count": 8,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "now the jacket is the wrong size",
+      "turn_count": 9,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "can you help me return it?",
+      "turn_count": 10,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "lets take a look. can i have your name please?",
+      "turn_count": 11,
+      "targets": [
+        "return_size",
+        "retrieve_utterance",
+        null,
+        [],
+        30
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "crystal minh",
+      "turn_count": 12,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for crystal minh.",
+      "turn_count": 13,
+      "targets": [
+        "return_size",
+        "take_action",
+        "pull-up-account",
+        [
+          "crystal minh"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "so crystal you are looking to return the jacket because it is the wrong size?",
+      "turn_count": 14,
+      "targets": [
+        "return_size",
+        "retrieve_utterance",
+        null,
+        [],
+        77
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yup",
+      "turn_count": 15,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can you tell me your username, email, and order id?",
+      "turn_count": 16,
+      "targets": [
+        "return_size",
+        "retrieve_utterance",
+        null,
+        [],
+        94
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok",
+      "turn_count": 17,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "<email>",
+      "turn_count": 18,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "<username>",
+      "turn_count": 19,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "<order_id>",
+      "turn_count": 20,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "purchase validation in progress ...",
+      "turn_count": 21,
+      "targets": [
+        "return_size",
+        "take_action",
+        "validate-purchase",
+        [
+          "cm144162",
+          "cm144162@email.com",
+          "1141735767"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thanks for that crystal. what is your membership level?",
+      "turn_count": 22,
+      "targets": [
+        "return_size",
+        "retrieve_utterance",
+        null,
+        [],
+        34
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "silver",
+      "turn_count": 23,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "what was the purchase date of the jacket?",
+      "turn_count": 24,
+      "targets": [
+        "return_size",
+        "retrieve_utterance",
+        null,
+        [],
+        25
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "2020-02-04",
+      "turn_count": 25,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "great. thank you. you are eligible to make a return.",
+      "turn_count": 26,
+      "targets": [
+        "return_size",
+        "retrieve_utterance",
+        null,
+        [],
+        33
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay great",
+      "turn_count": 27,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "membership level of silver has been noted.",
+      "turn_count": 28,
+      "targets": [
+        "return_size",
+        "take_action",
+        "membership",
+        [
+          "silver"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "how do i do that",
+      "turn_count": 29,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can i have your address for the return label?",
+      "turn_count": 30,
+      "targets": [
+        "return_size",
+        "retrieve_utterance",
+        null,
+        [],
+        44
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i will send you a return label for you to print.",
+      "turn_count": 31,
+      "targets": [
+        "return_size",
+        "retrieve_utterance",
+        null,
+        [],
+        92
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "<street_address>  jacksonville, tx <zip_code>",
+      "turn_count": 32,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "then you can drop it in the mail, bring to a store, or bring to a drop off location.",
+      "turn_count": 33,
+      "targets": [
+        "return_size",
+        "retrieve_utterance",
+        null,
+        [],
+        24
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "one moment please.",
+      "turn_count": 34,
+      "targets": [
+        "return_size",
+        "retrieve_utterance",
+        null,
+        [],
+        67
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "details of <street_address> jacksonville, tx <zip_code> have been entered.",
+      "turn_count": 35,
+      "targets": [
+        "return_size",
+        "take_action",
+        "enter-details",
+        [
+          "6839 1st ave jacksonville, tx 43215"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "which method will you be returning by?",
+      "turn_count": 36,
+      "targets": [
+        "return_size",
+        "retrieve_utterance",
+        null,
+        [],
+        42
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i'll just drop it off at a store i think",
+      "turn_count": 37,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i want to get rid of it",
+      "turn_count": 38,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "it's depressing to look at clothes that i don't fit into any more",
+      "turn_count": 39,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "great that sounds easy enough. anything else i can do for you?",
+      "turn_count": 40,
+      "targets": [
+        "return_size",
+        "retrieve_utterance",
+        null,
+        [],
+        25
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "so i just take it to the store near me?",
+      "turn_count": 41,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "order has been updated with store.",
+      "turn_count": 42,
+      "targets": [
+        "return_size",
+        "take_action",
+        "update-order",
+        [
+          "by mail"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "yes with the return label that i am sending you.",
+      "turn_count": 43,
+      "targets": [
+        "return_size",
+        "retrieve_utterance",
+        null,
+        [],
+        45
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay. so i will wait for the label, then go to the store",
+      "turn_count": 44,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "should already have it.",
+      "turn_count": 45,
+      "targets": [
+        "return_size",
+        "retrieve_utterance",
+        null,
+        [],
+        85
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i don't need anything else",
+      "turn_count": 46,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "that was it",
+      "turn_count": 47,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thats it.",
+      "turn_count": 48,
+      "targets": [
+        "return_size",
+        "retrieve_utterance",
+        null,
+        [],
+        64
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "great have a nice day.",
+      "turn_count": 49,
+      "targets": [
+        "return_size",
+        "retrieve_utterance",
+        null,
+        [],
+        88
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "so i am confused, do i need a label or not?",
+      "turn_count": 50,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i don't have the label yet",
+      "turn_count": 51,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "yes so that the store can ship it to us.",
+      "turn_count": 52,
+      "targets": [
+        "return_size",
+        "retrieve_utterance",
+        null,
+        [],
+        55
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "oh okay",
+      "turn_count": 53,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i understand",
+      "turn_count": 54,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "well, that's all i needed",
+      "turn_count": 55,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "great have a nice day.",
+      "turn_count": 56,
+      "targets": [
+        "return_size",
+        "retrieve_utterance",
+        null,
+        [],
+        24
+      ]
+    }
+  ]
+}

@@ -1,0 +1,821 @@
+{
+  "convo_id": 3623,
+  "scenario": {
+    "personal": {
+      "customer_name": "albert sanders",
+      "email": "alberts1@email.com",
+      "member_level": "guest",
+      "phone": "(819) 868-6059",
+      "username": "alberts1"
+    },
+    "order": {
+      "street_address": "7108 1st ave",
+      "full_address": "7108 1st ave  la fayette, tx 53280",
+      "city": "la fayette",
+      "num_products": "1",
+      "products": "[{'brand': 'guess', 'product_type': 'jeans', 'amount': 89, 'image_url': 'images/guess-jeans.jpeg'}]",
+      "state": "tx",
+      "zip_code": "53280"
+    },
+    "product": {
+      "names": [
+        "guess jeans"
+      ],
+      "amounts": [
+        89
+      ]
+    },
+    "flow": "troubleshoot_site",
+    "subflow": "shopping_cart"
+  },
+  "original": [
+    [
+      "customer",
+      "Hi"
+    ],
+    [
+      "agent",
+      "Hello. How may I assist you today?"
+    ],
+    [
+      "customer",
+      "I'm trying to shop for some jeans. But I'm having issues with the cart."
+    ],
+    [
+      "customer",
+      "Anytime I add an item into it"
+    ],
+    [
+      "customer",
+      "Its not updating..."
+    ],
+    [
+      "customer",
+      "I don't know what's wrong"
+    ],
+    [
+      "agent",
+      "Hmm let me look into that for you."
+    ],
+    [
+      "customer",
+      "I'd appreciate that"
+    ],
+    [
+      "agent",
+      "What happens if you refresh the page and try to add it again?"
+    ],
+    [
+      "customer",
+      "I tried that several times. It's still the same issue"
+    ],
+    [
+      "customer",
+      "Once I add to cart, it won't update."
+    ],
+    [
+      "action",
+      "Agent is looking for solutions ..."
+    ],
+    [
+      "agent",
+      "Have you tried to log out and then back in again?"
+    ],
+    [
+      "customer",
+      "Oh! Not yet. Let me try that."
+    ],
+    [
+      "customer",
+      "Some minutes please"
+    ],
+    [
+      "agent",
+      "Okay, let me know how that goes!"
+    ],
+    [
+      "customer",
+      "Hello."
+    ],
+    [
+      "agent",
+      "Did that work?"
+    ],
+    [
+      "customer",
+      "Just tried it.. Still the same old story"
+    ],
+    [
+      "customer",
+      "I'm getting tired"
+    ],
+    [
+      "agent",
+      "Ugh, I am so sorry."
+    ],
+    [
+      "agent",
+      "Can you try one more thing?"
+    ],
+    [
+      "customer",
+      "Please help me figure out a solution"
+    ],
+    [
+      "agent",
+      "If it doesn't work, I can just order it for you."
+    ],
+    [
+      "agent",
+      "The last thing is to check to make sure that the item isn't out of stock."
+    ],
+    [
+      "customer",
+      "That could be true."
+    ],
+    [
+      "agent",
+      "If you go to the product page, it will be listed in the bottom left corner."
+    ],
+    [
+      "customer",
+      "Let me check"
+    ],
+    [
+      "customer",
+      "Some minutes pls"
+    ],
+    [
+      "agent",
+      "Of course!"
+    ],
+    [
+      "action",
+      "Searching the FAQ pages ..."
+    ],
+    [
+      "action",
+      "System Action: search timing"
+    ],
+    [
+      "action",
+      "System Action: search jeans"
+    ],
+    [
+      "action",
+      "Agent is looking for solutions ..."
+    ],
+    [
+      "customer",
+      "Hi."
+    ],
+    [
+      "customer",
+      "The product I clicked is out of stock."
+    ],
+    [
+      "customer",
+      "I ll just get another."
+    ],
+    [
+      "customer",
+      "Thanks"
+    ],
+    [
+      "agent",
+      "Okay, that's why it didn't work."
+    ],
+    [
+      "agent",
+      "Are you sure you don't want me to just order it for you?"
+    ],
+    [
+      "customer",
+      "Yeah. That's it"
+    ],
+    [
+      "agent",
+      "I am glad we figured it out."
+    ],
+    [
+      "customer",
+      "I ll make the order now."
+    ],
+    [
+      "action",
+      "Details of  have been entered."
+    ],
+    [
+      "agent",
+      "Okay."
+    ],
+    [
+      "agent",
+      "Is there anything else I can help you with?"
+    ],
+    [
+      "customer",
+      "No. I'm good"
+    ],
+    [
+      "agent",
+      "Thanks for shopping with us."
+    ],
+    [
+      "agent",
+      "Have a great day!"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "customer",
+      "text": "hi",
+      "turn_count": 1,
+      "targets": [
+        "shopping_cart",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "hello. how may i assist you today?",
+      "turn_count": 2,
+      "targets": [
+        "shopping_cart",
+        "retrieve_utterance",
+        null,
+        [],
+        81
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i'm trying to shop for some jeans. but i'm having issues with the cart.",
+      "turn_count": 3,
+      "targets": [
+        "shopping_cart",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "anytime i add an item into it",
+      "turn_count": 4,
+      "targets": [
+        "shopping_cart",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "its not updating...",
+      "turn_count": 5,
+      "targets": [
+        "shopping_cart",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i don't know what's wrong",
+      "turn_count": 6,
+      "targets": [
+        "shopping_cart",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "hmm let me look into that for you.",
+      "turn_count": 7,
+      "targets": [
+        "shopping_cart",
+        "retrieve_utterance",
+        null,
+        [],
+        5
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i'd appreciate that",
+      "turn_count": 8,
+      "targets": [
+        "shopping_cart",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "what happens if you refresh the page and try to add it again?",
+      "turn_count": 9,
+      "targets": [
+        "shopping_cart",
+        "retrieve_utterance",
+        null,
+        [],
+        55
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i tried that several times. it's still the same issue",
+      "turn_count": 10,
+      "targets": [
+        "shopping_cart",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "once i add to cart, it won't update.",
+      "turn_count": 11,
+      "targets": [
+        "shopping_cart",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "agent is looking for solutions ...",
+      "turn_count": 12,
+      "targets": [
+        "shopping_cart",
+        "take_action",
+        "try-again",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "have you tried to log out and then back in again?",
+      "turn_count": 13,
+      "targets": [
+        "shopping_cart",
+        "retrieve_utterance",
+        null,
+        [],
+        60
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "oh! not yet. let me try that.",
+      "turn_count": 14,
+      "targets": [
+        "shopping_cart",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "some minutes please",
+      "turn_count": 15,
+      "targets": [
+        "shopping_cart",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "okay, let me know how that goes!",
+      "turn_count": 16,
+      "targets": [
+        "shopping_cart",
+        "retrieve_utterance",
+        null,
+        [],
+        69
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "hello.",
+      "turn_count": 17,
+      "targets": [
+        "shopping_cart",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "did that work?",
+      "turn_count": 18,
+      "targets": [
+        "shopping_cart",
+        "retrieve_utterance",
+        null,
+        [],
+        37
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "just tried it.. still the same old story",
+      "turn_count": 19,
+      "targets": [
+        "shopping_cart",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i'm getting tired",
+      "turn_count": 20,
+      "targets": [
+        "shopping_cart",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ugh, i am so sorry.",
+      "turn_count": 21,
+      "targets": [
+        "shopping_cart",
+        "retrieve_utterance",
+        null,
+        [],
+        17
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can you try one more thing?",
+      "turn_count": 22,
+      "targets": [
+        "shopping_cart",
+        "retrieve_utterance",
+        null,
+        [],
+        79
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "please help me figure out a solution",
+      "turn_count": 23,
+      "targets": [
+        "shopping_cart",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "if it doesn't work, i can just order it for you.",
+      "turn_count": 24,
+      "targets": [
+        "shopping_cart",
+        "retrieve_utterance",
+        null,
+        [],
+        60
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "the last thing is to check to make sure that the item isn't out of stock.",
+      "turn_count": 25,
+      "targets": [
+        "shopping_cart",
+        "retrieve_utterance",
+        null,
+        [],
+        79
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "that could be true.",
+      "turn_count": 26,
+      "targets": [
+        "shopping_cart",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "if you go to the product page, it will be listed in the bottom left corner.",
+      "turn_count": 27,
+      "targets": [
+        "shopping_cart",
+        "retrieve_utterance",
+        null,
+        [],
+        97
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "let me check",
+      "turn_count": 28,
+      "targets": [
+        "shopping_cart",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "some minutes pls",
+      "turn_count": 29,
+      "targets": [
+        "shopping_cart",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "of course!",
+      "turn_count": 30,
+      "targets": [
+        "shopping_cart",
+        "retrieve_utterance",
+        null,
+        [],
+        35
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "searching the faq pages ...",
+      "turn_count": 31,
+      "targets": [
+        "shopping_cart",
+        "take_action",
+        "search-faq",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "system action: search timing",
+      "turn_count": 33,
+      "targets": [
+        "shopping_cart",
+        "take_action",
+        "search-timing",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "system action: search jeans",
+      "turn_count": 35,
+      "targets": [
+        "shopping_cart",
+        "take_action",
+        "search-jeans",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "agent is looking for solutions ...",
+      "turn_count": 36,
+      "targets": [
+        "shopping_cart",
+        "take_action",
+        "log-out-in",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "hi.",
+      "turn_count": 37,
+      "targets": [
+        "shopping_cart",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "the product i clicked is out of stock.",
+      "turn_count": 38,
+      "targets": [
+        "shopping_cart",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i ll just get another.",
+      "turn_count": 39,
+      "targets": [
+        "shopping_cart",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thanks",
+      "turn_count": 40,
+      "targets": [
+        "shopping_cart",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "okay, that's why it didn't work.",
+      "turn_count": 41,
+      "targets": [
+        "shopping_cart",
+        "retrieve_utterance",
+        null,
+        [],
+        61
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "are you sure you don't want me to just order it for you?",
+      "turn_count": 42,
+      "targets": [
+        "shopping_cart",
+        "retrieve_utterance",
+        null,
+        [],
+        39
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yeah. that's it",
+      "turn_count": 43,
+      "targets": [
+        "shopping_cart",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i am glad we figured it out.",
+      "turn_count": 44,
+      "targets": [
+        "shopping_cart",
+        "retrieve_utterance",
+        null,
+        [],
+        4
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i ll make the order now.",
+      "turn_count": 45,
+      "targets": [
+        "shopping_cart",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "details of  have been entered.",
+      "turn_count": 46,
+      "targets": [
+        "shopping_cart",
+        "take_action",
+        "enter-details",
+        [
+          "troubleshoot"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "okay.",
+      "turn_count": 47,
+      "targets": [
+        "shopping_cart",
+        "retrieve_utterance",
+        null,
+        [],
+        76
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "is there anything else i can help you with?",
+      "turn_count": 48,
+      "targets": [
+        "shopping_cart",
+        "retrieve_utterance",
+        null,
+        [],
+        84
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no. i'm good",
+      "turn_count": 49,
+      "targets": [
+        "shopping_cart",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thanks for shopping with us.",
+      "turn_count": 50,
+      "targets": [
+        "shopping_cart",
+        "retrieve_utterance",
+        null,
+        [],
+        88
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "have a great day!",
+      "turn_count": 51,
+      "targets": [
+        "shopping_cart",
+        "retrieve_utterance",
+        null,
+        [],
+        17
+      ]
+    }
+  ]
+}

@@ -1,0 +1,865 @@
+{
+  "convo_id": 477,
+  "scenario": {
+    "personal": {
+      "customer_name": "norman bouchard",
+      "member_level": "gold",
+      "phone": "(456) 209-3476"
+    },
+    "order": {
+      "street_address": "2388 primrose ave",
+      "full_address": "2388 primrose ave  san lima, ca 65579",
+      "city": "san lima",
+      "num_products": "1",
+      "products": "[{'brand': 'tommy_hilfiger', 'product_type': 'jacket', 'amount': 64, 'image_url': 'images/tommy_hilfiger-jacket.jpeg'}]",
+      "state": "ca",
+      "zip_code": "65579"
+    },
+    "product": {
+      "names": [
+        "tommy_hilfiger jacket"
+      ],
+      "amounts": [
+        64
+      ]
+    },
+    "flow": "single_item_query",
+    "subflow": "jacket_how_2"
+  },
+  "original": [
+    [
+      "customer",
+      "hello?"
+    ],
+    [
+      "customer",
+      "is anyone there?"
+    ],
+    [
+      "agent",
+      "Hi, how may I help you?"
+    ],
+    [
+      "agent",
+      "Sorry for the delay."
+    ],
+    [
+      "customer",
+      "Oh hi"
+    ],
+    [
+      "customer",
+      "I had a question about a jacket"
+    ],
+    [
+      "agent",
+      "Ok great, I can help you with that."
+    ],
+    [
+      "agent",
+      "What is your question?"
+    ],
+    [
+      "customer",
+      "It's the Tommy Hilfiger jacket."
+    ],
+    [
+      "customer",
+      "The one that's for $64?"
+    ],
+    [
+      "agent",
+      "Ok, can I have your name please?"
+    ],
+    [
+      "customer",
+      "Sure it's Norman"
+    ],
+    [
+      "customer",
+      "do you need my last name?"
+    ],
+    [
+      "agent",
+      "No, not right now. Thank you Norman."
+    ],
+    [
+      "action",
+      "Searching the FAQ pages ..."
+    ],
+    [
+      "agent",
+      "I am searching about your jacket, one moment please."
+    ],
+    [
+      "action",
+      "System Action: search jacket"
+    ],
+    [
+      "customer",
+      "ok"
+    ],
+    [
+      "agent",
+      "What is your question about the Tommy Hillfiger jacket?"
+    ],
+    [
+      "customer",
+      "I had two questions"
+    ],
+    [
+      "customer",
+      "The first is do you know how I am supposed to wash this?"
+    ],
+    [
+      "agent",
+      "Ok I will help you with both of them."
+    ],
+    [
+      "customer",
+      "Can I wash it in the dryer?"
+    ],
+    [
+      "customer",
+      "Or does it have to be dry cleaned?"
+    ],
+    [
+      "agent",
+      "Ok, great. I should have your answers in a few moments."
+    ],
+    [
+      "agent",
+      "Ok, Norman."
+    ],
+    [
+      "agent",
+      "The jacket does not have to be dry cleaned."
+    ],
+    [
+      "customer",
+      "ok that's good"
+    ],
+    [
+      "customer",
+      "and does it say to what cold temp is it good for?"
+    ],
+    [
+      "agent",
+      "It can be washed in the washer and then dried in your dryer, however we suggest drying it at low heat to keep it from shrinking."
+    ],
+    [
+      "agent",
+      "The fabric is durable so it can tolerate being washed and dried at home."
+    ],
+    [
+      "agent",
+      "One second and I will find out about the water temperature."
+    ],
+    [
+      "customer",
+      "ok thanks"
+    ],
+    [
+      "agent",
+      "your welcome"
+    ],
+    [
+      "agent",
+      "One more second please"
+    ],
+    [
+      "agent",
+      "Yes, it's recommended for cold temperatures that are windy. It's wind proof so it can withstand cold winds very well."
+    ],
+    [
+      "customer",
+      "up to what temp?"
+    ],
+    [
+      "agent",
+      "I'm not sure Norman. Would you like to wait while I try to find out for you?"
+    ],
+    [
+      "customer",
+      "if it won't take that long ok"
+    ],
+    [
+      "agent",
+      "Ok, let me see if I can find it."
+    ],
+    [
+      "action",
+      "Searching the FAQ pages ..."
+    ],
+    [
+      "agent",
+      "I'm sorry about the wait Norman"
+    ],
+    [
+      "agent",
+      "I can't find an exact temperature for that jacket. Are you wearing it in extreme temperatures like snow? Or just everyday cold temps?"
+    ],
+    [
+      "action",
+      "System Action: search jacket"
+    ],
+    [
+      "customer",
+      "just wondering when I visit friends in chacago how low it could go"
+    ],
+    [
+      "agent",
+      "Ok great. I can tell you the jacket has optimal insulation so you retain a lot of body heat and it's wind proof. It should be a great jacket for Chicago!"
+    ],
+    [
+      "customer",
+      "ok great thanks"
+    ],
+    [
+      "agent",
+      "Your welcome"
+    ],
+    [
+      "agent",
+      "Is there anything else I can do for you today?"
+    ],
+    [
+      "customer",
+      "I'm all set. thanks for your help!"
+    ],
+    [
+      "agent",
+      "Your welcome, have a great day Norman"
+    ],
+    [
+      "customer",
+      "you too"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "customer",
+      "text": "hello?",
+      "turn_count": 1,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "is anyone there?",
+      "turn_count": 2,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "hi, how may i help you?",
+      "turn_count": 3,
+      "targets": [
+        "jacket",
+        "retrieve_utterance",
+        null,
+        [],
+        14
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "sorry for the delay.",
+      "turn_count": 4,
+      "targets": [
+        "jacket",
+        "retrieve_utterance",
+        null,
+        [],
+        18
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "oh hi",
+      "turn_count": 5,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i had a question about a jacket",
+      "turn_count": 6,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok great, i can help you with that.",
+      "turn_count": 7,
+      "targets": [
+        "jacket",
+        "retrieve_utterance",
+        null,
+        [],
+        89
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "what is your question?",
+      "turn_count": 8,
+      "targets": [
+        "jacket",
+        "retrieve_utterance",
+        null,
+        [],
+        45
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "it's the tommy hilfiger jacket.",
+      "turn_count": 9,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "the one that's for $<amount>?",
+      "turn_count": 10,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok, can i have your name please?",
+      "turn_count": 11,
+      "targets": [
+        "jacket",
+        "retrieve_utterance",
+        null,
+        [],
+        43
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "sure it's norman",
+      "turn_count": 12,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "do you need my last name?",
+      "turn_count": 13,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "no, not right now. thank you norman.",
+      "turn_count": 14,
+      "targets": [
+        "jacket",
+        "retrieve_utterance",
+        null,
+        [],
+        4
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "searching the faq pages ...",
+      "turn_count": 15,
+      "targets": [
+        "jacket",
+        "take_action",
+        "search-faq",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i am searching about your jacket, one moment please.",
+      "turn_count": 16,
+      "targets": [
+        "jacket",
+        "retrieve_utterance",
+        null,
+        [],
+        6
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "system action: search jacket",
+      "turn_count": 17,
+      "targets": [
+        "jacket",
+        "take_action",
+        "search-jacket",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok",
+      "turn_count": 18,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "what is your question about the tommy hillfiger jacket?",
+      "turn_count": 19,
+      "targets": [
+        "jacket",
+        "retrieve_utterance",
+        null,
+        [],
+        41
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i had two questions",
+      "turn_count": 20,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "the first is do you know how i am supposed to wash this?",
+      "turn_count": 21,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok i will help you with both of them.",
+      "turn_count": 22,
+      "targets": [
+        "jacket",
+        "retrieve_utterance",
+        null,
+        [],
+        61
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "can i wash it in the dryer?",
+      "turn_count": 23,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "or does it have to be dry cleaned?",
+      "turn_count": 24,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok, great. i should have your answers in a few moments.",
+      "turn_count": 25,
+      "targets": [
+        "jacket",
+        "retrieve_utterance",
+        null,
+        [],
+        35
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok, norman.",
+      "turn_count": 26,
+      "targets": [
+        "jacket",
+        "retrieve_utterance",
+        null,
+        [],
+        35
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "the jacket does not have to be dry cleaned.",
+      "turn_count": 27,
+      "targets": [
+        "jacket",
+        "retrieve_utterance",
+        null,
+        [],
+        4
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok that's good",
+      "turn_count": 28,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "and does it say to what cold temp is it good for?",
+      "turn_count": 29,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "it can be washed in the washer and then dried in your dryer, however we suggest drying it at low heat to keep it from shrinking.",
+      "turn_count": 30,
+      "targets": [
+        "jacket",
+        "retrieve_utterance",
+        null,
+        [],
+        77
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "the fabric is durable so it can tolerate being washed and dried at home.",
+      "turn_count": 31,
+      "targets": [
+        "jacket",
+        "retrieve_utterance",
+        null,
+        [],
+        51
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "one second and i will find out about the water temperature.",
+      "turn_count": 32,
+      "targets": [
+        "jacket",
+        "retrieve_utterance",
+        null,
+        [],
+        41
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok thanks",
+      "turn_count": 33,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "your welcome",
+      "turn_count": 34,
+      "targets": [
+        "jacket",
+        "retrieve_utterance",
+        null,
+        [],
+        26
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "one more second please",
+      "turn_count": 35,
+      "targets": [
+        "jacket",
+        "retrieve_utterance",
+        null,
+        [],
+        10
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "yes, it's recommended for cold temperatures that are windy. it's wind proof so it can withstand cold winds very well.",
+      "turn_count": 36,
+      "targets": [
+        "jacket",
+        "retrieve_utterance",
+        null,
+        [],
+        78
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "up to what temp?",
+      "turn_count": 37,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i'm not sure norman. would you like to wait while i try to find out for you?",
+      "turn_count": 38,
+      "targets": [
+        "jacket",
+        "retrieve_utterance",
+        null,
+        [],
+        7
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "if it won't take that long ok",
+      "turn_count": 39,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok, let me see if i can find it.",
+      "turn_count": 40,
+      "targets": [
+        "jacket",
+        "retrieve_utterance",
+        null,
+        [],
+        34
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "searching the faq pages ...",
+      "turn_count": 41,
+      "targets": [
+        "jacket",
+        "take_action",
+        "search-faq",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i'm sorry about the wait norman",
+      "turn_count": 42,
+      "targets": [
+        "jacket",
+        "retrieve_utterance",
+        null,
+        [],
+        15
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i can't find an exact temperature for that jacket. are you wearing it in extreme temperatures like snow? or just everyday cold temps?",
+      "turn_count": 43,
+      "targets": [
+        "jacket",
+        "retrieve_utterance",
+        null,
+        [],
+        74
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "system action: search jacket",
+      "turn_count": 45,
+      "targets": [
+        "jacket",
+        "take_action",
+        "search-jacket",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "just wondering when i visit friends in chacago how low it could go",
+      "turn_count": 46,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok great. i can tell you the jacket has optimal insulation so you retain a lot of body heat and it's wind proof. it should be a great jacket for chicago!",
+      "turn_count": 47,
+      "targets": [
+        "jacket",
+        "retrieve_utterance",
+        null,
+        [],
+        93
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok great thanks",
+      "turn_count": 48,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "your welcome",
+      "turn_count": 49,
+      "targets": [
+        "jacket",
+        "retrieve_utterance",
+        null,
+        [],
+        27
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "is there anything else i can do for you today?",
+      "turn_count": 50,
+      "targets": [
+        "jacket",
+        "retrieve_utterance",
+        null,
+        [],
+        95
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i'm all set. thanks for your help!",
+      "turn_count": 51,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "your welcome, have a great day norman",
+      "turn_count": 52,
+      "targets": [
+        "jacket",
+        "retrieve_utterance",
+        null,
+        [],
+        17
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "you too",
+      "turn_count": 53,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    }
+  ]
+}

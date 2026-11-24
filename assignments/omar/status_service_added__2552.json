@@ -1,0 +1,762 @@
+{
+  "convo_id": 2552,
+  "scenario": {
+    "personal": {
+      "customer_name": "albert sanders",
+      "member_level": "guest"
+    },
+    "order": {
+      "street_address": "6725 1st ave",
+      "full_address": "6725 1st ave  san mateo, ca 43965",
+      "city": "san mateo",
+      "num_products": "1",
+      "products": "[{'brand': 'calvin_klein', 'product_type': 'shirt', 'amount': 59, 'image_url': 'images/calvin_klein-shirt.jpeg'}]",
+      "state": "ca",
+      "zip_code": "43965"
+    },
+    "product": {
+      "names": [
+        "calvin_klein shirt"
+      ],
+      "amounts": [
+        59
+      ]
+    },
+    "flow": "manage_account",
+    "subflow": "status_service_added"
+  },
+  "original": [
+    [
+      "agent",
+      "hello, Thank you for contacting AcmeBrand. How can I help you?"
+    ],
+    [
+      "customer",
+      "Hi, my name's Albert Sanders, I need to check up on something"
+    ],
+    [
+      "agent",
+      "Sure thing Albert, what did you need to check on?"
+    ],
+    [
+      "customer",
+      "I don't have an account, I've been using your site as a guest, but I just heard on the news about premium subscriptions being added to people's accounts"
+    ],
+    [
+      "customer",
+      "I need to check to make sure that I'm not being charged for this, because I never signed up for it"
+    ],
+    [
+      "agent",
+      "Hmm, sure thing let me look into this for you."
+    ],
+    [
+      "action",
+      "Searching the FAQ pages ..."
+    ],
+    [
+      "action",
+      "System Action: search policy"
+    ],
+    [
+      "action",
+      "System Action: search membership"
+    ],
+    [
+      "agent",
+      "Alright Albert. I have some information available that may be able to help."
+    ],
+    [
+      "customer",
+      "okay"
+    ],
+    [
+      "agent",
+      "Firstly premium memberships cant be purchesed. You are automatically enrolled into the service based on your past purchases."
+    ],
+    [
+      "customer",
+      "I see"
+    ],
+    [
+      "agent",
+      "This also means there is no fee for this."
+    ],
+    [
+      "agent",
+      "If you would like I can let you know the amounts you need to spend for each tier."
+    ],
+    [
+      "customer",
+      "Oh, well, that sounds like good news"
+    ],
+    [
+      "customer",
+      "I don't think I use this site often enough to qualify, but what is the lowest level?"
+    ],
+    [
+      "agent",
+      "The lowest level would put qualify you for the Bronze tier. This requires $500 worth of purchases over the last year."
+    ],
+    [
+      "action",
+      "FAQ answer related to membership (question2) was selected."
+    ],
+    [
+      "customer",
+      "yes, I wouldn't come close to that, even in a good year, but thanks for your help"
+    ],
+    [
+      "agent",
+      "Not a problem, did you have any other questions or concerns I can address?"
+    ],
+    [
+      "customer",
+      "I just heard some troubling news, and I wanted to make sure that there wasn't any 'Service Added', but it seems like I had nothing to worry about"
+    ],
+    [
+      "customer",
+      "Thanks very much for your help"
+    ],
+    [
+      "agent",
+      "I see. We can double check to see if there may have been a service added if you would like."
+    ],
+    [
+      "customer",
+      "Yes, if you have a second, it can't hurt to double-check"
+    ],
+    [
+      "agent",
+      "Sure thing, how did you hear about the additional service?"
+    ],
+    [
+      "customer",
+      "it was on the news"
+    ],
+    [
+      "agent",
+      "I see let me pull up your guest account real fast."
+    ],
+    [
+      "action",
+      "Account has been pulled up for Albert Sanders."
+    ],
+    [
+      "action",
+      "A reason of News has been recorded."
+    ],
+    [
+      "agent",
+      "I'll check our system to see what this might be about."
+    ],
+    [
+      "action",
+      "Querying the system for an answer ..."
+    ],
+    [
+      "agent",
+      "So it does look like the news was correct and a service was added to accounts.  I'll go ahead and remove that if you would like."
+    ],
+    [
+      "customer",
+      "Yes, please."
+    ],
+    [
+      "action",
+      "Account has been updated with remove service."
+    ],
+    [
+      "agent",
+      "Let me offer you a refund for the service as well."
+    ],
+    [
+      "agent",
+      "since it would have been billed to your account."
+    ],
+    [
+      "action",
+      "A refund has been made for the amount of $40."
+    ],
+    [
+      "customer",
+      "Ah, thank you.  I'm glad we caught that"
+    ],
+    [
+      "agent",
+      "I'm very sorry for the inconveniece and I'm very happy we were able to get things cleared up!"
+    ],
+    [
+      "customer",
+      "Me too!  Thank you very much for your help, you were excellent."
+    ],
+    [
+      "agent",
+      "Did you need anything else today?"
+    ],
+    [
+      "customer",
+      "No, everything seems to be cleared up now."
+    ],
+    [
+      "agent",
+      "Thank you for shopping with us Albert, have a wonderful day!"
+    ],
+    [
+      "customer",
+      "You too"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "hello, thank you for contacting acmebrand. how can i help you?",
+      "turn_count": 1,
+      "targets": [
+        "status_service_added",
+        "retrieve_utterance",
+        null,
+        [],
+        40
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "hi, my name's albert sanders, i need to check up on something",
+      "turn_count": 2,
+      "targets": [
+        "status_service_added",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "sure thing albert, what did you need to check on?",
+      "turn_count": 3,
+      "targets": [
+        "status_service_added",
+        "retrieve_utterance",
+        null,
+        [],
+        88
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i don't have an account, i've been using your site as a guest, but i just heard on the news about premium subscriptions being added to people's accounts",
+      "turn_count": 4,
+      "targets": [
+        "status_service_added",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i need to check to make sure that i'm not being charged for this, because i never signed up for it",
+      "turn_count": 5,
+      "targets": [
+        "status_service_added",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "hmm, sure thing let me look into this for you.",
+      "turn_count": 6,
+      "targets": [
+        "status_service_added",
+        "retrieve_utterance",
+        null,
+        [],
+        78
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "searching the faq pages ...",
+      "turn_count": 7,
+      "targets": [
+        "status_service_added",
+        "take_action",
+        "search-faq",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "system action: search policy",
+      "turn_count": 8,
+      "targets": [
+        "status_service_added",
+        "take_action",
+        "search-policy",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "system action: search membership",
+      "turn_count": 9,
+      "targets": [
+        "status_service_added",
+        "take_action",
+        "search-membership",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "alright albert. i have some information available that may be able to help.",
+      "turn_count": 10,
+      "targets": [
+        "status_service_added",
+        "retrieve_utterance",
+        null,
+        [],
+        53
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay",
+      "turn_count": 11,
+      "targets": [
+        "status_service_added",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "firstly premium memberships cant be purchesed. you are automatically enrolled into the service based on your past purchases.",
+      "turn_count": 12,
+      "targets": [
+        "status_service_added",
+        "retrieve_utterance",
+        null,
+        [],
+        0
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i see",
+      "turn_count": 13,
+      "targets": [
+        "status_service_added",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "this also means there is no fee for this.",
+      "turn_count": 14,
+      "targets": [
+        "status_service_added",
+        "retrieve_utterance",
+        null,
+        [],
+        71
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "if you would like i can let you know the amounts you need to spend for each tier.",
+      "turn_count": 15,
+      "targets": [
+        "status_service_added",
+        "retrieve_utterance",
+        null,
+        [],
+        74
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "oh, well, that sounds like good news",
+      "turn_count": 16,
+      "targets": [
+        "status_service_added",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i don't think i use this site often enough to qualify, but what is the lowest level?",
+      "turn_count": 17,
+      "targets": [
+        "status_service_added",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "the lowest level would put qualify you for the bronze tier. this requires $500 worth of purchases over the last year.",
+      "turn_count": 18,
+      "targets": [
+        "status_service_added",
+        "retrieve_utterance",
+        null,
+        [],
+        1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "faq answer related to membership (question2) was selected.",
+      "turn_count": 19,
+      "targets": [
+        "status_service_added",
+        "take_action",
+        "select-faq",
+        [
+          "membership_2"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yes, i wouldn't come close to that, even in a good year, but thanks for your help",
+      "turn_count": 20,
+      "targets": [
+        "status_service_added",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "not a problem, did you have any other questions or concerns i can address?",
+      "turn_count": 21,
+      "targets": [
+        "status_service_added",
+        "retrieve_utterance",
+        null,
+        [],
+        36
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i just heard some troubling news, and i wanted to make sure that there wasn't any 'service added', but it seems like i had nothing to worry about",
+      "turn_count": 22,
+      "targets": [
+        "status_service_added",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thanks very much for your help",
+      "turn_count": 23,
+      "targets": [
+        "status_service_added",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i see. we can double check to see if there may have been a service added if you would like.",
+      "turn_count": 24,
+      "targets": [
+        "status_service_added",
+        "retrieve_utterance",
+        null,
+        [],
+        97
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yes, if you have a second, it can't hurt to double-check",
+      "turn_count": 25,
+      "targets": [
+        "status_service_added",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "sure thing, how did you hear about the additional service?",
+      "turn_count": 26,
+      "targets": [
+        "status_service_added",
+        "retrieve_utterance",
+        null,
+        [],
+        49
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "it was on the news",
+      "turn_count": 27,
+      "targets": [
+        "status_service_added",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i see let me pull up your guest account real fast.",
+      "turn_count": 28,
+      "targets": [
+        "status_service_added",
+        "retrieve_utterance",
+        null,
+        [],
+        35
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for albert sanders.",
+      "turn_count": 29,
+      "targets": [
+        "status_service_added",
+        "take_action",
+        "pull-up-account",
+        [
+          "albert sanders"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "a reason of news has been recorded.",
+      "turn_count": 30,
+      "targets": [
+        "status_service_added",
+        "take_action",
+        "record-reason",
+        [
+          "news"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i'll check our system to see what this might be about.",
+      "turn_count": 31,
+      "targets": [
+        "status_service_added",
+        "retrieve_utterance",
+        null,
+        [],
+        35
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "querying the system for an answer ...",
+      "turn_count": 32,
+      "targets": [
+        "status_service_added",
+        "take_action",
+        "ask-the-oracle",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "so it does look like the news was correct and a service was added to accounts.  i'll go ahead and remove that if you would like.",
+      "turn_count": 33,
+      "targets": [
+        "status_service_added",
+        "retrieve_utterance",
+        null,
+        [],
+        14
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yes, please.",
+      "turn_count": 34,
+      "targets": [
+        "status_service_added",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been updated with remove service.",
+      "turn_count": 35,
+      "targets": [
+        "status_service_added",
+        "take_action",
+        "update-account",
+        [
+          "remove service"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "let me offer you a refund for the service as well.",
+      "turn_count": 36,
+      "targets": [
+        "status_service_added",
+        "retrieve_utterance",
+        null,
+        [],
+        12
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "since it would have been billed to your account.",
+      "turn_count": 37,
+      "targets": [
+        "status_service_added",
+        "retrieve_utterance",
+        null,
+        [],
+        66
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "a refund has been made for the amount of $40.",
+      "turn_count": 38,
+      "targets": [
+        "status_service_added",
+        "take_action",
+        "offer-refund",
+        [
+          "40"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ah, thank you.  i'm glad we caught that",
+      "turn_count": 39,
+      "targets": [
+        "status_service_added",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i'm very sorry for the inconveniece and i'm very happy we were able to get things cleared up!",
+      "turn_count": 40,
+      "targets": [
+        "status_service_added",
+        "retrieve_utterance",
+        null,
+        [],
+        33
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "me too!  thank you very much for your help, you were excellent.",
+      "turn_count": 41,
+      "targets": [
+        "status_service_added",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "did you need anything else today?",
+      "turn_count": 42,
+      "targets": [
+        "status_service_added",
+        "retrieve_utterance",
+        null,
+        [],
+        18
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no, everything seems to be cleared up now.",
+      "turn_count": 43,
+      "targets": [
+        "status_service_added",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you for shopping with us albert, have a wonderful day!",
+      "turn_count": 44,
+      "targets": [
+        "status_service_added",
+        "retrieve_utterance",
+        null,
+        [],
+        72
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "you too",
+      "turn_count": 45,
+      "targets": [
+        "status_service_added",
+        null,
+        null,
+        [],
+        -1
+      ]
+    }
+  ]
+}

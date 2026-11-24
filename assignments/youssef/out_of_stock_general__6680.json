@@ -1,0 +1,796 @@
+{
+  "convo_id": 6680,
+  "scenario": {
+    "personal": {
+      "customer_name": "chloe zhang",
+      "email": "cz272395@email.com",
+      "member_level": "guest",
+      "phone": "(055) 750-9926",
+      "username": "cz272395"
+    },
+    "order": {
+      "street_address": "1389 lincoln ave",
+      "full_address": "1389 lincoln ave  newark, ca 72459",
+      "city": "newark",
+      "num_products": "3",
+      "order_id": "0759565046",
+      "products": "[{'brand': 'guess', 'product_type': 'jacket', 'amount': 64, 'image_url': 'images/guess-jacket.jpeg'}, {'brand': 'michael_kors', 'product_type': 'shirt', 'amount': 79, 'image_url': 'images/michael_kors-shirt.jpeg'}, {'brand': 'guess', 'product_type': 'jeans', 'amount': 99, 'image_url': 'images/guess-jeans.jpeg'}]",
+      "state": "ca",
+      "zip_code": "72459"
+    },
+    "product": {
+      "names": [
+        "guess jacket",
+        "michael_kors shirt",
+        "guess jeans"
+      ],
+      "amounts": [
+        64,
+        79,
+        99
+      ]
+    },
+    "flow": "purchase_dispute",
+    "subflow": "out_of_stock_general"
+  },
+  "original": [
+    [
+      "customer",
+      "Hello"
+    ],
+    [
+      "agent",
+      "Hi, how may I help you today?"
+    ],
+    [
+      "customer",
+      "I am very upset and I need help"
+    ],
+    [
+      "agent",
+      "Oh dear, I will do my best to help you."
+    ],
+    [
+      "agent",
+      "What's going on?"
+    ],
+    [
+      "customer",
+      "I keep going on your site to try to buy things. But too many of the best items are always out of stock. I don't understand what is going on!"
+    ],
+    [
+      "customer",
+      "I used to love your site, but it's really gone downhill lately. I am very upset and angry"
+    ],
+    [
+      "customer",
+      "If this continues, I won't bother shopping with you anymore"
+    ],
+    [
+      "agent",
+      "I definitely understand your frustration."
+    ],
+    [
+      "agent",
+      "I hope that we can figure out a solution, because we would hate to lose our relationship with you."
+    ],
+    [
+      "customer",
+      "Why are so many things out of stock??"
+    ],
+    [
+      "customer",
+      "This never used to happen"
+    ],
+    [
+      "customer",
+      "Yes, you would lose a wonderful customer"
+    ],
+    [
+      "agent",
+      "What's your full name please?"
+    ],
+    [
+      "customer",
+      "Chloe Zhang"
+    ],
+    [
+      "action",
+      "Account has been pulled up for Chloe Zhang."
+    ],
+    [
+      "agent",
+      "Thanks Chloe. I am not positive, but if I were to speculate, I would imagine with the current state of affairs with COVID 19, that a lot more people have time at home to shop and there are fewer people who are able to work along our supply chain."
+    ],
+    [
+      "customer",
+      "I guess that would make sense"
+    ],
+    [
+      "agent",
+      "That is, fewer people fulfilling orders, making items, delivering, et c."
+    ],
+    [
+      "customer",
+      "But stores like you need to step up during this difficult time and help people"
+    ],
+    [
+      "customer",
+      "We still have to wear clothes, you know"
+    ],
+    [
+      "agent",
+      "I will reach out to our purchasing department to let them know about your dissatisfaction, first and foremost."
+    ],
+    [
+      "customer",
+      "All right"
+    ],
+    [
+      "customer",
+      "I would appreciate that"
+    ],
+    [
+      "action",
+      "The purchasing department has been notified."
+    ],
+    [
+      "customer",
+      "Is there anything else you can do to help?"
+    ],
+    [
+      "agent",
+      "I will write a report for them, so that they know where they can improve the experience for customers like you."
+    ],
+    [
+      "agent",
+      "I can offer you a promo code."
+    ],
+    [
+      "agent",
+      "I know it won't help today, given that so many items are out of stock."
+    ],
+    [
+      "customer",
+      "Right"
+    ],
+    [
+      "customer",
+      "I suppose I could hold onto it for later, though"
+    ],
+    [
+      "customer",
+      "I would like the promo code"
+    ],
+    [
+      "agent",
+      "However, we update the online inventory almost daily (not so much on weekends), so you should start seeing the items you want back on the site again."
+    ],
+    [
+      "customer",
+      "Okay. I will keep that in mind and I will check later for more items"
+    ],
+    [
+      "agent",
+      "The codes are generally good for 7 days, so you won't need to rush to buy today."
+    ],
+    [
+      "action",
+      "A promo code has been created."
+    ],
+    [
+      "agent",
+      "Your code is W2CCL"
+    ],
+    [
+      "customer",
+      "Maybe as this situation continues you'll adapt to our new reality"
+    ],
+    [
+      "customer",
+      "Thank you"
+    ],
+    [
+      "customer",
+      "I'll hold onto that code for later"
+    ],
+    [
+      "agent",
+      "I hope so, I definitely agree that we need to keep with the times and continue to evolve for our wonderful customers like yourself."
+    ],
+    [
+      "agent",
+      "I hope that your issue with us was resolved satisfactorily."
+    ],
+    [
+      "customer",
+      "Well, your excellent customer service has helped restore my faith in this company"
+    ],
+    [
+      "customer",
+      "Thanks for you help"
+    ],
+    [
+      "customer",
+      "I don't have any other questions"
+    ],
+    [
+      "agent",
+      "Wonderful! You've made my day."
+    ],
+    [
+      "agent",
+      "I hope you have a great remainder of the day."
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "customer",
+      "text": "hello",
+      "turn_count": 1,
+      "targets": [
+        "out_of_stock_general",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "hi, how may i help you today?",
+      "turn_count": 2,
+      "targets": [
+        "out_of_stock_general",
+        "retrieve_utterance",
+        null,
+        [],
+        30
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i am very upset and i need help",
+      "turn_count": 3,
+      "targets": [
+        "out_of_stock_general",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "oh dear, i will do my best to help you.",
+      "turn_count": 4,
+      "targets": [
+        "out_of_stock_general",
+        "retrieve_utterance",
+        null,
+        [],
+        79
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "what's going on?",
+      "turn_count": 5,
+      "targets": [
+        "out_of_stock_general",
+        "retrieve_utterance",
+        null,
+        [],
+        10
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i keep going on your site to try to buy things. but too many of the best items are always out of stock. i don't understand what is going on!",
+      "turn_count": 6,
+      "targets": [
+        "out_of_stock_general",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i used to love your site, but it's really gone downhill lately. i am very upset and angry",
+      "turn_count": 7,
+      "targets": [
+        "out_of_stock_general",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "if this continues, i won't bother shopping with you anymore",
+      "turn_count": 8,
+      "targets": [
+        "out_of_stock_general",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i definitely understand your frustration.",
+      "turn_count": 9,
+      "targets": [
+        "out_of_stock_general",
+        "retrieve_utterance",
+        null,
+        [],
+        83
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i hope that we can figure out a solution, because we would hate to lose our relationship with you.",
+      "turn_count": 10,
+      "targets": [
+        "out_of_stock_general",
+        "retrieve_utterance",
+        null,
+        [],
+        86
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "why are so many things out of stock??",
+      "turn_count": 11,
+      "targets": [
+        "out_of_stock_general",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "this never used to happen",
+      "turn_count": 12,
+      "targets": [
+        "out_of_stock_general",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yes, you would lose a wonderful customer",
+      "turn_count": 13,
+      "targets": [
+        "out_of_stock_general",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "what's your full name please?",
+      "turn_count": 14,
+      "targets": [
+        "out_of_stock_general",
+        "retrieve_utterance",
+        null,
+        [],
+        90
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "chloe zhang",
+      "turn_count": 15,
+      "targets": [
+        "out_of_stock_general",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for chloe zhang.",
+      "turn_count": 16,
+      "targets": [
+        "out_of_stock_general",
+        "take_action",
+        "pull-up-account",
+        [
+          "chloe zhang"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thanks chloe. i am not positive, but if i were to speculate, i would imagine with the current state of affairs with covid 19, that a lot more people have time at home to shop and there are fewer people who are able to work along our supply chain.",
+      "turn_count": 17,
+      "targets": [
+        "out_of_stock_general",
+        "retrieve_utterance",
+        null,
+        [],
+        13
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i guess that would make sense",
+      "turn_count": 18,
+      "targets": [
+        "out_of_stock_general",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "that is, fewer people fulfilling orders, making items, delivering, et c.",
+      "turn_count": 19,
+      "targets": [
+        "out_of_stock_general",
+        "retrieve_utterance",
+        null,
+        [],
+        83
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "but stores like you need to step up during this difficult time and help people",
+      "turn_count": 20,
+      "targets": [
+        "out_of_stock_general",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "we still have to wear clothes, you know",
+      "turn_count": 21,
+      "targets": [
+        "out_of_stock_general",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i will reach out to our purchasing department to let them know about your dissatisfaction, first and foremost.",
+      "turn_count": 22,
+      "targets": [
+        "out_of_stock_general",
+        "retrieve_utterance",
+        null,
+        [],
+        54
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "all right",
+      "turn_count": 23,
+      "targets": [
+        "out_of_stock_general",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i would appreciate that",
+      "turn_count": 24,
+      "targets": [
+        "out_of_stock_general",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "the purchasing department has been notified.",
+      "turn_count": 25,
+      "targets": [
+        "out_of_stock_general",
+        "take_action",
+        "notify-team",
+        [
+          "purchasing department"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "is there anything else you can do to help?",
+      "turn_count": 26,
+      "targets": [
+        "out_of_stock_general",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i will write a report for them, so that they know where they can improve the experience for customers like you.",
+      "turn_count": 27,
+      "targets": [
+        "out_of_stock_general",
+        "retrieve_utterance",
+        null,
+        [],
+        88
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i can offer you a promo code.",
+      "turn_count": 28,
+      "targets": [
+        "out_of_stock_general",
+        "retrieve_utterance",
+        null,
+        [],
+        92
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i know it won't help today, given that so many items are out of stock.",
+      "turn_count": 29,
+      "targets": [
+        "out_of_stock_general",
+        "retrieve_utterance",
+        null,
+        [],
+        48
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "right",
+      "turn_count": 30,
+      "targets": [
+        "out_of_stock_general",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i suppose i could hold onto it for later, though",
+      "turn_count": 31,
+      "targets": [
+        "out_of_stock_general",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i would like the promo code",
+      "turn_count": 32,
+      "targets": [
+        "out_of_stock_general",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "however, we update the online inventory almost daily (not so much on weekends), so you should start seeing the items you want back on the site again.",
+      "turn_count": 33,
+      "targets": [
+        "out_of_stock_general",
+        "retrieve_utterance",
+        null,
+        [],
+        8
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay. i will keep that in mind and i will check later for more items",
+      "turn_count": 34,
+      "targets": [
+        "out_of_stock_general",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "the codes are generally good for 7 days, so you won't need to rush to buy today.",
+      "turn_count": 35,
+      "targets": [
+        "out_of_stock_general",
+        "retrieve_utterance",
+        null,
+        [],
+        0
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "a promo code has been created.",
+      "turn_count": 36,
+      "targets": [
+        "out_of_stock_general",
+        "take_action",
+        "promo-code",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "your code is w2ccl",
+      "turn_count": 37,
+      "targets": [
+        "out_of_stock_general",
+        "retrieve_utterance",
+        null,
+        [],
+        47
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "maybe as this situation continues you'll adapt to our new reality",
+      "turn_count": 38,
+      "targets": [
+        "out_of_stock_general",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thank you",
+      "turn_count": 39,
+      "targets": [
+        "out_of_stock_general",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i'll hold onto that code for later",
+      "turn_count": 40,
+      "targets": [
+        "out_of_stock_general",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i hope so, i definitely agree that we need to keep with the times and continue to evolve for our wonderful customers like yourself.",
+      "turn_count": 41,
+      "targets": [
+        "out_of_stock_general",
+        "retrieve_utterance",
+        null,
+        [],
+        88
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i hope that your issue with us was resolved satisfactorily.",
+      "turn_count": 42,
+      "targets": [
+        "out_of_stock_general",
+        "retrieve_utterance",
+        null,
+        [],
+        65
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "well, your excellent customer service has helped restore my faith in this company",
+      "turn_count": 43,
+      "targets": [
+        "out_of_stock_general",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thanks for you help",
+      "turn_count": 44,
+      "targets": [
+        "out_of_stock_general",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i don't have any other questions",
+      "turn_count": 45,
+      "targets": [
+        "out_of_stock_general",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "wonderful! you've made my day.",
+      "turn_count": 46,
+      "targets": [
+        "out_of_stock_general",
+        "retrieve_utterance",
+        null,
+        [],
+        22
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i hope you have a great remainder of the day.",
+      "turn_count": 47,
+      "targets": [
+        "out_of_stock_general",
+        "retrieve_utterance",
+        null,
+        [],
+        14
+      ]
+    }
+  ]
+}

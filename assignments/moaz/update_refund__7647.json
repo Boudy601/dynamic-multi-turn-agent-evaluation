@@ -1,0 +1,945 @@
+{
+  "convo_id": 7647,
+  "scenario": {
+    "personal": {
+      "customer_name": "chloe zhang",
+      "email": "cz558965@email.com",
+      "member_level": "guest",
+      "phone": "(394) 760-3669",
+      "username": "cz558965"
+    },
+    "order": {
+      "street_address": "9873 woodshore st",
+      "full_address": "9873 woodshore st  la fayette, ca 19559",
+      "city": "la fayette",
+      "num_products": "1",
+      "order_id": "9020358835",
+      "packaging": "yes",
+      "payment_method": "paypal",
+      "products": "[{'brand': 'michael_kors', 'product_type': 'shirt', 'amount': 64, 'image_url': 'images/michael_kors-shirt.jpeg'}]",
+      "purchase_date": "2019-12-25",
+      "state": "ca",
+      "zip_code": "19559"
+    },
+    "product": {
+      "names": [
+        "michael_kors shirt"
+      ],
+      "amounts": [
+        64
+      ]
+    },
+    "flow": "product_defect",
+    "subflow": "refund_update"
+  },
+  "original": [
+    [
+      "customer",
+      "Hello"
+    ],
+    [
+      "customer",
+      "I want to update my refund"
+    ],
+    [
+      "agent",
+      "Hi"
+    ],
+    [
+      "agent",
+      "Okay, I can help with that"
+    ],
+    [
+      "customer",
+      "I need to know my refund's status"
+    ],
+    [
+      "customer",
+      "I don't like this Michael Kors shirt I bought"
+    ],
+    [
+      "agent",
+      "Okay, I can get that for you"
+    ],
+    [
+      "customer",
+      "And I want to add it to my refund"
+    ],
+    [
+      "agent",
+      "I see, well I can definitely add that item to your refund"
+    ],
+    [
+      "agent",
+      "may I ask your full name to begin with"
+    ],
+    [
+      "customer",
+      "Chloe Zhang"
+    ],
+    [
+      "agent",
+      "and then, to confirm the purchase details, may I ask your username, email, and Order ID"
+    ],
+    [
+      "action",
+      "Account has been pulled up for Chloe Zhang."
+    ],
+    [
+      "customer",
+      "cz558965"
+    ],
+    [
+      "customer",
+      "cz558965@email.com"
+    ],
+    [
+      "customer",
+      " 9020358835"
+    ],
+    [
+      "action",
+      "Purchase validation in progress ..."
+    ],
+    [
+      "agent",
+      "and what is your membership level with us?"
+    ],
+    [
+      "customer",
+      "Guest"
+    ],
+    [
+      "agent",
+      "Okay, well we can refund any order as long as you have a receipt, or even without a receipt, we can refund any order placed in the last 30 days"
+    ],
+    [
+      "agent",
+      "do either of those apply to the MK shirt that you have purchased?"
+    ],
+    [
+      "customer",
+      "Hmmm"
+    ],
+    [
+      "customer",
+      "Okay"
+    ],
+    [
+      "customer",
+      "I bought it over 30 days ago"
+    ],
+    [
+      "customer",
+      "But I did remember to keep the receipt"
+    ],
+    [
+      "agent",
+      "Ah, that's good to hear"
+    ],
+    [
+      "agent",
+      "So depending on your preference, we can accept that return either in store, at a drop-off center, or by mail"
+    ],
+    [
+      "agent",
+      "If you would like to return by mail, I can send you a shipping label that you can use to easily send the package back to us"
+    ],
+    [
+      "customer",
+      "I can bring it back to the store"
+    ],
+    [
+      "customer",
+      "There's a store near my house so it's easy"
+    ],
+    [
+      "agent",
+      "Okay, I'll go ahead and update your account to let them know that you are coming."
+    ],
+    [
+      "customer",
+      "Okay good"
+    ],
+    [
+      "agent",
+      "One moment please, while I take care of a couple of things"
+    ],
+    [
+      "action",
+      "Membership level of Guest has been noted."
+    ],
+    [
+      "customer",
+      "Okay"
+    ],
+    [
+      "customer",
+      "So I had $100 due"
+    ],
+    [
+      "action",
+      "Order has been updated with In store."
+    ],
+    [
+      "customer",
+      "on my refund"
+    ],
+    [
+      "agent",
+      "Yes, I can see that that refund is in progress, so as soon as you drop off this shirt, you can get the full value added to your existing $100 refund"
+    ],
+    [
+      "customer",
+      "Okay"
+    ],
+    [
+      "customer",
+      "So then I will have $164 total, right?"
+    ],
+    [
+      "agent",
+      "Yes, that's right"
+    ],
+    [
+      "customer",
+      "Great!"
+    ],
+    [
+      "customer",
+      "I'm going to return the shirt today"
+    ],
+    [
+      "customer",
+      "Thanks for your help"
+    ],
+    [
+      "agent",
+      "And I think I've got everything I needed on my end.  Is there anything else I can help with while we're here?"
+    ],
+    [
+      "customer",
+      "No, that was all"
+    ],
+    [
+      "customer",
+      "I appreciate your help"
+    ],
+    [
+      "agent",
+      "Great, I'm glad I could help"
+    ],
+    [
+      "agent",
+      "and if you see Ivan at the returns desk, tell him I said \"The chair is against the wall\".  He'll know what you mean ; )"
+    ],
+    [
+      "customer",
+      "LOL"
+    ],
+    [
+      "customer",
+      "Okay, I will!!!"
+    ],
+    [
+      "customer",
+      "He sounds like a character"
+    ],
+    [
+      "agent",
+      "Have a great day, Ms Zhang"
+    ],
+    [
+      "agent",
+      "(and he is, indeed)"
+    ],
+    [
+      "customer",
+      "You also"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "customer",
+      "text": "hello",
+      "turn_count": 1,
+      "targets": [
+        "refund_update",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i want to update my refund",
+      "turn_count": 2,
+      "targets": [
+        "refund_update",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "hi",
+      "turn_count": 3,
+      "targets": [
+        "refund_update",
+        "retrieve_utterance",
+        null,
+        [],
+        19
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "okay, i can help with that",
+      "turn_count": 4,
+      "targets": [
+        "refund_update",
+        "retrieve_utterance",
+        null,
+        [],
+        12
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i need to know my refund's status",
+      "turn_count": 5,
+      "targets": [
+        "refund_update",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i don't like this michael kors shirt i bought",
+      "turn_count": 6,
+      "targets": [
+        "refund_update",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "okay, i can get that for you",
+      "turn_count": 7,
+      "targets": [
+        "refund_update",
+        "retrieve_utterance",
+        null,
+        [],
+        78
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "and i want to add it to my refund",
+      "turn_count": 8,
+      "targets": [
+        "refund_update",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i see, well i can definitely add that item to your refund",
+      "turn_count": 9,
+      "targets": [
+        "refund_update",
+        "retrieve_utterance",
+        null,
+        [],
+        53
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "may i ask your full name to begin with",
+      "turn_count": 10,
+      "targets": [
+        "refund_update",
+        "retrieve_utterance",
+        null,
+        [],
+        50
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "chloe zhang",
+      "turn_count": 11,
+      "targets": [
+        "refund_update",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "and then, to confirm the purchase details, may i ask your username, email, and order id",
+      "turn_count": 12,
+      "targets": [
+        "refund_update",
+        "retrieve_utterance",
+        null,
+        [],
+        46
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for chloe zhang.",
+      "turn_count": 13,
+      "targets": [
+        "refund_update",
+        "take_action",
+        "pull-up-account",
+        [
+          "chloe zhang"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "<username>",
+      "turn_count": 14,
+      "targets": [
+        "refund_update",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "<email>",
+      "turn_count": 15,
+      "targets": [
+        "refund_update",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": " <order_id>",
+      "turn_count": 16,
+      "targets": [
+        "refund_update",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "purchase validation in progress ...",
+      "turn_count": 17,
+      "targets": [
+        "refund_update",
+        "take_action",
+        "validate-purchase",
+        [
+          "cz558965",
+          "cz558965@email.com",
+          "9020358835"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "and what is your membership level with us?",
+      "turn_count": 18,
+      "targets": [
+        "refund_update",
+        "retrieve_utterance",
+        null,
+        [],
+        37
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "guest",
+      "turn_count": 19,
+      "targets": [
+        "refund_update",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "okay, well we can refund any order as long as you have a receipt, or even without a receipt, we can refund any order placed in the last 30 days",
+      "turn_count": 20,
+      "targets": [
+        "refund_update",
+        "retrieve_utterance",
+        null,
+        [],
+        16
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "do either of those apply to the mk shirt that you have purchased?",
+      "turn_count": 21,
+      "targets": [
+        "refund_update",
+        "retrieve_utterance",
+        null,
+        [],
+        22
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "hmmm",
+      "turn_count": 22,
+      "targets": [
+        "refund_update",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay",
+      "turn_count": 23,
+      "targets": [
+        "refund_update",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i bought it over 30 days ago",
+      "turn_count": 24,
+      "targets": [
+        "refund_update",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "but i did remember to keep the receipt",
+      "turn_count": 25,
+      "targets": [
+        "refund_update",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ah, that's good to hear",
+      "turn_count": 26,
+      "targets": [
+        "refund_update",
+        "retrieve_utterance",
+        null,
+        [],
+        98
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "so depending on your preference, we can accept that return either in store, at a drop-off center, or by mail",
+      "turn_count": 27,
+      "targets": [
+        "refund_update",
+        "retrieve_utterance",
+        null,
+        [],
+        96
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "if you would like to return by mail, i can send you a shipping label that you can use to easily send the package back to us",
+      "turn_count": 28,
+      "targets": [
+        "refund_update",
+        "retrieve_utterance",
+        null,
+        [],
+        97
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i can bring it back to the store",
+      "turn_count": 29,
+      "targets": [
+        "refund_update",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "there's a store near my house so it's easy",
+      "turn_count": 30,
+      "targets": [
+        "refund_update",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "okay, i'll go ahead and update your account to let them know that you are coming.",
+      "turn_count": 31,
+      "targets": [
+        "refund_update",
+        "retrieve_utterance",
+        null,
+        [],
+        70
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay good",
+      "turn_count": 32,
+      "targets": [
+        "refund_update",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "one moment please, while i take care of a couple of things",
+      "turn_count": 33,
+      "targets": [
+        "refund_update",
+        "retrieve_utterance",
+        null,
+        [],
+        20
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "membership level of guest has been noted.",
+      "turn_count": 34,
+      "targets": [
+        "refund_update",
+        "take_action",
+        "membership",
+        [
+          "guest"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay",
+      "turn_count": 35,
+      "targets": [
+        "refund_update",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "so i had $100 due",
+      "turn_count": 36,
+      "targets": [
+        "refund_update",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "order has been updated with in store.",
+      "turn_count": 37,
+      "targets": [
+        "refund_update",
+        "take_action",
+        "update-order",
+        [
+          "by mail"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "on my refund",
+      "turn_count": 38,
+      "targets": [
+        "refund_update",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "yes, i can see that that refund is in progress, so as soon as you drop off this shirt, you can get the full value added to your existing $100 refund",
+      "turn_count": 39,
+      "targets": [
+        "refund_update",
+        "retrieve_utterance",
+        null,
+        [],
+        84
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay",
+      "turn_count": 40,
+      "targets": [
+        "refund_update",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "so then i will have $1<amount> total, right?",
+      "turn_count": 41,
+      "targets": [
+        "refund_update",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "yes, that's right",
+      "turn_count": 42,
+      "targets": [
+        "refund_update",
+        "retrieve_utterance",
+        null,
+        [],
+        71
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "great!",
+      "turn_count": 43,
+      "targets": [
+        "refund_update",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i'm going to return the shirt today",
+      "turn_count": 44,
+      "targets": [
+        "refund_update",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thanks for your help",
+      "turn_count": 45,
+      "targets": [
+        "refund_update",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "and i think i've got everything i needed on my end.  is there anything else i can help with while we're here?",
+      "turn_count": 46,
+      "targets": [
+        "refund_update",
+        "retrieve_utterance",
+        null,
+        [],
+        36
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no, that was all",
+      "turn_count": 47,
+      "targets": [
+        "refund_update",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i appreciate your help",
+      "turn_count": 48,
+      "targets": [
+        "refund_update",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "great, i'm glad i could help",
+      "turn_count": 49,
+      "targets": [
+        "refund_update",
+        "retrieve_utterance",
+        null,
+        [],
+        3
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "and if you see ivan at the returns desk, tell him i said \"the chair is against the wall\".  he'll know what you mean ; )",
+      "turn_count": 50,
+      "targets": [
+        "refund_update",
+        "retrieve_utterance",
+        null,
+        [],
+        17
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "lol",
+      "turn_count": 51,
+      "targets": [
+        "refund_update",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay, i will!!!",
+      "turn_count": 52,
+      "targets": [
+        "refund_update",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "he sounds like a character",
+      "turn_count": 53,
+      "targets": [
+        "refund_update",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "have a great day, ms zhang",
+      "turn_count": 54,
+      "targets": [
+        "refund_update",
+        "retrieve_utterance",
+        null,
+        [],
+        31
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "(and he is, indeed)",
+      "turn_count": 55,
+      "targets": [
+        "refund_update",
+        "retrieve_utterance",
+        null,
+        [],
+        5
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "you also",
+      "turn_count": 56,
+      "targets": [
+        "refund_update",
+        null,
+        null,
+        [],
+        -1
+      ]
+    }
+  ]
+}

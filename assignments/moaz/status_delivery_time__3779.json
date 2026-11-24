@@ -1,0 +1,860 @@
+{
+  "convo_id": 3779,
+  "scenario": {
+    "personal": {
+      "account_id": "btgyyohirs",
+      "customer_name": "joseph banter",
+      "member_level": "gold",
+      "phone": "(519) 038-6949"
+    },
+    "order": {
+      "street_address": "5050 brushwick dr",
+      "full_address": "5050 brushwick dr  baltimore, ca 4754",
+      "city": "baltimore",
+      "num_products": "1",
+      "order_id": "7166490904",
+      "products": "[{'brand': 'tommy_hilfiger', 'product_type': 'jacket', 'amount': 59, 'image_url': 'images/tommy_hilfiger-jacket.jpeg'}]",
+      "shipping_status": "in transit",
+      "state": "ca",
+      "zip_code": "4754"
+    },
+    "product": {
+      "names": [
+        "tommy_hilfiger jacket"
+      ],
+      "amounts": [
+        59
+      ]
+    },
+    "flow": "order_issue",
+    "subflow": "status_delivery_time"
+  },
+  "original": [
+    [
+      "customer",
+      "Hi"
+    ],
+    [
+      "agent",
+      "Hello, how can I help you today?"
+    ],
+    [
+      "customer",
+      "I need to change my order"
+    ],
+    [
+      "customer",
+      "can you help?"
+    ],
+    [
+      "agent",
+      "Let me check on that for you."
+    ],
+    [
+      "customer",
+      "I worked a jacket but the delivery time for the jacket isn't right"
+    ],
+    [
+      "customer",
+      "i need the jacket to arrive when I'm home"
+    ],
+    [
+      "customer",
+      "I'm having issues with porch pirates"
+    ],
+    [
+      "customer",
+      "and I don't want anyone to steal it"
+    ],
+    [
+      "customer",
+      "I ordered a jacket, sorry"
+    ],
+    [
+      "agent",
+      "Oh, that's terrible I'll try to help."
+    ],
+    [
+      "customer",
+      "thanks"
+    ],
+    [
+      "customer",
+      "yeah they're so annoying"
+    ],
+    [
+      "customer",
+      "they stole a brand new sofa that i ordered a few days ago"
+    ],
+    [
+      "customer",
+      "i don't know how they managed to carry it away, but they did"
+    ],
+    [
+      "customer",
+      "i don't want them to get the jacket, too"
+    ],
+    [
+      "agent",
+      "Boy, there must be gang of them."
+    ],
+    [
+      "customer",
+      "yeah i think so :("
+    ],
+    [
+      "customer",
+      "so can you help me with this jacket?"
+    ],
+    [
+      "agent",
+      "Do you want to change the delivery time from morning to evening?"
+    ],
+    [
+      "customer",
+      "I think evening is better, yeah"
+    ],
+    [
+      "customer",
+      "that way i'll be more likely to be home when it arrives"
+    ],
+    [
+      "agent",
+      "Could I get your name or account ID?"
+    ],
+    [
+      "customer",
+      "Joseph Banter"
+    ],
+    [
+      "customer",
+      "(call me Joe)"
+    ],
+    [
+      "customer",
+      "and BTGYYOHIRS"
+    ],
+    [
+      "action",
+      "Account has been pulled up for Joseph Banter."
+    ],
+    [
+      "agent",
+      "Do you have this order's ID?"
+    ],
+    [
+      "customer",
+      "7166490904"
+    ],
+    [
+      "customer",
+      "I got an email that says it's in transit right now"
+    ],
+    [
+      "action",
+      "Identity verification in progess ..."
+    ],
+    [
+      "agent",
+      "Okay Joe, thanks for that information."
+    ],
+    [
+      "customer",
+      "sure :)"
+    ],
+    [
+      "customer",
+      "anything to stop the pirates, right, mately?"
+    ],
+    [
+      "customer",
+      "matey lol"
+    ],
+    [
+      "action",
+      "Querying the system for an answer ..."
+    ],
+    [
+      "agent",
+      "Aye, Aye matey."
+    ],
+    [
+      "agent",
+      "It looks like I'm able to change the delivery time for you."
+    ],
+    [
+      "customer",
+      "great"
+    ],
+    [
+      "customer",
+      "can you tell me when the jacket will arrive?"
+    ],
+    [
+      "action",
+      "Order has been updated with change time."
+    ],
+    [
+      "customer",
+      "Just so I know when to be home"
+    ],
+    [
+      "agent",
+      "Between 7 and 9 PM."
+    ],
+    [
+      "customer",
+      "oh good"
+    ],
+    [
+      "customer",
+      "I'm always home then"
+    ],
+    [
+      "customer",
+      "The pirates won't get this piece of treasure!"
+    ],
+    [
+      "customer",
+      "It's all mine :)"
+    ],
+    [
+      "agent",
+      "Can I help you with anything else?"
+    ],
+    [
+      "customer",
+      "no, that's it"
+    ],
+    [
+      "customer",
+      "thanks for helping me foil the pirates :)"
+    ],
+    [
+      "agent",
+      "Okay, keep an eye on that treasure chest and have a great day!"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "customer",
+      "text": "hi",
+      "turn_count": 1,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "hello, how can i help you today?",
+      "turn_count": 2,
+      "targets": [
+        "status_delivery_time",
+        "retrieve_utterance",
+        null,
+        [],
+        19
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i need to change my order",
+      "turn_count": 3,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "can you help?",
+      "turn_count": 4,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "let me check on that for you.",
+      "turn_count": 5,
+      "targets": [
+        "status_delivery_time",
+        "retrieve_utterance",
+        null,
+        [],
+        18
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i worked a jacket but the delivery time for the jacket isn't right",
+      "turn_count": 6,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i need the jacket to arrive when i'm home",
+      "turn_count": 7,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i'm having issues with porch pirates",
+      "turn_count": 8,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "and i don't want anyone to steal it",
+      "turn_count": 9,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i ordered a jacket, sorry",
+      "turn_count": 10,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "oh, that's terrible i'll try to help.",
+      "turn_count": 11,
+      "targets": [
+        "status_delivery_time",
+        "retrieve_utterance",
+        null,
+        [],
+        33
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thanks",
+      "turn_count": 12,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yeah they're so annoying",
+      "turn_count": 13,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "they stole a brand new sofa that i ordered a few days ago",
+      "turn_count": 14,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i don't know how they managed to carry it away, but they did",
+      "turn_count": 15,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i don't want them to get the jacket, too",
+      "turn_count": 16,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "boy, there must be gang of them.",
+      "turn_count": 17,
+      "targets": [
+        "status_delivery_time",
+        "retrieve_utterance",
+        null,
+        [],
+        11
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yeah i think so :(",
+      "turn_count": 18,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "so can you help me with this jacket?",
+      "turn_count": 19,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "do you want to change the delivery time from morning to evening?",
+      "turn_count": 20,
+      "targets": [
+        "status_delivery_time",
+        "retrieve_utterance",
+        null,
+        [],
+        54
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i think evening is better, yeah",
+      "turn_count": 21,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "that way i'll be more likely to be home when it arrives",
+      "turn_count": 22,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "could i get your name or account id?",
+      "turn_count": 23,
+      "targets": [
+        "status_delivery_time",
+        "retrieve_utterance",
+        null,
+        [],
+        16
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "joseph banter",
+      "turn_count": 24,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "(call me joe)",
+      "turn_count": 25,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "and <account_id>",
+      "turn_count": 26,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for joseph banter.",
+      "turn_count": 27,
+      "targets": [
+        "status_delivery_time",
+        "take_action",
+        "pull-up-account",
+        [
+          "joseph banter"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "do you have this order's id?",
+      "turn_count": 28,
+      "targets": [
+        "status_delivery_time",
+        "retrieve_utterance",
+        null,
+        [],
+        94
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "<order_id>",
+      "turn_count": 29,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i got an email that says it's in transit right now",
+      "turn_count": 30,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "identity verification in progess ...",
+      "turn_count": 31,
+      "targets": [
+        "status_delivery_time",
+        "take_action",
+        "verify-identity",
+        [
+          "joseph banter",
+          "btgyyohirs",
+          "7166490904"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "okay joe, thanks for that information.",
+      "turn_count": 32,
+      "targets": [
+        "status_delivery_time",
+        "retrieve_utterance",
+        null,
+        [],
+        57
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "sure :)",
+      "turn_count": 33,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "anything to stop the pirates, right, mately?",
+      "turn_count": 34,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "matey lol",
+      "turn_count": 35,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "querying the system for an answer ...",
+      "turn_count": 36,
+      "targets": [
+        "status_delivery_time",
+        "take_action",
+        "ask-the-oracle",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "aye, aye matey.",
+      "turn_count": 37,
+      "targets": [
+        "status_delivery_time",
+        "retrieve_utterance",
+        null,
+        [],
+        96
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "it looks like i'm able to change the delivery time for you.",
+      "turn_count": 38,
+      "targets": [
+        "status_delivery_time",
+        "retrieve_utterance",
+        null,
+        [],
+        98
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "great",
+      "turn_count": 39,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "can you tell me when the jacket will arrive?",
+      "turn_count": 40,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "order has been updated with change time.",
+      "turn_count": 41,
+      "targets": [
+        "status_delivery_time",
+        "take_action",
+        "update-order",
+        [
+          "change time"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "just so i know when to be home",
+      "turn_count": 42,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "between 7 and 9 pm.",
+      "turn_count": 43,
+      "targets": [
+        "status_delivery_time",
+        "retrieve_utterance",
+        null,
+        [],
+        14
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "oh good",
+      "turn_count": 44,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i'm always home then",
+      "turn_count": 45,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "the pirates won't get this piece of treasure!",
+      "turn_count": 46,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "it's all mine :)",
+      "turn_count": 47,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can i help you with anything else?",
+      "turn_count": 48,
+      "targets": [
+        "status_delivery_time",
+        "retrieve_utterance",
+        null,
+        [],
+        20
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no, that's it",
+      "turn_count": 49,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thanks for helping me foil the pirates :)",
+      "turn_count": 50,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "okay, keep an eye on that treasure chest and have a great day!",
+      "turn_count": 51,
+      "targets": [
+        "status_delivery_time",
+        "retrieve_utterance",
+        null,
+        [],
+        53
+      ]
+    }
+  ]
+}

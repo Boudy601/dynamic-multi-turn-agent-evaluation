@@ -1,0 +1,909 @@
+{
+  "convo_id": 1655,
+  "scenario": {
+    "personal": {
+      "account_id": "kochtrczki",
+      "customer_name": "david williams",
+      "email": "dwilliams201@email.com",
+      "member_level": "silver",
+      "phone": "(082) 170-8424",
+      "username": "dwilliams201"
+    },
+    "order": {
+      "street_address": "7349 woodshore st",
+      "full_address": "7349 woodshore st  la fayette, ny 58440",
+      "city": "la fayette",
+      "num_products": "1",
+      "order_id": "1867616599",
+      "products": "[{'brand': 'guess', 'product_type': 'jacket', 'amount': 94, 'image_url': 'images/guess-jacket.jpeg'}]",
+      "state": "ny",
+      "zip_code": "58440"
+    },
+    "product": {
+      "names": [
+        "guess jacket"
+      ],
+      "amounts": [
+        94
+      ]
+    },
+    "flow": "purchase_dispute",
+    "subflow": "bad_price_competitor"
+  },
+  "original": [
+    [
+      "customer",
+      "Hi"
+    ],
+    [
+      "customer",
+      "I have an issue with an item"
+    ],
+    [
+      "agent",
+      "Hi thanks for contacting AcmeBrands."
+    ],
+    [
+      "agent",
+      "What seems to be the issue?"
+    ],
+    [
+      "customer",
+      "I need a new jacket because I am going on a trip to see the Northern Lights in Canada soon"
+    ],
+    [
+      "customer",
+      "I like this jacket on your site"
+    ],
+    [
+      "customer",
+      "But it's soooo overpriced"
+    ],
+    [
+      "customer",
+      "I can get it on other prices for much less"
+    ],
+    [
+      "customer",
+      "I am very frustrated by this because I like your site and I am loyal to you"
+    ],
+    [
+      "customer",
+      "But I don't want to spend more money"
+    ],
+    [
+      "customer",
+      "You are selling this Guess jacket for $95"
+    ],
+    [
+      "customer",
+      "I mean $94"
+    ],
+    [
+      "agent",
+      "Ok sure. I understand where you are coming from."
+    ],
+    [
+      "customer",
+      "I have seen it on other sites for like $40 or so"
+    ],
+    [
+      "agent",
+      "To begin, can I get your full name or Account ID please?"
+    ],
+    [
+      "customer",
+      "David Williams"
+    ],
+    [
+      "customer",
+      "KOCHTRCZKI"
+    ],
+    [
+      "action",
+      "Account has been pulled up for David Williams."
+    ],
+    [
+      "agent",
+      "Thank you Mr. Williams."
+    ],
+    [
+      "agent",
+      "So, our competitors are offering that item at a lower price than us, correct?"
+    ],
+    [
+      "customer",
+      "Yes they are"
+    ],
+    [
+      "customer",
+      "Why is your item so much more money?"
+    ],
+    [
+      "action",
+      "A reason of competitor has been recorded."
+    ],
+    [
+      "agent",
+      "I can look into that for you. But first I'm going to need your Order ID please."
+    ],
+    [
+      "customer",
+      "Okay, it's 1867616599"
+    ],
+    [
+      "action",
+      "Identity verification in progess ..."
+    ],
+    [
+      "agent",
+      "Thanks."
+    ],
+    [
+      "agent",
+      "I understand your frustration, the reason sometimes our prices are more expensive is that our pricing is determined on the fly by an AI algorithm."
+    ],
+    [
+      "customer",
+      "Okay but they made a mistake this time"
+    ],
+    [
+      "agent",
+      "So they can change dynamically."
+    ],
+    [
+      "customer",
+      "Can you offer the jacket to me for less"
+    ],
+    [
+      "customer",
+      "I am a loyal Silver member"
+    ],
+    [
+      "agent",
+      "I do apologize for the inconvenience. What I can do is offer you a promo code if you would like?"
+    ],
+    [
+      "customer",
+      "Yes that would be great"
+    ],
+    [
+      "customer",
+      "I have seen the jacket for $40 elsewhere"
+    ],
+    [
+      "customer",
+      "So I would like at least 50% off"
+    ],
+    [
+      "agent",
+      "Ok, what I can do is generate a promo code for you for $54 off"
+    ],
+    [
+      "customer",
+      "Yes!!! That would be great"
+    ],
+    [
+      "agent",
+      "so that should bring the price down to $40"
+    ],
+    [
+      "customer",
+      "Then I can wear the jacket in Canada"
+    ],
+    [
+      "action",
+      "A promo code has been created."
+    ],
+    [
+      "agent",
+      "Absolutely."
+    ],
+    [
+      "action",
+      "A promo code has been created."
+    ],
+    [
+      "customer",
+      "Thank so much"
+    ],
+    [
+      "customer",
+      "This means a lot to me"
+    ],
+    [
+      "agent",
+      "Your promo code is 6WVVA."
+    ],
+    [
+      "customer",
+      "Great! I am very happy with this"
+    ],
+    [
+      "agent",
+      "You're welcome. We value your business."
+    ],
+    [
+      "customer",
+      "That's all I needed"
+    ],
+    [
+      "agent",
+      "Is there anything else I can help you with?"
+    ],
+    [
+      "customer",
+      "Thanks for your help"
+    ],
+    [
+      "agent",
+      "Alright then, have a fantastic day!"
+    ],
+    [
+      "customer",
+      "I don't need anything else"
+    ],
+    [
+      "customer",
+      "You also"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "customer",
+      "text": "hi",
+      "turn_count": 1,
+      "targets": [
+        "bad_price_competitor",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i have an issue with an item",
+      "turn_count": 2,
+      "targets": [
+        "bad_price_competitor",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "hi thanks for contacting acmebrands.",
+      "turn_count": 3,
+      "targets": [
+        "bad_price_competitor",
+        "retrieve_utterance",
+        null,
+        [],
+        2
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "what seems to be the issue?",
+      "turn_count": 4,
+      "targets": [
+        "bad_price_competitor",
+        "retrieve_utterance",
+        null,
+        [],
+        33
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i need a new jacket because i am going on a trip to see the northern lights in canada soon",
+      "turn_count": 5,
+      "targets": [
+        "bad_price_competitor",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i like this jacket on your site",
+      "turn_count": 6,
+      "targets": [
+        "bad_price_competitor",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "but it's soooo overpriced",
+      "turn_count": 7,
+      "targets": [
+        "bad_price_competitor",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i can get it on other prices for much less",
+      "turn_count": 8,
+      "targets": [
+        "bad_price_competitor",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i am very frustrated by this because i like your site and i am loyal to you",
+      "turn_count": 9,
+      "targets": [
+        "bad_price_competitor",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "but i don't want to spend more money",
+      "turn_count": 10,
+      "targets": [
+        "bad_price_competitor",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "you are selling this <name> for $95",
+      "turn_count": 11,
+      "targets": [
+        "bad_price_competitor",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i mean $<amount>",
+      "turn_count": 12,
+      "targets": [
+        "bad_price_competitor",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok sure. i understand where you are coming from.",
+      "turn_count": 13,
+      "targets": [
+        "bad_price_competitor",
+        "retrieve_utterance",
+        null,
+        [],
+        29
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i have seen it on other sites for like $40 or so",
+      "turn_count": 14,
+      "targets": [
+        "bad_price_competitor",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "to begin, can i get your full name or account id please?",
+      "turn_count": 15,
+      "targets": [
+        "bad_price_competitor",
+        "retrieve_utterance",
+        null,
+        [],
+        46
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "david williams",
+      "turn_count": 16,
+      "targets": [
+        "bad_price_competitor",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "<account_id>",
+      "turn_count": 17,
+      "targets": [
+        "bad_price_competitor",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for david williams.",
+      "turn_count": 18,
+      "targets": [
+        "bad_price_competitor",
+        "take_action",
+        "pull-up-account",
+        [
+          "david williams"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you mr. williams.",
+      "turn_count": 19,
+      "targets": [
+        "bad_price_competitor",
+        "retrieve_utterance",
+        null,
+        [],
+        0
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "so, our competitors are offering that item at a lower price than us, correct?",
+      "turn_count": 20,
+      "targets": [
+        "bad_price_competitor",
+        "retrieve_utterance",
+        null,
+        [],
+        99
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yes they are",
+      "turn_count": 21,
+      "targets": [
+        "bad_price_competitor",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "why is your item so much more money?",
+      "turn_count": 22,
+      "targets": [
+        "bad_price_competitor",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "a reason of competitor has been recorded.",
+      "turn_count": 23,
+      "targets": [
+        "bad_price_competitor",
+        "take_action",
+        "record-reason",
+        [
+          "competitor"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i can look into that for you. but first i'm going to need your order id please.",
+      "turn_count": 24,
+      "targets": [
+        "bad_price_competitor",
+        "retrieve_utterance",
+        null,
+        [],
+        92
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay, it's <order_id>",
+      "turn_count": 25,
+      "targets": [
+        "bad_price_competitor",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "identity verification in progess ...",
+      "turn_count": 26,
+      "targets": [
+        "bad_price_competitor",
+        "take_action",
+        "verify-identity",
+        [
+          "david williams",
+          "kochtrczki",
+          "1867616599"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thanks.",
+      "turn_count": 27,
+      "targets": [
+        "bad_price_competitor",
+        "retrieve_utterance",
+        null,
+        [],
+        46
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i understand your frustration, the reason sometimes our prices are more expensive is that our pricing is determined on the fly by an ai algorithm.",
+      "turn_count": 28,
+      "targets": [
+        "bad_price_competitor",
+        "retrieve_utterance",
+        null,
+        [],
+        56
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay but they made a mistake this time",
+      "turn_count": 29,
+      "targets": [
+        "bad_price_competitor",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "so they can change dynamically.",
+      "turn_count": 30,
+      "targets": [
+        "bad_price_competitor",
+        "retrieve_utterance",
+        null,
+        [],
+        94
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "can you offer the jacket to me for less",
+      "turn_count": 31,
+      "targets": [
+        "bad_price_competitor",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i am a loyal silver member",
+      "turn_count": 32,
+      "targets": [
+        "bad_price_competitor",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i do apologize for the inconvenience. what i can do is offer you a promo code if you would like?",
+      "turn_count": 33,
+      "targets": [
+        "bad_price_competitor",
+        "retrieve_utterance",
+        null,
+        [],
+        62
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yes that would be great",
+      "turn_count": 34,
+      "targets": [
+        "bad_price_competitor",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i have seen the jacket for $40 elsewhere",
+      "turn_count": 35,
+      "targets": [
+        "bad_price_competitor",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "so i would like at least 50% off",
+      "turn_count": 36,
+      "targets": [
+        "bad_price_competitor",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok, what i can do is generate a promo code for you for $54 off",
+      "turn_count": 37,
+      "targets": [
+        "bad_price_competitor",
+        "retrieve_utterance",
+        null,
+        [],
+        58
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yes!!! that would be great",
+      "turn_count": 38,
+      "targets": [
+        "bad_price_competitor",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "so that should bring the price down to $40",
+      "turn_count": 39,
+      "targets": [
+        "bad_price_competitor",
+        "retrieve_utterance",
+        null,
+        [],
+        11
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "then i can wear the jacket in canada",
+      "turn_count": 40,
+      "targets": [
+        "bad_price_competitor",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "a promo code has been created.",
+      "turn_count": 41,
+      "targets": [
+        "bad_price_competitor",
+        "take_action",
+        "promo-code",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "absolutely.",
+      "turn_count": 42,
+      "targets": [
+        "bad_price_competitor",
+        "retrieve_utterance",
+        null,
+        [],
+        85
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "a promo code has been created.",
+      "turn_count": 43,
+      "targets": [
+        "bad_price_competitor",
+        "take_action",
+        "promo-code",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thank so much",
+      "turn_count": 44,
+      "targets": [
+        "bad_price_competitor",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "this means a lot to me",
+      "turn_count": 45,
+      "targets": [
+        "bad_price_competitor",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "your promo code is 6wvva.",
+      "turn_count": 46,
+      "targets": [
+        "bad_price_competitor",
+        "retrieve_utterance",
+        null,
+        [],
+        95
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "great! i am very happy with this",
+      "turn_count": 47,
+      "targets": [
+        "bad_price_competitor",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "you're welcome. we value your business.",
+      "turn_count": 48,
+      "targets": [
+        "bad_price_competitor",
+        "retrieve_utterance",
+        null,
+        [],
+        78
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "that's all i needed",
+      "turn_count": 49,
+      "targets": [
+        "bad_price_competitor",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "is there anything else i can help you with?",
+      "turn_count": 50,
+      "targets": [
+        "bad_price_competitor",
+        "retrieve_utterance",
+        null,
+        [],
+        33
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thanks for your help",
+      "turn_count": 51,
+      "targets": [
+        "bad_price_competitor",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "alright then, have a fantastic day!",
+      "turn_count": 52,
+      "targets": [
+        "bad_price_competitor",
+        "retrieve_utterance",
+        null,
+        [],
+        62
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i don't need anything else",
+      "turn_count": 53,
+      "targets": [
+        "bad_price_competitor",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "you also",
+      "turn_count": 54,
+      "targets": [
+        "bad_price_competitor",
+        null,
+        null,
+        [],
+        -1
+      ]
+    }
+  ]
+}

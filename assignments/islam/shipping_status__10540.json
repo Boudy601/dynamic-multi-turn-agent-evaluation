@@ -1,0 +1,887 @@
+{
+  "convo_id": 10540,
+  "scenario": {
+    "personal": {
+      "account_id": "lzb1tperfy",
+      "customer_name": "joseph banter",
+      "email": "josephb6@email.com",
+      "member_level": "guest",
+      "phone": "(860) 786-9340",
+      "username": "josephb6"
+    },
+    "order": {
+      "street_address": "2052 lexington ave",
+      "full_address": "2052 lexington ave  monterey, ca 64857",
+      "city": "monterey",
+      "num_products": "2",
+      "order_id": "9623612568",
+      "products": "[{'brand': 'michael_kors', 'product_type': 'jeans', 'amount': 89, 'image_url': 'images/michael_kors-jeans.jpeg'}, {'brand': 'calvin_klein', 'product_type': 'boots', 'amount': 79, 'image_url': 'images/calvin_klein-boots.jpeg'}]",
+      "purchase_date": "2019-11-27",
+      "shipping_status": "order received",
+      "state": "ca",
+      "zip_code": "64857"
+    },
+    "product": {
+      "names": [
+        "michael_kors jeans",
+        "calvin_klein boots"
+      ],
+      "amounts": [
+        89,
+        79
+      ]
+    },
+    "flow": "shipping_issue",
+    "subflow": "status"
+  },
+  "original": [
+    [
+      "agent",
+      "hello, how may I help you today?"
+    ],
+    [
+      "customer",
+      "hi, I want to make sure my jeans are the right ones because I got a email saying otherwise"
+    ],
+    [
+      "agent",
+      "it sounds like you want to manage your order"
+    ],
+    [
+      "agent",
+      "can I get you account id to start with?"
+    ],
+    [
+      "customer",
+      "Account ID: LZB1TPERFY"
+    ],
+    [
+      "action",
+      "Account has been pulled up for LZB1TPERFY."
+    ],
+    [
+      "agent",
+      "Now, just to double check, what would you like to know about your order?"
+    ],
+    [
+      "customer",
+      "i want to double check the jeans are the right ones"
+    ],
+    [
+      "customer",
+      "the boots look ok to me"
+    ],
+    [
+      "agent",
+      "ok and what type of jeans did you expect?"
+    ],
+    [
+      "customer",
+      "i want michael kors jeans"
+    ],
+    [
+      "agent",
+      "in a size 32?"
+    ],
+    [
+      "customer",
+      "yup"
+    ],
+    [
+      "agent",
+      "ok, those are the ones we have on file"
+    ],
+    [
+      "agent",
+      "let me check a bit more by getting your name, account id and order id"
+    ],
+    [
+      "customer",
+      "Name: Joseph Banter"
+    ],
+    [
+      "customer",
+      "Order ID: 9623612568"
+    ],
+    [
+      "customer",
+      "i think i gave the account id already"
+    ],
+    [
+      "agent",
+      "oh yes, you are right"
+    ],
+    [
+      "action",
+      "Identity verification in progress ..."
+    ],
+    [
+      "agent",
+      "You have been verified Joseph!"
+    ],
+    [
+      "agent",
+      "And i will need your username and email to validate purchase"
+    ],
+    [
+      "customer",
+      "Username: josephb6"
+    ],
+    [
+      "customer",
+      "josephb6@email.com"
+    ],
+    [
+      "action",
+      "Purchase validation in progress ..."
+    ],
+    [
+      "agent",
+      "that worked as well"
+    ],
+    [
+      "action",
+      "Querying the system for an answer ..."
+    ],
+    [
+      "agent",
+      "It looks like your suspicion might be right"
+    ],
+    [
+      "agent",
+      "We originally had michael kors jeans in a size 32, but that was replaced by the same brand and size in a different color"
+    ],
+    [
+      "agent",
+      "is that ok with you?"
+    ],
+    [
+      "customer",
+      "yea, not cool"
+    ],
+    [
+      "agent",
+      "so sorry about that, looks like we ran out of stock on the other item"
+    ],
+    [
+      "agent",
+      "so this was replaced and an email was sent out"
+    ],
+    [
+      "customer",
+      "ok, can you change it back?"
+    ],
+    [
+      "agent",
+      "well yes, but we are still out of stock"
+    ],
+    [
+      "agent",
+      "so it might arrive later"
+    ],
+    [
+      "customer",
+      "that's fine, i would really like to keep the darker blue color"
+    ],
+    [
+      "agent",
+      "ok, i can do that for you"
+    ],
+    [
+      "action",
+      "Order has been updated with change item."
+    ],
+    [
+      "agent",
+      "ok, i have changed back to the exact original item"
+    ],
+    [
+      "agent",
+      "it will arrive in about 2 weeks"
+    ],
+    [
+      "customer",
+      "wow, can't believe it went from 2 days to 2 weeks"
+    ],
+    [
+      "agent",
+      "we apologize for the inconvenience"
+    ],
+    [
+      "agent",
+      "please let me know if there is anything we can do to help"
+    ],
+    [
+      "customer",
+      "well, i mean its not your fault"
+    ],
+    [
+      "customer",
+      "the inventory is just broken"
+    ],
+    [
+      "agent",
+      "hmm, i will make a note of that for others"
+    ],
+    [
+      "action",
+      "The purchasing team has been notified."
+    ],
+    [
+      "customer",
+      "oh, that's great!"
+    ],
+    [
+      "agent",
+      "thanks, is there anything else i can help with?"
+    ],
+    [
+      "customer",
+      "no that's it, at least i know what happened"
+    ],
+    [
+      "agent",
+      "great, thanks for contacting AcmeBrands and have a wonderful day!"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "hello, how may i help you today?",
+      "turn_count": 1,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        74
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "hi, i want to make sure my jeans are the right ones because i got a email saying otherwise",
+      "turn_count": 2,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "it sounds like you want to manage your order",
+      "turn_count": 3,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        17
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can i get you account id to start with?",
+      "turn_count": 4,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        78
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "account id: <account_id>",
+      "turn_count": 5,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for <account_id>.",
+      "turn_count": 6,
+      "targets": [
+        "status",
+        "take_action",
+        "pull-up-account",
+        [
+          "lzb1tperfy"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "now, just to double check, what would you like to know about your order?",
+      "turn_count": 7,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        41
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i want to double check the jeans are the right ones",
+      "turn_count": 8,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "the boots look ok to me",
+      "turn_count": 9,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok and what type of jeans did you expect?",
+      "turn_count": 10,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        97
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i want michael kors jeans",
+      "turn_count": 11,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "in a size 32?",
+      "turn_count": 12,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        52
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yup",
+      "turn_count": 13,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok, those are the ones we have on file",
+      "turn_count": 14,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        52
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "let me check a bit more by getting your name, account id and order id",
+      "turn_count": 15,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        69
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "name: joseph banter",
+      "turn_count": 16,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "order id: <order_id>",
+      "turn_count": 17,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i think i gave the account id already",
+      "turn_count": 18,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "oh yes, you are right",
+      "turn_count": 19,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        87
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "identity verification in progress ...",
+      "turn_count": 20,
+      "targets": [
+        "status",
+        "take_action",
+        "verify-identity",
+        [
+          "joseph banter",
+          "lzb1tperfy",
+          "9623612568"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "you have been verified joseph!",
+      "turn_count": 21,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        86
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "and i will need your username and email to validate purchase",
+      "turn_count": 22,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        54
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "username: <username>",
+      "turn_count": 23,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "<email>",
+      "turn_count": 24,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "purchase validation in progress ...",
+      "turn_count": 25,
+      "targets": [
+        "status",
+        "take_action",
+        "validate-purchase",
+        [
+          "josephb6",
+          "josephb6@email.com",
+          "9623612568"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "that worked as well",
+      "turn_count": 26,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        43
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "querying the system for an answer ...",
+      "turn_count": 27,
+      "targets": [
+        "status",
+        "take_action",
+        "ask-the-oracle",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "it looks like your suspicion might be right",
+      "turn_count": 28,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        91
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "we originally had michael kors jeans in a size 32, but that was replaced by the same brand and size in a different color",
+      "turn_count": 29,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        53
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "is that ok with you?",
+      "turn_count": 30,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        25
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yea, not cool",
+      "turn_count": 31,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "so sorry about that, looks like we ran out of stock on the other item",
+      "turn_count": 32,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        69
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "so this was replaced and an email was sent out",
+      "turn_count": 33,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        63
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok, can you change it back?",
+      "turn_count": 34,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "well yes, but we are still out of stock",
+      "turn_count": 35,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        69
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "so it might arrive later",
+      "turn_count": 36,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        72
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "that's fine, i would really like to keep the darker blue color",
+      "turn_count": 37,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok, i can do that for you",
+      "turn_count": 38,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        61
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "order has been updated with change item.",
+      "turn_count": 39,
+      "targets": [
+        "status",
+        "take_action",
+        "update-order",
+        [
+          "change item"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok, i have changed back to the exact original item",
+      "turn_count": 40,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        30
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "it will arrive in about 2 weeks",
+      "turn_count": 41,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        51
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "wow, can't believe it went from 2 days to 2 weeks",
+      "turn_count": 42,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "we apologize for the inconvenience",
+      "turn_count": 43,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        86
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "please let me know if there is anything we can do to help",
+      "turn_count": 44,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        51
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "well, i mean its not your fault",
+      "turn_count": 45,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "the inventory is just broken",
+      "turn_count": 46,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "hmm, i will make a note of that for others",
+      "turn_count": 47,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        82
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "the purchasing team has been notified.",
+      "turn_count": 48,
+      "targets": [
+        "status",
+        "take_action",
+        "notify-team",
+        [
+          "purchasing team"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "oh, that's great!",
+      "turn_count": 49,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thanks, is there anything else i can help with?",
+      "turn_count": 50,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        5
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no that's it, at least i know what happened",
+      "turn_count": 51,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "great, thanks for contacting acmebrands and have a wonderful day!",
+      "turn_count": 52,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        23
+      ]
+    }
+  ]
+}

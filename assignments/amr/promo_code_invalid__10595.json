@@ -1,0 +1,746 @@
+{
+  "convo_id": 10595,
+  "scenario": {
+    "personal": {
+      "customer_name": "joyce wu",
+      "email": "jwu91842@email.com",
+      "member_level": "guest",
+      "phone": "(020) 256-4741",
+      "username": "jwu91842"
+    },
+    "order": {
+      "street_address": "8389 brushwick dr",
+      "full_address": "8389 brushwick dr  san lima, ca 66561",
+      "city": "san lima",
+      "num_products": "1",
+      "order_id": "7418643021",
+      "products": "[{'brand': 'tommy_hilfiger', 'product_type': 'boots', 'amount': 79, 'image_url': 'images/tommy_hilfiger-boots.jpeg'}]",
+      "state": "ca",
+      "zip_code": "66561"
+    },
+    "product": {
+      "names": [
+        "tommy_hilfiger boots"
+      ],
+      "amounts": [
+        79
+      ]
+    },
+    "flow": "purchase_dispute",
+    "subflow": "promo_code_invalid"
+  },
+  "original": [
+    [
+      "agent",
+      "Hello, and how may I help you tonight?"
+    ],
+    [
+      "customer",
+      "Hi, my promo code isn't working!"
+    ],
+    [
+      "agent",
+      "No problem, let's see what's going on here"
+    ],
+    [
+      "agent",
+      "To whom do I have the pleasure of speaking with?"
+    ],
+    [
+      "customer",
+      "Joyce Wu"
+    ],
+    [
+      "action",
+      "Account has been pulled up for Joyce Wu."
+    ],
+    [
+      "agent",
+      "Good evening Joyce, my name is Richard and I'd be happy to help you with your promo code issue"
+    ],
+    [
+      "agent",
+      "So to start, promo codes usually last for a week"
+    ],
+    [
+      "agent",
+      "How long have you had yours for"
+    ],
+    [
+      "customer",
+      "I've had this promo code 5 days ago"
+    ],
+    [
+      "customer",
+      "should still be valid"
+    ],
+    [
+      "agent",
+      "Let me check the system about this situation"
+    ],
+    [
+      "action",
+      "Querying the system for an answer ..."
+    ],
+    [
+      "agent",
+      "So it doesn't seem to be an error in our system"
+    ],
+    [
+      "agent",
+      "Can you let me know your membership level?"
+    ],
+    [
+      "customer",
+      "Yea, what is membership level?"
+    ],
+    [
+      "agent",
+      "Typically, this is bronze, silver or gold"
+    ],
+    [
+      "agent",
+      "If you are none of these, then you would be a Guest Member"
+    ],
+    [
+      "customer",
+      "ok, i'm just a guest"
+    ],
+    [
+      "action",
+      "Membership level of guest has been noted."
+    ],
+    [
+      "agent",
+      "I'm so sorry, but I cannot help you in this situation Joyce"
+    ],
+    [
+      "agent",
+      "Since AcmeBrands is a popular shopping destination, various websites will claim to have promotions and promo codes when they in fact do not"
+    ],
+    [
+      "agent",
+      "Unfortunately, it seems you might have picked one of those up"
+    ],
+    [
+      "customer",
+      "What, are you serious?!"
+    ],
+    [
+      "customer",
+      "That sucks"
+    ],
+    [
+      "customer",
+      "I thought i was going to get 50% on these Tommy Hilfiger boots"
+    ],
+    [
+      "action",
+      "A reason of Tommy Hilfiger Boots has been recorded."
+    ],
+    [
+      "agent",
+      "Yes, unfortunately that is the case.  In fact, we don't have any promotion that gives half off at this time"
+    ],
+    [
+      "agent",
+      "The most would be 30% off for a few preferred members"
+    ],
+    [
+      "agent",
+      "So I am even more convinced now this was some sort of scam site"
+    ],
+    [
+      "customer",
+      "That is just sadness"
+    ],
+    [
+      "customer",
+      "OK, well, there isn't much to do then"
+    ],
+    [
+      "customer",
+      "I don't think I can afford this at full proce"
+    ],
+    [
+      "customer",
+      "price*"
+    ],
+    [
+      "agent",
+      "I understand, just so you know though, we should have a summer sale coming soon"
+    ],
+    [
+      "agent",
+      "You should be able to catch some great deals then"
+    ],
+    [
+      "customer",
+      "Hmm, didn't know about that"
+    ],
+    [
+      "customer",
+      "Ok, i'll come check it out again"
+    ],
+    [
+      "customer",
+      "When does that start?"
+    ],
+    [
+      "agent",
+      "In just two weeks!"
+    ],
+    [
+      "customer",
+      "Great, i'll come visit again in two weeks"
+    ],
+    [
+      "agent",
+      "Is that everything you need for today?"
+    ],
+    [
+      "customer",
+      "yea, thanks"
+    ],
+    [
+      "agent",
+      "Ok Joyce, stay safe out there and have a wonderful day!"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "hello, and how may i help you tonight?",
+      "turn_count": 1,
+      "targets": [
+        "promo_code_invalid",
+        "retrieve_utterance",
+        null,
+        [],
+        31
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "hi, my promo code isn't working!",
+      "turn_count": 2,
+      "targets": [
+        "promo_code_invalid",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "no problem, let's see what's going on here",
+      "turn_count": 3,
+      "targets": [
+        "promo_code_invalid",
+        "retrieve_utterance",
+        null,
+        [],
+        42
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "to whom do i have the pleasure of speaking with?",
+      "turn_count": 4,
+      "targets": [
+        "promo_code_invalid",
+        "retrieve_utterance",
+        null,
+        [],
+        87
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "joyce wu",
+      "turn_count": 5,
+      "targets": [
+        "promo_code_invalid",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for joyce wu.",
+      "turn_count": 6,
+      "targets": [
+        "promo_code_invalid",
+        "take_action",
+        "pull-up-account",
+        [
+          "joyce wu"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "good evening joyce, my name is richard and i'd be happy to help you with your promo code issue",
+      "turn_count": 7,
+      "targets": [
+        "promo_code_invalid",
+        "retrieve_utterance",
+        null,
+        [],
+        17
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "so to start, promo codes usually last for a week",
+      "turn_count": 8,
+      "targets": [
+        "promo_code_invalid",
+        "retrieve_utterance",
+        null,
+        [],
+        84
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "how long have you had yours for",
+      "turn_count": 9,
+      "targets": [
+        "promo_code_invalid",
+        "retrieve_utterance",
+        null,
+        [],
+        69
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i've had this promo code 5 days ago",
+      "turn_count": 10,
+      "targets": [
+        "promo_code_invalid",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "should still be valid",
+      "turn_count": 11,
+      "targets": [
+        "promo_code_invalid",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "let me check the system about this situation",
+      "turn_count": 12,
+      "targets": [
+        "promo_code_invalid",
+        "retrieve_utterance",
+        null,
+        [],
+        64
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "querying the system for an answer ...",
+      "turn_count": 13,
+      "targets": [
+        "promo_code_invalid",
+        "take_action",
+        "ask-the-oracle",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "so it doesn't seem to be an error in our system",
+      "turn_count": 14,
+      "targets": [
+        "promo_code_invalid",
+        "retrieve_utterance",
+        null,
+        [],
+        17
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can you let me know your membership level?",
+      "turn_count": 15,
+      "targets": [
+        "promo_code_invalid",
+        "retrieve_utterance",
+        null,
+        [],
+        97
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yea, what is membership level?",
+      "turn_count": 16,
+      "targets": [
+        "promo_code_invalid",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "typically, this is bronze, silver or gold",
+      "turn_count": 17,
+      "targets": [
+        "promo_code_invalid",
+        "retrieve_utterance",
+        null,
+        [],
+        74
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "if you are none of these, then you would be a guest member",
+      "turn_count": 18,
+      "targets": [
+        "promo_code_invalid",
+        "retrieve_utterance",
+        null,
+        [],
+        86
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok, i'm just a guest",
+      "turn_count": 19,
+      "targets": [
+        "promo_code_invalid",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "membership level of guest has been noted.",
+      "turn_count": 20,
+      "targets": [
+        "promo_code_invalid",
+        "take_action",
+        "membership",
+        [
+          "guest"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i'm so sorry, but i cannot help you in this situation joyce",
+      "turn_count": 21,
+      "targets": [
+        "promo_code_invalid",
+        "retrieve_utterance",
+        null,
+        [],
+        39
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "since acmebrands is a popular shopping destination, various websites will claim to have promotions and promo codes when they in fact do not",
+      "turn_count": 22,
+      "targets": [
+        "promo_code_invalid",
+        "retrieve_utterance",
+        null,
+        [],
+        8
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "unfortunately, it seems you might have picked one of those up",
+      "turn_count": 23,
+      "targets": [
+        "promo_code_invalid",
+        "retrieve_utterance",
+        null,
+        [],
+        48
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "what, are you serious?!",
+      "turn_count": 24,
+      "targets": [
+        "promo_code_invalid",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "that sucks",
+      "turn_count": 25,
+      "targets": [
+        "promo_code_invalid",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i thought i was going to get 50% on these tommy hilfiger boots",
+      "turn_count": 26,
+      "targets": [
+        "promo_code_invalid",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "a reason of tommy hilfiger boots has been recorded.",
+      "turn_count": 27,
+      "targets": [
+        "promo_code_invalid",
+        "take_action",
+        "record-reason",
+        [
+          "tommy hilfiger boots"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "yes, unfortunately that is the case.  in fact, we don't have any promotion that gives half off at this time",
+      "turn_count": 28,
+      "targets": [
+        "promo_code_invalid",
+        "retrieve_utterance",
+        null,
+        [],
+        93
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "the most would be 30% off for a few preferred members",
+      "turn_count": 29,
+      "targets": [
+        "promo_code_invalid",
+        "retrieve_utterance",
+        null,
+        [],
+        79
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "so i am even more convinced now this was some sort of scam site",
+      "turn_count": 30,
+      "targets": [
+        "promo_code_invalid",
+        "retrieve_utterance",
+        null,
+        [],
+        10
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "that is just sadness",
+      "turn_count": 31,
+      "targets": [
+        "promo_code_invalid",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok, well, there isn't much to do then",
+      "turn_count": 32,
+      "targets": [
+        "promo_code_invalid",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i don't think i can afford this at full proce",
+      "turn_count": 33,
+      "targets": [
+        "promo_code_invalid",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "price*",
+      "turn_count": 34,
+      "targets": [
+        "promo_code_invalid",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i understand, just so you know though, we should have a summer sale coming soon",
+      "turn_count": 35,
+      "targets": [
+        "promo_code_invalid",
+        "retrieve_utterance",
+        null,
+        [],
+        91
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "you should be able to catch some great deals then",
+      "turn_count": 36,
+      "targets": [
+        "promo_code_invalid",
+        "retrieve_utterance",
+        null,
+        [],
+        6
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "hmm, didn't know about that",
+      "turn_count": 37,
+      "targets": [
+        "promo_code_invalid",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok, i'll come check it out again",
+      "turn_count": 38,
+      "targets": [
+        "promo_code_invalid",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "when does that start?",
+      "turn_count": 39,
+      "targets": [
+        "promo_code_invalid",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "in just two weeks!",
+      "turn_count": 40,
+      "targets": [
+        "promo_code_invalid",
+        "retrieve_utterance",
+        null,
+        [],
+        48
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "great, i'll come visit again in two weeks",
+      "turn_count": 41,
+      "targets": [
+        "promo_code_invalid",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "is that everything you need for today?",
+      "turn_count": 42,
+      "targets": [
+        "promo_code_invalid",
+        "retrieve_utterance",
+        null,
+        [],
+        47
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yea, thanks",
+      "turn_count": 43,
+      "targets": [
+        "promo_code_invalid",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok joyce, stay safe out there and have a wonderful day!",
+      "turn_count": 44,
+      "targets": [
+        "promo_code_invalid",
+        "retrieve_utterance",
+        null,
+        [],
+        91
+      ]
+    }
+  ]
+}

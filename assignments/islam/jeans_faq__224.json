@@ -1,0 +1,895 @@
+{
+  "convo_id": 224,
+  "scenario": {
+    "personal": {
+      "customer_name": "sanya afzal",
+      "member_level": "silver",
+      "phone": "(404) 725-8470"
+    },
+    "order": {
+      "street_address": "9647 2nd ave",
+      "full_address": "9647 2nd ave  raleigh, ca 6100",
+      "city": "raleigh",
+      "num_products": "1",
+      "products": "[{'brand': 'calvin_klein', 'product_type': 'jeans', 'amount': 79, 'image_url': 'images/calvin_klein-jeans.jpeg'}]",
+      "state": "ca",
+      "zip_code": "6100"
+    },
+    "product": {
+      "names": [
+        "calvin_klein jeans"
+      ],
+      "amounts": [
+        79
+      ]
+    },
+    "flow": "single_item_query",
+    "subflow": "jeans_other_3"
+  },
+  "original": [
+    [
+      "customer",
+      "Hello"
+    ],
+    [
+      "agent",
+      "hi, how can i help"
+    ],
+    [
+      "customer",
+      "I'm interested in these Calvin Klein jeans and I'm wondering if you have them in a Size 8"
+    ],
+    [
+      "agent",
+      "I am happy to look into that for you"
+    ],
+    [
+      "customer",
+      "Thank you. I need a size larger than what is shown."
+    ],
+    [
+      "agent",
+      "any particular color?"
+    ],
+    [
+      "customer",
+      "Denim blue"
+    ],
+    [
+      "agent",
+      "sorry, i am having a little trouble finding them"
+    ],
+    [
+      "customer",
+      "Can you tell me the sizes you have these jeans in? I'd like the same style shown in the picture."
+    ],
+    [
+      "agent",
+      "which picture are you referring to?"
+    ],
+    [
+      "customer",
+      "The picture on the product page. Sorry, there's no product number. It just says, \"Product: jeans Brand: Calvin_Klein Amount: $79\""
+    ],
+    [
+      "agent",
+      "by the way, are you one of our gold subscribers?"
+    ],
+    [
+      "customer",
+      "I'm not, but I would be happy to receive information on your gold membership"
+    ],
+    [
+      "agent",
+      "what would you like to know? It is pretty much the deluxe treatment"
+    ],
+    [
+      "customer",
+      "What is the cost?"
+    ],
+    [
+      "agent",
+      "should i try to back order those jeans for you?"
+    ],
+    [
+      "customer",
+      "Yes, please, if you can get them in Size 8"
+    ],
+    [
+      "agent",
+      "i will need your name and account ID please"
+    ],
+    [
+      "customer",
+      "My name is Sanya Afzal but I don't know what my account ID is."
+    ],
+    [
+      "customer",
+      "I'm a Silver member."
+    ],
+    [
+      "agent",
+      "thanks"
+    ],
+    [
+      "agent",
+      "OK, I was able to back order those jeans for you. Apologies for the delay"
+    ],
+    [
+      "customer",
+      "No problem! Thank you very much!"
+    ],
+    [
+      "agent",
+      "Now let me pull up the membership information you requested."
+    ],
+    [
+      "customer",
+      "Thank you."
+    ],
+    [
+      "agent",
+      "oh dear, it says that your subscription is overdue"
+    ],
+    [
+      "agent",
+      "did you make a payment recently?"
+    ],
+    [
+      "customer",
+      "I thought that I had. Let me check my statement,"
+    ],
+    [
+      "agent",
+      "are you planning to renew, it is due today"
+    ],
+    [
+      "customer",
+      "Yes, please. Can you upgrade me to Gold and charge it to the credit card you have on file?"
+    ],
+    [
+      "agent",
+      "That sounds great."
+    ],
+    [
+      "customer",
+      "Thank you so much!"
+    ],
+    [
+      "customer",
+      "And the new jeans are ordered, right?"
+    ],
+    [
+      "agent",
+      "Have a great day. Enjoy the jeans"
+    ],
+    [
+      "customer",
+      "Thanks, you have a great day as well!"
+    ],
+    [
+      "agent",
+      "is there anything else?"
+    ],
+    [
+      "customer",
+      "No, you've taken care of all my needs!"
+    ],
+    [
+      "agent",
+      "wonderful. thanks for being a member!"
+    ],
+    [
+      "agent",
+      "have a great day"
+    ],
+    [
+      "action",
+      "Searching the FAQ pages ..."
+    ],
+    [
+      "action",
+      "System Action: search jeans"
+    ],
+    [
+      "action",
+      "System Action: search pricing"
+    ],
+    [
+      "action",
+      "Membership level of  has been noted."
+    ],
+    [
+      "action",
+      "System Action: search jeans"
+    ],
+    [
+      "action",
+      "Membership level of silver has been noted."
+    ],
+    [
+      "action",
+      "Account has been pulled up for  Sanya Afzal ."
+    ],
+    [
+      "action",
+      "A purchase of  was made."
+    ],
+    [
+      "action",
+      "A purchase of \"Product: jeans Brand: Calvin_Klein Amount: $79 was made."
+    ],
+    [
+      "action",
+      "Membership level of Gold has been noted."
+    ],
+    [
+      "action",
+      "Searching the FAQ pages ..."
+    ],
+    [
+      "action",
+      "Querying the system for subscription status ..."
+    ],
+    [
+      "action",
+      "Agent is looking for solutions ..."
+    ],
+    [
+      "action",
+      "Shipping status of  has been noted."
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "customer",
+      "text": "hello",
+      "turn_count": 1,
+      "targets": [
+        "jeans",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "hi, how can i help",
+      "turn_count": 2,
+      "targets": [
+        "jeans",
+        "retrieve_utterance",
+        null,
+        [],
+        33
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i'm interested in these calvin klein jeans and i'm wondering if you have them in a size 8",
+      "turn_count": 3,
+      "targets": [
+        "jeans",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i am happy to look into that for you",
+      "turn_count": 4,
+      "targets": [
+        "jeans",
+        "retrieve_utterance",
+        null,
+        [],
+        93
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thank you. i need a size larger than what is shown.",
+      "turn_count": 5,
+      "targets": [
+        "jeans",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "any particular color?",
+      "turn_count": 6,
+      "targets": [
+        "jeans",
+        "retrieve_utterance",
+        null,
+        [],
+        52
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "denim blue",
+      "turn_count": 7,
+      "targets": [
+        "jeans",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "sorry, i am having a little trouble finding them",
+      "turn_count": 8,
+      "targets": [
+        "jeans",
+        "retrieve_utterance",
+        null,
+        [],
+        61
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "can you tell me the sizes you have these jeans in? i'd like the same style shown in the picture.",
+      "turn_count": 9,
+      "targets": [
+        "jeans",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "which picture are you referring to?",
+      "turn_count": 10,
+      "targets": [
+        "jeans",
+        "retrieve_utterance",
+        null,
+        [],
+        48
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "the picture on the product page. sorry, there's no product number. it just says, \"product: jeans brand: calvin_klein amount: $<amount>\"",
+      "turn_count": 11,
+      "targets": [
+        "jeans",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "by the way, are you one of our gold subscribers?",
+      "turn_count": 12,
+      "targets": [
+        "jeans",
+        "retrieve_utterance",
+        null,
+        [],
+        11
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i'm not, but i would be happy to receive information on your gold membership",
+      "turn_count": 13,
+      "targets": [
+        "jeans",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "what would you like to know? it is pretty much the deluxe treatment",
+      "turn_count": 14,
+      "targets": [
+        "jeans",
+        "retrieve_utterance",
+        null,
+        [],
+        90
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "what is the cost?",
+      "turn_count": 15,
+      "targets": [
+        "jeans",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "should i try to back order those jeans for you?",
+      "turn_count": 16,
+      "targets": [
+        "jeans",
+        "retrieve_utterance",
+        null,
+        [],
+        97
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yes, please, if you can get them in size 8",
+      "turn_count": 17,
+      "targets": [
+        "jeans",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i will need your name and account id please",
+      "turn_count": 18,
+      "targets": [
+        "jeans",
+        "retrieve_utterance",
+        null,
+        [],
+        35
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "my name is sanya afzal but i don't know what my account id is.",
+      "turn_count": 19,
+      "targets": [
+        "jeans",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i'm a silver member.",
+      "turn_count": 20,
+      "targets": [
+        "jeans",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thanks",
+      "turn_count": 21,
+      "targets": [
+        "jeans",
+        "retrieve_utterance",
+        null,
+        [],
+        18
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok, i was able to back order those jeans for you. apologies for the delay",
+      "turn_count": 22,
+      "targets": [
+        "jeans",
+        "retrieve_utterance",
+        null,
+        [],
+        56
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no problem! thank you very much!",
+      "turn_count": 23,
+      "targets": [
+        "jeans",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "now let me pull up the membership information you requested.",
+      "turn_count": 24,
+      "targets": [
+        "jeans",
+        "retrieve_utterance",
+        null,
+        [],
+        98
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thank you.",
+      "turn_count": 25,
+      "targets": [
+        "jeans",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "oh dear, it says that your subscription is overdue",
+      "turn_count": 26,
+      "targets": [
+        "jeans",
+        "retrieve_utterance",
+        null,
+        [],
+        21
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "did you make a payment recently?",
+      "turn_count": 27,
+      "targets": [
+        "jeans",
+        "retrieve_utterance",
+        null,
+        [],
+        38
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i thought that i had. let me check my statement,",
+      "turn_count": 28,
+      "targets": [
+        "jeans",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "are you planning to renew, it is due today",
+      "turn_count": 29,
+      "targets": [
+        "jeans",
+        "retrieve_utterance",
+        null,
+        [],
+        97
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yes, please. can you upgrade me to gold and charge it to the credit card you have on file?",
+      "turn_count": 30,
+      "targets": [
+        "jeans",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "that sounds great.",
+      "turn_count": 31,
+      "targets": [
+        "jeans",
+        "retrieve_utterance",
+        null,
+        [],
+        75
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thank you so much!",
+      "turn_count": 32,
+      "targets": [
+        "jeans",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "and the new jeans are ordered, right?",
+      "turn_count": 33,
+      "targets": [
+        "jeans",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "have a great day. enjoy the jeans",
+      "turn_count": 34,
+      "targets": [
+        "jeans",
+        "retrieve_utterance",
+        null,
+        [],
+        10
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thanks, you have a great day as well!",
+      "turn_count": 35,
+      "targets": [
+        "jeans",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "is there anything else?",
+      "turn_count": 36,
+      "targets": [
+        "jeans",
+        "retrieve_utterance",
+        null,
+        [],
+        51
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no, you've taken care of all my needs!",
+      "turn_count": 37,
+      "targets": [
+        "jeans",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "wonderful. thanks for being a member!",
+      "turn_count": 38,
+      "targets": [
+        "jeans",
+        "retrieve_utterance",
+        null,
+        [],
+        62
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "have a great day",
+      "turn_count": 39,
+      "targets": [
+        "jeans",
+        "retrieve_utterance",
+        null,
+        [],
+        61
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "searching the faq pages ...",
+      "turn_count": 40,
+      "targets": [
+        "jeans",
+        "take_action",
+        "search-faq",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "system action: search jeans",
+      "turn_count": 41,
+      "targets": [
+        "jeans",
+        "take_action",
+        "search-jeans",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "system action: search pricing",
+      "turn_count": 42,
+      "targets": [
+        "jeans",
+        "take_action",
+        "search-pricing",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "membership level of  has been noted.",
+      "turn_count": 43,
+      "targets": [
+        "jeans",
+        "take_action",
+        "membership",
+        [
+          "gold"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "system action: search jeans",
+      "turn_count": 44,
+      "targets": [
+        "jeans",
+        "take_action",
+        "search-jeans",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "membership level of silver has been noted.",
+      "turn_count": 45,
+      "targets": [
+        "jeans",
+        "take_action",
+        "membership",
+        [
+          "bronze"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for  sanya afzal .",
+      "turn_count": 46,
+      "targets": [
+        "jeans",
+        "take_action",
+        "pull-up-account",
+        [
+          "joseph banter"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "a purchase of  was made.",
+      "turn_count": 47,
+      "targets": [
+        "jeans",
+        "take_action",
+        "make-purchase",
+        [
+          "guess shirt"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "a purchase of \"product: jeans brand: calvin_klein amount: $<amount> was made.",
+      "turn_count": 48,
+      "targets": [
+        "jeans",
+        "take_action",
+        "make-purchase",
+        [
+          "michael kors jacket"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "membership level of gold has been noted.",
+      "turn_count": 49,
+      "targets": [
+        "jeans",
+        "take_action",
+        "membership",
+        [
+          "silver"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "searching the faq pages ...",
+      "turn_count": 50,
+      "targets": [
+        "jeans",
+        "take_action",
+        "search-faq",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "querying the system for subscription status ...",
+      "turn_count": 52,
+      "targets": [
+        "jeans",
+        "take_action",
+        "subscription-status",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "agent is looking for solutions ...",
+      "turn_count": 53,
+      "targets": [
+        "jeans",
+        "take_action",
+        "log-out-in",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "shipping status of  has been noted.",
+      "turn_count": 54,
+      "targets": [
+        "jeans",
+        "take_action",
+        "shipping-status",
+        [
+          "in transit"
+        ],
+        -1
+      ]
+    }
+  ]
+}

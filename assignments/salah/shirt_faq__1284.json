@@ -1,0 +1,957 @@
+{
+  "convo_id": 1284,
+  "scenario": {
+    "personal": {
+      "customer_name": "joseph banter",
+      "member_level": "gold",
+      "phone": "(482) 298-8508"
+    },
+    "order": {
+      "street_address": "7809 lincoln ave",
+      "full_address": "7809 lincoln ave  newark, mi 1006",
+      "city": "newark",
+      "num_products": "1",
+      "products": "[{'brand': 'calvin_klein', 'product_type': 'shirt', 'amount': 59, 'image_url': 'images/calvin_klein-shirt.jpeg'}]",
+      "state": "mi",
+      "zip_code": "1006"
+    },
+    "product": {
+      "names": [
+        "calvin_klein shirt"
+      ],
+      "amounts": [
+        59
+      ]
+    },
+    "flow": "single_item_query",
+    "subflow": "shirt_how_2"
+  },
+  "original": [
+    [
+      "agent",
+      "Hello, my name is Donny. How may I assist you?"
+    ],
+    [
+      "customer",
+      "Hello"
+    ],
+    [
+      "customer",
+      "I ordered some Tommy Hilfiger boots yesterday for $89  and see that they are way cheaper today."
+    ],
+    [
+      "customer",
+      "Why is this?"
+    ],
+    [
+      "customer",
+      "I would like to get refunded the difference if possible"
+    ],
+    [
+      "agent",
+      "This is due to a sale that is running as of today. Let me get that started for you."
+    ],
+    [
+      "customer",
+      "Okay"
+    ],
+    [
+      "agent",
+      "To start I will need your account name or account ID please."
+    ],
+    [
+      "customer",
+      "Joyce Wu"
+    ],
+    [
+      "customer",
+      "Account ID: JSEX7PPUAJ"
+    ],
+    [
+      "agent",
+      "Thank you. One moment please."
+    ],
+    [
+      "action",
+      "Identity verification in progess ..."
+    ],
+    [
+      "agent",
+      "and just need your order ID now if you have it"
+    ],
+    [
+      "customer",
+      "Order ID: 2077905660"
+    ],
+    [
+      "action",
+      "Identity verification in progess ..."
+    ],
+    [
+      "agent",
+      "Thank you. I am  now verifying the account"
+    ],
+    [
+      "action",
+      "Account has been pulled up for ."
+    ],
+    [
+      "action",
+      "Account has been pulled up for JSEX7PPUAJ."
+    ],
+    [
+      "action",
+      "Purchase validation in progress ..."
+    ],
+    [
+      "agent",
+      "Now to verify the purchase I need your username and email address please"
+    ],
+    [
+      "customer",
+      "Username: jw082196"
+    ],
+    [
+      "customer",
+      "Email Address: jw082196@email.com"
+    ],
+    [
+      "action",
+      "Identity verification in progess ..."
+    ],
+    [
+      "action",
+      "Purchase validation in progress ..."
+    ],
+    [
+      "agent",
+      "Thank you. I have validated your purchase and will now move on to the refund. Just a few more moments here."
+    ],
+    [
+      "agent",
+      "Which method of payment would you like your refund issued to?"
+    ],
+    [
+      "action",
+      "A refund has been made for the amount of $."
+    ],
+    [
+      "agent",
+      "Are you still there?"
+    ],
+    [
+      "customer",
+      "Yeah, sorry"
+    ],
+    [
+      "customer",
+      "Thank you for the refund."
+    ],
+    [
+      "agent",
+      "It's okay."
+    ],
+    [
+      "customer",
+      "The system seems to be lagging out. Everyone at home bogging down the internet."
+    ],
+    [
+      "agent",
+      "The refund hasn't been issued just yet. Would you like your refund issued to your credit card?"
+    ],
+    [
+      "agent",
+      "I understand. My internet is being quite slow as well."
+    ],
+    [
+      "customer",
+      "Well, when I came back I see I have a different customer profile now with different info"
+    ],
+    [
+      "agent",
+      "okay let me just access your account one more time to insure your refund gets issued to you properly."
+    ],
+    [
+      "customer",
+      "okay"
+    ],
+    [
+      "agent",
+      "is your account ID still JSEX7PPUAJ ?"
+    ],
+    [
+      "customer",
+      "No, the system refreshed on me and gave me totally different info."
+    ],
+    [
+      "customer",
+      "buggy"
+    ],
+    [
+      "agent",
+      "Sorry about that. What is the new account ID?"
+    ],
+    [
+      "customer",
+      "Well, my new problem is that I am thinking about buying a product and want more info on it."
+    ],
+    [
+      "agent",
+      "No worries. Just one moment"
+    ],
+    [
+      "agent",
+      "Which product would you like more information about?"
+    ],
+    [
+      "customer",
+      "A Calving Klein shirt that is priced at $59 dollars. White shirt with black lettering."
+    ],
+    [
+      "agent",
+      "And what kind of information can I get for you about the shirt?"
+    ],
+    [
+      "customer",
+      "What I want to know is how do I wash it?"
+    ],
+    [
+      "action",
+      "Searching the FAQ pages ..."
+    ],
+    [
+      "action",
+      "System Action: search shirt"
+    ],
+    [
+      "agent",
+      "I searched for cleaning information on this shirt and have found this..."
+    ],
+    [
+      "agent",
+      "Even though the shirt is of high quality, it can be washed like most other garments. Toss it in the washer and dryer like you would with anything else and wash normally. It is recommended to use color guard with bleach detergent to keep the colors lo"
+    ],
+    [
+      "customer",
+      "Awesome, thank you."
+    ],
+    [
+      "agent",
+      "My pleasure. Is there anything else I could help you with today?"
+    ],
+    [
+      "customer",
+      "That's all, Great job!"
+    ],
+    [
+      "agent",
+      "Thank you. I hope you have a great day and stay healthy out there :)"
+    ],
+    [
+      "action",
+      "FAQ answer related to shirt (how2) was selected."
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "hello, my name is donny. how may i assist you?",
+      "turn_count": 1,
+      "targets": [
+        "shirt",
+        "retrieve_utterance",
+        null,
+        [],
+        62
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "hello",
+      "turn_count": 2,
+      "targets": [
+        "shirt",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i ordered some tommy hilfiger boots yesterday for $89  and see that they are way cheaper today.",
+      "turn_count": 3,
+      "targets": [
+        "shirt",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "why is this?",
+      "turn_count": 4,
+      "targets": [
+        "shirt",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i would like to get refunded the difference if possible",
+      "turn_count": 5,
+      "targets": [
+        "shirt",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "this is due to a sale that is running as of today. let me get that started for you.",
+      "turn_count": 6,
+      "targets": [
+        "shirt",
+        "retrieve_utterance",
+        null,
+        [],
+        51
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay",
+      "turn_count": 7,
+      "targets": [
+        "shirt",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "to start i will need your account name or account id please.",
+      "turn_count": 8,
+      "targets": [
+        "shirt",
+        "retrieve_utterance",
+        null,
+        [],
+        60
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "joyce wu",
+      "turn_count": 9,
+      "targets": [
+        "shirt",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "account id: jsex7ppuaj",
+      "turn_count": 10,
+      "targets": [
+        "shirt",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you. one moment please.",
+      "turn_count": 11,
+      "targets": [
+        "shirt",
+        "retrieve_utterance",
+        null,
+        [],
+        25
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "identity verification in progess ...",
+      "turn_count": 12,
+      "targets": [
+        "shirt",
+        "take_action",
+        "verify-identity",
+        [
+          "jsex7ppuaj",
+          "n/a",
+          "n/a"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "and just need your order id now if you have it",
+      "turn_count": 13,
+      "targets": [
+        "shirt",
+        "retrieve_utterance",
+        null,
+        [],
+        21
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "order id: 2077905660",
+      "turn_count": 14,
+      "targets": [
+        "shirt",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "identity verification in progess ...",
+      "turn_count": 15,
+      "targets": [
+        "shirt",
+        "take_action",
+        "verify-identity",
+        [
+          "joyce wu",
+          "jsex7ppuaj",
+          "2077905660"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you. i am  now verifying the account",
+      "turn_count": 16,
+      "targets": [
+        "shirt",
+        "retrieve_utterance",
+        null,
+        [],
+        33
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for .",
+      "turn_count": 17,
+      "targets": [
+        "shirt",
+        "take_action",
+        "pull-up-account",
+        [
+          "joseph banter"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for jsex7ppuaj.",
+      "turn_count": 18,
+      "targets": [
+        "shirt",
+        "take_action",
+        "pull-up-account",
+        [
+          "jsex7ppuaj"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "purchase validation in progress ...",
+      "turn_count": 19,
+      "targets": [
+        "shirt",
+        "take_action",
+        "validate-purchase",
+        [
+          "joyce wu",
+          "jsex7ppuaj",
+          "2077905660"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "now to verify the purchase i need your username and email address please",
+      "turn_count": 20,
+      "targets": [
+        "shirt",
+        "retrieve_utterance",
+        null,
+        [],
+        29
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "username: jw082196",
+      "turn_count": 21,
+      "targets": [
+        "shirt",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "email address: jw082196@email.com",
+      "turn_count": 22,
+      "targets": [
+        "shirt",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "identity verification in progess ...",
+      "turn_count": 23,
+      "targets": [
+        "shirt",
+        "take_action",
+        "verify-identity",
+        [
+          "jw082196",
+          "jw082196@email.com",
+          "2077905660"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "purchase validation in progress ...",
+      "turn_count": 25,
+      "targets": [
+        "shirt",
+        "take_action",
+        "validate-purchase",
+        [
+          "jw082196",
+          "jw082196@email.com",
+          "2077905660"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you. i have validated your purchase and will now move on to the refund. just a few more moments here.",
+      "turn_count": 26,
+      "targets": [
+        "shirt",
+        "retrieve_utterance",
+        null,
+        [],
+        56
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "which method of payment would you like your refund issued to?",
+      "turn_count": 27,
+      "targets": [
+        "shirt",
+        "retrieve_utterance",
+        null,
+        [],
+        98
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "a refund has been made for the amount of $.",
+      "turn_count": 28,
+      "targets": [
+        "shirt",
+        "take_action",
+        "offer-refund",
+        [
+          ""
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "are you still there?",
+      "turn_count": 29,
+      "targets": [
+        "shirt",
+        "retrieve_utterance",
+        null,
+        [],
+        36
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yeah, sorry",
+      "turn_count": 30,
+      "targets": [
+        "shirt",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thank you for the refund.",
+      "turn_count": 31,
+      "targets": [
+        "shirt",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "it's okay.",
+      "turn_count": 32,
+      "targets": [
+        "shirt",
+        "retrieve_utterance",
+        null,
+        [],
+        42
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "the system seems to be lagging out. everyone at home bogging down the internet.",
+      "turn_count": 33,
+      "targets": [
+        "shirt",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "the refund hasn't been issued just yet. would you like your refund issued to your credit card?",
+      "turn_count": 34,
+      "targets": [
+        "shirt",
+        "retrieve_utterance",
+        null,
+        [],
+        74
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i understand. my internet is being quite slow as well.",
+      "turn_count": 35,
+      "targets": [
+        "shirt",
+        "retrieve_utterance",
+        null,
+        [],
+        51
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "well, when i came back i see i have a different customer profile now with different info",
+      "turn_count": 36,
+      "targets": [
+        "shirt",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "okay let me just access your account one more time to insure your refund gets issued to you properly.",
+      "turn_count": 37,
+      "targets": [
+        "shirt",
+        "retrieve_utterance",
+        null,
+        [],
+        73
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay",
+      "turn_count": 38,
+      "targets": [
+        "shirt",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "is your account id still jsex7ppuaj ?",
+      "turn_count": 39,
+      "targets": [
+        "shirt",
+        "retrieve_utterance",
+        null,
+        [],
+        79
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no, the system refreshed on me and gave me totally different info.",
+      "turn_count": 40,
+      "targets": [
+        "shirt",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "buggy",
+      "turn_count": 41,
+      "targets": [
+        "shirt",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "sorry about that. what is the new account id?",
+      "turn_count": 42,
+      "targets": [
+        "shirt",
+        "retrieve_utterance",
+        null,
+        [],
+        38
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "well, my new problem is that i am thinking about buying a product and want more info on it.",
+      "turn_count": 43,
+      "targets": [
+        "shirt",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "no worries. just one moment",
+      "turn_count": 44,
+      "targets": [
+        "shirt",
+        "retrieve_utterance",
+        null,
+        [],
+        39
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "which product would you like more information about?",
+      "turn_count": 45,
+      "targets": [
+        "shirt",
+        "retrieve_utterance",
+        null,
+        [],
+        89
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "a calving klein shirt that is priced at $<amount> dollars. white shirt with black lettering.",
+      "turn_count": 46,
+      "targets": [
+        "shirt",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "and what kind of information can i get for you about the shirt?",
+      "turn_count": 47,
+      "targets": [
+        "shirt",
+        "retrieve_utterance",
+        null,
+        [],
+        34
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "what i want to know is how do i wash it?",
+      "turn_count": 48,
+      "targets": [
+        "shirt",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "searching the faq pages ...",
+      "turn_count": 49,
+      "targets": [
+        "shirt",
+        "take_action",
+        "search-faq",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "system action: search shirt",
+      "turn_count": 50,
+      "targets": [
+        "shirt",
+        "take_action",
+        "search-shirt",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i searched for cleaning information on this shirt and have found this...",
+      "turn_count": 51,
+      "targets": [
+        "shirt",
+        "retrieve_utterance",
+        null,
+        [],
+        51
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "even though the shirt is of high quality, it can be washed like most other garments. toss it in the washer and dryer like you would with anything else and wash normally. it is recommended to use color guard with bleach detergent to keep the colors lo",
+      "turn_count": 52,
+      "targets": [
+        "shirt",
+        "retrieve_utterance",
+        null,
+        [],
+        25
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "awesome, thank you.",
+      "turn_count": 53,
+      "targets": [
+        "shirt",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "my pleasure. is there anything else i could help you with today?",
+      "turn_count": 54,
+      "targets": [
+        "shirt",
+        "retrieve_utterance",
+        null,
+        [],
+        75
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "that's all, great job!",
+      "turn_count": 55,
+      "targets": [
+        "shirt",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you. i hope you have a great day and stay healthy out there :)",
+      "turn_count": 56,
+      "targets": [
+        "shirt",
+        "retrieve_utterance",
+        null,
+        [],
+        36
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "faq answer related to shirt (how2) was selected.",
+      "turn_count": 57,
+      "targets": [
+        "shirt",
+        "take_action",
+        "select-faq",
+        [
+          "shirt_how_2"
+        ],
+        -1
+      ]
+    }
+  ]
+}

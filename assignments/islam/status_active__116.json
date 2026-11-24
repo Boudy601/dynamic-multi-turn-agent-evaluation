@@ -1,0 +1,848 @@
+{
+  "convo_id": 116,
+  "scenario": {
+    "personal": {
+      "account_id": "pya6eo3axs",
+      "customer_name": "crystal minh",
+      "member_level": "silver",
+      "phone": "(785) 418-6394"
+    },
+    "order": {
+      "street_address": "6729 lexington ave",
+      "full_address": "6729 lexington ave  jacksonville, wa 98868",
+      "city": "jacksonville",
+      "state": "wa",
+      "zip_code": "98868"
+    },
+    "product": {
+      "names": [],
+      "amounts": []
+    },
+    "flow": "subscription_inquiry",
+    "subflow": "status_questions"
+  },
+  "original": [
+    [
+      "agent",
+      "Hi, how may I help you today?"
+    ],
+    [
+      "customer",
+      "Hi!"
+    ],
+    [
+      "customer",
+      "I'm having some issues with my account"
+    ],
+    [
+      "agent",
+      "I'm sorry to hear that."
+    ],
+    [
+      "customer",
+      "I bought a premium subscription recently"
+    ],
+    [
+      "agent",
+      "Great!"
+    ],
+    [
+      "customer",
+      "I love these products and I was excited to get the benefits from this subscription"
+    ],
+    [
+      "customer",
+      "I have a lot of birthday presents to buy for my friends!"
+    ],
+    [
+      "agent",
+      "Sounds like fun!"
+    ],
+    [
+      "customer",
+      "But I don't know if the subscription is active yet"
+    ],
+    [
+      "customer",
+      "Can you tell me if it's active?"
+    ],
+    [
+      "customer",
+      "I'm not sure if you received my payment for it"
+    ],
+    [
+      "agent",
+      "OK, I can definitely help you with that."
+    ],
+    [
+      "customer",
+      "Okay cool"
+    ],
+    [
+      "customer",
+      "Hello?"
+    ],
+    [
+      "customer",
+      "Are you working on it?"
+    ],
+    [
+      "agent",
+      "Can I get your name, account ID, and order ID?"
+    ],
+    [
+      "customer",
+      "Sure"
+    ],
+    [
+      "customer",
+      "I'm Crystal Minh"
+    ],
+    [
+      "customer",
+      "My account is PYA6EO3AXS"
+    ],
+    [
+      "customer",
+      "I don't think I have any order id"
+    ],
+    [
+      "agent",
+      "Ok, give me just a moment to look up some information"
+    ],
+    [
+      "customer",
+      "Great"
+    ],
+    [
+      "customer",
+      "thanks for helping me with this"
+    ],
+    [
+      "agent",
+      "Ok, great news!"
+    ],
+    [
+      "customer",
+      "Yes?"
+    ],
+    [
+      "agent",
+      "Your subscription is action and paid up."
+    ],
+    [
+      "customer",
+      "Okay, great! So you did receive my payment?"
+    ],
+    [
+      "agent",
+      "You should be able to enjoy all benefits,"
+    ],
+    [
+      "agent",
+      "Yes, we did and are showing a $0 amount due"
+    ],
+    [
+      "agent",
+      "Do you need any more information?"
+    ],
+    [
+      "customer",
+      "Okay, so just to confirm, my payment went through and there are no issues with that?"
+    ],
+    [
+      "customer",
+      "Because I was worried about it"
+    ],
+    [
+      "agent",
+      "Correct, your payment went through and I am showing no problems."
+    ],
+    [
+      "agent",
+      "Glad to be able to reassure you!"
+    ],
+    [
+      "customer",
+      "Okay. So does that mean this is reflected on my account now?"
+    ],
+    [
+      "customer",
+      "And I am able to use the benefits of the premium subscripton?"
+    ],
+    [
+      "agent",
+      "Yes, you account reflects a current membership, paid in full with no payment due"
+    ],
+    [
+      "customer",
+      "I really need that expediated shipping"
+    ],
+    [
+      "agent",
+      "Yes, you are eligble to receive the benefits of your premium membership immediately"
+    ],
+    [
+      "customer",
+      "Okay, great! That makes me very happy"
+    ],
+    [
+      "customer",
+      "I don't think that I need anything else from you today"
+    ],
+    [
+      "agent",
+      "THanks for contacting us, it was my pleasure to help!"
+    ],
+    [
+      "agent",
+      "Have a great day!"
+    ],
+    [
+      "customer",
+      "Great!"
+    ],
+    [
+      "customer",
+      "Thanks for your help"
+    ],
+    [
+      "agent",
+      "You're welcome. I'll end the chat now, but feel free to get back in touch if you need anything else!"
+    ],
+    [
+      "customer",
+      "Okay, sounds good"
+    ],
+    [
+      "action",
+      "Account has been pulled up for ."
+    ],
+    [
+      "action",
+      "Account has been pulled up for Crystal Minh."
+    ],
+    [
+      "action",
+      "Querying the system for subscription status ..."
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "hi, how may i help you today?",
+      "turn_count": 1,
+      "targets": [
+        "status_active",
+        "retrieve_utterance",
+        null,
+        [],
+        26
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "hi!",
+      "turn_count": 2,
+      "targets": [
+        "status_active",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i'm having some issues with my account",
+      "turn_count": 3,
+      "targets": [
+        "status_active",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i'm sorry to hear that.",
+      "turn_count": 4,
+      "targets": [
+        "status_active",
+        "retrieve_utterance",
+        null,
+        [],
+        88
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i bought a premium subscription recently",
+      "turn_count": 5,
+      "targets": [
+        "status_active",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "great!",
+      "turn_count": 6,
+      "targets": [
+        "status_active",
+        "retrieve_utterance",
+        null,
+        [],
+        51
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i love these products and i was excited to get the benefits from this subscription",
+      "turn_count": 7,
+      "targets": [
+        "status_active",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i have a lot of birthday presents to buy for my friends!",
+      "turn_count": 8,
+      "targets": [
+        "status_active",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "sounds like fun!",
+      "turn_count": 9,
+      "targets": [
+        "status_active",
+        "retrieve_utterance",
+        null,
+        [],
+        66
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "but i don't know if the subscription is active yet",
+      "turn_count": 10,
+      "targets": [
+        "status_active",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "can you tell me if it's active?",
+      "turn_count": 11,
+      "targets": [
+        "status_active",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i'm not sure if you received my payment for it",
+      "turn_count": 12,
+      "targets": [
+        "status_active",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok, i can definitely help you with that.",
+      "turn_count": 13,
+      "targets": [
+        "status_active",
+        "retrieve_utterance",
+        null,
+        [],
+        71
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay cool",
+      "turn_count": 14,
+      "targets": [
+        "status_active",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "hello?",
+      "turn_count": 15,
+      "targets": [
+        "status_active",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "are you working on it?",
+      "turn_count": 16,
+      "targets": [
+        "status_active",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can i get your name, account id, and order id?",
+      "turn_count": 17,
+      "targets": [
+        "status_active",
+        "retrieve_utterance",
+        null,
+        [],
+        98
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "sure",
+      "turn_count": 18,
+      "targets": [
+        "status_active",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i'm crystal minh",
+      "turn_count": 19,
+      "targets": [
+        "status_active",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "my account is <account_id>",
+      "turn_count": 20,
+      "targets": [
+        "status_active",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i don't think i have any order id",
+      "turn_count": 21,
+      "targets": [
+        "status_active",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok, give me just a moment to look up some information",
+      "turn_count": 22,
+      "targets": [
+        "status_active",
+        "retrieve_utterance",
+        null,
+        [],
+        68
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "great",
+      "turn_count": 23,
+      "targets": [
+        "status_active",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thanks for helping me with this",
+      "turn_count": 24,
+      "targets": [
+        "status_active",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok, great news!",
+      "turn_count": 25,
+      "targets": [
+        "status_active",
+        "retrieve_utterance",
+        null,
+        [],
+        45
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yes?",
+      "turn_count": 26,
+      "targets": [
+        "status_active",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "your subscription is action and paid up.",
+      "turn_count": 27,
+      "targets": [
+        "status_active",
+        "retrieve_utterance",
+        null,
+        [],
+        18
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay, great! so you did receive my payment?",
+      "turn_count": 28,
+      "targets": [
+        "status_active",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "you should be able to enjoy all benefits,",
+      "turn_count": 29,
+      "targets": [
+        "status_active",
+        "retrieve_utterance",
+        null,
+        [],
+        25
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "yes, we did and are showing a $0 amount due",
+      "turn_count": 30,
+      "targets": [
+        "status_active",
+        "retrieve_utterance",
+        null,
+        [],
+        95
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "do you need any more information?",
+      "turn_count": 31,
+      "targets": [
+        "status_active",
+        "retrieve_utterance",
+        null,
+        [],
+        94
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay, so just to confirm, my payment went through and there are no issues with that?",
+      "turn_count": 32,
+      "targets": [
+        "status_active",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "because i was worried about it",
+      "turn_count": 33,
+      "targets": [
+        "status_active",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "correct, your payment went through and i am showing no problems.",
+      "turn_count": 34,
+      "targets": [
+        "status_active",
+        "retrieve_utterance",
+        null,
+        [],
+        91
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "glad to be able to reassure you!",
+      "turn_count": 35,
+      "targets": [
+        "status_active",
+        "retrieve_utterance",
+        null,
+        [],
+        80
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay. so does that mean this is reflected on my account now?",
+      "turn_count": 36,
+      "targets": [
+        "status_active",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "and i am able to use the benefits of the premium subscripton?",
+      "turn_count": 37,
+      "targets": [
+        "status_active",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "yes, you account reflects a current membership, paid in full with no payment due",
+      "turn_count": 38,
+      "targets": [
+        "status_active",
+        "retrieve_utterance",
+        null,
+        [],
+        12
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i really need that expediated shipping",
+      "turn_count": 39,
+      "targets": [
+        "status_active",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "yes, you are eligble to receive the benefits of your premium membership immediately",
+      "turn_count": 40,
+      "targets": [
+        "status_active",
+        "retrieve_utterance",
+        null,
+        [],
+        99
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay, great! that makes me very happy",
+      "turn_count": 41,
+      "targets": [
+        "status_active",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i don't think that i need anything else from you today",
+      "turn_count": 42,
+      "targets": [
+        "status_active",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thanks for contacting us, it was my pleasure to help!",
+      "turn_count": 43,
+      "targets": [
+        "status_active",
+        "retrieve_utterance",
+        null,
+        [],
+        82
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "have a great day!",
+      "turn_count": 44,
+      "targets": [
+        "status_active",
+        "retrieve_utterance",
+        null,
+        [],
+        25
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "great!",
+      "turn_count": 45,
+      "targets": [
+        "status_active",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thanks for your help",
+      "turn_count": 46,
+      "targets": [
+        "status_active",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "you're welcome. i'll end the chat now, but feel free to get back in touch if you need anything else!",
+      "turn_count": 47,
+      "targets": [
+        "status_active",
+        "retrieve_utterance",
+        null,
+        [],
+        26
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay, sounds good",
+      "turn_count": 48,
+      "targets": [
+        "status_active",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for .",
+      "turn_count": 50,
+      "targets": [
+        "status_active",
+        "take_action",
+        "pull-up-account",
+        [
+          "joseph banter"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for crystal minh.",
+      "turn_count": 51,
+      "targets": [
+        "status_active",
+        "take_action",
+        "pull-up-account",
+        [
+          "norman bouchard"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "querying the system for subscription status ...",
+      "turn_count": 52,
+      "targets": [
+        "status_active",
+        "take_action",
+        "subscription-status",
+        [],
+        -1
+      ]
+    }
+  ]
+}

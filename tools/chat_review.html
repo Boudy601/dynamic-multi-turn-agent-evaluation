@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chat Review</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: Segoe UI, Arial, sans-serif;
+      color: #202124;
+      background: #f3f5f8;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; }
+    button, input, select { font: inherit; }
+    button { cursor: pointer; }
+    .layout { display: grid; grid-template-columns: 340px minmax(0, 1fr); min-height: 100vh; }
+    aside { display: flex; flex-direction: column; border-right: 1px solid #d9dee7; background: #fff; min-height: 100vh; }
+    .sidebar-top { padding: 18px; border-bottom: 1px solid #e3e7ed; }
+    h1 { margin: 0 0 16px; font-size: 20px; }
+    label { display: block; margin-bottom: 6px; font-size: 13px; font-weight: 600; }
+    select, input[type="number"] { height: 38px; border: 1px solid #c7ced9; border-radius: 6px; padding: 0 9px; background: white; }
+    select { width: 100%; }
+    .add-row { display: grid; grid-template-columns: 78px 1fr; gap: 8px; margin-top: 12px; }
+    .primary { color: #fff; background: #185abc; border: 1px solid #185abc; border-radius: 6px; padding: 8px 12px; }
+    .primary:hover { background: #124a9c; }
+    .primary:disabled, button:disabled { opacity: .55; cursor: not-allowed; }
+    #notice { min-height: 20px; padding: 8px 18px 0; color: #526174; font-size: 13px; }
+    #notice.error { color: #b3261e; }
+    .chat-list { flex: 1; overflow-y: auto; padding: 8px; }
+    .chat-row { display: block; width: 100%; text-align: left; padding: 11px 12px; margin-bottom: 5px; background: #fff; border: 1px solid transparent; border-radius: 7px; }
+    .chat-row:hover { background: #f5f7fb; }
+    .chat-row.selected { border-color: #9dbcf2; background: #edf3ff; }
+    .chat-row-title { display: flex; justify-content: space-between; gap: 8px; font-weight: 600; }
+    .chat-row-meta { margin-top: 5px; color: #586575; font-size: 12px; }
+    .status-symbol { white-space: nowrap; }
+    main { min-width: 0; display: flex; flex-direction: column; max-height: 100vh; }
+    .chat-header { padding: 18px 24px; background: #fff; border-bottom: 1px solid #d9dee7; }
+    .chat-header h2 { margin: 0 0 7px; font-size: 20px; }
+    #current-status { color: #596579; font-size: 14px; }
+    .context-buttons { display: flex; gap: 8px; margin-top: 13px; }
+    .context-button { border: 1px solid #b7c1ce; border-radius: 6px; background: #fff; padding: 7px 11px; }
+    .context-button:hover { background: #f5f7fa; }
+    .conversation { flex: 1; overflow-y: auto; padding: 24px; }
+    .empty-state { color: #647184; margin: auto; text-align: center; padding: 36px; }
+    .message { max-width: 900px; margin: 0 auto 12px; padding: 12px 14px; border-radius: 9px; background: #fff; box-shadow: 0 1px 2px #172b4d12; }
+    .message.customer { background: #e8f0fe; }
+    .message.agent { background: #fff; }
+    .message.action { background: #f0f1f3; color: #454b54; }
+    .speaker { margin-bottom: 5px; color: #536174; font-size: 11px; font-weight: 700; text-transform: uppercase; }
+    .message-text { white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.45; }
+    .actions { display: flex; justify-content: center; gap: 12px; padding: 16px; background: #fff; border-top: 1px solid #d9dee7; }
+    .decision { border: 1px solid #aeb8c6; border-radius: 6px; background: white; padding: 9px 16px; }
+    .decision:hover { background: #f5f7fa; }
+    .rollback { margin-left: 12px; color: #5b2630; border-color: #d3aab0; }
+    .modal-backdrop { position: fixed; inset: 0; display: grid; place-items: center; padding: 16px; background: #10182880; }
+    .modal-backdrop[hidden] { display: none; }
+    .modal { width: min(420px, 100%); padding: 22px; background: white; border-radius: 10px; box-shadow: 0 12px 40px #0003; }
+    .modal h2 { margin: 0 0 10px; font-size: 18px; }
+    .modal p { color: #4c5665; line-height: 1.45; }
+    .modal-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 20px; }
+    .secondary { border: 1px solid #c4cbd5; border-radius: 6px; padding: 8px 13px; background: white; }
+    .info-modal-backdrop { position: fixed; inset: 0; z-index: 4; display: grid; place-items: center; padding: 20px; background: #10182880; }
+    .info-modal-backdrop[hidden] { display: none; }
+    .info-modal { display: flex; flex-direction: column; width: min(900px, 100%); max-height: 88vh; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 12px 40px #0003; }
+    .info-modal-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-bottom: 12px; border-bottom: 1px solid #e1e5eb; }
+    .info-modal-header h2 { margin: 0; font-size: 19px; }
+    .info-content { overflow: auto; padding: 8px 4px; }
+    .info-content h3 { margin: 16px 0 8px; font-size: 16px; }
+    .sop-group { margin: 10px 0; }
+    .sop-key { display: block; margin-bottom: 4px; color: #37445a; font-size: 13px; font-weight: 700; }
+    .sop-value { line-height: 1.5; white-space: pre-wrap; overflow-wrap: anywhere; }
+    .sop-list { padding-left: 22px; }
+    .scenario-json { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.45; }
+    @media (max-width: 760px) {
+      .layout { grid-template-columns: 1fr; }
+      aside { min-height: 0; max-height: 42vh; border-right: 0; border-bottom: 1px solid #d9dee7; }
+      .chat-list { max-height: 22vh; }
+      main { min-height: 58vh; max-height: none; }
+      .conversation { padding: 14px; }
+      .chat-header { padding: 14px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <aside>
+      <div class="sidebar-top">
+        <h1>Chat Review</h1>
+        <label for="reviewer-select">Reviewer</label>
+        <select id="reviewer-select"></select>
+        <div class="add-row">
+          <input id="add-count" type="number" min="1" value="5" aria-label="Number of chats to add">
+          <button id="add-chats" class="primary" type="button">Add Chats</button>
+        </div>
+      </div>
+      <div id="notice" role="status" aria-live="polite"></div>
+      <div id="chat-list" class="chat-list" aria-label="Assigned chats"></div>
+    </aside>
+    <main>
+      <header class="chat-header">
+        <h2 id="chat-title">Select a chat</h2>
+        <div id="current-status">Choose a chat from the list to review it.</div>
+        <div class="context-buttons">
+          <button id="view-sop" class="context-button" type="button" disabled>View SOP</button>
+          <button id="view-scenario" class="context-button" type="button" disabled>View User Scenario</button>
+        </div>
+      </header>
+      <section id="conversation" class="conversation" aria-live="polite">
+        <div class="empty-state">Select a chat from the list.</div>
+      </section>
+      <footer class="actions">
+        <button id="mark-error" class="decision" type="button" disabled>Has Error ❌</button>
+        <button id="mark-no-error" class="decision" type="button" disabled>No Error ✅</button>
+        <button id="rollback" class="decision rollback" type="button" hidden>Rollback to Pending</button>
+      </footer>
+    </main>
+  </div>
+  <div id="confirm-modal" class="modal-backdrop" role="presentation" hidden>
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <h2 id="modal-title">Confirm review</h2>
+      <p id="modal-message"></p>
+      <div class="modal-actions">
+        <button id="cancel-action" class="secondary" type="button">Cancel</button>
+        <button id="confirm-action" class="primary" type="button">Confirm</button>
+      </div>
+    </section>
+  </div>
+  <div id="info-modal" class="info-modal-backdrop" role="presentation" hidden>
+    <section class="info-modal" role="dialog" aria-modal="true" aria-labelledby="info-title">
+      <header class="info-modal-header">
+        <h2 id="info-title"></h2>
+        <button id="close-info" class="secondary" type="button">Close</button>
+      </header>
+      <div id="info-content" class="info-content"></div>
+    </section>
+  </div>
+  <script>
+    const REVIEWERS = __REVIEWERS_JSON__;
+    const state = { reviewer: "", chats: [], selectedId: null, pendingAction: null };
+    const reviewerSelect = document.getElementById("reviewer-select");
+    const chatList = document.getElementById("chat-list");
+    const notice = document.getElementById("notice");
+    const modal = document.getElementById("confirm-modal");
+    const infoModal = document.getElementById("info-modal");
+
+    function statusLabel(status) {
+      if (status === "error") return "❌ Error";
+      if (status === "no_error") return "✅ No Error";
+      return "⏳ Pending";
+    }
+
+    function showNotice(message, isError = false) {
+      notice.textContent = message;
+      notice.classList.toggle("error", isError);
+    }
+
+    async function requestJson(url, options = {}) {
+      const response = await fetch(url, options);
+      const payload = await response.json();
+      if (!response.ok) throw new Error(payload.error || `Request failed (${response.status})`);
+      return payload;
+    }
+
+    function currentChat() {
+      return state.chats.find(chat => chat.chat_id === state.selectedId) || null;
+    }
+
+    function renderList() {
+      chatList.replaceChildren();
+      for (const chat of state.chats) {
+        const row = document.createElement("button");
+        row.type = "button";
+        row.className = "chat-row" + (chat.chat_id === state.selectedId ? " selected" : "");
+        const title = document.createElement("span");
+        title.className = "chat-row-title";
+        const sop = document.createElement("span");
+        sop.textContent = chat.sop_name;
+        const status = document.createElement("span");
+        status.className = "status-symbol";
+        status.textContent = statusLabel(chat.status);
+        title.append(sop, status);
+        const meta = document.createElement("span");
+        meta.className = "chat-row-meta";
+        meta.textContent = `${chat.message_count} messages · ID ${chat.chat_id}`;
+        row.append(title, meta);
+        row.addEventListener("click", () => {
+          state.selectedId = chat.chat_id;
+          renderList();
+          renderSelected();
+        });
+        chatList.append(row);
+      }
+    }
+
+    function renderSelected() {
+      const chat = currentChat();
+      const conversation = document.getElementById("conversation");
+      conversation.replaceChildren();
+      const errorButton = document.getElementById("mark-error");
+      const noErrorButton = document.getElementById("mark-no-error");
+      const rollbackButton = document.getElementById("rollback");
+      const viewSopButton = document.getElementById("view-sop");
+      const viewScenarioButton = document.getElementById("view-scenario");
+      if (!chat) {
+        document.getElementById("chat-title").textContent = "Select a chat";
+        document.getElementById("current-status").textContent = "Choose a chat from the list to review it.";
+        conversation.innerHTML = '<div class="empty-state">Select a chat from the list.</div>';
+        errorButton.disabled = true;
+        noErrorButton.disabled = true;
+        rollbackButton.hidden = true;
+        viewSopButton.disabled = true;
+        viewScenarioButton.disabled = true;
+        return;
+      }
+
+      document.getElementById("chat-title").textContent = `${chat.sop_name} · ${chat.chat_id}`;
+      document.getElementById("current-status").textContent = `Current status: ${statusLabel(chat.status)}`;
+      errorButton.disabled = false;
+      noErrorButton.disabled = false;
+      viewSopButton.disabled = false;
+      viewScenarioButton.disabled = false;
+      rollbackButton.hidden = chat.status === "pending";
+      for (const message of chat.messages) {
+        const messageNode = document.createElement("article");
+        const role = message.speaker.toLowerCase();
+        messageNode.className = `message ${["agent", "customer", "action"].includes(role) ? role : ""}`;
+        const speaker = document.createElement("div");
+        speaker.className = "speaker";
+        speaker.textContent = message.speaker;
+        const text = document.createElement("div");
+        text.className = "message-text";
+        text.textContent = message.text;
+        messageNode.append(speaker, text);
+        conversation.append(messageNode);
+      }
+    }
+
+    function appendSopValue(parent, value) {
+        if (Array.isArray(value)) {
+          const list = document.createElement("ul");
+          list.className = "sop-list";
+          for (const item of value) {
+            const listItem = document.createElement("li");
+            appendSopValue(listItem, item);
+            list.append(listItem);
+          }
+          parent.append(list);
+          return;
+        }
+        if (value && typeof value === "object") {
+          for (const [key, nestedValue] of Object.entries(value)) {
+            const group = document.createElement("div");
+            group.className = "sop-group";
+            const label = document.createElement("span");
+            label.className = "sop-key";
+            label.textContent = key.replaceAll("_", " ");
+            group.append(label);
+            appendSopValue(group, nestedValue);
+            parent.append(group);
+          }
+          return;
+        }
+        const text = document.createElement("div");
+        text.className = "sop-value";
+        text.textContent = value == null ? "" : String(value);
+        parent.append(text);
+    }
+
+    function openInfo(kind) {
+        const chat = currentChat();
+        if (!chat) return;
+        const content = document.getElementById("info-content");
+        const title = document.getElementById("info-title");
+        content.replaceChildren();
+        if (kind === "scenario") {
+          title.textContent = `User Scenario · ${chat.sop_name}`;
+          const scenario = document.createElement("pre");
+          scenario.className = "scenario-json";
+          scenario.textContent = JSON.stringify(chat.scenario, null, 2);
+          content.append(scenario);
+        } else {
+          title.textContent = `SOP · ${chat.sop_name}`;
+          for (const [key, value] of Object.entries(chat.sop_guideline || {})) {
+            const section = document.createElement("section");
+            const heading = document.createElement("h3");
+            heading.textContent = key.replaceAll("_", " ");
+            section.append(heading);
+            appendSopValue(section, value);
+            content.append(section);
+          }
+          if (!content.childElementCount) {
+            content.textContent = "No guideline content is available for this SOP.";
+          }
+        }
+        infoModal.hidden = false;
+        document.getElementById("close-info").focus();
+    }
+
+    function renderChats(chats, preferredId = state.selectedId) {
+      state.chats = chats;
+      state.selectedId = chats.some(chat => chat.chat_id === preferredId)
+        ? preferredId
+        : (chats[0]?.chat_id || null);
+      renderList();
+      renderSelected();
+    }
+
+    async function loadReviewer() {
+      state.reviewer = reviewerSelect.value;
+      state.selectedId = null;
+      showNotice("Loading chats…");
+      try {
+        const payload = await requestJson(`/api/chats/${encodeURIComponent(state.reviewer)}`);
+        renderChats(payload.chats, null);
+        showNotice(`${payload.chats.length} chat(s) assigned.`);
+      } catch (error) {
+        renderChats([], null);
+        showNotice(error.message, true);
+      }
+    }
+
+    function confirmAction(action) {
+      const chat = currentChat();
+      if (!chat) return;
+      state.pendingAction = action;
+      let message;
+      if (action === "rollback") {
+        message = "Are you sure you want to return this chat to Pending?";
+      } else {
+        const label = action === "error" ? "Error" : "No Error";
+        message = `Are you sure you want to mark this chat as ${label}?`;
+      }
+      document.getElementById("modal-message").textContent = message;
+      modal.hidden = false;
+      document.getElementById("confirm-action").focus();
+    }
+
+    async function applyAction() {
+      const chat = currentChat();
+      if (!chat || !state.pendingAction) return;
+      const action = state.pendingAction;
+      const endpoint = action === "rollback" ? "/api/rollback" : "/api/review";
+      const body = { reviewer: state.reviewer, chat_id: chat.chat_id };
+      if (action !== "rollback") body.status = action;
+      document.getElementById("confirm-action").disabled = true;
+      try {
+        const payload = await requestJson(endpoint, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body)
+        });
+        renderChats(payload.chats, chat.chat_id);
+        showNotice(`Saved status: ${statusLabel(payload.status)}.`);
+        modal.hidden = true;
+        state.pendingAction = null;
+      } catch (error) {
+        showNotice(error.message, true);
+      } finally {
+        document.getElementById("confirm-action").disabled = false;
+      }
+    }
+
+    reviewerSelect.replaceChildren();
+    for (const reviewer of REVIEWERS) {
+      const option = document.createElement("option");
+      option.value = reviewer;
+      option.textContent = reviewer;
+      reviewerSelect.append(option);
+    }
+    reviewerSelect.addEventListener("change", loadReviewer);
+    document.getElementById("add-chats").addEventListener("click", async () => {
+      const count = Number(document.getElementById("add-count").value);
+      if (!Number.isInteger(count) || count < 1) {
+        showNotice("Enter a positive whole number of chats.", true);
+        return;
+      }
+      const button = document.getElementById("add-chats");
+      button.disabled = true;
+      try {
+        const payload = await requestJson("/api/add-chats", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ reviewer: state.reviewer, count })
+        });
+        renderChats(payload.chats, payload.added_chat_ids[0] || state.selectedId);
+        showNotice(payload.warning || `Added ${payload.added} chat(s).`, Boolean(payload.warning));
+      } catch (error) {
+        showNotice(error.message, true);
+      } finally {
+        button.disabled = false;
+      }
+    });
+    document.getElementById("mark-error").addEventListener("click", () => confirmAction("error"));
+    document.getElementById("mark-no-error").addEventListener("click", () => confirmAction("no_error"));
+    document.getElementById("rollback").addEventListener("click", () => confirmAction("rollback"));
+    document.getElementById("view-sop").addEventListener("click", () => openInfo("sop"));
+    document.getElementById("view-scenario").addEventListener("click", () => openInfo("scenario"));
+    document.getElementById("confirm-action").addEventListener("click", applyAction);
+    document.getElementById("cancel-action").addEventListener("click", () => {
+      modal.hidden = true;
+      state.pendingAction = null;
+    });
+    document.getElementById("close-info").addEventListener("click", () => {
+      infoModal.hidden = true;
+    });
+    infoModal.addEventListener("click", event => {
+      if (event.target === infoModal) infoModal.hidden = true;
+    });
+    modal.addEventListener("click", event => {
+      if (event.target === modal) {
+        modal.hidden = true;
+        state.pendingAction = null;
+      }
+    });
+    if (REVIEWERS.length) loadReviewer();
+  </script>
+</body>
+</html>

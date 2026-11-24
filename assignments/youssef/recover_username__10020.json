@@ -1,0 +1,691 @@
+{
+  "convo_id": 10020,
+  "scenario": {
+    "personal": {
+      "customer_name": "sanya afzal",
+      "email": "sa449828@email.com",
+      "member_level": "bronze",
+      "phone": "(366) 780-7029",
+      "username": "sa449828"
+    },
+    "order": {
+      "street_address": "8564 kennedy st",
+      "full_address": "8564 kennedy st  san lima, ca 54108",
+      "city": "san lima",
+      "state": "ca",
+      "zip_code": "54108"
+    },
+    "product": {
+      "names": [],
+      "amounts": []
+    },
+    "flow": "account_access",
+    "subflow": "recover_username"
+  },
+  "original": [
+    [
+      "customer",
+      "hi"
+    ],
+    [
+      "agent",
+      "Hi, how may I help you?"
+    ],
+    [
+      "customer",
+      "I would like to access my account to check an order"
+    ],
+    [
+      "customer",
+      "but unfortunately, I've forgotten my username"
+    ],
+    [
+      "agent",
+      "okay I can help with that"
+    ],
+    [
+      "agent",
+      "Can I have your full name or Account ID please?"
+    ],
+    [
+      "customer",
+      "I don't have that"
+    ],
+    [
+      "customer",
+      "Sanya Afzal"
+    ],
+    [
+      "agent",
+      "you don't know your Name?"
+    ],
+    [
+      "customer",
+      "Not that, I mean't my ID"
+    ],
+    [
+      "agent",
+      "okay"
+    ],
+    [
+      "agent",
+      " I see now"
+    ],
+    [
+      "agent",
+      "thank you"
+    ],
+    [
+      "action",
+      "Account has been pulled up for Sanya Afzal."
+    ],
+    [
+      "agent",
+      "I will just need to get a few pieces of info to verify your identity. They are simple though"
+    ],
+    [
+      "agent",
+      "Do you have your Zipcode and Phone number available?"
+    ],
+    [
+      "customer",
+      "54108"
+    ],
+    [
+      "agent",
+      "I can also use an email address"
+    ],
+    [
+      "customer",
+      "(366) 780-7029"
+    ],
+    [
+      "customer",
+      "sa449828@email.com"
+    ],
+    [
+      "action",
+      "Identity verification in progress ..."
+    ],
+    [
+      "agent",
+      "those worked, thank you!"
+    ],
+    [
+      "customer",
+      "thanks"
+    ],
+    [
+      "agent",
+      "you're welcome. Here is your Username:"
+    ],
+    [
+      "agent",
+      "safzal1"
+    ],
+    [
+      "agent",
+      "That should work now"
+    ],
+    [
+      "customer",
+      "thanks so much"
+    ],
+    [
+      "agent",
+      "You're welcome"
+    ],
+    [
+      "agent",
+      "Can i help with anything else?"
+    ],
+    [
+      "customer",
+      "can you also help check the status of my order"
+    ],
+    [
+      "agent",
+      "yes"
+    ],
+    [
+      "customer",
+      "okay"
+    ],
+    [
+      "customer",
+      "please do"
+    ],
+    [
+      "agent",
+      "what do you want to know about your order?"
+    ],
+    [
+      "customer",
+      "has it shipped?"
+    ],
+    [
+      "agent",
+      "ok, one moment"
+    ],
+    [
+      "customer",
+      "ok"
+    ],
+    [
+      "agent",
+      "did you receive an email about your order?"
+    ],
+    [
+      "customer",
+      "not yet"
+    ],
+    [
+      "agent",
+      "Do you have your order ID?"
+    ],
+    [
+      "customer",
+      "no I dont"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "customer",
+      "text": "hi",
+      "turn_count": 1,
+      "targets": [
+        "recover_username",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "hi, how may i help you?",
+      "turn_count": 2,
+      "targets": [
+        "recover_username",
+        "retrieve_utterance",
+        null,
+        [],
+        45
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i would like to access my account to check an order",
+      "turn_count": 3,
+      "targets": [
+        "recover_username",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "but unfortunately, i've forgotten my username",
+      "turn_count": 4,
+      "targets": [
+        "recover_username",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "okay i can help with that",
+      "turn_count": 5,
+      "targets": [
+        "recover_username",
+        "retrieve_utterance",
+        null,
+        [],
+        8
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can i have your full name or account id please?",
+      "turn_count": 6,
+      "targets": [
+        "recover_username",
+        "retrieve_utterance",
+        null,
+        [],
+        19
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i don't have that",
+      "turn_count": 7,
+      "targets": [
+        "recover_username",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "sanya afzal",
+      "turn_count": 8,
+      "targets": [
+        "recover_username",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "you don't know your name?",
+      "turn_count": 9,
+      "targets": [
+        "recover_username",
+        "retrieve_utterance",
+        null,
+        [],
+        10
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "not that, i mean't my id",
+      "turn_count": 10,
+      "targets": [
+        "recover_username",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "okay",
+      "turn_count": 11,
+      "targets": [
+        "recover_username",
+        "retrieve_utterance",
+        null,
+        [],
+        49
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": " i see now",
+      "turn_count": 12,
+      "targets": [
+        "recover_username",
+        "retrieve_utterance",
+        null,
+        [],
+        60
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you",
+      "turn_count": 13,
+      "targets": [
+        "recover_username",
+        "retrieve_utterance",
+        null,
+        [],
+        42
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for sanya afzal.",
+      "turn_count": 14,
+      "targets": [
+        "recover_username",
+        "take_action",
+        "pull-up-account",
+        [
+          "sanya afzal"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i will just need to get a few pieces of info to verify your identity. they are simple though",
+      "turn_count": 15,
+      "targets": [
+        "recover_username",
+        "retrieve_utterance",
+        null,
+        [],
+        75
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "do you have your zipcode and phone number available?",
+      "turn_count": 16,
+      "targets": [
+        "recover_username",
+        "retrieve_utterance",
+        null,
+        [],
+        89
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "<zip_code>",
+      "turn_count": 17,
+      "targets": [
+        "recover_username",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i can also use an email address",
+      "turn_count": 18,
+      "targets": [
+        "recover_username",
+        "retrieve_utterance",
+        null,
+        [],
+        34
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "<phone>",
+      "turn_count": 19,
+      "targets": [
+        "recover_username",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "<email>",
+      "turn_count": 20,
+      "targets": [
+        "recover_username",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "identity verification in progress ...",
+      "turn_count": 21,
+      "targets": [
+        "recover_username",
+        "take_action",
+        "verify-identity",
+        [
+          "sanya afzal",
+          "54108",
+          "(366) 780-7029"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "those worked, thank you!",
+      "turn_count": 22,
+      "targets": [
+        "recover_username",
+        "retrieve_utterance",
+        null,
+        [],
+        1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thanks",
+      "turn_count": 23,
+      "targets": [
+        "recover_username",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "you're welcome. here is your username:",
+      "turn_count": 24,
+      "targets": [
+        "recover_username",
+        "retrieve_utterance",
+        null,
+        [],
+        59
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "safzal1",
+      "turn_count": 25,
+      "targets": [
+        "recover_username",
+        "retrieve_utterance",
+        null,
+        [],
+        10
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "that should work now",
+      "turn_count": 26,
+      "targets": [
+        "recover_username",
+        "retrieve_utterance",
+        null,
+        [],
+        42
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thanks so much",
+      "turn_count": 27,
+      "targets": [
+        "recover_username",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "you're welcome",
+      "turn_count": 28,
+      "targets": [
+        "recover_username",
+        "retrieve_utterance",
+        null,
+        [],
+        39
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can i help with anything else?",
+      "turn_count": 29,
+      "targets": [
+        "recover_username",
+        "retrieve_utterance",
+        null,
+        [],
+        13
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "can you also help check the status of my order",
+      "turn_count": 30,
+      "targets": [
+        "recover_username",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "yes",
+      "turn_count": 31,
+      "targets": [
+        "recover_username",
+        "retrieve_utterance",
+        null,
+        [],
+        1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay",
+      "turn_count": 32,
+      "targets": [
+        "recover_username",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "please do",
+      "turn_count": 33,
+      "targets": [
+        "recover_username",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "what do you want to know about your order?",
+      "turn_count": 34,
+      "targets": [
+        "recover_username",
+        "retrieve_utterance",
+        null,
+        [],
+        0
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "has it shipped?",
+      "turn_count": 35,
+      "targets": [
+        "recover_username",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok, one moment",
+      "turn_count": 36,
+      "targets": [
+        "recover_username",
+        "retrieve_utterance",
+        null,
+        [],
+        73
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok",
+      "turn_count": 37,
+      "targets": [
+        "recover_username",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "did you receive an email about your order?",
+      "turn_count": 38,
+      "targets": [
+        "recover_username",
+        "retrieve_utterance",
+        null,
+        [],
+        10
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "not yet",
+      "turn_count": 39,
+      "targets": [
+        "recover_username",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "do you have your order id?",
+      "turn_count": 40,
+      "targets": [
+        "recover_username",
+        "retrieve_utterance",
+        null,
+        [],
+        6
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no i dont",
+      "turn_count": 41,
+      "targets": [
+        "recover_username",
+        null,
+        null,
+        [],
+        -1
+      ]
+    }
+  ]
+}

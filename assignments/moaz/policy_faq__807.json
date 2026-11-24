@@ -1,0 +1,803 @@
+{
+  "convo_id": 807,
+  "scenario": {
+    "personal": {
+      "customer_name": "rodriguez domingo",
+      "member_level": "gold",
+      "phone": "(129) 394-0157"
+    },
+    "order": {
+      "street_address": "4940 lexington ave",
+      "full_address": "4940 lexington ave  baltimore, ny 95837",
+      "city": "baltimore",
+      "state": "ny",
+      "zip_code": "95837"
+    },
+    "product": {
+      "names": [],
+      "amounts": []
+    },
+    "flow": "storewide_query",
+    "subflow": "policy_3"
+  },
+  "original": [
+    [
+      "agent",
+      "Hello! How may I help you today?"
+    ],
+    [
+      "customer",
+      "I need to know about refunding stuff"
+    ],
+    [
+      "customer",
+      "what is your policy?"
+    ],
+    [
+      "agent",
+      "Okay. May I have your full name or account ID number?"
+    ],
+    [
+      "customer",
+      "Rodriguez Domingo"
+    ],
+    [
+      "action",
+      "Account has been pulled up for Rodriguez Domingo."
+    ],
+    [
+      "customer",
+      "ok"
+    ],
+    [
+      "agent",
+      "You need to know the refund policy?"
+    ],
+    [
+      "customer",
+      "yes"
+    ],
+    [
+      "customer",
+      "I am a very fussy customer and I return all kinds of stuff"
+    ],
+    [
+      "agent",
+      "I understand. Please hold."
+    ],
+    [
+      "action",
+      "Searching the FAQ pages ..."
+    ],
+    [
+      "action",
+      "System Action: search policy"
+    ],
+    [
+      "agent",
+      "Our policy for refunds are for only on items that have YET to be shipped."
+    ],
+    [
+      "action",
+      "FAQ answer related to policy (question2) was selected."
+    ],
+    [
+      "agent",
+      "Does that answer your question?"
+    ],
+    [
+      "customer",
+      "so you mean I can get a refund before you ship it but not after I get it home?"
+    ],
+    [
+      "agent",
+      "That is correct."
+    ],
+    [
+      "agent",
+      "If you have received it already then it would count as a return. Not a refund."
+    ],
+    [
+      "customer",
+      "What the hell good is that? How am I to know if the stuff is any good unless I get to try it out first at home?"
+    ],
+    [
+      "agent",
+      "You can do a return."
+    ],
+    [
+      "agent",
+      "GOld members have unlimited returns. It looks like you should be a Gold member."
+    ],
+    [
+      "customer",
+      "I am Gold"
+    ],
+    [
+      "agent",
+      "Then you have unlimited returns."
+    ],
+    [
+      "customer",
+      "So I can reutrn stuff but cant get a refund for it, is that right?"
+    ],
+    [
+      "agent",
+      "That is correct."
+    ],
+    [
+      "agent",
+      "Is there anything else I can help you with today?"
+    ],
+    [
+      "customer",
+      "So what happens to the money when I return something?"
+    ],
+    [
+      "action",
+      "FAQ answer related to policy (question1) was selected."
+    ],
+    [
+      "action",
+      "Agent is looking for solutions ..."
+    ],
+    [
+      "agent",
+      "I can notify the internal team and they can get back to you."
+    ],
+    [
+      "action",
+      "The  has been notified."
+    ],
+    [
+      "agent",
+      "Is there anything else I can help you with?"
+    ],
+    [
+      "customer",
+      "So I get like asotre credit and not money for the refund?"
+    ],
+    [
+      "customer",
+      "store"
+    ],
+    [
+      "action",
+      "Searching the FAQ pages ..."
+    ],
+    [
+      "agent",
+      "You will get store credit."
+    ],
+    [
+      "customer",
+      "I see"
+    ],
+    [
+      "agent",
+      "Do you need anything else?"
+    ],
+    [
+      "customer",
+      "I am not going to buy stuff from you guys. I get better deals everywhere else"
+    ],
+    [
+      "agent",
+      "I am sorry to hear that."
+    ],
+    [
+      "agent",
+      "Would you like to cancel your gold membership?"
+    ],
+    [
+      "customer",
+      "You need to pass this conversation to the bosses."
+    ],
+    [
+      "agent",
+      "I shall."
+    ],
+    [
+      "agent",
+      "Is there anything else I can help you with?"
+    ],
+    [
+      "customer",
+      "It dont matter. I will keep it"
+    ],
+    [
+      "customer",
+      "That is all I have to say"
+    ],
+    [
+      "agent",
+      "Have a great day. Goodbye."
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "hello! how may i help you today?",
+      "turn_count": 1,
+      "targets": [
+        "policy",
+        "retrieve_utterance",
+        null,
+        [],
+        7
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i need to know about refunding stuff",
+      "turn_count": 2,
+      "targets": [
+        "policy",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "what is your policy?",
+      "turn_count": 3,
+      "targets": [
+        "policy",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "okay. may i have your full name or account id number?",
+      "turn_count": 4,
+      "targets": [
+        "policy",
+        "retrieve_utterance",
+        null,
+        [],
+        7
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "rodriguez domingo",
+      "turn_count": 5,
+      "targets": [
+        "policy",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for rodriguez domingo.",
+      "turn_count": 6,
+      "targets": [
+        "policy",
+        "take_action",
+        "pull-up-account",
+        [
+          "rodriguez domingo"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok",
+      "turn_count": 7,
+      "targets": [
+        "policy",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "you need to know the refund policy?",
+      "turn_count": 8,
+      "targets": [
+        "policy",
+        "retrieve_utterance",
+        null,
+        [],
+        3
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yes",
+      "turn_count": 9,
+      "targets": [
+        "policy",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i am a very fussy customer and i return all kinds of stuff",
+      "turn_count": 10,
+      "targets": [
+        "policy",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i understand. please hold.",
+      "turn_count": 11,
+      "targets": [
+        "policy",
+        "retrieve_utterance",
+        null,
+        [],
+        19
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "searching the faq pages ...",
+      "turn_count": 12,
+      "targets": [
+        "policy",
+        "take_action",
+        "search-faq",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "system action: search policy",
+      "turn_count": 13,
+      "targets": [
+        "policy",
+        "take_action",
+        "search-policy",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "our policy for refunds are for only on items that have yet to be shipped.",
+      "turn_count": 14,
+      "targets": [
+        "policy",
+        "retrieve_utterance",
+        null,
+        [],
+        1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "faq answer related to policy (question2) was selected.",
+      "turn_count": 15,
+      "targets": [
+        "policy",
+        "take_action",
+        "select-faq",
+        [
+          "policy_2"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "does that answer your question?",
+      "turn_count": 16,
+      "targets": [
+        "policy",
+        "retrieve_utterance",
+        null,
+        [],
+        96
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "so you mean i can get a refund before you ship it but not after i get it home?",
+      "turn_count": 17,
+      "targets": [
+        "policy",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "that is correct.",
+      "turn_count": 18,
+      "targets": [
+        "policy",
+        "retrieve_utterance",
+        null,
+        [],
+        46
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "if you have received it already then it would count as a return. not a refund.",
+      "turn_count": 19,
+      "targets": [
+        "policy",
+        "retrieve_utterance",
+        null,
+        [],
+        60
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "what the hell good is that? how am i to know if the stuff is any good unless i get to try it out first at home?",
+      "turn_count": 20,
+      "targets": [
+        "policy",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "you can do a return.",
+      "turn_count": 21,
+      "targets": [
+        "policy",
+        "retrieve_utterance",
+        null,
+        [],
+        68
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "gold members have unlimited returns. it looks like you should be a gold member.",
+      "turn_count": 22,
+      "targets": [
+        "policy",
+        "retrieve_utterance",
+        null,
+        [],
+        63
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i am gold",
+      "turn_count": 23,
+      "targets": [
+        "policy",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "then you have unlimited returns.",
+      "turn_count": 24,
+      "targets": [
+        "policy",
+        "retrieve_utterance",
+        null,
+        [],
+        31
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "so i can reutrn stuff but cant get a refund for it, is that right?",
+      "turn_count": 25,
+      "targets": [
+        "policy",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "that is correct.",
+      "turn_count": 26,
+      "targets": [
+        "policy",
+        "retrieve_utterance",
+        null,
+        [],
+        17
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "is there anything else i can help you with today?",
+      "turn_count": 27,
+      "targets": [
+        "policy",
+        "retrieve_utterance",
+        null,
+        [],
+        74
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "so what happens to the money when i return something?",
+      "turn_count": 28,
+      "targets": [
+        "policy",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "faq answer related to policy (question1) was selected.",
+      "turn_count": 29,
+      "targets": [
+        "policy",
+        "take_action",
+        "select-faq",
+        [
+          "policy_1"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "agent is looking for solutions ...",
+      "turn_count": 30,
+      "targets": [
+        "policy",
+        "take_action",
+        "instructions",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i can notify the internal team and they can get back to you.",
+      "turn_count": 31,
+      "targets": [
+        "policy",
+        "retrieve_utterance",
+        null,
+        [],
+        28
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "the  has been notified.",
+      "turn_count": 32,
+      "targets": [
+        "policy",
+        "take_action",
+        "notify-team",
+        [
+          ""
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "is there anything else i can help you with?",
+      "turn_count": 33,
+      "targets": [
+        "policy",
+        "retrieve_utterance",
+        null,
+        [],
+        49
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "so i get like asotre credit and not money for the refund?",
+      "turn_count": 34,
+      "targets": [
+        "policy",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "store",
+      "turn_count": 35,
+      "targets": [
+        "policy",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "searching the faq pages ...",
+      "turn_count": 36,
+      "targets": [
+        "policy",
+        "take_action",
+        "search-faq",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "you will get store credit.",
+      "turn_count": 37,
+      "targets": [
+        "policy",
+        "retrieve_utterance",
+        null,
+        [],
+        48
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i see",
+      "turn_count": 38,
+      "targets": [
+        "policy",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "do you need anything else?",
+      "turn_count": 39,
+      "targets": [
+        "policy",
+        "retrieve_utterance",
+        null,
+        [],
+        28
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i am not going to buy stuff from you guys. i get better deals everywhere else",
+      "turn_count": 40,
+      "targets": [
+        "policy",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i am sorry to hear that.",
+      "turn_count": 41,
+      "targets": [
+        "policy",
+        "retrieve_utterance",
+        null,
+        [],
+        96
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "would you like to cancel your gold membership?",
+      "turn_count": 42,
+      "targets": [
+        "policy",
+        "retrieve_utterance",
+        null,
+        [],
+        71
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "you need to pass this conversation to the bosses.",
+      "turn_count": 43,
+      "targets": [
+        "policy",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i shall.",
+      "turn_count": 44,
+      "targets": [
+        "policy",
+        "retrieve_utterance",
+        null,
+        [],
+        49
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "is there anything else i can help you with?",
+      "turn_count": 45,
+      "targets": [
+        "policy",
+        "retrieve_utterance",
+        null,
+        [],
+        54
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "it dont matter. i will keep it",
+      "turn_count": 46,
+      "targets": [
+        "policy",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "that is all i have to say",
+      "turn_count": 47,
+      "targets": [
+        "policy",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "have a great day. goodbye.",
+      "turn_count": 48,
+      "targets": [
+        "policy",
+        "retrieve_utterance",
+        null,
+        [],
+        13
+      ]
+    }
+  ]
+}

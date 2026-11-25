@@ -22,20 +22,20 @@ BATCH_CONFIGS = [
     {
         "name": "general",
         "template_path": PROMPTS_DIR / "general_injection_prompt_template.txt",
-        "count": 0,
-        "target_judges": ("intent_understanding", "procedure_following"),
+        "count": 2,
+        "target_judges": ("intent_understanding","procedure_following"),
     },
     {
         "name": "data_judges",
         "template_path": PROMPTS_DIR / "Data Judges_Injection Prompt Template.txt",
-        "count": 5,
+        "count": 0,
         "target_judges": ("missing_data", "data_conflict"),
     },
 ]
 
 
 ERROR_COUNTS = (1, 2, 3)
-ERROR_COUNT_WEIGHTS = (1, 0, 0)
+ERROR_COUNT_WEIGHTS = (0, 1, 0)
 DIALOGUE_PHASES = ("early", "middle", "late")
 GUIDELINE_STOP_WORDS = {"due", "to", "faq", "how", "other", "general", "one", "item"}
 

@@ -39,6 +39,7 @@
     .chat-header { padding: 18px 24px; background: #fff; border-bottom: 1px solid #d9dee7; }
     .chat-header h2 { margin: 0 0 7px; font-size: 20px; }
     #current-status { color: #596579; font-size: 14px; }
+    #review-reason { margin-top: 5px; color: #7a2d2d; font-size: 13px; overflow-wrap: anywhere; }
     .context-buttons { display: flex; gap: 8px; margin-top: 13px; }
     .context-button { border: 1px solid #b7c1ce; border-radius: 6px; background: #fff; padding: 7px 11px; }
     .context-button:hover { background: #f5f7fa; }
@@ -50,6 +51,11 @@
     .message.action { background: #f0f1f3; color: #454b54; }
     .speaker { margin-bottom: 5px; color: #536174; font-size: 11px; font-weight: 700; text-transform: uppercase; }
     .message-text { white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.45; }
+    .action-details { margin-top: 9px; padding-top: 8px; border-top: 1px solid #d5d9df; font-size: 13px; }
+    .action-function { font-weight: 700; overflow-wrap: anywhere; }
+    .action-parameters { margin: 4px 0 0; padding-left: 20px; overflow-wrap: anywhere; }
+    .action-expected { margin-top: 7px; color: #37445a; }
+    .action-expected-list { margin: 4px 0 0; padding-left: 20px; overflow-wrap: anywhere; }
     .actions { display: flex; justify-content: center; gap: 12px; padding: 16px; background: #fff; border-top: 1px solid #d9dee7; }
     .decision { border: 1px solid #aeb8c6; border-radius: 6px; background: white; padding: 9px 16px; }
     .decision:hover { background: #f5f7fa; }
@@ -59,6 +65,8 @@
     .modal { width: min(420px, 100%); padding: 22px; background: white; border-radius: 10px; box-shadow: 0 12px 40px #0003; }
     .modal h2 { margin: 0 0 10px; font-size: 18px; }
     .modal p { color: #4c5665; line-height: 1.45; }
+    .modal textarea { width: 100%; min-height: 82px; margin-top: 6px; padding: 8px; border: 1px solid #c7ced9; border-radius: 6px; resize: vertical; }
+    .reason-hint { margin: 4px 0 0; color: #647184; font-size: 12px; }
     .modal-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 20px; }
     .secondary { border: 1px solid #c4cbd5; border-radius: 6px; padding: 8px 13px; background: white; }
     .info-modal-backdrop { position: fixed; inset: 0; z-index: 4; display: grid; place-items: center; padding: 20px; background: #10182880; }
@@ -102,6 +110,7 @@
       <header class="chat-header">
         <h2 id="chat-title">Select a chat</h2>
         <div id="current-status">Choose a chat from the list to review it.</div>
+        <div id="review-reason" hidden></div>
         <div class="context-buttons">
           <button id="view-sop" class="context-button" type="button" disabled>View SOP</button>
           <button id="view-scenario" class="context-button" type="button" disabled>View User Scenario</button>
@@ -121,6 +130,11 @@
     <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
       <h2 id="modal-title">Confirm review</h2>
       <p id="modal-message"></p>
+      <div id="reason-field" hidden>
+        <label for="error-reason">Briefly explain the error</label>
+        <textarea id="error-reason" maxlength="300" aria-required="true" aria-describedby="reason-hint"></textarea>
+        <div id="reason-hint" class="reason-hint">Required, up to 300 characters.</div>
+      </div>
       <div class="modal-actions">
         <button id="cancel-action" class="secondary" type="button">Cancel</button>
         <button id="confirm-action" class="primary" type="button">Confirm</button>
@@ -203,9 +217,12 @@
       const rollbackButton = document.getElementById("rollback");
       const viewSopButton = document.getElementById("view-sop");
       const viewScenarioButton = document.getElementById("view-scenario");
+      const reviewReason = document.getElementById("review-reason");
       if (!chat) {
         document.getElementById("chat-title").textContent = "Select a chat";
         document.getElementById("current-status").textContent = "Choose a chat from the list to review it.";
+        reviewReason.hidden = true;
+        reviewReason.textContent = "";
         conversation.innerHTML = '<div class="empty-state">Select a chat from the list.</div>';
         errorButton.disabled = true;
         noErrorButton.disabled = true;
@@ -217,6 +234,8 @@
 
       document.getElementById("chat-title").textContent = `${chat.sop_name} · ${chat.chat_id}`;
       document.getElementById("current-status").textContent = `Current status: ${statusLabel(chat.status)}`;
+      reviewReason.hidden = chat.status !== "error" || !chat.review_reason;
+      reviewReason.textContent = chat.review_reason ? `Reason: ${chat.review_reason}` : "";
       errorButton.disabled = false;
       noErrorButton.disabled = false;
       viewSopButton.disabled = false;
@@ -233,6 +252,57 @@
         text.className = "message-text";
         text.textContent = message.text;
         messageNode.append(speaker, text);
+        if (role === "action") {
+          const details = document.createElement("div");
+          details.className = "action-details";
+          const functionName = document.createElement("div");
+          functionName.className = "action-function";
+          functionName.textContent = `Function: ${message.function_name || "unknown"}`;
+          details.append(functionName);
+
+          const parameterLabel = document.createElement("div");
+          parameterLabel.textContent = "Parameters:";
+          details.append(parameterLabel);
+          const parameters = document.createElement("ul");
+          parameters.className = "action-parameters";
+          const values = Array.isArray(message.parameters) ? message.parameters : [];
+          if (values.length === 0) {
+            const emptyParameter = document.createElement("li");
+            emptyParameter.textContent = "(none)";
+            parameters.append(emptyParameter);
+          } else {
+            for (const value of values) {
+              const parameter = document.createElement("li");
+              parameter.textContent = typeof value === "string" ? value : JSON.stringify(value);
+              parameters.append(parameter);
+            }
+          }
+          details.append(parameters);
+
+          const expectedLabel = document.createElement("div");
+          expectedLabel.className = "action-expected";
+          expectedLabel.textContent = "Expected parameters:";
+          details.append(expectedLabel);
+          const expectedParameters = document.createElement("ul");
+          expectedParameters.className = "action-expected-list";
+          if (!Array.isArray(message.expected_parameters)) {
+            const missingSchema = document.createElement("li");
+            missingSchema.textContent = "Not listed for this subflow";
+            expectedParameters.append(missingSchema);
+          } else if (message.expected_parameters.length === 0) {
+            const emptyExpected = document.createElement("li");
+            emptyExpected.textContent = "(none)";
+            expectedParameters.append(emptyExpected);
+          } else {
+            for (const parameterName of message.expected_parameters) {
+              const expectedParameter = document.createElement("li");
+              expectedParameter.textContent = parameterName;
+              expectedParameters.append(expectedParameter);
+            }
+          }
+          details.append(expectedParameters);
+          messageNode.append(details);
+        }
         conversation.append(messageNode);
       }
     }
@@ -325,6 +395,10 @@
       const chat = currentChat();
       if (!chat) return;
       state.pendingAction = action;
+      const reasonField = document.getElementById("reason-field");
+      const reasonInput = document.getElementById("error-reason");
+      reasonField.hidden = action !== "error";
+      reasonInput.value = action === "error" ? (chat.review_reason || "") : "";
       let message;
       if (action === "rollback") {
         message = "Are you sure you want to return this chat to Pending?";
@@ -334,7 +408,7 @@
       }
       document.getElementById("modal-message").textContent = message;
       modal.hidden = false;
-      document.getElementById("confirm-action").focus();
+      document.getElementById(action === "error" ? "error-reason" : "confirm-action").focus();
     }
 
     async function applyAction() {
@@ -343,7 +417,17 @@
       const action = state.pendingAction;
       const endpoint = action === "rollback" ? "/api/rollback" : "/api/review";
       const body = { reviewer: state.reviewer, chat_id: chat.chat_id };
-      if (action !== "rollback") body.status = action;
+      if (action !== "rollback") {
+        body.status = action;
+        if (action === "error") {
+          body.reason = document.getElementById("error-reason").value.trim();
+          if (!body.reason) {
+            showNotice("Enter a short reason before marking this chat as having an error.", true);
+            document.getElementById("error-reason").focus();
+            return;
+          }
+        }
+      }
       document.getElementById("confirm-action").disabled = true;
       try {
         const payload = await requestJson(endpoint, {

@@ -1,0 +1,504 @@
+{
+  "_description": "Contextual action schema for each subflow across all flows in ABCD dataset. Each action lists only the parameters required and relevant in this specific subflow context, eliminating ontology bloat.",
+  
+  "product_defect": {
+    "subflows": {
+      "refund_initiate": {
+        "actions": [
+          { "pull-up-account": ["customer_name", "account_id"] },
+          { "validate-purchase": ["username", "email", "order_id"] },
+          { "record-reason": ["refund_target"] },
+          { "enter-details": ["full_address", "account_id"] },
+          { "offer-refund": ["amount"] }
+        ]
+      },
+      "refund_update": {
+        "actions": [
+          { "pull-up-account": ["customer_name", "account_id"] },
+          { "validate-purchase": ["username", "email", "order_id"] },
+          { "record-reason": ["product"] },
+          { "offer-refund": ["amount"] }
+        ]
+      },
+      "refund_status": {
+        "actions": [
+          { "pull-up-account": ["customer_name", "account_id"] },
+          { "validate-purchase": ["username", "email", "order_id"] },
+          { "notify-team": ["company_team"] },
+          { "update-order": ["change_option"] }
+        ]
+      },
+      "return_stain": {
+        "actions": [
+          { "pull-up-account": ["customer_name", "account_id"] },
+          { "validate-purchase": ["username", "email", "order_id"] },
+          { "membership": ["membership_level"] },
+          { "enter-details": ["full_address"] },
+          { "update-order": ["order_slotval"] }
+        ]
+      },
+      "return_color": {
+        "actions": [
+          { "pull-up-account": ["customer_name", "account_id"] },
+          { "validate-purchase": ["username", "email", "order_id"] },
+          { "membership": ["membership_level"] },
+          { "enter-details": ["full_address"] },
+          { "update-order": ["order_slotval"] }
+        ]
+      },
+      "return_size": {
+        "actions": [
+          { "pull-up-account": ["customer_name", "account_id"] },
+          { "validate-purchase": ["username", "email", "order_id"] },
+          { "membership": ["membership_level"] },
+          { "enter-details": ["full_address"] },
+          { "update-order": ["order_slotval"] }
+        ]
+      }
+    }
+  },
+
+  "order_issue": {
+    "subflows": {
+      "status_mystery_fee": {
+        "actions": [
+          { "pull-up-account": ["customer_name", "account_id"] },
+          { "verify-identity": ["customer_name", "account_id", "order_id"] },
+          { "ask-the-oracle": [] },
+          { "membership": ["membership_level"] },
+          { "update-order": ["amount"] }
+        ]
+      },
+      "status_delivery_time": {
+        "actions": [
+          { "pull-up-account": ["customer_name", "account_id"] },
+          { "verify-identity": ["customer_name", "account_id", "order_id"] },
+          { "ask-the-oracle": [] },
+          { "shipping-status": ["shipping_option"] },
+          { "update-order": ["order_slotval"] }
+        ]
+      },
+      "status_payment_method": {
+        "actions": [
+          { "pull-up-account": ["customer_name", "account_id"] },
+          { "verify-identity": ["customer_name", "account_id", "order_id"] },
+          { "shipping-status": ["shipping_option"] },
+          { "update-order": ["payment_method"] }
+        ]
+      },
+      "status_quantity": {
+        "actions": [
+          { "pull-up-account": ["customer_name", "account_id"] },
+          { "verify-identity": ["customer_name", "account_id", "order_id"] },
+          { "ask-the-oracle": [] },
+          { "shipping-status": ["shipping_option"] },
+          { "offer-refund": ["amount"] }
+        ]
+      },
+      "manage_upgrade": {
+        "actions": [
+          { "pull-up-account": ["customer_name", "account_id"] },
+          { "verify-identity": ["customer_name", "account_id", "order_id"] },
+          { "shipping-status": ["shipping_option"] },
+          { "membership": ["membership_level"] },
+          { "update-order": ["order_slotval"] }
+        ]
+      },
+      "manage_downgrade": {
+        "actions": [
+          { "pull-up-account": ["customer_name", "account_id"] },
+          { "verify-identity": ["customer_name", "account_id", "order_id"] },
+          { "shipping-status": ["shipping_option"] },
+          { "membership": ["membership_level"] },
+          { "update-order": ["order_slotval"] }
+        ]
+      },
+      "manage_create": {
+        "actions": [
+          { "pull-up-account": ["customer_name", "account_id"] },
+          { "verify-identity": ["customer_name", "account_id", "order_id"] },
+          { "shipping-status": ["shipping_option"] },
+          { "membership": ["membership_level"] },
+          { "make-purchase": ["product"] }
+        ]
+      },
+      "manage_cancel": {
+        "actions": [
+          { "pull-up-account": ["customer_name", "account_id"] },
+          { "verify-identity": ["customer_name", "account_id", "order_id"] },
+          { "shipping-status": ["shipping_option"] },
+          { "membership": ["membership_level"] },
+          { "offer-refund": ["amount"] }
+        ]
+      }
+    }
+  },
+
+  "account_access": {
+    "subflows": {
+      "recover_username": {
+        "actions": [
+          { "pull-up-account": ["customer_name", "account_id"] },
+          { "verify-identity": ["customer_name", "order_id", "zip_code"] }
+        ]
+      },
+      "recover_password": {
+        "actions": [
+          { "pull-up-account": ["customer_name", "account_id"] },
+          { "enter-details": ["username", "email", "security_answer"] },
+          { "make-password": [] }
+        ]
+      },
+      "reset_2fa": {
+        "actions": [
+          { "pull-up-account": ["customer_name", "account_id"] },
+          { "enter-details": ["username", "pin_number"] },
+          { "send-link": [] }
+        ]
+      }
+    }
+  },
+
+  "manage_account": {
+    "subflows": {
+      "status_service_added": {
+        "actions": [
+          { "pull-up-account": ["customer_name", "account_id"] },
+          { "record-reason": ["reason_slotval"] },
+          { "ask-the-oracle": [] },
+          { "update-account": ["account_slotval"] },
+          { "offer-refund": ["amount"] }
+        ]
+      },
+      "status_service_removed": {
+        "actions": [
+          { "pull-up-account": ["customer_name", "account_id"] },
+          { "record-reason": ["reason_slotval"] },
+          { "ask-the-oracle": [] },
+          { "update-account": ["account_slotval"] }
+        ]
+      },
+      "status_shipping_question": {
+        "actions": [
+          { "pull-up-account": ["customer_name", "account_id"] },
+          { "ask-the-oracle": [] },
+          { "send-link": [] }
+        ]
+      },
+      "status_credit_missing": {
+        "actions": [
+          { "pull-up-account": ["customer_name", "account_id"] },
+          { "record-reason": ["reason_slotval"] },
+          { "ask-the-oracle": [] },
+          { "promo-code": [] }
+        ]
+      },
+      "manage_change_address": {
+        "actions": [
+          { "pull-up-account": ["customer_name", "account_id"] },
+          { "record-reason": ["reason_slotval"] },
+          { "verify-identity": ["customer_name", "account_id", "zip_code"] },
+          { "update-account": ["street_address"] }
+        ]
+      },
+      "manage_change_name": {
+        "actions": [
+          { "pull-up-account": ["customer_name", "account_id"] },
+          { "record-reason": ["reason_slotval"] },
+          { "verify-identity": ["customer_name", "account_id", "zip_code"] },
+          { "update-account": ["customer_name"] }
+        ]
+      },
+      "manage_change_phone": {
+        "actions": [
+          { "pull-up-account": ["customer_name", "account_id"] },
+          { "record-reason": ["reason_slotval"] },
+          { "verify-identity": ["customer_name", "account_id", "zip_code"] },
+          { "update-account": ["phone"] }
+        ]
+      },
+      "manage_payment_method": {
+        "actions": [
+          { "pull-up-account": ["customer_name", "account_id"] },
+          { "record-reason": ["reason_slotval"] },
+          { "verify-identity": ["customer_name", "account_id", "zip_code"] },
+          { "update-account": ["payment_method"] }
+        ]
+      }
+    }
+  },
+
+  "purchase_dispute": {
+    "subflows": {
+      "bad_price_competitor": {
+        "actions": [
+          { "pull-up-account": ["customer_name", "account_id"] },
+          { "record-reason": ["reason_slotval"] },
+          { "verify-identity": ["customer_name", "account_id", "order_id", "zip_code"] },
+          { "promo-code": [] }
+        ]
+      },
+      "bad_price_yesterday": {
+        "actions": [
+          { "pull-up-account": ["customer_name", "account_id"] },
+          { "record-reason": ["reason_slotval"] },
+          { "verify-identity": ["customer_name", "account_id", "order_id", "zip_code"] },
+          { "promo-code": [] }
+        ]
+      },
+      "out_of_stock_general": {
+        "actions": [
+          { "pull-up-account": ["customer_name", "account_id"] },
+          { "notify-team": ["company_team"] },
+          { "promo-code": [] }
+        ]
+      },
+      "out_of_stock_one_item": {
+        "actions": [
+          { "pull-up-account": ["customer_name", "account_id"] },
+          { "record-reason": ["reason_slotval", "product"] },
+          { "notify-team": ["company_team"] },
+          { "make-purchase": ["product"] }
+        ]
+      },
+      "promo_code_invalid": {
+        "actions": [
+          { "pull-up-account": ["customer_name", "account_id"] },
+          { "ask-the-oracle": [] },
+          { "membership": ["membership_level"] },
+          { "promo-code": [] }
+        ]
+      },
+      "promo_code_out_of_date": {
+        "actions": [
+          { "pull-up-account": ["customer_name", "account_id"] },
+          { "ask-the-oracle": [] },
+          { "membership": ["membership_level"] },
+          { "promo-code": [] }
+        ]
+      },
+      "mistimed_billing_already_returned": {
+        "actions": [
+          { "pull-up-account": ["customer_name", "account_id"] },
+          { "validate-purchase": ["username", "email", "order_id"] },
+          { "record-reason": ["reason_slotval"] },
+          { "membership": ["membership_level"] },
+          { "update-order": ["order_slotval"] }
+        ]
+      },
+      "mistimed_billing_never_bought": {
+        "actions": [
+          { "pull-up-account": ["customer_name", "account_id"] },
+          { "validate-purchase": ["username", "email", "order_id"] },
+          { "ask-the-oracle": [] },
+          { "membership": ["membership_level"] },
+          { "update-order": ["order_slotval"] }
+        ]
+      }
+    }
+  },
+
+  "shipping_issue": {
+    "subflows": {
+      "status": {
+        "actions": [
+          { "pull-up-account": ["customer_name", "account_id"] },
+          { "verify-identity": ["customer_name", "account_id", "order_id", "zip_code"] },
+          { "validate-purchase": ["username", "email", "order_id"] },
+          { "ask-the-oracle": [] },
+          { "update-order": ["order_slotval"] }
+        ]
+      },
+      "manage": {
+        "actions": [
+          { "pull-up-account": ["customer_name", "account_id"] },
+          { "shipping-status": ["shipping_option"] },
+          { "validate-purchase": ["username", "email", "order_id"] },
+          { "update-order": ["change_option"] }
+        ]
+      },
+      "missing": {
+        "actions": [
+          { "pull-up-account": ["customer_name", "account_id"] },
+          { "validate-purchase": ["username", "email", "order_id"] },
+          { "record-reason": ["reason_slotval"] },
+          { "update-order": ["order_slotval"] },
+          { "make-purchase": ["product"] }
+        ]
+      },
+      "cost": {
+        "actions": [
+          { "pull-up-account": ["customer_name", "account_id"] },
+          { "validate-purchase": ["username", "email", "order_id"] },
+          { "shipping-status": ["shipping_option"] },
+          { "update-order": ["order_slotval"] },
+          { "offer-refund": ["amount"] }
+        ]
+      }
+    }
+  },
+
+  "single_item_query": {
+    "subflows": {
+      "boots": {
+        "actions": [
+          { "search-faq": [] },
+          { "search-boots": [] },
+          { "select-faq": ["single_item_query"] }
+        ]
+      },
+      "shirt": {
+        "actions": [
+          { "search-faq": [] },
+          { "search-shirt": [] },
+          { "select-faq": ["single_item_query"] }
+        ]
+      },
+      "jeans": {
+        "actions": [
+          { "search-faq": [] },
+          { "search-jeans": [] },
+          { "select-faq": ["single_item_query"] }
+        ]
+      },
+      "jacket": {
+        "actions": [
+          { "search-faq": [] },
+          { "search-jacket": [] },
+          { "select-faq": ["single_item_query"] }
+        ]
+      }
+    }
+  },
+
+  "storewide_query": {
+    "subflows": {
+      "pricing": {
+        "actions": [
+          { "search-faq": [] },
+          { "search-pricing": [] },
+          { "select-faq": ["storewide_query"] }
+        ]
+      },
+      "membership": {
+        "actions": [
+          { "search-faq": [] },
+          { "search-membership": [] },
+          { "select-faq": ["storewide_query"] }
+        ]
+      },
+      "timing": {
+        "actions": [
+          { "search-faq": [] },
+          { "search-timing": [] },
+          { "select-faq": ["storewide_query"] }
+        ]
+      },
+      "policy": {
+        "actions": [
+          { "search-faq": [] },
+          { "search-policy": [] },
+          { "select-faq": ["storewide_query"] }
+        ]
+      }
+    }
+  },
+
+  "subscription_inquiry": {
+    "subflows": {
+      "status_active": {
+        "actions": [
+          { "pull-up-account": ["customer_name", "account_id"] },
+          { "verify-identity": ["customer_name", "account_id", "zip_code"] },
+          { "subscription-status": [] },
+          { "send-link": [] },
+          { "enter-details": ["username", "email"] }
+        ]
+      },
+      "status_due_amount": {
+        "actions": [
+          { "pull-up-account": ["customer_name", "account_id"] },
+          { "verify-identity": ["customer_name", "account_id", "zip_code"] },
+          { "subscription-status": [] },
+          { "send-link": [] },
+          { "enter-details": ["username", "email"] }
+        ]
+      },
+      "status_due_date": {
+        "actions": [
+          { "pull-up-account": ["customer_name", "account_id"] },
+          { "verify-identity": ["customer_name", "account_id", "zip_code"] },
+          { "subscription-status": [] },
+          { "send-link": [] },
+          { "enter-details": ["username", "email"] }
+        ]
+      },
+      "manage_pay_bill": {
+        "actions": [
+          { "pull-up-account": ["customer_name", "account_id"] },
+          { "verify-identity": ["customer_name", "account_id", "zip_code"] },
+          { "subscription-status": [] },
+          { "enter-details": ["account_id"] },
+          { "update-account": ["payment_method"] }
+        ]
+      },
+      "manage_extension": {
+        "actions": [
+          { "pull-up-account": ["customer_name", "account_id"] },
+          { "verify-identity": ["customer_name", "account_id", "zip_code"] },
+          { "membership": ["membership_level"] },
+          { "update-account": ["account_slotval"] },
+          { "enter-details": ["account_id"] }
+        ]
+      },
+      "manage_dispute_bill": {
+        "actions": [
+          { "pull-up-account": ["customer_name", "account_id"] },
+          { "verify-identity": ["customer_name", "account_id", "zip_code"] },
+          { "membership": ["membership_level"] },
+          { "ask-the-oracle": [] },
+          { "offer-refund": ["amount"] }
+        ]
+      }
+    }
+  },
+
+  "troubleshoot_site": {
+    "subflows": {
+      "credit_card": {
+        "actions": [
+          { "try-again": [] },
+          { "log-out-in": [] },
+          { "enter-details": ["details_slotval"] },
+          { "make-purchase": ["product"] }
+        ]
+      },
+      "shopping_cart": {
+        "actions": [
+          { "try-again": [] },
+          { "log-out-in": [] },
+          { "enter-details": ["details_slotval"] },
+          { "make-purchase": ["product"] }
+        ]
+      },
+      "search_results": {
+        "actions": [
+          { "try-again": [] },
+          { "log-out-in": [] },
+          { "make-purchase": ["product"] },
+          { "instructions": [] },
+          { "notify-team": ["company_team"] }
+        ]
+      },
+      "slow_speed": {
+        "actions": [
+          { "try-again": [] },
+          { "log-out-in": [] },
+          { "make-purchase": ["product"] },
+          { "instructions": [] },
+          { "notify-team": ["company_team"] }
+        ]
+      }
+    }
+  }
+}

@@ -27,7 +27,6 @@ from assign import (  # noqa: E402  # pyright: ignore[reportMissingImports]
     DEFAULT_SOURCE,
     AssignmentError,
     Chat,
-    InputDataError,
     SopResolver,
     build_sop_resolver,
     load_reviewers,
@@ -37,13 +36,20 @@ from assign import (  # noqa: E402  # pyright: ignore[reportMissingImports]
     run_top_up,
     validate_reviewer_name,
 )
+from prepare_prompts import (  # noqa: E402  # pyright: ignore[reportMissingImports]
+    InputDataError,
+    load_json,
+    normalize_name,
+)
 
 
 ASSIGNMENTS_DIR = PROJECT_ROOT / "assignments"
 REVIEWERS_FILE = PROJECT_ROOT / "config" / "reviewers.json"
+ACTION_SCHEMA_FILE = PROJECT_ROOT / "config" / "subflow_actions_schema.json"
 REVIEWS_FILE = ASSIGNMENTS_DIR / "reviews.json"
 PAGE_FILE = PROJECT_ROOT / "tools" / "chat_review.html"
 VALID_STATUSES = {"error", "no_error"}
+MAX_REVIEW_REASON_LENGTH = 300
 MAX_REQUEST_BYTES = 64 * 1024
 
 
@@ -60,12 +66,13 @@ class AppContext:
     canonical_names: dict[str, str]
     sop_ids: list[str]
     source_chats: list[Chat]
+    action_schema: dict[str, dict[str, dict[str, list[str]]]]
     assignments_dir: Path = ASSIGNMENTS_DIR
     reviews_file: Path = REVIEWS_FILE
     lock: Any = field(default_factory=threading.RLock, repr=False)
 
 
-def load_reviews(path: Path) -> dict[str, dict[str, str]]:
+def load_reviews(path: Path) -> dict[str, dict[str, dict[str, str]]]:
     if not path.exists():
         return {}
     try:
@@ -77,23 +84,38 @@ def load_reviews(path: Path) -> dict[str, dict[str, str]]:
     if not isinstance(data, Mapping):
         raise ApiError(f"{path.name} must contain a JSON object", 500)
 
-    reviews: dict[str, dict[str, str]] = {}
+    reviews: dict[str, dict[str, dict[str, str]]] = {}
     for reviewer, entries in data.items():
         if not isinstance(reviewer, str) or not isinstance(entries, Mapping):
             raise ApiError(f"{path.name} contains an invalid reviewer entry", 500)
         reviews[reviewer] = {}
-        for chat_id, status in entries.items():
+        for chat_id, review in entries.items():
             if (
                 not isinstance(chat_id, str)
-                or not isinstance(status, str)
-                or status not in VALID_STATUSES
+                or not isinstance(review, (str, Mapping))
             ):
                 raise ApiError(f"{path.name} contains an invalid review status", 500)
-            reviews[reviewer][chat_id] = status
+            if isinstance(review, str):
+                status = review
+                reason = ""
+            else:
+                status = review.get("status")
+                reason = review.get("reason", "")
+            if (
+                not isinstance(status, str)
+                or status not in VALID_STATUSES
+                or not isinstance(reason, str)
+                or len(reason) > MAX_REVIEW_REASON_LENGTH
+            ):
+                raise ApiError(f"{path.name} contains an invalid review status", 500)
+            reviews[reviewer][chat_id] = {"status": status, "reason": reason}
     return reviews
 
 
-def save_reviews(path: Path, reviews: Mapping[str, Mapping[str, str]]) -> None:
+def save_reviews(
+    path: Path,
+    reviews: Mapping[str, Mapping[str, Mapping[str, str]]],
+) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary_path: Path | None = None
     try:
@@ -122,14 +144,40 @@ def save_reviews(path: Path, reviews: Mapping[str, Mapping[str, str]]) -> None:
                 pass
 
 
-def message_list(record: Mapping[str, Any]) -> list[dict[str, str]]:
-    messages = record.get("original")
+def validate_review_entry(status: Any, reason: Any = "") -> dict[str, str]:
+    if not isinstance(status, str) or status not in VALID_STATUSES:
+        raise ApiError("status must be 'error' or 'no_error'")
+    if status == "error":
+        if not isinstance(reason, str) or not reason.strip():
+            raise ApiError(
+                "A short reason is required when marking a chat as having an error"
+            )
+        reason = reason.strip()
+        if len(reason) > MAX_REVIEW_REASON_LENGTH:
+            raise ApiError(
+                f"Reason must be {MAX_REVIEW_REASON_LENGTH} characters or fewer"
+            )
+    else:
+        reason = ""
+    return {"status": status, "reason": reason}
+
+
+def message_list(record: Mapping[str, Any]) -> list[dict[str, Any]]:
+    original_messages = record.get("original")
+    delexed_messages = record.get("delexed")
+    messages = original_messages
     if messages is None:
-        messages = record.get("messages", record.get("turns", record.get("delexed")))
+        messages = record.get("messages", record.get("turns", delexed_messages))
     if not isinstance(messages, list):
         raise AssignmentError("Chat has no valid message list")
+    if delexed_messages is not None:
+        if (
+            not isinstance(delexed_messages, list)
+            or len(delexed_messages) != len(messages)
+        ):
+            raise AssignmentError("Original and delexed message lists are not aligned")
 
-    result: list[dict[str, str]] = []
+    result: list[dict[str, Any]] = []
     for position, message in enumerate(messages, start=1):
         if isinstance(message, Mapping):
             speaker = message.get("speaker", "unknown")
@@ -140,8 +188,144 @@ def message_list(record: Mapping[str, Any]) -> list[dict[str, str]]:
             raise AssignmentError(f"Invalid message at position {position}")
         if content is None:
             raise AssignmentError(f"Message at position {position} has no text")
-        result.append({"speaker": str(speaker), "text": str(content)})
+        message_data: dict[str, Any] = {
+            "speaker": str(speaker),
+            "text": str(content),
+        }
+        metadata_message = (
+            delexed_messages[position - 1]
+            if isinstance(delexed_messages, list)
+            else None
+        )
+        if metadata_message is not None:
+            if isinstance(metadata_message, Mapping):
+                metadata_speaker = metadata_message.get("speaker", "unknown")
+            elif isinstance(metadata_message, (list, tuple)) and metadata_message:
+                metadata_speaker = metadata_message[0]
+            else:
+                raise AssignmentError(
+                    f"Invalid delexed message at position {position}"
+                )
+            if str(metadata_speaker).casefold() != str(speaker).casefold():
+                raise AssignmentError(
+                    f"Original and delexed speakers differ at message position {position}"
+                )
+        if (
+            str(speaker).casefold() == "action"
+            and isinstance(metadata_message, Mapping)
+        ):
+            targets = metadata_message.get("targets")
+            if isinstance(targets, list) and len(targets) > 3:
+                function_name, parameters = targets[2], targets[3]
+                if isinstance(function_name, str):
+                    message_data["function_name"] = function_name
+                if isinstance(parameters, list):
+                    message_data["parameters"] = parameters
+        result.append(message_data)
     return result
+
+
+def load_action_schema(
+    path: Path,
+) -> dict[str, dict[str, dict[str, list[str]]]]:
+    data = load_json(path)
+    if not isinstance(data, Mapping):
+        raise InputDataError(f"{path} must contain a JSON object")
+
+    schema: dict[str, dict[str, dict[str, list[str]]]] = {}
+    for flow, flow_data in data.items():
+        if flow == "_description":
+            continue
+        if not isinstance(flow_data, Mapping):
+            raise InputDataError(f"Action schema flow {flow!r} must be an object")
+        subflows = flow_data.get("subflows")
+        if not isinstance(subflows, Mapping):
+            raise InputDataError(
+                f"Action schema flow {flow!r} must contain a subflows object"
+            )
+
+        normalized_subflows: dict[str, dict[str, list[str]]] = {}
+        for subflow, subflow_data in subflows.items():
+            if not isinstance(subflow_data, Mapping):
+                raise InputDataError(
+                    f"Action schema subflow {flow!r}/{subflow!r} must be an object"
+                )
+            actions = subflow_data.get("actions")
+            if not isinstance(actions, list):
+                raise InputDataError(
+                    f"Action schema subflow {flow!r}/{subflow!r} must contain an actions list"
+                )
+
+            normalized_actions: dict[str, list[str]] = {}
+            for action in actions:
+                if not isinstance(action, Mapping) or len(action) != 1:
+                    raise InputDataError(
+                        f"Actions in {flow!r}/{subflow!r} must be single-entry objects"
+                    )
+                action_name, parameters = next(iter(action.items()))
+                if (
+                    not isinstance(action_name, str)
+                    or not isinstance(parameters, list)
+                    or any(not isinstance(parameter, str) for parameter in parameters)
+                ):
+                    raise InputDataError(
+                        f"Action parameters in {flow!r}/{subflow!r} must be a list of strings"
+                    )
+                action_key = normalize_name(action_name)
+                if action_key in normalized_actions:
+                    raise InputDataError(
+                        f"Duplicate normalized action {action_name!r} "
+                        f"in {flow!r}/{subflow!r}"
+                    )
+                normalized_actions[action_key] = parameters
+
+            subflow_key = normalize_name(subflow)
+            if subflow_key in normalized_subflows:
+                raise InputDataError(
+                    f"Duplicate normalized subflow {subflow!r} in flow {flow!r}"
+                )
+            normalized_subflows[subflow_key] = normalized_actions
+
+        flow_key = normalize_name(flow)
+        if flow_key in schema:
+            raise InputDataError(f"Duplicate normalized action schema flow {flow!r}")
+        schema[flow_key] = normalized_subflows
+    return schema
+
+
+def expected_action_parameters(
+    record: Mapping[str, Any],
+    canonical_name: str,
+    function_name: str,
+    action_schema: Mapping[str, Mapping[str, Mapping[str, list[str]]]],
+    guideline_aliases: Mapping[str, Mapping[str, str]],
+) -> list[str] | None:
+    scenario = record.get("scenario")
+    if not isinstance(scenario, Mapping):
+        return None
+
+    flow_key = normalize_name(scenario.get("flow", ""))
+    subflows = action_schema.get(flow_key)
+    if subflows is None:
+        return None
+
+    subflow_key = normalize_name(scenario.get("subflow", ""))
+    actions = subflows.get(subflow_key)
+    canonical_key = normalize_name(canonical_name)
+    if actions is None:
+        actions = subflows.get(canonical_key)
+    if actions is None:
+        flow_aliases = guideline_aliases.get(flow_key, {})
+        alias_matches = [
+            candidate_actions
+            for schema_subflow, candidate_actions in subflows.items()
+            if normalize_name(flow_aliases.get(schema_subflow, "")) == canonical_key
+        ]
+        if len(alias_matches) == 1:
+            actions = alias_matches[0]
+    if actions is None:
+        return None
+    return actions.get(normalize_name(function_name))
 
 
 def create_app_context() -> AppContext:
@@ -150,12 +334,14 @@ def create_app_context() -> AppContext:
         DEFAULT_GUIDELINES, DEFAULT_ALIASES
     )
     source_chats = load_source_chats(DEFAULT_SOURCE, resolver)
+    action_schema = load_action_schema(ACTION_SCHEMA_FILE)
     return AppContext(
         reviewers=reviewers,
         resolver=resolver,
         canonical_names=canonical_names,
         sop_ids=sop_ids,
         source_chats=source_chats,
+        action_schema=action_schema,
     )
 
 
@@ -209,22 +395,42 @@ class ReviewRequestHandler(BaseHTTPRequestHandler):
             self.app.assignments_dir, self.app.resolver
         )
         reviews = load_reviews(self.app.reviews_file)
-        statuses = reviews.get(reviewer, {})
-        chats = [
-            {
+        reviewer_reviews = reviews.get(reviewer, {})
+        chats = []
+        guideline_aliases = self.app.resolver[1]
+        for chat in reviewer_chats.get(reviewer, []):
+            messages = message_list(chat.record)
+            for message in messages:
+                if message["speaker"].casefold() != "action":
+                    continue
+                function_name = message.get("function_name")
+                if not isinstance(function_name, str):
+                    message["expected_parameters"] = None
+                    continue
+                message["expected_parameters"] = expected_action_parameters(
+                    chat.record,
+                    self.app.canonical_names[chat.sop_id],
+                    function_name,
+                    self.app.action_schema,
+                    guideline_aliases,
+                )
+            chats.append({
                 "chat_id": chat.chat_id,
                 "sop_id": chat.sop_id,
                 "sop_name": self.app.canonical_names[chat.sop_id],
                 "message_count": chat.message_count,
-                "status": statuses.get(chat.chat_id, "pending"),
+                "status": reviewer_reviews.get(chat.chat_id, {}).get(
+                    "status", "pending"
+                ),
+                "review_reason": reviewer_reviews.get(chat.chat_id, {}).get(
+                    "reason", ""
+                ),
                 "scenario": chat.record.get("scenario", {}),
                 "sop_guideline": resolve_chat_guideline(
                     chat.record, 0, self.app.resolver
                 ),
-                "messages": message_list(chat.record),
-            }
-            for chat in reviewer_chats.get(reviewer, [])
-        ]
+                "messages": messages,
+            })
         return sorted(
             chats,
             key=lambda chat: (
@@ -315,12 +521,13 @@ class ReviewRequestHandler(BaseHTTPRequestHandler):
     def _save_review(self, data: Mapping[str, Any]) -> None:
         reviewer = self._validate_reviewer(data.get("reviewer"))
         chat_id, _ = self._require_assigned_chat(reviewer, data.get("chat_id"))
-        status = data.get("status")
-        if status not in VALID_STATUSES:
-            raise ApiError("status must be 'error' or 'no_error'")
+        review_entry = validate_review_entry(
+            data.get("status"), data.get("reason", "")
+        )
+        status = review_entry["status"]
         with self.app.lock:
             reviews = load_reviews(self.app.reviews_file)
-            reviews.setdefault(reviewer, {})[chat_id] = status
+            reviews.setdefault(reviewer, {})[chat_id] = review_entry
             save_reviews(self.app.reviews_file, reviews)
             chats = self._reviewer_chats(reviewer)
         self._send_json(

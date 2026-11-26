@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import random
 import re
 import sys
 from collections import Counter, defaultdict
@@ -260,7 +261,7 @@ def select_initial_chats(
     for chat in chats:
         grouped[chat.sop_id].append(chat)
     for sop_id in sop_ids:
-        grouped[sop_id].sort(key=chat_sort_key)
+        random.shuffle(grouped[sop_id])
 
     missing = [sop_id for sop_id in sop_ids if not grouped[sop_id]]
     if missing:
@@ -273,7 +274,7 @@ def select_initial_chats(
     selected = [grouped[sop_id][0] for sop_id in sop_ids if grouped[sop_id]]
     additional_slots = INITIAL_ASSIGNMENT_COUNT - len(selected)
     second_place = [group[1] for group in grouped.values() if len(group) > 1]
-    second_place.sort(key=chat_sort_key)
+    random.shuffle(second_place)
     if additional_slots > len(second_place):
         raise AssignmentError(
             f"Need {INITIAL_ASSIGNMENT_COUNT} chats for the initial assignment, "
@@ -401,8 +402,6 @@ def select_top_up_chats(
         grouped: dict[str, list[Chat]] = defaultdict(list)
         for chat in remaining:
             grouped[chat.sop_id].append(chat)
-        for group in grouped.values():
-            group.sort(key=chat_sort_key)
         if not grouped:
             break
 
@@ -417,15 +416,8 @@ def select_top_up_chats(
         ]
         if familiar_sops:
             candidate_sops = familiar_sops
-        winning_sop = min(
-            candidate_sops,
-            key=lambda sop_id: (
-                -grouped[sop_id][0].message_count,
-                -grouped[sop_id][0].character_count,
-                sop_id,
-            ),
-        )
-        chat = grouped[winning_sop][0]
+        winning_sop = random.choice(candidate_sops)
+        chat = random.choice(grouped[winning_sop])
         selected.append(chat)
         remaining.remove(chat)
         global_sop_counts[winning_sop] += 1

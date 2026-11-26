@@ -23,7 +23,6 @@ sys.path.insert(0, str(ASSIGNMENT_SCRIPT_DIR))
 
 from assign import (  # noqa: E402  # pyright: ignore[reportMissingImports]
     DEFAULT_ALIASES,
-    DEFAULT_GUIDELINES,
     DEFAULT_SOURCE,
     AssignmentError,
     Chat,
@@ -45,6 +44,9 @@ from prepare_prompts import (  # noqa: E402  # pyright: ignore[reportMissingImpo
 
 ASSIGNMENTS_DIR = PROJECT_ROOT / "assignments"
 REVIEWERS_FILE = PROJECT_ROOT / "config" / "reviewers.json"
+GUIDELINES_FILE = (
+    PROJECT_ROOT / "data" / "source" / "abcd" / "data" / "guidelines_full_context.json"
+)
 ACTION_SCHEMA_FILE = PROJECT_ROOT / "config" / "subflow_actions_schema.json"
 REVIEWS_FILE = ASSIGNMENTS_DIR / "reviews.json"
 PAGE_FILE = PROJECT_ROOT / "tools" / "chat_review.html"
@@ -331,7 +333,7 @@ def expected_action_parameters(
 def create_app_context() -> AppContext:
     reviewers = load_reviewers(REVIEWERS_FILE)
     resolver, canonical_names, sop_ids = build_sop_resolver(
-        DEFAULT_GUIDELINES, DEFAULT_ALIASES
+        GUIDELINES_FILE, DEFAULT_ALIASES
     )
     source_chats = load_source_chats(DEFAULT_SOURCE, resolver)
     action_schema = load_action_schema(ACTION_SCHEMA_FILE)

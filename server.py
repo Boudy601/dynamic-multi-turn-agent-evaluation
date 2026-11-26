@@ -23,11 +23,13 @@ sys.path.insert(0, str(ASSIGNMENT_SCRIPT_DIR))
 
 from assign import (  # noqa: E402  # pyright: ignore[reportMissingImports]
     DEFAULT_ALIASES,
+    DEFAULT_REVIEWER_SOPS,
     DEFAULT_SOURCE,
     AssignmentError,
     Chat,
     SopResolver,
     build_sop_resolver,
+    load_reviewer_sops,
     load_reviewers,
     load_source_chats,
     read_assignment_folders,
@@ -44,6 +46,7 @@ from prepare_prompts import (  # noqa: E402  # pyright: ignore[reportMissingImpo
 
 ASSIGNMENTS_DIR = PROJECT_ROOT / "assignments"
 REVIEWERS_FILE = PROJECT_ROOT / "config" / "reviewers.json"
+REVIEWER_SOPS_FILE = DEFAULT_REVIEWER_SOPS
 GUIDELINES_FILE = (
     PROJECT_ROOT / "data" / "source" / "abcd" / "data" / "guidelines_full_context.json"
 )
@@ -64,6 +67,7 @@ class ApiError(ValueError):
 @dataclass
 class AppContext:
     reviewers: list[str]
+    reviewer_sops: dict[str, list[str]]
     resolver: SopResolver
     canonical_names: dict[str, str]
     sop_ids: list[str]
@@ -335,10 +339,12 @@ def create_app_context() -> AppContext:
     resolver, canonical_names, sop_ids = build_sop_resolver(
         GUIDELINES_FILE, DEFAULT_ALIASES
     )
+    reviewer_sops = load_reviewer_sops(REVIEWER_SOPS_FILE, reviewers, sop_ids)
     source_chats = load_source_chats(DEFAULT_SOURCE, resolver)
     action_schema = load_action_schema(ACTION_SCHEMA_FILE)
     return AppContext(
         reviewers=reviewers,
+        reviewer_sops=reviewer_sops,
         resolver=resolver,
         canonical_names=canonical_names,
         sop_ids=sop_ids,
@@ -502,6 +508,7 @@ class ReviewRequestHandler(BaseHTTPRequestHandler):
                 count,
                 self.app.assignments_dir,
                 self.app.resolver,
+                self.app.reviewer_sops[reviewer],
             )
             chats = self._reviewer_chats(reviewer)
         warning = (

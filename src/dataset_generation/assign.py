@@ -29,6 +29,7 @@ DEFAULT_GUIDELINES = (
 )
 DEFAULT_ALIASES = PROJECT_ROOT / "config" / "guideline_aliases.json"
 DEFAULT_REVIEWERS = PROJECT_ROOT / "config" / "reviewers.json"
+DEFAULT_REVIEWER_SOPS = PROJECT_ROOT / "config" / "reviewer_sops.json"
 DEFAULT_ASSIGNMENTS = PROJECT_ROOT / "assignments"
 INITIAL_ASSIGNMENT_COUNT = 70
 INITIAL_REVIEWER_COUNT = 7
@@ -254,6 +255,56 @@ def load_reviewers(path: Path) -> list[str]:
     return names
 
 
+def load_reviewer_sops(
+    path: Path,
+    reviewers: Sequence[str],
+    sop_ids: Sequence[str],
+) -> dict[str, list[str]]:
+    data = load_json(path)
+    if not isinstance(data, Mapping):
+        raise AssignmentError(f"{path} must contain a JSON object")
+
+    expected_reviewers = set(reviewers)
+    actual_reviewers = set(data.keys())
+    if actual_reviewers != expected_reviewers:
+        missing = sorted(expected_reviewers - actual_reviewers)
+        extra = sorted(actual_reviewers - expected_reviewers)
+        raise AssignmentError(
+            f"{path} reviewers mismatch (missing={missing}, extra={extra})"
+        )
+
+    valid_sops = set(sop_ids)
+    seen_sops: dict[str, str] = {}
+    reviewer_sops: dict[str, list[str]] = {}
+    for reviewer in reviewers:
+        raw_sops = data[reviewer]
+        if not isinstance(raw_sops, list) or not all(
+            isinstance(sop_id, str) for sop_id in raw_sops
+        ):
+            raise AssignmentError(
+                f"{path} entry for {reviewer!r} must be a list of SOP IDs"
+            )
+        if not raw_sops:
+            raise AssignmentError(f"{path} entry for {reviewer!r} must not be empty")
+        for sop_id in raw_sops:
+            if sop_id not in valid_sops:
+                raise AssignmentError(
+                    f"{path} assigns unknown SOP {sop_id!r} to {reviewer!r}"
+                )
+            previous = seen_sops.get(sop_id)
+            if previous is not None:
+                raise AssignmentError(
+                    f"{path} assigns SOP {sop_id!r} to both {previous!r} and {reviewer!r}"
+                )
+            seen_sops[sop_id] = reviewer
+        reviewer_sops[reviewer] = list(raw_sops)
+
+    uncovered = sorted(valid_sops - set(seen_sops))
+    if uncovered:
+        raise AssignmentError(f"{path} does not cover SOP(s): {', '.join(uncovered)}")
+    return reviewer_sops
+
+
 def select_initial_chats(
     chats: Sequence[Chat], sop_ids: Sequence[str]
 ) -> list[Chat]:
@@ -392,11 +443,12 @@ def read_assignment_folders(
 
 def select_top_up_chats(
     available_chats: Sequence[Chat],
-    global_sop_counts: Counter[str],
     reviewer_sop_counts: Counter[str],
     count: int,
+    allowed_sops: Sequence[str] | set[str],
 ) -> list[Chat]:
-    remaining = list(available_chats)
+    allowed = set(allowed_sops)
+    remaining = [chat for chat in available_chats if chat.sop_id in allowed]
     selected: list[Chat] = []
     for _ in range(count):
         grouped: dict[str, list[Chat]] = defaultdict(list)
@@ -405,22 +457,16 @@ def select_top_up_chats(
         if not grouped:
             break
 
-        lowest_count = min(global_sop_counts[sop_id] for sop_id in grouped)
+        lowest_count = min(reviewer_sop_counts[sop_id] for sop_id in grouped)
         candidate_sops = [
             sop_id
             for sop_id in grouped
-            if global_sop_counts[sop_id] == lowest_count
+            if reviewer_sop_counts[sop_id] == lowest_count
         ]
-        familiar_sops = [
-            sop_id for sop_id in candidate_sops if reviewer_sop_counts[sop_id] > 0
-        ]
-        if familiar_sops:
-            candidate_sops = familiar_sops
         winning_sop = random.choice(candidate_sops)
         chat = random.choice(grouped[winning_sop])
         selected.append(chat)
         remaining.remove(chat)
-        global_sop_counts[winning_sop] += 1
         reviewer_sop_counts[winning_sop] += 1
     return selected
 
@@ -457,9 +503,61 @@ def initialize_assignments(
     reviewers: Sequence[str],
     assignments_dir: Path,
     sop_ids: Sequence[str],
+    reviewer_sops: Mapping[str, Sequence[str]],
 ) -> dict[str, list[Chat]]:
-    selected = select_initial_chats(chats, sop_ids)
-    assignments = distribute_snake(selected, reviewers)
+    per_reviewer_target = INITIAL_ASSIGNMENT_COUNT // len(reviewers)
+    grouped: dict[str, list[Chat]] = defaultdict(list)
+    for chat in chats:
+        grouped[chat.sop_id].append(chat)
+    for sop_id in sop_ids:
+        random.shuffle(grouped[sop_id])
+
+    missing = [sop_id for sop_id in sop_ids if not grouped[sop_id]]
+    if missing:
+        raise AssignmentError(
+            "No source chats are available for SOP(s): " + ", ".join(missing)
+        )
+
+    assignments: dict[str, list[Chat]] = {}
+    workloads: Counter[str] = Counter()
+    for reviewer in reviewers:
+        owned_sops = list(reviewer_sops[reviewer])
+        if len(owned_sops) > per_reviewer_target:
+            raise AssignmentError(
+                f"Reviewer {reviewer!r} owns {len(owned_sops)} SOPs, "
+                f"exceeding {per_reviewer_target} initial chats"
+            )
+        reviewer_chats = [grouped[sop_id][0] for sop_id in owned_sops]
+        workloads[reviewer] = sum(chat.message_count for chat in reviewer_chats)
+        assignments[reviewer] = reviewer_chats
+
+    mean_workload = (
+        sum(workloads.values()) / len(reviewers) if reviewers else 0.0
+    )
+    for reviewer in reviewers:
+        owned_sops = list(reviewer_sops[reviewer])
+        extra_needed = per_reviewer_target - len(assignments[reviewer])
+        second_choices = [
+            grouped[sop_id][1] for sop_id in owned_sops if len(grouped[sop_id]) > 1
+        ]
+        if len(second_choices) < extra_needed:
+            raise AssignmentError(
+                f"Reviewer {reviewer!r} needs {extra_needed} extra chats from owned SOPs, "
+                f"but only {len(second_choices)} are available"
+            )
+        random.shuffle(second_choices)
+        for _ in range(extra_needed):
+            best_chat = min(
+                second_choices,
+                key=lambda chat: (
+                    abs((workloads[reviewer] + chat.message_count) - mean_workload),
+                    chat.chat_id,
+                ),
+            )
+            assignments[reviewer].append(best_chat)
+            workloads[reviewer] += best_chat.message_count
+            second_choices.remove(best_chat)
+
     clear_existing_assignments(assignments_dir)
     for reviewer, reviewer_assignments in assignments.items():
         reviewer_dir = assignments_dir / reviewer
@@ -474,16 +572,16 @@ def run_top_up(
     count: int,
     assignments_dir: Path,
     resolver: SopResolver,
+    allowed_sops: Sequence[str] | set[str],
 ) -> tuple[list[Chat], dict[str, Chat], dict[str, list[Chat]]]:
     used_chats, reviewer_chats = read_assignment_folders(assignments_dir, resolver)
     reviewer = validate_reviewer_name(reviewer)
     reviewer_chats.setdefault(reviewer, [])
     assigned_ids = set(used_chats)
     available = [chat for chat in chats if chat.chat_id not in assigned_ids]
-    global_sop_counts = Counter(chat.sop_id for chat in used_chats.values())
     reviewer_sop_counts = Counter(chat.sop_id for chat in reviewer_chats[reviewer])
     selected = select_top_up_chats(
-        available, global_sop_counts, reviewer_sop_counts, count
+        available, reviewer_sop_counts, count, allowed_sops
     )
     reviewer_dir = assignments_dir / reviewer
     for chat in selected:
@@ -506,6 +604,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--guidelines", type=Path, default=DEFAULT_GUIDELINES)
     parser.add_argument("--guideline-aliases", type=Path, default=DEFAULT_ALIASES)
     parser.add_argument("--reviewers-file", type=Path, default=DEFAULT_REVIEWERS)
+    parser.add_argument("--reviewer-sops", type=Path, default=DEFAULT_REVIEWER_SOPS)
     parser.add_argument("--assignments", type=Path, default=DEFAULT_ASSIGNMENTS)
     parser.add_argument(
         "--initialize",
@@ -534,22 +633,26 @@ def main() -> int:
             args.guidelines, args.guideline_aliases
         )
         chats = load_source_chats(args.source, resolver)
+        reviewers = load_reviewers(args.reviewers_file)
+        reviewer_sops = load_reviewer_sops(args.reviewer_sops, reviewers, sop_ids)
         if args.initialize:
-            reviewers = load_reviewers(args.reviewers_file)
             assignments = initialize_assignments(
-                chats, reviewers, args.assignments, sop_ids
+                chats, reviewers, args.assignments, sop_ids, reviewer_sops
             )
             print(
                 f"Assigned {sum(map(len, assignments.values()))} chats to "
                 f"{len(reviewers)} reviewers."
             )
         else:
+            if args.reviewer not in reviewer_sops:
+                raise AssignmentError(f"Unknown reviewer {args.reviewer!r}")
             selected, _, _ = run_top_up(
                 chats,
                 args.reviewer,
                 args.count,
                 args.assignments,
                 resolver,
+                reviewer_sops[args.reviewer],
             )
             print(f"Assigned {len(selected)} additional chat(s) to {args.reviewer}.")
     except (AssignmentError, InputDataError, OSError, json.JSONDecodeError) as exc:

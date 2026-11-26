@@ -54,8 +54,9 @@ ACTION_SCHEMA_FILE = PROJECT_ROOT / "config" / "subflow_actions_schema.json"
 REVIEWS_FILE = ASSIGNMENTS_DIR / "reviews.json"
 PAGE_FILE = PROJECT_ROOT / "tools" / "chat_review.html"
 VALID_STATUSES = {"error", "no_error"}
+VALID_SPEAKERS = {"agent", "customer", "action"}
 MAX_REVIEW_REASON_LENGTH = 300
-MAX_REQUEST_BYTES = 64 * 1024
+MAX_REQUEST_BYTES = 256 * 1024
 
 
 class ApiError(ValueError):
@@ -73,12 +74,13 @@ class AppContext:
     sop_ids: list[str]
     source_chats: list[Chat]
     action_schema: dict[str, dict[str, dict[str, list[str]]]]
+    action_display_names: dict[str, str] = field(default_factory=dict)
     assignments_dir: Path = ASSIGNMENTS_DIR
     reviews_file: Path = REVIEWS_FILE
     lock: Any = field(default_factory=threading.RLock, repr=False)
 
 
-def load_reviews(path: Path) -> dict[str, dict[str, dict[str, str]]]:
+def load_reviews(path: Path) -> dict[str, dict[str, dict[str, Any]]]:
     if not path.exists():
         return {}
     try:
@@ -90,7 +92,7 @@ def load_reviews(path: Path) -> dict[str, dict[str, dict[str, str]]]:
     if not isinstance(data, Mapping):
         raise ApiError(f"{path.name} must contain a JSON object", 500)
 
-    reviews: dict[str, dict[str, dict[str, str]]] = {}
+    reviews: dict[str, dict[str, dict[str, Any]]] = {}
     for reviewer, entries in data.items():
         if not isinstance(reviewer, str) or not isinstance(entries, Mapping):
             raise ApiError(f"{path.name} contains an invalid reviewer entry", 500)
@@ -104,9 +106,11 @@ def load_reviews(path: Path) -> dict[str, dict[str, dict[str, str]]]:
             if isinstance(review, str):
                 status = review
                 reason = ""
+                edited = False
             else:
                 status = review.get("status")
                 reason = review.get("reason", "")
+                edited = bool(review.get("edited", False))
             if (
                 not isinstance(status, str)
                 or status not in VALID_STATUSES
@@ -114,14 +118,14 @@ def load_reviews(path: Path) -> dict[str, dict[str, dict[str, str]]]:
                 or len(reason) > MAX_REVIEW_REASON_LENGTH
             ):
                 raise ApiError(f"{path.name} contains an invalid review status", 500)
-            reviews[reviewer][chat_id] = {"status": status, "reason": reason}
+            entry: dict[str, Any] = {"status": status, "reason": reason}
+            if edited:
+                entry["edited"] = True
+            reviews[reviewer][chat_id] = entry
     return reviews
 
 
-def save_reviews(
-    path: Path,
-    reviews: Mapping[str, Mapping[str, Mapping[str, str]]],
-) -> None:
+def save_json_atomic(path: Path, data: Any, prefix: str = ".tmp-") -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary_path: Path | None = None
     try:
@@ -130,12 +134,12 @@ def save_reviews(
             encoding="utf-8",
             newline="\n",
             dir=path.parent,
-            prefix=".reviews-",
+            prefix=prefix,
             suffix=".tmp",
             delete=False,
         ) as file:
             temporary_path = Path(file.name)
-            json.dump(reviews, file, ensure_ascii=False, indent=2)
+            json.dump(data, file, ensure_ascii=False, indent=2)
             file.write("\n")
             file.flush()
             os.fsync(file.fileno())
@@ -148,6 +152,83 @@ def save_reviews(
                 temporary_path.unlink()
             except FileNotFoundError:
                 pass
+
+
+def save_reviews(
+    path: Path,
+    reviews: Mapping[str, Mapping[str, Mapping[str, Any]]],
+) -> None:
+    save_json_atomic(path, reviews, prefix=".reviews-")
+
+
+def validate_edited_messages(raw_messages: Any) -> list[dict[str, Any]]:
+    if not isinstance(raw_messages, list) or not raw_messages:
+        raise ApiError("messages must be a non-empty list")
+
+    validated: list[dict[str, Any]] = []
+    for index, item in enumerate(raw_messages, start=1):
+        if not isinstance(item, Mapping):
+            raise ApiError(f"Message #{index} must be an object")
+        speaker_raw = item.get("speaker")
+        if not isinstance(speaker_raw, str):
+            raise ApiError(f"Message #{index} is missing a valid speaker")
+        speaker = speaker_raw.strip().casefold()
+        if speaker not in VALID_SPEAKERS:
+            raise ApiError(
+                f"Message #{index} speaker must be 'agent', 'customer', or 'action'"
+            )
+        text = item.get("text")
+        if not isinstance(text, str) or not text.strip():
+            raise ApiError(f"Message #{index} must have non-empty text")
+
+        entry: dict[str, Any] = {"speaker": speaker, "text": text}
+        if speaker == "action":
+            function_name = item.get("function_name", "")
+            if function_name is None:
+                function_name = ""
+            if not isinstance(function_name, str):
+                raise ApiError(f"Action message #{index} function_name must be a string")
+            parameters = item.get("parameters", [])
+            if parameters is None:
+                parameters = []
+            if not isinstance(parameters, list) or any(
+                not isinstance(param, str) for param in parameters
+            ):
+                raise ApiError(
+                    f"Action message #{index} parameters must be a list of strings"
+                )
+            entry["function_name"] = function_name.strip()
+            entry["parameters"] = list(parameters)
+        validated.append(entry)
+    return validated
+
+
+def apply_edited_messages(
+    record: Mapping[str, Any],
+    messages: Sequence[Mapping[str, Any]],
+) -> dict[str, Any]:
+    updated = dict(record)
+    scenario = updated.get("scenario")
+    subflow = (
+        scenario.get("subflow", "") if isinstance(scenario, Mapping) else ""
+    )
+    updated["original"] = [[msg["speaker"], msg["text"]] for msg in messages]
+    delexed: list[dict[str, Any]] = []
+    for turn_count, msg in enumerate(messages, start=1):
+        if msg["speaker"] == "action":
+            function_name = msg.get("function_name") or None
+            parameters = list(msg.get("parameters", []))
+            targets: list[Any] = [subflow, None, function_name, parameters, -1]
+        else:
+            targets = [subflow, None, None, [], -1]
+        delexed.append({
+            "speaker": msg["speaker"],
+            "text": msg["text"].lower(),
+            "turn_count": turn_count,
+            "targets": targets,
+        })
+    updated["delexed"] = delexed
+    return updated
 
 
 def validate_review_entry(status: Any, reason: Any = "") -> dict[str, str]:
@@ -299,23 +380,19 @@ def load_action_schema(
     return schema
 
 
-def expected_action_parameters(
-    record: Mapping[str, Any],
+def _lookup_subflow_actions(
+    flow_name: str,
+    subflow_name: str,
     canonical_name: str,
-    function_name: str,
     action_schema: Mapping[str, Mapping[str, Mapping[str, list[str]]]],
     guideline_aliases: Mapping[str, Mapping[str, str]],
-) -> list[str] | None:
-    scenario = record.get("scenario")
-    if not isinstance(scenario, Mapping):
-        return None
-
-    flow_key = normalize_name(scenario.get("flow", ""))
+) -> Mapping[str, list[str]] | None:
+    flow_key = normalize_name(flow_name)
     subflows = action_schema.get(flow_key)
     if subflows is None:
         return None
 
-    subflow_key = normalize_name(scenario.get("subflow", ""))
+    subflow_key = normalize_name(subflow_name)
     actions = subflows.get(subflow_key)
     canonical_key = normalize_name(canonical_name)
     if actions is None:
@@ -329,9 +406,88 @@ def expected_action_parameters(
         ]
         if len(alias_matches) == 1:
             actions = alias_matches[0]
+    return actions
+
+
+def _resolve_subflow_actions(
+    record: Mapping[str, Any],
+    canonical_name: str,
+    action_schema: Mapping[str, Mapping[str, Mapping[str, list[str]]]],
+    guideline_aliases: Mapping[str, Mapping[str, str]],
+    sop_guideline: Mapping[str, Any] | None = None,
+) -> dict[str, list[str]] | None:
+    scenario = record.get("scenario")
+    if not isinstance(scenario, Mapping):
+        return None
+
+    main_actions = _lookup_subflow_actions(
+        str(scenario.get("flow", "")),
+        str(scenario.get("subflow", "")),
+        canonical_name,
+        action_schema,
+        guideline_aliases,
+    )
+    merged: dict[str, list[str]] = dict(main_actions) if main_actions else {}
+
+    if isinstance(sop_guideline, Mapping):
+        referenced = sop_guideline.get("referenced_subflows")
+        if isinstance(referenced, Mapping):
+            for ref_subflow, ref_data in referenced.items():
+                if not isinstance(ref_data, Mapping):
+                    continue
+                ref_flow = ref_data.get("flow")
+                if not isinstance(ref_flow, str):
+                    continue
+                ref_actions = _lookup_subflow_actions(
+                    ref_flow,
+                    str(ref_subflow),
+                    str(ref_subflow),
+                    action_schema,
+                    guideline_aliases,
+                )
+                if ref_actions:
+                    for action_key, params in ref_actions.items():
+                        merged.setdefault(action_key, params)
+
+    return merged or None
+
+
+def expected_action_parameters(
+    record: Mapping[str, Any],
+    canonical_name: str,
+    function_name: str,
+    action_schema: Mapping[str, Mapping[str, Mapping[str, list[str]]]],
+    guideline_aliases: Mapping[str, Mapping[str, str]],
+    sop_guideline: Mapping[str, Any] | None = None,
+) -> list[str] | None:
+    actions = _resolve_subflow_actions(
+        record, canonical_name, action_schema, guideline_aliases, sop_guideline
+    )
     if actions is None:
         return None
     return actions.get(normalize_name(function_name))
+
+
+def load_action_display_names(path: Path) -> dict[str, str]:
+    data = load_json(path)
+    names: dict[str, str] = {}
+    if not isinstance(data, Mapping):
+        return names
+    for flow, flow_data in data.items():
+        if flow == "_description" or not isinstance(flow_data, Mapping):
+            continue
+        subflows = flow_data.get("subflows")
+        if not isinstance(subflows, Mapping):
+            continue
+        for subflow_data in subflows.values():
+            if not isinstance(subflow_data, Mapping):
+                continue
+            for action in subflow_data.get("actions", []):
+                if isinstance(action, Mapping) and len(action) == 1:
+                    action_name = next(iter(action.keys()))
+                    if isinstance(action_name, str):
+                        names.setdefault(normalize_name(action_name), action_name)
+    return names
 
 
 def create_app_context() -> AppContext:
@@ -342,6 +498,7 @@ def create_app_context() -> AppContext:
     reviewer_sops = load_reviewer_sops(REVIEWER_SOPS_FILE, reviewers, sop_ids)
     source_chats = load_source_chats(DEFAULT_SOURCE, resolver)
     action_schema = load_action_schema(ACTION_SCHEMA_FILE)
+    action_display_names = load_action_display_names(ACTION_SCHEMA_FILE)
     return AppContext(
         reviewers=reviewers,
         reviewer_sops=reviewer_sops,
@@ -350,6 +507,7 @@ def create_app_context() -> AppContext:
         sop_ids=sop_ids,
         source_chats=source_chats,
         action_schema=action_schema,
+        action_display_names=action_display_names,
     )
 
 
@@ -408,6 +566,9 @@ class ReviewRequestHandler(BaseHTTPRequestHandler):
         guideline_aliases = self.app.resolver[1]
         for chat in reviewer_chats.get(reviewer, []):
             messages = message_list(chat.record)
+            sop_guideline = resolve_chat_guideline(
+                chat.record, 0, self.app.resolver
+            )
             for message in messages:
                 if message["speaker"].casefold() != "action":
                     continue
@@ -421,22 +582,41 @@ class ReviewRequestHandler(BaseHTTPRequestHandler):
                     function_name,
                     self.app.action_schema,
                     guideline_aliases,
+                    sop_guideline,
                 )
+            backup_path = (
+                self.app.assignments_dir
+                / reviewer
+                / ".originals"
+                / f"{chat.sop_id}__{chat.chat_id}.json"
+            )
+            review_entry = reviewer_reviews.get(chat.chat_id, {})
+            has_original = backup_path.exists()
+            edited = has_original or bool(review_entry.get("edited", False))
             chats.append({
                 "chat_id": chat.chat_id,
                 "sop_id": chat.sop_id,
                 "sop_name": self.app.canonical_names[chat.sop_id],
                 "message_count": chat.message_count,
-                "status": reviewer_reviews.get(chat.chat_id, {}).get(
-                    "status", "pending"
-                ),
-                "review_reason": reviewer_reviews.get(chat.chat_id, {}).get(
-                    "reason", ""
-                ),
+                "has_original": has_original,
+                "edited": edited,
+                "status": review_entry.get("status", "pending"),
+                "review_reason": review_entry.get("reason", ""),
                 "scenario": chat.record.get("scenario", {}),
-                "sop_guideline": resolve_chat_guideline(
-                    chat.record, 0, self.app.resolver
-                ),
+                "sop_guideline": sop_guideline,
+                "sop_actions": {
+                    self.app.action_display_names.get(action_key, action_key): list(params)
+                    for action_key, params in (
+                        _resolve_subflow_actions(
+                            chat.record,
+                            self.app.canonical_names[chat.sop_id],
+                            self.app.action_schema,
+                            guideline_aliases,
+                            sop_guideline,
+                        )
+                        or {}
+                    ).items()
+                },
                 "messages": messages,
             })
         return sorted(
@@ -490,6 +670,10 @@ class ReviewRequestHandler(BaseHTTPRequestHandler):
                 self._save_review(data)
             elif path == "/api/rollback":
                 self._rollback_review(data)
+            elif path == "/api/update-chat":
+                self._update_chat(data)
+            elif path == "/api/revert-chat":
+                self._revert_chat(data)
             else:
                 raise ApiError("Not found", 404)
         except (ApiError, AssignmentError, InputDataError, OSError) as exc:
@@ -530,12 +714,18 @@ class ReviewRequestHandler(BaseHTTPRequestHandler):
     def _save_review(self, data: Mapping[str, Any]) -> None:
         reviewer = self._validate_reviewer(data.get("reviewer"))
         chat_id, _ = self._require_assigned_chat(reviewer, data.get("chat_id"))
-        review_entry = validate_review_entry(
+        review_entry: dict[str, Any] = validate_review_entry(
             data.get("status"), data.get("reason", "")
         )
         status = review_entry["status"]
         with self.app.lock:
+            _, backup_path = self._find_chat_file(reviewer, chat_id)
             reviews = load_reviews(self.app.reviews_file)
+            existing_edited = bool(
+                reviews.get(reviewer, {}).get(chat_id, {}).get("edited", False)
+            )
+            if backup_path.exists() or existing_edited:
+                review_entry["edited"] = True
             reviews.setdefault(reviewer, {})[chat_id] = review_entry
             save_reviews(self.app.reviews_file, reviews)
             chats = self._reviewer_chats(reviewer)
@@ -563,6 +753,68 @@ class ReviewRequestHandler(BaseHTTPRequestHandler):
                 "status": "pending",
                 "chats": chats,
             },
+        )
+
+    def _find_chat_file(self, reviewer: str, chat_id: str) -> tuple[Path, Path]:
+        _, reviewer_chats = read_assignment_folders(
+            self.app.assignments_dir, self.app.resolver
+        )
+        match = next(
+            (chat for chat in reviewer_chats.get(reviewer, []) if chat.chat_id == chat_id),
+            None,
+        )
+        if match is None:
+            raise ApiError("Chat is not assigned to this reviewer", 404)
+        reviewer_dir = self.app.assignments_dir / reviewer
+        chat_path = reviewer_dir / f"{match.sop_id}__{match.chat_id}.json"
+        if not chat_path.exists():
+            raise ApiError(f"Assignment file not found for chat {chat_id}", 404)
+        backup_path = reviewer_dir / ".originals" / chat_path.name
+        return chat_path, backup_path
+
+    def _update_chat(self, data: Mapping[str, Any]) -> None:
+        reviewer = self._validate_reviewer(data.get("reviewer"))
+        chat_id = data.get("chat_id")
+        if not isinstance(chat_id, str) or not chat_id:
+            raise ApiError("A chat_id is required")
+        messages = validate_edited_messages(data.get("messages"))
+        with self.app.lock:
+            chat_path, backup_path = self._find_chat_file(reviewer, chat_id)
+            record = load_json(chat_path)
+            if not backup_path.exists():
+                save_json_atomic(backup_path, record, prefix=".orig-")
+            updated_record = apply_edited_messages(record, messages)
+            save_json_atomic(chat_path, updated_record, prefix=".chat-")
+            reviews = load_reviews(self.app.reviews_file)
+            if chat_id in reviews.get(reviewer, {}):
+                reviews[reviewer][chat_id]["edited"] = True
+                save_reviews(self.app.reviews_file, reviews)
+            chats = self._reviewer_chats(reviewer)
+        self._send_json(
+            200,
+            {"reviewer": reviewer, "chat_id": chat_id, "chats": chats},
+        )
+
+    def _revert_chat(self, data: Mapping[str, Any]) -> None:
+        reviewer = self._validate_reviewer(data.get("reviewer"))
+        chat_id = data.get("chat_id")
+        if not isinstance(chat_id, str) or not chat_id:
+            raise ApiError("A chat_id is required")
+        with self.app.lock:
+            chat_path, backup_path = self._find_chat_file(reviewer, chat_id)
+            if not backup_path.exists():
+                raise ApiError("No original backup exists for this chat", 404)
+            original_record = load_json(backup_path)
+            save_json_atomic(chat_path, original_record, prefix=".chat-")
+            backup_path.unlink()
+            reviews = load_reviews(self.app.reviews_file)
+            if chat_id in reviews.get(reviewer, {}) and "edited" in reviews[reviewer][chat_id]:
+                reviews[reviewer][chat_id].pop("edited", None)
+                save_reviews(self.app.reviews_file, reviews)
+            chats = self._reviewer_chats(reviewer)
+        self._send_json(
+            200,
+            {"reviewer": reviewer, "chat_id": chat_id, "chats": chats},
         )
 
     def _serve_page(self) -> None:

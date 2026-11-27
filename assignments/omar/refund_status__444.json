@@ -43,195 +43,63 @@
     ],
     [
       "customer",
-      "Yes, I'm Carla Ortique"
+      "Yes, I'm David Williams"
     ],
     [
       "agent",
-      "Hi Carla, how can I help you?"
+      "Hi David, how can I help you?"
     ],
     [
       "customer",
-      "Yes, base on my order purchase on 05-02-2020"
+      "I returned a pair of Tommy Hilfiger jeans from a previous order and wanted to check on my refund status and how the refund was initiated."
     ],
     [
       "agent",
-      "Sure. What is it I can help you with?"
-    ],
-    [
-      "customer",
-      "I purchase a jean from you but the size i choose wasn't the size given to me"
-    ],
-    [
-      "agent",
-      "Oh, sorry to hear that. I do apologize."
-    ],
-    [
-      "agent",
-      "Would you like to return that?"
+      "Sure, I would be happy to check that for you. Let me pull up your account first."
     ],
     [
       "action",
-      "Account has been pulled up for Carla Ortique."
+      "Account has been pulled up for David Williams."
+    ],
+    [
+      "agent",
+      "To look up your order, could you please provide your username, email address, and order ID?"
     ],
     [
       "customer",
-      "No. but i want to order for another jeans"
-    ],
-    [
-      "agent",
-      "Did you already return the jeans that were the wrong size?"
-    ],
-    [
-      "agent",
-      "We may be able to issue a refund if the jeans haven't been shipped out yet, or you already returned them"
+      "Sure, my username is dwilliams711"
     ],
     [
       "customer",
-      "No, i didn't because i gave it to my uncle"
-    ],
-    [
-      "customer",
-      "So now i need another one from brand Tommy Hilfiger"
-    ],
-    [
-      "customer",
-      "And the price range is $120"
-    ],
-    [
-      "agent",
-      "Ok, so you just want to place an order for a new pair of jeans. Gotcha. Can I get your account ID and Order ID please?"
-    ],
-    [
-      "customer",
-      "Okay"
-    ],
-    [
-      "customer",
-      "Here is my Order id 4194513554"
-    ],
-    [
-      "agent",
-      "Can I get your account ID as well?"
-    ],
-    [
-      "agent",
-      "Are you there?"
-    ],
-    [
-      "customer",
-      "Yeah"
-    ],
-    [
-      "agent",
-      "I need your account ID please"
-    ],
-    [
-      "customer",
-      "Carla Ortique"
-    ],
-    [
-      "agent",
-      "Your account ID, not your name"
-    ],
-    [
-      "agent",
-      "I'm not going to be able to help you place the order for those Tommy Hilfiger jeans without an account ID"
-    ],
-    [
-      "customer",
-      "Carlafortique"
-    ],
-    [
-      "agent",
-      "no, not your username"
-    ],
-    [
-      "agent",
-      "Unfortunately I'm not going to be able to assist you without the account ID. Maybe you can reconnect with us when you have it available."
+      "My email is dwilliams711@email.com and the order ID is 4194513554"
     ],
     [
       "action",
-      "Identity verification in progess ..."
-    ],
-    [
-      "customer",
-      "Is okay. Thank you"
-    ],
-    [
-      "action",
-      "Identity verification in progess ..."
-    ],
-    [
-      "action",
-      "Shipping status of Shipped has been noted."
-    ],
-    [
-      "action",
-      "Shipping status of Order Received has been noted."
+      "Purchase validation in progress ..."
     ],
     [
       "agent",
-      "What is your membership level?"
+      "Thank you for that information, David. I checked your order and your refund status is currently in progress."
     ],
     [
       "agent",
-      "We have Bronze, Silver, and Gold levels."
+      "Also, the payment method showing for how your refund was initiated is online."
     ],
     [
       "customer",
-      "Guest"
-    ],
-    [
-      "customer",
-      "Bronze"
+      "Oh great, that's really helpful to know. Everything looks good to me."
     ],
     [
       "agent",
-      "Ok, thanks."
+      "You're very welcome! Is there anything else I can help you with today?"
     ],
     [
       "customer",
-      "You are welcome"
+      "No, that's all for today."
     ],
     [
       "agent",
-      "And you wanted to purchase a pair of Tommy Hilfiger jeans, correct?"
-    ],
-    [
-      "customer",
-      "yes"
-    ],
-    [
-      "action",
-      "A purchase of Tommy Hilfiger Jeans was made."
-    ],
-    [
-      "customer",
-      "okay"
-    ],
-    [
-      "agent",
-      "Ok, I went ahead and placed that order for you. Can I help you with anything else today?"
-    ],
-    [
-      "customer",
-      "Nothing again"
-    ],
-    [
-      "agent",
-      "If there is nothing further, then I wish you a great rest of your day, and thank you for your business with us here at Acme."
-    ],
-    [
-      "agent",
-      "Have a great day!"
-    ],
-    [
-      "customer",
-      "And you too"
-    ],
-    [
-      "agent",
-      "Thanks. Bye now!"
+      "Have a great rest of your day, and thank you for choosing Acme. Bye now!"
     ]
   ],
   "delexed": [
@@ -253,15 +121,15 @@
       "turn_count": 2,
       "targets": [
         "refund_status",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        24
+        -1
       ]
     },
     {
       "speaker": "customer",
-      "text": "yes, i'm carla ortique",
+      "text": "yes, i'm david williams",
       "turn_count": 3,
       "targets": [
         "refund_status",
@@ -273,19 +141,19 @@
     },
     {
       "speaker": "agent",
-      "text": "hi carla, how can i help you?",
+      "text": "hi david, how can i help you?",
       "turn_count": 4,
       "targets": [
         "refund_status",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        75
+        -1
       ]
     },
     {
       "speaker": "customer",
-      "text": "yes, base on my order purchase on 05-02-2020",
+      "text": "i returned a pair of tommy hilfiger jeans from a previous order and wanted to check on my refund status and how the refund was initiated.",
       "turn_count": 5,
       "targets": [
         "refund_status",
@@ -297,20 +165,8 @@
     },
     {
       "speaker": "agent",
-      "text": "sure. what is it i can help you with?",
+      "text": "sure, i would be happy to check that for you. let me pull up your account first.",
       "turn_count": 6,
-      "targets": [
-        "refund_status",
-        "retrieve_utterance",
-        null,
-        [],
-        56
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "i purchase a jean from you but the size i choose wasn't the size given to me",
-      "turn_count": 7,
       "targets": [
         "refund_status",
         null,
@@ -320,47 +176,75 @@
       ]
     },
     {
-      "speaker": "agent",
-      "text": "oh, sorry to hear that. i do apologize.",
-      "turn_count": 8,
-      "targets": [
-        "refund_status",
-        "retrieve_utterance",
-        null,
-        [],
-        64
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "would you like to return that?",
-      "turn_count": 9,
-      "targets": [
-        "refund_status",
-        "retrieve_utterance",
-        null,
-        [],
-        99
-      ]
-    },
-    {
       "speaker": "action",
-      "text": "account has been pulled up for carla ortique.",
-      "turn_count": 10,
+      "text": "account has been pulled up for david williams.",
+      "turn_count": 7,
       "targets": [
         "refund_status",
-        "take_action",
+        null,
         "pull-up-account",
         [
-          "carla ortique"
+          "david williams"
         ],
         -1
       ]
     },
     {
+      "speaker": "agent",
+      "text": "to look up your order, could you please provide your username, email address, and order id?",
+      "turn_count": 8,
+      "targets": [
+        "refund_status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
       "speaker": "customer",
-      "text": "no. but i want to order for another jeans",
+      "text": "sure, my username is dwilliams711",
+      "turn_count": 9,
+      "targets": [
+        "refund_status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "my email is dwilliams711@email.com and the order id is 4194513554",
+      "turn_count": 10,
+      "targets": [
+        "refund_status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "purchase validation in progress ...",
       "turn_count": 11,
+      "targets": [
+        "refund_status",
+        null,
+        "validate-purchase",
+        [
+          "dwilliams711",
+          "dwilliams711@email.com",
+          "4194513554"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you for that information, david. i checked your order and your refund status is currently in progress.",
+      "turn_count": 12,
       "targets": [
         "refund_status",
         null,
@@ -371,31 +255,19 @@
     },
     {
       "speaker": "agent",
-      "text": "did you already return the jeans that were the wrong size?",
-      "turn_count": 12,
-      "targets": [
-        "refund_status",
-        "retrieve_utterance",
-        null,
-        [],
-        18
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "we may be able to issue a refund if the jeans haven't been shipped out yet, or you already returned them",
+      "text": "also, the payment method showing for how your refund was initiated is online.",
       "turn_count": 13,
       "targets": [
         "refund_status",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        17
+        -1
       ]
     },
     {
       "speaker": "customer",
-      "text": "no, i didn't because i gave it to my uncle",
+      "text": "oh great, that's really helpful to know. everything looks good to me.",
       "turn_count": 14,
       "targets": [
         "refund_status",
@@ -406,8 +278,8 @@
       ]
     },
     {
-      "speaker": "customer",
-      "text": "so now i need another one from brand tommy hilfiger",
+      "speaker": "agent",
+      "text": "you're very welcome! is there anything else i can help you with today?",
       "turn_count": 15,
       "targets": [
         "refund_status",
@@ -419,7 +291,7 @@
     },
     {
       "speaker": "customer",
-      "text": "and the price range is $120",
+      "text": "no, that's all for today.",
       "turn_count": 16,
       "targets": [
         "refund_status",
@@ -431,424 +303,14 @@
     },
     {
       "speaker": "agent",
-      "text": "ok, so you just want to place an order for a new pair of jeans. gotcha. can i get your account id and order id please?",
+      "text": "have a great rest of your day, and thank you for choosing acme. bye now!",
       "turn_count": 17,
       "targets": [
         "refund_status",
-        "retrieve_utterance",
-        null,
-        [],
-        25
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "okay",
-      "turn_count": 18,
-      "targets": [
-        "refund_status",
         null,
         null,
         [],
         -1
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "here is my order id <order_id>",
-      "turn_count": 19,
-      "targets": [
-        "refund_status",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "can i get your account id as well?",
-      "turn_count": 20,
-      "targets": [
-        "refund_status",
-        "retrieve_utterance",
-        null,
-        [],
-        17
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "are you there?",
-      "turn_count": 21,
-      "targets": [
-        "refund_status",
-        "retrieve_utterance",
-        null,
-        [],
-        54
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "yeah",
-      "turn_count": 22,
-      "targets": [
-        "refund_status",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "i need your account id please",
-      "turn_count": 23,
-      "targets": [
-        "refund_status",
-        "retrieve_utterance",
-        null,
-        [],
-        47
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "carla ortique",
-      "turn_count": 24,
-      "targets": [
-        "refund_status",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "your account id, not your name",
-      "turn_count": 25,
-      "targets": [
-        "refund_status",
-        "retrieve_utterance",
-        null,
-        [],
-        75
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "i'm not going to be able to help you place the order for those tommy hilfiger jeans without an account id",
-      "turn_count": 26,
-      "targets": [
-        "refund_status",
-        "retrieve_utterance",
-        null,
-        [],
-        63
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "carlafortique",
-      "turn_count": 27,
-      "targets": [
-        "refund_status",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "no, not your username",
-      "turn_count": 28,
-      "targets": [
-        "refund_status",
-        "retrieve_utterance",
-        null,
-        [],
-        2
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "unfortunately i'm not going to be able to assist you without the account id. maybe you can reconnect with us when you have it available.",
-      "turn_count": 29,
-      "targets": [
-        "refund_status",
-        "retrieve_utterance",
-        null,
-        [],
-        42
-      ]
-    },
-    {
-      "speaker": "action",
-      "text": "identity verification in progess ...",
-      "turn_count": 30,
-      "targets": [
-        "refund_status",
-        "take_action",
-        "verify-identity",
-        [
-          "carla ortique",
-          "carlafortique",
-          "4194513554"
-        ],
-        -1
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "is okay. thank you",
-      "turn_count": 31,
-      "targets": [
-        "refund_status",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "action",
-      "text": "identity verification in progess ...",
-      "turn_count": 32,
-      "targets": [
-        "refund_status",
-        "take_action",
-        "verify-identity",
-        [
-          "carla ortique",
-          "carlafortique",
-          "4194513554"
-        ],
-        -1
-      ]
-    },
-    {
-      "speaker": "action",
-      "text": "shipping status of shipped has been noted.",
-      "turn_count": 33,
-      "targets": [
-        "refund_status",
-        "take_action",
-        "shipping-status",
-        [
-          "shipped"
-        ],
-        -1
-      ]
-    },
-    {
-      "speaker": "action",
-      "text": "shipping status of order received has been noted.",
-      "turn_count": 34,
-      "targets": [
-        "refund_status",
-        "take_action",
-        "shipping-status",
-        [
-          "order received"
-        ],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "what is your membership level?",
-      "turn_count": 35,
-      "targets": [
-        "refund_status",
-        "retrieve_utterance",
-        null,
-        [],
-        5
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "we have bronze, silver, and gold levels.",
-      "turn_count": 36,
-      "targets": [
-        "refund_status",
-        "retrieve_utterance",
-        null,
-        [],
-        36
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "guest",
-      "turn_count": 37,
-      "targets": [
-        "refund_status",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "bronze",
-      "turn_count": 38,
-      "targets": [
-        "refund_status",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "ok, thanks.",
-      "turn_count": 39,
-      "targets": [
-        "refund_status",
-        "retrieve_utterance",
-        null,
-        [],
-        28
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "you are welcome",
-      "turn_count": 40,
-      "targets": [
-        "refund_status",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "and you wanted to purchase a pair of tommy hilfiger jeans, correct?",
-      "turn_count": 41,
-      "targets": [
-        "refund_status",
-        "retrieve_utterance",
-        null,
-        [],
-        72
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "yes",
-      "turn_count": 42,
-      "targets": [
-        "refund_status",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "action",
-      "text": "a purchase of tommy hilfiger jeans was made.",
-      "turn_count": 43,
-      "targets": [
-        "refund_status",
-        "take_action",
-        "make-purchase",
-        [
-          "tommy hilfiger jeans"
-        ],
-        -1
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "okay",
-      "turn_count": 44,
-      "targets": [
-        "refund_status",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "ok, i went ahead and placed that order for you. can i help you with anything else today?",
-      "turn_count": 45,
-      "targets": [
-        "refund_status",
-        "retrieve_utterance",
-        null,
-        [],
-        44
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "nothing again",
-      "turn_count": 46,
-      "targets": [
-        "refund_status",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "if there is nothing further, then i wish you a great rest of your day, and thank you for your business with us here at acme.",
-      "turn_count": 47,
-      "targets": [
-        "refund_status",
-        "retrieve_utterance",
-        null,
-        [],
-        20
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "have a great day!",
-      "turn_count": 48,
-      "targets": [
-        "refund_status",
-        "retrieve_utterance",
-        null,
-        [],
-        15
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "and you too",
-      "turn_count": 49,
-      "targets": [
-        "refund_status",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "thanks. bye now!",
-      "turn_count": 50,
-      "targets": [
-        "refund_status",
-        "retrieve_utterance",
-        null,
-        [],
-        90
       ]
     }
   ]

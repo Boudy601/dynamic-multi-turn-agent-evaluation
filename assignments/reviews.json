@@ -1,4 +1,332 @@
 {
+  "omar": {
+    "3627": {
+      "status": "no_error",
+      "reason": "Agent trying to modify the zip code \nSubmitting '  by mail  '  instead of  ' in store  ' despite the customer choosing ' in store '",
+      "edited": true,
+      "edited_at": "2026-11-27T19:16:34+00:00",
+      "reviewed_by": "human",
+      "reviewed_at": "2026-11-27T19:16:34+00:00"
+    },
+    "10260": {
+      "status": "no_error",
+      "reason": "The Agent skipped logging the customer's 'guest' membership via Membership Privileges\nFailed to explain the Oracle result or give a made-up reason (like a price surge) for the high fee\nAsked an irrelevant overcharge amount question\nUnprofessionally told the customer to contact a manager.",
+      "edited": true,
+      "edited_at": "2026-11-27T19:16:39+00:00",
+      "reviewed_by": "human",
+      "reviewed_at": "2026-11-27T19:16:39+00:00"
+    },
+    "2815": {
+      "status": "no_error",
+      "reason": ""
+    },
+    "3154": {
+      "status": "no_error",
+      "reason": "When Subscription Status returned $0, the agent violated the SOP by telling the customer $0 was due and entering 0 (and later 55) into Enter Detail instead of substituting the standard $99 fee.\n The agent also skipped asking if the customer had a credit card number before using the card on file.",
+      "edited": true,
+      "edited_at": "2026-11-27T19:16:37+00:00",
+      "reviewed_by": "human",
+      "reviewed_at": "2026-11-27T19:16:37+00:00"
+    },
+    "444": {
+      "status": "no_error",
+      "reason": "The chat followed the wrong customer and workflow (placing a new order for Carla Ortique instead of checking David Williams's refund status). \nThe agent skipped Validate Purchase and never provided the refund status or initiation payment method required by the Refund Status SOP.",
+      "edited": true,
+      "edited_at": "2026-11-27T19:16:40+00:00",
+      "reviewed_by": "human",
+      "reviewed_at": "2026-11-27T19:16:40+00:00"
+    },
+    "3623": {
+      "status": "no_error",
+      "reason": ""
+    },
+    "3858": {
+      "status": "no_error",
+      "reason": ""
+    },
+    "1975": {
+      "status": "no_error",
+      "reason": "The agent violated the Pricing FAQ SOP by skipping the Select Answer action (select-faq with pricing_1) after opening the pricing FAQs, and by copy-pasting the raw automated FAQ text verbatim instead of explaining the gift-wrapping policy details in natural language.",
+      "edited": true,
+      "edited_at": "2026-11-27T19:16:35+00:00",
+      "reviewed_by": "human",
+      "reviewed_at": "2026-11-27T19:16:35+00:00"
+    }
+  },
+  "amr": {
+    "7449": {
+      "status": "no_error",
+      "reason": "The agent gave clear instructions in their own words and resolved the issue via Log Out/In, but violated the SOP by skipping the required [Try Again] (try-again) action after instructing the customer to refresh the page, and delaying the [Enter Details] (troubleshoot) action until after Option 1",
+      "edited": true,
+      "edited_at": "2026-11-27T19:15:16+00:00",
+      "reviewed_by": "human",
+      "reviewed_at": "2026-11-27T19:15:16+00:00"
+    },
+    "3707": {
+      "status": "no_error",
+      "reason": "The agent correctly pulled up the account, verified identity, and logged the shipping status as 'out for delivery', but violated the SOP by skipping the required [Membership Privileges] (membership-privileges) action with parameter 'guest' after asking for the customer's membership level.",
+      "edited": true,
+      "edited_at": "2026-11-27T19:15:19+00:00",
+      "reviewed_by": "human",
+      "reviewed_at": "2026-11-27T19:15:19+00:00"
+    },
+    "7598": {
+      "status": "no_error",
+      "reason": "The agent skipped the required [Pull up Account] (pull-up-account) action after receiving the customer's name, failed to check if the customer had actually paid the bill yet, and violated the SOP by promising a manager callback and calling an out-of-SOP enter-details action with the customer's phone",
+      "edited": true,
+      "edited_at": "2026-11-27T19:15:22+00:00",
+      "reviewed_by": "human",
+      "reviewed_at": "2026-11-27T19:15:22+00:00"
+    },
+    "5833": {
+      "status": "no_error",
+      "reason": "The agent followed the wrong workflow after learning the customer ordered the wrong item—falsely offering a refund, skipping [Shipping Status] and [Update Order] ('change order'), calling out-of-SOP actions (verify-identity, ask-the-oracle), and rudely refusing to help.",
+      "edited": true,
+      "edited_at": "2026-11-27T19:15:28+00:00",
+      "reviewed_by": "human",
+      "reviewed_at": "2026-11-27T19:15:28+00:00"
+    },
+    "10588": {
+      "status": "no_error",
+      "reason": "The agent correctly completed Options 1–4 in a valid shuffled order, but violated Option 5 (Make Purchase) by skipping the required requests for the customer's credit card number and expiration date, instead calling an out-of-SOP pull-up-account action and claiming to charge a card on file.",
+      "edited": true,
+      "edited_at": "2026-11-27T19:15:24+00:00",
+      "reviewed_by": "human",
+      "reviewed_at": "2026-11-27T19:15:24+00:00"
+    },
+    "5817": {
+      "status": "no_error",
+      "reason": "After pulling up the account, the agent followed the wrong workflow—running out-of-SOP actions (validate-purchase, enter-details, update-order), skipping [Shipping Status] ('delivered'), failing to advise the Silver member on her immediate refund and return label, and skipping [Offer Refund] ('$59')",
+      "edited": true,
+      "edited_at": "2026-11-27T19:15:43+00:00",
+      "reviewed_by": "human",
+      "reviewed_at": "2026-11-27T19:15:43+00:00"
+    },
+    "5302": {
+      "status": "no_error",
+      "reason": "The agent pulled up the account by name, then followed an unrelated workflow (verify-identity, subscription-status, enter-details, send-link). They skipped record-reason (email), ask-the-oracle, and the required SOP resolution (scam-email explanation or update-account).",
+      "edited": true,
+      "edited_at": "2026-11-27T19:16:01+00:00",
+      "reviewed_by": "human",
+      "reviewed_at": "2026-11-27T19:16:01+00:00"
+    },
+    "10595": {
+      "status": "no_error",
+      "reason": ""
+    },
+    "5468": {
+      "status": "no_error",
+      "reason": "The agent properly pulled up the account, notified the purchasing department, and walked through the back-order steps. However, they entered an incomplete, misspelled item (hillfiger shirt) in record-reason and left the product parameter blank when submitting make-purchase.",
+      "edited": true,
+      "edited_at": "2026-11-27T19:15:26+00:00",
+      "reviewed_by": "human",
+      "reviewed_at": "2026-11-27T19:15:26+00:00"
+    },
+    "4394": {
+      "status": "no_error",
+      "reason": ""
+    },
+    "9959": {
+      "status": "no_error",
+      "reason": ""
+    },
+    "859": {
+      "status": "no_error",
+      "reason": "The agent committed three SOP violations: calling Validate Purchase early with the account ID instead of the order ID, skipping Record Reason after learning the 9-day wait time, and calling Update Order with 'jeans' instead of asking for the brand and product type and calling Make Purchase.",
+      "edited": true,
+      "edited_at": "2026-11-27T19:15:57+00:00",
+      "reviewed_by": "human",
+      "reviewed_at": "2026-11-27T19:15:57+00:00"
+    },
+    "9686": {
+      "status": "no_error",
+      "reason": ""
+    },
+    "9031": {
+      "status": "no_error",
+      "reason": ""
+    },
+    "1332": {
+      "status": "no_error",
+      "reason": "The agent violated the SOP on Option 3 by asking the customer to check their credit card expiration date without executing the required Enter Details action with the parameter 'troubleshoot'. Options 1 and 2 (Try Again and Log Out/In) were handled properly, and the issue was resolved.",
+      "edited": true,
+      "edited_at": "2026-11-27T19:15:35+00:00",
+      "reviewed_by": "human",
+      "reviewed_at": "2026-11-27T19:15:35+00:00"
+    },
+    "6775": {
+      "status": "no_error",
+      "reason": ""
+    },
+    "862": {
+      "status": "no_error",
+      "reason": "The agent violated the SOP by calling Validate Purchase before Pull up Account without asking for username/email and re-running it with wrong parameters, skipping the Shipping Status action for 'In Transit', and offering to cancel the order instead of waiving the shipping fee.",
+      "edited": true,
+      "edited_at": "2026-11-27T19:15:46+00:00",
+      "reviewed_by": "human",
+      "reviewed_at": "2026-11-27T19:15:46+00:00"
+    },
+    "2647": {
+      "status": "no_error",
+      "reason": ""
+    },
+    "7325": {
+      "status": "no_error",
+      "reason": ""
+    },
+    "6849": {
+      "status": "no_error",
+      "reason": "The agent properly completed Verify Identity, Validate Purchase, and Ask the Oracle, but violated the SOP by skipping the required pull-up-account action after obtaining the customer's full name. The closing answer was also brief, though the customer confirmed nothing else was needed.",
+      "edited": true,
+      "edited_at": "2026-11-27T19:15:30+00:00",
+      "reviewed_by": "human",
+      "reviewed_at": "2026-11-27T19:15:30+00:00"
+    },
+    "5055": {
+      "status": "no_error",
+      "reason": ""
+    },
+    "5798": {
+      "status": "no_error",
+      "reason": "The agent properly completed Pull up Account, Shipping Status, and Validate Purchase, but violated the SOP during Update Order by entering the wrong parameter (change order instead of change address) after collecting the customer's new shipping address.",
+      "edited": true,
+      "edited_at": "2026-11-27T19:15:53+00:00",
+      "reviewed_by": "human",
+      "reviewed_at": "2026-11-27T19:15:53+00:00"
+    },
+    "7562": {
+      "status": "no_error",
+      "reason": ""
+    },
+    "1696": {
+      "status": "no_error",
+      "reason": ""
+    },
+    "7887": {
+      "status": "no_error",
+      "reason": "",
+      "reviewed_by": "human",
+      "reviewed_at": "2026-11-27T19:15:40+00:00"
+    },
+    "10168": {
+      "status": "no_error",
+      "reason": "The agent correctly pulled up the account, validated the purchase, updated the order with the customer's full address, and resent the item via Make Purchase. However, the agent violated the SOP by skipping the Record Reason step—failing to ask how many days the customer waited and log it.",
+      "edited": true,
+      "edited_at": "2026-11-27T19:15:38+00:00",
+      "reviewed_by": "human",
+      "reviewed_at": "2026-11-27T19:15:38+00:00"
+    },
+    "10271": {
+      "status": "no_error",
+      "reason": "The agent correctly pulled up the account, verified identity, validated the purchase, and updated the order with 'change address'. However, the agent violated the SOP by skipping the required Ask the Oracle step and calling off-SOP actions (shipping-status and enter-details) instead",
+      "edited": true,
+      "edited_at": "2026-11-27T19:16:05+00:00",
+      "reviewed_by": "human",
+      "reviewed_at": "2026-11-27T19:16:05+00:00"
+    },
+    "7062": {
+      "status": "no_error",
+      "reason": "The agent violated Option 3 of the SOP by failing to trigger the enter-details action with the parameter 'troubleshoot' after instructing the customer to check the bottom left of the product page for an out-of-stock status. Options 1 and 2 were handled properly.",
+      "edited": true,
+      "edited_at": "2026-11-27T19:16:14+00:00",
+      "reviewed_by": "human",
+      "reviewed_at": "2026-11-27T19:16:14+00:00"
+    },
+    "10367": {
+      "status": "no_error",
+      "reason": "The agent correctly pulled up the account, validated the purchase, and updated the order with 'change order'. However, after asking for the shipping status, the agent violated the SOP by calling Pull up Account with 'order received' instead of using the required Shipping Status action.",
+      "edited": true,
+      "edited_at": "2026-11-27T19:15:49+00:00",
+      "reviewed_by": "human",
+      "reviewed_at": "2026-11-27T19:15:49+00:00"
+    },
+    "1386": {
+      "status": "no_error",
+      "reason": "The agent violated the SOP in three ways: they skipped calling record-reason for the 9-day wait, entered an incomplete address missing state and ZIP in update-order, and failed to ask for the product brands/types, erroneously passing the order ID to make-purchase.",
+      "edited": true,
+      "edited_at": "2026-11-27T19:15:33+00:00",
+      "reviewed_by": "human",
+      "reviewed_at": "2026-11-27T19:15:33+00:00"
+    },
+    "6473": {
+      "status": "no_error",
+      "reason": ""
+    },
+    "6262": {
+      "status": "no_error",
+      "reason": ""
+    },
+    "4540": {
+      "status": "no_error",
+      "reason": "The agent violated Option 3 of the SOP by failing to trigger the enter-details action with the parameter 'troubleshoot' after instructing the customer to check the bottom left of the product page for an out-of-stock status. Options 1 and 2 were handled properly.",
+      "edited": true,
+      "edited_at": "2026-11-27T19:16:10+00:00",
+      "reviewed_by": "human",
+      "reviewed_at": "2026-11-27T19:16:10+00:00"
+    },
+    "9307": {
+      "status": "no_error",
+      "reason": ""
+    }
+  },
+  "youssef": {
+    "3161": {
+      "status": "no_error",
+      "reason": "The agent prematurely recorded the wrong address with city in Record Reason before correcting it, and failed Verify Identity by repeatedly passing an unmatched phone number instead of 3 valid items provided by the customer, then updated the account without ever completing verification.",
+      "edited": true,
+      "edited_at": "2026-11-27T19:16:19+00:00",
+      "reviewed_by": "human",
+      "reviewed_at": "2026-11-27T19:16:19+00:00"
+    },
+    "6007": {
+      "status": "no_error",
+      "reason": "After properly verifying identity, the agent needlessly requested extra fields and ran two invalid verify-identity calls. Later, even though the order was in transit—requiring the customer to wait for delivery to start a return—the agent violated the SOP by offering and issuing a $59 refund",
+      "edited": true,
+      "edited_at": "2026-11-27T19:16:27+00:00",
+      "reviewed_by": "human",
+      "reviewed_at": "2026-11-27T19:16:27+00:00"
+    },
+    "1219": {
+      "status": "no_error",
+      "reason": "The agent followed the wrong SOP (Manage Change Address instead of Manage Shipping), skipping Shipping Status, Validate Purchase, and Update Order. Instead, they spent turns disputing the current address and improperly ran record-reason, verify-identity, and update-account.",
+      "edited": true,
+      "edited_at": "2026-11-27T19:16:25+00:00",
+      "reviewed_by": "human",
+      "reviewed_at": "2026-11-27T19:16:25+00:00"
+    },
+    "157": {
+      "status": "no_error",
+      "reason": "The agent skipped pull-up-account, validate-purchase, and record-reason, falsely claiming an Account ID was needed and instead calling verify-identity and ask-the-oracle three times each at the end. They also called update-order with invalid parameters ('by mail', 'change order') instead of 'give cr",
+      "edited": true,
+      "edited_at": "2026-11-27T19:16:28+00:00",
+      "reviewed_by": "human",
+      "reviewed_at": "2026-11-27T19:16:28+00:00"
+    },
+    "1714": {
+      "status": "no_error",
+      "reason": "The agent ran FAQ actions (search-faq, search-shirt, search-pricing, search-policy) that belong to other flows and delayed pulling up the account. Record-reason, verify-identity and promo-code were right. It also promised the code would match the competitor's price. The corrected chat removes the FA",
+      "edited": true,
+      "edited_at": "2026-11-27T19:16:21+00:00",
+      "reviewed_by": "human",
+      "reviewed_at": "2026-11-27T19:16:21+00:00"
+    },
+    "1413": {
+      "status": "no_error",
+      "reason": "The agent called the Oracle before getting the membership level and never relayed the result. It also used non-SOP actions (instructions, notify-team), invented a manager's name and phone number, and never asked if the customer needed anything else. The fix puts membership before the Oracle and ends",
+      "edited": true,
+      "edited_at": "2026-11-27T19:16:22+00:00",
+      "reviewed_by": "human",
+      "reviewed_at": "2026-11-27T19:16:22+00:00"
+    },
+    "6680": {
+      "status": "no_error",
+      "reason": ""
+    },
+    "10020": {
+      "status": "no_error",
+      "reason": ""
+    }
+  },
   "bahaa": {
     "3736": {
       "status": "no_error",

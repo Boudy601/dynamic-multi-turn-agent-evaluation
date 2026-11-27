@@ -1,0 +1,550 @@
+{
+  "convo_id": 10168,
+  "scenario": {
+    "personal": {
+      "account_id": "gty415skrm",
+      "customer_name": "albert sanders",
+      "email": "albertsanders284@email.com",
+      "member_level": "guest",
+      "phone": "(996) 961-3275",
+      "username": "albertsanders284"
+    },
+    "order": {
+      "street_address": "5363 1st ave",
+      "full_address": "5363 1st ave  la fayette, ca 41615",
+      "city": "la fayette",
+      "num_products": "3",
+      "order_id": "9051381325",
+      "products": "[{'brand': 'michael_kors', 'product_type': 'shirt', 'amount': 69, 'image_url': 'images/michael_kors-shirt.jpeg'}, {'brand': 'calvin_klein', 'product_type': 'shirt', 'amount': 79, 'image_url': 'images/calvin_klein-shirt.jpeg'}, {'brand': 'tommy_hilfiger', 'product_type': 'shirt', 'amount': 99, 'image_url': 'images/tommy_hilfiger-shirt.jpeg'}]",
+      "purchase_date": "2019-11-28",
+      "state": "ca",
+      "zip_code": "41615"
+    },
+    "product": {
+      "names": [
+        "michael_kors shirt",
+        "calvin_klein shirt",
+        "tommy_hilfiger shirt"
+      ],
+      "amounts": [
+        69,
+        79,
+        99
+      ]
+    },
+    "flow": "shipping_issue",
+    "subflow": "missing"
+  },
+  "original": [
+    [
+      "agent",
+      "Hi.  How can I help you?"
+    ],
+    [
+      "customer",
+      "HI! I ordered a shirt on November 2019 but it never came"
+    ],
+    [
+      "agent",
+      "OK"
+    ],
+    [
+      "customer",
+      "Can you check the status of my order"
+    ],
+    [
+      "agent",
+      "Yes"
+    ],
+    [
+      "agent",
+      "Can you tell me your name, your username, your email address, and an order ID?"
+    ],
+    [
+      "customer",
+      "Albert Sanders"
+    ],
+    [
+      "customer",
+      "Username: albertsanders284"
+    ],
+    [
+      "customer",
+      "Email Address: albertsanders284@email.com"
+    ],
+    [
+      "customer",
+      "Order ID: 9051381325"
+    ],
+    [
+      "action",
+      "Account has been pulled up for Albert Sanders."
+    ],
+    [
+      "action",
+      "Purchase validation in progress ..."
+    ],
+    [
+      "agent",
+      "How many days have you been waiting for your order?"
+    ],
+    [
+      "customer",
+      "It's been about 3 months, around 90 days"
+    ],
+    [
+      "action",
+      "Reason has been recorded as 90 days."
+    ],
+    [
+      "agent",
+      "Ok, I'll resend the shirt"
+    ],
+    [
+      "agent",
+      "Which shirt is it?"
+    ],
+    [
+      "customer",
+      "A michael Kors shirt"
+    ],
+    [
+      "agent",
+      "Tell me your address and I'll send it"
+    ],
+    [
+      "customer",
+      "5363 1st Ave  La Fayette, CA 41615"
+    ],
+    [
+      "action",
+      "Order has been updated with 5363 1st Ave La Fayette, CA 41615."
+    ],
+    [
+      "action",
+      "A purchase of Michael Kors Shirt was made."
+    ],
+    [
+      "agent",
+      "I've sent the shirt again"
+    ],
+    [
+      "customer",
+      "Ok. I hope it won't take months this time"
+    ],
+    [
+      "customer",
+      "Thank you"
+    ],
+    [
+      "agent",
+      "It should take less than a week"
+    ],
+    [
+      "agent",
+      "Is there anything else I can do for you today?"
+    ],
+    [
+      "customer",
+      "Great"
+    ],
+    [
+      "customer",
+      "That's all"
+    ],
+    [
+      "customer",
+      "Thank you"
+    ],
+    [
+      "agent",
+      "Ok, I'll end this chat now"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "hi.  how can i help you?",
+      "turn_count": 1,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "hi! i ordered a shirt on november 2019 but it never came",
+      "turn_count": 2,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok",
+      "turn_count": 3,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "can you check the status of my order",
+      "turn_count": 4,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "yes",
+      "turn_count": 5,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can you tell me your name, your username, your email address, and an order id?",
+      "turn_count": 6,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "albert sanders",
+      "turn_count": 7,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "username: albertsanders284",
+      "turn_count": 8,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "email address: albertsanders284@email.com",
+      "turn_count": 9,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "order id: 9051381325",
+      "turn_count": 10,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for albert sanders.",
+      "turn_count": 11,
+      "targets": [
+        "missing",
+        null,
+        "pull-up-account",
+        [
+          "albert sanders"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "purchase validation in progress ...",
+      "turn_count": 12,
+      "targets": [
+        "missing",
+        null,
+        "validate-purchase",
+        [
+          "albertsanders284",
+          "albertsanders284@email.com",
+          "9051381325"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "how many days have you been waiting for your order?",
+      "turn_count": 13,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "it's been about 3 months, around 90 days",
+      "turn_count": 14,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "reason has been recorded as 90 days.",
+      "turn_count": 15,
+      "targets": [
+        "missing",
+        null,
+        "record-reason",
+        [
+          "90"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok, i'll resend the shirt",
+      "turn_count": 16,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "which shirt is it?",
+      "turn_count": 17,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "a michael kors shirt",
+      "turn_count": 18,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "tell me your address and i'll send it",
+      "turn_count": 19,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "5363 1st ave  la fayette, ca 41615",
+      "turn_count": 20,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "order has been updated with 5363 1st ave la fayette, ca 41615.",
+      "turn_count": 21,
+      "targets": [
+        "missing",
+        null,
+        "update-order",
+        [
+          "5363 1st ave la fayette, ca 41615"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "a purchase of michael kors shirt was made.",
+      "turn_count": 22,
+      "targets": [
+        "missing",
+        null,
+        "make-purchase",
+        [
+          "michael kors shirt"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i've sent the shirt again",
+      "turn_count": 23,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok. i hope it won't take months this time",
+      "turn_count": 24,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thank you",
+      "turn_count": 25,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "it should take less than a week",
+      "turn_count": 26,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "is there anything else i can do for you today?",
+      "turn_count": 27,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "great",
+      "turn_count": 28,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "that's all",
+      "turn_count": 29,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thank you",
+      "turn_count": 30,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok, i'll end this chat now",
+      "turn_count": 31,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    }
+  ]
+}

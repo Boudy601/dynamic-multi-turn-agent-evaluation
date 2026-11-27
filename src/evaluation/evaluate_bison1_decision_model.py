@@ -52,32 +52,44 @@ from server import (  # noqa: E402
 
 SYSTEMONE_URL = "https://inference.baseten.co/v1/systemone"
 DEFAULT_MODEL = "decision-models/baseten-bison-latest"
-DEFAULT_REVIEWER = "bahaa"
-DEFAULT_PAIR_COUNT = 10
+DEFAULT_REVIEWERS = ("amr", "omar", "youssef")
+DEFAULT_PAIR_COUNT = -1
 DEFAULT_SEED = 42
-DEFAULT_THRESHOLD = 0.5
+DEFAULT_CLEAN_CONFIDENCE_THRESHOLD = 0.85
 DEFAULT_TIMEOUT_SECONDS = 60.0
 DEFAULT_LOG_DIR = PROJECT_ROOT / "logs"
 
 DETECTION_INSTRUCTIONS = (
-    "Check this chat against the attached SOP and User Scenario to determine whether "
+"Check this chat against the attached SOP and User Scenario to determine whether "
     "the agent committed any meaningful SOP violation. "
     "Treat the SOP as the ground truth—note that the 'Expected parameters:' lines in "
     "the chat logs are just system hints showing possible parameters, not strict SOP "
     "requirements. "
     "Important evaluation rules: "
     "(1) Use practical, human common sense. Do NOT nitpick natural conversational flow, "
-    "small talk, empathy, or minor step-ordering flexibility (e.g., chatting briefly or "
-    "reassuring the customer before asking for their name/Account ID is completely fine). "
-    "(2) Answer YES only if there is at least one meaningful SOP violation, such as: "
-    "skipping required tool calls/actions, entering wrong or blank parameters, following "
-    "the wrong workflow/resolution, failing to provide required information/links/codes, "
-    "or breaking explicit business rules (like issuing a refund when they shouldn't)."
+    "small talk, empathy, paraphrasing, or harmless step-ordering flexibility (e.g., "
+    "reassuring the customer before asking for their name/Account ID is fine, as long as "
+    "required gates like identity verification are not skipped before taking an action). "
+    "(2) Answer YES only if there is at least one meaningful SOP violation in any of "
+    "these categories: "
+    "(a) Tool & parameter errors: skipping a required action, calling the wrong tool, "
+    "entering wrong, blank, or mismatched parameters compared to the SOP or User Scenario, "
+    "or claiming an action was taken without actually calling the tool; "
+    "(b) Workflow & policy breaches: taking the wrong resolution path, violating explicit "
+    "business or eligibility rules (e.g., granting a refund, credit, or exception when "
+    "ineligible), or ignoring mandatory SOP conditions and prerequisites; "
+    "(c) Missing required deliverables: failing to gather required information or failing "
+    "to share required codes, links, policies, or next steps with the customer; "
+    "(d) Overpromising & unsupported claims: fabricating details or guaranteeing specific "
+    "outcomes, amounts, matches, or timelines not supported by the SOP, User Scenario, or "
+    "tool outputs (e.g., promising an exact discount amount, price match, or delivery/refund "
+    "timeframe when the SOP only authorizes a generic action or does not specify one)."
 )
 
 
 @dataclass(frozen=True)
 class EvaluationCase:
+    reviewer: str
     pair_filename: str
     chat_id: str
     sop_id: str
@@ -90,6 +102,7 @@ class EvaluationCase:
 
 @dataclass(frozen=True)
 class CaseResult:
+    reviewer: str
     pair_filename: str
     chat_id: str
     sop_id: str
@@ -185,38 +198,64 @@ def build_case_state(
     return chat_id, sop_id, sop_name, state
 
 
+def normalize_reviewers(raw_reviewers: Sequence[str]) -> list[str]:
+    """Flatten space- or comma-separated reviewer names while preserving order."""
+    reviewers: list[str] = []
+    seen: set[str] = set()
+    for item in raw_reviewers:
+        for part in item.split(","):
+            name = part.strip()
+            if name and name not in seen:
+                seen.add(name)
+                reviewers.append(name)
+    if not reviewers:
+        raise ValueError("At least one reviewer must be specified")
+    return reviewers
+
+
 def load_paired_cases(
-    reviewer_dir: Path,
+    reviewer_dirs: Path | Sequence[Path],
     pair_count: int,
     seed: int,
 ) -> list[EvaluationCase]:
     """Sample paired original (incorrect) and edited (corrected) chats for evaluation."""
-    originals_dir = reviewer_dir / ".originals"
-    if not originals_dir.is_dir():
-        raise FileNotFoundError(f"Originals directory not found: {originals_dir}")
+    dirs = [reviewer_dirs] if isinstance(reviewer_dirs, Path) else list(reviewer_dirs)
+    if not dirs:
+        raise ValueError("At least one reviewer directory is required")
 
-    available_filenames = sorted(
-        path.name
-        for path in originals_dir.glob("*.json")
-        if (reviewer_dir / path.name).is_file()
-    )
-    if pair_count <= 0:
-        raise ValueError("pair_count must be positive")
-    if pair_count > len(available_filenames):
+    available_pairs: list[tuple[str, Path, Path]] = []
+    for reviewer_dir in dirs:
+        originals_dir = reviewer_dir / ".originals"
+        if not originals_dir.is_dir():
+            raise FileNotFoundError(f"Originals directory not found: {originals_dir}")
+        for orig_path in sorted(originals_dir.glob("*.json")):
+            edited_path = reviewer_dir / orig_path.name
+            if edited_path.is_file():
+                available_pairs.append((reviewer_dir.name, orig_path, edited_path))
+
+    if not available_pairs:
+        dir_list = ", ".join(str(d) for d in dirs)
+        raise ValueError(f"No paired chats exist across [{dir_list}]")
+    if pair_count == -1:
+        sampled_pairs = available_pairs
+    elif pair_count <= 0:
+        raise ValueError("pair_count must be positive or -1 for all paired chats")
+    elif pair_count > len(available_pairs):
+        dir_list = ", ".join(str(d) for d in dirs)
         raise ValueError(
-            f"Requested {pair_count} pairs, but only {len(available_filenames)} "
-            f"paired chats exist in {originals_dir}"
+            f"Requested {pair_count} pairs, but only {len(available_pairs)} "
+            f"paired chats exist across [{dir_list}]"
         )
-
-    sampled_filenames = random.Random(seed).sample(available_filenames, pair_count)
+    else:
+        sampled_pairs = random.Random(seed).sample(available_pairs, pair_count)
     resolver, canonical_names, _ = build_sop_resolver(GUIDELINES_FILE, DEFAULT_ALIASES)
     action_schema = load_action_schema(ACTION_SCHEMA_FILE)
 
     cases: list[EvaluationCase] = []
-    for filename in sampled_filenames:
+    for reviewer, orig_path, edited_path in sampled_pairs:
         variants = (
-            ("original_error", True, originals_dir / filename),
-            ("edited_clean", False, reviewer_dir / filename),
+            ("original_error", True, orig_path),
+            ("edited_clean", False, edited_path),
         )
         for variant, expected_violation, path in variants:
             record = load_json(path)
@@ -225,7 +264,8 @@ def load_paired_cases(
             )
             cases.append(
                 EvaluationCase(
-                    pair_filename=filename,
+                    reviewer=reviewer,
+                    pair_filename=orig_path.name,
                     chat_id=chat_id,
                     sop_id=sop_id,
                     sop_name=sop_name,
@@ -268,7 +308,7 @@ def evaluate_case(
     api_key: str,
     model: str,
     case: EvaluationCase,
-    threshold: float,
+    clean_confidence_threshold: float,
     timeout_seconds: float,
 ) -> CaseResult:
     """Send a single chat evaluation request to the Baseten System One endpoint."""
@@ -301,13 +341,16 @@ def evaluate_case(
     except urllib.error.HTTPError as exc:
         detail = exc.read().decode("utf-8", errors="replace")
         raise RuntimeError(
-            f"System One API HTTP {exc.code} for {case.pair_filename} "
+            f"System One API HTTP {exc.code} for {case.reviewer}/{case.pair_filename} "
             f"({case.variant}): {detail}"
         ) from exc
     latency = time.perf_counter() - started
     prob = extract_noul_probability(payload, "has_sop_violation")
-    predicted = prob >= threshold
+    # Predict clean (NO) only when confidence in NO (1 - p_violation) meets the threshold.
+    clean_confidence = 1.0 - prob
+    predicted = clean_confidence < clean_confidence_threshold
     return CaseResult(
+        reviewer=case.reviewer,
         pair_filename=case.pair_filename,
         chat_id=case.chat_id,
         sop_id=case.sop_id,
@@ -353,10 +396,32 @@ def compute_metrics(results: Sequence[CaseResult]) -> dict[str, Any]:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--reviewer", default=DEFAULT_REVIEWER)
-    parser.add_argument("--count", type=int, default=DEFAULT_PAIR_COUNT)
+    parser.add_argument(
+        "--reviewer",
+        "--reviewers",
+        dest="reviewers",
+        nargs="+",
+        default=list(DEFAULT_REVIEWERS),
+        help="One or more reviewer names (space- or comma-separated).",
+    )
+    parser.add_argument(
+        "--count",
+        type=int,
+        default=DEFAULT_PAIR_COUNT,
+        help="Number of paired chats to sample, or -1 to evaluate all paired chats.",
+    )
     parser.add_argument("--seed", type=int, default=DEFAULT_SEED)
-    parser.add_argument("--threshold", type=float, default=DEFAULT_THRESHOLD)
+    parser.add_argument(
+        "--clean-confidence",
+        "--threshold",
+        dest="clean_confidence_threshold",
+        type=float,
+        default=DEFAULT_CLEAN_CONFIDENCE_THRESHOLD,
+        help=(
+            "Minimum confidence (1 - p_violation) required to predict NO (clean). "
+            "Default: 0.7 (p <= 0.30 -> NO, else YES)."
+        ),
+    )
     parser.add_argument("--model", default=DEFAULT_MODEL)
     parser.add_argument("--timeout", type=float, default=DEFAULT_TIMEOUT_SECONDS)
     parser.add_argument("--output", type=Path, default=None)
@@ -371,11 +436,20 @@ def main() -> int:
         return 2
 
     args = parse_args()
-    reviewer_dir = PROJECT_ROOT / "assignments" / args.reviewer
-    cases = load_paired_cases(reviewer_dir, args.count, args.seed)
+    if not 0.0 <= args.clean_confidence_threshold <= 1.0:
+        print(
+            "Error: --clean-confidence/--threshold must be between 0.0 and 1.0.",
+            file=sys.stderr,
+        )
+        return 2
+    reviewers = normalize_reviewers(args.reviewers)
+    reviewer_dirs = [PROJECT_ROOT / "assignments" / name for name in reviewers]
+    cases = load_paired_cases(reviewer_dirs, args.count, args.seed)
+    pair_total = len(cases) // 2
     print(
-        f"Loaded {len(cases)} test cases ({args.count} original error + "
-        f"{args.count} edited clean) from {reviewer_dir} (seed={args.seed})."
+        f"Loaded {len(cases)} test cases ({pair_total} original error + "
+        f"{pair_total} edited clean) from reviewers {', '.join(reviewers)} "
+        f"(seed={args.seed}, clean_confidence>={args.clean_confidence_threshold:.2f})."
     )
 
     results: list[CaseResult] = []
@@ -384,20 +458,26 @@ def main() -> int:
             api_key=api_key,
             model=args.model,
             case=case,
-            threshold=args.threshold,
+            clean_confidence_threshold=args.clean_confidence_threshold,
             timeout_seconds=args.timeout,
         )
         results.append(result)
         mark = "PASS" if result.correct else "FAIL"
         exp_label = "YES" if result.expected_violation else "NO "
         pred_label = "YES" if result.predicted_violation else "NO "
+        clean_conf = 1.0 - result.probability
         print(
-            f"[{idx:02d}/{len(cases):02d}] {mark} | {case.pair_filename:<34} | "
-            f"{case.variant:<14} | exp={exp_label} pred={pred_label} "
-            f"(p={result.probability:.4f}, {result.latency_seconds:.2f}s)"
+            f"[{idx:02d}/{len(cases):02d}] {mark} | {case.reviewer:<8} | "
+            f"{case.pair_filename:<34} | {case.variant:<14} | "
+            f"exp={exp_label} pred={pred_label} "
+            f"(p={result.probability:.4f}, clean={clean_conf:.1%}, {result.latency_seconds:.2f}s)"
         )
 
     metrics = compute_metrics(results)
+    metrics_by_reviewer = {
+        name: compute_metrics([r for r in results if r.reviewer == name])
+        for name in reviewers
+    }
     print("\n--- Summary ---")
     print(
         f"Accuracy: {metrics['correct']}/{metrics['total_cases']} "
@@ -417,6 +497,14 @@ def main() -> int:
         f"Precision: {metrics['precision']:.1%} | F1: {metrics['f1']:.1%} | "
         f"Avg latency: {metrics['avg_latency_seconds']:.2f}s"
     )
+    if len(reviewers) > 1:
+        print("By reviewer:")
+        for name in reviewers:
+            rm = metrics_by_reviewer[name]
+            print(
+                f"  {name:<10} {rm['correct']}/{rm['total_cases']} ({rm['accuracy']:.1%}) | "
+                f"recall={rm['recall_original_errors']:.1%} spec={rm['specificity_edited_clean']:.1%}"
+            )
 
     output_path = args.output or (
         DEFAULT_LOG_DIR
@@ -426,13 +514,16 @@ def main() -> int:
     report = {
         "config": {
             "model": args.model,
-            "reviewer": args.reviewer,
-            "pair_count": args.count,
+            "reviewers": reviewers,
+            "pair_count": pair_total,
+            "requested_pair_count": args.count,
             "seed": args.seed,
-            "threshold": args.threshold,
+            "clean_confidence_threshold": args.clean_confidence_threshold,
+            "violation_probability_cutoff": round(1.0 - args.clean_confidence_threshold, 6),
             "instructions": DETECTION_INSTRUCTIONS,
         },
         "metrics": metrics,
+        "metrics_by_reviewer": metrics_by_reviewer,
         "results": [asdict(r) for r in results],
     }
     output_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

@@ -1,0 +1,623 @@
+{
+  "convo_id": 6849,
+  "scenario": {
+    "personal": {
+      "account_id": "ibrsem5yqw",
+      "customer_name": "norman bouchard",
+      "email": "nb830793@email.com",
+      "member_level": "bronze",
+      "phone": "(125) 132-9835",
+      "username": "nb830793"
+    },
+    "order": {
+      "street_address": "0150 brushwick dr",
+      "full_address": "0150 brushwick dr  jacksonville, mi 1033",
+      "city": "jacksonville",
+      "num_products": "1",
+      "order_id": "2289714004",
+      "products": "[{'brand': 'guess', 'product_type': 'boots', 'amount': 69, 'image_url': 'images/guess-boots.jpeg'}]",
+      "purchase_date": "2019-09-28",
+      "shipping_status": "delivered",
+      "state": "mi",
+      "zip_code": "1033"
+    },
+    "product": {
+      "names": [
+        "guess boots"
+      ],
+      "amounts": [
+        69
+      ]
+    },
+    "flow": "shipping_issue",
+    "subflow": "status"
+  },
+  "original": [
+    [
+      "agent",
+      "Hi. Thanks for contacting the customer support team, how may I help you today?"
+    ],
+    [
+      "customer",
+      "Can you check if the shipping cost is included with the price? thanks"
+    ],
+    [
+      "customer",
+      "i got an email"
+    ],
+    [
+      "agent",
+      "I’d be happy to look into that for you. May I start by getting your full name?"
+    ],
+    [
+      "customer",
+      "Norman Bouchard"
+    ],
+    [
+      "agent",
+      "One moment Mr. Bouchard."
+    ],
+    [
+      "agent",
+      "What did the email say, Mr. Bouchard?"
+    ],
+    [
+      "customer",
+      "cost is included"
+    ],
+    [
+      "customer",
+      "cost is NOT included"
+    ],
+    [
+      "customer",
+      "my bad"
+    ],
+    [
+      "agent",
+      "okay"
+    ],
+    [
+      "customer",
+      "So i guess i need to know is...."
+    ],
+    [
+      "agent",
+      "Yes?"
+    ],
+    [
+      "customer",
+      "is shipping cost included in the displayed cost"
+    ],
+    [
+      "agent",
+      "Got it, one moment."
+    ],
+    [
+      "agent",
+      "I'm still looking, bear with me."
+    ],
+    [
+      "customer",
+      "ok"
+    ],
+    [
+      "agent",
+      "No problem. I just need to get your Account ID and the Order ID associated with the order."
+    ],
+    [
+      "agent",
+      "Sorry for the delay, as well."
+    ],
+    [
+      "customer",
+      "IBRSEM5YQW"
+    ],
+    [
+      "customer",
+      "2289714004"
+    ],
+    [
+      "customer",
+      "No prob"
+    ],
+    [
+      "action",
+      "Identity verification in progress ..."
+    ],
+    [
+      "agent",
+      "Perfect. Can I also get your Email address and username?"
+    ],
+    [
+      "customer",
+      "nb830793@email.com"
+    ],
+    [
+      "customer",
+      "nb830793"
+    ],
+    [
+      "action",
+      "Purchase validation in progress ..."
+    ],
+    [
+      "agent",
+      "Let me look that up in our system."
+    ],
+    [
+      "action",
+      "Querying the system for an answer ..."
+    ],
+    [
+      "customer",
+      "ok"
+    ],
+    [
+      "agent",
+      "Shipping is included in the price."
+    ],
+    [
+      "customer",
+      "Thank you"
+    ],
+    [
+      "customer",
+      "That was all i needed"
+    ],
+    [
+      "agent",
+      "No problem. Sorry it took so long!"
+    ],
+    [
+      "customer",
+      "its cool"
+    ],
+    [
+      "agent",
+      "Thanks for shopping with Acme and have a great day! We appreciate you shopping with us."
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "hi. thanks for contacting the customer support team, how may i help you today?",
+      "turn_count": 1,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        63
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "can you check if the shipping cost is included with the price? thanks",
+      "turn_count": 2,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i got an email",
+      "turn_count": 3,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i’d be happy to look into that for you. may i start by getting your full name?",
+      "turn_count": 4,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        87
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "norman bouchard",
+      "turn_count": 5,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "one moment mr. bouchard.",
+      "turn_count": 6,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        5
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "what did the email say, mr. bouchard?",
+      "turn_count": 7,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        94
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "cost is included",
+      "turn_count": 8,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "cost is not included",
+      "turn_count": 9,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "my bad",
+      "turn_count": 10,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "okay",
+      "turn_count": 11,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        59
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "so i guess i need to know is....",
+      "turn_count": 12,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "yes?",
+      "turn_count": 13,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        39
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "is shipping cost included in the displayed cost",
+      "turn_count": 14,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "got it, one moment.",
+      "turn_count": 15,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        20
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i'm still looking, bear with me.",
+      "turn_count": 16,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        83
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok",
+      "turn_count": 17,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "no problem. i just need to get your account id and the order id associated with the order.",
+      "turn_count": 18,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        8
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "sorry for the delay, as well.",
+      "turn_count": 19,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        75
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "<account_id>",
+      "turn_count": 20,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "<order_id>",
+      "turn_count": 21,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no prob",
+      "turn_count": 22,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "identity verification in progress ...",
+      "turn_count": 23,
+      "targets": [
+        "status",
+        "take_action",
+        "verify-identity",
+        [
+          "norman bouchard",
+          "ibrsem5yqw",
+          "2289714004"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "perfect. can i also get your email address and username?",
+      "turn_count": 24,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        80
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "<email>",
+      "turn_count": 25,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "<username>",
+      "turn_count": 26,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "purchase validation in progress ...",
+      "turn_count": 27,
+      "targets": [
+        "status",
+        "take_action",
+        "validate-purchase",
+        [
+          "nb830793",
+          "nb830793@email.com",
+          "2289714004"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "let me look that up in our system.",
+      "turn_count": 28,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        32
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "querying the system for an answer ...",
+      "turn_count": 29,
+      "targets": [
+        "status",
+        "take_action",
+        "ask-the-oracle",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok",
+      "turn_count": 30,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "shipping is included in the price.",
+      "turn_count": 31,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thank you",
+      "turn_count": 32,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "that was all i needed",
+      "turn_count": 33,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "no problem. sorry it took so long!",
+      "turn_count": 34,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        42
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "its cool",
+      "turn_count": 35,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thanks for shopping with acme and have a great day! we appreciate you shopping with us.",
+      "turn_count": 36,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        40
+      ]
+    }
+  ]
+}

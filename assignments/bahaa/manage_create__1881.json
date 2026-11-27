@@ -1,0 +1,494 @@
+{
+  "convo_id": 1881,
+  "scenario": {
+    "personal": {
+      "account_id": "r8jhc6hbtu",
+      "customer_name": "david williams",
+      "member_level": "silver",
+      "phone": "(173) 355-5353"
+    },
+    "order": {
+      "street_address": "2718 1st ave",
+      "full_address": "2718 1st ave  newark, wa 65502",
+      "city": "newark",
+      "num_products": "1",
+      "order_id": "4362214293",
+      "products": "[{'brand': 'michael_kors', 'product_type': 'jeans', 'amount': 99, 'image_url': 'images/michael_kors-jeans.jpeg'}]",
+      "shipping_status": "order received",
+      "state": "wa",
+      "zip_code": "65502"
+    },
+    "product": {
+      "names": [
+        "michael_kors jeans"
+      ],
+      "amounts": [
+        99
+      ]
+    },
+    "flow": "order_issue",
+    "subflow": "manage_create"
+  },
+  "original": [
+    [
+      "agent",
+      "hello, how may i be of asssistance?"
+    ],
+    [
+      "customer",
+      "I have an item that I'd like to add to an order that I've already placed"
+    ],
+    [
+      "agent",
+      "if i understand correctly, you wish to add an item to an existing order?"
+    ],
+    [
+      "customer",
+      "sounds right"
+    ],
+    [
+      "agent",
+      "I can help you with that"
+    ],
+    [
+      "customer",
+      "cool"
+    ],
+    [
+      "agent",
+      "first ill need your full name and account id to pull up your account"
+    ],
+    [
+      "agent",
+      "i will also need your order number for the next step"
+    ],
+    [
+      "customer",
+      "David Williams and R8JHC6HBTU and 4362214293"
+    ],
+    [
+      "action",
+      "Account has been pulled up for David Williams."
+    ],
+    [
+      "action",
+      "Identity verification in progess ..."
+    ],
+    [
+      "agent",
+      "thank you"
+    ],
+    [
+      "customer",
+      "sure"
+    ],
+    [
+      "agent",
+      "do you have the shipping status?"
+    ],
+    [
+      "agent",
+      "for this order currently"
+    ],
+    [
+      "customer",
+      "it says Order Received"
+    ],
+    [
+      "customer",
+      "is that what you need?"
+    ],
+    [
+      "agent",
+      "yes thank you"
+    ],
+    [
+      "customer",
+      "welcome"
+    ],
+    [
+      "action",
+      "Shipping status of order recieved has been noted."
+    ],
+    [
+      "agent",
+      "ok, since your order has not been shipped yet, i can add the item for you"
+    ],
+    [
+      "customer",
+      "cool"
+    ],
+    [
+      "agent",
+      "what was the item you wanted to add to the order?"
+    ],
+    [
+      "customer",
+      "some jeans from Michael_Kors for $99"
+    ],
+    [
+      "action",
+      "A purchase of Michael Kors Jeans was made."
+    ],
+    [
+      "agent",
+      "Ok, i have added the jeans to your order using the payment method on file for the order"
+    ],
+    [
+      "agent",
+      "is there anything else i can help you with today?"
+    ],
+    [
+      "customer",
+      "that's it...thanks!"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "hello, how may i be of asssistance?",
+      "turn_count": 1,
+      "targets": [
+        "manage_create",
+        "retrieve_utterance",
+        null,
+        [],
+        19
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i have an item that i'd like to add to an order that i've already placed",
+      "turn_count": 2,
+      "targets": [
+        "manage_create",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "if i understand correctly, you wish to add an item to an existing order?",
+      "turn_count": 3,
+      "targets": [
+        "manage_create",
+        "retrieve_utterance",
+        null,
+        [],
+        39
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "sounds right",
+      "turn_count": 4,
+      "targets": [
+        "manage_create",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i can help you with that",
+      "turn_count": 5,
+      "targets": [
+        "manage_create",
+        "retrieve_utterance",
+        null,
+        [],
+        58
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "cool",
+      "turn_count": 6,
+      "targets": [
+        "manage_create",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "first ill need your full name and account id to pull up your account",
+      "turn_count": 7,
+      "targets": [
+        "manage_create",
+        "retrieve_utterance",
+        null,
+        [],
+        13
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i will also need your order number for the next step",
+      "turn_count": 8,
+      "targets": [
+        "manage_create",
+        "retrieve_utterance",
+        null,
+        [],
+        9
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "david williams and <account_id> and <order_id>",
+      "turn_count": 9,
+      "targets": [
+        "manage_create",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for david williams.",
+      "turn_count": 10,
+      "targets": [
+        "manage_create",
+        "take_action",
+        "pull-up-account",
+        [
+          "david williams"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "identity verification in progess ...",
+      "turn_count": 11,
+      "targets": [
+        "manage_create",
+        "take_action",
+        "verify-identity",
+        [
+          "david williams",
+          "r8jhc6hbtu",
+          "4362214293"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you",
+      "turn_count": 12,
+      "targets": [
+        "manage_create",
+        "retrieve_utterance",
+        null,
+        [],
+        20
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "sure",
+      "turn_count": 13,
+      "targets": [
+        "manage_create",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "do you have the shipping status?",
+      "turn_count": 14,
+      "targets": [
+        "manage_create",
+        "retrieve_utterance",
+        null,
+        [],
+        4
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "for this order currently",
+      "turn_count": 15,
+      "targets": [
+        "manage_create",
+        "retrieve_utterance",
+        null,
+        [],
+        82
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "it says order received",
+      "turn_count": 16,
+      "targets": [
+        "manage_create",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "is that what you need?",
+      "turn_count": 17,
+      "targets": [
+        "manage_create",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "yes thank you",
+      "turn_count": 18,
+      "targets": [
+        "manage_create",
+        "retrieve_utterance",
+        null,
+        [],
+        16
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "welcome",
+      "turn_count": 19,
+      "targets": [
+        "manage_create",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "shipping status of order recieved has been noted.",
+      "turn_count": 20,
+      "targets": [
+        "manage_create",
+        "take_action",
+        "shipping-status",
+        [
+          "order recieved"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok, since your order has not been shipped yet, i can add the item for you",
+      "turn_count": 21,
+      "targets": [
+        "manage_create",
+        "retrieve_utterance",
+        null,
+        [],
+        34
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "cool",
+      "turn_count": 22,
+      "targets": [
+        "manage_create",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "what was the item you wanted to add to the order?",
+      "turn_count": 23,
+      "targets": [
+        "manage_create",
+        "retrieve_utterance",
+        null,
+        [],
+        69
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "some jeans from michael_kors for $<amount>",
+      "turn_count": 24,
+      "targets": [
+        "manage_create",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "a purchase of michael kors jeans was made.",
+      "turn_count": 25,
+      "targets": [
+        "manage_create",
+        "take_action",
+        "make-purchase",
+        [
+          "michael kors jeans"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok, i have added the jeans to your order using the payment method on file for the order",
+      "turn_count": 26,
+      "targets": [
+        "manage_create",
+        "retrieve_utterance",
+        null,
+        [],
+        87
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "is there anything else i can help you with today?",
+      "turn_count": 27,
+      "targets": [
+        "manage_create",
+        "retrieve_utterance",
+        null,
+        [],
+        7
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "that's it...thanks!",
+      "turn_count": 28,
+      "targets": [
+        "manage_create",
+        null,
+        null,
+        [],
+        -1
+      ]
+    }
+  ]
+}

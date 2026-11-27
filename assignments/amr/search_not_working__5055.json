@@ -1,0 +1,517 @@
+{
+  "convo_id": 5055,
+  "scenario": {
+    "personal": {
+      "customer_name": "joseph banter",
+      "email": "josephbanter424@email.com",
+      "member_level": "silver",
+      "phone": "(163) 664-7464",
+      "username": "josephbanter424"
+    },
+    "order": {
+      "street_address": "3975 primrose ave",
+      "full_address": "3975 primrose ave  raleigh, tx 95635",
+      "city": "raleigh",
+      "num_products": "1",
+      "products": "[{'brand': 'michael_kors', 'product_type': 'shirt', 'amount': 64, 'image_url': 'images/michael_kors-shirt.jpeg'}]",
+      "state": "tx",
+      "zip_code": "95635"
+    },
+    "product": {
+      "names": [
+        "michael_kors shirt"
+      ],
+      "amounts": [
+        64
+      ]
+    },
+    "flow": "troubleshoot_site",
+    "subflow": "search_results"
+  },
+  "original": [
+    [
+      "agent",
+      "Hi, how can I help you?"
+    ],
+    [
+      "customer",
+      "hello"
+    ],
+    [
+      "customer",
+      "I am frustrated because the search function on your website doesn't seem to work"
+    ],
+    [
+      "customer",
+      "every time I search for something, there are 0 results"
+    ],
+    [
+      "agent",
+      "Sorry you are dealing with that"
+    ],
+    [
+      "agent",
+      "I should be able to help"
+    ],
+    [
+      "agent",
+      "First let me notify our internal website team that the search function is not working"
+    ],
+    [
+      "customer",
+      "ok"
+    ],
+    [
+      "action",
+      "The website team has been notified."
+    ],
+    [
+      "agent",
+      "Next, can you try logging out of your account and logging back in?"
+    ],
+    [
+      "agent",
+      "This sometimes fixes the problem"
+    ],
+    [
+      "customer",
+      "ok, give me one sec"
+    ],
+    [
+      "agent",
+      "ok"
+    ],
+    [
+      "action",
+      "Agent is looking for solutions ..."
+    ],
+    [
+      "customer",
+      "nope. didn't work"
+    ],
+    [
+      "agent",
+      "Okay, can you try clearing out the cookies on your browser?"
+    ],
+    [
+      "agent",
+      "I can explain how if you need me to"
+    ],
+    [
+      "customer",
+      "I already know how"
+    ],
+    [
+      "action",
+      "Agent is looking for solutions ..."
+    ],
+    [
+      "customer",
+      "give me a sec"
+    ],
+    [
+      "agent",
+      "ok"
+    ],
+    [
+      "customer",
+      "ok. search is working now"
+    ],
+    [
+      "agent",
+      "great!"
+    ],
+    [
+      "customer",
+      "I guess it was a cookie issue"
+    ],
+    [
+      "agent",
+      "yeah, that fixes it a lot of the time"
+    ],
+    [
+      "agent",
+      "Can I help with anything else?"
+    ],
+    [
+      "customer",
+      "no, that was all. thank you so much for your help"
+    ],
+    [
+      "agent",
+      "You're welcome"
+    ],
+    [
+      "agent",
+      "Have a great day"
+    ],
+    [
+      "customer",
+      "you too"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "hi, how can i help you?",
+      "turn_count": 1,
+      "targets": [
+        "search_results",
+        "retrieve_utterance",
+        null,
+        [],
+        38
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "hello",
+      "turn_count": 2,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i am frustrated because the search function on your website doesn't seem to work",
+      "turn_count": 3,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "every time i search for something, there are 0 results",
+      "turn_count": 4,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "sorry you are dealing with that",
+      "turn_count": 5,
+      "targets": [
+        "search_results",
+        "retrieve_utterance",
+        null,
+        [],
+        76
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i should be able to help",
+      "turn_count": 6,
+      "targets": [
+        "search_results",
+        "retrieve_utterance",
+        null,
+        [],
+        6
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "first let me notify our internal website team that the search function is not working",
+      "turn_count": 7,
+      "targets": [
+        "search_results",
+        "retrieve_utterance",
+        null,
+        [],
+        52
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok",
+      "turn_count": 8,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "the website team has been notified.",
+      "turn_count": 9,
+      "targets": [
+        "search_results",
+        "take_action",
+        "notify-team",
+        [
+          "website team"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "next, can you try logging out of your account and logging back in?",
+      "turn_count": 10,
+      "targets": [
+        "search_results",
+        "retrieve_utterance",
+        null,
+        [],
+        90
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "this sometimes fixes the problem",
+      "turn_count": 11,
+      "targets": [
+        "search_results",
+        "retrieve_utterance",
+        null,
+        [],
+        97
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok, give me one sec",
+      "turn_count": 12,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok",
+      "turn_count": 13,
+      "targets": [
+        "search_results",
+        "retrieve_utterance",
+        null,
+        [],
+        43
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "agent is looking for solutions ...",
+      "turn_count": 14,
+      "targets": [
+        "search_results",
+        "take_action",
+        "log-out-in",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "nope. didn't work",
+      "turn_count": 15,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "okay, can you try clearing out the cookies on your browser?",
+      "turn_count": 16,
+      "targets": [
+        "search_results",
+        "retrieve_utterance",
+        null,
+        [],
+        57
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i can explain how if you need me to",
+      "turn_count": 17,
+      "targets": [
+        "search_results",
+        "retrieve_utterance",
+        null,
+        [],
+        88
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i already know how",
+      "turn_count": 18,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "agent is looking for solutions ...",
+      "turn_count": 19,
+      "targets": [
+        "search_results",
+        "take_action",
+        "instructions",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "give me a sec",
+      "turn_count": 20,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok",
+      "turn_count": 21,
+      "targets": [
+        "search_results",
+        "retrieve_utterance",
+        null,
+        [],
+        77
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok. search is working now",
+      "turn_count": 22,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "great!",
+      "turn_count": 23,
+      "targets": [
+        "search_results",
+        "retrieve_utterance",
+        null,
+        [],
+        92
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i guess it was a cookie issue",
+      "turn_count": 24,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "yeah, that fixes it a lot of the time",
+      "turn_count": 25,
+      "targets": [
+        "search_results",
+        "retrieve_utterance",
+        null,
+        [],
+        99
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can i help with anything else?",
+      "turn_count": 26,
+      "targets": [
+        "search_results",
+        "retrieve_utterance",
+        null,
+        [],
+        36
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no, that was all. thank you so much for your help",
+      "turn_count": 27,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "you're welcome",
+      "turn_count": 28,
+      "targets": [
+        "search_results",
+        "retrieve_utterance",
+        null,
+        [],
+        96
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "have a great day",
+      "turn_count": 29,
+      "targets": [
+        "search_results",
+        "retrieve_utterance",
+        null,
+        [],
+        6
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "you too",
+      "turn_count": 30,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    }
+  ]
+}

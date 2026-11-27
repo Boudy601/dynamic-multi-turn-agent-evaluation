@@ -1,0 +1,400 @@
+{
+  "convo_id": 6052,
+  "scenario": {
+    "personal": {
+      "customer_name": "sanya afzal",
+      "member_level": "guest",
+      "phone": "(309) 890-3742",
+      "security_answer": "livingston"
+    },
+    "order": {
+      "street_address": "7744 lincoln ave",
+      "full_address": "7744 lincoln ave  jacksonville, ny 6227",
+      "city": "jacksonville",
+      "state": "ny",
+      "zip_code": "6227"
+    },
+    "product": {
+      "names": [],
+      "amounts": []
+    },
+    "flow": "account_access",
+    "subflow": "reset_2fa"
+  },
+  "original": [
+    [
+      "agent",
+      "Hello, thank you for reaching out to us today. How may I help you?"
+    ],
+    [
+      "customer",
+      "I need to change my phone number because I lost my phone and the two-factor authentication won't work now, thanks."
+    ],
+    [
+      "agent",
+      "It sounds like what we need to do forst is to get your two factor authentication reset. after that you'll be able to update your phone number on the account profile page."
+    ],
+    [
+      "agent",
+      "Could you provide me with your Full name or account ID so I can pull up your account please?"
+    ],
+    [
+      "customer",
+      "Sanya Afzal"
+    ],
+    [
+      "action",
+      "Account has been pulled up for Sanya Afzal."
+    ],
+    [
+      "agent",
+      "Thank you Sanya. I was able to pull up the account."
+    ],
+    [
+      "agent",
+      "Do you still have access to your email address and if so could you provide me with that information?"
+    ],
+    [
+      "customer",
+      "My old number (309) 890-3742 and new number is 309-890-3665"
+    ],
+    [
+      "customer",
+      "I don't have my e-mail, sorry"
+    ],
+    [
+      "agent",
+      "No problem thank you."
+    ],
+    [
+      "agent",
+      "To reset your two-factor authentication, I'll need to send a special reset code to your email. Since you don't have your email address, we can bypass this if you provide your PIN number or answer a security question. Do you have your PIN number?"
+    ],
+    [
+      "customer",
+      "No, I don't have a PIN, sorry. I have a security answer though?"
+    ],
+    [
+      "agent",
+      "No problem Sanya. I'll go ahead and ask you your security question then: What is your mother's maiden name?"
+    ],
+    [
+      "customer",
+      "Livingston"
+    ],
+    [
+      "action",
+      "Details of livingston have been entered."
+    ],
+    [
+      "agent",
+      "Alright, that's correct. I will send the reset code to the email address we have saved on file. Do you need me to provide you with that email address?"
+    ],
+    [
+      "customer",
+      "no, that's ok"
+    ],
+    [
+      "agent",
+      "Alright. To be safe in the future, be sure to follow our best practices for security. I'll send you a link with that information now."
+    ],
+    [
+      "action",
+      "A link will be sent."
+    ],
+    [
+      "agent",
+      "The email with your reset code should arrive shortly. Did you need help with anything else?"
+    ],
+    [
+      "customer",
+      "Thank you for the help!"
+    ],
+    [
+      "agent",
+      "No problem Sanya. Have a great day!"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "hello, thank you for reaching out to us today. how may i help you?",
+      "turn_count": 1,
+      "targets": [
+        "reset_2fa",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i need to change my phone number because i lost my phone and the two-factor authentication won't work now, thanks.",
+      "turn_count": 2,
+      "targets": [
+        "reset_2fa",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "it sounds like what we need to do forst is to get your two factor authentication reset. after that you'll be able to update your phone number on the account profile page.",
+      "turn_count": 3,
+      "targets": [
+        "reset_2fa",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "could you provide me with your full name or account id so i can pull up your account please?",
+      "turn_count": 4,
+      "targets": [
+        "reset_2fa",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "sanya afzal",
+      "turn_count": 5,
+      "targets": [
+        "reset_2fa",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for sanya afzal.",
+      "turn_count": 6,
+      "targets": [
+        "reset_2fa",
+        null,
+        "pull-up-account",
+        [
+          "sanya afzal"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you sanya. i was able to pull up the account.",
+      "turn_count": 7,
+      "targets": [
+        "reset_2fa",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "do you still have access to your email address and if so could you provide me with that information?",
+      "turn_count": 8,
+      "targets": [
+        "reset_2fa",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "my old number (309) 890-3742 and new number is 309-890-3665",
+      "turn_count": 9,
+      "targets": [
+        "reset_2fa",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i don't have my e-mail, sorry",
+      "turn_count": 10,
+      "targets": [
+        "reset_2fa",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "no problem thank you.",
+      "turn_count": 11,
+      "targets": [
+        "reset_2fa",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "to reset your two-factor authentication, i'll need to send a special reset code to your email. since you don't have your email address, we can bypass this if you provide your pin number or answer a security question. do you have your pin number?",
+      "turn_count": 12,
+      "targets": [
+        "reset_2fa",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no, i don't have a pin, sorry. i have a security answer though?",
+      "turn_count": 13,
+      "targets": [
+        "reset_2fa",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "no problem sanya. i'll go ahead and ask you your security question then: what is your mother's maiden name?",
+      "turn_count": 14,
+      "targets": [
+        "reset_2fa",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "livingston",
+      "turn_count": 15,
+      "targets": [
+        "reset_2fa",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "details of livingston have been entered.",
+      "turn_count": 16,
+      "targets": [
+        "reset_2fa",
+        null,
+        "enter-details",
+        [
+          "livingston"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "alright, that's correct. i will send the reset code to the email address we have saved on file. do you need me to provide you with that email address?",
+      "turn_count": 17,
+      "targets": [
+        "reset_2fa",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no, that's ok",
+      "turn_count": 18,
+      "targets": [
+        "reset_2fa",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "alright. to be safe in the future, be sure to follow our best practices for security. i'll send you a link with that information now.",
+      "turn_count": 19,
+      "targets": [
+        "reset_2fa",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "a link will be sent.",
+      "turn_count": 20,
+      "targets": [
+        "reset_2fa",
+        null,
+        "send-link",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "the email with your reset code should arrive shortly. did you need help with anything else?",
+      "turn_count": 21,
+      "targets": [
+        "reset_2fa",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thank you for the help!",
+      "turn_count": 22,
+      "targets": [
+        "reset_2fa",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "no problem sanya. have a great day!",
+      "turn_count": 23,
+      "targets": [
+        "reset_2fa",
+        null,
+        null,
+        [],
+        -1
+      ]
+    }
+  ]
+}

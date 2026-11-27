@@ -1,0 +1,439 @@
+{
+  "convo_id": 862,
+  "scenario": {
+    "personal": {
+      "account_id": "zqdkg7of1y",
+      "customer_name": "david williams",
+      "email": "dwilliams365@email.com",
+      "member_level": "silver",
+      "phone": "(528) 644-5823",
+      "username": "dwilliams365"
+    },
+    "order": {
+      "street_address": "8314 1st ave",
+      "full_address": "8314 1st ave  baltimore, tx 66803",
+      "city": "baltimore",
+      "num_products": "3",
+      "order_id": "3343532642",
+      "products": "[{'brand': 'guess', 'product_type': 'boots', 'amount': 89, 'image_url': 'images/guess-boots.jpeg'}, {'brand': 'guess', 'product_type': 'shirt', 'amount': 99, 'image_url': 'images/guess-shirt.jpeg'}, {'brand': 'guess', 'product_type': 'jacket', 'amount': 59, 'image_url': 'images/guess-jacket.jpeg'}]",
+      "purchase_date": "2019-10-24",
+      "shipping_status": "in transit",
+      "state": "tx",
+      "zip_code": "66803"
+    },
+    "product": {
+      "names": [
+        "guess boots",
+        "guess shirt",
+        "guess jacket"
+      ],
+      "amounts": [
+        89,
+        99,
+        59
+      ]
+    },
+    "flow": "shipping_issue",
+    "subflow": "cost"
+  },
+  "original": [
+    [
+      "customer",
+      "Hello"
+    ],
+    [
+      "agent",
+      "Hi! how cna i help you"
+    ],
+    [
+      "customer",
+      "Hello, I would like to check on an order status.  I think the shipping cost is outrageous."
+    ],
+    [
+      "agent",
+      "okay! i can help"
+    ],
+    [
+      "customer",
+      "If it can't get changed I would just like to either cancel or get a refund."
+    ],
+    [
+      "agent",
+      "what is your first name/"
+    ],
+    [
+      "agent",
+      "and account id and order id"
+    ],
+    [
+      "customer",
+      "David"
+    ],
+    [
+      "customer",
+      "my account ID is ZQDKG7OF1Y"
+    ],
+    [
+      "customer",
+      "my Order ID is 3343532642"
+    ],
+    [
+      "agent",
+      "Whats your last name"
+    ],
+    [
+      "customer",
+      "Williams"
+    ],
+    [
+      "action",
+      "Purchase validation in progress ..."
+    ],
+    [
+      "action",
+      "Account has been pulled up for David Williams."
+    ],
+    [
+      "action",
+      "Purchase validation in progress ..."
+    ],
+    [
+      "agent",
+      "what is the shipping status?"
+    ],
+    [
+      "customer",
+      "it says In Transit"
+    ],
+    [
+      "agent",
+      "Do you want me to cancel the order?"
+    ],
+    [
+      "customer",
+      "Yes please"
+    ],
+    [
+      "action",
+      "Order has been updated with cancel order."
+    ],
+    [
+      "agent",
+      "Do you need anything else?"
+    ],
+    [
+      "customer",
+      "Great thanks a lot.  You should give some feedback to your bosses that the shipping costs are too high!"
+    ],
+    [
+      "customer",
+      "But yes that is all, thank you."
+    ],
+    [
+      "agent",
+      "i will give that back!"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "customer",
+      "text": "hello",
+      "turn_count": 1,
+      "targets": [
+        "cost",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "hi! how cna i help you",
+      "turn_count": 2,
+      "targets": [
+        "cost",
+        "retrieve_utterance",
+        null,
+        [],
+        12
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "hello, i would like to check on an order status.  i think the shipping cost is outrageous.",
+      "turn_count": 3,
+      "targets": [
+        "cost",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "okay! i can help",
+      "turn_count": 4,
+      "targets": [
+        "cost",
+        "retrieve_utterance",
+        null,
+        [],
+        96
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "if it can't get changed i would just like to either cancel or get a refund.",
+      "turn_count": 5,
+      "targets": [
+        "cost",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "what is your first name/",
+      "turn_count": 6,
+      "targets": [
+        "cost",
+        "retrieve_utterance",
+        null,
+        [],
+        2
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "and account id and order id",
+      "turn_count": 7,
+      "targets": [
+        "cost",
+        "retrieve_utterance",
+        null,
+        [],
+        99
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "david",
+      "turn_count": 8,
+      "targets": [
+        "cost",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "my account id is <account_id>",
+      "turn_count": 9,
+      "targets": [
+        "cost",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "my order id is <order_id>",
+      "turn_count": 10,
+      "targets": [
+        "cost",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "whats your last name",
+      "turn_count": 11,
+      "targets": [
+        "cost",
+        "retrieve_utterance",
+        null,
+        [],
+        13
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "williams",
+      "turn_count": 12,
+      "targets": [
+        "cost",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "purchase validation in progress ...",
+      "turn_count": 15,
+      "targets": [
+        "cost",
+        "take_action",
+        "validate-purchase",
+        [
+          "dwilliams365",
+          "dwilliams365@email.com",
+          "3343532642"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for david williams.",
+      "turn_count": 16,
+      "targets": [
+        "cost",
+        "take_action",
+        "pull-up-account",
+        [
+          "david williams"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "purchase validation in progress ...",
+      "turn_count": 19,
+      "targets": [
+        "cost",
+        "take_action",
+        "validate-purchase",
+        [
+          "zqdkg7of1y",
+          "david williams",
+          "3343532642"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "what is the shipping status?",
+      "turn_count": 20,
+      "targets": [
+        "cost",
+        "retrieve_utterance",
+        null,
+        [],
+        80
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "it says in transit",
+      "turn_count": 21,
+      "targets": [
+        "cost",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "do you want me to cancel the order?",
+      "turn_count": 22,
+      "targets": [
+        "cost",
+        "retrieve_utterance",
+        null,
+        [],
+        63
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yes please",
+      "turn_count": 23,
+      "targets": [
+        "cost",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "order has been updated with cancel order.",
+      "turn_count": 24,
+      "targets": [
+        "cost",
+        "take_action",
+        "update-order",
+        [
+          "waive fee"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "do you need anything else?",
+      "turn_count": 25,
+      "targets": [
+        "cost",
+        "retrieve_utterance",
+        null,
+        [],
+        51
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "great thanks a lot.  you should give some feedback to your bosses that the shipping costs are too high!",
+      "turn_count": 26,
+      "targets": [
+        "cost",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "but yes that is all, thank you.",
+      "turn_count": 27,
+      "targets": [
+        "cost",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i will give that back!",
+      "turn_count": 28,
+      "targets": [
+        "cost",
+        "retrieve_utterance",
+        null,
+        [],
+        5
+      ]
+    }
+  ]
+}

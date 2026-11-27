@@ -1,0 +1,439 @@
+{
+  "convo_id": 10271,
+  "scenario": {
+    "personal": {
+      "account_id": "gaif8ds3is",
+      "customer_name": "albert sanders",
+      "email": "as018813@email.com",
+      "member_level": "silver",
+      "phone": "(816) 928-3176",
+      "username": "as018813"
+    },
+    "order": {
+      "street_address": "3117 2nd ave",
+      "full_address": "3117 2nd ave  la fayette, ny 58579",
+      "city": "la fayette",
+      "num_products": "1",
+      "order_id": "8646912916",
+      "products": "[{'brand': 'tommy_hilfiger', 'product_type': 'shirt', 'amount': 79, 'image_url': 'images/tommy_hilfiger-shirt.jpeg'}]",
+      "purchase_date": "2020-01-16",
+      "shipping_status": "order received",
+      "state": "ny",
+      "zip_code": "58579"
+    },
+    "product": {
+      "names": [
+        "tommy_hilfiger shirt"
+      ],
+      "amounts": [
+        79
+      ]
+    },
+    "flow": "shipping_issue",
+    "subflow": "status"
+  },
+  "original": [
+    [
+      "agent",
+      "Hello, how can I help you?"
+    ],
+    [
+      "customer",
+      "Hi, I just noticed that the address on my email confirmation is not correct.  Can you help me look into it?"
+    ],
+    [
+      "agent",
+      "Sure, can I get your full name, account ID, and order ID, please?"
+    ],
+    [
+      "customer",
+      "I'm Albert Sanders"
+    ],
+    [
+      "customer",
+      "Account ID: GAIF8DS3IS"
+    ],
+    [
+      "customer",
+      "Order ID is 8646912916"
+    ],
+    [
+      "action",
+      "Account has been pulled up for Albert Sanders."
+    ],
+    [
+      "action",
+      "Identity verification in progress ..."
+    ],
+    [
+      "agent",
+      "Do you know the shipping status of your order?"
+    ],
+    [
+      "customer",
+      "It says Order Received"
+    ],
+    [
+      "action",
+      "Shipping status of Order Received has been noted."
+    ],
+    [
+      "agent",
+      "Okay, I just need to validate your purchase, then I can change the address"
+    ],
+    [
+      "agent",
+      "Can you please tell me your username and email?"
+    ],
+    [
+      "customer",
+      "Sounds good, it's as018813@email.com"
+    ],
+    [
+      "customer",
+      "as018813"
+    ],
+    [
+      "customer",
+      "is my username"
+    ],
+    [
+      "action",
+      "Purchase validation in progress ..."
+    ],
+    [
+      "agent",
+      "Okay, what's the new address you want it shipped to?"
+    ],
+    [
+      "action",
+      "Order has been updated with Change address."
+    ],
+    [
+      "customer",
+      "it is 1234 First Street, La Fayette, NY 58579"
+    ],
+    [
+      "action",
+      "Details of 1234 First Street, La Fayette, NY 58579 have been entered."
+    ],
+    [
+      "agent",
+      "Okay, your order will be shipped to the NY address. Is there anything else I can help you with?"
+    ],
+    [
+      "customer",
+      "That's all, thank you very much!"
+    ],
+    [
+      "agent",
+      "Have a great day!"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "hello, how can i help you?",
+      "turn_count": 1,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        42
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "hi, i just noticed that the address on my email confirmation is not correct.  can you help me look into it?",
+      "turn_count": 2,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "sure, can i get your full name, account id, and order id, please?",
+      "turn_count": 3,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        51
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i'm albert sanders",
+      "turn_count": 4,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "account id: <account_id>",
+      "turn_count": 5,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "order id is <order_id>",
+      "turn_count": 6,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for albert sanders.",
+      "turn_count": 7,
+      "targets": [
+        "status",
+        "take_action",
+        "pull-up-account",
+        [
+          "albert sanders"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "identity verification in progress ...",
+      "turn_count": 8,
+      "targets": [
+        "status",
+        "take_action",
+        "verify-identity",
+        [
+          "albert sanders",
+          "gaif8ds3is",
+          "8646912916"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "do you know the shipping status of your order?",
+      "turn_count": 9,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        33
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "it says order received",
+      "turn_count": 10,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "shipping status of order received has been noted.",
+      "turn_count": 11,
+      "targets": [
+        "status",
+        "take_action",
+        "shipping-status",
+        [
+          "order received"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "okay, i just need to validate your purchase, then i can change the address",
+      "turn_count": 12,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        33
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can you please tell me your username and email?",
+      "turn_count": 13,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        72
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "sounds good, it's <email>",
+      "turn_count": 14,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "<username>",
+      "turn_count": 15,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "is my username",
+      "turn_count": 16,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "purchase validation in progress ...",
+      "turn_count": 18,
+      "targets": [
+        "status",
+        "take_action",
+        "validate-purchase",
+        [
+          "as018813",
+          "as018813@email.com",
+          "8646912916"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "okay, what's the new address you want it shipped to?",
+      "turn_count": 19,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        6
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "order has been updated with change address.",
+      "turn_count": 20,
+      "targets": [
+        "status",
+        "take_action",
+        "update-order",
+        [
+          "change address"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "it is 1234 first street, la fayette, ny <zip_code>",
+      "turn_count": 21,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "details of 1234 first street, la fayette, ny <zip_code> have been entered.",
+      "turn_count": 22,
+      "targets": [
+        "status",
+        "take_action",
+        "enter-details",
+        [
+          "1234 first street, la fayette, ny 58579"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "okay, your order will be shipped to the ny address. is there anything else i can help you with?",
+      "turn_count": 23,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        89
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "that's all, thank you very much!",
+      "turn_count": 24,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "have a great day!",
+      "turn_count": 25,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        87
+      ]
+    }
+  ]
+}

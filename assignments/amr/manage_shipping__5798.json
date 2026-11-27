@@ -1,0 +1,421 @@
+{
+  "convo_id": 5798,
+  "scenario": {
+    "personal": {
+      "account_id": "xjiw8ufp3b",
+      "customer_name": "crystal minh",
+      "email": "cminh948@email.com",
+      "member_level": "silver",
+      "phone": "(656) 332-6844",
+      "username": "cminh948"
+    },
+    "order": {
+      "street_address": "9723 primrose ave",
+      "full_address": "9723 primrose ave  newark, mi 85971",
+      "city": "newark",
+      "num_products": "3",
+      "order_id": "4870952797",
+      "products": "[{'brand': 'tommy_hilfiger', 'product_type': 'shirt', 'amount': 94, 'image_url': 'images/tommy_hilfiger-shirt.jpeg'}, {'brand': 'michael_kors', 'product_type': 'shirt', 'amount': 79, 'image_url': 'images/michael_kors-shirt.jpeg'}, {'brand': 'michael_kors', 'product_type': 'shirt', 'amount': 54, 'image_url': 'images/michael_kors-shirt.jpeg'}]",
+      "purchase_date": "2020-03-30",
+      "shipping_status": "in transit",
+      "state": "mi",
+      "zip_code": "85971"
+    },
+    "product": {
+      "names": [
+        "tommy_hilfiger shirt",
+        "michael_kors shirt",
+        "michael_kors shirt"
+      ],
+      "amounts": [
+        94,
+        79,
+        54
+      ]
+    },
+    "flow": "shipping_issue",
+    "subflow": "manage"
+  },
+  "original": [
+    [
+      "agent",
+      "Welcome to AcmeBrands! How can I help you?"
+    ],
+    [
+      "customer",
+      "Hello, I would like to change my shipping deatails as they have changed recently due to a move"
+    ],
+    [
+      "agent",
+      "I would be happy to help you with that"
+    ],
+    [
+      "agent",
+      "Is there an outstanding order?"
+    ],
+    [
+      "agent",
+      "Or is this just an update to your account?"
+    ],
+    [
+      "customer",
+      "Yes my order id is 4870952797"
+    ],
+    [
+      "agent",
+      "What is your name please?"
+    ],
+    [
+      "customer",
+      "Crystal Minh"
+    ],
+    [
+      "action",
+      "Account has been pulled up for Crystal Minh."
+    ],
+    [
+      "agent",
+      "What is the shipping status of the order?"
+    ],
+    [
+      "customer",
+      "In Transit"
+    ],
+    [
+      "action",
+      "Shipping status of In Transit has been noted."
+    ],
+    [
+      "agent",
+      "Next I need to validate your purchase. I will need your username and email."
+    ],
+    [
+      "customer",
+      "cminh948, cminh948@email.com"
+    ],
+    [
+      "action",
+      "Purchase validation in progress ..."
+    ],
+    [
+      "agent",
+      "thank you"
+    ],
+    [
+      "agent",
+      "and the new address please?"
+    ],
+    [
+      "customer",
+      "9756 Primrose Street Newark, MI 85971"
+    ],
+    [
+      "action",
+      "Order has been updated with Change address."
+    ],
+    [
+      "agent",
+      "All taken care of!"
+    ],
+    [
+      "agent",
+      "Is there anything else today?"
+    ],
+    [
+      "customer",
+      "Thank you that is all"
+    ],
+    [
+      "agent",
+      "Have a great one!"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "welcome to acmebrands! how can i help you?",
+      "turn_count": 1,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "hello, i would like to change my shipping deatails as they have changed recently due to a move",
+      "turn_count": 2,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i would be happy to help you with that",
+      "turn_count": 3,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "is there an outstanding order?",
+      "turn_count": 4,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "or is this just an update to your account?",
+      "turn_count": 5,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yes my order id is 4870952797",
+      "turn_count": 6,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "what is your name please?",
+      "turn_count": 7,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "crystal minh",
+      "turn_count": 8,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for crystal minh.",
+      "turn_count": 9,
+      "targets": [
+        "manage",
+        null,
+        "pull-up-account",
+        [
+          "crystal minh"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "what is the shipping status of the order?",
+      "turn_count": 10,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "in transit",
+      "turn_count": 11,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "shipping status of in transit has been noted.",
+      "turn_count": 12,
+      "targets": [
+        "manage",
+        null,
+        "shipping-status",
+        [
+          "in transit"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "next i need to validate your purchase. i will need your username and email.",
+      "turn_count": 13,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "cminh948, cminh948@email.com",
+      "turn_count": 14,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "purchase validation in progress ...",
+      "turn_count": 15,
+      "targets": [
+        "manage",
+        null,
+        "validate-purchase",
+        [
+          "cminh948",
+          "cminh948@email.com",
+          "4870952797"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you",
+      "turn_count": 16,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "and the new address please?",
+      "turn_count": 17,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "9756 primrose street newark, mi 85971",
+      "turn_count": 18,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "order has been updated with change address.",
+      "turn_count": 19,
+      "targets": [
+        "manage",
+        null,
+        "update-order",
+        [
+          "change address"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "all taken care of!",
+      "turn_count": 20,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "is there anything else today?",
+      "turn_count": 21,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thank you that is all",
+      "turn_count": 22,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "have a great one!",
+      "turn_count": 23,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    }
+  ]
+}

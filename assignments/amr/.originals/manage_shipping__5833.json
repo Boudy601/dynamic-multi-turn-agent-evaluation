@@ -1,0 +1,905 @@
+{
+  "convo_id": 5833,
+  "scenario": {
+    "personal": {
+      "account_id": "zs5c28g9er",
+      "customer_name": "chloe zhang",
+      "email": "chloez06@email.com",
+      "member_level": "guest",
+      "phone": "(647) 598-9705",
+      "username": "chloez06"
+    },
+    "order": {
+      "street_address": "1576 2nd ave",
+      "full_address": "1576 2nd ave  newark, ca 20386",
+      "city": "newark",
+      "num_products": "3",
+      "order_id": "2572588760",
+      "products": "[{'brand': 'calvin_klein', 'product_type': 'jeans', 'amount': 69, 'image_url': 'images/calvin_klein-jeans.jpeg'}, {'brand': 'tommy_hilfiger', 'product_type': 'shirt', 'amount': 69, 'image_url': 'images/tommy_hilfiger-shirt.jpeg'}, {'brand': 'calvin_klein', 'product_type': 'boots', 'amount': 99, 'image_url': 'images/calvin_klein-boots.jpeg'}]",
+      "purchase_date": "2019-10-16",
+      "shipping_status": "out for delivery",
+      "state": "ca",
+      "zip_code": "20386"
+    },
+    "product": {
+      "names": [
+        "calvin_klein jeans",
+        "tommy_hilfiger shirt",
+        "calvin_klein boots"
+      ],
+      "amounts": [
+        69,
+        69,
+        99
+      ]
+    },
+    "flow": "shipping_issue",
+    "subflow": "manage"
+  },
+  "original": [
+    [
+      "agent",
+      "Hello, how can I help you today?"
+    ],
+    [
+      "customer",
+      "Hi"
+    ],
+    [
+      "customer",
+      "I had placed an order but I realized I accidentally  ordered the wrong item"
+    ],
+    [
+      "customer",
+      "I was hoping you could help me with the order"
+    ],
+    [
+      "agent",
+      "Okay, what would you like me to do for you?"
+    ],
+    [
+      "customer",
+      "Cancel the shipping"
+    ],
+    [
+      "customer",
+      "Cancel the order if you can"
+    ],
+    [
+      "agent",
+      "One moment please."
+    ],
+    [
+      "customer",
+      "You there?"
+    ],
+    [
+      "agent",
+      "Yes"
+    ],
+    [
+      "customer",
+      "Thank you"
+    ],
+    [
+      "agent",
+      "Sorry about this having to do a lot of back end work on this. It's been a busy day."
+    ],
+    [
+      "customer",
+      "Oh no worries"
+    ],
+    [
+      "customer",
+      "Take your time"
+    ],
+    [
+      "agent",
+      "How did you find out you had the wrong item?"
+    ],
+    [
+      "customer",
+      "When I checked the order details"
+    ],
+    [
+      "customer",
+      "I haven't received the order yet"
+    ],
+    [
+      "agent",
+      "No worries and sorry about the wait."
+    ],
+    [
+      "agent",
+      "Cancelling an order because you placed the wrong order isn't covered too well in our manual."
+    ],
+    [
+      "customer",
+      "I see. Would I be able to return the item though?"
+    ],
+    [
+      "agent",
+      "Yes, but it'd have to be with cause."
+    ],
+    [
+      "customer",
+      "Okay. I understand"
+    ],
+    [
+      "agent",
+      "I can just initiate a refund for you and hopefully stop delivery, so there would be no return."
+    ],
+    [
+      "customer",
+      "Thank you"
+    ],
+    [
+      "customer",
+      "I appreciate your help"
+    ],
+    [
+      "agent",
+      "Can I have your full name?"
+    ],
+    [
+      "customer",
+      "Chloe Zhang"
+    ],
+    [
+      "action",
+      "Account has been pulled up for Chloe Zhang."
+    ],
+    [
+      "agent",
+      "And your username, email, and order ID?"
+    ],
+    [
+      "customer",
+      "chloez06@email.com"
+    ],
+    [
+      "customer",
+      "Username: chloez06"
+    ],
+    [
+      "customer",
+      "Order ID: 2572588760"
+    ],
+    [
+      "action",
+      "Purchase validation in progress ..."
+    ],
+    [
+      "agent",
+      "And how would you like your refund processed?"
+    ],
+    [
+      "customer",
+      "the original payment method please"
+    ],
+    [
+      "agent",
+      "I don't have that information, and can't go further if you don't know what you'd like"
+    ],
+    [
+      "agent",
+      "So I'm going to check something else for you Chloe."
+    ],
+    [
+      "customer",
+      "Thank you"
+    ],
+    [
+      "agent",
+      "Can I have your account ID?"
+    ],
+    [
+      "customer",
+      "Account ID: ZS5C28G9ER"
+    ],
+    [
+      "action",
+      "Identity verification in progress ..."
+    ],
+    [
+      "action",
+      "Purchase validation in progress ..."
+    ],
+    [
+      "agent",
+      "Let me check something in the system for you."
+    ],
+    [
+      "action",
+      "Querying the system for an answer ..."
+    ],
+    [
+      "agent",
+      "I'm looking at things and it seems that you're going to be getting what you expected in the first place."
+    ],
+    [
+      "agent",
+      "You didn't order the wrong item and there's no reason to cancel."
+    ],
+    [
+      "customer",
+      "I ordered the wrong item. I do not need it anymore. Is there any way you can help me?"
+    ],
+    [
+      "agent",
+      "As far as I can tell no. You haven't received the item yet do I can't process a refund, and you made the mistake of ordering the wrong item, no one else."
+    ],
+    [
+      "customer",
+      "That is kind of rude. Everyone makes mistakes"
+    ],
+    [
+      "agent",
+      "I'm sorry."
+    ],
+    [
+      "agent",
+      "Is there anything else I can do for you today?\\"
+    ],
+    [
+      "customer",
+      "That is all"
+    ],
+    [
+      "agent",
+      "Have a nice day!"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "hello, how can i help you today?",
+      "turn_count": 1,
+      "targets": [
+        "manage",
+        "retrieve_utterance",
+        null,
+        [],
+        21
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "hi",
+      "turn_count": 2,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i had placed an order but i realized i accidentally  ordered the wrong item",
+      "turn_count": 3,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i was hoping you could help me with the order",
+      "turn_count": 4,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "okay, what would you like me to do for you?",
+      "turn_count": 5,
+      "targets": [
+        "manage",
+        "retrieve_utterance",
+        null,
+        [],
+        64
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "cancel the shipping",
+      "turn_count": 6,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "cancel the order if you can",
+      "turn_count": 7,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "one moment please.",
+      "turn_count": 8,
+      "targets": [
+        "manage",
+        "retrieve_utterance",
+        null,
+        [],
+        89
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "you there?",
+      "turn_count": 9,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "yes",
+      "turn_count": 10,
+      "targets": [
+        "manage",
+        "retrieve_utterance",
+        null,
+        [],
+        14
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thank you",
+      "turn_count": 11,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "sorry about this having to do a lot of back end work on this. it's been a busy day.",
+      "turn_count": 12,
+      "targets": [
+        "manage",
+        "retrieve_utterance",
+        null,
+        [],
+        9
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "oh no worries",
+      "turn_count": 13,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "take your time",
+      "turn_count": 14,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "how did you find out you had the wrong item?",
+      "turn_count": 15,
+      "targets": [
+        "manage",
+        "retrieve_utterance",
+        null,
+        [],
+        69
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "when i checked the order details",
+      "turn_count": 16,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i haven't received the order yet",
+      "turn_count": 17,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "no worries and sorry about the wait.",
+      "turn_count": 18,
+      "targets": [
+        "manage",
+        "retrieve_utterance",
+        null,
+        [],
+        95
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "cancelling an order because you placed the wrong order isn't covered too well in our manual.",
+      "turn_count": 19,
+      "targets": [
+        "manage",
+        "retrieve_utterance",
+        null,
+        [],
+        71
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i see. would i be able to return the item though?",
+      "turn_count": 20,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "yes, but it'd have to be with cause.",
+      "turn_count": 21,
+      "targets": [
+        "manage",
+        "retrieve_utterance",
+        null,
+        [],
+        86
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay. i understand",
+      "turn_count": 22,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i can just initiate a refund for you and hopefully stop delivery, so there would be no return.",
+      "turn_count": 23,
+      "targets": [
+        "manage",
+        "retrieve_utterance",
+        null,
+        [],
+        16
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thank you",
+      "turn_count": 24,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i appreciate your help",
+      "turn_count": 25,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can i have your full name?",
+      "turn_count": 26,
+      "targets": [
+        "manage",
+        "retrieve_utterance",
+        null,
+        [],
+        44
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "chloe zhang",
+      "turn_count": 27,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for chloe zhang.",
+      "turn_count": 28,
+      "targets": [
+        "manage",
+        "take_action",
+        "pull-up-account",
+        [
+          "chloe zhang"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "and your username, email, and order id?",
+      "turn_count": 29,
+      "targets": [
+        "manage",
+        "retrieve_utterance",
+        null,
+        [],
+        87
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "<email>",
+      "turn_count": 30,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "username: <username>",
+      "turn_count": 31,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "order id: <order_id>",
+      "turn_count": 32,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "purchase validation in progress ...",
+      "turn_count": 33,
+      "targets": [
+        "manage",
+        "take_action",
+        "validate-purchase",
+        [
+          "chloez06",
+          "chloez06@email.com",
+          "2572588760"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "and how would you like your refund processed?",
+      "turn_count": 34,
+      "targets": [
+        "manage",
+        "retrieve_utterance",
+        null,
+        [],
+        54
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "the original payment method please",
+      "turn_count": 35,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i don't have that information, and can't go further if you don't know what you'd like",
+      "turn_count": 36,
+      "targets": [
+        "manage",
+        "retrieve_utterance",
+        null,
+        [],
+        76
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "so i'm going to check something else for you chloe.",
+      "turn_count": 37,
+      "targets": [
+        "manage",
+        "retrieve_utterance",
+        null,
+        [],
+        97
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thank you",
+      "turn_count": 38,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can i have your account id?",
+      "turn_count": 39,
+      "targets": [
+        "manage",
+        "retrieve_utterance",
+        null,
+        [],
+        27
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "account id: <account_id>",
+      "turn_count": 40,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "identity verification in progress ...",
+      "turn_count": 41,
+      "targets": [
+        "manage",
+        "take_action",
+        "verify-identity",
+        [
+          "chloe zhang",
+          "zs5c28g9er",
+          "2572588760"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "purchase validation in progress ...",
+      "turn_count": 42,
+      "targets": [
+        "manage",
+        "take_action",
+        "validate-purchase",
+        [
+          "chloez06",
+          "chloez06@email.com",
+          "2572588760"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "let me check something in the system for you.",
+      "turn_count": 43,
+      "targets": [
+        "manage",
+        "retrieve_utterance",
+        null,
+        [],
+        87
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "querying the system for an answer ...",
+      "turn_count": 44,
+      "targets": [
+        "manage",
+        "take_action",
+        "ask-the-oracle",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i'm looking at things and it seems that you're going to be getting what you expected in the first place.",
+      "turn_count": 45,
+      "targets": [
+        "manage",
+        "retrieve_utterance",
+        null,
+        [],
+        62
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "you didn't order the wrong item and there's no reason to cancel.",
+      "turn_count": 46,
+      "targets": [
+        "manage",
+        "retrieve_utterance",
+        null,
+        [],
+        78
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i ordered the wrong item. i do not need it anymore. is there any way you can help me?",
+      "turn_count": 47,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "as far as i can tell no. you haven't received the item yet do i can't process a refund, and you made the mistake of ordering the wrong item, no one else.",
+      "turn_count": 48,
+      "targets": [
+        "manage",
+        "retrieve_utterance",
+        null,
+        [],
+        34
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "that is kind of rude. everyone makes mistakes",
+      "turn_count": 49,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i'm sorry.",
+      "turn_count": 50,
+      "targets": [
+        "manage",
+        "retrieve_utterance",
+        null,
+        [],
+        38
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "is there anything else i can do for you today?\\",
+      "turn_count": 51,
+      "targets": [
+        "manage",
+        "retrieve_utterance",
+        null,
+        [],
+        38
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "that is all",
+      "turn_count": 52,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "have a nice day!",
+      "turn_count": 53,
+      "targets": [
+        "manage",
+        "retrieve_utterance",
+        null,
+        [],
+        2
+      ]
+    }
+  ]
+}

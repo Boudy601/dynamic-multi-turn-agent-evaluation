@@ -56,20 +56,20 @@
       "System Action: search pricing"
     ],
     [
-      "agent",
-      "Gift wrapping is $4.99 per item. However, it may not be available for oversized items."
+      "action",
+      "FAQ answer related to pricing (question1) was selected."
     ],
     [
       "agent",
-      "You can add up to 300 characters as a message on your purchase, but must specify a separate message for each item to be gift wrapped, even if it is a repeat."
+      "Gift wrapping costs $4.99 per item, as long as the item isn't oversized."
+    ],
+    [
+      "agent",
+      "You can also add a personalized gift message of up to 300 characters, though you'll need to enter a separate message for each individual item you want wrapped."
     ],
     [
       "customer",
       "Is that per address?"
-    ],
-    [
-      "agent",
-      "Is there anything else I can help you with?"
     ],
     [
       "agent",
@@ -202,11 +202,11 @@
       "text": "hi, and thanks for choosing acmebrands! how can i help you today?",
       "turn_count": 1,
       "targets": [
-        "pricing",
-        "retrieve_utterance",
+        "pricing_1",
+        null,
         null,
         [],
-        52
+        -1
       ]
     },
     {
@@ -214,7 +214,7 @@
       "text": "hi, i want to find out about gift wrapping my items. like the cost etc",
       "turn_count": 2,
       "targets": [
-        "pricing",
+        "pricing_1",
         null,
         null,
         [],
@@ -226,11 +226,11 @@
       "text": "i'd be happy to assist you with that.",
       "turn_count": 3,
       "targets": [
-        "pricing",
-        "retrieve_utterance",
+        "pricing_1",
+        null,
         null,
         [],
-        93
+        -1
       ]
     },
     {
@@ -238,11 +238,11 @@
       "text": "let me check that information for you.",
       "turn_count": 4,
       "targets": [
-        "pricing",
-        "retrieve_utterance",
+        "pricing_1",
+        null,
         null,
         [],
-        38
+        -1
       ]
     },
     {
@@ -250,8 +250,8 @@
       "text": "searching the faq pages ...",
       "turn_count": 5,
       "targets": [
-        "pricing",
-        "take_action",
+        "pricing_1",
+        null,
         "search-faq",
         [],
         -1
@@ -262,43 +262,33 @@
       "text": "system action: search pricing",
       "turn_count": 6,
       "targets": [
-        "pricing",
-        "take_action",
+        "pricing_1",
+        null,
         "search-pricing",
         [],
         -1
       ]
     },
     {
-      "speaker": "agent",
-      "text": "gift wrapping is $4.<amount> per item. however, it may not be available for oversized items.",
+      "speaker": "action",
+      "text": "faq answer related to pricing (question1) was selected.",
       "turn_count": 7,
       "targets": [
-        "pricing",
-        "retrieve_utterance",
+        "pricing_1",
         null,
-        [],
-        53
+        "select-faq",
+        [
+          "pricing_1"
+        ],
+        -1
       ]
     },
     {
       "speaker": "agent",
-      "text": "you can add up to 300 characters as a message on your purchase, but must specify a separate message for each item to be gift wrapped, even if it is a repeat.",
+      "text": "gift wrapping costs $4.99 per item, as long as the item isn't oversized.",
       "turn_count": 8,
       "targets": [
-        "pricing",
-        "retrieve_utterance",
-        null,
-        [],
-        75
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "is that per address?",
-      "turn_count": 9,
-      "targets": [
-        "pricing",
+        "pricing_1",
         null,
         null,
         [],
@@ -307,26 +297,38 @@
     },
     {
       "speaker": "agent",
-      "text": "is there anything else i can help you with?",
-      "turn_count": 10,
+      "text": "you can also add a personalized gift message of up to 300 characters, though you'll need to enter a separate message for each individual item you want wrapped.",
+      "turn_count": 9,
       "targets": [
-        "pricing",
-        "retrieve_utterance",
+        "pricing_1",
+        null,
         null,
         [],
-        56
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "is that per address?",
+      "turn_count": 10,
+      "targets": [
+        "pricing_1",
+        null,
+        null,
+        [],
+        -1
       ]
     },
     {
       "speaker": "agent",
-      "text": "it is $4.<amount> per item purchased, when available.",
+      "text": "it is $4.99 per item purchased, when available.",
       "turn_count": 11,
       "targets": [
-        "pricing",
-        "retrieve_utterance",
+        "pricing_1",
+        null,
         null,
         [],
-        39
+        -1
       ]
     },
     {
@@ -334,7 +336,7 @@
       "text": "i have 3 items but they're going to the same address so what would the total be?",
       "turn_count": 12,
       "targets": [
-        "pricing",
+        "pricing_1",
         null,
         null,
         [],
@@ -346,11 +348,11 @@
       "text": "the total for gift wrapping would be $14.97.",
       "turn_count": 13,
       "targets": [
-        "pricing",
-        "retrieve_utterance",
+        "pricing_1",
+        null,
         null,
         [],
-        81
+        -1
       ]
     },
     {
@@ -358,7 +360,7 @@
       "text": "i want them wrapped separately",
       "turn_count": 14,
       "targets": [
-        "pricing",
+        "pricing_1",
         null,
         null,
         [],
@@ -370,11 +372,11 @@
       "text": "they will be wrapped separately.",
       "turn_count": 15,
       "targets": [
-        "pricing",
-        "retrieve_utterance",
+        "pricing_1",
+        null,
         null,
         [],
-        17
+        -1
       ]
     },
     {
@@ -382,7 +384,7 @@
       "text": "what if they all were wrapped in the same box?",
       "turn_count": 16,
       "targets": [
-        "pricing",
+        "pricing_1",
         null,
         null,
         [],
@@ -394,11 +396,11 @@
       "text": "we only wrap individual items separately.",
       "turn_count": 17,
       "targets": [
-        "pricing",
-        "retrieve_utterance",
+        "pricing_1",
+        null,
         null,
         [],
-        31
+        -1
       ]
     },
     {
@@ -406,7 +408,7 @@
       "text": "are you sure? my friend got hers wrapped in the same box and she said it was  cheaper",
       "turn_count": 18,
       "targets": [
-        "pricing",
+        "pricing_1",
         null,
         null,
         [],
@@ -418,11 +420,11 @@
       "text": "i'm afraid we only wrap separately.",
       "turn_count": 19,
       "targets": [
-        "pricing",
-        "retrieve_utterance",
+        "pricing_1",
+        null,
         null,
         [],
-        15
+        -1
       ]
     },
     {
@@ -430,7 +432,7 @@
       "text": "can you double check? they did it for her.",
       "turn_count": 20,
       "targets": [
-        "pricing",
+        "pricing_1",
         null,
         null,
         [],
@@ -442,7 +444,7 @@
       "text": "can you ask your supervisor?",
       "turn_count": 21,
       "targets": [
-        "pricing",
+        "pricing_1",
         null,
         null,
         [],
@@ -451,14 +453,14 @@
     },
     {
       "speaker": "agent",
-      "text": "i have double checked, and my information shows that it is fixed at $4.<amount> per item.",
+      "text": "i have double checked, and my information shows that it is fixed at $4.99 per item.",
       "turn_count": 22,
       "targets": [
-        "pricing",
-        "retrieve_utterance",
+        "pricing_1",
+        null,
         null,
         [],
-        53
+        -1
       ]
     },
     {
@@ -466,11 +468,11 @@
       "text": "i will escalate this to my manager.",
       "turn_count": 23,
       "targets": [
-        "pricing",
-        "retrieve_utterance",
+        "pricing_1",
+        null,
         null,
         [],
-        30
+        -1
       ]
     },
     {
@@ -478,8 +480,8 @@
       "text": "the manager has been notified.",
       "turn_count": 24,
       "targets": [
-        "pricing",
-        "take_action",
+        "pricing_1",
+        null,
         "notify-team",
         [
           "manager"
@@ -492,7 +494,7 @@
       "text": "thank you!",
       "turn_count": 25,
       "targets": [
-        "pricing",
+        "pricing_1",
         null,
         null,
         [],
@@ -504,11 +506,11 @@
       "text": "is there anything else i can help you with?",
       "turn_count": 26,
       "targets": [
-        "pricing",
-        "retrieve_utterance",
+        "pricing_1",
+        null,
         null,
         [],
-        29
+        -1
       ]
     },
     {
@@ -516,7 +518,7 @@
       "text": "how will i find out the answer?",
       "turn_count": 27,
       "targets": [
-        "pricing",
+        "pricing_1",
         null,
         null,
         [],
@@ -528,11 +530,11 @@
       "text": "the manager will contact you.",
       "turn_count": 28,
       "targets": [
-        "pricing",
-        "retrieve_utterance",
+        "pricing_1",
+        null,
         null,
         [],
-        37
+        -1
       ]
     },
     {
@@ -540,7 +542,7 @@
       "text": "you didn't even ask my name!",
       "turn_count": 29,
       "targets": [
-        "pricing",
+        "pricing_1",
         null,
         null,
         [],
@@ -552,7 +554,7 @@
       "text": "how will they notify me?",
       "turn_count": 30,
       "targets": [
-        "pricing",
+        "pricing_1",
         null,
         null,
         [],
@@ -564,11 +566,11 @@
       "text": "i will pull up your account so that it is on record. what is your full name?",
       "turn_count": 31,
       "targets": [
-        "pricing",
-        "retrieve_utterance",
+        "pricing_1",
+        null,
         null,
         [],
-        91
+        -1
       ]
     },
     {
@@ -576,7 +578,7 @@
       "text": "albert sanders",
       "turn_count": 32,
       "targets": [
-        "pricing",
+        "pricing_1",
         null,
         null,
         [],
@@ -588,8 +590,8 @@
       "text": "account has been pulled up for albert sanders.",
       "turn_count": 33,
       "targets": [
-        "pricing",
-        "take_action",
+        "pricing_1",
+        null,
         "pull-up-account",
         [
           "albert sanders"
@@ -602,11 +604,11 @@
       "text": "your account has been pulled up. can i help you with anything else today?",
       "turn_count": 34,
       "targets": [
-        "pricing",
-        "retrieve_utterance",
+        "pricing_1",
+        null,
         null,
         [],
-        67
+        -1
       ]
     },
     {
@@ -614,7 +616,7 @@
       "text": "what phone number do you have for me?",
       "turn_count": 35,
       "targets": [
-        "pricing",
+        "pricing_1",
         null,
         null,
         [],
@@ -626,11 +628,11 @@
       "text": "i am unable to see that information, but my manager will have access to your full account.",
       "turn_count": 36,
       "targets": [
-        "pricing",
-        "retrieve_utterance",
+        "pricing_1",
+        null,
         null,
         [],
-        56
+        -1
       ]
     },
     {
@@ -638,7 +640,7 @@
       "text": "how? i'm a guest",
       "turn_count": 37,
       "targets": [
-        "pricing",
+        "pricing_1",
         null,
         null,
         [],
@@ -650,19 +652,19 @@
       "text": "guest simply means that you do not have a paid membership, but you still have an account in our system.",
       "turn_count": 38,
       "targets": [
-        "pricing",
-        "retrieve_utterance",
+        "pricing_1",
+        null,
         null,
         [],
-        17
+        -1
       ]
     },
     {
       "speaker": "customer",
-      "text": "<phone> please add this number to my account. what you are telling me does not make sense.",
+      "text": "(634) 811-2214 please add this number to my account. what you are telling me does not make sense.",
       "turn_count": 39,
       "targets": [
-        "pricing",
+        "pricing_1",
         null,
         null,
         [],
@@ -674,7 +676,7 @@
       "text": "thank you! i don't have high hopes of getting a call though.",
       "turn_count": 40,
       "targets": [
-        "pricing",
+        "pricing_1",
         null,
         null,
         [],
@@ -686,11 +688,11 @@
       "text": "you will, i assure you. have a nice day!",
       "turn_count": 41,
       "targets": [
-        "pricing",
-        "retrieve_utterance",
+        "pricing_1",
+        null,
         null,
         [],
-        30
+        -1
       ]
     }
   ]

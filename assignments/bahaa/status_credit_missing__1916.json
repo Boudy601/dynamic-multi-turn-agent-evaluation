@@ -1,0 +1,326 @@
+{
+  "convo_id": 1916,
+  "scenario": {
+    "personal": {
+      "customer_name": "joseph banter",
+      "member_level": "silver"
+    },
+    "order": {
+      "street_address": "9042 circle drive",
+      "full_address": "9042 circle drive  newark, wa 16191",
+      "city": "newark",
+      "num_products": "1",
+      "products": "[{'brand': 'calvin_klein', 'product_type': 'boots', 'amount': 79, 'image_url': 'images/calvin_klein-boots.jpeg'}]",
+      "state": "wa",
+      "zip_code": "16191"
+    },
+    "product": {
+      "names": [
+        "calvin_klein boots"
+      ],
+      "amounts": [
+        79
+      ]
+    },
+    "flow": "manage_account",
+    "subflow": "status_credit_missing"
+  },
+  "original": [
+    [
+      "agent",
+      "Hello, how can I help you today?"
+    ],
+    [
+      "customer",
+      "Hi! I believe I am due $0 in credits that are not showing up in my account."
+    ],
+    [
+      "agent",
+      "Happy to help, may I have your full name please?"
+    ],
+    [
+      "customer",
+      "Typo above! I meant $40 in credits"
+    ],
+    [
+      "customer",
+      "My name is Joseph Banter"
+    ],
+    [
+      "action",
+      "Account has been pulled up for Joseph Banter."
+    ],
+    [
+      "customer",
+      "I think the $40 credits are related to a subscription refund."
+    ],
+    [
+      "agent",
+      "Thank you, I'm sorry for the inconvenience. Let me log that and check on your missing credits right away."
+    ],
+    [
+      "action",
+      "Reason has been recorded as subscription refund."
+    ],
+    [
+      "action",
+      "Querying the system for an answer ..."
+    ],
+    [
+      "agent",
+      "I checked our system, and it confirms that the $40 credit is indeed missing from your account. I'll generate a $40 promo code for you now."
+    ],
+    [
+      "action",
+      "Promo code has been generated for the amount of $40."
+    ],
+    [
+      "agent",
+      "Here is your $40 promo code: CREDIT40. You can apply this directly to your account."
+    ],
+    [
+      "customer",
+      "Awesome, thanks so much!"
+    ],
+    [
+      "agent",
+      "Is there anything else that I can help you with today?"
+    ],
+    [
+      "customer",
+      "No, thanks!"
+    ],
+    [
+      "agent",
+      "Have a nice day!"
+    ],
+    [
+      "customer",
+      "Bye!"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "hello, how can i help you today?",
+      "turn_count": 1,
+      "targets": [
+        "status_credit_missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "hi! i believe i am due $0 in credits that are not showing up in my account.",
+      "turn_count": 2,
+      "targets": [
+        "status_credit_missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "happy to help, may i have your full name please?",
+      "turn_count": 3,
+      "targets": [
+        "status_credit_missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "typo above! i meant $40 in credits",
+      "turn_count": 4,
+      "targets": [
+        "status_credit_missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "my name is joseph banter",
+      "turn_count": 5,
+      "targets": [
+        "status_credit_missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for joseph banter.",
+      "turn_count": 6,
+      "targets": [
+        "status_credit_missing",
+        null,
+        "pull-up-account",
+        [
+          "joseph banter"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i think the $40 credits are related to a subscription refund.",
+      "turn_count": 7,
+      "targets": [
+        "status_credit_missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you, i'm sorry for the inconvenience. let me log that and check on your missing credits right away.",
+      "turn_count": 8,
+      "targets": [
+        "status_credit_missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "reason has been recorded as subscription refund.",
+      "turn_count": 9,
+      "targets": [
+        "status_credit_missing",
+        null,
+        "record-reason",
+        [
+          "subscription refund"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "querying the system for an answer ...",
+      "turn_count": 10,
+      "targets": [
+        "status_credit_missing",
+        null,
+        "ask-the-oracle",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i checked our system, and it confirms that the $40 credit is indeed missing from your account. i'll generate a $40 promo code for you now.",
+      "turn_count": 11,
+      "targets": [
+        "status_credit_missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "promo code has been generated for the amount of $40.",
+      "turn_count": 12,
+      "targets": [
+        "status_credit_missing",
+        null,
+        "promo-code",
+        [
+          "40"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "here is your $40 promo code: credit40. you can apply this directly to your account.",
+      "turn_count": 13,
+      "targets": [
+        "status_credit_missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "awesome, thanks so much!",
+      "turn_count": 14,
+      "targets": [
+        "status_credit_missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "is there anything else that i can help you with today?",
+      "turn_count": 15,
+      "targets": [
+        "status_credit_missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no, thanks!",
+      "turn_count": 16,
+      "targets": [
+        "status_credit_missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "have a nice day!",
+      "turn_count": 17,
+      "targets": [
+        "status_credit_missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "bye!",
+      "turn_count": 18,
+      "targets": [
+        "status_credit_missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    }
+  ]
+}

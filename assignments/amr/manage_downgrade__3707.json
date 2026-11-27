@@ -199,6 +199,10 @@
       "Shipping status of out for delivery has been noted."
     ],
     [
+      "action",
+      "Agent is looking for solutions ..."
+    ],
+    [
       "agent",
       "Unfortunately Al, as a guest member you are not eligible for any shipping refunds."
     ],
@@ -262,10 +266,10 @@
       "turn_count": 1,
       "targets": [
         "manage_downgrade",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        91
+        -1
       ]
     },
     {
@@ -274,10 +278,10 @@
       "turn_count": 2,
       "targets": [
         "manage_downgrade",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        65
+        -1
       ]
     },
     {
@@ -382,10 +386,10 @@
       "turn_count": 11,
       "targets": [
         "manage_downgrade",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        66
+        -1
       ]
     },
     {
@@ -418,10 +422,10 @@
       "turn_count": 14,
       "targets": [
         "manage_downgrade",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        97
+        -1
       ]
     },
     {
@@ -430,10 +434,10 @@
       "turn_count": 15,
       "targets": [
         "manage_downgrade",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        77
+        -1
       ]
     },
     {
@@ -478,10 +482,10 @@
       "turn_count": 19,
       "targets": [
         "manage_downgrade",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        86
+        -1
       ]
     },
     {
@@ -514,15 +518,15 @@
       "turn_count": 22,
       "targets": [
         "manage_downgrade",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        75
+        -1
       ]
     },
     {
       "speaker": "customer",
-      "text": "<account_id>",
+      "text": "8ufppfph9u",
       "turn_count": 23,
       "targets": [
         "manage_downgrade",
@@ -538,19 +542,19 @@
       "turn_count": 24,
       "targets": [
         "manage_downgrade",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        52
+        -1
       ]
     },
     {
       "speaker": "action",
-      "text": "account has been pulled up for <account_id>.",
+      "text": "account has been pulled up for 8ufppfph9u.",
       "turn_count": 25,
       "targets": [
         "manage_downgrade",
-        "take_action",
+        null,
         "pull-up-account",
         [
           "8ufppfph9u"
@@ -564,10 +568,10 @@
       "turn_count": 26,
       "targets": [
         "manage_downgrade",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        67
+        -1
       ]
     },
     {
@@ -608,7 +612,7 @@
     },
     {
       "speaker": "customer",
-      "text": "my order id is <order_id>",
+      "text": "my order id is 5773256933",
       "turn_count": 30,
       "targets": [
         "manage_downgrade",
@@ -624,10 +628,10 @@
       "turn_count": 31,
       "targets": [
         "manage_downgrade",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        97
+        -1
       ]
     },
     {
@@ -636,10 +640,10 @@
       "turn_count": 32,
       "targets": [
         "manage_downgrade",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        60
+        -1
       ]
     },
     {
@@ -672,7 +676,7 @@
       "turn_count": 35,
       "targets": [
         "manage_downgrade",
-        "take_action",
+        null,
         "verify-identity",
         [
           "albert sanders",
@@ -688,10 +692,10 @@
       "turn_count": 36,
       "targets": [
         "manage_downgrade",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        9
+        -1
       ]
     },
     {
@@ -712,10 +716,10 @@
       "turn_count": 38,
       "targets": [
         "manage_downgrade",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        86
+        -1
       ]
     },
     {
@@ -736,10 +740,10 @@
       "turn_count": 40,
       "targets": [
         "manage_downgrade",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        85
+        -1
       ]
     },
     {
@@ -760,7 +764,7 @@
       "turn_count": 42,
       "targets": [
         "manage_downgrade",
-        "take_action",
+        null,
         "shipping-status",
         [
           "out for delivery"
@@ -769,20 +773,22 @@
       ]
     },
     {
-      "speaker": "agent",
-      "text": "unfortunately al, as a guest member you are not eligible for any shipping refunds.",
+      "speaker": "action",
+      "text": "agent is looking for solutions ...",
       "turn_count": 43,
       "targets": [
         "manage_downgrade",
-        "retrieve_utterance",
         null,
-        [],
-        44
+        "membership-privileges",
+        [
+          "guest"
+        ],
+        -1
       ]
     },
     {
-      "speaker": "customer",
-      "text": "oh okay",
+      "speaker": "agent",
+      "text": "unfortunately al, as a guest member you are not eligible for any shipping refunds.",
       "turn_count": 44,
       "targets": [
         "manage_downgrade",
@@ -794,8 +800,20 @@
     },
     {
       "speaker": "customer",
-      "text": "i guess that makes sense.",
+      "text": "oh okay",
       "turn_count": 45,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i guess that makes sense.",
+      "turn_count": 46,
       "targets": [
         "manage_downgrade",
         null,
@@ -807,18 +825,6 @@
     {
       "speaker": "agent",
       "text": "i am truly sorry for the inconvenience.",
-      "turn_count": 46,
-      "targets": [
-        "manage_downgrade",
-        "retrieve_utterance",
-        null,
-        [],
-        64
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "i made the mistake by ordering the quicker shipping",
       "turn_count": 47,
       "targets": [
         "manage_downgrade",
@@ -830,7 +836,7 @@
     },
     {
       "speaker": "customer",
-      "text": "it's okay",
+      "text": "i made the mistake by ordering the quicker shipping",
       "turn_count": 48,
       "targets": [
         "manage_downgrade",
@@ -842,8 +848,20 @@
     },
     {
       "speaker": "customer",
-      "text": "thanks for trying",
+      "text": "it's okay",
       "turn_count": 49,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thanks for trying",
+      "turn_count": 50,
       "targets": [
         "manage_downgrade",
         null,
@@ -855,19 +873,19 @@
     {
       "speaker": "agent",
       "text": "i understand, i wish we could help.",
-      "turn_count": 50,
+      "turn_count": 51,
       "targets": [
         "manage_downgrade",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        57
+        -1
       ]
     },
     {
       "speaker": "customer",
       "text": "no problem",
-      "turn_count": 51,
+      "turn_count": 52,
       "targets": [
         "manage_downgrade",
         null,
@@ -879,18 +897,6 @@
     {
       "speaker": "agent",
       "text": "is there anything else i can do for you today?",
-      "turn_count": 52,
-      "targets": [
-        "manage_downgrade",
-        "retrieve_utterance",
-        null,
-        [],
-        54
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "thanks anyway",
       "turn_count": 53,
       "targets": [
         "manage_downgrade",
@@ -902,8 +908,20 @@
     },
     {
       "speaker": "customer",
-      "text": "no that's it",
+      "text": "thanks anyway",
       "turn_count": 54,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no that's it",
+      "turn_count": 55,
       "targets": [
         "manage_downgrade",
         null,
@@ -915,19 +933,19 @@
     {
       "speaker": "agent",
       "text": "great, again you have my sincere apologies, have a good day",
-      "turn_count": 55,
+      "turn_count": 56,
       "targets": [
         "manage_downgrade",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        13
+        -1
       ]
     },
     {
       "speaker": "customer",
       "text": "you also",
-      "turn_count": 56,
+      "turn_count": 57,
       "targets": [
         "manage_downgrade",
         null,

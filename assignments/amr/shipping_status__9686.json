@@ -1,0 +1,403 @@
+{
+  "convo_id": 9686,
+  "scenario": {
+    "personal": {
+      "account_id": "tv38iez6ru",
+      "customer_name": "chloe zhang",
+      "email": "chloez02@email.com",
+      "member_level": "gold",
+      "phone": "(436) 075-0777",
+      "username": "chloez02"
+    },
+    "order": {
+      "street_address": "9043 woodshore st",
+      "full_address": "9043 woodshore st  brighton, ca 95781",
+      "city": "brighton",
+      "num_products": "2",
+      "order_id": "3653143311",
+      "products": "[{'brand': 'tommy_hilfiger', 'product_type': 'shirt', 'amount': 79, 'image_url': 'images/tommy_hilfiger-shirt.jpeg'}, {'brand': 'guess', 'product_type': 'boots', 'amount': 89, 'image_url': 'images/guess-boots.jpeg'}]",
+      "purchase_date": "2019-12-29",
+      "shipping_status": "order received",
+      "state": "ca",
+      "zip_code": "95781"
+    },
+    "product": {
+      "names": [
+        "tommy_hilfiger shirt",
+        "guess boots"
+      ],
+      "amounts": [
+        79,
+        89
+      ]
+    },
+    "flow": "shipping_issue",
+    "subflow": "status"
+  },
+  "original": [
+    [
+      "agent",
+      "Hello, how can I help you today?"
+    ],
+    [
+      "customer",
+      "Hi, my name's Chloe Zhang, gold member"
+    ],
+    [
+      "customer",
+      "I think I need to double-check that my shipping date is still set for tomorrow"
+    ],
+    [
+      "agent",
+      "Okay, let me see what I can do for you."
+    ],
+    [
+      "customer",
+      "I got an email that sounded wrong"
+    ],
+    [
+      "action",
+      "Account has been pulled up for Chloe Zhang."
+    ],
+    [
+      "agent",
+      "Can I have your account and order ID?"
+    ],
+    [
+      "customer",
+      "TV38IEZ6RU"
+    ],
+    [
+      "customer",
+      "3653143311"
+    ],
+    [
+      "action",
+      "Identity verification in progress ..."
+    ],
+    [
+      "agent",
+      "Okay, and can I have your username and email?"
+    ],
+    [
+      "customer",
+      "chloez02"
+    ],
+    [
+      "customer",
+      "chloez02@email.com"
+    ],
+    [
+      "action",
+      "Purchase validation in progress ..."
+    ],
+    [
+      "agent",
+      "Okay, let me check the system to see what's going on."
+    ],
+    [
+      "action",
+      "Querying the system for an answer ..."
+    ],
+    [
+      "agent",
+      "It looks like whatever sent that automated email was wrong, and your shipping is still good for tomorrow,"
+    ],
+    [
+      "agent",
+      "Is there anything else I can help you with>"
+    ],
+    [
+      "customer",
+      "Ah, that's good to hear"
+    ],
+    [
+      "customer",
+      "No, that was all I needed, a little peace of mind"
+    ],
+    [
+      "customer",
+      "Thanks for your help"
+    ],
+    [
+      "agent",
+      "Then have a nice day!"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "hello, how can i help you today?",
+      "turn_count": 1,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        85
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "hi, my name's chloe zhang, gold member",
+      "turn_count": 2,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i think i need to double-check that my shipping date is still set for tomorrow",
+      "turn_count": 3,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "okay, let me see what i can do for you.",
+      "turn_count": 4,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        45
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i got an email that sounded wrong",
+      "turn_count": 5,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for chloe zhang.",
+      "turn_count": 6,
+      "targets": [
+        "status",
+        "take_action",
+        "pull-up-account",
+        [
+          "chloe zhang"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can i have your account and order id?",
+      "turn_count": 7,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        13
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "<account_id>",
+      "turn_count": 8,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "<order_id>",
+      "turn_count": 9,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "identity verification in progress ...",
+      "turn_count": 10,
+      "targets": [
+        "status",
+        "take_action",
+        "verify-identity",
+        [
+          "chloe zhang",
+          "tv38iez6ru",
+          "3653143311"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "okay, and can i have your username and email?",
+      "turn_count": 11,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        15
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "<username>",
+      "turn_count": 12,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "<email>",
+      "turn_count": 13,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "purchase validation in progress ...",
+      "turn_count": 14,
+      "targets": [
+        "status",
+        "take_action",
+        "validate-purchase",
+        [
+          "chloez02",
+          "chloez02@email.com",
+          "3653143311"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "okay, let me check the system to see what's going on.",
+      "turn_count": 15,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        63
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "querying the system for an answer ...",
+      "turn_count": 16,
+      "targets": [
+        "status",
+        "take_action",
+        "ask-the-oracle",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "it looks like whatever sent that automated email was wrong, and your shipping is still good for tomorrow,",
+      "turn_count": 17,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        73
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "is there anything else i can help you with>",
+      "turn_count": 18,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        20
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ah, that's good to hear",
+      "turn_count": 19,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no, that was all i needed, a little peace of mind",
+      "turn_count": 20,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thanks for your help",
+      "turn_count": 21,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "then have a nice day!",
+      "turn_count": 22,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        25
+      ]
+    }
+  ]
+}

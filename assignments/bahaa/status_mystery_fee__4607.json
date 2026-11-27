@@ -1,0 +1,540 @@
+{
+  "convo_id": 4607,
+  "scenario": {
+    "personal": {
+      "account_id": "snimlzklep",
+      "customer_name": "david williams",
+      "member_level": "guest",
+      "phone": "(807) 951-5622"
+    },
+    "order": {
+      "street_address": "8120 circle drive",
+      "full_address": "8120 circle drive  newark, mi 80865",
+      "city": "newark",
+      "num_products": "1",
+      "order_id": "8827389283",
+      "products": "[{'brand': 'calvin_klein', 'product_type': 'boots', 'amount': 64, 'image_url': 'images/calvin_klein-boots.jpeg'}]",
+      "shipping_status": "in transit",
+      "state": "mi",
+      "zip_code": "80865"
+    },
+    "product": {
+      "names": [
+        "calvin_klein boots"
+      ],
+      "amounts": [
+        64
+      ]
+    },
+    "flow": "order_issue",
+    "subflow": "status_mystery_fee"
+  },
+  "original": [
+    [
+      "agent",
+      "Hello, how may I assist you today?"
+    ],
+    [
+      "customer",
+      "There seems to be an extra fee added to my order"
+    ],
+    [
+      "agent",
+      "What's your full name?"
+    ],
+    [
+      "customer",
+      "David Williams"
+    ],
+    [
+      "action",
+      "Account has been pulled up for David Williams."
+    ],
+    [
+      "agent",
+      "Can I have your account and order IDs?"
+    ],
+    [
+      "customer",
+      "Acc# SNIMLZKLEP, Order ID: 8827389283"
+    ],
+    [
+      "action",
+      "Identity verification in progress ..."
+    ],
+    [
+      "agent",
+      "I've located your account with us."
+    ],
+    [
+      "agent",
+      "Can you clarify the extra charge for me, please? Is it a higher than average shipping fee?"
+    ],
+    [
+      "customer",
+      "It is a processing fee that was not mentioned when ordering this product"
+    ],
+    [
+      "agent",
+      "What's your membership status?"
+    ],
+    [
+      "customer",
+      "Guest"
+    ],
+    [
+      "agent",
+      "Thanks for that information."
+    ],
+    [
+      "action",
+      "Membership level of Guest has been noted."
+    ],
+    [
+      "agent",
+      "Let me dig a bit deeper and see if there was a mistake made with that fee. Just a moment please."
+    ],
+    [
+      "action",
+      "Querying the system for an answer ..."
+    ],
+    [
+      "customer",
+      "Hello?"
+    ],
+    [
+      "agent",
+      "I apologize for the wait, I am still trying to figure out the answer."
+    ],
+    [
+      "agent",
+      "Unfortunately the processing fee is being added to customers who have placed orders in the last few weeks, due to the current COVID 19 crisis."
+    ],
+    [
+      "agent",
+      "I apologize for the inconvenience, but it's out of my hands."
+    ],
+    [
+      "customer",
+      "I would like to start a return for this product.  This is a fee that should have been stated on the website prior to the purchase."
+    ],
+    [
+      "agent",
+      "What is the shipping status of the order?"
+    ],
+    [
+      "customer",
+      "Still in transit.  If you send me the return authorization i will place them back into the mail as soon as i receive them."
+    ],
+    [
+      "agent",
+      "Unfortunately, David, you will have to wait until your order arrives before we can begin the refund process."
+    ],
+    [
+      "customer",
+      "Is there a possibility of just refunding the fee, rather then do the return?"
+    ],
+    [
+      "agent",
+      "No, sorry about that."
+    ],
+    [
+      "customer",
+      "Will i receive a 100% refund for the amount that was charged to my card?"
+    ],
+    [
+      "agent",
+      "I cannot speculate about what will happen in the future, I would advise you to call us back as soon as your order arrives."
+    ],
+    [
+      "customer",
+      "I will do that, thank you for your time"
+    ],
+    [
+      "agent",
+      "Thanks David, have a great day!"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "hello, how may i assist you today?",
+      "turn_count": 1,
+      "targets": [
+        "status_mystery_fee",
+        "retrieve_utterance",
+        null,
+        [],
+        28
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "there seems to be an extra fee added to my order",
+      "turn_count": 2,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "what's your full name?",
+      "turn_count": 3,
+      "targets": [
+        "status_mystery_fee",
+        "retrieve_utterance",
+        null,
+        [],
+        76
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "david williams",
+      "turn_count": 4,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for david williams.",
+      "turn_count": 5,
+      "targets": [
+        "status_mystery_fee",
+        "take_action",
+        "pull-up-account",
+        [
+          "david williams"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can i have your account and order ids?",
+      "turn_count": 6,
+      "targets": [
+        "status_mystery_fee",
+        "retrieve_utterance",
+        null,
+        [],
+        12
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "acc# <account_id>, order id: <order_id>",
+      "turn_count": 7,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "identity verification in progress ...",
+      "turn_count": 8,
+      "targets": [
+        "status_mystery_fee",
+        "take_action",
+        "verify-identity",
+        [
+          "david williams",
+          "snimlzklep",
+          "8827389283"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i've located your account with us.",
+      "turn_count": 9,
+      "targets": [
+        "status_mystery_fee",
+        "retrieve_utterance",
+        null,
+        [],
+        53
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can you clarify the extra charge for me, please? is it a higher than average shipping fee?",
+      "turn_count": 10,
+      "targets": [
+        "status_mystery_fee",
+        "retrieve_utterance",
+        null,
+        [],
+        51
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "it is a processing fee that was not mentioned when ordering this product",
+      "turn_count": 11,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "what's your membership status?",
+      "turn_count": 12,
+      "targets": [
+        "status_mystery_fee",
+        "retrieve_utterance",
+        null,
+        [],
+        52
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "guest",
+      "turn_count": 13,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thanks for that information.",
+      "turn_count": 14,
+      "targets": [
+        "status_mystery_fee",
+        "retrieve_utterance",
+        null,
+        [],
+        22
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "membership level of guest has been noted.",
+      "turn_count": 15,
+      "targets": [
+        "status_mystery_fee",
+        "take_action",
+        "membership",
+        [
+          "guest"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "let me dig a bit deeper and see if there was a mistake made with that fee. just a moment please.",
+      "turn_count": 16,
+      "targets": [
+        "status_mystery_fee",
+        "retrieve_utterance",
+        null,
+        [],
+        21
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "querying the system for an answer ...",
+      "turn_count": 17,
+      "targets": [
+        "status_mystery_fee",
+        "take_action",
+        "ask-the-oracle",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "hello?",
+      "turn_count": 18,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i apologize for the wait, i am still trying to figure out the answer.",
+      "turn_count": 19,
+      "targets": [
+        "status_mystery_fee",
+        "retrieve_utterance",
+        null,
+        [],
+        70
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "unfortunately the processing fee is being added to customers who have placed orders in the last few weeks, due to the current covid 19 crisis.",
+      "turn_count": 20,
+      "targets": [
+        "status_mystery_fee",
+        "retrieve_utterance",
+        null,
+        [],
+        10
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i apologize for the inconvenience, but it's out of my hands.",
+      "turn_count": 21,
+      "targets": [
+        "status_mystery_fee",
+        "retrieve_utterance",
+        null,
+        [],
+        93
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i would like to start a return for this product.  this is a fee that should have been stated on the website prior to the purchase.",
+      "turn_count": 22,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "what is the shipping status of the order?",
+      "turn_count": 23,
+      "targets": [
+        "status_mystery_fee",
+        "retrieve_utterance",
+        null,
+        [],
+        52
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "still in transit.  if you send me the return authorization i will place them back into the mail as soon as i receive them.",
+      "turn_count": 24,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "unfortunately, david, you will have to wait until your order arrives before we can begin the refund process.",
+      "turn_count": 25,
+      "targets": [
+        "status_mystery_fee",
+        "retrieve_utterance",
+        null,
+        [],
+        48
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "is there a possibility of just refunding the fee, rather then do the return?",
+      "turn_count": 26,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "no, sorry about that.",
+      "turn_count": 27,
+      "targets": [
+        "status_mystery_fee",
+        "retrieve_utterance",
+        null,
+        [],
+        19
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "will i receive a 100% refund for the amount that was charged to my card?",
+      "turn_count": 28,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i cannot speculate about what will happen in the future, i would advise you to call us back as soon as your order arrives.",
+      "turn_count": 29,
+      "targets": [
+        "status_mystery_fee",
+        "retrieve_utterance",
+        null,
+        [],
+        31
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i will do that, thank you for your time",
+      "turn_count": 30,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thanks david, have a great day!",
+      "turn_count": 31,
+      "targets": [
+        "status_mystery_fee",
+        "retrieve_utterance",
+        null,
+        [],
+        38
+      ]
+    }
+  ]
+}

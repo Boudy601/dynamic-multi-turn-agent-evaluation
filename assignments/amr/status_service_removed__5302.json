@@ -63,160 +63,56 @@
       "Sanya Afzal"
     ],
     [
-      "agent",
-      "Thank you, Sanya, and how about your account/order ID's?"
-    ],
-    [
       "action",
       "Account has been pulled up for Sanya Afzal."
     ],
     [
-      "customer",
-      "My account is 2837347"
+      "action",
+      "Reason 'email' has been recorded."
+    ],
+    [
+      "agent",
+      "Thank you, Sanya. Let me check my system about this problem for you."
     ],
     [
       "customer",
-      "My order ID is 2947625"
+      "Okay, thank you"
     ],
     [
       "action",
-      "Identity verification in progress ..."
+      "Asking the Oracle ... Result: No"
     ],
     [
       "agent",
-      "I'm having trouble verifying with that information. Can you double-check the ID's, please?"
+      "Good news—there was actually a mistake, and your subscription was not removed. That was a scam email; if you check the sender, you'll see it isn't from the official AcmeCorp marketing team."
     ],
     [
       "customer",
-      "Ummm okay"
+      "Oh, really? Let me check the sender... yeah, it doesn't look official at all."
+    ],
+    [
+      "customer",
+      "So I still have my subscription?"
     ],
     [
       "agent",
-      "At least one of them will probably have some letters in it."
+      "Yes, your subscription is still active and you have nothing to worry about."
     ],
     [
       "customer",
-      "oh, oops"
-    ],
-    [
-      "customer",
-      "I think I gave you the wrong ones"
-    ],
-    [
-      "customer",
-      "My account is actually 38shda37"
+      "That's a huge relief, thank you!"
     ],
     [
       "agent",
-      "Not to worry."
+      "You're welcome! Is there anything else I can help you with today?"
     ],
     [
       "customer",
-      "And my order is 9574732"
-    ],
-    [
-      "action",
-      "Identity verification in progress ..."
-    ],
-    [
-      "agent",
-      "I'm afraid those values are still not working."
-    ],
-    [
-      "customer",
-      "huh"
-    ],
-    [
-      "customer",
-      "well, that's what I wrote down for them"
-    ],
-    [
-      "agent",
-      "Let me see if I can access your subscription status anyway."
-    ],
-    [
-      "action",
-      "Querying the system for subscription status ..."
-    ],
-    [
-      "customer",
-      "Okay"
-    ],
-    [
-      "agent",
-      "It looks like your subscription is not currently active, as you suspected, but there is $14 that is due in three days, if you would like to reactivate. Would you like to do that?"
-    ],
-    [
-      "customer",
-      "Yes, I would"
-    ],
-    [
-      "agent",
-      "With your card on file?"
-    ],
-    [
-      "customer",
-      "I am willing to pay the $14 now if that helps"
-    ],
-    [
-      "customer",
-      "Yes, that's fine"
-    ],
-    [
-      "action",
-      "Details of 14 have been entered."
-    ],
-    [
-      "agent",
-      "Done! Your subscription should now be reinstated."
-    ],
-    [
-      "customer",
-      "Great!"
-    ],
-    [
-      "action",
-      "A link will be sent."
-    ],
-    [
-      "customer",
-      "That's one thing off my to-do list"
-    ],
-    [
-      "agent",
-      "I have just sent you a link to manage this online on your own, if you'd like."
-    ],
-    [
-      "customer",
-      "Oh, good"
-    ],
-    [
-      "agent",
-      "Do you know your username? You will need that to log in for that."
-    ],
-    [
-      "customer",
-      "I think it's sanyaafzal283"
-    ],
-    [
-      "agent",
-      "Perfect, then you should be all set! Can I help you with anything else?"
-    ],
-    [
-      "customer",
-      "no, that was it"
-    ],
-    [
-      "customer",
-      "Thank you!"
+      "No, that was it. Thank you!"
     ],
     [
       "agent",
       "Okay, have a great day!"
-    ],
-    [
-      "agent",
-      "You're welcome!"
     ]
   ],
   "delexed": [
@@ -226,10 +122,10 @@
       "turn_count": 1,
       "targets": [
         "status_service_removed",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        78
+        -1
       ]
     },
     {
@@ -250,10 +146,10 @@
       "turn_count": 3,
       "targets": [
         "status_service_removed",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        84
+        -1
       ]
     },
     {
@@ -286,10 +182,10 @@
       "turn_count": 6,
       "targets": [
         "status_service_removed",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        14
+        -1
       ]
     },
     {
@@ -310,10 +206,10 @@
       "turn_count": 8,
       "targets": [
         "status_service_removed",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        11
+        -1
       ]
     },
     {
@@ -329,24 +225,12 @@
       ]
     },
     {
-      "speaker": "agent",
-      "text": "thank you, sanya, and how about your account/order id's?",
+      "speaker": "action",
+      "text": "account has been pulled up for sanya afzal.",
       "turn_count": 10,
       "targets": [
         "status_service_removed",
-        "retrieve_utterance",
         null,
-        [],
-        48
-      ]
-    },
-    {
-      "speaker": "action",
-      "text": "account has been pulled up for sanya afzal.",
-      "turn_count": 11,
-      "targets": [
-        "status_service_removed",
-        "take_action",
         "pull-up-account",
         [
           "sanya afzal"
@@ -355,8 +239,22 @@
       ]
     },
     {
-      "speaker": "customer",
-      "text": "my account is 2837347",
+      "speaker": "action",
+      "text": "reason 'email' has been recorded.",
+      "turn_count": 11,
+      "targets": [
+        "status_service_removed",
+        null,
+        "record-reason",
+        [
+          "email"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you, sanya. let me check my system about this problem for you.",
       "turn_count": 12,
       "targets": [
         "status_service_removed",
@@ -368,7 +266,7 @@
     },
     {
       "speaker": "customer",
-      "text": "my order id is 2947625",
+      "text": "okay, thank you",
       "turn_count": 13,
       "targets": [
         "status_service_removed",
@@ -380,35 +278,31 @@
     },
     {
       "speaker": "action",
-      "text": "identity verification in progress ...",
+      "text": "asking the oracle ... result: no",
       "turn_count": 14,
       "targets": [
         "status_service_removed",
-        "take_action",
-        "verify-identity",
-        [
-          "sanya afzal",
-          "2837347",
-          "2947625"
-        ],
+        null,
+        "ask-the-oracle",
+        [],
         -1
       ]
     },
     {
       "speaker": "agent",
-      "text": "i'm having trouble verifying with that information. can you double-check the id's, please?",
+      "text": "good news—there was actually a mistake, and your subscription was not removed. that was a scam email; if you check the sender, you'll see it isn't from the official acmecorp marketing team.",
       "turn_count": 15,
       "targets": [
         "status_service_removed",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        21
+        -1
       ]
     },
     {
       "speaker": "customer",
-      "text": "ummm okay",
+      "text": "oh, really? let me check the sender... yeah, it doesn't look official at all.",
       "turn_count": 16,
       "targets": [
         "status_service_removed",
@@ -419,20 +313,20 @@
       ]
     },
     {
-      "speaker": "agent",
-      "text": "at least one of them will probably have some letters in it.",
+      "speaker": "customer",
+      "text": "so i still have my subscription?",
       "turn_count": 17,
       "targets": [
         "status_service_removed",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        16
+        -1
       ]
     },
     {
-      "speaker": "customer",
-      "text": "oh, oops",
+      "speaker": "agent",
+      "text": "yes, your subscription is still active and you have nothing to worry about.",
       "turn_count": 18,
       "targets": [
         "status_service_removed",
@@ -444,7 +338,7 @@
     },
     {
       "speaker": "customer",
-      "text": "i think i gave you the wrong ones",
+      "text": "that's a huge relief, thank you!",
       "turn_count": 19,
       "targets": [
         "status_service_removed",
@@ -455,8 +349,8 @@
       ]
     },
     {
-      "speaker": "customer",
-      "text": "my account is actually 38shda37",
+      "speaker": "agent",
+      "text": "you're welcome! is there anything else i can help you with today?",
       "turn_count": 20,
       "targets": [
         "status_service_removed",
@@ -467,315 +361,9 @@
       ]
     },
     {
-      "speaker": "agent",
-      "text": "not to worry.",
+      "speaker": "customer",
+      "text": "no, that was it. thank you!",
       "turn_count": 21,
-      "targets": [
-        "status_service_removed",
-        "retrieve_utterance",
-        null,
-        [],
-        28
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "and my order is 9574732",
-      "turn_count": 22,
-      "targets": [
-        "status_service_removed",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "action",
-      "text": "identity verification in progress ...",
-      "turn_count": 23,
-      "targets": [
-        "status_service_removed",
-        "take_action",
-        "verify-identity",
-        [
-          "sanya afzal",
-          "38shda37",
-          "9574732"
-        ],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "i'm afraid those values are still not working.",
-      "turn_count": 24,
-      "targets": [
-        "status_service_removed",
-        "retrieve_utterance",
-        null,
-        [],
-        4
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "huh",
-      "turn_count": 25,
-      "targets": [
-        "status_service_removed",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "well, that's what i wrote down for them",
-      "turn_count": 26,
-      "targets": [
-        "status_service_removed",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "let me see if i can access your subscription status anyway.",
-      "turn_count": 27,
-      "targets": [
-        "status_service_removed",
-        "retrieve_utterance",
-        null,
-        [],
-        94
-      ]
-    },
-    {
-      "speaker": "action",
-      "text": "querying the system for subscription status ...",
-      "turn_count": 28,
-      "targets": [
-        "status_service_removed",
-        "take_action",
-        "subscription-status",
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "okay",
-      "turn_count": 29,
-      "targets": [
-        "status_service_removed",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "it looks like your subscription is not currently active, as you suspected, but there is $14 that is due in three days, if you would like to reactivate. would you like to do that?",
-      "turn_count": 30,
-      "targets": [
-        "status_service_removed",
-        "retrieve_utterance",
-        null,
-        [],
-        87
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "yes, i would",
-      "turn_count": 31,
-      "targets": [
-        "status_service_removed",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "with your card on file?",
-      "turn_count": 32,
-      "targets": [
-        "status_service_removed",
-        "retrieve_utterance",
-        null,
-        [],
-        71
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "i am willing to pay the $14 now if that helps",
-      "turn_count": 33,
-      "targets": [
-        "status_service_removed",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "yes, that's fine",
-      "turn_count": 34,
-      "targets": [
-        "status_service_removed",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "action",
-      "text": "details of 14 have been entered.",
-      "turn_count": 35,
-      "targets": [
-        "status_service_removed",
-        "take_action",
-        "enter-details",
-        [
-          "14"
-        ],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "done! your subscription should now be reinstated.",
-      "turn_count": 36,
-      "targets": [
-        "status_service_removed",
-        "retrieve_utterance",
-        null,
-        [],
-        65
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "great!",
-      "turn_count": 37,
-      "targets": [
-        "status_service_removed",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "action",
-      "text": "a link will be sent.",
-      "turn_count": 38,
-      "targets": [
-        "status_service_removed",
-        "take_action",
-        "send-link",
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "that's one thing off my to-do list",
-      "turn_count": 39,
-      "targets": [
-        "status_service_removed",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "i have just sent you a link to manage this online on your own, if you'd like.",
-      "turn_count": 40,
-      "targets": [
-        "status_service_removed",
-        "retrieve_utterance",
-        null,
-        [],
-        61
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "oh, good",
-      "turn_count": 41,
-      "targets": [
-        "status_service_removed",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "do you know your username? you will need that to log in for that.",
-      "turn_count": 42,
-      "targets": [
-        "status_service_removed",
-        "retrieve_utterance",
-        null,
-        [],
-        26
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "i think it's sanyaafzal283",
-      "turn_count": 43,
-      "targets": [
-        "status_service_removed",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "perfect, then you should be all set! can i help you with anything else?",
-      "turn_count": 44,
-      "targets": [
-        "status_service_removed",
-        "retrieve_utterance",
-        null,
-        [],
-        36
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "no, that was it",
-      "turn_count": 45,
-      "targets": [
-        "status_service_removed",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "thank you!",
-      "turn_count": 46,
       "targets": [
         "status_service_removed",
         null,
@@ -787,25 +375,13 @@
     {
       "speaker": "agent",
       "text": "okay, have a great day!",
-      "turn_count": 47,
+      "turn_count": 22,
       "targets": [
         "status_service_removed",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        78
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "you're welcome!",
-      "turn_count": 48,
-      "targets": [
-        "status_service_removed",
-        "retrieve_utterance",
-        null,
-        [],
-        73
+        -1
       ]
     }
   ]

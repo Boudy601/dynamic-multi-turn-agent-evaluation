@@ -86,6 +86,10 @@
       "Alright, Joe, it will be just a moment!"
     ],
     [
+      "action",
+      "Account has been pulled up for Joseph Banter."
+    ],
+    [
       "agent",
       "Do verify this, I'm going to also need the account ID and Order ID please."
     ],
@@ -171,7 +175,7 @@
     ],
     [
       "agent",
-      "My sincere apologies sir, but we can only refund up to $10 for silver."
+      "My sincere apologies sir, but we can only refund amounts less than $10 for silver."
     ],
     [
       "customer",
@@ -191,47 +195,39 @@
     ],
     [
       "agent",
-      "I completely understand, I will get you in contact with the manager."
+      "I completely understand your frustration, Joe, and I'm really sorry, but I'm not able to transfer you to a manager or issue a $75 refund under our Silver membership policy."
     ],
     [
       "agent",
-      "What is your phone number?"
+      "Just to clarify since you mentioned not paying twice—have you actually paid this bill yet, or are you just seeing the charge on your bill?"
     ],
     [
       "customer",
-      "(092) 416-8168"
-    ],
-    [
-      "action",
-      "Details of (092) 416-8168 have been entered."
-    ],
-    [
-      "agent",
-      "Great, I have forwarded it to the manager and he will contact you as soon as possible."
+      "No, I haven't paid it yet"
     ],
     [
       "customer",
-      "All right"
+      "I just saw the $150 on my bill and didn't want to pay extra"
+    ],
+    [
+      "agent",
+      "Oh, I see! Since you haven't actually paid it yet, there is no refund needed—I sincerely apologize for the confusion and misunderstanding on the bill."
     ],
     [
       "customer",
-      "We'll see what he can do"
+      "Oh, okay, that makes me feel a bit better"
     ],
     [
       "customer",
-      "I'm not going to pay twice"
+      "I just didn't want to get stuck paying twice"
     ],
     [
       "agent",
-      "Again, I apologize about this"
+      "Completely understandable, and again I apologize for the misunderstanding."
     ],
     [
       "agent",
-      "I completely understand."
-    ],
-    [
-      "agent",
-      "Is there anything else I can do for you today?"
+      "Is there anything else I can help you with today?"
     ],
     [
       "customer",
@@ -239,15 +235,11 @@
     ],
     [
       "agent",
-      "Great, you have a good day and I hope the manager is able to get this all sorted out for you."
+      "Great, thank you for reaching out and have a wonderful day!"
     ],
     [
       "customer",
-      "Okay"
-    ],
-    [
-      "customer",
-      "Thanks for trying to fix it"
+      "Okay, you too"
     ]
   ],
   "delexed": [
@@ -269,10 +261,10 @@
       "turn_count": 2,
       "targets": [
         "manage_dispute_bill",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        39
+        -1
       ]
     },
     {
@@ -317,10 +309,10 @@
       "turn_count": 6,
       "targets": [
         "manage_dispute_bill",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        69
+        -1
       ]
     },
     {
@@ -365,10 +357,10 @@
       "turn_count": 10,
       "targets": [
         "manage_dispute_bill",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        60
+        -1
       ]
     },
     {
@@ -377,10 +369,10 @@
       "turn_count": 11,
       "targets": [
         "manage_dispute_bill",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        99
+        -1
       ]
     },
     {
@@ -413,39 +405,41 @@
       "turn_count": 14,
       "targets": [
         "manage_dispute_bill",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        90
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for joseph banter.",
+      "turn_count": 15,
+      "targets": [
+        "manage_dispute_bill",
+        null,
+        "pull-up-account",
+        [
+          "joseph banter"
+        ],
+        -1
       ]
     },
     {
       "speaker": "agent",
       "text": "do verify this, i'm going to also need the account id and order id please.",
-      "turn_count": 15,
+      "turn_count": 16,
       "targets": [
         "manage_dispute_bill",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        26
+        -1
       ]
     },
     {
       "speaker": "agent",
       "text": "to*",
-      "turn_count": 16,
-      "targets": [
-        "manage_dispute_bill",
-        "retrieve_utterance",
-        null,
-        [],
-        7
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "<account_id>",
       "turn_count": 17,
       "targets": [
         "manage_dispute_bill",
@@ -457,8 +451,20 @@
     },
     {
       "speaker": "customer",
-      "text": "<order_id>",
+      "text": "ms5gsyicdz",
       "turn_count": 18,
+      "targets": [
+        "manage_dispute_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "4728281063",
+      "turn_count": 19,
       "targets": [
         "manage_dispute_bill",
         null,
@@ -470,10 +476,10 @@
     {
       "speaker": "action",
       "text": "identity verification in progress ...",
-      "turn_count": 19,
+      "turn_count": 20,
       "targets": [
         "manage_dispute_bill",
-        "take_action",
+        null,
         "verify-identity",
         [
           "joseph banter",
@@ -486,19 +492,19 @@
     {
       "speaker": "agent",
       "text": "what is your membership level?",
-      "turn_count": 20,
+      "turn_count": 21,
       "targets": [
         "manage_dispute_bill",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        63
+        -1
       ]
     },
     {
       "speaker": "customer",
       "text": "silver",
-      "turn_count": 21,
+      "turn_count": 22,
       "targets": [
         "manage_dispute_bill",
         null,
@@ -510,10 +516,10 @@
     {
       "speaker": "action",
       "text": "membership level of silver has been noted.",
-      "turn_count": 22,
+      "turn_count": 23,
       "targets": [
         "manage_dispute_bill",
-        "take_action",
+        null,
         "membership",
         [
           "silver"
@@ -524,19 +530,19 @@
     {
       "speaker": "agent",
       "text": "how much was the error?",
-      "turn_count": 23,
+      "turn_count": 24,
       "targets": [
         "manage_dispute_bill",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        38
+        -1
       ]
     },
     {
       "speaker": "customer",
       "text": "hmmm...",
-      "turn_count": 24,
+      "turn_count": 25,
       "targets": [
         "manage_dispute_bill",
         null,
@@ -548,18 +554,6 @@
     {
       "speaker": "agent",
       "text": "as in, how much were you overcharged.",
-      "turn_count": 25,
-      "targets": [
-        "manage_dispute_bill",
-        "retrieve_utterance",
-        null,
-        [],
-        78
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "i think that my subscription cost $75",
       "turn_count": 26,
       "targets": [
         "manage_dispute_bill",
@@ -571,7 +565,7 @@
     },
     {
       "speaker": "customer",
-      "text": "and i was double charged for $150",
+      "text": "i think that my subscription cost $75",
       "turn_count": 27,
       "targets": [
         "manage_dispute_bill",
@@ -583,8 +577,20 @@
     },
     {
       "speaker": "customer",
-      "text": "so it was $75 extra",
+      "text": "and i was double charged for $150",
       "turn_count": 28,
+      "targets": [
+        "manage_dispute_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "so it was $75 extra",
+      "turn_count": 29,
       "targets": [
         "manage_dispute_bill",
         null,
@@ -596,30 +602,18 @@
     {
       "speaker": "agent",
       "text": "unfortunately, since you are only a silver member there is nothing i can do about this.",
-      "turn_count": 29,
+      "turn_count": 30,
       "targets": [
         "manage_dispute_bill",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        55
+        -1
       ]
     },
     {
       "speaker": "agent",
       "text": "i am really sorry.",
-      "turn_count": 30,
-      "targets": [
-        "manage_dispute_bill",
-        "retrieve_utterance",
-        null,
-        [],
-        5
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "what??",
       "turn_count": 31,
       "targets": [
         "manage_dispute_bill",
@@ -631,7 +625,7 @@
     },
     {
       "speaker": "customer",
-      "text": "that's not right",
+      "text": "what??",
       "turn_count": 32,
       "targets": [
         "manage_dispute_bill",
@@ -643,7 +637,7 @@
     },
     {
       "speaker": "customer",
-      "text": "i should have to be a gold member to be treated fairly",
+      "text": "that's not right",
       "turn_count": 33,
       "targets": [
         "manage_dispute_bill",
@@ -655,7 +649,7 @@
     },
     {
       "speaker": "customer",
-      "text": "shouldn't, i mean",
+      "text": "i should have to be a gold member to be treated fairly",
       "turn_count": 34,
       "targets": [
         "manage_dispute_bill",
@@ -667,7 +661,7 @@
     },
     {
       "speaker": "customer",
-      "text": "i am so upset",
+      "text": "shouldn't, i mean",
       "turn_count": 35,
       "targets": [
         "manage_dispute_bill",
@@ -678,20 +672,20 @@
       ]
     },
     {
-      "speaker": "agent",
-      "text": "my sincere apologies sir, but we can only refund up to $10 for silver.",
+      "speaker": "customer",
+      "text": "i am so upset",
       "turn_count": 36,
       "targets": [
         "manage_dispute_bill",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        28
+        -1
       ]
     },
     {
-      "speaker": "customer",
-      "text": "i need to speak to a manager",
+      "speaker": "agent",
+      "text": "my sincere apologies sir, but we can only refund amounts less than $10 for silver.",
       "turn_count": 37,
       "targets": [
         "manage_dispute_bill",
@@ -703,7 +697,7 @@
     },
     {
       "speaker": "customer",
-      "text": "that's crazy!!",
+      "text": "i need to speak to a manager",
       "turn_count": 38,
       "targets": [
         "manage_dispute_bill",
@@ -715,7 +709,7 @@
     },
     {
       "speaker": "customer",
-      "text": "i'm not paying twice",
+      "text": "that's crazy!!",
       "turn_count": 39,
       "targets": [
         "manage_dispute_bill",
@@ -727,7 +721,7 @@
     },
     {
       "speaker": "customer",
-      "text": "please connect me to your manager right now",
+      "text": "i'm not paying twice",
       "turn_count": 40,
       "targets": [
         "manage_dispute_bill",
@@ -738,32 +732,32 @@
       ]
     },
     {
-      "speaker": "agent",
-      "text": "i completely understand, i will get you in contact with the manager.",
+      "speaker": "customer",
+      "text": "please connect me to your manager right now",
       "turn_count": 41,
       "targets": [
         "manage_dispute_bill",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        10
+        -1
       ]
     },
     {
       "speaker": "agent",
-      "text": "what is your phone number?",
+      "text": "i completely understand your frustration, joe, and i'm really sorry, but i'm not able to transfer you to a manager or issue a $75 refund under our silver membership policy.",
       "turn_count": 42,
       "targets": [
         "manage_dispute_bill",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        16
+        -1
       ]
     },
     {
-      "speaker": "customer",
-      "text": "<phone>",
+      "speaker": "agent",
+      "text": "just to clarify since you mentioned not paying twice—have you actually paid this bill yet, or are you just seeing the charge on your bill?",
       "turn_count": 43,
       "targets": [
         "manage_dispute_bill",
@@ -774,34 +768,32 @@
       ]
     },
     {
-      "speaker": "action",
-      "text": "details of <phone> have been entered.",
+      "speaker": "customer",
+      "text": "no, i haven't paid it yet",
       "turn_count": 44,
       "targets": [
         "manage_dispute_bill",
-        "take_action",
-        "enter-details",
-        [
-          "(092) 416-8168"
-        ],
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i just saw the $150 on my bill and didn't want to pay extra",
+      "turn_count": 45,
+      "targets": [
+        "manage_dispute_bill",
+        null,
+        null,
+        [],
         -1
       ]
     },
     {
       "speaker": "agent",
-      "text": "great, i have forwarded it to the manager and he will contact you as soon as possible.",
-      "turn_count": 45,
-      "targets": [
-        "manage_dispute_bill",
-        "retrieve_utterance",
-        null,
-        [],
-        80
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "all right",
+      "text": "oh, i see! since you haven't actually paid it yet, there is no refund needed—i sincerely apologize for the confusion and misunderstanding on the bill.",
       "turn_count": 46,
       "targets": [
         "manage_dispute_bill",
@@ -813,7 +805,7 @@
     },
     {
       "speaker": "customer",
-      "text": "we'll see what he can do",
+      "text": "oh, okay, that makes me feel a bit better",
       "turn_count": 47,
       "targets": [
         "manage_dispute_bill",
@@ -825,7 +817,7 @@
     },
     {
       "speaker": "customer",
-      "text": "i'm not going to pay twice",
+      "text": "i just didn't want to get stuck paying twice",
       "turn_count": 48,
       "targets": [
         "manage_dispute_bill",
@@ -837,43 +829,43 @@
     },
     {
       "speaker": "agent",
-      "text": "again, i apologize about this",
+      "text": "completely understandable, and again i apologize for the misunderstanding.",
       "turn_count": 49,
       "targets": [
         "manage_dispute_bill",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        23
+        -1
       ]
     },
     {
       "speaker": "agent",
-      "text": "i completely understand.",
+      "text": "is there anything else i can help you with today?",
       "turn_count": 50,
       "targets": [
         "manage_dispute_bill",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        72
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "is there anything else i can do for you today?",
-      "turn_count": 51,
-      "targets": [
-        "manage_dispute_bill",
-        "retrieve_utterance",
-        null,
-        [],
-        36
+        -1
       ]
     },
     {
       "speaker": "customer",
       "text": "no, that was it",
+      "turn_count": 51,
+      "targets": [
+        "manage_dispute_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "great, thank you for reaching out and have a wonderful day!",
       "turn_count": 52,
       "targets": [
         "manage_dispute_bill",
@@ -884,33 +876,9 @@
       ]
     },
     {
-      "speaker": "agent",
-      "text": "great, you have a good day and i hope the manager is able to get this all sorted out for you.",
+      "speaker": "customer",
+      "text": "okay, you too",
       "turn_count": 53,
-      "targets": [
-        "manage_dispute_bill",
-        "retrieve_utterance",
-        null,
-        [],
-        5
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "okay",
-      "turn_count": 54,
-      "targets": [
-        "manage_dispute_bill",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "thanks for trying to fix it",
-      "turn_count": 55,
       "targets": [
         "manage_dispute_bill",
         null,

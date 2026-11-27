@@ -1,0 +1,243 @@
+{
+  "convo_id": 9031,
+  "scenario": {
+    "personal": {
+      "customer_name": "norman bouchard",
+      "email": "normanbouchard490@email.com",
+      "member_level": "guest",
+      "phone": "(912) 702-5769",
+      "username": "normanbouchard490"
+    },
+    "order": {
+      "street_address": "2292 woodshore st",
+      "full_address": "2292 woodshore st  san lima, ny 1430",
+      "city": "san lima",
+      "num_products": "1",
+      "products": "[{'brand': 'michael_kors', 'product_type': 'shirt', 'amount': 84, 'image_url': 'images/michael_kors-shirt.jpeg'}]",
+      "state": "ny",
+      "zip_code": "1430"
+    },
+    "product": {
+      "names": [
+        "michael_kors shirt"
+      ],
+      "amounts": [
+        84
+      ]
+    },
+    "flow": "troubleshoot_site",
+    "subflow": "slow_speed"
+  },
+  "original": [
+    [
+      "agent",
+      "hello, how can I help you today?"
+    ],
+    [
+      "customer",
+      "Hello, I am trying to get on the website however, I am having issues. The site is running extremely slow"
+    ],
+    [
+      "agent",
+      "Alright, the site is running slow in general?"
+    ],
+    [
+      "customer",
+      "yes"
+    ],
+    [
+      "action",
+      "Agent is looking for solutions ..."
+    ],
+    [
+      "agent",
+      "Can you try logging out of the site and back in?"
+    ],
+    [
+      "customer",
+      "i just tried that and did not work"
+    ],
+    [
+      "action",
+      "Agent is looking for solutions ..."
+    ],
+    [
+      "agent",
+      "Can you try closing out other tabs and applications possibly to see if that helps?"
+    ],
+    [
+      "customer",
+      "That seemed to work, thank you"
+    ],
+    [
+      "agent",
+      "Great glad that helped, was there anything else I could do?"
+    ],
+    [
+      "customer",
+      "That is all"
+    ],
+    [
+      "agent",
+      "Have a great day"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "hello, how can i help you today?",
+      "turn_count": 1,
+      "targets": [
+        "slow_speed",
+        "retrieve_utterance",
+        null,
+        [],
+        70
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "hello, i am trying to get on the website however, i am having issues. the site is running extremely slow",
+      "turn_count": 2,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "alright, the site is running slow in general?",
+      "turn_count": 3,
+      "targets": [
+        "slow_speed",
+        "retrieve_utterance",
+        null,
+        [],
+        36
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yes",
+      "turn_count": 4,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "agent is looking for solutions ...",
+      "turn_count": 5,
+      "targets": [
+        "slow_speed",
+        "take_action",
+        "log-out-in",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can you try logging out of the site and back in?",
+      "turn_count": 6,
+      "targets": [
+        "slow_speed",
+        "retrieve_utterance",
+        null,
+        [],
+        15
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i just tried that and did not work",
+      "turn_count": 7,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "agent is looking for solutions ...",
+      "turn_count": 8,
+      "targets": [
+        "slow_speed",
+        "take_action",
+        "instructions",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can you try closing out other tabs and applications possibly to see if that helps?",
+      "turn_count": 9,
+      "targets": [
+        "slow_speed",
+        "retrieve_utterance",
+        null,
+        [],
+        53
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "that seemed to work, thank you",
+      "turn_count": 10,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "great glad that helped, was there anything else i could do?",
+      "turn_count": 11,
+      "targets": [
+        "slow_speed",
+        "retrieve_utterance",
+        null,
+        [],
+        90
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "that is all",
+      "turn_count": 12,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "have a great day",
+      "turn_count": 13,
+      "targets": [
+        "slow_speed",
+        "retrieve_utterance",
+        null,
+        [],
+        8
+      ]
+    }
+  ]
+}

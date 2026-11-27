@@ -120,10 +120,6 @@
       "But on my account it says"
     ],
     [
-      "action",
-      "A reason of 7095 Woodshore St Monterey has been recorded."
-    ],
-    [
       "customer",
       "7094 Woodshore St"
     ],
@@ -185,71 +181,11 @@
     ],
     [
       "agent",
-      "the username doesn't work."
+      "Yes, that worked! Thank you for verifying your identity."
     ],
     [
       "agent",
-      "how about your email address?"
-    ],
-    [
-      "customer",
-      "well i don't know"
-    ],
-    [
-      "customer",
-      "it's cminh994@email.com"
-    ],
-    [
-      "customer",
-      "all of this information is correct"
-    ],
-    [
-      "agent",
-      "just a second."
-    ],
-    [
-      "customer",
-      "so I don't know why it's not working"
-    ],
-    [
-      "action",
-      "Identity verification in progess ..."
-    ],
-    [
-      "agent",
-      "can you reconfirm your PIN number?"
-    ],
-    [
-      "customer",
-      "924644"
-    ],
-    [
-      "agent",
-      "Sorry for asking too many information."
-    ],
-    [
-      "customer",
-      "it's okay"
-    ],
-    [
-      "customer",
-      "I just want to fix this quickly"
-    ],
-    [
-      "customer",
-      "I have a lot to do today"
-    ],
-    [
-      "agent",
-      "sure"
-    ],
-    [
-      "customer",
-      "Can you please just fix my address?"
-    ],
-    [
-      "agent",
-      "yes, I am working on it now."
+      "I am updating your address to 7095 Woodshore St now."
     ],
     [
       "action",
@@ -257,7 +193,7 @@
     ],
     [
       "agent",
-      "Your address has been updated."
+      "Everything has been updated in the system."
     ],
     [
       "customer",
@@ -319,10 +255,10 @@
       "turn_count": 3,
       "targets": [
         "manage_change_address",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        42
+        -1
       ]
     },
     {
@@ -391,10 +327,10 @@
       "turn_count": 9,
       "targets": [
         "manage_change_address",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        40
+        -1
       ]
     },
     {
@@ -427,10 +363,10 @@
       "turn_count": 12,
       "targets": [
         "manage_change_address",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        30
+        -1
       ]
     },
     {
@@ -439,7 +375,7 @@
       "turn_count": 13,
       "targets": [
         "manage_change_address",
-        "take_action",
+        null,
         "pull-up-account",
         [
           "crystal minh"
@@ -453,10 +389,10 @@
       "turn_count": 14,
       "targets": [
         "manage_change_address",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        44
+        -1
       ]
     },
     {
@@ -477,10 +413,10 @@
       "turn_count": 16,
       "targets": [
         "manage_change_address",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        79
+        -1
       ]
     },
     {
@@ -513,10 +449,10 @@
       "turn_count": 19,
       "targets": [
         "manage_change_address",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        84
+        -1
       ]
     },
     {
@@ -533,7 +469,7 @@
     },
     {
       "speaker": "customer",
-      "text": "7095 woodshore st  monterey, wa <zip_code>",
+      "text": "7095 woodshore st  monterey, wa 83734",
       "turn_count": 21,
       "targets": [
         "manage_change_address",
@@ -556,23 +492,9 @@
       ]
     },
     {
-      "speaker": "action",
-      "text": "a reason of 7095 woodshore st monterey has been recorded.",
-      "turn_count": 23,
-      "targets": [
-        "manage_change_address",
-        "take_action",
-        "record-reason",
-        [
-          "7095 woodshore st monterey"
-        ],
-        -1
-      ]
-    },
-    {
       "speaker": "customer",
-      "text": "<street_address>",
-      "turn_count": 24,
+      "text": "7094 woodshore st",
+      "turn_count": 23,
       "targets": [
         "manage_change_address",
         null,
@@ -584,7 +506,7 @@
     {
       "speaker": "customer",
       "text": "the street number is wrong",
-      "turn_count": 25,
+      "turn_count": 24,
       "targets": [
         "manage_change_address",
         null,
@@ -596,7 +518,7 @@
     {
       "speaker": "customer",
       "text": "it should be 7095",
-      "turn_count": 26,
+      "turn_count": 25,
       "targets": [
         "manage_change_address",
         null,
@@ -607,11 +529,11 @@
     },
     {
       "speaker": "action",
-      "text": "a reason of <street_address> has been recorded.",
-      "turn_count": 27,
+      "text": "a reason of 7094 woodshore st has been recorded.",
+      "turn_count": 26,
       "targets": [
         "manage_change_address",
-        "take_action",
+        null,
         "record-reason",
         [
           "7094 woodshore st"
@@ -622,30 +544,42 @@
     {
       "speaker": "agent",
       "text": "no worries.",
-      "turn_count": 28,
+      "turn_count": 27,
       "targets": [
         "manage_change_address",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        87
+        -1
       ]
     },
     {
       "speaker": "agent",
       "text": "can i have your telephone number and pin number please?",
-      "turn_count": 29,
+      "turn_count": 28,
       "targets": [
         "manage_change_address",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        64
+        -1
       ]
     },
     {
       "speaker": "customer",
       "text": "okay",
+      "turn_count": 29,
+      "targets": [
+        "manage_change_address",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "pin is 924644",
       "turn_count": 30,
       "targets": [
         "manage_change_address",
@@ -657,20 +591,8 @@
     },
     {
       "speaker": "customer",
-      "text": "pin is <pin_number>",
-      "turn_count": 31,
-      "targets": [
-        "manage_change_address",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "customer",
       "text": "my number is (542) 453-3942",
-      "turn_count": 32,
+      "turn_count": 31,
       "targets": [
         "manage_change_address",
         null,
@@ -682,10 +604,10 @@
     {
       "speaker": "action",
       "text": "identity verification in progess ...",
-      "turn_count": 33,
+      "turn_count": 32,
       "targets": [
         "manage_change_address",
-        "take_action",
+        null,
         "verify-identity",
         [
           "83734",
@@ -698,18 +620,30 @@
     {
       "speaker": "agent",
       "text": "your pin is not correct. can you reconfirm or give me your username?",
-      "turn_count": 34,
+      "turn_count": 33,
       "targets": [
         "manage_change_address",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        8
+        -1
       ]
     },
     {
       "speaker": "customer",
       "text": "huh weird",
+      "turn_count": 34,
+      "targets": [
+        "manage_change_address",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "my username is cminh994",
       "turn_count": 35,
       "targets": [
         "manage_change_address",
@@ -721,20 +655,8 @@
     },
     {
       "speaker": "customer",
-      "text": "my username is <username>",
-      "turn_count": 36,
-      "targets": [
-        "manage_change_address",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "customer",
       "text": "does that work?",
-      "turn_count": 37,
+      "turn_count": 36,
       "targets": [
         "manage_change_address",
         null,
@@ -746,14 +668,14 @@
     {
       "speaker": "action",
       "text": "identity verification in progess ...",
-      "turn_count": 38,
+      "turn_count": 37,
       "targets": [
         "manage_change_address",
-        "take_action",
+        null,
         "verify-identity",
         [
           "83734",
-          "(542) 453-3942",
+          "924644",
           "cminh994"
         ],
         -1
@@ -761,31 +683,45 @@
     },
     {
       "speaker": "agent",
-      "text": "the username doesn't work.",
-      "turn_count": 39,
+      "text": "yes, that worked! thank you for verifying your identity.",
+      "turn_count": 38,
       "targets": [
         "manage_change_address",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        42
+        -1
       ]
     },
     {
       "speaker": "agent",
-      "text": "how about your email address?",
-      "turn_count": 40,
+      "text": "i am updating your address to 7095 woodshore st now.",
+      "turn_count": 39,
       "targets": [
         "manage_change_address",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        69
+        -1
       ]
     },
     {
-      "speaker": "customer",
-      "text": "well i don't know",
+      "speaker": "action",
+      "text": "account has been updated with 7095 woodshore st.",
+      "turn_count": 40,
+      "targets": [
+        "manage_change_address",
+        null,
+        "update-account",
+        [
+          "7095 woodshore st"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "everything has been updated in the system.",
       "turn_count": 41,
       "targets": [
         "manage_change_address",
@@ -797,7 +733,7 @@
     },
     {
       "speaker": "customer",
-      "text": "it's <email>",
+      "text": "oh great",
       "turn_count": 42,
       "targets": [
         "manage_change_address",
@@ -809,7 +745,7 @@
     },
     {
       "speaker": "customer",
-      "text": "all of this information is correct",
+      "text": "thank you!!",
       "turn_count": 43,
       "targets": [
         "manage_change_address",
@@ -821,218 +757,20 @@
     },
     {
       "speaker": "agent",
-      "text": "just a second.",
+      "text": "great, is there anything else that i can help you with?",
       "turn_count": 44,
       "targets": [
         "manage_change_address",
-        "retrieve_utterance",
-        null,
-        [],
-        24
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "so i don't know why it's not working",
-      "turn_count": 45,
-      "targets": [
-        "manage_change_address",
         null,
         null,
         [],
         -1
-      ]
-    },
-    {
-      "speaker": "action",
-      "text": "identity verification in progess ...",
-      "turn_count": 46,
-      "targets": [
-        "manage_change_address",
-        "take_action",
-        "verify-identity",
-        [
-          "83734",
-          "(542) 453-3942",
-          "cminh994@email.com"
-        ],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "can you reconfirm your pin number?",
-      "turn_count": 47,
-      "targets": [
-        "manage_change_address",
-        "retrieve_utterance",
-        null,
-        [],
-        33
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "<pin_number>",
-      "turn_count": 48,
-      "targets": [
-        "manage_change_address",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "sorry for asking too many information.",
-      "turn_count": 49,
-      "targets": [
-        "manage_change_address",
-        "retrieve_utterance",
-        null,
-        [],
-        64
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "it's okay",
-      "turn_count": 50,
-      "targets": [
-        "manage_change_address",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "i just want to fix this quickly",
-      "turn_count": 51,
-      "targets": [
-        "manage_change_address",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "i have a lot to do today",
-      "turn_count": 52,
-      "targets": [
-        "manage_change_address",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "sure",
-      "turn_count": 53,
-      "targets": [
-        "manage_change_address",
-        "retrieve_utterance",
-        null,
-        [],
-        56
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "can you please just fix my address?",
-      "turn_count": 54,
-      "targets": [
-        "manage_change_address",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "yes, i am working on it now.",
-      "turn_count": 55,
-      "targets": [
-        "manage_change_address",
-        "retrieve_utterance",
-        null,
-        [],
-        61
-      ]
-    },
-    {
-      "speaker": "action",
-      "text": "account has been updated with 7095 woodshore st.",
-      "turn_count": 56,
-      "targets": [
-        "manage_change_address",
-        "take_action",
-        "update-account",
-        [
-          "7095 woodshore st"
-        ],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "your address has been updated.",
-      "turn_count": 57,
-      "targets": [
-        "manage_change_address",
-        "retrieve_utterance",
-        null,
-        [],
-        33
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "oh great",
-      "turn_count": 58,
-      "targets": [
-        "manage_change_address",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "thank you!!",
-      "turn_count": 59,
-      "targets": [
-        "manage_change_address",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "great, is there anything else that i can help you with?",
-      "turn_count": 60,
-      "targets": [
-        "manage_change_address",
-        "retrieve_utterance",
-        null,
-        [],
-        18
       ]
     },
     {
       "speaker": "customer",
       "text": "no",
-      "turn_count": 61,
+      "turn_count": 45,
       "targets": [
         "manage_change_address",
         null,
@@ -1044,7 +782,7 @@
     {
       "speaker": "customer",
       "text": "that was it",
-      "turn_count": 62,
+      "turn_count": 46,
       "targets": [
         "manage_change_address",
         null,
@@ -1056,19 +794,19 @@
     {
       "speaker": "agent",
       "text": "have a nice day!",
-      "turn_count": 63,
+      "turn_count": 47,
       "targets": [
         "manage_change_address",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        93
+        -1
       ]
     },
     {
       "speaker": "customer",
       "text": "thanks",
-      "turn_count": 64,
+      "turn_count": 48,
       "targets": [
         "manage_change_address",
         null,

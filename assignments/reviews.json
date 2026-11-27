@@ -178,7 +178,7 @@
     },
     "7062": {
       "status": "error",
-      "reason": "The agent gave the right verbal troubleshooting instructions for refreshing the page and logging out and back in, which resolved the issue. However, the agent violated the SOP by running an off-SOP Search FAQ action instead of triggering the required Try Again and Log Out/In actions.",
+      "reason": "The agent violated Option 3 of the SOP by failing to trigger the enter-details action with the parameter 'troubleshoot' after instructing the customer to check the bottom left of the product page for an out-of-stock status. Options 1 and 2 were handled properly.",
       "edited": true
     },
     "10367": {

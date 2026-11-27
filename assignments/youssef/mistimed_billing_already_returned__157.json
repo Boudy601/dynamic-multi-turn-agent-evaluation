@@ -69,175 +69,63 @@
     ],
     [
       "agent",
-      "Hm. I can't do anything without your account ID"
+      "That's totally fine, your full name works! Let me pull up your account first."
     ],
     [
-      "customer",
-      "i know my username. will that help?"
-    ],
-    [
-      "customer",
-      "davidw85"
+      "action",
+      "Account has been pulled up for David Williams."
     ],
     [
       "agent",
-      "That's ok. I was able to override it in the system"
-    ],
-    [
-      "agent",
-      "Are you by chance a gold or silver member?"
+      "Thanks David. To validate your purchase, could you please share your username and email address?"
     ],
     [
       "customer",
-      "nope"
+      "sure! my username is davidw85"
     ],
     [
       "customer",
-      "not any kind of member"
+      "and my email is davidw85@email.com"
+    ],
+    [
+      "action",
+      "Purchase validation in progress ..."
     ],
     [
       "agent",
-      "I'm sorry, but the system is showing that you were charged the appropriate amount"
+      "Got it, thank you. How many days have you been waiting for the refund to show up?"
     ],
     [
       "customer",
-      "that's not cool. I returned it"
+      "it's been about 10 days since I returned the jacket"
+    ],
+    [
+      "action",
+      "A reason of 10 has been recorded."
+    ],
+    [
+      "agent",
+      "Since it has been more than 7 days, I can go ahead and process that credit for you right now."
+    ],
+    [
+      "action",
+      "Order has been updated with give credit."
+    ],
+    [
+      "agent",
+      "I have processed the credit for your order in our system, so your $89 refund should appear on your bill shortly. Is there anything else I can help you with today?"
     ],
     [
       "customer",
-      "now, i need a refund."
+      "perfect! thanks so much for your help today"
     ],
     [
       "agent",
-      "Hmmm. Let me double check that for you. You said you had an unkown charge."
-    ],
-    [
-      "customer",
-      "no, i said that I returned the jacket and now I would like to get my money back"
-    ],
-    [
-      "agent",
-      "Sorry, I misunderstood you when you said mistaken charge. Can I have your e-mail address please"
-    ],
-    [
-      "customer",
-      "np, davidw85@email.com"
-    ],
-    [
-      "agent",
-      "How long have you been waiting on the refund?"
-    ],
-    [
-      "customer",
-      "ever since i returned the jacket"
-    ],
-    [
-      "agent",
-      "Which was when?"
-    ],
-    [
-      "customer",
-      "don't remember"
-    ],
-    [
-      "agent",
-      "was it more or less than 7 days ago?"
-    ],
-    [
-      "customer",
-      "no idea"
-    ],
-    [
-      "customer",
-      "i think more"
-    ],
-    [
-      "agent",
-      "Ok. Let's update that for you"
-    ],
-    [
-      "agent",
-      "I just updated your account and you should be seeing your refund shortly."
-    ],
-    [
-      "agent",
-      "Is there anything else I can help you with today?"
-    ],
-    [
-      "customer",
-      "Thanks! can you confirm the amount for me please?"
-    ],
-    [
-      "agent",
-      "What was the amount you paid?"
-    ],
-    [
-      "customer",
-      "$89"
-    ],
-    [
-      "agent",
-      "Yes. It s updated for $89"
-    ],
-    [
-      "customer",
-      "perfect! thanks so much. Any idea how long it will take to get it?"
-    ],
-    [
-      "agent",
-      "It varies, but you should see it within the next few days"
-    ],
-    [
-      "customer",
-      "alright then. You know I will be in touch if it doesn't!"
-    ],
-    [
-      "agent",
-      "of course!"
-    ],
-    [
-      "customer",
-      "thanks for your help today"
-    ],
-    [
-      "agent",
-      "Have a great day!"
+      "Of course! Have a great day!"
     ],
     [
       "customer",
       "same to you"
-    ],
-    [
-      "action",
-      "Identity verification in progess ..."
-    ],
-    [
-      "action",
-      "Querying the system for an answer ..."
-    ],
-    [
-      "action",
-      "Identity verification in progess ..."
-    ],
-    [
-      "action",
-      "Querying the system for an answer ..."
-    ],
-    [
-      "action",
-      "Identity verification in progess ..."
-    ],
-    [
-      "action",
-      "Querying the system for an answer ..."
-    ],
-    [
-      "action",
-      "Order has been updated with ."
-    ],
-    [
-      "action",
-      "Order has been updated with 89."
     ]
   ],
   "delexed": [
@@ -247,10 +135,10 @@
       "turn_count": 1,
       "targets": [
         "mistimed_billing_already_returned",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        85
+        -1
       ]
     },
     {
@@ -283,10 +171,10 @@
       "turn_count": 4,
       "targets": [
         "mistimed_billing_already_returned",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        68
+        -1
       ]
     },
     {
@@ -307,10 +195,10 @@
       "turn_count": 6,
       "targets": [
         "mistimed_billing_already_returned",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        96
+        -1
       ]
     },
     {
@@ -327,7 +215,7 @@
     },
     {
       "speaker": "customer",
-      "text": "order id <order_id>",
+      "text": "order id 5508052061",
       "turn_count": 8,
       "targets": [
         "mistimed_billing_already_returned",
@@ -351,20 +239,8 @@
     },
     {
       "speaker": "agent",
-      "text": "hm. i can't do anything without your account id",
+      "text": "that's totally fine, your full name works! let me pull up your account first.",
       "turn_count": 10,
-      "targets": [
-        "mistimed_billing_already_returned",
-        "retrieve_utterance",
-        null,
-        [],
-        71
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "i know my username. will that help?",
-      "turn_count": 11,
       "targets": [
         "mistimed_billing_already_returned",
         null,
@@ -374,8 +250,22 @@
       ]
     },
     {
-      "speaker": "customer",
-      "text": "<username>",
+      "speaker": "action",
+      "text": "account has been pulled up for david williams.",
+      "turn_count": 11,
+      "targets": [
+        "mistimed_billing_already_returned",
+        null,
+        "pull-up-account",
+        [
+          "david williams"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thanks david. to validate your purchase, could you please share your username and email address?",
       "turn_count": 12,
       "targets": [
         "mistimed_billing_already_returned",
@@ -386,33 +276,9 @@
       ]
     },
     {
-      "speaker": "agent",
-      "text": "that's ok. i was able to override it in the system",
-      "turn_count": 13,
-      "targets": [
-        "mistimed_billing_already_returned",
-        "retrieve_utterance",
-        null,
-        [],
-        67
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "are you by chance a gold or silver member?",
-      "turn_count": 14,
-      "targets": [
-        "mistimed_billing_already_returned",
-        "retrieve_utterance",
-        null,
-        [],
-        68
-      ]
-    },
-    {
       "speaker": "customer",
-      "text": "nope",
-      "turn_count": 15,
+      "text": "sure! my username is davidw85",
+      "turn_count": 13,
       "targets": [
         "mistimed_billing_already_returned",
         null,
@@ -423,7 +289,35 @@
     },
     {
       "speaker": "customer",
-      "text": "not any kind of member",
+      "text": "and my email is davidw85@email.com",
+      "turn_count": 14,
+      "targets": [
+        "mistimed_billing_already_returned",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "purchase validation in progress ...",
+      "turn_count": 15,
+      "targets": [
+        "mistimed_billing_already_returned",
+        null,
+        "validate-purchase",
+        [
+          "davidw85",
+          "davidw85@email.com",
+          "5508052061"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "got it, thank you. how many days have you been waiting for the refund to show up?",
       "turn_count": 16,
       "targets": [
         "mistimed_billing_already_returned",
@@ -434,21 +328,9 @@
       ]
     },
     {
-      "speaker": "agent",
-      "text": "i'm sorry, but the system is showing that you were charged the appropriate amount",
-      "turn_count": 17,
-      "targets": [
-        "mistimed_billing_already_returned",
-        "retrieve_utterance",
-        null,
-        [],
-        71
-      ]
-    },
-    {
       "speaker": "customer",
-      "text": "that's not cool. i returned it",
-      "turn_count": 18,
+      "text": "it's been about 10 days since i returned the jacket",
+      "turn_count": 17,
       "targets": [
         "mistimed_billing_already_returned",
         null,
@@ -458,8 +340,22 @@
       ]
     },
     {
-      "speaker": "customer",
-      "text": "now, i need a refund.",
+      "speaker": "action",
+      "text": "a reason of 10 has been recorded.",
+      "turn_count": 18,
+      "targets": [
+        "mistimed_billing_already_returned",
+        null,
+        "record-reason",
+        [
+          "10"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "since it has been more than 7 days, i can go ahead and process that credit for you right now.",
       "turn_count": 19,
       "targets": [
         "mistimed_billing_already_returned",
@@ -470,20 +366,22 @@
       ]
     },
     {
-      "speaker": "agent",
-      "text": "hmmm. let me double check that for you. you said you had an unkown charge.",
+      "speaker": "action",
+      "text": "order has been updated with give credit.",
       "turn_count": 20,
       "targets": [
         "mistimed_billing_already_returned",
-        "retrieve_utterance",
         null,
-        [],
-        13
+        "update-order",
+        [
+          "give credit"
+        ],
+        -1
       ]
     },
     {
-      "speaker": "customer",
-      "text": "no, i said that i returned the jacket and now i would like to get my money back",
+      "speaker": "agent",
+      "text": "i have processed the credit for your order in our system, so your $89 refund should appear on your bill shortly. is there anything else i can help you with today?",
       "turn_count": 21,
       "targets": [
         "mistimed_billing_already_returned",
@@ -494,20 +392,20 @@
       ]
     },
     {
-      "speaker": "agent",
-      "text": "sorry, i misunderstood you when you said mistaken charge. can i have your e-mail address please",
+      "speaker": "customer",
+      "text": "perfect! thanks so much for your help today",
       "turn_count": 22,
       "targets": [
         "mistimed_billing_already_returned",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        0
+        -1
       ]
     },
     {
-      "speaker": "customer",
-      "text": "np, <email>",
+      "speaker": "agent",
+      "text": "of course! have a great day!",
       "turn_count": 23,
       "targets": [
         "mistimed_billing_already_returned",
@@ -518,366 +416,14 @@
       ]
     },
     {
-      "speaker": "agent",
-      "text": "how long have you been waiting on the refund?",
+      "speaker": "customer",
+      "text": "same to you",
       "turn_count": 24,
       "targets": [
         "mistimed_billing_already_returned",
-        "retrieve_utterance",
-        null,
-        [],
-        95
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "ever since i returned the jacket",
-      "turn_count": 25,
-      "targets": [
-        "mistimed_billing_already_returned",
         null,
         null,
         [],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "which was when?",
-      "turn_count": 26,
-      "targets": [
-        "mistimed_billing_already_returned",
-        "retrieve_utterance",
-        null,
-        [],
-        10
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "don't remember",
-      "turn_count": 27,
-      "targets": [
-        "mistimed_billing_already_returned",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "was it more or less than 7 days ago?",
-      "turn_count": 28,
-      "targets": [
-        "mistimed_billing_already_returned",
-        "retrieve_utterance",
-        null,
-        [],
-        93
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "no idea",
-      "turn_count": 29,
-      "targets": [
-        "mistimed_billing_already_returned",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "i think more",
-      "turn_count": 30,
-      "targets": [
-        "mistimed_billing_already_returned",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "ok. let's update that for you",
-      "turn_count": 31,
-      "targets": [
-        "mistimed_billing_already_returned",
-        "retrieve_utterance",
-        null,
-        [],
-        71
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "i just updated your account and you should be seeing your refund shortly.",
-      "turn_count": 32,
-      "targets": [
-        "mistimed_billing_already_returned",
-        "retrieve_utterance",
-        null,
-        [],
-        89
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "is there anything else i can help you with today?",
-      "turn_count": 33,
-      "targets": [
-        "mistimed_billing_already_returned",
-        "retrieve_utterance",
-        null,
-        [],
-        87
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "thanks! can you confirm the amount for me please?",
-      "turn_count": 34,
-      "targets": [
-        "mistimed_billing_already_returned",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "what was the amount you paid?",
-      "turn_count": 35,
-      "targets": [
-        "mistimed_billing_already_returned",
-        "retrieve_utterance",
-        null,
-        [],
-        41
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "$<amount>",
-      "turn_count": 36,
-      "targets": [
-        "mistimed_billing_already_returned",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "yes. it s updated for $<amount>",
-      "turn_count": 37,
-      "targets": [
-        "mistimed_billing_already_returned",
-        "retrieve_utterance",
-        null,
-        [],
-        46
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "perfect! thanks so much. any idea how long it will take to get it?",
-      "turn_count": 38,
-      "targets": [
-        "mistimed_billing_already_returned",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "it varies, but you should see it within the next few days",
-      "turn_count": 39,
-      "targets": [
-        "mistimed_billing_already_returned",
-        "retrieve_utterance",
-        null,
-        [],
-        19
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "alright then. you know i will be in touch if it doesn't!",
-      "turn_count": 40,
-      "targets": [
-        "mistimed_billing_already_returned",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "of course!",
-      "turn_count": 41,
-      "targets": [
-        "mistimed_billing_already_returned",
-        "retrieve_utterance",
-        null,
-        [],
-        2
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "thanks for your help today",
-      "turn_count": 42,
-      "targets": [
-        "mistimed_billing_already_returned",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "have a great day!",
-      "turn_count": 43,
-      "targets": [
-        "mistimed_billing_already_returned",
-        "retrieve_utterance",
-        null,
-        [],
-        79
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "same to you",
-      "turn_count": 44,
-      "targets": [
-        "mistimed_billing_already_returned",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "action",
-      "text": "identity verification in progess ...",
-      "turn_count": 45,
-      "targets": [
-        "mistimed_billing_already_returned",
-        "take_action",
-        "verify-identity",
-        [
-          "david williams",
-          "n/a",
-          "5508052061"
-        ],
-        -1
-      ]
-    },
-    {
-      "speaker": "action",
-      "text": "querying the system for an answer ...",
-      "turn_count": 46,
-      "targets": [
-        "mistimed_billing_already_returned",
-        "take_action",
-        "ask-the-oracle",
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "action",
-      "text": "identity verification in progess ...",
-      "turn_count": 47,
-      "targets": [
-        "mistimed_billing_already_returned",
-        "take_action",
-        "verify-identity",
-        [
-          "david williams",
-          "n/a",
-          "5508052061"
-        ],
-        -1
-      ]
-    },
-    {
-      "speaker": "action",
-      "text": "querying the system for an answer ...",
-      "turn_count": 48,
-      "targets": [
-        "mistimed_billing_already_returned",
-        "take_action",
-        "ask-the-oracle",
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "action",
-      "text": "identity verification in progess ...",
-      "turn_count": 49,
-      "targets": [
-        "mistimed_billing_already_returned",
-        "take_action",
-        "verify-identity",
-        [
-          "david williams",
-          "n/a",
-          "5508052061"
-        ],
-        -1
-      ]
-    },
-    {
-      "speaker": "action",
-      "text": "querying the system for an answer ...",
-      "turn_count": 50,
-      "targets": [
-        "mistimed_billing_already_returned",
-        "take_action",
-        "ask-the-oracle",
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "action",
-      "text": "order has been updated with .",
-      "turn_count": 51,
-      "targets": [
-        "mistimed_billing_already_returned",
-        "take_action",
-        "update-order",
-        [
-          "by mail"
-        ],
-        -1
-      ]
-    },
-    {
-      "speaker": "action",
-      "text": "order has been updated with <amount>.",
-      "turn_count": 52,
-      "targets": [
-        "mistimed_billing_already_returned",
-        "take_action",
-        "update-order",
-        [
-          "change order"
-        ],
         -1
       ]
     }

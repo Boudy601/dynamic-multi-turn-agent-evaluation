@@ -1,0 +1,449 @@
+{
+  "convo_id": 10367,
+  "scenario": {
+    "personal": {
+      "account_id": "dpgjxaivko",
+      "customer_name": "chloe zhang",
+      "email": "chloezhang141@email.com",
+      "member_level": "guest",
+      "phone": "(925) 991-4546",
+      "username": "chloezhang141"
+    },
+    "order": {
+      "street_address": "2383 brushwick dr",
+      "full_address": "2383 brushwick dr  brighton, wa 20741",
+      "city": "brighton",
+      "num_products": "1",
+      "order_id": "8643045558",
+      "products": "[{'brand': 'calvin_klein', 'product_type': 'jeans', 'amount': 49, 'image_url': 'images/calvin_klein-jeans.jpeg'}]",
+      "purchase_date": "2020-03-26",
+      "shipping_status": "order received",
+      "state": "wa",
+      "zip_code": "20741"
+    },
+    "product": {
+      "names": [
+        "calvin_klein jeans"
+      ],
+      "amounts": [
+        49
+      ]
+    },
+    "flow": "shipping_issue",
+    "subflow": "manage"
+  },
+  "original": [
+    [
+      "agent",
+      "Hello! Thank you for shopping with AcmeBrands. How may I assist you?"
+    ],
+    [
+      "customer",
+      "Yes i would like to change some thing on my order"
+    ],
+    [
+      "agent",
+      "I'll be glad to help you with that. May I get your full name, please?"
+    ],
+    [
+      "customer",
+      "of course its, Chloe Zhang"
+    ],
+    [
+      "action",
+      "Account has been pulled up for Chloe Zhang."
+    ],
+    [
+      "agent",
+      "Thank you, Chloe. And what changes would you like to make to your order?"
+    ],
+    [
+      "customer",
+      "I order that wrong item by accident and would like to change it to the right item"
+    ],
+    [
+      "agent",
+      "I completely understand. What is the shipping status on your order? It may be \"Order Received\", \"In Transit\", \"Out For Delivery\", or \"Delivered\"."
+    ],
+    [
+      "customer",
+      "Let me get that for you , one sec"
+    ],
+    [
+      "customer",
+      "it says order received"
+    ],
+    [
+      "action",
+      "Account has been pulled up for Order Received."
+    ],
+    [
+      "agent",
+      "Thank you, Chloe. To validate your purchase, may I please get your Username, Email Address, and Order ID?"
+    ],
+    [
+      "customer",
+      "username is chloezhang141, email is chloezhang141@email.com"
+    ],
+    [
+      "customer",
+      "and my order id is 8643045558"
+    ],
+    [
+      "action",
+      "Purchase validation in progress ..."
+    ],
+    [
+      "agent",
+      "Perfect, thank you! Because your order has not shipped yet, I'm able to make that change for you."
+    ],
+    [
+      "action",
+      "Order has been updated with change order."
+    ],
+    [
+      "customer",
+      "great!"
+    ],
+    [
+      "agent",
+      "Which item would you like to replace your current item for?"
+    ],
+    [
+      "customer",
+      "I would like to get the Calvin Klein Jeans"
+    ],
+    [
+      "agent",
+      "I'll make a note of it for our order processing team."
+    ],
+    [
+      "agent",
+      "Is there anything more I may help you with today?"
+    ],
+    [
+      "customer",
+      "no that will be all, thanks for all your help. Have a great day!"
+    ],
+    [
+      "agent",
+      "Likewise!"
+    ],
+    [
+      "agent",
+      "Thank you so much for contacting AcmeBrands customer service. Goodbye!"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "hello! thank you for shopping with acmebrands. how may i assist you?",
+      "turn_count": 1,
+      "targets": [
+        "manage",
+        "retrieve_utterance",
+        null,
+        [],
+        55
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yes i would like to change some thing on my order",
+      "turn_count": 2,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i'll be glad to help you with that. may i get your full name, please?",
+      "turn_count": 3,
+      "targets": [
+        "manage",
+        "retrieve_utterance",
+        null,
+        [],
+        40
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "of course its, chloe zhang",
+      "turn_count": 4,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for chloe zhang.",
+      "turn_count": 5,
+      "targets": [
+        "manage",
+        "take_action",
+        "pull-up-account",
+        [
+          "chloe zhang"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you, chloe. and what changes would you like to make to your order?",
+      "turn_count": 6,
+      "targets": [
+        "manage",
+        "retrieve_utterance",
+        null,
+        [],
+        81
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i order that wrong item by accident and would like to change it to the right item",
+      "turn_count": 7,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i completely understand. what is the shipping status on your order? it may be \"order received\", \"in transit\", \"out for delivery\", or \"delivered\".",
+      "turn_count": 8,
+      "targets": [
+        "manage",
+        "retrieve_utterance",
+        null,
+        [],
+        86
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "let me get that for you , one sec",
+      "turn_count": 9,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "it says order received",
+      "turn_count": 10,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for order received.",
+      "turn_count": 11,
+      "targets": [
+        "manage",
+        "take_action",
+        "pull-up-account",
+        [
+          "order received"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you, chloe. to validate your purchase, may i please get your username, email address, and order id?",
+      "turn_count": 12,
+      "targets": [
+        "manage",
+        "retrieve_utterance",
+        null,
+        [],
+        21
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "username is <username>, email is <email>",
+      "turn_count": 13,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "and my order id is <order_id>",
+      "turn_count": 14,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "purchase validation in progress ...",
+      "turn_count": 15,
+      "targets": [
+        "manage",
+        "take_action",
+        "validate-purchase",
+        [
+          "chloezhang141",
+          "chloezhang141@email.com",
+          "8643045558"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "perfect, thank you! because your order has not shipped yet, i'm able to make that change for you.",
+      "turn_count": 16,
+      "targets": [
+        "manage",
+        "retrieve_utterance",
+        null,
+        [],
+        62
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "order has been updated with change order.",
+      "turn_count": 17,
+      "targets": [
+        "manage",
+        "take_action",
+        "update-order",
+        [
+          "change order"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "great!",
+      "turn_count": 18,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "which item would you like to replace your current item for?",
+      "turn_count": 19,
+      "targets": [
+        "manage",
+        "retrieve_utterance",
+        null,
+        [],
+        71
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i would like to get the calvin klein jeans",
+      "turn_count": 20,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i'll make a note of it for our order processing team.",
+      "turn_count": 21,
+      "targets": [
+        "manage",
+        "retrieve_utterance",
+        null,
+        [],
+        56
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "is there anything more i may help you with today?",
+      "turn_count": 22,
+      "targets": [
+        "manage",
+        "retrieve_utterance",
+        null,
+        [],
+        85
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no that will be all, thanks for all your help. have a great day!",
+      "turn_count": 23,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "likewise!",
+      "turn_count": 24,
+      "targets": [
+        "manage",
+        "retrieve_utterance",
+        null,
+        [],
+        52
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you so much for contacting acmebrands customer service. goodbye!",
+      "turn_count": 25,
+      "targets": [
+        "manage",
+        "retrieve_utterance",
+        null,
+        [],
+        29
+      ]
+    }
+  ]
+}

@@ -69,107 +69,39 @@
     ],
     [
       "agent",
-      "Now Mr. Joseph would give me the number of his lost phone."
+      "Thank you Mr. Joseph. To reset your two-factor authentication, I will be sending a special reset code to your email address. Could you please confirm your email address for me?"
     ],
     [
       "customer",
-      "(149) 965-0679"
+      "okay sure"
+    ],
+    [
+      "customer",
+      "it's jb521110@email.com"
     ],
     [
       "action",
-      "A reason of (149) 965-0679 has been recorded."
+      "Details of jb521110@email.com have been entered."
     ],
     [
       "agent",
-      "Could you give me your username, email, zipcode or ID of previous orders to verify your identity."
+      "Great, I have sent the reset code to jb521110@email.com so you can reset your two-factor authentication and get back into your account."
     ],
     [
       "agent",
-      "just with 3 is enought"
-    ],
-    [
-      "customer",
-      "okay"
-    ],
-    [
-      "customer",
-      " jb521110"
-    ],
-    [
-      "customer",
-      "jb521110@email.com"
-    ],
-    [
-      "customer",
-      "zip is 12596"
+      "Also, just to be safe, you should follow best practices for security. I'm going to send you a link with security best practices as well."
     ],
     [
       "action",
-      "Identity verification in progess ..."
-    ],
-    [
-      "agent",
-      "all in order!"
-    ],
-    [
-      "agent",
-      "now tell me the new phone number you want to add"
+      "Link has been sent."
     ],
     [
       "customer",
-      "okay great"
+      "oh okay great, thank you!"
     ],
     [
       "customer",
-      "it's (510) 453-3928"
-    ],
-    [
-      "action",
-      "Account has been updated with (510) 453-3928."
-    ],
-    [
-      "agent",
-      "all set"
-    ],
-    [
-      "agent",
-      "anything else you need?"
-    ],
-    [
-      "customer",
-      "so how do I log in?"
-    ],
-    [
-      "agent",
-      "sure"
-    ],
-    [
-      "customer",
-      "I don't understand how to log in"
-    ],
-    [
-      "customer",
-      "can you tell me how?"
-    ],
-    [
-      "agent",
-      "the new phone has already been added to the system"
-    ],
-    [
-      "customer",
-      "okay, so how do I log in?"
-    ],
-    [
-      "agent",
-      "to enter you only need your username and password, the phone is to provide identity verifications"
-    ],
-    [
-      "customer",
-      "oh okay"
-    ],
-    [
-      "customer",
-      "let me try to log in right now"
+      "let me check my email and try to log in right now"
     ],
     [
       "customer",
@@ -177,43 +109,23 @@
     ],
     [
       "customer",
-      "I was just able to log in"
-    ],
-    [
-      "customer",
-      "i forgot my password"
-    ],
-    [
-      "customer",
-      "but i got a temporary one on my new phone"
+      "I got the reset code and I was just able to log in"
     ],
     [
       "agent",
-      "wanted to know something about a product?"
-    ],
-    [
-      "customer",
-      "so I got into the account"
+      "I'm glad to hear that! Is there anything else you need help with today?"
     ],
     [
       "customer",
       "no, i don't need anything else"
     ],
     [
-      "agent",
-      "I'm glad"
-    ],
-    [
       "customer",
-      "I think that I am okay now"
-    ],
-    [
-      "customer",
-      "thanks for adding my new phone"
+      "I think that I am okay now, thanks for sending the reset code and the security link"
     ],
     [
       "agent",
-      "I was a pleasure to help you Mr. Joseph"
+      "It was a pleasure to help you Mr. Joseph"
     ],
     [
       "agent",
@@ -283,10 +195,10 @@
       "turn_count": 5,
       "targets": [
         "reset_2fa",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        1
+        -1
       ]
     },
     {
@@ -295,10 +207,10 @@
       "turn_count": 6,
       "targets": [
         "reset_2fa",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        99
+        -1
       ]
     },
     {
@@ -319,10 +231,10 @@
       "turn_count": 8,
       "targets": [
         "reset_2fa",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        56
+        -1
       ]
     },
     {
@@ -355,7 +267,7 @@
       "turn_count": 11,
       "targets": [
         "reset_2fa",
-        "take_action",
+        null,
         "pull-up-account",
         [
           "joseph banter"
@@ -365,19 +277,19 @@
     },
     {
       "speaker": "agent",
-      "text": "now mr. joseph would give me the number of his lost phone.",
+      "text": "thank you mr. joseph. to reset your two-factor authentication, i will be sending a special reset code to your email address. could you please confirm your email address for me?",
       "turn_count": 12,
       "targets": [
         "reset_2fa",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        12
+        -1
       ]
     },
     {
       "speaker": "customer",
-      "text": "<phone>",
+      "text": "okay sure",
       "turn_count": 13,
       "targets": [
         "reset_2fa",
@@ -388,46 +300,46 @@
       ]
     },
     {
-      "speaker": "action",
-      "text": "a reason of <phone> has been recorded.",
+      "speaker": "customer",
+      "text": "it's jb521110@email.com",
       "turn_count": 14,
       "targets": [
         "reset_2fa",
-        "take_action",
-        "record-reason",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "details of jb521110@email.com have been entered.",
+      "turn_count": 15,
+      "targets": [
+        "reset_2fa",
+        null,
+        "enter-details",
         [
-          "(149) 965-0679"
+          "jb521110@email.com"
         ],
         -1
       ]
     },
     {
       "speaker": "agent",
-      "text": "could you give me your username, email, zipcode or id of previous orders to verify your identity.",
-      "turn_count": 15,
+      "text": "great, i have sent the reset code to jb521110@email.com so you can reset your two-factor authentication and get back into your account.",
+      "turn_count": 16,
       "targets": [
         "reset_2fa",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        88
+        -1
       ]
     },
     {
       "speaker": "agent",
-      "text": "just with 3 is enought",
-      "turn_count": 16,
-      "targets": [
-        "reset_2fa",
-        "retrieve_utterance",
-        null,
-        [],
-        40
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "okay",
+      "text": "also, just to be safe, you should follow best practices for security. i'm going to send you a link with security best practices as well.",
       "turn_count": 17,
       "targets": [
         "reset_2fa",
@@ -438,20 +350,20 @@
       ]
     },
     {
-      "speaker": "customer",
-      "text": " <username>",
+      "speaker": "action",
+      "text": "link has been sent.",
       "turn_count": 18,
       "targets": [
         "reset_2fa",
         null,
-        null,
+        "send-link",
         [],
         -1
       ]
     },
     {
       "speaker": "customer",
-      "text": "<email>",
+      "text": "oh okay great, thank you!",
       "turn_count": 19,
       "targets": [
         "reset_2fa",
@@ -463,218 +375,8 @@
     },
     {
       "speaker": "customer",
-      "text": "zip is <zip_code>",
+      "text": "let me check my email and try to log in right now",
       "turn_count": 20,
-      "targets": [
-        "reset_2fa",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "action",
-      "text": "identity verification in progess ...",
-      "turn_count": 21,
-      "targets": [
-        "reset_2fa",
-        "take_action",
-        "verify-identity",
-        [
-          "jb521110",
-          "jb521110@email.com",
-          "12596"
-        ],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "all in order!",
-      "turn_count": 22,
-      "targets": [
-        "reset_2fa",
-        "retrieve_utterance",
-        null,
-        [],
-        24
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "now tell me the new phone number you want to add",
-      "turn_count": 23,
-      "targets": [
-        "reset_2fa",
-        "retrieve_utterance",
-        null,
-        [],
-        44
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "okay great",
-      "turn_count": 24,
-      "targets": [
-        "reset_2fa",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "it's (510) 453-3928",
-      "turn_count": 25,
-      "targets": [
-        "reset_2fa",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "action",
-      "text": "account has been updated with <phone>.",
-      "turn_count": 26,
-      "targets": [
-        "reset_2fa",
-        "take_action",
-        "update-account",
-        [
-          "(510) 453-3928"
-        ],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "all set",
-      "turn_count": 27,
-      "targets": [
-        "reset_2fa",
-        "retrieve_utterance",
-        null,
-        [],
-        44
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "anything else you need?",
-      "turn_count": 28,
-      "targets": [
-        "reset_2fa",
-        "retrieve_utterance",
-        null,
-        [],
-        63
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "so how do i log in?",
-      "turn_count": 29,
-      "targets": [
-        "reset_2fa",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "sure",
-      "turn_count": 30,
-      "targets": [
-        "reset_2fa",
-        "retrieve_utterance",
-        null,
-        [],
-        9
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "i don't understand how to log in",
-      "turn_count": 31,
-      "targets": [
-        "reset_2fa",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "can you tell me how?",
-      "turn_count": 32,
-      "targets": [
-        "reset_2fa",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "the new phone has already been added to the system",
-      "turn_count": 33,
-      "targets": [
-        "reset_2fa",
-        "retrieve_utterance",
-        null,
-        [],
-        42
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "okay, so how do i log in?",
-      "turn_count": 34,
-      "targets": [
-        "reset_2fa",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "to enter you only need your username and password, the phone is to provide identity verifications",
-      "turn_count": 35,
-      "targets": [
-        "reset_2fa",
-        "retrieve_utterance",
-        null,
-        [],
-        17
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "oh okay",
-      "turn_count": 36,
-      "targets": [
-        "reset_2fa",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "let me try to log in right now",
-      "turn_count": 37,
       "targets": [
         "reset_2fa",
         null,
@@ -686,7 +388,7 @@
     {
       "speaker": "customer",
       "text": "oh, good",
-      "turn_count": 38,
+      "turn_count": 21,
       "targets": [
         "reset_2fa",
         null,
@@ -697,32 +399,8 @@
     },
     {
       "speaker": "customer",
-      "text": "i was just able to log in",
-      "turn_count": 39,
-      "targets": [
-        "reset_2fa",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "i forgot my password",
-      "turn_count": 40,
-      "targets": [
-        "reset_2fa",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "but i got a temporary one on my new phone",
-      "turn_count": 41,
+      "text": "i got the reset code and i was just able to log in",
+      "turn_count": 22,
       "targets": [
         "reset_2fa",
         null,
@@ -733,20 +411,8 @@
     },
     {
       "speaker": "agent",
-      "text": "wanted to know something about a product?",
-      "turn_count": 42,
-      "targets": [
-        "reset_2fa",
-        "retrieve_utterance",
-        null,
-        [],
-        40
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "so i got into the account",
-      "turn_count": 43,
+      "text": "i'm glad to hear that! is there anything else you need help with today?",
+      "turn_count": 23,
       "targets": [
         "reset_2fa",
         null,
@@ -758,31 +424,7 @@
     {
       "speaker": "customer",
       "text": "no, i don't need anything else",
-      "turn_count": 44,
-      "targets": [
-        "reset_2fa",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "i'm glad",
-      "turn_count": 45,
-      "targets": [
-        "reset_2fa",
-        "retrieve_utterance",
-        null,
-        [],
-        87
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "i think that i am okay now",
-      "turn_count": 46,
+      "turn_count": 24,
       "targets": [
         "reset_2fa",
         null,
@@ -793,8 +435,8 @@
     },
     {
       "speaker": "customer",
-      "text": "thanks for adding my new phone",
-      "turn_count": 47,
+      "text": "i think that i am okay now, thanks for sending the reset code and the security link",
+      "turn_count": 25,
       "targets": [
         "reset_2fa",
         null,
@@ -805,32 +447,32 @@
     },
     {
       "speaker": "agent",
-      "text": "i was a pleasure to help you mr. joseph",
-      "turn_count": 48,
+      "text": "it was a pleasure to help you mr. joseph",
+      "turn_count": 26,
       "targets": [
         "reset_2fa",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        39
+        -1
       ]
     },
     {
       "speaker": "agent",
       "text": "have a nice day",
-      "turn_count": 49,
+      "turn_count": 27,
       "targets": [
         "reset_2fa",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        84
+        -1
       ]
     },
     {
       "speaker": "customer",
       "text": "thanks",
-      "turn_count": 50,
+      "turn_count": 28,
       "targets": [
         "reset_2fa",
         null,
@@ -842,7 +484,7 @@
     {
       "speaker": "customer",
       "text": "you also",
-      "turn_count": 51,
+      "turn_count": 29,
       "targets": [
         "reset_2fa",
         null,

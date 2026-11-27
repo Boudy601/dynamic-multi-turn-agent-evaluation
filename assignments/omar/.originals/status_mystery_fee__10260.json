@@ -1,0 +1,924 @@
+{
+  "convo_id": 10260,
+  "scenario": {
+    "personal": {
+      "account_id": "0kru4omfl8",
+      "customer_name": "norman bouchard",
+      "member_level": "guest",
+      "phone": "(780) 798-1872"
+    },
+    "order": {
+      "street_address": "1319 circle drive",
+      "full_address": "1319 circle drive  la fayette, tx 26724",
+      "city": "la fayette",
+      "num_products": "1",
+      "order_id": "0006921597",
+      "products": "[{'brand': 'tommy_hilfiger', 'product_type': 'boots', 'amount': 49, 'image_url': 'images/tommy_hilfiger-boots.jpeg'}]",
+      "shipping_status": "in transit",
+      "state": "tx",
+      "zip_code": "26724"
+    },
+    "product": {
+      "names": [
+        "tommy_hilfiger boots"
+      ],
+      "amounts": [
+        49
+      ]
+    },
+    "flow": "order_issue",
+    "subflow": "status_mystery_fee"
+  },
+  "original": [
+    [
+      "customer",
+      "Hello. I have an issue with my order"
+    ],
+    [
+      "customer",
+      "I need someone to help me fix it, please"
+    ],
+    [
+      "agent",
+      "hi there what is the problem?"
+    ],
+    [
+      "customer",
+      "So this is the issue"
+    ],
+    [
+      "customer",
+      "I looked at my account today and I saw that you had added an extra fee of $45 to my order. I can't figure out why. I don't want to pay an extra fee"
+    ],
+    [
+      "customer",
+      "Can you tell me what's going on?"
+    ],
+    [
+      "agent",
+      "let's take a look. what is your name please?"
+    ],
+    [
+      "customer",
+      "Norman Bouchard"
+    ],
+    [
+      "customer",
+      "Call me Norm"
+    ],
+    [
+      "action",
+      "Account has been pulled up for Norman Bouchard."
+    ],
+    [
+      "action",
+      "Account has been pulled up for ."
+    ],
+    [
+      "agent",
+      "Hi there Norm"
+    ],
+    [
+      "agent",
+      "CAn I have your account & order ID please?"
+    ],
+    [
+      "customer",
+      "0KRU4OMFL8"
+    ],
+    [
+      "customer",
+      "0006921597"
+    ],
+    [
+      "action",
+      "Identity verification in progress ..."
+    ],
+    [
+      "action",
+      "Querying the system for an answer ..."
+    ],
+    [
+      "agent",
+      "Are you one of our members, Norm?"
+    ],
+    [
+      "customer",
+      "I'm only a Guest, I'm afraid"
+    ],
+    [
+      "agent",
+      "Afraid it is out of my hands then"
+    ],
+    [
+      "customer",
+      "Really?"
+    ],
+    [
+      "agent",
+      "nothing I can do"
+    ],
+    [
+      "agent",
+      "Very sorry"
+    ],
+    [
+      "customer",
+      "But there's an extra fee added for no reason"
+    ],
+    [
+      "customer",
+      "I am not doing to pay that"
+    ],
+    [
+      "customer",
+      "*going to"
+    ],
+    [
+      "agent",
+      "You should take that up with a manager"
+    ],
+    [
+      "agent",
+      "they might be able to help"
+    ],
+    [
+      "customer",
+      "Yes, I would like to speak to them"
+    ],
+    [
+      "agent",
+      "Lowly staff like me have no power"
+    ],
+    [
+      "agent",
+      "sorry"
+    ],
+    [
+      "customer",
+      "I really expect more from your company"
+    ],
+    [
+      "agent",
+      "I get it"
+    ],
+    [
+      "customer",
+      "Okay. That seems weird that you can't fix it but okay"
+    ],
+    [
+      "customer",
+      "Can you connect me to a manager?"
+    ],
+    [
+      "agent",
+      "I wouldn't be happy either. I don't like this policy at all"
+    ],
+    [
+      "agent",
+      "I think I will look for a new job"
+    ],
+    [
+      "customer",
+      "Yeah, you should"
+    ],
+    [
+      "agent",
+      "This is probably my last day here."
+    ],
+    [
+      "customer",
+      "Oh I'm sorry"
+    ],
+    [
+      "agent",
+      "How much were you overcharged?"
+    ],
+    [
+      "customer",
+      "I don't mean to take it out on you"
+    ],
+    [
+      "customer",
+      "$45"
+    ],
+    [
+      "agent",
+      "wow."
+    ],
+    [
+      "customer",
+      "yeah it's a lot"
+    ],
+    [
+      "customer",
+      "that's why I'm so upset"
+    ],
+    [
+      "agent",
+      "man. you need to talk to someone about that. I am really sorry that I cannot help you"
+    ],
+    [
+      "customer",
+      "Well, can you connect me to your manager?"
+    ],
+    [
+      "agent",
+      "they won't listen to us at all"
+    ],
+    [
+      "agent",
+      "I think you will have to call them"
+    ],
+    [
+      "customer",
+      "I'm sorry that you're struggling but I'm a busy man and I have other things to do today"
+    ],
+    [
+      "customer",
+      "Okay, please give me the number"
+    ],
+    [
+      "agent",
+      "Sorry"
+    ],
+    [
+      "agent",
+      "i guess it is pointless to ask if there is anything else I can do so I will say good bye"
+    ],
+    [
+      "agent",
+      "better luck next time!"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "customer",
+      "text": "hello. i have an issue with my order",
+      "turn_count": 1,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i need someone to help me fix it, please",
+      "turn_count": 2,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "hi there what is the problem?",
+      "turn_count": 3,
+      "targets": [
+        "status_mystery_fee",
+        "retrieve_utterance",
+        null,
+        [],
+        33
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "so this is the issue",
+      "turn_count": 4,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i looked at my account today and i saw that you had added an extra fee of $45 to my order. i can't figure out why. i don't want to pay an extra fee",
+      "turn_count": 5,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "can you tell me what's going on?",
+      "turn_count": 6,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "let's take a look. what is your name please?",
+      "turn_count": 7,
+      "targets": [
+        "status_mystery_fee",
+        "retrieve_utterance",
+        null,
+        [],
+        33
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "norman bouchard",
+      "turn_count": 8,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "call me norm",
+      "turn_count": 9,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for norman bouchard.",
+      "turn_count": 10,
+      "targets": [
+        "status_mystery_fee",
+        "take_action",
+        "pull-up-account",
+        [
+          "norman bouchard"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for .",
+      "turn_count": 13,
+      "targets": [
+        "status_mystery_fee",
+        "take_action",
+        "pull-up-account",
+        [
+          "norman bouchard"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "hi there norm",
+      "turn_count": 14,
+      "targets": [
+        "status_mystery_fee",
+        "retrieve_utterance",
+        null,
+        [],
+        66
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can i have your account & order id please?",
+      "turn_count": 15,
+      "targets": [
+        "status_mystery_fee",
+        "retrieve_utterance",
+        null,
+        [],
+        7
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "<account_id>",
+      "turn_count": 16,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "<order_id>",
+      "turn_count": 17,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "identity verification in progress ...",
+      "turn_count": 18,
+      "targets": [
+        "status_mystery_fee",
+        "take_action",
+        "verify-identity",
+        [
+          "norman bouchard",
+          "0kru4omfl8",
+          "0006921597"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "querying the system for an answer ...",
+      "turn_count": 19,
+      "targets": [
+        "status_mystery_fee",
+        "take_action",
+        "ask-the-oracle",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "are you one of our members, norm?",
+      "turn_count": 20,
+      "targets": [
+        "status_mystery_fee",
+        "retrieve_utterance",
+        null,
+        [],
+        69
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i'm only a guest, i'm afraid",
+      "turn_count": 21,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "afraid it is out of my hands then",
+      "turn_count": 22,
+      "targets": [
+        "status_mystery_fee",
+        "retrieve_utterance",
+        null,
+        [],
+        82
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "really?",
+      "turn_count": 23,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "nothing i can do",
+      "turn_count": 24,
+      "targets": [
+        "status_mystery_fee",
+        "retrieve_utterance",
+        null,
+        [],
+        83
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "very sorry",
+      "turn_count": 25,
+      "targets": [
+        "status_mystery_fee",
+        "retrieve_utterance",
+        null,
+        [],
+        7
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "but there's an extra fee added for no reason",
+      "turn_count": 26,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i am not doing to pay that",
+      "turn_count": 27,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "*going to",
+      "turn_count": 28,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "you should take that up with a manager",
+      "turn_count": 29,
+      "targets": [
+        "status_mystery_fee",
+        "retrieve_utterance",
+        null,
+        [],
+        33
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "they might be able to help",
+      "turn_count": 30,
+      "targets": [
+        "status_mystery_fee",
+        "retrieve_utterance",
+        null,
+        [],
+        38
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yes, i would like to speak to them",
+      "turn_count": 31,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "lowly staff like me have no power",
+      "turn_count": 32,
+      "targets": [
+        "status_mystery_fee",
+        "retrieve_utterance",
+        null,
+        [],
+        40
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "sorry",
+      "turn_count": 33,
+      "targets": [
+        "status_mystery_fee",
+        "retrieve_utterance",
+        null,
+        [],
+        53
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i really expect more from your company",
+      "turn_count": 34,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i get it",
+      "turn_count": 35,
+      "targets": [
+        "status_mystery_fee",
+        "retrieve_utterance",
+        null,
+        [],
+        37
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay. that seems weird that you can't fix it but okay",
+      "turn_count": 36,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "can you connect me to a manager?",
+      "turn_count": 37,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i wouldn't be happy either. i don't like this policy at all",
+      "turn_count": 38,
+      "targets": [
+        "status_mystery_fee",
+        "retrieve_utterance",
+        null,
+        [],
+        65
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i think i will look for a new job",
+      "turn_count": 39,
+      "targets": [
+        "status_mystery_fee",
+        "retrieve_utterance",
+        null,
+        [],
+        53
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yeah, you should",
+      "turn_count": 40,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "this is probably my last day here.",
+      "turn_count": 41,
+      "targets": [
+        "status_mystery_fee",
+        "retrieve_utterance",
+        null,
+        [],
+        63
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "oh i'm sorry",
+      "turn_count": 42,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "how much were you overcharged?",
+      "turn_count": 43,
+      "targets": [
+        "status_mystery_fee",
+        "retrieve_utterance",
+        null,
+        [],
+        77
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i don't mean to take it out on you",
+      "turn_count": 44,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "$45",
+      "turn_count": 45,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "wow.",
+      "turn_count": 46,
+      "targets": [
+        "status_mystery_fee",
+        "retrieve_utterance",
+        null,
+        [],
+        32
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yeah it's a lot",
+      "turn_count": 47,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "that's why i'm so upset",
+      "turn_count": 48,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "man. you need to talk to someone about that. i am really sorry that i cannot help you",
+      "turn_count": 49,
+      "targets": [
+        "status_mystery_fee",
+        "retrieve_utterance",
+        null,
+        [],
+        96
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "well, can you connect me to your manager?",
+      "turn_count": 50,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "they won't listen to us at all",
+      "turn_count": 51,
+      "targets": [
+        "status_mystery_fee",
+        "retrieve_utterance",
+        null,
+        [],
+        22
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i think you will have to call them",
+      "turn_count": 52,
+      "targets": [
+        "status_mystery_fee",
+        "retrieve_utterance",
+        null,
+        [],
+        28
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i'm sorry that you're struggling but i'm a busy man and i have other things to do today",
+      "turn_count": 53,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay, please give me the number",
+      "turn_count": 54,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "sorry",
+      "turn_count": 55,
+      "targets": [
+        "status_mystery_fee",
+        "retrieve_utterance",
+        null,
+        [],
+        92
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i guess it is pointless to ask if there is anything else i can do so i will say good bye",
+      "turn_count": 56,
+      "targets": [
+        "status_mystery_fee",
+        "retrieve_utterance",
+        null,
+        [],
+        89
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "better luck next time!",
+      "turn_count": 57,
+      "targets": [
+        "status_mystery_fee",
+        "retrieve_utterance",
+        null,
+        [],
+        3
+      ]
+    }
+  ]
+}

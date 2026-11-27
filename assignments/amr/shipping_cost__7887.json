@@ -1,0 +1,547 @@
+{
+  "convo_id": 7887,
+  "scenario": {
+    "personal": {
+      "account_id": "pgsufggv7b",
+      "customer_name": "joyce wu",
+      "email": "jw453038@email.com",
+      "member_level": "guest",
+      "phone": "(219) 428-7246",
+      "username": "jw453038"
+    },
+    "order": {
+      "street_address": "8573 lexington ave",
+      "full_address": "8573 lexington ave  brighton, tx 95702",
+      "city": "brighton",
+      "num_products": "2",
+      "order_id": "7407259046",
+      "products": "[{'brand': 'michael_kors', 'product_type': 'boots', 'amount': 94, 'image_url': 'images/michael_kors-boots.jpeg'}, {'brand': 'guess', 'product_type': 'jeans', 'amount': 64, 'image_url': 'images/guess-jeans.jpeg'}]",
+      "purchase_date": "2020-01-13",
+      "shipping_status": "in transit",
+      "state": "tx",
+      "zip_code": "95702"
+    },
+    "product": {
+      "names": [
+        "michael_kors boots",
+        "guess jeans"
+      ],
+      "amounts": [
+        94,
+        64
+      ]
+    },
+    "flow": "shipping_issue",
+    "subflow": "cost"
+  },
+  "original": [
+    [
+      "agent",
+      "Hi! How can I help you today?"
+    ],
+    [
+      "customer",
+      "Why was the shipping that high for my purchase?"
+    ],
+    [
+      "customer",
+      "Sorry I am seeing this crazy rate for shipping can you help. me"
+    ],
+    [
+      "agent",
+      "Sure, I can help you. Let's start with your full name so that I can pull up your account."
+    ],
+    [
+      "customer",
+      "Joyce Wu"
+    ],
+    [
+      "customer",
+      "8573 Lexington Ave  Brighton, TX 95702"
+    ],
+    [
+      "action",
+      "Account has been pulled up for Joyce Wu."
+    ],
+    [
+      "customer",
+      "jw453038@email.com"
+    ],
+    [
+      "agent",
+      "I will also need your username, email address, and order ID please"
+    ],
+    [
+      "customer",
+      "my username?"
+    ],
+    [
+      "customer",
+      "oh it's jw453038"
+    ],
+    [
+      "customer",
+      "my daughter helped me online"
+    ],
+    [
+      "agent",
+      "I understand. Do you have an order ID?"
+    ],
+    [
+      "customer",
+      "okay"
+    ],
+    [
+      "customer",
+      "7407259046"
+    ],
+    [
+      "action",
+      "Purchase validation in progress ..."
+    ],
+    [
+      "customer",
+      "I have that written down here I think that's it"
+    ],
+    [
+      "agent",
+      "Thank you for that info. What does the shipping status say on your order?"
+    ],
+    [
+      "customer",
+      "In transit"
+    ],
+    [
+      "customer",
+      "but I can't afford that kind of shipping cost"
+    ],
+    [
+      "action",
+      "Shipping status has been recorded as In Transit."
+    ],
+    [
+      "agent",
+      "Okay, since it hasn't been delivered yet, I can simply waive the fee on your order with no issues. That way you won't have to pay for any shipping."
+    ],
+    [
+      "action",
+      "Order has been updated with waive fee."
+    ],
+    [
+      "customer",
+      "Can you waive it as a courtesy or something please"
+    ],
+    [
+      "agent",
+      "Yes, that's what I did. The fee has been waived."
+    ],
+    [
+      "agent",
+      "Is there anything else I can help you with?"
+    ],
+    [
+      "customer",
+      "Things are really crazy right now"
+    ],
+    [
+      "customer",
+      "Wow that's kind of you I really appreciate it.  I really wanted the item"
+    ],
+    [
+      "agent",
+      "Absolutely. I understand that times are tough right now. I'm glad I could help!"
+    ],
+    [
+      "customer",
+      "Awww:). ty"
+    ],
+    [
+      "agent",
+      "You're welcome! I hope you have a great day."
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "hi! how can i help you today?",
+      "turn_count": 1,
+      "targets": [
+        "cost",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "why was the shipping that high for my purchase?",
+      "turn_count": 2,
+      "targets": [
+        "cost",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "sorry i am seeing this crazy rate for shipping can you help. me",
+      "turn_count": 3,
+      "targets": [
+        "cost",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "sure, i can help you. let's start with your full name so that i can pull up your account.",
+      "turn_count": 4,
+      "targets": [
+        "cost",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "joyce wu",
+      "turn_count": 5,
+      "targets": [
+        "cost",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "8573 lexington ave  brighton, tx 95702",
+      "turn_count": 6,
+      "targets": [
+        "cost",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for joyce wu.",
+      "turn_count": 7,
+      "targets": [
+        "cost",
+        null,
+        "pull-up-account",
+        [
+          "joyce wu"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "jw453038@email.com",
+      "turn_count": 8,
+      "targets": [
+        "cost",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i will also need your username, email address, and order id please",
+      "turn_count": 9,
+      "targets": [
+        "cost",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "my username?",
+      "turn_count": 10,
+      "targets": [
+        "cost",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "oh it's jw453038",
+      "turn_count": 11,
+      "targets": [
+        "cost",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "my daughter helped me online",
+      "turn_count": 12,
+      "targets": [
+        "cost",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i understand. do you have an order id?",
+      "turn_count": 13,
+      "targets": [
+        "cost",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay",
+      "turn_count": 14,
+      "targets": [
+        "cost",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "7407259046",
+      "turn_count": 15,
+      "targets": [
+        "cost",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "purchase validation in progress ...",
+      "turn_count": 16,
+      "targets": [
+        "cost",
+        null,
+        "validate-purchase",
+        [
+          "jw453038",
+          "jw453038@email.com",
+          "7407259046"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i have that written down here i think that's it",
+      "turn_count": 17,
+      "targets": [
+        "cost",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you for that info. what does the shipping status say on your order?",
+      "turn_count": 18,
+      "targets": [
+        "cost",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "in transit",
+      "turn_count": 19,
+      "targets": [
+        "cost",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "but i can't afford that kind of shipping cost",
+      "turn_count": 20,
+      "targets": [
+        "cost",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "shipping status has been recorded as in transit.",
+      "turn_count": 21,
+      "targets": [
+        "cost",
+        null,
+        "shipping-status",
+        [
+          "In Transit"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "okay, since it hasn't been delivered yet, i can simply waive the fee on your order with no issues. that way you won't have to pay for any shipping.",
+      "turn_count": 22,
+      "targets": [
+        "cost",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "order has been updated with waive fee.",
+      "turn_count": 23,
+      "targets": [
+        "cost",
+        null,
+        "update-order",
+        [
+          "waive fee"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "can you waive it as a courtesy or something please",
+      "turn_count": 24,
+      "targets": [
+        "cost",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "yes, that's what i did. the fee has been waived.",
+      "turn_count": 25,
+      "targets": [
+        "cost",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "is there anything else i can help you with?",
+      "turn_count": 26,
+      "targets": [
+        "cost",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "things are really crazy right now",
+      "turn_count": 27,
+      "targets": [
+        "cost",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "wow that's kind of you i really appreciate it.  i really wanted the item",
+      "turn_count": 28,
+      "targets": [
+        "cost",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "absolutely. i understand that times are tough right now. i'm glad i could help!",
+      "turn_count": 29,
+      "targets": [
+        "cost",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "awww:). ty",
+      "turn_count": 30,
+      "targets": [
+        "cost",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "you're welcome! i hope you have a great day.",
+      "turn_count": 31,
+      "targets": [
+        "cost",
+        null,
+        null,
+        [],
+        -1
+      ]
+    }
+  ]
+}

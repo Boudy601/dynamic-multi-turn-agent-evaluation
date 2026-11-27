@@ -121,71 +121,31 @@
     ],
     [
       "agent",
-      "it looks like your subscription is currently active, with a due amount of $0 with today as the due date"
+      "it looks like the standard annual subscription amount due is $99"
     ],
     [
       "action",
-      "Details of 0 have been entered."
+      "Details of 99 have been entered."
     ],
     [
       "agent",
-      "so it seems this is already paid for"
+      "that is what you will need to pay today to keep your premium service active"
     ],
     [
       "customer",
-      "Oh.    When was it paid?"
+      "Okay, $99 sounds good. I would like to pay that now."
     ],
     [
       "agent",
-      "I do not no, but there is no balance due for todays due date"
+      "great, do you have a credit card number you would like to use for this payment?"
     ],
     [
       "customer",
-      "Will I be billed when it is due?"
+      "I don't have my card handy right now. Can you use the one on my account?"
     ],
     [
       "agent",
-      "yes, you will be billed $0"
-    ],
-    [
-      "customer",
-      "Are your sure $0 is correct?   I do not want to lose premium service?"
-    ],
-    [
-      "agent",
-      "that is what the system is telling me yes, i can double check it for you"
-    ],
-    [
-      "customer",
-      "Please do."
-    ],
-    [
-      "action",
-      "Querying the system for subscription status ..."
-    ],
-    [
-      "action",
-      "Details of 55 have been entered."
-    ],
-    [
-      "agent",
-      "ah, i see,"
-    ],
-    [
-      "agent",
-      "the issue with the name error I was getting caused bad info on my side"
-    ],
-    [
-      "agent",
-      "there is $55 due tomorrow, and your subscription is also on hold until the amount is paid"
-    ],
-    [
-      "agent",
-      "would you like to pay the $55 now with the credit card on file?"
-    ],
-    [
-      "customer",
-      "Yes I would."
+      "no problem at all, i will use the credit card on the account"
     ],
     [
       "action",
@@ -193,31 +153,15 @@
     ],
     [
       "agent",
-      "I have renewed your subscription and paid the due amount in full, you now have full membership priveldges"
-    ],
-    [
-      "agent",
-      "is there anything else I can help with today"
+      "i have renewed your subscription and processed the $99 payment, so your premium service is all set"
     ],
     [
       "customer",
-      "will a receipt be emailed to me?"
+      "Thank you so much for your help!"
     ],
     [
       "agent",
-      "no, however you can get the reciept on your account page, i am sending a link now"
-    ],
-    [
-      "action",
-      "A link will be sent."
-    ],
-    [
-      "customer",
-      "Thank you!"
-    ],
-    [
-      "agent",
-      "will that be all for today?"
+      "you're very welcome! is there anything else i can help you with today?"
     ],
     [
       "customer",
@@ -235,10 +179,10 @@
       "turn_count": 1,
       "targets": [
         "manage_pay_bill",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        93
+        -1
       ]
     },
     {
@@ -259,10 +203,10 @@
       "turn_count": 3,
       "targets": [
         "manage_pay_bill",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        94
+        -1
       ]
     },
     {
@@ -283,10 +227,10 @@
       "turn_count": 5,
       "targets": [
         "manage_pay_bill",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        3
+        -1
       ]
     },
     {
@@ -295,10 +239,10 @@
       "turn_count": 6,
       "targets": [
         "manage_pay_bill",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        79
+        -1
       ]
     },
     {
@@ -319,10 +263,10 @@
       "turn_count": 8,
       "targets": [
         "manage_pay_bill",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        44
+        -1
       ]
     },
     {
@@ -331,7 +275,7 @@
       "turn_count": 9,
       "targets": [
         "manage_pay_bill",
-        "take_action",
+        null,
         "pull-up-account",
         [
           "alessandro phoenix"
@@ -357,10 +301,10 @@
       "turn_count": 11,
       "targets": [
         "manage_pay_bill",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        18
+        -1
       ]
     },
     {
@@ -369,10 +313,10 @@
       "turn_count": 12,
       "targets": [
         "manage_pay_bill",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        82
+        -1
       ]
     },
     {
@@ -381,15 +325,15 @@
       "turn_count": 13,
       "targets": [
         "manage_pay_bill",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        23
+        -1
       ]
     },
     {
       "speaker": "customer",
-      "text": "go it.    had to get my magnifying glass due to the small print.  account id is <account_id>.    order id is <order_id>.",
+      "text": "go it.    had to get my magnifying glass due to the small print.  account id is rnxg4y1mv2.    order id is 4856820616.",
       "turn_count": 14,
       "targets": [
         "manage_pay_bill",
@@ -402,10 +346,10 @@
     {
       "speaker": "action",
       "text": "identity verification in progess ...",
-      "turn_count": 16,
+      "turn_count": 15,
       "targets": [
         "manage_pay_bill",
-        "take_action",
+        null,
         "verify-identity",
         [
           "alessandro phoenix",
@@ -418,19 +362,47 @@
     {
       "speaker": "agent",
       "text": "i think i may have your name spelled incorrectly, may i have it again?",
-      "turn_count": 17,
+      "turn_count": 16,
       "targets": [
         "manage_pay_bill",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        78
+        -1
       ]
     },
     {
       "speaker": "customer",
       "text": "my name is alessandro phoenix",
+      "turn_count": 17,
+      "targets": [
+        "manage_pay_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "identity verification in progess ...",
       "turn_count": 18,
+      "targets": [
+        "manage_pay_bill",
+        null,
+        "verify-identity",
+        [
+          "alesandro phoenix",
+          "rnxg4y1mv2",
+          "4856820616"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i'm having issues verifying the name, one moment please",
+      "turn_count": 19,
       "targets": [
         "manage_pay_bill",
         null,
@@ -445,35 +417,7 @@
       "turn_count": 20,
       "targets": [
         "manage_pay_bill",
-        "take_action",
-        "verify-identity",
-        [
-          "alesandro phoenix",
-          "rnxg4y1mv2",
-          "4856820616"
-        ],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "i'm having issues verifying the name, one moment please",
-      "turn_count": 21,
-      "targets": [
-        "manage_pay_bill",
-        "retrieve_utterance",
         null,
-        [],
-        70
-      ]
-    },
-    {
-      "speaker": "action",
-      "text": "identity verification in progess ...",
-      "turn_count": 22,
-      "targets": [
-        "manage_pay_bill",
-        "take_action",
         "verify-identity",
         [
           "alessandro phoenix",
@@ -486,30 +430,54 @@
     {
       "speaker": "agent",
       "text": "there we go, my aplogies",
-      "turn_count": 23,
+      "turn_count": 21,
       "targets": [
         "manage_pay_bill",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        59
+        -1
       ]
     },
     {
       "speaker": "agent",
       "text": "do you know the amount due you would like to pay? if not i can get it for you",
-      "turn_count": 24,
+      "turn_count": 22,
       "targets": [
         "manage_pay_bill",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        38
+        -1
       ]
     },
     {
       "speaker": "customer",
       "text": "i need you to give me the amount.",
+      "turn_count": 23,
+      "targets": [
+        "manage_pay_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "querying the system for subscription status ...",
+      "turn_count": 24,
+      "targets": [
+        "manage_pay_bill",
+        null,
+        "subscription-status",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "it looks like the standard annual subscription amount due is $99",
       "turn_count": 25,
       "targets": [
         "manage_pay_bill",
@@ -521,57 +489,57 @@
     },
     {
       "speaker": "action",
-      "text": "querying the system for subscription status ...",
+      "text": "details of 99 have been entered.",
       "turn_count": 26,
       "targets": [
         "manage_pay_bill",
-        "take_action",
-        "subscription-status",
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "it looks like your subscription is currently active, with a due amount of $0 with today as the due date",
-      "turn_count": 27,
-      "targets": [
-        "manage_pay_bill",
-        "retrieve_utterance",
         null,
-        [],
-        60
-      ]
-    },
-    {
-      "speaker": "action",
-      "text": "details of 0 have been entered.",
-      "turn_count": 28,
-      "targets": [
-        "manage_pay_bill",
-        "take_action",
         "enter-details",
         [
-          "0"
+          "99"
         ],
         -1
       ]
     },
     {
       "speaker": "agent",
-      "text": "so it seems this is already paid for",
-      "turn_count": 29,
+      "text": "that is what you will need to pay today to keep your premium service active",
+      "turn_count": 27,
       "targets": [
         "manage_pay_bill",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        11
+        -1
       ]
     },
     {
       "speaker": "customer",
-      "text": "oh.    when was it paid?",
+      "text": "okay, $99 sounds good. i would like to pay that now.",
+      "turn_count": 28,
+      "targets": [
+        "manage_pay_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "great, do you have a credit card number you would like to use for this payment?",
+      "turn_count": 29,
+      "targets": [
+        "manage_pay_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i don't have my card handy right now. can you use the one on my account?",
       "turn_count": 30,
       "targets": [
         "manage_pay_bill",
@@ -583,154 +551,8 @@
     },
     {
       "speaker": "agent",
-      "text": "i do not no, but there is no balance due for todays due date",
+      "text": "no problem at all, i will use the credit card on the account",
       "turn_count": 31,
-      "targets": [
-        "manage_pay_bill",
-        "retrieve_utterance",
-        null,
-        [],
-        87
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "will i be billed when it is due?",
-      "turn_count": 32,
-      "targets": [
-        "manage_pay_bill",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "yes, you will be billed $0",
-      "turn_count": 33,
-      "targets": [
-        "manage_pay_bill",
-        "retrieve_utterance",
-        null,
-        [],
-        17
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "are your sure $0 is correct?   i do not want to lose premium service?",
-      "turn_count": 34,
-      "targets": [
-        "manage_pay_bill",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "that is what the system is telling me yes, i can double check it for you",
-      "turn_count": 35,
-      "targets": [
-        "manage_pay_bill",
-        "retrieve_utterance",
-        null,
-        [],
-        10
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "please do.",
-      "turn_count": 36,
-      "targets": [
-        "manage_pay_bill",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "action",
-      "text": "querying the system for subscription status ...",
-      "turn_count": 37,
-      "targets": [
-        "manage_pay_bill",
-        "take_action",
-        "subscription-status",
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "action",
-      "text": "details of 55 have been entered.",
-      "turn_count": 38,
-      "targets": [
-        "manage_pay_bill",
-        "take_action",
-        "enter-details",
-        [
-          "55"
-        ],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "ah, i see,",
-      "turn_count": 39,
-      "targets": [
-        "manage_pay_bill",
-        "retrieve_utterance",
-        null,
-        [],
-        45
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "the issue with the name error i was getting caused bad info on my side",
-      "turn_count": 40,
-      "targets": [
-        "manage_pay_bill",
-        "retrieve_utterance",
-        null,
-        [],
-        97
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "there is $55 due tomorrow, and your subscription is also on hold until the amount is paid",
-      "turn_count": 41,
-      "targets": [
-        "manage_pay_bill",
-        "retrieve_utterance",
-        null,
-        [],
-        16
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "would you like to pay the $55 now with the credit card on file?",
-      "turn_count": 42,
-      "targets": [
-        "manage_pay_bill",
-        "retrieve_utterance",
-        null,
-        [],
-        25
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "yes i would.",
-      "turn_count": 43,
       "targets": [
         "manage_pay_bill",
         null,
@@ -742,10 +564,10 @@
     {
       "speaker": "action",
       "text": "account has been updated with renew subscription.",
-      "turn_count": 44,
+      "turn_count": 32,
       "targets": [
         "manage_pay_bill",
-        "take_action",
+        null,
         "update-account",
         [
           "renew subscription"
@@ -755,68 +577,20 @@
     },
     {
       "speaker": "agent",
-      "text": "i have renewed your subscription and paid the due amount in full, you now have full membership priveldges",
-      "turn_count": 45,
-      "targets": [
-        "manage_pay_bill",
-        "retrieve_utterance",
-        null,
-        [],
-        75
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "is there anything else i can help with today",
-      "turn_count": 46,
-      "targets": [
-        "manage_pay_bill",
-        "retrieve_utterance",
-        null,
-        [],
-        71
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "will a receipt be emailed to me?",
-      "turn_count": 47,
+      "text": "i have renewed your subscription and processed the $99 payment, so your premium service is all set",
+      "turn_count": 33,
       "targets": [
         "manage_pay_bill",
         null,
         null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "no, however you can get the reciept on your account page, i am sending a link now",
-      "turn_count": 48,
-      "targets": [
-        "manage_pay_bill",
-        "retrieve_utterance",
-        null,
-        [],
-        84
-      ]
-    },
-    {
-      "speaker": "action",
-      "text": "a link will be sent.",
-      "turn_count": 49,
-      "targets": [
-        "manage_pay_bill",
-        "take_action",
-        "send-link",
         [],
         -1
       ]
     },
     {
       "speaker": "customer",
-      "text": "thank you!",
-      "turn_count": 50,
+      "text": "thank you so much for your help!",
+      "turn_count": 34,
       "targets": [
         "manage_pay_bill",
         null,
@@ -827,20 +601,20 @@
     },
     {
       "speaker": "agent",
-      "text": "will that be all for today?",
-      "turn_count": 51,
+      "text": "you're very welcome! is there anything else i can help you with today?",
+      "turn_count": 35,
       "targets": [
         "manage_pay_bill",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        65
+        -1
       ]
     },
     {
       "speaker": "customer",
       "text": "that is all for today.",
-      "turn_count": 52,
+      "turn_count": 36,
       "targets": [
         "manage_pay_bill",
         null,
@@ -852,13 +626,13 @@
     {
       "speaker": "agent",
       "text": "have a good one",
-      "turn_count": 53,
+      "turn_count": 37,
       "targets": [
         "manage_pay_bill",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        27
+        -1
       ]
     }
   ]

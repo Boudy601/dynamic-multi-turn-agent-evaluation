@@ -1,0 +1,389 @@
+{
+  "convo_id": 10271,
+  "scenario": {
+    "personal": {
+      "account_id": "gaif8ds3is",
+      "customer_name": "albert sanders",
+      "email": "as018813@email.com",
+      "member_level": "silver",
+      "phone": "(816) 928-3176",
+      "username": "as018813"
+    },
+    "order": {
+      "street_address": "3117 2nd ave",
+      "full_address": "3117 2nd ave  la fayette, ny 58579",
+      "city": "la fayette",
+      "num_products": "1",
+      "order_id": "8646912916",
+      "products": "[{'brand': 'tommy_hilfiger', 'product_type': 'shirt', 'amount': 79, 'image_url': 'images/tommy_hilfiger-shirt.jpeg'}]",
+      "purchase_date": "2020-01-16",
+      "shipping_status": "order received",
+      "state": "ny",
+      "zip_code": "58579"
+    },
+    "product": {
+      "names": [
+        "tommy_hilfiger shirt"
+      ],
+      "amounts": [
+        79
+      ]
+    },
+    "flow": "shipping_issue",
+    "subflow": "status"
+  },
+  "original": [
+    [
+      "agent",
+      "Hello, how can I help you?"
+    ],
+    [
+      "customer",
+      "Hi, I just noticed that the address on my email confirmation is not correct.  Can you help me look into it?"
+    ],
+    [
+      "agent",
+      "Sure, can I get your full name, account ID, and order ID, please?"
+    ],
+    [
+      "customer",
+      "I'm Albert Sanders"
+    ],
+    [
+      "customer",
+      "Account ID: GAIF8DS3IS"
+    ],
+    [
+      "customer",
+      "Order ID is 8646912916"
+    ],
+    [
+      "action",
+      "Account has been pulled up for Albert Sanders."
+    ],
+    [
+      "action",
+      "Identity verification in progress ..."
+    ],
+    [
+      "agent",
+      "Okay, I just need to validate your purchase. Can you please tell me your username and email?"
+    ],
+    [
+      "customer",
+      "Sounds good, it's as018813@email.com"
+    ],
+    [
+      "customer",
+      "as018813 is my username"
+    ],
+    [
+      "action",
+      "Purchase validation in progress ..."
+    ],
+    [
+      "customer",
+      "Is the shipping address on my order actually correct, or is it really set to 3117 2nd Ave?"
+    ],
+    [
+      "agent",
+      "Let me check on that for you right away."
+    ],
+    [
+      "action",
+      "Oracle response: No"
+    ],
+    [
+      "agent",
+      "Unfortunately, it looks like the shipping address on your order really is listed incorrectly as 3117 2nd Ave instead of your intended address—there was a small glitch when the order was processed. I can fix that for you right now by updating the order to change the address."
+    ],
+    [
+      "customer",
+      "Oh no, that's frustrating! Yes, please change the address if you can."
+    ],
+    [
+      "action",
+      "Order has been updated with change address."
+    ],
+    [
+      "agent",
+      "I have updated your order to change the shipping address so it goes to the right place. Is there anything else I can help you with?"
+    ],
+    [
+      "customer",
+      "That's all, thank you very much!"
+    ],
+    [
+      "agent",
+      "Have a great day!"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "hello, how can i help you?",
+      "turn_count": 1,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "hi, i just noticed that the address on my email confirmation is not correct.  can you help me look into it?",
+      "turn_count": 2,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "sure, can i get your full name, account id, and order id, please?",
+      "turn_count": 3,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i'm albert sanders",
+      "turn_count": 4,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "account id: gaif8ds3is",
+      "turn_count": 5,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "order id is 8646912916",
+      "turn_count": 6,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for albert sanders.",
+      "turn_count": 7,
+      "targets": [
+        "status",
+        null,
+        "pull-up-account",
+        [
+          "albert sanders"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "identity verification in progress ...",
+      "turn_count": 8,
+      "targets": [
+        "status",
+        null,
+        "verify-identity",
+        [
+          "albert sanders",
+          "gaif8ds3is",
+          "8646912916"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "okay, i just need to validate your purchase. can you please tell me your username and email?",
+      "turn_count": 9,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "sounds good, it's as018813@email.com",
+      "turn_count": 10,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "as018813 is my username",
+      "turn_count": 11,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "purchase validation in progress ...",
+      "turn_count": 12,
+      "targets": [
+        "status",
+        null,
+        "validate-purchase",
+        [
+          "as018813",
+          "as018813@email.com",
+          "8646912916"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "is the shipping address on my order actually correct, or is it really set to 3117 2nd ave?",
+      "turn_count": 13,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "let me check on that for you right away.",
+      "turn_count": 14,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "oracle response: no",
+      "turn_count": 15,
+      "targets": [
+        "status",
+        null,
+        "ask-the-oracle",
+        [
+          "Is the shipping address on the order correct?"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "unfortunately, it looks like the shipping address on your order really is listed incorrectly as 3117 2nd ave instead of your intended address—there was a small glitch when the order was processed. i can fix that for you right now by updating the order to change the address.",
+      "turn_count": 16,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "oh no, that's frustrating! yes, please change the address if you can.",
+      "turn_count": 17,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "order has been updated with change address.",
+      "turn_count": 18,
+      "targets": [
+        "status",
+        null,
+        "update-order",
+        [
+          "change address"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i have updated your order to change the shipping address so it goes to the right place. is there anything else i can help you with?",
+      "turn_count": 19,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "that's all, thank you very much!",
+      "turn_count": 20,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "have a great day!",
+      "turn_count": 21,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    }
+  ]
+}

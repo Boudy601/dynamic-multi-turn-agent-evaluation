@@ -100,7 +100,7 @@
     ],
     [
       "action",
-      "A reason of hillfiger shirt has been recorded."
+      "A reason of tommy hilfiger shirt has been recorded."
     ],
     [
       "customer",
@@ -160,7 +160,7 @@
     ],
     [
       "action",
-      "A purchase of  was made."
+      "A purchase of tommy hilfiger shirt was made."
     ],
     [
       "agent",
@@ -218,10 +218,10 @@
       "turn_count": 2,
       "targets": [
         "out_of_stock_one_item",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        58
+        -1
       ]
     },
     {
@@ -230,10 +230,10 @@
       "turn_count": 3,
       "targets": [
         "out_of_stock_one_item",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        78
+        -1
       ]
     },
     {
@@ -266,10 +266,10 @@
       "turn_count": 6,
       "targets": [
         "out_of_stock_one_item",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        97
+        -1
       ]
     },
     {
@@ -278,10 +278,10 @@
       "turn_count": 7,
       "targets": [
         "out_of_stock_one_item",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        12
+        -1
       ]
     },
     {
@@ -314,10 +314,10 @@
       "turn_count": 10,
       "targets": [
         "out_of_stock_one_item",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        12
+        -1
       ]
     },
     {
@@ -338,10 +338,10 @@
       "turn_count": 12,
       "targets": [
         "out_of_stock_one_item",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        45
+        -1
       ]
     },
     {
@@ -362,7 +362,7 @@
       "turn_count": 14,
       "targets": [
         "out_of_stock_one_item",
-        "take_action",
+        null,
         "pull-up-account",
         [
           "albert sanders"
@@ -376,10 +376,10 @@
       "turn_count": 15,
       "targets": [
         "out_of_stock_one_item",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        78
+        -1
       ]
     },
     {
@@ -388,7 +388,7 @@
       "turn_count": 16,
       "targets": [
         "out_of_stock_one_item",
-        "take_action",
+        null,
         "notify-team",
         [
           "purchasing department"
@@ -410,14 +410,14 @@
     },
     {
       "speaker": "action",
-      "text": "a reason of hillfiger shirt has been recorded.",
+      "text": "a reason of tommy hilfiger shirt has been recorded.",
       "turn_count": 18,
       "targets": [
         "out_of_stock_one_item",
-        "take_action",
+        null,
         "record-reason",
         [
-          "hillfiger shirt"
+          "tommy hilfiger shirt"
         ],
         -1
       ]
@@ -440,10 +440,10 @@
       "turn_count": 20,
       "targets": [
         "out_of_stock_one_item",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        57
+        -1
       ]
     },
     {
@@ -464,10 +464,10 @@
       "turn_count": 22,
       "targets": [
         "out_of_stock_one_item",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        57
+        -1
       ]
     },
     {
@@ -488,10 +488,10 @@
       "turn_count": 24,
       "targets": [
         "out_of_stock_one_item",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        0
+        -1
       ]
     },
     {
@@ -536,10 +536,10 @@
       "turn_count": 28,
       "targets": [
         "out_of_stock_one_item",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        62
+        -1
       ]
     },
     {
@@ -548,10 +548,10 @@
       "turn_count": 29,
       "targets": [
         "out_of_stock_one_item",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        91
+        -1
       ]
     },
     {
@@ -572,10 +572,10 @@
       "turn_count": 31,
       "targets": [
         "out_of_stock_one_item",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        73
+        -1
       ]
     },
     {
@@ -592,14 +592,14 @@
     },
     {
       "speaker": "action",
-      "text": "a purchase of  was made.",
+      "text": "a purchase of tommy hilfiger shirt was made.",
       "turn_count": 33,
       "targets": [
         "out_of_stock_one_item",
-        "take_action",
+        null,
         "make-purchase",
         [
-          ""
+          "tommy hilfiger shirt"
         ],
         -1
       ]
@@ -610,10 +610,10 @@
       "turn_count": 34,
       "targets": [
         "out_of_stock_one_item",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        53
+        -1
       ]
     },
     {
@@ -646,10 +646,10 @@
       "turn_count": 37,
       "targets": [
         "out_of_stock_one_item",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        66
+        -1
       ]
     },
     {
@@ -658,10 +658,10 @@
       "turn_count": 38,
       "targets": [
         "out_of_stock_one_item",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        64
+        -1
       ]
     },
     {
@@ -682,10 +682,10 @@
       "turn_count": 40,
       "targets": [
         "out_of_stock_one_item",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        34
+        -1
       ]
     },
     {
@@ -706,10 +706,10 @@
       "turn_count": 42,
       "targets": [
         "out_of_stock_one_item",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        85
+        -1
       ]
     }
   ]

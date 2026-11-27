@@ -1,0 +1,470 @@
+{
+  "convo_id": 6775,
+  "scenario": {
+    "personal": {
+      "account_id": "wrmxqalbt8",
+      "customer_name": "joyce wu",
+      "email": "jw037299@email.com",
+      "member_level": "guest",
+      "phone": "(321) 516-4530",
+      "username": "jw037299"
+    },
+    "order": {
+      "street_address": "3184 woodshore st",
+      "full_address": "3184 woodshore st  baltimore, wa 81926",
+      "city": "baltimore",
+      "num_products": "3",
+      "order_id": "9108716312",
+      "products": "[{'brand': 'tommy_hilfiger', 'product_type': 'jacket', 'amount': 99, 'image_url': 'images/tommy_hilfiger-jacket.jpeg'}, {'brand': 'calvin_klein', 'product_type': 'shirt', 'amount': 69, 'image_url': 'images/calvin_klein-shirt.jpeg'}, {'brand': 'tommy_hilfiger', 'product_type': 'shirt', 'amount': 99, 'image_url': 'images/tommy_hilfiger-shirt.jpeg'}]",
+      "purchase_date": "2020-03-04",
+      "state": "wa",
+      "zip_code": "81926"
+    },
+    "product": {
+      "names": [
+        "tommy_hilfiger jacket",
+        "calvin_klein shirt",
+        "tommy_hilfiger shirt"
+      ],
+      "amounts": [
+        99,
+        69,
+        99
+      ]
+    },
+    "flow": "shipping_issue",
+    "subflow": "missing"
+  },
+  "original": [
+    [
+      "agent",
+      "Hello, how can I help you today?"
+    ],
+    [
+      "customer",
+      "What is the shipping status on my jacket, because I thought I should have received it by now. It's been 9 days since I ordered it."
+    ],
+    [
+      "agent",
+      "Okay, let me look into that for you."
+    ],
+    [
+      "agent",
+      "Can I have your full name?"
+    ],
+    [
+      "customer",
+      "Joyce Wu"
+    ],
+    [
+      "action",
+      "Account has been pulled up for Joyce Wu."
+    ],
+    [
+      "agent",
+      "and your username, email, and order ID?"
+    ],
+    [
+      "customer",
+      "jw037299@email.com"
+    ],
+    [
+      "customer",
+      "my username is jw037299"
+    ],
+    [
+      "customer",
+      "the order id is 9108716312"
+    ],
+    [
+      "action",
+      "Purchase validation in progress ..."
+    ],
+    [
+      "agent",
+      "Okay, and you said you've been waiting 9 days?"
+    ],
+    [
+      "customer",
+      "yes"
+    ],
+    [
+      "action",
+      "A reason of 9 days has been recorded."
+    ],
+    [
+      "agent",
+      "Okay, to send you an new order I'll need your address."
+    ],
+    [
+      "customer",
+      "3184 Woodshore St  Baltimore, WA 81926"
+    ],
+    [
+      "action",
+      "Order has been updated with 3184 Woodshore St Baltimore, WA 81926."
+    ],
+    [
+      "agent",
+      "And what's the exact item?"
+    ],
+    [
+      "customer",
+      "It's a Tommy Hilfiger jacket."
+    ],
+    [
+      "action",
+      "A purchase of Tommy Hilfiger jacket was made."
+    ],
+    [
+      "agent",
+      "Okay it should be on it's way to you ASAP"
+    ],
+    [
+      "agent",
+      "Is there anything else I can do for you?"
+    ],
+    [
+      "customer",
+      "Do you know if it's on the way or are you resending it?"
+    ],
+    [
+      "agent",
+      "I'm re-sending you a new one."
+    ],
+    [
+      "customer",
+      "Ok, great. Thanks! That's all I needed."
+    ],
+    [
+      "agent",
+      "Then have a nice day!"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "hello, how can i help you today?",
+      "turn_count": 1,
+      "targets": [
+        "missing",
+        "retrieve_utterance",
+        null,
+        [],
+        60
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "what is the shipping status on my jacket, because i thought i should have received it by now. it's been 9 days since i ordered it.",
+      "turn_count": 2,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "okay, let me look into that for you.",
+      "turn_count": 3,
+      "targets": [
+        "missing",
+        "retrieve_utterance",
+        null,
+        [],
+        9
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can i have your full name?",
+      "turn_count": 4,
+      "targets": [
+        "missing",
+        "retrieve_utterance",
+        null,
+        [],
+        15
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "joyce wu",
+      "turn_count": 5,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for joyce wu.",
+      "turn_count": 6,
+      "targets": [
+        "missing",
+        "take_action",
+        "pull-up-account",
+        [
+          "joyce wu"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "and your username, email, and order id?",
+      "turn_count": 7,
+      "targets": [
+        "missing",
+        "retrieve_utterance",
+        null,
+        [],
+        17
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "<email>",
+      "turn_count": 8,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "my username is <username>",
+      "turn_count": 9,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "the order id is <order_id>",
+      "turn_count": 10,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "purchase validation in progress ...",
+      "turn_count": 11,
+      "targets": [
+        "missing",
+        "take_action",
+        "validate-purchase",
+        [
+          "jw037299",
+          "jw037299@email.com",
+          "9108716312"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "okay, and you said you've been waiting 9 days?",
+      "turn_count": 12,
+      "targets": [
+        "missing",
+        "retrieve_utterance",
+        null,
+        [],
+        21
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yes",
+      "turn_count": 13,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "a reason of 9 days has been recorded.",
+      "turn_count": 14,
+      "targets": [
+        "missing",
+        "take_action",
+        "record-reason",
+        [
+          "9 days"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "okay, to send you an new order i'll need your address.",
+      "turn_count": 15,
+      "targets": [
+        "missing",
+        "retrieve_utterance",
+        null,
+        [],
+        75
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "<street_address>  baltimore, wa <zip_code>",
+      "turn_count": 16,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "order has been updated with <street_address> baltimore, wa <zip_code>.",
+      "turn_count": 17,
+      "targets": [
+        "missing",
+        "take_action",
+        "update-order",
+        [
+          "3184 woodshore st baltimore, wa 81926"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "and what's the exact item?",
+      "turn_count": 18,
+      "targets": [
+        "missing",
+        "retrieve_utterance",
+        null,
+        [],
+        33
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "it's a tommy hilfiger jacket.",
+      "turn_count": 19,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "a purchase of tommy hilfiger jacket was made.",
+      "turn_count": 20,
+      "targets": [
+        "missing",
+        "take_action",
+        "make-purchase",
+        [
+          "tommy hilfiger jacket"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "okay it should be on it's way to you asap",
+      "turn_count": 21,
+      "targets": [
+        "missing",
+        "retrieve_utterance",
+        null,
+        [],
+        77
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "is there anything else i can do for you?",
+      "turn_count": 22,
+      "targets": [
+        "missing",
+        "retrieve_utterance",
+        null,
+        [],
+        62
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "do you know if it's on the way or are you resending it?",
+      "turn_count": 23,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i'm re-sending you a new one.",
+      "turn_count": 24,
+      "targets": [
+        "missing",
+        "retrieve_utterance",
+        null,
+        [],
+        37
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok, great. thanks! that's all i needed.",
+      "turn_count": 25,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "then have a nice day!",
+      "turn_count": 26,
+      "targets": [
+        "missing",
+        "retrieve_utterance",
+        null,
+        [],
+        72
+      ]
+    }
+  ]
+}

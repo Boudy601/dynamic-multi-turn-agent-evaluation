@@ -74,43 +74,11 @@
     ],
     [
       "agent",
-      "Next I need to validate your purchase"
+      "First I need to verify your identity and look up the order. Could you give me your account ID and order ID?"
     ],
     [
       "customer",
-      "ok"
-    ],
-    [
-      "agent",
-      "Give me your username, email and order id"
-    ],
-    [
-      "customer",
-      "Account ID: VAZCZFNJWD, Order ID: 9612126231, do not have an email"
-    ],
-    [
-      "agent",
-      "What of username?"
-    ],
-    [
-      "customer",
-      "do not have a username"
-    ],
-    [
-      "agent",
-      "I guess we'll need to recover your username first"
-    ],
-    [
-      "customer",
-      "ok"
-    ],
-    [
-      "agent",
-      "Can I have your zip code and phone number"
-    ],
-    [
-      "customer",
-      "69750, (454) 789-9092"
+      "Account ID: VAZCZFNJWD, Order ID: 9612126231"
     ],
     [
       "action",
@@ -118,27 +86,19 @@
     ],
     [
       "agent",
-      "Verified"
-    ],
-    [
-      "agent",
-      "Your username is Safzal1"
+      "Verified. What is the current shipping status of your order?"
     ],
     [
       "customer",
-      "ok thank you. I had forgotten it."
+      "It says delivered"
     ],
     [
       "action",
-      "Purchase validation in progress ..."
+      "Shipping status of delivered has been noted."
     ],
     [
       "agent",
-      "Purchase Validated"
-    ],
-    [
-      "agent",
-      "What is your membership level?"
+      "Got it. What is your membership level?"
     ],
     [
       "customer",
@@ -150,83 +110,35 @@
     ],
     [
       "agent",
-      "What is the purchase date?"
+      "As a Silver member, I can offer you a refund immediately for the jacket. Since it has already arrived, please reach back out to customer support to get your return shipping label."
     ],
     [
       "customer",
-      "i don't remember."
-    ],
-    [
-      "customer",
-      "sorry"
+      "oh goody. thank you!"
     ],
     [
       "agent",
-      "Do you have the receipt?"
-    ],
-    [
-      "agent",
-      "or original packaging"
+      "How much did the jacket cost?"
     ],
     [
       "customer",
-      "No, I have the order Id number: 9612126231"
-    ],
-    [
-      "customer",
-      "and the box"
-    ],
-    [
-      "agent",
-      "The original box?"
-    ],
-    [
-      "customer",
-      "yes"
-    ],
-    [
-      "agent",
-      "You are qualified for a return"
-    ],
-    [
-      "agent",
-      "Give me your full address"
-    ],
-    [
-      "customer",
-      "oh goody. I will get it in the mail tomorrow."
-    ],
-    [
-      "customer",
-      "1880 Circle Drive  Monterey, CA 69750"
+      "It was $59"
     ],
     [
       "action",
-      "Details of 1880 Circle Drive Monterey, CA 69750 have been entered."
+      "Refund of 59 has been offered."
     ],
     [
       "agent",
-      "How do you like to process your return? By MAil or In store or Drop off center?"
-    ],
-    [
-      "customer",
-      "in store please"
-    ],
-    [
-      "action",
-      "Order has been updated with In store."
-    ],
-    [
-      "agent",
-      "Completed. You can make your return now"
-    ],
-    [
-      "agent",
-      "Would this be all for today?"
+      "I have issued your $59 refund. Would this be all for today?"
     ],
     [
       "customer",
       "thank you so very much. yes, that's all. Be well"
+    ],
+    [
+      "agent",
+      "You're very welcome, take care!"
     ]
   ],
   "delexed": [
@@ -236,10 +148,10 @@
       "turn_count": 1,
       "targets": [
         "manage_cancel",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        16
+        -1
       ]
     },
     {
@@ -260,10 +172,10 @@
       "turn_count": 3,
       "targets": [
         "manage_cancel",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        15
+        -1
       ]
     },
     {
@@ -284,10 +196,10 @@
       "turn_count": 5,
       "targets": [
         "manage_cancel",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        94
+        -1
       ]
     },
     {
@@ -320,7 +232,7 @@
       "turn_count": 8,
       "targets": [
         "manage_cancel",
-        "take_action",
+        null,
         "pull-up-account",
         [
           "sanya afzal"
@@ -334,10 +246,10 @@
       "turn_count": 9,
       "targets": [
         "manage_cancel",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        84
+        -1
       ]
     },
     {
@@ -354,116 +266,20 @@
     },
     {
       "speaker": "agent",
-      "text": "next i need to validate your purchase",
+      "text": "first i need to verify your identity and look up the order. could you give me your account id and order id?",
       "turn_count": 11,
       "targets": [
         "manage_cancel",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        9
+        -1
       ]
     },
     {
       "speaker": "customer",
-      "text": "ok",
+      "text": "account id: vazczfnjwd, order id: 9612126231",
       "turn_count": 12,
-      "targets": [
-        "manage_cancel",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "give me your username, email and order id",
-      "turn_count": 13,
-      "targets": [
-        "manage_cancel",
-        "retrieve_utterance",
-        null,
-        [],
-        23
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "account id: <account_id>, order id: <order_id>, do not have an email",
-      "turn_count": 14,
-      "targets": [
-        "manage_cancel",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "what of username?",
-      "turn_count": 15,
-      "targets": [
-        "manage_cancel",
-        "retrieve_utterance",
-        null,
-        [],
-        34
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "do not have a username",
-      "turn_count": 16,
-      "targets": [
-        "manage_cancel",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "i guess we'll need to recover your username first",
-      "turn_count": 17,
-      "targets": [
-        "manage_cancel",
-        "retrieve_utterance",
-        null,
-        [],
-        16
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "ok",
-      "turn_count": 18,
-      "targets": [
-        "manage_cancel",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "can i have your zip code and phone number",
-      "turn_count": 19,
-      "targets": [
-        "manage_cancel",
-        "retrieve_utterance",
-        null,
-        [],
-        96
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "<zip_code>, <phone>",
-      "turn_count": 20,
       "targets": [
         "manage_cancel",
         null,
@@ -475,10 +291,10 @@
     {
       "speaker": "action",
       "text": "identity verification in progress ...",
-      "turn_count": 22,
+      "turn_count": 13,
       "targets": [
         "manage_cancel",
-        "take_action",
+        null,
         "verify-identity",
         [
           "sanya afzal",
@@ -490,32 +306,20 @@
     },
     {
       "speaker": "agent",
-      "text": "verified",
-      "turn_count": 23,
+      "text": "verified. what is the current shipping status of your order?",
+      "turn_count": 14,
       "targets": [
         "manage_cancel",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        3
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "your username is safzal1",
-      "turn_count": 24,
-      "targets": [
-        "manage_cancel",
-        "retrieve_utterance",
-        null,
-        [],
-        15
+        -1
       ]
     },
     {
       "speaker": "customer",
-      "text": "ok thank you. i had forgotten it.",
-      "turn_count": 25,
+      "text": "it says delivered",
+      "turn_count": 15,
       "targets": [
         "manage_cancel",
         null,
@@ -526,48 +330,34 @@
     },
     {
       "speaker": "action",
-      "text": "purchase validation in progress ...",
-      "turn_count": 26,
+      "text": "shipping status of delivered has been noted.",
+      "turn_count": 16,
       "targets": [
         "manage_cancel",
-        "take_action",
-        "validate-purchase",
+        null,
+        "shipping-status",
         [
-          "safzal1",
-          "(454) 789-9092",
-          "9612126231"
+          "delivered"
         ],
         -1
       ]
     },
     {
       "speaker": "agent",
-      "text": "purchase validated",
-      "turn_count": 27,
+      "text": "got it. what is your membership level?",
+      "turn_count": 17,
       "targets": [
         "manage_cancel",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        19
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "what is your membership level?",
-      "turn_count": 28,
-      "targets": [
-        "manage_cancel",
-        "retrieve_utterance",
-        null,
-        [],
-        60
+        -1
       ]
     },
     {
       "speaker": "customer",
       "text": "silver",
-      "turn_count": 29,
+      "turn_count": 18,
       "targets": [
         "manage_cancel",
         null,
@@ -579,10 +369,10 @@
     {
       "speaker": "action",
       "text": "membership level of silver has been noted.",
-      "turn_count": 30,
+      "turn_count": 19,
       "targets": [
         "manage_cancel",
-        "take_action",
+        null,
         "membership",
         [
           "silver"
@@ -592,20 +382,8 @@
     },
     {
       "speaker": "agent",
-      "text": "what is the purchase date?",
-      "turn_count": 31,
-      "targets": [
-        "manage_cancel",
-        "retrieve_utterance",
-        null,
-        [],
-        77
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "i don't remember.",
-      "turn_count": 32,
+      "text": "as a silver member, i can offer you a refund immediately for the jacket. since it has already arrived, please reach back out to customer support to get your return shipping label.",
+      "turn_count": 20,
       "targets": [
         "manage_cancel",
         null,
@@ -616,8 +394,8 @@
     },
     {
       "speaker": "customer",
-      "text": "sorry",
-      "turn_count": 33,
+      "text": "oh goody. thank you!",
+      "turn_count": 21,
       "targets": [
         "manage_cancel",
         null,
@@ -628,32 +406,8 @@
     },
     {
       "speaker": "agent",
-      "text": "do you have the receipt?",
-      "turn_count": 34,
-      "targets": [
-        "manage_cancel",
-        "retrieve_utterance",
-        null,
-        [],
-        71
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "or original packaging",
-      "turn_count": 35,
-      "targets": [
-        "manage_cancel",
-        "retrieve_utterance",
-        null,
-        [],
-        51
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "no, i have the order id number: <order_id>",
-      "turn_count": 36,
+      "text": "how much did the jacket cost?",
+      "turn_count": 22,
       "targets": [
         "manage_cancel",
         null,
@@ -664,80 +418,8 @@
     },
     {
       "speaker": "customer",
-      "text": "and the box",
-      "turn_count": 37,
-      "targets": [
-        "manage_cancel",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "the original box?",
-      "turn_count": 38,
-      "targets": [
-        "manage_cancel",
-        "retrieve_utterance",
-        null,
-        [],
-        30
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "yes",
-      "turn_count": 39,
-      "targets": [
-        "manage_cancel",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "you are qualified for a return",
-      "turn_count": 40,
-      "targets": [
-        "manage_cancel",
-        "retrieve_utterance",
-        null,
-        [],
-        65
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "give me your full address",
-      "turn_count": 41,
-      "targets": [
-        "manage_cancel",
-        "retrieve_utterance",
-        null,
-        [],
-        26
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "oh goody. i will get it in the mail tomorrow.",
-      "turn_count": 42,
-      "targets": [
-        "manage_cancel",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "<street_address>  monterey, ca <zip_code>",
-      "turn_count": 43,
+      "text": "it was $59",
+      "turn_count": 23,
       "targets": [
         "manage_cancel",
         null,
@@ -748,84 +430,46 @@
     },
     {
       "speaker": "action",
-      "text": "details of <street_address> monterey, ca <zip_code> have been entered.",
-      "turn_count": 44,
+      "text": "refund of 59 has been offered.",
+      "turn_count": 24,
       "targets": [
         "manage_cancel",
-        "take_action",
-        "enter-details",
+        null,
+        "offer-refund",
         [
-          "1880 circle drive monterey, ca 69750"
+          "59"
         ],
         -1
       ]
     },
     {
       "speaker": "agent",
-      "text": "how do you like to process your return? by mail or in store or drop off center?",
-      "turn_count": 45,
-      "targets": [
-        "manage_cancel",
-        "retrieve_utterance",
-        null,
-        [],
-        4
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "in store please",
-      "turn_count": 46,
+      "text": "i have issued your $59 refund. would this be all for today?",
+      "turn_count": 25,
       "targets": [
         "manage_cancel",
         null,
         null,
         [],
         -1
-      ]
-    },
-    {
-      "speaker": "action",
-      "text": "order has been updated with in store.",
-      "turn_count": 47,
-      "targets": [
-        "manage_cancel",
-        "take_action",
-        "update-order",
-        [
-          "in store"
-        ],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "completed. you can make your return now",
-      "turn_count": 48,
-      "targets": [
-        "manage_cancel",
-        "retrieve_utterance",
-        null,
-        [],
-        63
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "would this be all for today?",
-      "turn_count": 49,
-      "targets": [
-        "manage_cancel",
-        "retrieve_utterance",
-        null,
-        [],
-        28
       ]
     },
     {
       "speaker": "customer",
       "text": "thank you so very much. yes, that's all. be well",
-      "turn_count": 50,
+      "turn_count": 26,
+      "targets": [
+        "manage_cancel",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "you're very welcome, take care!",
+      "turn_count": 27,
       "targets": [
         "manage_cancel",
         null,

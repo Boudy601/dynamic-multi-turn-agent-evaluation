@@ -1,0 +1,614 @@
+{
+  "convo_id": 1386,
+  "scenario": {
+    "personal": {
+      "account_id": "aaejffvmki",
+      "customer_name": "crystal minh",
+      "email": "cm974161@email.com",
+      "member_level": "silver",
+      "phone": "(328) 302-8009",
+      "username": "cm974161"
+    },
+    "order": {
+      "street_address": "1191 circle drive",
+      "full_address": "1191 circle drive  la fayette, wa 4154",
+      "city": "la fayette",
+      "num_products": "2",
+      "order_id": "1403476719",
+      "products": "[{'brand': 'michael_kors', 'product_type': 'shirt', 'amount': 69, 'image_url': 'images/michael_kors-shirt.jpeg'}, {'brand': 'guess', 'product_type': 'boots', 'amount': 89, 'image_url': 'images/guess-boots.jpeg'}]",
+      "purchase_date": "2019-10-14",
+      "state": "wa",
+      "zip_code": "4154"
+    },
+    "product": {
+      "names": [
+        "michael_kors shirt",
+        "guess boots"
+      ],
+      "amounts": [
+        69,
+        89
+      ]
+    },
+    "flow": "shipping_issue",
+    "subflow": "missing"
+  },
+  "original": [
+    [
+      "agent",
+      "Hello, thank you for contacting Acmebrands how may I help you?"
+    ],
+    [
+      "customer",
+      "Has my order #1403476719 shipped?"
+    ],
+    [
+      "agent",
+      "I would happy to assist. You would like to know your shipping status?"
+    ],
+    [
+      "customer",
+      "yeah, it's been like 9 days already"
+    ],
+    [
+      "agent",
+      "Okay, I would happy to look into this for you. May I have your full name or account number?"
+    ],
+    [
+      "customer",
+      "I need the boots and shirt for an event"
+    ],
+    [
+      "customer",
+      "no problem"
+    ],
+    [
+      "customer",
+      "account number is AAEJFFVMKI"
+    ],
+    [
+      "action",
+      "Account has been pulled up for AAEJFFVMKI."
+    ],
+    [
+      "customer",
+      "so can you tell where it is?"
+    ],
+    [
+      "customer",
+      "I need it in 2 days"
+    ],
+    [
+      "agent",
+      "Thank you. I need your username, email address and order ID?"
+    ],
+    [
+      "customer",
+      "I already gave you my order number"
+    ],
+    [
+      "customer",
+      "but its 1403476719"
+    ],
+    [
+      "agent",
+      "My apologies may I have your username and email"
+    ],
+    [
+      "customer",
+      "oh my bad, I thought it said OR not AND lol"
+    ],
+    [
+      "customer",
+      "Chrystal Minh and my email is cm974161@email.com"
+    ],
+    [
+      "agent",
+      "This one is little tricky so I appreciate the patience. Thank you."
+    ],
+    [
+      "customer",
+      "user name is cm974161"
+    ],
+    [
+      "action",
+      "Purchase validation in progress ..."
+    ],
+    [
+      "action",
+      "Reason has been recorded for 9 days."
+    ],
+    [
+      "agent",
+      "Since it has been over 7 days, I will ship a new order."
+    ],
+    [
+      "agent",
+      "May I have your address"
+    ],
+    [
+      "customer",
+      "ok that's what I need"
+    ],
+    [
+      "customer",
+      "Can you please send it 2 day delivery"
+    ],
+    [
+      "customer",
+      "1191 Circle Drive  La Fayette, WA 4154"
+    ],
+    [
+      "action",
+      "Order has been updated with 1191 Circle Drive La Fayette, WA 4154."
+    ],
+    [
+      "customer",
+      "ty"
+    ],
+    [
+      "agent",
+      "Could you please provide the brand and type of the products you ordered so I can resend them?"
+    ],
+    [
+      "customer",
+      "sure, it's a Michael Kors shirt and Guess boots"
+    ],
+    [
+      "action",
+      "A purchase of michael_kors shirt was made."
+    ],
+    [
+      "action",
+      "A purchase of guess boots was made."
+    ],
+    [
+      "agent",
+      "Order has been purchased, anything else I may help you with today?"
+    ],
+    [
+      "customer",
+      "nah all set,  have a good one"
+    ],
+    [
+      "agent",
+      "Thank you for patience. Have a great day!"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "hello, thank you for contacting acmebrands how may i help you?",
+      "turn_count": 1,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "has my order #1403476719 shipped?",
+      "turn_count": 2,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i would happy to assist. you would like to know your shipping status?",
+      "turn_count": 3,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yeah, it's been like 9 days already",
+      "turn_count": 4,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "okay, i would happy to look into this for you. may i have your full name or account number?",
+      "turn_count": 5,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i need the boots and shirt for an event",
+      "turn_count": 6,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no problem",
+      "turn_count": 7,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "account number is aaejffvmki",
+      "turn_count": 8,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for aaejffvmki.",
+      "turn_count": 9,
+      "targets": [
+        "missing",
+        null,
+        "pull-up-account",
+        [
+          "aaejffvmki"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "so can you tell where it is?",
+      "turn_count": 10,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i need it in 2 days",
+      "turn_count": 11,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you. i need your username, email address and order id?",
+      "turn_count": 12,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i already gave you my order number",
+      "turn_count": 13,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "but its 1403476719",
+      "turn_count": 14,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "my apologies may i have your username and email",
+      "turn_count": 15,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "oh my bad, i thought it said or not and lol",
+      "turn_count": 16,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "chrystal minh and my email is cm974161@email.com",
+      "turn_count": 17,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "this one is little tricky so i appreciate the patience. thank you.",
+      "turn_count": 18,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "user name is cm974161",
+      "turn_count": 19,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "purchase validation in progress ...",
+      "turn_count": 20,
+      "targets": [
+        "missing",
+        null,
+        "validate-purchase",
+        [
+          "cm974161",
+          "cm974161@email.com",
+          "1403476719"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "reason has been recorded for 9 days.",
+      "turn_count": 21,
+      "targets": [
+        "missing",
+        null,
+        "record-reason",
+        [
+          "9"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "since it has been over 7 days, i will ship a new order.",
+      "turn_count": 22,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "may i have your address",
+      "turn_count": 23,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok that's what i need",
+      "turn_count": 24,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "can you please send it 2 day delivery",
+      "turn_count": 25,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "1191 circle drive  la fayette, wa 4154",
+      "turn_count": 26,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "order has been updated with 1191 circle drive la fayette, wa 4154.",
+      "turn_count": 27,
+      "targets": [
+        "missing",
+        null,
+        "update-order",
+        [
+          "1191 circle drive la fayette, wa 4154"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ty",
+      "turn_count": 28,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "could you please provide the brand and type of the products you ordered so i can resend them?",
+      "turn_count": 29,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "sure, it's a michael kors shirt and guess boots",
+      "turn_count": 30,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "a purchase of michael_kors shirt was made.",
+      "turn_count": 31,
+      "targets": [
+        "missing",
+        null,
+        "make-purchase",
+        [
+          "michael_kors shirt"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "a purchase of guess boots was made.",
+      "turn_count": 32,
+      "targets": [
+        "missing",
+        null,
+        "make-purchase",
+        [
+          "guess boots"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "order has been purchased, anything else i may help you with today?",
+      "turn_count": 33,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "nah all set,  have a good one",
+      "turn_count": 34,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you for patience. have a great day!",
+      "turn_count": 35,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    }
+  ]
+}

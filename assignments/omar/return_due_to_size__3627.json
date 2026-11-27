@@ -179,23 +179,11 @@
     ],
     [
       "agent",
-      "Complete the zip code"
-    ],
-    [
-      "customer",
-      "oh sorry"
-    ],
-    [
-      "customer",
-      "50931"
-    ],
-    [
-      "agent",
       "Good"
     ],
     [
       "action",
-      "Details of 8067 Woodshore St Raleigh, CA 50931 have been entered."
+      "Details of 8067 Woodshore St Raleigh, CA 5093 have been entered."
     ],
     [
       "agent",
@@ -219,15 +207,7 @@
     ],
     [
       "agent",
-      "I have initiated the return process"
-    ],
-    [
-      "customer",
-      "I wait for the label, and then once it comes, do I bring the shirt to the store?"
-    ],
-    [
-      "agent",
-      "yes you will"
+      "I have initiated the return process. You will just print out the shipping label for your return and bring the shirt to the store"
     ],
     [
       "customer",
@@ -289,10 +269,10 @@
       "turn_count": 3,
       "targets": [
         "return_size",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        98
+        -1
       ]
     },
     {
@@ -301,10 +281,10 @@
       "turn_count": 4,
       "targets": [
         "return_size",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        43
+        -1
       ]
     },
     {
@@ -313,10 +293,10 @@
       "turn_count": 5,
       "targets": [
         "return_size",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        31
+        -1
       ]
     },
     {
@@ -333,7 +313,7 @@
     },
     {
       "speaker": "customer",
-      "text": "it's your $<amount> tommy hilfiger shirt",
+      "text": "it's your $64 tommy hilfiger shirt",
       "turn_count": 7,
       "targets": [
         "return_size",
@@ -349,10 +329,10 @@
       "turn_count": 8,
       "targets": [
         "return_size",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        86
+        -1
       ]
     },
     {
@@ -397,10 +377,10 @@
       "turn_count": 12,
       "targets": [
         "return_size",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        65
+        -1
       ]
     },
     {
@@ -421,7 +401,7 @@
       "turn_count": 14,
       "targets": [
         "return_size",
-        "take_action",
+        null,
         "pull-up-account",
         [
           "alessandro phoenix"
@@ -435,10 +415,10 @@
       "turn_count": 15,
       "targets": [
         "return_size",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        40
+        -1
       ]
     },
     {
@@ -459,15 +439,15 @@
       "turn_count": 17,
       "targets": [
         "return_size",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        10
+        -1
       ]
     },
     {
       "speaker": "customer",
-      "text": "<username>",
+      "text": "alessandrophoenix377",
       "turn_count": 18,
       "targets": [
         "return_size",
@@ -479,7 +459,7 @@
     },
     {
       "speaker": "customer",
-      "text": "<email>",
+      "text": "alessandrophoenix377@email.com",
       "turn_count": 19,
       "targets": [
         "return_size",
@@ -491,7 +471,7 @@
     },
     {
       "speaker": "customer",
-      "text": "<order_id>",
+      "text": "0679599923",
       "turn_count": 20,
       "targets": [
         "return_size",
@@ -507,7 +487,7 @@
       "turn_count": 21,
       "targets": [
         "return_size",
-        "take_action",
+        null,
         "validate-purchase",
         [
           "alessandrophoenix377",
@@ -523,10 +503,10 @@
       "turn_count": 22,
       "targets": [
         "return_size",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        88
+        -1
       ]
     },
     {
@@ -535,10 +515,10 @@
       "turn_count": 23,
       "targets": [
         "return_size",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        61
+        -1
       ]
     },
     {
@@ -559,10 +539,10 @@
       "turn_count": 25,
       "targets": [
         "return_size",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        77
+        -1
       ]
     },
     {
@@ -571,10 +551,10 @@
       "turn_count": 26,
       "targets": [
         "return_size",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        81
+        -1
       ]
     },
     {
@@ -595,10 +575,10 @@
       "turn_count": 28,
       "targets": [
         "return_size",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        96
+        -1
       ]
     },
     {
@@ -643,7 +623,7 @@
       "turn_count": 32,
       "targets": [
         "return_size",
-        "take_action",
+        null,
         "membership",
         [
           "guest"
@@ -657,10 +637,10 @@
       "turn_count": 33,
       "targets": [
         "return_size",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        56
+        -1
       ]
     },
     {
@@ -681,15 +661,15 @@
       "turn_count": 35,
       "targets": [
         "return_size",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        13
+        -1
       ]
     },
     {
       "speaker": "customer",
-      "text": "<street_address>  raleigh, ca <zip_code>",
+      "text": "8067 woodshore st  raleigh, ca 5093",
       "turn_count": 36,
       "targets": [
         "return_size",
@@ -701,20 +681,8 @@
     },
     {
       "speaker": "agent",
-      "text": "complete the zip code",
+      "text": "good",
       "turn_count": 37,
-      "targets": [
-        "return_size",
-        "retrieve_utterance",
-        null,
-        [],
-        82
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "oh sorry",
-      "turn_count": 38,
       "targets": [
         "return_size",
         null,
@@ -724,8 +692,22 @@
       ]
     },
     {
-      "speaker": "customer",
-      "text": "<zip_code>1",
+      "speaker": "action",
+      "text": "details of 8067 woodshore st raleigh, ca 5093 have been entered.",
+      "turn_count": 38,
+      "targets": [
+        "return_size",
+        null,
+        "enter-details",
+        [
+          "8067 woodshore st raleigh, ca 5093"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "how would you like to process the return? by mail, in store or drop off center?",
       "turn_count": 39,
       "targets": [
         "return_size",
@@ -736,47 +718,9 @@
       ]
     },
     {
-      "speaker": "agent",
-      "text": "good",
-      "turn_count": 40,
-      "targets": [
-        "return_size",
-        "retrieve_utterance",
-        null,
-        [],
-        81
-      ]
-    },
-    {
-      "speaker": "action",
-      "text": "details of <street_address> raleigh, ca <zip_code>1 have been entered.",
-      "turn_count": 41,
-      "targets": [
-        "return_size",
-        "take_action",
-        "enter-details",
-        [
-          "8067 woodshore st raleigh, ca 50931"
-        ],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "how would you like to process the return? by mail, in store or drop off center?",
-      "turn_count": 42,
-      "targets": [
-        "return_size",
-        "retrieve_utterance",
-        null,
-        [],
-        45
-      ]
-    },
-    {
       "speaker": "customer",
       "text": "i can return it in the store",
-      "turn_count": 43,
+      "turn_count": 40,
       "targets": [
         "return_size",
         null,
@@ -788,13 +732,13 @@
     {
       "speaker": "action",
       "text": "order has been updated with in store.",
-      "turn_count": 44,
+      "turn_count": 41,
       "targets": [
         "return_size",
-        "take_action",
+        null,
         "update-order",
         [
-          "by mail"
+          "in store"
         ],
         -1
       ]
@@ -802,19 +746,19 @@
     {
       "speaker": "agent",
       "text": "all completed",
-      "turn_count": 45,
+      "turn_count": 42,
       "targets": [
         "return_size",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        68
+        -1
       ]
     },
     {
       "speaker": "customer",
       "text": "so how do i return it?",
-      "turn_count": 46,
+      "turn_count": 43,
       "targets": [
         "return_size",
         null,
@@ -825,44 +769,20 @@
     },
     {
       "speaker": "agent",
-      "text": "i have initiated the return process",
-      "turn_count": 47,
-      "targets": [
-        "return_size",
-        "retrieve_utterance",
-        null,
-        [],
-        85
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "i wait for the label, and then once it comes, do i bring the shirt to the store?",
-      "turn_count": 48,
+      "text": "i have initiated the return process. you will just print out the shipping label for your return and bring the shirt to the store",
+      "turn_count": 44,
       "targets": [
         "return_size",
         null,
         null,
         [],
         -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "yes you will",
-      "turn_count": 49,
-      "targets": [
-        "return_size",
-        "retrieve_utterance",
-        null,
-        [],
-        77
       ]
     },
     {
       "speaker": "customer",
       "text": "okay",
-      "turn_count": 50,
+      "turn_count": 45,
       "targets": [
         "return_size",
         null,
@@ -874,7 +794,7 @@
     {
       "speaker": "customer",
       "text": "i can do that",
-      "turn_count": 51,
+      "turn_count": 46,
       "targets": [
         "return_size",
         null,
@@ -886,7 +806,7 @@
     {
       "speaker": "customer",
       "text": "thanks for your help",
-      "turn_count": 52,
+      "turn_count": 47,
       "targets": [
         "return_size",
         null,
@@ -898,43 +818,43 @@
     {
       "speaker": "agent",
       "text": "the return process should be easy from there",
-      "turn_count": 53,
+      "turn_count": 48,
       "targets": [
         "return_size",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        89
+        -1
       ]
     },
     {
       "speaker": "agent",
       "text": "you are welcome",
-      "turn_count": 54,
+      "turn_count": 49,
       "targets": [
         "return_size",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        83
+        -1
       ]
     },
     {
       "speaker": "agent",
       "text": "would this be all for today?",
-      "turn_count": 55,
+      "turn_count": 50,
       "targets": [
         "return_size",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        85
+        -1
       ]
     },
     {
       "speaker": "customer",
       "text": "yes",
-      "turn_count": 56,
+      "turn_count": 51,
       "targets": [
         "return_size",
         null,

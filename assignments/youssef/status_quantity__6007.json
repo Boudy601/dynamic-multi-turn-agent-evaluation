@@ -88,103 +88,7 @@
     ],
     [
       "agent",
-      "Your identity was verified and I have to look up the purchase. Do you have your username and email address?"
-    ],
-    [
-      "customer",
-      "Am sorry. I have my phone number. would that work?"
-    ],
-    [
-      "agent",
-      "No but I can look up your username for you, just one moment please."
-    ],
-    [
-      "customer",
-      "Thank you"
-    ],
-    [
-      "agent",
-      "I will actually need your phone number to look up your username. As well as your email address."
-    ],
-    [
-      "customer",
-      "(272) 544-6777"
-    ],
-    [
-      "agent",
-      "Or your zip code will work."
-    ],
-    [
-      "customer",
-      "37088"
-    ],
-    [
-      "action",
-      "Identity verification in progress ..."
-    ],
-    [
-      "agent",
-      "Unfortunately I was not able to verify your identity with that information."
-    ],
-    [
-      "agent",
-      "Can you double check the phone number and zip is correct. Do you not have an email address?"
-    ],
-    [
-      "customer",
-      "sure"
-    ],
-    [
-      "customer",
-      "Phone Number: (272) 544-6777"
-    ],
-    [
-      "customer",
-      "37088"
-    ],
-    [
-      "action",
-      "Identity verification in progress ..."
-    ],
-    [
-      "agent",
-      "You can not see your username or email address on any of your information?"
-    ],
-    [
-      "customer",
-      "no"
-    ],
-    [
-      "customer",
-      "thats the problem"
-    ],
-    [
-      "agent",
-      "I'm sorry, what is the problem?"
-    ],
-    [
-      "customer",
-      "That I do not see the email address"
-    ],
-    [
-      "agent",
-      "Alright. Let me see if I can solve this another way."
-    ],
-    [
-      "customer",
-      "Thank you"
-    ],
-    [
-      "customer",
-      "appreciate it"
-    ],
-    [
-      "agent",
-      "Just one moment please. Sorry for the wait!"
-    ],
-    [
-      "action",
-      "Identity verification in progress ..."
+      "Your identity was verified. Just one moment while I check our system to see what happened with your order."
     ],
     [
       "action",
@@ -192,7 +96,7 @@
     ],
     [
       "agent",
-      "It does look like the company made a mistake and is sending your 2 items instead of one."
+      "It does look like the company made a mistake and is sending you 2 items instead of one."
     ],
     [
       "agent",
@@ -211,32 +115,8 @@
       "Unfortunately that shipment is already on the way to you so I can't remove the extra item. When you receive the items if you could please call back we will happily start the return process."
     ],
     [
-      "agent",
-      "I can actually give you the credit now so you are not out the money though."
-    ],
-    [
-      "agent",
-      "How much was the item?"
-    ],
-    [
       "customer",
-      "Appreciate it. Thank you"
-    ],
-    [
-      "customer",
-      "$59"
-    ],
-    [
-      "action",
-      "A refund has been made for the amount of $$59."
-    ],
-    [
-      "agent",
-      "I have refunded you $59. You can just contact us when you receive the item."
-    ],
-    [
-      "customer",
-      "Thank you so much"
+      "Okay, I understand. Thank you for checking!"
     ],
     [
       "agent",
@@ -258,10 +138,10 @@
       "turn_count": 1,
       "targets": [
         "status_quantity",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        71
+        -1
       ]
     },
     {
@@ -282,10 +162,10 @@
       "turn_count": 3,
       "targets": [
         "status_quantity",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        31
+        -1
       ]
     },
     {
@@ -318,10 +198,10 @@
       "turn_count": 6,
       "targets": [
         "status_quantity",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        11
+        -1
       ]
     },
     {
@@ -342,7 +222,7 @@
       "turn_count": 8,
       "targets": [
         "status_quantity",
-        "take_action",
+        null,
         "pull-up-account",
         [
           "sanya afzal"
@@ -356,10 +236,10 @@
       "turn_count": 9,
       "targets": [
         "status_quantity",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        11
+        -1
       ]
     },
     {
@@ -380,15 +260,15 @@
       "turn_count": 11,
       "targets": [
         "status_quantity",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        4
+        -1
       ]
     },
     {
       "speaker": "customer",
-      "text": "account id: <account_id>",
+      "text": "account id: jjiuxa3fqw",
       "turn_count": 12,
       "targets": [
         "status_quantity",
@@ -400,7 +280,7 @@
     },
     {
       "speaker": "customer",
-      "text": "order id: <order_id>",
+      "text": "order id: 4152740381",
       "turn_count": 13,
       "targets": [
         "status_quantity",
@@ -416,7 +296,7 @@
       "turn_count": 14,
       "targets": [
         "status_quantity",
-        "take_action",
+        null,
         "verify-identity",
         [
           "sanya afzal",
@@ -428,20 +308,32 @@
     },
     {
       "speaker": "agent",
-      "text": "your identity was verified and i have to look up the purchase. do you have your username and email address?",
+      "text": "your identity was verified. just one moment while i check our system to see what happened with your order.",
       "turn_count": 15,
       "targets": [
         "status_quantity",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        73
+        -1
       ]
     },
     {
-      "speaker": "customer",
-      "text": "am sorry. i have my phone number. would that work?",
+      "speaker": "action",
+      "text": "querying the system for an answer ...",
       "turn_count": 16,
+      "targets": [
+        "status_quantity",
+        null,
+        "ask-the-oracle",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "it does look like the company made a mistake and is sending you 2 items instead of one.",
+      "turn_count": 17,
       "targets": [
         "status_quantity",
         null,
@@ -452,19 +344,7 @@
     },
     {
       "speaker": "agent",
-      "text": "no but i can look up your username for you, just one moment please.",
-      "turn_count": 17,
-      "targets": [
-        "status_quantity",
-        "retrieve_utterance",
-        null,
-        [],
-        7
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "thank you",
+      "text": "do you have the shipping status?",
       "turn_count": 18,
       "targets": [
         "status_quantity",
@@ -475,309 +355,9 @@
       ]
     },
     {
-      "speaker": "agent",
-      "text": "i will actually need your phone number to look up your username. as well as your email address.",
-      "turn_count": 19,
-      "targets": [
-        "status_quantity",
-        "retrieve_utterance",
-        null,
-        [],
-        39
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "<phone>",
-      "turn_count": 20,
-      "targets": [
-        "status_quantity",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "or your zip code will work.",
-      "turn_count": 21,
-      "targets": [
-        "status_quantity",
-        "retrieve_utterance",
-        null,
-        [],
-        30
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "<zip_code>",
-      "turn_count": 22,
-      "targets": [
-        "status_quantity",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "action",
-      "text": "identity verification in progress ...",
-      "turn_count": 23,
-      "targets": [
-        "status_quantity",
-        "take_action",
-        "verify-identity",
-        [
-          "sanya afzal",
-          "(272) 544-6777",
-          "37088"
-        ],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "unfortunately i was not able to verify your identity with that information.",
-      "turn_count": 24,
-      "targets": [
-        "status_quantity",
-        "retrieve_utterance",
-        null,
-        [],
-        10
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "can you double check the phone number and zip is correct. do you not have an email address?",
-      "turn_count": 25,
-      "targets": [
-        "status_quantity",
-        "retrieve_utterance",
-        null,
-        [],
-        57
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "sure",
-      "turn_count": 26,
-      "targets": [
-        "status_quantity",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "phone number: <phone>",
-      "turn_count": 27,
-      "targets": [
-        "status_quantity",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "<zip_code>",
-      "turn_count": 28,
-      "targets": [
-        "status_quantity",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "action",
-      "text": "identity verification in progress ...",
-      "turn_count": 29,
-      "targets": [
-        "status_quantity",
-        "take_action",
-        "verify-identity",
-        [
-          "sanya afzal",
-          "(272) 544-6777",
-          "37088"
-        ],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "you can not see your username or email address on any of your information?",
-      "turn_count": 30,
-      "targets": [
-        "status_quantity",
-        "retrieve_utterance",
-        null,
-        [],
-        66
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "no",
-      "turn_count": 31,
-      "targets": [
-        "status_quantity",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "thats the problem",
-      "turn_count": 32,
-      "targets": [
-        "status_quantity",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "i'm sorry, what is the problem?",
-      "turn_count": 33,
-      "targets": [
-        "status_quantity",
-        "retrieve_utterance",
-        null,
-        [],
-        40
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "that i do not see the email address",
-      "turn_count": 34,
-      "targets": [
-        "status_quantity",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "alright. let me see if i can solve this another way.",
-      "turn_count": 35,
-      "targets": [
-        "status_quantity",
-        "retrieve_utterance",
-        null,
-        [],
-        45
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "thank you",
-      "turn_count": 36,
-      "targets": [
-        "status_quantity",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "appreciate it",
-      "turn_count": 37,
-      "targets": [
-        "status_quantity",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "just one moment please. sorry for the wait!",
-      "turn_count": 38,
-      "targets": [
-        "status_quantity",
-        "retrieve_utterance",
-        null,
-        [],
-        28
-      ]
-    },
-    {
-      "speaker": "action",
-      "text": "identity verification in progress ...",
-      "turn_count": 39,
-      "targets": [
-        "status_quantity",
-        "take_action",
-        "verify-identity",
-        [
-          "sanya afzal",
-          "jjiuxa3fqw",
-          "4152740381"
-        ],
-        -1
-      ]
-    },
-    {
-      "speaker": "action",
-      "text": "querying the system for an answer ...",
-      "turn_count": 40,
-      "targets": [
-        "status_quantity",
-        "take_action",
-        "ask-the-oracle",
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "it does look like the company made a mistake and is sending your 2 items instead of one.",
-      "turn_count": 41,
-      "targets": [
-        "status_quantity",
-        "retrieve_utterance",
-        null,
-        [],
-        68
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "do you have the shipping status?",
-      "turn_count": 42,
-      "targets": [
-        "status_quantity",
-        "retrieve_utterance",
-        null,
-        [],
-        21
-      ]
-    },
-    {
       "speaker": "customer",
       "text": "in transit",
-      "turn_count": 43,
+      "turn_count": 19,
       "targets": [
         "status_quantity",
         null,
@@ -789,10 +369,10 @@
     {
       "speaker": "action",
       "text": "shipping status of in transit has been noted.",
-      "turn_count": 44,
+      "turn_count": 20,
       "targets": [
         "status_quantity",
-        "take_action",
+        null,
         "shipping-status",
         [
           "in transit"
@@ -803,43 +383,7 @@
     {
       "speaker": "agent",
       "text": "unfortunately that shipment is already on the way to you so i can't remove the extra item. when you receive the items if you could please call back we will happily start the return process.",
-      "turn_count": 45,
-      "targets": [
-        "status_quantity",
-        "retrieve_utterance",
-        null,
-        [],
-        39
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "i can actually give you the credit now so you are not out the money though.",
-      "turn_count": 46,
-      "targets": [
-        "status_quantity",
-        "retrieve_utterance",
-        null,
-        [],
-        69
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "how much was the item?",
-      "turn_count": 47,
-      "targets": [
-        "status_quantity",
-        "retrieve_utterance",
-        null,
-        [],
-        52
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "appreciate it. thank you",
-      "turn_count": 48,
+      "turn_count": 21,
       "targets": [
         "status_quantity",
         null,
@@ -850,46 +394,8 @@
     },
     {
       "speaker": "customer",
-      "text": "$59",
-      "turn_count": 49,
-      "targets": [
-        "status_quantity",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "action",
-      "text": "a refund has been made for the amount of $$59.",
-      "turn_count": 50,
-      "targets": [
-        "status_quantity",
-        "take_action",
-        "offer-refund",
-        [
-          "59"
-        ],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "i have refunded you $59. you can just contact us when you receive the item.",
-      "turn_count": 51,
-      "targets": [
-        "status_quantity",
-        "retrieve_utterance",
-        null,
-        [],
-        31
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "thank you so much",
-      "turn_count": 52,
+      "text": "okay, i understand. thank you for checking!",
+      "turn_count": 22,
       "targets": [
         "status_quantity",
         null,
@@ -901,19 +407,19 @@
     {
       "speaker": "agent",
       "text": "i'm so sorry about the inconvenience. is there anything else i can do for you?",
-      "turn_count": 53,
+      "turn_count": 23,
       "targets": [
         "status_quantity",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        61
+        -1
       ]
     },
     {
       "speaker": "customer",
       "text": "thats all. appreciate your help",
-      "turn_count": 54,
+      "turn_count": 24,
       "targets": [
         "status_quantity",
         null,
@@ -925,13 +431,13 @@
     {
       "speaker": "agent",
       "text": "glad i could help. have a great day.",
-      "turn_count": 55,
+      "turn_count": 25,
       "targets": [
         "status_quantity",
-        "retrieve_utterance",
+        null,
         null,
         [],
-        2
+        -1
       ]
     }
   ]

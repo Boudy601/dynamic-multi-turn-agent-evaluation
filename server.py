@@ -11,6 +11,7 @@ import sys
 import tempfile
 import threading
 from dataclasses import dataclass, field
+from datetime import datetime, timezone
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from typing import Any, Mapping
@@ -54,9 +55,26 @@ ACTION_SCHEMA_FILE = PROJECT_ROOT / "config" / "subflow_actions_schema.json"
 REVIEWS_FILE = ASSIGNMENTS_DIR / "reviews.json"
 PAGE_FILE = PROJECT_ROOT / "tools" / "chat_review.html"
 VALID_STATUSES = {"error", "no_error"}
+VALID_REVIEWED_BY = {"ai", "human", "ai_human"}
 VALID_SPEAKERS = {"agent", "customer", "action"}
 MAX_REVIEW_REASON_LENGTH = 300
 MAX_REQUEST_BYTES = 256 * 1024
+
+
+def utc_now_iso() -> str:
+    return datetime.now(timezone.utc).isoformat(timespec="seconds")
+
+
+def parse_edited_timestamp(value: Any) -> float:
+    if not isinstance(value, str) or not value.strip():
+        return 0.0
+    try:
+        parsed = datetime.fromisoformat(value.strip())
+    except ValueError:
+        return 0.0
+    if parsed.tzinfo is None:
+        parsed = parsed.replace(tzinfo=timezone.utc)
+    return parsed.timestamp()
 
 
 class ApiError(ValueError):
@@ -107,10 +125,23 @@ def load_reviews(path: Path) -> dict[str, dict[str, dict[str, Any]]]:
                 status = review
                 reason = ""
                 edited = False
+                edited_at = ""
+                reviewed_by = ""
+                reviewed_at = ""
             else:
                 status = review.get("status")
                 reason = review.get("reason", "")
                 edited = bool(review.get("edited", False))
+                raw_edited_at = review.get("edited_at", "")
+                edited_at = raw_edited_at if isinstance(raw_edited_at, str) else ""
+                raw_reviewed_by = review.get("reviewed_by", "")
+                reviewed_by = (
+                    raw_reviewed_by
+                    if isinstance(raw_reviewed_by, str) and raw_reviewed_by in VALID_REVIEWED_BY
+                    else ""
+                )
+                raw_reviewed_at = review.get("reviewed_at", "")
+                reviewed_at = raw_reviewed_at if isinstance(raw_reviewed_at, str) else ""
             if (
                 not isinstance(status, str)
                 or status not in VALID_STATUSES
@@ -121,6 +152,12 @@ def load_reviews(path: Path) -> dict[str, dict[str, dict[str, Any]]]:
             entry: dict[str, Any] = {"status": status, "reason": reason}
             if edited:
                 entry["edited"] = True
+                if edited_at:
+                    entry["edited_at"] = edited_at
+            if reviewed_by:
+                entry["reviewed_by"] = reviewed_by
+            if reviewed_at:
+                entry["reviewed_at"] = reviewed_at
             reviews[reviewer][chat_id] = entry
     return reviews
 
@@ -206,6 +243,7 @@ def validate_edited_messages(raw_messages: Any) -> list[dict[str, Any]]:
 def apply_edited_messages(
     record: Mapping[str, Any],
     messages: Sequence[Mapping[str, Any]],
+    edited_at: str | None = None,
 ) -> dict[str, Any]:
     updated = dict(record)
     scenario = updated.get("scenario")
@@ -228,24 +266,26 @@ def apply_edited_messages(
             "targets": targets,
         })
     updated["delexed"] = delexed
+    updated["edited_at"] = edited_at or utc_now_iso()
     return updated
 
 
-def validate_review_entry(status: Any, reason: Any = "") -> dict[str, str]:
+def validate_review_entry(status: Any, reason: Any = "") -> dict[str, Any]:
     if not isinstance(status, str) or status not in VALID_STATUSES:
         raise ApiError("status must be 'error' or 'no_error'")
-    if status == "error":
-        if not isinstance(reason, str) or not reason.strip():
-            raise ApiError(
-                "A short reason is required when marking a chat as having an error"
-            )
-        reason = reason.strip()
-        if len(reason) > MAX_REVIEW_REASON_LENGTH:
-            raise ApiError(
-                f"Reason must be {MAX_REVIEW_REASON_LENGTH} characters or fewer"
-            )
-    else:
+    if reason is None:
         reason = ""
+    if not isinstance(reason, str):
+        raise ApiError("reason must be a string")
+    reason = reason.strip()
+    if status == "error" and not reason:
+        raise ApiError(
+            "A short reason is required when marking a chat as having an error"
+        )
+    if len(reason) > MAX_REVIEW_REASON_LENGTH:
+        raise ApiError(
+            f"Reason must be {MAX_REVIEW_REASON_LENGTH} characters or fewer"
+        )
     return {"status": status, "reason": reason}
 
 
@@ -584,6 +624,11 @@ class ReviewRequestHandler(BaseHTTPRequestHandler):
                     guideline_aliases,
                     sop_guideline,
                 )
+            chat_path = (
+                self.app.assignments_dir
+                / reviewer
+                / f"{chat.sop_id}__{chat.chat_id}.json"
+            )
             backup_path = (
                 self.app.assignments_dir
                 / reviewer
@@ -593,6 +638,17 @@ class ReviewRequestHandler(BaseHTTPRequestHandler):
             review_entry = reviewer_reviews.get(chat.chat_id, {})
             has_original = backup_path.exists()
             edited = has_original or bool(review_entry.get("edited", False))
+            edited_at = ""
+            if edited:
+                edited_at = str(
+                    review_entry.get("edited_at")
+                    or chat.record.get("edited_at")
+                    or ""
+                )
+                if not edited_at and chat_path.exists():
+                    edited_at = datetime.fromtimestamp(
+                        chat_path.stat().st_mtime, tz=timezone.utc
+                    ).isoformat(timespec="seconds")
             chats.append({
                 "chat_id": chat.chat_id,
                 "sop_id": chat.sop_id,
@@ -600,6 +656,9 @@ class ReviewRequestHandler(BaseHTTPRequestHandler):
                 "message_count": chat.message_count,
                 "has_original": has_original,
                 "edited": edited,
+                "edited_at": edited_at,
+                "reviewed_by": str(review_entry.get("reviewed_by", "")),
+                "reviewed_at": str(review_entry.get("reviewed_at", "")),
                 "status": review_entry.get("status", "pending"),
                 "review_reason": review_entry.get("reason", ""),
                 "scenario": chat.record.get("scenario", {}),
@@ -622,6 +681,11 @@ class ReviewRequestHandler(BaseHTTPRequestHandler):
         return sorted(
             chats,
             key=lambda chat: (
+                0 if (chat["reviewed_at"] or chat["edited"]) else 1,
+                -max(
+                    parse_edited_timestamp(chat["reviewed_at"]),
+                    parse_edited_timestamp(chat["edited_at"]),
+                ),
                 -chat["message_count"],
                 chat["sop_name"].casefold(),
                 chat["chat_id"],
@@ -674,6 +738,8 @@ class ReviewRequestHandler(BaseHTTPRequestHandler):
                 self._update_chat(data)
             elif path == "/api/revert-chat":
                 self._revert_chat(data)
+            elif path == "/api/remove-chat":
+                self._remove_chat(data)
             else:
                 raise ApiError("Not found", 404)
         except (ApiError, AssignmentError, InputDataError, OSError) as exc:
@@ -717,15 +783,33 @@ class ReviewRequestHandler(BaseHTTPRequestHandler):
         review_entry: dict[str, Any] = validate_review_entry(
             data.get("status"), data.get("reason", "")
         )
+        requested_by = data.get("reviewed_by", "human")
+        if not isinstance(requested_by, str) or requested_by not in VALID_REVIEWED_BY:
+            raise ApiError("reviewed_by must be 'ai', 'human', or 'ai_human'")
         status = review_entry["status"]
         with self.app.lock:
-            _, backup_path = self._find_chat_file(reviewer, chat_id)
+            chat_path, backup_path = self._find_chat_file(reviewer, chat_id)
             reviews = load_reviews(self.app.reviews_file)
-            existing_edited = bool(
-                reviews.get(reviewer, {}).get(chat_id, {}).get("edited", False)
-            )
-            if backup_path.exists() or existing_edited:
+            existing_entry = reviews.get(reviewer, {}).get(chat_id, {})
+            existing_by = existing_entry.get("reviewed_by", "")
+            if requested_by == "ai":
+                reviewed_by = "ai"
+            elif existing_by in {"ai", "ai_human"}:
+                reviewed_by = "ai_human"
+            else:
+                reviewed_by = "human"
+            review_entry["reviewed_by"] = reviewed_by
+            review_entry["reviewed_at"] = utc_now_iso()
+            existing_edited = bool(existing_entry.get("edited", False))
+            if backup_path.exists() or existing_edited or bool(data.get("edited", False)):
                 review_entry["edited"] = True
+                chat_record = load_json(chat_path)
+                edited_at = (
+                    existing_entry.get("edited_at")
+                    or (chat_record.get("edited_at") if isinstance(chat_record, Mapping) else "")
+                    or utc_now_iso()
+                )
+                review_entry["edited_at"] = str(edited_at)
             reviews.setdefault(reviewer, {})[chat_id] = review_entry
             save_reviews(self.app.reviews_file, reviews)
             chats = self._reviewer_chats(reviewer)
@@ -783,11 +867,13 @@ class ReviewRequestHandler(BaseHTTPRequestHandler):
             record = load_json(chat_path)
             if not backup_path.exists():
                 save_json_atomic(backup_path, record, prefix=".orig-")
-            updated_record = apply_edited_messages(record, messages)
+            edited_at = utc_now_iso()
+            updated_record = apply_edited_messages(record, messages, edited_at=edited_at)
             save_json_atomic(chat_path, updated_record, prefix=".chat-")
             reviews = load_reviews(self.app.reviews_file)
             if chat_id in reviews.get(reviewer, {}):
                 reviews[reviewer][chat_id]["edited"] = True
+                reviews[reviewer][chat_id]["edited_at"] = edited_at
                 save_reviews(self.app.reviews_file, reviews)
             chats = self._reviewer_chats(reviewer)
         self._send_json(
@@ -808,8 +894,39 @@ class ReviewRequestHandler(BaseHTTPRequestHandler):
             save_json_atomic(chat_path, original_record, prefix=".chat-")
             backup_path.unlink()
             reviews = load_reviews(self.app.reviews_file)
-            if chat_id in reviews.get(reviewer, {}) and "edited" in reviews[reviewer][chat_id]:
+            if chat_id in reviews.get(reviewer, {}) and (
+                "edited" in reviews[reviewer][chat_id]
+                or "edited_at" in reviews[reviewer][chat_id]
+            ):
                 reviews[reviewer][chat_id].pop("edited", None)
+                reviews[reviewer][chat_id].pop("edited_at", None)
+                if reviews[reviewer][chat_id].get("status") == "no_error":
+                    reviews[reviewer][chat_id]["reason"] = ""
+                save_reviews(self.app.reviews_file, reviews)
+            chats = self._reviewer_chats(reviewer)
+        self._send_json(
+            200,
+            {"reviewer": reviewer, "chat_id": chat_id, "chats": chats},
+        )
+
+    def _remove_chat(self, data: Mapping[str, Any]) -> None:
+        reviewer = self._validate_reviewer(data.get("reviewer"))
+        chat_id = data.get("chat_id")
+        if not isinstance(chat_id, str) or not chat_id:
+            raise ApiError("A chat_id is required")
+        with self.app.lock:
+            chat_path, backup_path = self._find_chat_file(reviewer, chat_id)
+            chat_path.unlink()
+            if backup_path.exists():
+                backup_path.unlink()
+                if backup_path.parent.exists() and not any(backup_path.parent.iterdir()):
+                    backup_path.parent.rmdir()
+            reviews = load_reviews(self.app.reviews_file)
+            reviewer_reviews = reviews.get(reviewer, {})
+            if chat_id in reviewer_reviews:
+                reviewer_reviews.pop(chat_id, None)
+                if not reviewer_reviews:
+                    reviews.pop(reviewer, None)
                 save_reviews(self.app.reviews_file, reviews)
             chats = self._reviewer_chats(reviewer)
         self._send_json(

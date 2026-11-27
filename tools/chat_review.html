@@ -33,14 +33,21 @@
     .chat-row:hover { background: #f5f7fb; }
     .chat-row.selected { border-color: #9dbcf2; background: #edf3ff; }
     .chat-row-title { display: flex; justify-content: space-between; gap: 8px; font-weight: 600; }
-    .chat-row-meta { margin-top: 5px; color: #586575; font-size: 12px; }
+    .chat-row-meta { display: block; margin-top: 5px; color: #586575; font-size: 12px; }
     .status-symbol { white-space: nowrap; }
     .edited-badge { display: inline-block; margin-left: 6px; padding: 1px 6px; border-radius: 999px; background: #fef3c7; color: #92400e; border: 1px solid #f59e0b66; font-size: 11px; font-weight: 600; white-space: nowrap; }
+    .source-badge { display: inline-block; margin-left: 6px; padding: 1px 6px; border-radius: 999px; font-size: 11px; font-weight: 600; white-space: nowrap; }
+    .source-badge.ai { background: #ede9fe; color: #5b21b6; border: 1px solid #a78bfa80; }
+    .source-badge.ai_human { background: #dcfce7; color: #166534; border: 1px solid #4ade8080; }
+    .source-badge.human { background: #e2e8f0; color: #334155; border: 1px solid #94a3b880; }
+    .verify-ai { color: #166534; border-color: #86efac; background: #f0fdf4; }
+    .verify-ai:hover { background: #dcfce7; }
     main { min-width: 0; display: flex; flex-direction: column; max-height: 100vh; }
     .chat-header { padding: 18px 24px; background: #fff; border-bottom: 1px solid #d9dee7; }
     .chat-header h2 { margin: 0 0 7px; font-size: 20px; }
     #current-status { color: #596579; font-size: 14px; }
     #review-reason { margin-top: 5px; color: #7a2d2d; font-size: 13px; overflow-wrap: anywhere; }
+    #review-reason.edit-reason { color: #92400e; }
     .context-buttons { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 13px; }
     .context-button { border: 1px solid #b7c1ce; border-radius: 6px; background: #fff; padding: 7px 11px; }
     .context-button:hover { background: #f5f7fa; }
@@ -150,6 +157,7 @@
           <button id="copy-prompt" class="context-button" type="button" disabled>Copy Prompt</button>
           <button id="edit-chat" class="context-button" type="button" disabled>Replace from Model</button>
           <button id="revert-chat" class="context-button danger" type="button" hidden>Revert to Original</button>
+          <button id="remove-chat" class="context-button danger" type="button" disabled>Remove Chat</button>
         </div>
       </header>
       <section id="conversation" class="conversation" aria-live="polite">
@@ -158,6 +166,7 @@
       <footer class="actions">
         <button id="mark-error" class="decision" type="button" disabled>Has Error ❌</button>
         <button id="mark-no-error" class="decision" type="button" disabled>No Error ✅</button>
+        <button id="verify-ai" class="decision verify-ai" type="button" hidden>Confirm AI Review (AI + Human ✓)</button>
         <button id="rollback" class="decision rollback" type="button" hidden>Rollback to Pending</button>
       </footer>
     </main>
@@ -171,6 +180,7 @@
         <textarea id="error-reason" maxlength="300" aria-required="true" aria-describedby="reason-hint"></textarea>
         <div id="reason-hint" class="reason-hint">Required, up to 300 characters.</div>
       </div>
+      <div id="modal-error" class="edit-error" hidden></div>
       <div class="modal-actions">
         <button id="cancel-action" class="secondary" type="button">Cancel</button>
         <button id="confirm-action" class="primary" type="button">Confirm</button>
@@ -237,6 +247,24 @@
       return "⏳ Pending";
     }
 
+    function formatReviewDate(isoString) {
+      if (!isoString) return "";
+      const date = new Date(isoString);
+      if (Number.isNaN(date.getTime())) return isoString;
+      return date.toLocaleString([], { dateStyle: "medium", timeStyle: "short" });
+    }
+
+    function createReviewSourceBadge(reviewedBy) {
+      if (!reviewedBy) return null;
+      const badge = document.createElement("span");
+      badge.className = `source-badge ${reviewedBy}`;
+      if (reviewedBy === "ai") badge.textContent = "🤖 AI";
+      else if (reviewedBy === "ai_human") badge.textContent = "🤖+👤 AI + Human";
+      else if (reviewedBy === "human") badge.textContent = "👤 Human";
+      else badge.textContent = reviewedBy;
+      return badge;
+    }
+
     function showNotice(message, isError = false) {
       notice.textContent = message;
       notice.classList.toggle("error", isError);
@@ -266,6 +294,8 @@
         const status = document.createElement("span");
         status.className = "status-symbol";
         status.textContent = statusLabel(chat.status);
+        const sourceBadge = createReviewSourceBadge(chat.reviewed_by);
+        if (sourceBadge) status.append(sourceBadge);
         if (chat.edited || chat.has_original) {
           const editedBadge = document.createElement("span");
           editedBadge.className = "edited-badge";
@@ -275,7 +305,13 @@
         title.append(sop, status);
         const meta = document.createElement("span");
         meta.className = "chat-row-meta";
-        meta.textContent = `${chat.message_count} messages · ID ${chat.chat_id}`;
+        let dateText = "";
+        if (chat.reviewed_at) {
+          dateText = ` · Reviewed ${formatReviewDate(chat.reviewed_at)}`;
+        } else if ((chat.edited || chat.has_original) && chat.edited_at) {
+          dateText = ` · Edited ${formatReviewDate(chat.edited_at)}`;
+        }
+        meta.textContent = `${chat.message_count} messages · ID ${chat.chat_id}${dateText}`;
         row.append(title, meta);
         row.addEventListener("click", () => {
           state.selectedId = chat.chat_id;
@@ -592,12 +628,14 @@
       conversation.replaceChildren();
       const errorButton = document.getElementById("mark-error");
       const noErrorButton = document.getElementById("mark-no-error");
+      const verifyAiButton = document.getElementById("verify-ai");
       const rollbackButton = document.getElementById("rollback");
       const viewSopButton = document.getElementById("view-sop");
       const viewScenarioButton = document.getElementById("view-scenario");
       const copyPromptButton = document.getElementById("copy-prompt");
       const editChatButton = document.getElementById("edit-chat");
       const revertChatButton = document.getElementById("revert-chat");
+      const removeChatButton = document.getElementById("remove-chat");
       const reviewReason = document.getElementById("review-reason");
       if (!chat) {
         document.getElementById("chat-title").textContent = "Select a chat";
@@ -607,33 +645,45 @@
         conversation.innerHTML = '<div class="empty-state">Select a chat from the list.</div>';
         errorButton.disabled = true;
         noErrorButton.disabled = true;
+        verifyAiButton.hidden = true;
         rollbackButton.hidden = true;
         viewSopButton.disabled = true;
         viewScenarioButton.disabled = true;
         copyPromptButton.disabled = true;
         editChatButton.disabled = true;
         revertChatButton.hidden = true;
+        removeChatButton.disabled = true;
         return;
       }
 
       document.getElementById("chat-title").textContent = `${chat.sop_name} · ${chat.chat_id}`;
       const currentStatus = document.getElementById("current-status");
       currentStatus.textContent = `Current status: ${statusLabel(chat.status)}`;
+      const sourceBadge = createReviewSourceBadge(chat.reviewed_by);
+      if (sourceBadge) currentStatus.append(sourceBadge);
       if (chat.edited || chat.has_original) {
         const editedBadge = document.createElement("span");
         editedBadge.className = "edited-badge";
         editedBadge.textContent = "✏️ Edited";
         currentStatus.append(editedBadge);
       }
-      reviewReason.hidden = chat.status !== "error" || !chat.review_reason;
-      reviewReason.textContent = chat.review_reason ? `Reason: ${chat.review_reason}` : "";
+      if (chat.reviewed_at) {
+        currentStatus.append(` · Reviewed ${formatReviewDate(chat.reviewed_at)}`);
+      }
+      reviewReason.hidden = !chat.review_reason;
+      reviewReason.classList.toggle("edit-reason", chat.status !== "error");
+      reviewReason.textContent = chat.review_reason
+        ? `${chat.status === "error" ? "Reason" : "Edit reason"}: ${chat.review_reason}`
+        : "";
       errorButton.disabled = false;
       noErrorButton.disabled = false;
+      verifyAiButton.hidden = chat.reviewed_by !== "ai" || chat.status === "pending";
       viewSopButton.disabled = false;
       viewScenarioButton.disabled = false;
       copyPromptButton.disabled = false;
       editChatButton.disabled = false;
       revertChatButton.hidden = !chat.has_original;
+      removeChatButton.disabled = false;
       rollbackButton.hidden = chat.status === "pending";
       renderConversationMessages(conversation, chat.messages, true);
     }
@@ -728,16 +778,31 @@
       state.pendingAction = action;
       const reasonField = document.getElementById("reason-field");
       const reasonInput = document.getElementById("error-reason");
-      reasonField.hidden = action !== "error";
-      reasonInput.value = action === "error" ? (chat.review_reason || "") : "";
+      const reasonLabel = reasonField.querySelector("label");
+      const reasonHint = document.getElementById("reason-hint");
+      const isEditedNoError = action === "no_error" && (chat.edited || chat.has_original);
+      const showReason = action === "error" || isEditedNoError;
+      reasonField.hidden = !showReason;
+      reasonLabel.textContent = action === "error"
+        ? "Briefly explain the error"
+        : "Why was this chat edited? (optional)";
+      reasonHint.textContent = action === "error"
+        ? "Required, up to 300 characters."
+        : "Optional, up to 300 characters.";
+      reasonInput.value = showReason ? (chat.review_reason || "") : "";
       let message;
       if (action === "rollback") {
         message = "Are you sure you want to return this chat to Pending?";
+      } else if (action === "remove") {
+        message = `Are you sure you want to remove chat ${chat.chat_id} (${chat.sop_name}) from ${state.reviewer}?`;
       } else {
         const label = action === "error" ? "Error" : "No Error";
         message = `Are you sure you want to mark this chat as ${label}?`;
       }
       document.getElementById("modal-message").textContent = message;
+      const modalError = document.getElementById("modal-error");
+      modalError.textContent = "";
+      modalError.hidden = true;
       modal.hidden = false;
       document.getElementById(action === "error" ? "error-reason" : "confirm-action").focus();
     }
@@ -746,17 +811,24 @@
       const chat = currentChat();
       if (!chat || !state.pendingAction) return;
       const action = state.pendingAction;
-      const endpoint = action === "rollback" ? "/api/rollback" : "/api/review";
+      const modalError = document.getElementById("modal-error");
+      modalError.textContent = "";
+      modalError.hidden = true;
+      let endpoint = "/api/review";
+      if (action === "rollback") endpoint = "/api/rollback";
+      else if (action === "remove") endpoint = "/api/remove-chat";
       const body = { reviewer: state.reviewer, chat_id: chat.chat_id };
-      if (action !== "rollback") {
+      if (action !== "rollback" && action !== "remove") {
         body.status = action;
-        if (action === "error") {
+        const isEditedNoError = action === "no_error" && (chat.edited || chat.has_original);
+        if (action === "error" || isEditedNoError) {
           body.reason = document.getElementById("error-reason").value.trim();
-          if (!body.reason) {
-            showNotice("Enter a short reason before marking this chat as having an error.", true);
-            document.getElementById("error-reason").focus();
-            return;
-          }
+        }
+        if (action === "error" && !body.reason) {
+          modalError.textContent = "Enter a short reason before marking this chat as having an error.";
+          modalError.hidden = false;
+          document.getElementById("error-reason").focus();
+          return;
         }
       }
       document.getElementById("confirm-action").disabled = true;
@@ -766,11 +838,19 @@
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(body)
         });
-        renderChats(payload.chats, chat.chat_id);
-        showNotice(`Saved status: ${statusLabel(payload.status)}.`);
+        if (action === "remove") {
+          state.inlineEdit = null;
+          renderChats(payload.chats, null);
+          showNotice(`Removed chat ${chat.chat_id}.`);
+        } else {
+          renderChats(payload.chats, chat.chat_id);
+          showNotice(`Saved status: ${statusLabel(payload.status)}.`);
+        }
         modal.hidden = true;
         state.pendingAction = null;
       } catch (error) {
+        modalError.textContent = error.message;
+        modalError.hidden = false;
         showNotice(error.message, true);
       } finally {
         document.getElementById("confirm-action").disabled = false;
@@ -1067,6 +1147,32 @@
 
     document.getElementById("mark-error").addEventListener("click", () => confirmAction("error"));
     document.getElementById("mark-no-error").addEventListener("click", () => confirmAction("no_error"));
+    document.getElementById("verify-ai").addEventListener("click", async () => {
+      const chat = currentChat();
+      if (!chat || chat.reviewed_by !== "ai" || chat.status === "pending") return;
+      const btn = document.getElementById("verify-ai");
+      btn.disabled = true;
+      try {
+        const payload = await requestJson("/api/review", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            reviewer: state.reviewer,
+            chat_id: chat.chat_id,
+            status: chat.status,
+            reason: chat.review_reason || "",
+            edited: Boolean(chat.edited || chat.has_original),
+            reviewed_by: "human"
+          })
+        });
+        renderChats(payload.chats, chat.chat_id);
+        showNotice("Confirmed AI review (now marked AI + Human).");
+      } catch (error) {
+        showNotice(error.message, true);
+      } finally {
+        btn.disabled = false;
+      }
+    });
     document.getElementById("rollback").addEventListener("click", () => confirmAction("rollback"));
     document.getElementById("view-sop").addEventListener("click", () => openInfo("sop"));
     document.getElementById("view-scenario").addEventListener("click", () => openInfo("scenario"));
@@ -1082,6 +1188,7 @@
     });
     document.getElementById("edit-chat").addEventListener("click", openEditModal);
     document.getElementById("revert-chat").addEventListener("click", revertChatToOriginal);
+    document.getElementById("remove-chat").addEventListener("click", () => confirmAction("remove"));
     document.getElementById("modal-revert-chat").addEventListener("click", revertChatToOriginal);
     document.getElementById("parse-paste-btn").addEventListener("click", () => {
       try {

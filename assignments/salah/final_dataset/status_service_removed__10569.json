@@ -1,0 +1,406 @@
+{
+  "convo_id": 10569,
+  "scenario": {
+    "personal": {
+      "customer_name": "chloe zhang",
+      "member_level": "bronze"
+    },
+    "order": {
+      "street_address": "2545 lexington ave",
+      "full_address": "2545 lexington ave  raleigh, ca 18424",
+      "city": "raleigh",
+      "num_products": "1",
+      "products": "[{'brand': 'tommy_hilfiger', 'product_type': 'boots', 'amount': 79, 'image_url': 'images/tommy_hilfiger-boots.jpeg'}]",
+      "state": "ca",
+      "zip_code": "18424"
+    },
+    "product": {
+      "names": [
+        "tommy_hilfiger boots"
+      ],
+      "amounts": [
+        79
+      ]
+    },
+    "flow": "manage_account",
+    "subflow": "status_service_removed"
+  },
+  "original": [
+    [
+      "agent",
+      "How may I assist you tonight?"
+    ],
+    [
+      "customer",
+      "Hi, my name is Chloe Zhang and I'm looking to buy some boots"
+    ],
+    [
+      "customer",
+      "However, my subscription seems to be removed so I don't get free shipping?"
+    ],
+    [
+      "agent",
+      "Ok, so this is more about the subscription issue or the boots?"
+    ],
+    [
+      "customer",
+      "It’s more about the subscription.  It seems like it was removed from my account"
+    ],
+    [
+      "action",
+      "Account has been pulled up for Chloe Zhang."
+    ],
+    [
+      "agent",
+      "Ok Chloe, and how did you hear about this?"
+    ],
+    [
+      "customer",
+      "I just heard some news"
+    ],
+    [
+      "action",
+      "A reason of news has been recorded."
+    ],
+    [
+      "agent",
+      "OK, I'll look into this for you right now"
+    ],
+    [
+      "action",
+      "Querying the system for an answer ..."
+    ],
+    [
+      "agent",
+      "Seems like there was an error on our end"
+    ],
+    [
+      "action",
+      "Account has been updated with add service."
+    ],
+    [
+      "customer",
+      "ok, sounds good"
+    ],
+    [
+      "agent",
+      "OK, i have just re-instated your subscription"
+    ],
+    [
+      "agent",
+      "You should be good to go on buying those boots now"
+    ],
+    [
+      "agent",
+      "Can you see the service on your side?"
+    ],
+    [
+      "customer",
+      "Let me check"
+    ],
+    [
+      "customer",
+      "ok, yea, when i go to checkout the shipping is free again"
+    ],
+    [
+      "customer",
+      "yea, I paid $99 for this, so I really hope to get my money's worth"
+    ],
+    [
+      "agent",
+      "Certainly, and is there anything else I can help you with?"
+    ],
+    [
+      "customer",
+      "That's it, thanks"
+    ],
+    [
+      "agent",
+      "OK, have a nice day!"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "how may i assist you tonight?",
+      "turn_count": 1,
+      "targets": [
+        "status_service_removed",
+        "retrieve_utterance",
+        null,
+        [],
+        8
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "hi, my name is chloe zhang and i'm looking to buy some boots",
+      "turn_count": 2,
+      "targets": [
+        "status_service_removed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "however, my subscription seems to be removed so i don't get free shipping?",
+      "turn_count": 3,
+      "targets": [
+        "status_service_removed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok, so this is more about the subscription issue or the boots?",
+      "turn_count": 4,
+      "targets": [
+        "status_service_removed",
+        "retrieve_utterance",
+        null,
+        [],
+        76
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "it's more about the subscription.  it seems like it was removed from my account",
+      "turn_count": 5,
+      "targets": [
+        "status_service_removed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for chloe zhang.",
+      "turn_count": 6,
+      "targets": [
+        "status_service_removed",
+        "take_action",
+        "pull-up-account",
+        [
+          "chloe zhang"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok chloe, and how did you hear about this?",
+      "turn_count": 7,
+      "targets": [
+        "status_service_removed",
+        "retrieve_utterance",
+        null,
+        [],
+        4
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i just heard some news",
+      "turn_count": 8,
+      "targets": [
+        "status_service_removed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "a reason of news has been recorded.",
+      "turn_count": 9,
+      "targets": [
+        "status_service_removed",
+        "take_action",
+        "record-reason",
+        [
+          "news"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok, i'll look into this for you right now",
+      "turn_count": 10,
+      "targets": [
+        "status_service_removed",
+        "retrieve_utterance",
+        null,
+        [],
+        83
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "querying the system for an answer ...",
+      "turn_count": 11,
+      "targets": [
+        "status_service_removed",
+        "take_action",
+        "ask-the-oracle",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "seems like there was an error on our end",
+      "turn_count": 12,
+      "targets": [
+        "status_service_removed",
+        "retrieve_utterance",
+        null,
+        [],
+        90
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been updated with add service.",
+      "turn_count": 13,
+      "targets": [
+        "status_service_removed",
+        "take_action",
+        "update-account",
+        [
+          "add service"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok, sounds good",
+      "turn_count": 14,
+      "targets": [
+        "status_service_removed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok, i have just re-instated your subscription",
+      "turn_count": 15,
+      "targets": [
+        "status_service_removed",
+        "retrieve_utterance",
+        null,
+        [],
+        62
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "you should be good to go on buying those boots now",
+      "turn_count": 16,
+      "targets": [
+        "status_service_removed",
+        "retrieve_utterance",
+        null,
+        [],
+        0
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can you see the service on your side?",
+      "turn_count": 17,
+      "targets": [
+        "status_service_removed",
+        "retrieve_utterance",
+        null,
+        [],
+        39
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "let me check",
+      "turn_count": 18,
+      "targets": [
+        "status_service_removed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok, yea, when i go to checkout the shipping is free again",
+      "turn_count": 19,
+      "targets": [
+        "status_service_removed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yea, i paid $99 for this, so i really hope to get my money's worth",
+      "turn_count": 20,
+      "targets": [
+        "status_service_removed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "certainly, and is there anything else i can help you with?",
+      "turn_count": 21,
+      "targets": [
+        "status_service_removed",
+        "retrieve_utterance",
+        null,
+        [],
+        80
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "that's it, thanks",
+      "turn_count": 22,
+      "targets": [
+        "status_service_removed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok, have a nice day!",
+      "turn_count": 23,
+      "targets": [
+        "status_service_removed",
+        "retrieve_utterance",
+        null,
+        [],
+        79
+      ]
+    }
+  ]
+}

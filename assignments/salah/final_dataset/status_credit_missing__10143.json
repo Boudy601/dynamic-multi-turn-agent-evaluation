@@ -1,0 +1,308 @@
+{
+  "convo_id": 10143,
+  "scenario": {
+    "personal": {
+      "customer_name": "chloe zhang",
+      "member_level": "guest"
+    },
+    "order": {
+      "street_address": "4753 lincoln ave",
+      "full_address": "4753 lincoln ave  raleigh, mi 97728",
+      "city": "raleigh",
+      "num_products": "1",
+      "products": "[{'brand': 'tommy_hilfiger', 'product_type': 'jeans', 'amount': 84, 'image_url': 'images/tommy_hilfiger-jeans.jpeg'}]",
+      "state": "mi",
+      "zip_code": "97728"
+    },
+    "product": {
+      "names": [
+        "tommy_hilfiger jeans"
+      ],
+      "amounts": [
+        84
+      ]
+    },
+    "flow": "manage_account",
+    "subflow": "status_credit_missing"
+  },
+  "original": [
+    [
+      "agent",
+      "Hello! Thank you for contacting us today. How can I help you?"
+    ],
+    [
+      "customer",
+      "Hi"
+    ],
+    [
+      "customer",
+      "I seem to be missing credits from my account"
+    ],
+    [
+      "customer",
+      "It was from a one time deal due to a previous purchase"
+    ],
+    [
+      "agent",
+      "Oh no! I'm sorry to hear that. Let's see if we can resolve that. Can I have your name please?"
+    ],
+    [
+      "customer",
+      "Chloe Zhang"
+    ],
+    [
+      "action",
+      "Account has been pulled up for Chloe Zhang."
+    ],
+    [
+      "action",
+      "A reason of previous purchase has been recorded."
+    ],
+    [
+      "agent",
+      "Okay let me see what's going on. One second."
+    ],
+    [
+      "action",
+      "Querying the system for an answer ..."
+    ],
+    [
+      "agent",
+      "Do you know how much the credit was supposed to be for?"
+    ],
+    [
+      "customer",
+      "40"
+    ],
+    [
+      "action",
+      "A promo code has been created."
+    ],
+    [
+      "agent",
+      "Okay it does look like it was an error in our system. I have generated a promo code for the missing credit. Here you go: UQ75U."
+    ],
+    [
+      "agent",
+      "Can I help you with anything else today?"
+    ],
+    [
+      "customer",
+      "that was all thanks"
+    ],
+    [
+      "agent",
+      "Thank you and have a great day!"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "hello! thank you for contacting us today. how can i help you?",
+      "turn_count": 1,
+      "targets": [
+        "status_credit_missing",
+        "retrieve_utterance",
+        null,
+        [],
+        96
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "hi",
+      "turn_count": 2,
+      "targets": [
+        "status_credit_missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i seem to be missing credits from my account",
+      "turn_count": 3,
+      "targets": [
+        "status_credit_missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "it was from a one time deal due to a previous purchase",
+      "turn_count": 4,
+      "targets": [
+        "status_credit_missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "oh no! i'm sorry to hear that. let's see if we can resolve that. can i have your name please?",
+      "turn_count": 5,
+      "targets": [
+        "status_credit_missing",
+        "retrieve_utterance",
+        null,
+        [],
+        40
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "chloe zhang",
+      "turn_count": 6,
+      "targets": [
+        "status_credit_missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for chloe zhang.",
+      "turn_count": 7,
+      "targets": [
+        "status_credit_missing",
+        "take_action",
+        "pull-up-account",
+        [
+          "chloe zhang"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "a reason of previous purchase has been recorded.",
+      "turn_count": 8,
+      "targets": [
+        "status_credit_missing",
+        "take_action",
+        "record-reason",
+        [
+          "previous purchase"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "okay let me see what's going on. one second.",
+      "turn_count": 9,
+      "targets": [
+        "status_credit_missing",
+        "retrieve_utterance",
+        null,
+        [],
+        99
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "querying the system for an answer ...",
+      "turn_count": 10,
+      "targets": [
+        "status_credit_missing",
+        "take_action",
+        "ask-the-oracle",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "do you know how much the credit was supposed to be for?",
+      "turn_count": 11,
+      "targets": [
+        "status_credit_missing",
+        "retrieve_utterance",
+        null,
+        [],
+        91
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "40",
+      "turn_count": 12,
+      "targets": [
+        "status_credit_missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "a promo code has been created.",
+      "turn_count": 13,
+      "targets": [
+        "status_credit_missing",
+        "take_action",
+        "promo-code",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "okay it does look like it was an error in our system. i have generated a promo code for the missing credit. here you go: uq75u.",
+      "turn_count": 14,
+      "targets": [
+        "status_credit_missing",
+        "retrieve_utterance",
+        null,
+        [],
+        75
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can i help you with anything else today?",
+      "turn_count": 15,
+      "targets": [
+        "status_credit_missing",
+        "retrieve_utterance",
+        null,
+        [],
+        96
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "that was all thanks",
+      "turn_count": 16,
+      "targets": [
+        "status_credit_missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you and have a great day!",
+      "turn_count": 17,
+      "targets": [
+        "status_credit_missing",
+        "retrieve_utterance",
+        null,
+        [],
+        17
+      ]
+    }
+  ]
+}

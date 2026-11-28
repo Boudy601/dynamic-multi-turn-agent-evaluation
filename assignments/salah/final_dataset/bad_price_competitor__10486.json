@@ -1,0 +1,413 @@
+{
+  "convo_id": 10486,
+  "scenario": {
+    "personal": {
+      "account_id": "p95utondrc",
+      "customer_name": "crystal minh",
+      "email": "cm906055@email.com",
+      "member_level": "bronze",
+      "phone": "(719) 807-1369",
+      "username": "cm906055"
+    },
+    "order": {
+      "street_address": "0073 lincoln ave",
+      "full_address": "0073 lincoln ave  raleigh, tx 90443",
+      "city": "raleigh",
+      "num_products": "1",
+      "order_id": "0692121634",
+      "products": "[{'brand': 'michael_kors', 'product_type': 'boots', 'amount': 94, 'image_url': 'images/michael_kors-boots.jpeg'}]",
+      "state": "tx",
+      "zip_code": "90443"
+    },
+    "product": {
+      "names": [
+        "michael_kors boots"
+      ],
+      "amounts": [
+        94
+      ]
+    },
+    "flow": "purchase_dispute",
+    "subflow": "bad_price_competitor"
+  },
+  "original": [
+    [
+      "agent",
+      "Thank you for contacting Acme Brands! How can I help you today?"
+    ],
+    [
+      "customer",
+      "HI!"
+    ],
+    [
+      "customer",
+      "I was comparing prices and I realized you guys are selling Michael Kors boots for a higher price than your competitor."
+    ],
+    [
+      "customer",
+      "I would love to support your company but I also would love to save money."
+    ],
+    [
+      "agent",
+      "I'm sorry to hear that one of our competitors has a lower price. Could I have your name or account ID?"
+    ],
+    [
+      "customer",
+      "Crystal Minh"
+    ],
+    [
+      "action",
+      "Account has been pulled up for Crystal Minh."
+    ],
+    [
+      "action",
+      "A reason of competitor has been recorded."
+    ],
+    [
+      "agent",
+      "Can you verify your account ID and order ID please?"
+    ],
+    [
+      "customer",
+      "Account ID: P95UTONDRC"
+    ],
+    [
+      "customer",
+      "Order ID: 0692121634"
+    ],
+    [
+      "action",
+      "Identity verification in progress ..."
+    ],
+    [
+      "agent",
+      "Thank you. Unfortunately, our prices are set dynamically and I'm unable to change the prices of the products. I do understand that saving money is important."
+    ],
+    [
+      "customer",
+      "Is there a discount code or anything you guys give out?"
+    ],
+    [
+      "agent",
+      "Yes, I can give you a promo code to use on your order with us."
+    ],
+    [
+      "action",
+      "A promo code has been created."
+    ],
+    [
+      "agent",
+      "You can use promo code LRK80 for a discount."
+    ],
+    [
+      "customer",
+      "Wow! that will certainly help me out and also I am glad I can support your company!"
+    ],
+    [
+      "customer",
+      "Buying those boots right away"
+    ],
+    [
+      "agent",
+      "We appreciate your business! Is there anything else I can help you with today?"
+    ],
+    [
+      "customer",
+      "That was it for today. I appreciate your help"
+    ],
+    [
+      "agent",
+      "You're welcome. Enjoy the boots and have a nice day!"
+    ],
+    [
+      "customer",
+      "you too!"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "thank you for contacting acme brands! how can i help you today?",
+      "turn_count": 1,
+      "targets": [
+        "bad_price_competitor",
+        "retrieve_utterance",
+        null,
+        [],
+        76
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "hi!",
+      "turn_count": 2,
+      "targets": [
+        "bad_price_competitor",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i was comparing prices and i realized you guys are selling michael kors boots for a higher price than your competitor.",
+      "turn_count": 3,
+      "targets": [
+        "bad_price_competitor",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i would love to support your company but i also would love to save money.",
+      "turn_count": 4,
+      "targets": [
+        "bad_price_competitor",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i'm sorry to hear that one of our competitors has a lower price. could i have your name or account id?",
+      "turn_count": 5,
+      "targets": [
+        "bad_price_competitor",
+        "retrieve_utterance",
+        null,
+        [],
+        33
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "crystal minh",
+      "turn_count": 6,
+      "targets": [
+        "bad_price_competitor",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for crystal minh.",
+      "turn_count": 7,
+      "targets": [
+        "bad_price_competitor",
+        "take_action",
+        "pull-up-account",
+        [
+          "crystal minh"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "a reason of competitor has been recorded.",
+      "turn_count": 8,
+      "targets": [
+        "bad_price_competitor",
+        "take_action",
+        "record-reason",
+        [
+          "competitor"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can you verify your account id and order id please?",
+      "turn_count": 9,
+      "targets": [
+        "bad_price_competitor",
+        "retrieve_utterance",
+        null,
+        [],
+        76
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "account id: <account_id>",
+      "turn_count": 10,
+      "targets": [
+        "bad_price_competitor",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "order id: <order_id>",
+      "turn_count": 11,
+      "targets": [
+        "bad_price_competitor",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "identity verification in progress ...",
+      "turn_count": 12,
+      "targets": [
+        "bad_price_competitor",
+        "take_action",
+        "verify-identity",
+        [
+          "crystal minh",
+          "p95utondrc",
+          "0692121634"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you. unfortunately, our prices are set dynamically and i'm unable to change the prices of the products. i do understand that saving money is important.",
+      "turn_count": 13,
+      "targets": [
+        "bad_price_competitor",
+        "retrieve_utterance",
+        null,
+        [],
+        6
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "is there a discount code or anything you guys give out?",
+      "turn_count": 14,
+      "targets": [
+        "bad_price_competitor",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "yes, i can give you a promo code to use on your order with us.",
+      "turn_count": 15,
+      "targets": [
+        "bad_price_competitor",
+        "retrieve_utterance",
+        null,
+        [],
+        16
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "a promo code has been created.",
+      "turn_count": 16,
+      "targets": [
+        "bad_price_competitor",
+        "take_action",
+        "promo-code",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "you can use promo code lrk80 for a discount.",
+      "turn_count": 17,
+      "targets": [
+        "bad_price_competitor",
+        "retrieve_utterance",
+        null,
+        [],
+        52
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "wow! that will certainly help me out and also i am glad i can support your company!",
+      "turn_count": 18,
+      "targets": [
+        "bad_price_competitor",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "buying those boots right away",
+      "turn_count": 19,
+      "targets": [
+        "bad_price_competitor",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "we appreciate your business! is there anything else i can help you with today?",
+      "turn_count": 20,
+      "targets": [
+        "bad_price_competitor",
+        "retrieve_utterance",
+        null,
+        [],
+        2
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "that was it for today. i appreciate your help",
+      "turn_count": 21,
+      "targets": [
+        "bad_price_competitor",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "you're welcome. enjoy the boots and have a nice day!",
+      "turn_count": 22,
+      "targets": [
+        "bad_price_competitor",
+        "retrieve_utterance",
+        null,
+        [],
+        61
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "you too!",
+      "turn_count": 23,
+      "targets": [
+        "bad_price_competitor",
+        null,
+        null,
+        [],
+        -1
+      ]
+    }
+  ]
+}

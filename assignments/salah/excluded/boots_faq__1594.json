@@ -1,0 +1,737 @@
+{
+  "convo_id": 1594,
+  "scenario": {
+    "personal": {
+      "customer_name": "rodriguez domingo",
+      "member_level": "bronze",
+      "phone": "(860) 907-8380"
+    },
+    "order": {
+      "street_address": "3904 kennedy st",
+      "full_address": "3904 kennedy st  raleigh, wa 59869",
+      "city": "raleigh",
+      "num_products": "1",
+      "products": "[{'brand': 'guess', 'product_type': 'boots', 'amount': 89, 'image_url': 'images/guess-boots.jpeg'}]",
+      "state": "wa",
+      "zip_code": "59869"
+    },
+    "product": {
+      "names": [
+        "guess boots"
+      ],
+      "amounts": [
+        89
+      ]
+    },
+    "flow": "single_item_query",
+    "subflow": "boots_how_3"
+  },
+  "original": [
+    [
+      "customer",
+      "Hi"
+    ],
+    [
+      "customer",
+      "Can you help me with something?"
+    ],
+    [
+      "agent",
+      "Hi how can I help you"
+    ],
+    [
+      "customer",
+      "I have a really cool event coming up!"
+    ],
+    [
+      "customer",
+      "I am going to a cowboy-themed wedding"
+    ],
+    [
+      "customer",
+      "And I want to wear something great to it"
+    ],
+    [
+      "customer",
+      "I am thinking of buying these boots"
+    ],
+    [
+      "customer",
+      "Can you tell me more about them?"
+    ],
+    [
+      "action",
+      "Searching the FAQ pages ..."
+    ],
+    [
+      "action",
+      "System Action: search boots"
+    ],
+    [
+      "customer",
+      "Can you help with this?"
+    ],
+    [
+      "agent",
+      "Yes I'm happy to. Do you have a specific question"
+    ],
+    [
+      "customer",
+      "I need to know about the boots for the wedding"
+    ],
+    [
+      "customer",
+      "Yeah, what are the boots made of?"
+    ],
+    [
+      "customer",
+      "I am talking about the $9 Guess boots by the way"
+    ],
+    [
+      "agent",
+      "We use very high-end leather for the boots"
+    ],
+    [
+      "customer",
+      "Okay, that's good to hear"
+    ],
+    [
+      "customer",
+      "And what sizes do the boots come in?"
+    ],
+    [
+      "customer",
+      "Sorry, the $89 Guess boots I mean"
+    ],
+    [
+      "agent",
+      "The boots come in a wide variety of sizes. However, if the boots are listed as empty on the website, then we are currently out of stock. Boots will usually be refilled at the end of every month, so you can check back at that time. We thank you for yo"
+    ],
+    [
+      "agent",
+      "your patience."
+    ],
+    [
+      "customer",
+      "Okay, I think that I understand"
+    ],
+    [
+      "customer",
+      "Also, what if I order the boots and they don't fit?"
+    ],
+    [
+      "customer",
+      "Am I allowed to return them?"
+    ],
+    [
+      "agent",
+      "What s your membership level?"
+    ],
+    [
+      "customer",
+      "I am Bronze"
+    ],
+    [
+      "action",
+      "System Action: search policy"
+    ],
+    [
+      "agent",
+      " Bronze members are allowed returns for purchases made in the last 90 days."
+    ],
+    [
+      "customer",
+      "Great! That eases my mind"
+    ],
+    [
+      "customer",
+      "I have another question"
+    ],
+    [
+      "customer",
+      "Are there any coupons I could use to get money off the boots?"
+    ],
+    [
+      "customer",
+      "$89 is a lot"
+    ],
+    [
+      "customer",
+      "I want them but they are expensive"
+    ],
+    [
+      "agent",
+      "let me see"
+    ],
+    [
+      "action",
+      "System Action: search pricing"
+    ],
+    [
+      "customer",
+      "Any news on the coupon? If not, that's okay"
+    ],
+    [
+      "action",
+      "A promo code has been created."
+    ],
+    [
+      "agent",
+      "Here you go 37AOJ"
+    ],
+    [
+      "customer",
+      "Okay, great! Thanks for giving me a coupon!"
+    ],
+    [
+      "customer",
+      "I will buy the boots now!!!!"
+    ],
+    [
+      "agent",
+      "Awesome, anything else?"
+    ],
+    [
+      "customer",
+      "No, that's it"
+    ],
+    [
+      "customer",
+      "Thanks for your help"
+    ],
+    [
+      "agent",
+      "OK have a nice day"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "customer",
+      "text": "hi",
+      "turn_count": 1,
+      "targets": [
+        "boots",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "can you help me with something?",
+      "turn_count": 2,
+      "targets": [
+        "boots",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "hi how can i help you",
+      "turn_count": 3,
+      "targets": [
+        "boots",
+        "retrieve_utterance",
+        null,
+        [],
+        72
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i have a really cool event coming up!",
+      "turn_count": 4,
+      "targets": [
+        "boots",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i am going to a cowboy-themed wedding",
+      "turn_count": 5,
+      "targets": [
+        "boots",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "and i want to wear something great to it",
+      "turn_count": 6,
+      "targets": [
+        "boots",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i am thinking of buying these boots",
+      "turn_count": 7,
+      "targets": [
+        "boots",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "can you tell me more about them?",
+      "turn_count": 8,
+      "targets": [
+        "boots",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "searching the faq pages ...",
+      "turn_count": 9,
+      "targets": [
+        "boots",
+        "take_action",
+        "search-faq",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "system action: search boots",
+      "turn_count": 10,
+      "targets": [
+        "boots",
+        "take_action",
+        "search-boots",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "can you help with this?",
+      "turn_count": 11,
+      "targets": [
+        "boots",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "yes i'm happy to. do you have a specific question",
+      "turn_count": 12,
+      "targets": [
+        "boots",
+        "retrieve_utterance",
+        null,
+        [],
+        35
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i need to know about the boots for the wedding",
+      "turn_count": 13,
+      "targets": [
+        "boots",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yeah, what are the boots made of?",
+      "turn_count": 14,
+      "targets": [
+        "boots",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i am talking about the $9 <name> by the way",
+      "turn_count": 15,
+      "targets": [
+        "boots",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "we use very high-end leather for the boots",
+      "turn_count": 16,
+      "targets": [
+        "boots",
+        "retrieve_utterance",
+        null,
+        [],
+        58
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay, that's good to hear",
+      "turn_count": 17,
+      "targets": [
+        "boots",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "and what sizes do the boots come in?",
+      "turn_count": 18,
+      "targets": [
+        "boots",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "sorry, the $<amount> <name> i mean",
+      "turn_count": 19,
+      "targets": [
+        "boots",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "the boots come in a wide variety of sizes. however, if the boots are listed as empty on the website, then we are currently out of stock. boots will usually be refilled at the end of every month, so you can check back at that time. we thank you for yo",
+      "turn_count": 20,
+      "targets": [
+        "boots",
+        "retrieve_utterance",
+        null,
+        [],
+        38
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "your patience.",
+      "turn_count": 21,
+      "targets": [
+        "boots",
+        "retrieve_utterance",
+        null,
+        [],
+        84
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay, i think that i understand",
+      "turn_count": 22,
+      "targets": [
+        "boots",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "also, what if i order the boots and they don't fit?",
+      "turn_count": 23,
+      "targets": [
+        "boots",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "am i allowed to return them?",
+      "turn_count": 24,
+      "targets": [
+        "boots",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "what s your membership level?",
+      "turn_count": 25,
+      "targets": [
+        "boots",
+        "retrieve_utterance",
+        null,
+        [],
+        17
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i am bronze",
+      "turn_count": 26,
+      "targets": [
+        "boots",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "system action: search policy",
+      "turn_count": 27,
+      "targets": [
+        "boots",
+        "take_action",
+        "search-policy",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": " bronze members are allowed returns for purchases made in the last 90 days.",
+      "turn_count": 28,
+      "targets": [
+        "boots",
+        "retrieve_utterance",
+        null,
+        [],
+        57
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "great! that eases my mind",
+      "turn_count": 29,
+      "targets": [
+        "boots",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i have another question",
+      "turn_count": 30,
+      "targets": [
+        "boots",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "are there any coupons i could use to get money off the boots?",
+      "turn_count": 31,
+      "targets": [
+        "boots",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "$<amount> is a lot",
+      "turn_count": 32,
+      "targets": [
+        "boots",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i want them but they are expensive",
+      "turn_count": 33,
+      "targets": [
+        "boots",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "let me see",
+      "turn_count": 34,
+      "targets": [
+        "boots",
+        "retrieve_utterance",
+        null,
+        [],
+        33
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "system action: search pricing",
+      "turn_count": 35,
+      "targets": [
+        "boots",
+        "take_action",
+        "search-pricing",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "any news on the coupon? if not, that's okay",
+      "turn_count": 36,
+      "targets": [
+        "boots",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "a promo code has been created.",
+      "turn_count": 37,
+      "targets": [
+        "boots",
+        "take_action",
+        "promo-code",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "here you go 37aoj",
+      "turn_count": 38,
+      "targets": [
+        "boots",
+        "retrieve_utterance",
+        null,
+        [],
+        20
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay, great! thanks for giving me a coupon!",
+      "turn_count": 39,
+      "targets": [
+        "boots",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i will buy the boots now!!!!",
+      "turn_count": 40,
+      "targets": [
+        "boots",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "awesome, anything else?",
+      "turn_count": 41,
+      "targets": [
+        "boots",
+        "retrieve_utterance",
+        null,
+        [],
+        21
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no, that's it",
+      "turn_count": 42,
+      "targets": [
+        "boots",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thanks for your help",
+      "turn_count": 43,
+      "targets": [
+        "boots",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok have a nice day",
+      "turn_count": 44,
+      "targets": [
+        "boots",
+        "retrieve_utterance",
+        null,
+        [],
+        81
+      ]
+    }
+  ]
+}

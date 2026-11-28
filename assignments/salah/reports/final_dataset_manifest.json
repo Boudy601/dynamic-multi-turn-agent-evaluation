@@ -1,0 +1,212 @@
+{
+  "dataset": "Salah final accepted conversation set",
+  "count": 10,
+  "acceptance_statuses": [
+    "PASS",
+    "PASS_WITH_LIMITATIONS"
+  ],
+  "entries": [
+    {
+      "conversation_id": 10486,
+      "source_file": "data/source/abcd/data/abcd_v1.1.json#train[10486]",
+      "final_file": "assignments/salah/final_dataset/bad_price_competitor__10486.json",
+      "scenario_name": "purchase_dispute/bad_price_competitor",
+      "final_validation_status": "PASS_WITH_LIMITATIONS",
+      "corrections_applied": true,
+      "correction_summary": "Corrected “then” to “than” and “certaintly” to “certainly” in original/delexed text.",
+      "remaining_limitations": "Competitor pricing and promo-service details are not separately stored; customer response and promo-code action are internally consistent.",
+      "evidence_references": [
+        "data/source/abcd/data/abcd_v1.1.json",
+        "data/source/abcd/data/guidelines_full_context.json",
+        "data/source/abcd/data/kb.json",
+        "data/source/abcd/data/ontology.json",
+        "config/subflow_actions_schema.json",
+        "assignments/salah/reports/replacement_audit_report.md",
+        "assignments/salah/reports/replacement_validation_report.md"
+      ],
+      "teammate_assignment_check": "not assigned or reserved; ID absent from all teammate assignment files, .originals files, manifests, and assignments/reviews.json"
+    },
+    {
+      "conversation_id": 5334,
+      "source_file": "assignments/salah/mistimed_billing_already_returned__5334.json",
+      "final_file": "assignments/salah/final_dataset/mistimed_billing_already_returned__5334.json",
+      "scenario_name": "purchase_dispute/mistimed_billing_already_returned",
+      "final_validation_status": "PASS_WITH_LIMITATIONS",
+      "corrections_applied": false,
+      "correction_summary": "Retained unchanged from previously cleaned copy.",
+      "remaining_limitations": "Agent ID and future day-eight fulfillment have no independent record; current guest wait guidance is consistent and no credit was issued.",
+      "evidence_references": [
+        "data/source/abcd/data/abcd_v1.1.json",
+        "data/source/abcd/data/guidelines_full_context.json",
+        "data/source/abcd/data/kb.json",
+        "data/source/abcd/data/ontology.json",
+        "config/subflow_actions_schema.json",
+        "assignments/salah/reports/replacement_audit_report.md",
+        "assignments/salah/reports/replacement_validation_report.md"
+      ],
+      "teammate_assignment_check": "not assigned or reserved; ID absent from all teammate assignment files, .originals files, manifests, and assignments/reviews.json",
+      "cleaned_copy_used": "assignments/salah/cleaned/mistimed_billing_already_returned__5334.json"
+    },
+    {
+      "conversation_id": 5307,
+      "source_file": "data/source/abcd/data/abcd_v1.1.json#train[5307]",
+      "final_file": "assignments/salah/final_dataset/reset_two_factor_auth__5307.json",
+      "scenario_name": "account_access/reset_2fa",
+      "final_validation_status": "PASS_WITH_LIMITATIONS",
+      "corrections_applied": true,
+      "correction_summary": "Corrected “two fact authentication” to “two-factor authentication” in original/delexed text.",
+      "remaining_limitations": "Email delivery of reset code is not independently logged; email detail and security-link actions match the documented reset-2FA workflow.",
+      "evidence_references": [
+        "data/source/abcd/data/abcd_v1.1.json",
+        "data/source/abcd/data/guidelines_full_context.json",
+        "data/source/abcd/data/kb.json",
+        "data/source/abcd/data/ontology.json",
+        "config/subflow_actions_schema.json",
+        "assignments/salah/reports/replacement_audit_report.md",
+        "assignments/salah/reports/replacement_validation_report.md"
+      ],
+      "teammate_assignment_check": "not assigned or reserved; ID absent from all teammate assignment files, .originals files, manifests, and assignments/reviews.json"
+    },
+    {
+      "conversation_id": 10143,
+      "source_file": "data/source/abcd/data/abcd_v1.1.json#train[10143]",
+      "final_file": "assignments/salah/final_dataset/status_credit_missing__10143.json",
+      "scenario_name": "manage_account/status_credit_missing",
+      "final_validation_status": "PASS_WITH_LIMITATIONS",
+      "corrections_applied": false,
+      "correction_summary": "Copied unchanged from the authoritative source record.",
+      "remaining_limitations": "Raw Oracle return and promo-code service payload are unavailable; query, requested $40, promo-code action, and supplied code are internally consistent.",
+      "evidence_references": [
+        "data/source/abcd/data/abcd_v1.1.json",
+        "data/source/abcd/data/guidelines_full_context.json",
+        "data/source/abcd/data/kb.json",
+        "data/source/abcd/data/ontology.json",
+        "config/subflow_actions_schema.json",
+        "assignments/salah/reports/replacement_audit_report.md",
+        "assignments/salah/reports/replacement_validation_report.md"
+      ],
+      "teammate_assignment_check": "not assigned or reserved; ID absent from all teammate assignment files, .originals files, manifests, and assignments/reviews.json"
+    },
+    {
+      "conversation_id": 8208,
+      "source_file": "data/source/abcd/data/abcd_v1.1.json#train[8208]",
+      "final_file": "assignments/salah/final_dataset/status_delivery_time__8208.json",
+      "scenario_name": "order_issue/status_delivery_time",
+      "final_validation_status": "PASS_WITH_LIMITATIONS",
+      "corrections_applied": false,
+      "correction_summary": "Copied unchanged from the authoritative source record.",
+      "remaining_limitations": "Raw Oracle payload and exact new delivery time are not separately recorded; change-time action follows the one-day-later request.",
+      "evidence_references": [
+        "data/source/abcd/data/abcd_v1.1.json",
+        "data/source/abcd/data/guidelines_full_context.json",
+        "data/source/abcd/data/kb.json",
+        "data/source/abcd/data/ontology.json",
+        "config/subflow_actions_schema.json",
+        "assignments/salah/reports/replacement_audit_report.md",
+        "assignments/salah/reports/replacement_validation_report.md"
+      ],
+      "teammate_assignment_check": "not assigned or reserved; ID absent from all teammate assignment files, .originals files, manifests, and assignments/reviews.json"
+    },
+    {
+      "conversation_id": 10471,
+      "source_file": "data/source/abcd/data/abcd_v1.1.json#train[10471]",
+      "final_file": "assignments/salah/final_dataset/status_due_date__10471.json",
+      "scenario_name": "subscription_inquiry/status_due_date",
+      "final_validation_status": "PASS_WITH_LIMITATIONS",
+      "corrections_applied": true,
+      "correction_summary": "Corrected “passible” to “possible” and removed a stray trailing @ in original/delexed text.",
+      "remaining_limitations": "External payment settlement is unavailable; the $49 request, enter-details action, and transcript outcome agree.",
+      "evidence_references": [
+        "data/source/abcd/data/abcd_v1.1.json",
+        "data/source/abcd/data/guidelines_full_context.json",
+        "data/source/abcd/data/kb.json",
+        "data/source/abcd/data/ontology.json",
+        "config/subflow_actions_schema.json",
+        "assignments/salah/reports/replacement_audit_report.md",
+        "assignments/salah/reports/replacement_validation_report.md"
+      ],
+      "teammate_assignment_check": "not assigned or reserved; ID absent from all teammate assignment files, .originals files, manifests, and assignments/reviews.json"
+    },
+    {
+      "conversation_id": 6026,
+      "source_file": "data/source/abcd/data/abcd_v1.1.json#train[6026]",
+      "final_file": "assignments/salah/final_dataset/status_payment_method__6026.json",
+      "scenario_name": "order_issue/status_payment_method",
+      "final_validation_status": "PASS",
+      "corrections_applied": true,
+      "correction_summary": "Corrected “yo uwish” to “you wish” and “immidiately” to “immediately” in original/delexed text.",
+      "remaining_limitations": "None material. Payment backend settlement is not separately represented; scenario and update action agree on debit card.",
+      "evidence_references": [
+        "data/source/abcd/data/abcd_v1.1.json",
+        "data/source/abcd/data/guidelines_full_context.json",
+        "data/source/abcd/data/kb.json",
+        "data/source/abcd/data/ontology.json",
+        "config/subflow_actions_schema.json",
+        "assignments/salah/reports/replacement_audit_report.md",
+        "assignments/salah/reports/replacement_validation_report.md"
+      ],
+      "teammate_assignment_check": "not assigned or reserved; ID absent from all teammate assignment files, .originals files, manifests, and assignments/reviews.json"
+    },
+    {
+      "conversation_id": 6813,
+      "source_file": "data/source/abcd/data/abcd_v1.1.json#train[6813]",
+      "final_file": "assignments/salah/final_dataset/status_payment_method__6813.json",
+      "scenario_name": "order_issue/status_payment_method",
+      "final_validation_status": "PASS",
+      "corrections_applied": true,
+      "correction_summary": "Corrected “immidiately” to “immediately” in original/delexed text.",
+      "remaining_limitations": "None material. Payment backend settlement is not represented separately; scenario, request, shipping status, and update action agree.",
+      "evidence_references": [
+        "data/source/abcd/data/abcd_v1.1.json",
+        "data/source/abcd/data/guidelines_full_context.json",
+        "data/source/abcd/data/kb.json",
+        "data/source/abcd/data/ontology.json",
+        "config/subflow_actions_schema.json",
+        "assignments/salah/reports/replacement_audit_report.md",
+        "assignments/salah/reports/replacement_validation_report.md"
+      ],
+      "teammate_assignment_check": "not assigned or reserved; ID absent from all teammate assignment files, .originals files, manifests, and assignments/reviews.json"
+    },
+    {
+      "conversation_id": 10569,
+      "source_file": "data/source/abcd/data/abcd_v1.1.json#train[10569]",
+      "final_file": "assignments/salah/final_dataset/status_service_removed__10569.json",
+      "scenario_name": "manage_account/status_service_removed",
+      "final_validation_status": "PASS_WITH_LIMITATIONS",
+      "corrections_applied": true,
+      "correction_summary": "Corrected “Its more” to “It’s more” in original/delexed text.",
+      "remaining_limitations": "Raw Oracle/account-state payload is unavailable; add-service action and customer confirmation are consistent.",
+      "evidence_references": [
+        "data/source/abcd/data/abcd_v1.1.json",
+        "data/source/abcd/data/guidelines_full_context.json",
+        "data/source/abcd/data/kb.json",
+        "data/source/abcd/data/ontology.json",
+        "config/subflow_actions_schema.json",
+        "assignments/salah/reports/replacement_audit_report.md",
+        "assignments/salah/reports/replacement_validation_report.md"
+      ],
+      "teammate_assignment_check": "not assigned or reserved; ID absent from all teammate assignment files, .originals files, manifests, and assignments/reviews.json"
+    },
+    {
+      "conversation_id": 1739,
+      "source_file": "assignments/salah/website_too_slow__1739.json",
+      "final_file": "assignments/salah/final_dataset/website_too_slow__1739.json",
+      "scenario_name": "troubleshoot_site/slow_speed",
+      "final_validation_status": "PASS_WITH_LIMITATIONS",
+      "corrections_applied": true,
+      "correction_summary": "Corrected “tabd” to “tabs” and “etra” to “extra”; existing delexed counters were normalized.",
+      "remaining_limitations": "Resolution is reported by the customer; no external website performance telemetry is available.",
+      "evidence_references": [
+        "data/source/abcd/data/abcd_v1.1.json",
+        "data/source/abcd/data/guidelines_full_context.json",
+        "data/source/abcd/data/kb.json",
+        "data/source/abcd/data/ontology.json",
+        "config/subflow_actions_schema.json",
+        "assignments/salah/reports/replacement_audit_report.md",
+        "assignments/salah/reports/replacement_validation_report.md"
+      ],
+      "teammate_assignment_check": "not assigned or reserved; ID absent from all teammate assignment files, .originals files, manifests, and assignments/reviews.json",
+      "cleaned_copy_used": "assignments/salah/cleaned/website_too_slow__1739.json"
+    }
+  ]
+}

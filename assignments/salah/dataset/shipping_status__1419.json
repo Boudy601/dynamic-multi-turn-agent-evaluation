@@ -1,0 +1,923 @@
+{
+  "convo_id": 1419,
+  "scenario": {
+    "personal": {
+      "account_id": "qmfs0h57et",
+      "customer_name": "crystal minh",
+      "email": "crystalminh849@email.com",
+      "member_level": "silver",
+      "phone": "(728) 227-3051",
+      "username": "crystalminh849"
+    },
+    "order": {
+      "street_address": "7597 brushwick dr",
+      "full_address": "7597 brushwick dr  jacksonville, mi 9836",
+      "city": "jacksonville",
+      "num_products": "1",
+      "order_id": "4006534827",
+      "products": "[{'brand': 'tommy_hilfiger', 'product_type': 'jacket', 'amount': 89, 'image_url': 'images/tommy_hilfiger-jacket.jpeg'}]",
+      "purchase_date": "2020-01-02",
+      "shipping_status": "in transit",
+      "state": "mi",
+      "zip_code": "9836"
+    },
+    "product": {
+      "names": [
+        "tommy_hilfiger jacket"
+      ],
+      "amounts": [
+        89
+      ]
+    },
+    "flow": "shipping_issue",
+    "subflow": "status"
+  },
+  "original": [
+    [
+      "customer",
+      "hi, i want to confirm my shipping address"
+    ],
+    [
+      "agent",
+      "Hello, welcome to AcmeBrands! How can I help?"
+    ],
+    [
+      "agent",
+      "YOu would like me to check that we have the correct shipping address on your account?"
+    ],
+    [
+      "customer",
+      "yes"
+    ],
+    [
+      "customer",
+      "is the address for 7597 Brushwick Drive?"
+    ],
+    [
+      "customer",
+      "i just need a yes/no answer"
+    ],
+    [
+      "agent",
+      "I can help you with that, what is your name please?"
+    ],
+    [
+      "customer",
+      "Crystal Minh"
+    ],
+    [
+      "action",
+      "Account has been pulled up for Crystal Minh."
+    ],
+    [
+      "customer",
+      "ok, can you help?"
+    ],
+    [
+      "action",
+      "A reason of  7597 Brushwick Drive has been recorded."
+    ],
+    [
+      "agent",
+      "sorry the system is a little slow today"
+    ],
+    [
+      "action",
+      "Account has been updated with  7597 Brushwick Drive."
+    ],
+    [
+      "agent",
+      "ok, I have updated the address on your account."
+    ],
+    [
+      "agent",
+      "I should make sure that you don't have any outstanding orders, is that correct?"
+    ],
+    [
+      "customer",
+      "i have one order for a jacket that is in transit"
+    ],
+    [
+      "customer",
+      "however, i got an email notification saying the wrong address"
+    ],
+    [
+      "agent",
+      "Ok, let me check that that is going to the correct address. Do you have an order ID?"
+    ],
+    [
+      "customer",
+      "4006534827"
+    ],
+    [
+      "agent",
+      "and your email address please?"
+    ],
+    [
+      "customer",
+      "sure"
+    ],
+    [
+      "customer",
+      "Email Address: crystalminh849@email.com"
+    ],
+    [
+      "agent",
+      "one moment please"
+    ],
+    [
+      "action",
+      "Purchase validation in progress ..."
+    ],
+    [
+      "agent",
+      "oh i ma sorry, do you know your username?"
+    ],
+    [
+      "customer",
+      "ok, got it"
+    ],
+    [
+      "customer",
+      "Username: crystalminh849"
+    ],
+    [
+      "action",
+      "Purchase validation in progress ..."
+    ],
+    [
+      "agent",
+      "and the shipping status?"
+    ],
+    [
+      "customer",
+      "it is in transit"
+    ],
+    [
+      "customer",
+      "i hope it doesn't ship to the wrong location"
+    ],
+    [
+      "agent",
+      "when is it due to arrive?"
+    ],
+    [
+      "customer",
+      "not sure"
+    ],
+    [
+      "customer",
+      "my purchase date was a week ago"
+    ],
+    [
+      "agent",
+      "are you one of our gold members by any chance?"
+    ],
+    [
+      "customer",
+      "hmm, i am a silver member"
+    ],
+    [
+      "customer",
+      "still pretty high up"
+    ],
+    [
+      "action",
+      "Membership level of silver has been noted."
+    ],
+    [
+      "action",
+      "Searching the FAQ pages ..."
+    ],
+    [
+      "action",
+      "System Action: search membership"
+    ],
+    [
+      "agent",
+      "perhaps it would be best if we re-send this order"
+    ],
+    [
+      "customer",
+      "ok, got it"
+    ],
+    [
+      "agent",
+      "i believe you should have received it by now"
+    ],
+    [
+      "agent",
+      "what do you think?"
+    ],
+    [
+      "action",
+      "FAQ answer related to membership (question3) was selected."
+    ],
+    [
+      "action",
+      "Agent is looking for solutions ..."
+    ],
+    [
+      "agent",
+      "please tell me what you ordered so that i can sent it again"
+    ],
+    [
+      "customer",
+      "tommy hilfiger jacket"
+    ],
+    [
+      "action",
+      "A purchase of tommy hilfiger jacket was made."
+    ],
+    [
+      "agent",
+      "OK! we will ship that you to you  at  7597 Brushwick Drive at"
+    ],
+    [
+      "agent",
+      "is there anything else today?"
+    ],
+    [
+      "customer",
+      "great, please end the conversation and mark as \"not complete\""
+    ],
+    [
+      "agent",
+      "will do"
+    ],
+    [
+      "customer",
+      "then you should see what the correct flow was after submitting"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "customer",
+      "text": "hi, i want to confirm my shipping address",
+      "turn_count": 1,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "hello, welcome to acmebrands! how can i help?",
+      "turn_count": 2,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        88
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "you would like me to check that we have the correct shipping address on your account?",
+      "turn_count": 3,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        48
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yes",
+      "turn_count": 4,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "is the address for <street_address>ive?",
+      "turn_count": 5,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i just need a yes/no answer",
+      "turn_count": 6,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i can help you with that, what is your name please?",
+      "turn_count": 7,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        93
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "crystal minh",
+      "turn_count": 8,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for crystal minh.",
+      "turn_count": 9,
+      "targets": [
+        "status",
+        "take_action",
+        "pull-up-account",
+        [
+          "crystal minh"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok, can you help?",
+      "turn_count": 10,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "a reason of  <street_address>ive has been recorded.",
+      "turn_count": 11,
+      "targets": [
+        "status",
+        "take_action",
+        "record-reason",
+        [
+          "7597 brushwick drive"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "sorry the system is a little slow today",
+      "turn_count": 12,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        11
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been updated with  <street_address>ive.",
+      "turn_count": 13,
+      "targets": [
+        "status",
+        "take_action",
+        "update-account",
+        [
+          "7597 brushwick drive"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok, i have updated the address on your account.",
+      "turn_count": 14,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        71
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i should make sure that you don't have any outstanding orders, is that correct?",
+      "turn_count": 15,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        55
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i have one order for a jacket that is in transit",
+      "turn_count": 16,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "however, i got an email notification saying the wrong address",
+      "turn_count": 17,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok, let me check that that is going to the correct address. do you have an order id?",
+      "turn_count": 18,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        45
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "<order_id>",
+      "turn_count": 19,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "and your email address please?",
+      "turn_count": 20,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        10
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "sure",
+      "turn_count": 21,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "email address: <email>",
+      "turn_count": 22,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "one moment please",
+      "turn_count": 23,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        57
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "purchase validation in progress ...",
+      "turn_count": 24,
+      "targets": [
+        "status",
+        "take_action",
+        "validate-purchase",
+        [
+          "crystal minh",
+          "crystalminh849@email.com",
+          "4006534827"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "oh i ma sorry, do you know your username?",
+      "turn_count": 25,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        45
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok, got it",
+      "turn_count": 26,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "username: <username>",
+      "turn_count": 27,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "purchase validation in progress ...",
+      "turn_count": 28,
+      "targets": [
+        "status",
+        "take_action",
+        "validate-purchase",
+        [
+          "crystalminh849",
+          "crystalminh849@email.com",
+          "4006534827"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "and the shipping status?",
+      "turn_count": 29,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        37
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "it is in transit",
+      "turn_count": 30,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i hope it doesn't ship to the wrong location",
+      "turn_count": 31,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "when is it due to arrive?",
+      "turn_count": 32,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        77
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "not sure",
+      "turn_count": 33,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "my purchase date was a week ago",
+      "turn_count": 34,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "are you one of our gold members by any chance?",
+      "turn_count": 35,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        89
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "hmm, i am a silver member",
+      "turn_count": 36,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "still pretty high up",
+      "turn_count": 37,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "membership level of silver has been noted.",
+      "turn_count": 38,
+      "targets": [
+        "status",
+        "take_action",
+        "membership",
+        [
+          "silver"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "searching the faq pages ...",
+      "turn_count": 39,
+      "targets": [
+        "status",
+        "take_action",
+        "search-faq",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "system action: search membership",
+      "turn_count": 40,
+      "targets": [
+        "status",
+        "take_action",
+        "search-membership",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "perhaps it would be best if we re-send this order",
+      "turn_count": 41,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        21
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok, got it",
+      "turn_count": 42,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i believe you should have received it by now",
+      "turn_count": 43,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        71
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "what do you think?",
+      "turn_count": 44,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        74
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "faq answer related to membership (question3) was selected.",
+      "turn_count": 45,
+      "targets": [
+        "status",
+        "take_action",
+        "select-faq",
+        [
+          "membership_3"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "agent is looking for solutions ...",
+      "turn_count": 46,
+      "targets": [
+        "status",
+        "take_action",
+        "try-again",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "please tell me what you ordered so that i can sent it again",
+      "turn_count": 47,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        72
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "tommy hilfiger jacket",
+      "turn_count": 48,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "a purchase of tommy hilfiger jacket was made.",
+      "turn_count": 49,
+      "targets": [
+        "status",
+        "take_action",
+        "make-purchase",
+        [
+          "tommy hilfiger jacket"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok! we will ship that you to you  at  <street_address>ive at",
+      "turn_count": 50,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        25
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "is there anything else today?",
+      "turn_count": 51,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        77
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "great, please end the conversation and mark as \"not complete\"",
+      "turn_count": 52,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "will do",
+      "turn_count": 53,
+      "targets": [
+        "status",
+        "retrieve_utterance",
+        null,
+        [],
+        32
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "then you should see what the correct flow was after submitting",
+      "turn_count": 54,
+      "targets": [
+        "status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    }
+  ]
+}

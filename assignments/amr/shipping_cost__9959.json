@@ -1,0 +1,453 @@
+{
+  "convo_id": 9959,
+  "scenario": {
+    "personal": {
+      "account_id": "afeqxlxzui",
+      "customer_name": "alessandro phoenix",
+      "email": "alessandrophoenix362@email.com",
+      "member_level": "gold",
+      "phone": "(116) 097-5532",
+      "username": "alessandrophoenix362"
+    },
+    "order": {
+      "street_address": "3775 circle drive",
+      "full_address": "3775 circle drive  brighton, ny 53759",
+      "city": "brighton",
+      "num_products": "3",
+      "order_id": "9396456204",
+      "products": "[{'brand': 'michael_kors', 'product_type': 'shirt', 'amount': 69, 'image_url': 'images/michael_kors-shirt.jpeg'}, {'brand': 'tommy_hilfiger', 'product_type': 'jacket', 'amount': 74, 'image_url': 'images/tommy_hilfiger-jacket.jpeg'}, {'brand': 'calvin_klein', 'product_type': 'jacket', 'amount': 54, 'image_url': 'images/calvin_klein-jacket.jpeg'}]",
+      "purchase_date": "2019-10-27",
+      "shipping_status": "out for delivery",
+      "state": "ny",
+      "zip_code": "53759"
+    },
+    "product": {
+      "names": [
+        "michael_kors shirt",
+        "tommy_hilfiger jacket",
+        "calvin_klein jacket"
+      ],
+      "amounts": [
+        69,
+        74,
+        54
+      ]
+    },
+    "flow": "shipping_issue",
+    "subflow": "cost"
+  },
+  "original": [
+    [
+      "agent",
+      "Welcome to AcmeBrands. How may I help you?"
+    ],
+    [
+      "customer",
+      "Good day"
+    ],
+    [
+      "customer",
+      "I am checking on a shipping issue"
+    ],
+    [
+      "customer",
+      "I am being charged a pretty high amount"
+    ],
+    [
+      "customer",
+      "Can someone look into that?"
+    ],
+    [
+      "agent",
+      "Ok. Let me see if I can help."
+    ],
+    [
+      "agent",
+      "One moment."
+    ],
+    [
+      "agent",
+      "What is your full name or account ID?"
+    ],
+    [
+      "customer",
+      "My name is Alessandro Phoenix and my account id is AFEQXLXZUI"
+    ],
+    [
+      "action",
+      "Account has been pulled up for Alessandro Phoenix."
+    ],
+    [
+      "agent",
+      "Thanks. I have pulled up your account, Alessandro. What is your username, email address, and order ID?"
+    ],
+    [
+      "customer",
+      "alessandrophoenix362, alessandrophoenix362@email.com, and 9396456204"
+    ],
+    [
+      "action",
+      "Purchase validation in progress ..."
+    ],
+    [
+      "agent",
+      "Thanks, I have validated your purchase."
+    ],
+    [
+      "agent",
+      "What is the shipping status?"
+    ],
+    [
+      "customer",
+      "Okay, so what is up with my shipping fee?"
+    ],
+    [
+      "customer",
+      "It's out for delivery now"
+    ],
+    [
+      "action",
+      "Shipping status of Out for Delivery has been noted."
+    ],
+    [
+      "action",
+      "A refund has been made for the amount of $8."
+    ],
+    [
+      "agent",
+      "I have refunded you a portion of the shipping charges. Hope this helps."
+    ],
+    [
+      "customer",
+      "Okay thanks - yes it helps"
+    ],
+    [
+      "agent",
+      "Great! Anything else I can help with?"
+    ],
+    [
+      "customer",
+      "That is it for today"
+    ],
+    [
+      "customer",
+      "Thanks!"
+    ],
+    [
+      "agent",
+      "You're welcome. Have a great day!"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "welcome to acmebrands. how may i help you?",
+      "turn_count": 1,
+      "targets": [
+        "cost",
+        "retrieve_utterance",
+        null,
+        [],
+        10
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "good day",
+      "turn_count": 2,
+      "targets": [
+        "cost",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i am checking on a shipping issue",
+      "turn_count": 3,
+      "targets": [
+        "cost",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i am being charged a pretty high amount",
+      "turn_count": 4,
+      "targets": [
+        "cost",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "can someone look into that?",
+      "turn_count": 5,
+      "targets": [
+        "cost",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok. let me see if i can help.",
+      "turn_count": 6,
+      "targets": [
+        "cost",
+        "retrieve_utterance",
+        null,
+        [],
+        69
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "one moment.",
+      "turn_count": 7,
+      "targets": [
+        "cost",
+        "retrieve_utterance",
+        null,
+        [],
+        26
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "what is your full name or account id?",
+      "turn_count": 8,
+      "targets": [
+        "cost",
+        "retrieve_utterance",
+        null,
+        [],
+        28
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "my name is alessandro phoenix and my account id is <account_id>",
+      "turn_count": 9,
+      "targets": [
+        "cost",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for alessandro phoenix.",
+      "turn_count": 10,
+      "targets": [
+        "cost",
+        "take_action",
+        "pull-up-account",
+        [
+          "alessandro phoenix"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thanks. i have pulled up your account, alessandro. what is your username, email address, and order id?",
+      "turn_count": 11,
+      "targets": [
+        "cost",
+        "retrieve_utterance",
+        null,
+        [],
+        3
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "<username>, <email>, and <order_id>",
+      "turn_count": 12,
+      "targets": [
+        "cost",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "purchase validation in progress ...",
+      "turn_count": 13,
+      "targets": [
+        "cost",
+        "take_action",
+        "validate-purchase",
+        [
+          "alessandrophoenix362",
+          "alessandrophoenix362@email.com",
+          "9396456204"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thanks, i have validated your purchase.",
+      "turn_count": 14,
+      "targets": [
+        "cost",
+        "retrieve_utterance",
+        null,
+        [],
+        38
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "what is the shipping status?",
+      "turn_count": 15,
+      "targets": [
+        "cost",
+        "retrieve_utterance",
+        null,
+        [],
+        35
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay, so what is up with my shipping fee?",
+      "turn_count": 16,
+      "targets": [
+        "cost",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "it's out for delivery now",
+      "turn_count": 17,
+      "targets": [
+        "cost",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "shipping status of out for delivery has been noted.",
+      "turn_count": 18,
+      "targets": [
+        "cost",
+        "take_action",
+        "shipping-status",
+        [
+          "out for delivery"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "a refund has been made for the amount of $8.",
+      "turn_count": 19,
+      "targets": [
+        "cost",
+        "take_action",
+        "offer-refund",
+        [
+          "8"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i have refunded you a portion of the shipping charges. hope this helps.",
+      "turn_count": 20,
+      "targets": [
+        "cost",
+        "retrieve_utterance",
+        null,
+        [],
+        70
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay thanks - yes it helps",
+      "turn_count": 21,
+      "targets": [
+        "cost",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "great! anything else i can help with?",
+      "turn_count": 22,
+      "targets": [
+        "cost",
+        "retrieve_utterance",
+        null,
+        [],
+        73
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "that is it for today",
+      "turn_count": 23,
+      "targets": [
+        "cost",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thanks!",
+      "turn_count": 24,
+      "targets": [
+        "cost",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "you're welcome. have a great day!",
+      "turn_count": 25,
+      "targets": [
+        "cost",
+        "retrieve_utterance",
+        null,
+        [],
+        86
+      ]
+    }
+  ]
+}

@@ -1,0 +1,611 @@
+{
+  "convo_id": 1332,
+  "scenario": {
+    "personal": {
+      "customer_name": "alessandro phoenix",
+      "email": "alessandrophoenix161@email.com",
+      "member_level": "bronze",
+      "phone": "(042) 155-9422",
+      "username": "alessandrophoenix161"
+    },
+    "order": {
+      "street_address": "1818 primrose ave",
+      "full_address": "1818 primrose ave  baltimore, ny 52110",
+      "city": "baltimore",
+      "num_products": "1",
+      "products": "[{'brand': 'calvin_klein', 'product_type': 'shirt', 'amount': 84, 'image_url': 'images/calvin_klein-shirt.jpeg'}]",
+      "state": "ny",
+      "zip_code": "52110"
+    },
+    "product": {
+      "names": [
+        "calvin_klein shirt"
+      ],
+      "amounts": [
+        84
+      ]
+    },
+    "flow": "troubleshoot_site",
+    "subflow": "credit_card"
+  },
+  "original": [
+    [
+      "agent",
+      "Hi. How may I help you?"
+    ],
+    [
+      "customer",
+      "I am trying to buy something but it isn't working!"
+    ],
+    [
+      "customer",
+      "Can you help me?"
+    ],
+    [
+      "agent",
+      "Ok. I can definitely help you with that"
+    ],
+    [
+      "customer",
+      "please. so frustrating!"
+    ],
+    [
+      "agent",
+      "What exactly is the problem?"
+    ],
+    [
+      "customer",
+      "My cc is getting rejected"
+    ],
+    [
+      "customer",
+      "what can I do?"
+    ],
+    [
+      "agent",
+      "Have you tried entering your credit card info again?"
+    ],
+    [
+      "action",
+      "Agent is looking for solutions ..."
+    ],
+    [
+      "customer",
+      "Many many many times!!!"
+    ],
+    [
+      "customer",
+      "Google know my cc better than I do!"
+    ],
+    [
+      "agent",
+      "Ok. Can you try logging out of your account then back in?"
+    ],
+    [
+      "action",
+      "Agent is looking for solutions ..."
+    ],
+    [
+      "customer",
+      "hmm. I hope Google remembers my pw..."
+    ],
+    [
+      "customer",
+      "is there any other way?"
+    ],
+    [
+      "customer",
+      "I am afraid I will lose everything in my cart"
+    ],
+    [
+      "agent",
+      "Have you checked the expiration date on your cc?"
+    ],
+    [
+      "customer",
+      "Ahem"
+    ],
+    [
+      "customer",
+      "ofc"
+    ],
+    [
+      "customer",
+      "if that is all you can suggest I guess I will try logging in again"
+    ],
+    [
+      "customer",
+      "give me a minute?"
+    ],
+    [
+      "agent",
+      "sure"
+    ],
+    [
+      "customer",
+      "OH! that worked! THANK YOU!"
+    ],
+    [
+      "customer",
+      "wonder what was wrong"
+    ],
+    [
+      "agent",
+      "great! I'm glad it worked."
+    ],
+    [
+      "customer",
+      "Thanks for your help & patience"
+    ],
+    [
+      "agent",
+      "can I help you with anything else?"
+    ],
+    [
+      "customer",
+      "Nope thatis it"
+    ],
+    [
+      "agent",
+      "can I help you with anything else?"
+    ],
+    [
+      "agent",
+      "no problem"
+    ],
+    [
+      "agent",
+      "ok. bye then!"
+    ],
+    [
+      "customer",
+      "please end conversation?"
+    ],
+    [
+      "customer",
+      "good bye!"
+    ],
+    [
+      "customer",
+      "That is all I need, thanks"
+    ],
+    [
+      "customer",
+      "Are you there?"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "hi. how may i help you?",
+      "turn_count": 1,
+      "targets": [
+        "credit_card",
+        "retrieve_utterance",
+        null,
+        [],
+        48
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i am trying to buy something but it isn't working!",
+      "turn_count": 2,
+      "targets": [
+        "credit_card",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "can you help me?",
+      "turn_count": 3,
+      "targets": [
+        "credit_card",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok. i can definitely help you with that",
+      "turn_count": 4,
+      "targets": [
+        "credit_card",
+        "retrieve_utterance",
+        null,
+        [],
+        35
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "please. so frustrating!",
+      "turn_count": 5,
+      "targets": [
+        "credit_card",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "what exactly is the problem?",
+      "turn_count": 6,
+      "targets": [
+        "credit_card",
+        "retrieve_utterance",
+        null,
+        [],
+        56
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "my cc is getting rejected",
+      "turn_count": 7,
+      "targets": [
+        "credit_card",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "what can i do?",
+      "turn_count": 8,
+      "targets": [
+        "credit_card",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "have you tried entering your credit card info again?",
+      "turn_count": 9,
+      "targets": [
+        "credit_card",
+        "retrieve_utterance",
+        null,
+        [],
+        62
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "agent is looking for solutions ...",
+      "turn_count": 10,
+      "targets": [
+        "credit_card",
+        "take_action",
+        "try-again",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "many many many times!!!",
+      "turn_count": 11,
+      "targets": [
+        "credit_card",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "google know my cc better than i do!",
+      "turn_count": 12,
+      "targets": [
+        "credit_card",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok. can you try logging out of your account then back in?",
+      "turn_count": 13,
+      "targets": [
+        "credit_card",
+        "retrieve_utterance",
+        null,
+        [],
+        6
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "agent is looking for solutions ...",
+      "turn_count": 14,
+      "targets": [
+        "credit_card",
+        "take_action",
+        "log-out-in",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "hmm. i hope google remembers my pw...",
+      "turn_count": 15,
+      "targets": [
+        "credit_card",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "is there any other way?",
+      "turn_count": 16,
+      "targets": [
+        "credit_card",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i am afraid i will lose everything in my cart",
+      "turn_count": 17,
+      "targets": [
+        "credit_card",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "have you checked the expiration date on your cc?",
+      "turn_count": 18,
+      "targets": [
+        "credit_card",
+        "retrieve_utterance",
+        null,
+        [],
+        52
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ahem",
+      "turn_count": 19,
+      "targets": [
+        "credit_card",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ofc",
+      "turn_count": 20,
+      "targets": [
+        "credit_card",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "if that is all you can suggest i guess i will try logging in again",
+      "turn_count": 21,
+      "targets": [
+        "credit_card",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "give me a minute?",
+      "turn_count": 22,
+      "targets": [
+        "credit_card",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "sure",
+      "turn_count": 23,
+      "targets": [
+        "credit_card",
+        "retrieve_utterance",
+        null,
+        [],
+        92
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "oh! that worked! thank you!",
+      "turn_count": 24,
+      "targets": [
+        "credit_card",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "wonder what was wrong",
+      "turn_count": 25,
+      "targets": [
+        "credit_card",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "great! i'm glad it worked.",
+      "turn_count": 26,
+      "targets": [
+        "credit_card",
+        "retrieve_utterance",
+        null,
+        [],
+        40
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thanks for your help & patience",
+      "turn_count": 27,
+      "targets": [
+        "credit_card",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can i help you with anything else?",
+      "turn_count": 28,
+      "targets": [
+        "credit_card",
+        "retrieve_utterance",
+        null,
+        [],
+        85
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "nope thatis it",
+      "turn_count": 29,
+      "targets": [
+        "credit_card",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can i help you with anything else?",
+      "turn_count": 30,
+      "targets": [
+        "credit_card",
+        "retrieve_utterance",
+        null,
+        [],
+        33
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "no problem",
+      "turn_count": 31,
+      "targets": [
+        "credit_card",
+        "retrieve_utterance",
+        null,
+        [],
+        90
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok. bye then!",
+      "turn_count": 32,
+      "targets": [
+        "credit_card",
+        "retrieve_utterance",
+        null,
+        [],
+        49
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "please end conversation?",
+      "turn_count": 33,
+      "targets": [
+        "credit_card",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "good bye!",
+      "turn_count": 34,
+      "targets": [
+        "credit_card",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "that is all i need, thanks",
+      "turn_count": 35,
+      "targets": [
+        "credit_card",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "are you there?",
+      "turn_count": 36,
+      "targets": [
+        "credit_card",
+        null,
+        null,
+        [],
+        -1
+      ]
+    }
+  ]
+}

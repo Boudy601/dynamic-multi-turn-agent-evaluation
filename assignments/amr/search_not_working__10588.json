@@ -1,0 +1,775 @@
+{
+  "convo_id": 10588,
+  "scenario": {
+    "personal": {
+      "customer_name": "joseph banter",
+      "email": "jb410492@email.com",
+      "member_level": "bronze",
+      "phone": "(584) 009-7041",
+      "username": "jb410492"
+    },
+    "order": {
+      "street_address": "6890 kennedy st",
+      "full_address": "6890 kennedy st  baltimore, mi 28570",
+      "city": "baltimore",
+      "num_products": "1",
+      "products": "[{'brand': 'guess', 'product_type': 'jacket', 'amount': 79, 'image_url': 'images/guess-jacket.jpeg'}]",
+      "state": "mi",
+      "zip_code": "28570"
+    },
+    "product": {
+      "names": [
+        "guess jacket"
+      ],
+      "amounts": [
+        79
+      ]
+    },
+    "flow": "troubleshoot_site",
+    "subflow": "search_results"
+  },
+  "original": [
+    [
+      "agent",
+      "Hi, how may I help you?"
+    ],
+    [
+      "customer",
+      "Search is taking a long time and all I see is a spinning wheel"
+    ],
+    [
+      "customer",
+      "What the heck?!"
+    ],
+    [
+      "customer",
+      "Is the website broken or something?"
+    ],
+    [
+      "agent",
+      "No worries, I can help you with taht"
+    ],
+    [
+      "agent",
+      "that*"
+    ],
+    [
+      "agent",
+      "Just to clarify, are you talking about search not working or the website being too slow?"
+    ],
+    [
+      "customer",
+      "I'm concerned mostly about the search bar"
+    ],
+    [
+      "agent",
+      "Got it"
+    ],
+    [
+      "agent",
+      "To get started, can you please tell me what you're searching for?"
+    ],
+    [
+      "customer",
+      "It is a Guess Jacket"
+    ],
+    [
+      "action",
+      "Agent is looking for solutions ..."
+    ],
+    [
+      "agent",
+      "Can you please search for a different item first?"
+    ],
+    [
+      "agent",
+      "Perhaps a Gap Sweater"
+    ],
+    [
+      "customer",
+      "Ok"
+    ],
+    [
+      "customer",
+      "Yea, that doesn't work either"
+    ],
+    [
+      "customer",
+      "search is just broken"
+    ],
+    [
+      "agent",
+      "Ok, and it's not the wrong results, it's just no results at all?"
+    ],
+    [
+      "customer",
+      "That's correct"
+    ],
+    [
+      "action",
+      "Agent is looking for solutions ..."
+    ],
+    [
+      "agent",
+      "This might be a cookies issue"
+    ],
+    [
+      "agent",
+      "Can you go into browser preferences and clear cookies for the last day?"
+    ],
+    [
+      "customer",
+      "That seems unlikely, but ok"
+    ],
+    [
+      "customer",
+      "OK, just tried it and that doesn't work either -- as expected."
+    ],
+    [
+      "action",
+      "Agent is looking for solutions ..."
+    ],
+    [
+      "agent",
+      "Ok, can you try to log out and log back in?"
+    ],
+    [
+      "customer",
+      "Sure"
+    ],
+    [
+      "customer",
+      "Give me a minute"
+    ],
+    [
+      "customer",
+      "Ok, i'm back in"
+    ],
+    [
+      "agent",
+      "OK, and please try to search for something again?"
+    ],
+    [
+      "customer",
+      "Yea, still doesn't work"
+    ],
+    [
+      "agent",
+      "Ok, I just tried on the public website, and I think you're right that there might be some issue"
+    ],
+    [
+      "action",
+      "The website team has been notified."
+    ],
+    [
+      "agent",
+      "I have notified the website team so they can do something about it"
+    ],
+    [
+      "agent",
+      "In the meantime, I can go ahead and place the order for the Guess Jacket for you directly from my end if you'd like"
+    ],
+    [
+      "customer",
+      "Ok, that would be great"
+    ],
+    [
+      "agent",
+      "To do that, could you please start by giving me your credit card number?"
+    ],
+    [
+      "customer",
+      "Sure, it's 4532 8910 2345 6789"
+    ],
+    [
+      "agent",
+      "Thanks! And what is the expiration date on the card?"
+    ],
+    [
+      "customer",
+      "It's 08/26"
+    ],
+    [
+      "action",
+      "A purchase of Guess Jacket was made."
+    ],
+    [
+      "agent",
+      "All set! I have completed the purchase of the Guess Jacket for you."
+    ],
+    [
+      "customer",
+      "OK, that's great"
+    ],
+    [
+      "customer",
+      "Thanks so much!"
+    ],
+    [
+      "agent",
+      "No problem, thanks for being a valued member of AcmeBrands"
+    ],
+    [
+      "agent",
+      "Have a nice day!"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "hi, how may i help you?",
+      "turn_count": 1,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "search is taking a long time and all i see is a spinning wheel",
+      "turn_count": 2,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "what the heck?!",
+      "turn_count": 3,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "is the website broken or something?",
+      "turn_count": 4,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "no worries, i can help you with taht",
+      "turn_count": 5,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "that*",
+      "turn_count": 6,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "just to clarify, are you talking about search not working or the website being too slow?",
+      "turn_count": 7,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i'm concerned mostly about the search bar",
+      "turn_count": 8,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "got it",
+      "turn_count": 9,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "to get started, can you please tell me what you're searching for?",
+      "turn_count": 10,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "it is a guess jacket",
+      "turn_count": 11,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "agent is looking for solutions ...",
+      "turn_count": 12,
+      "targets": [
+        "search_results",
+        null,
+        "try-again",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can you please search for a different item first?",
+      "turn_count": 13,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "perhaps a gap sweater",
+      "turn_count": 14,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok",
+      "turn_count": 15,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yea, that doesn't work either",
+      "turn_count": 16,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "search is just broken",
+      "turn_count": 17,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok, and it's not the wrong results, it's just no results at all?",
+      "turn_count": 18,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "that's correct",
+      "turn_count": 19,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "agent is looking for solutions ...",
+      "turn_count": 20,
+      "targets": [
+        "search_results",
+        null,
+        "instructions",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "this might be a cookies issue",
+      "turn_count": 21,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can you go into browser preferences and clear cookies for the last day?",
+      "turn_count": 22,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "that seems unlikely, but ok",
+      "turn_count": 23,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok, just tried it and that doesn't work either -- as expected.",
+      "turn_count": 24,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "agent is looking for solutions ...",
+      "turn_count": 25,
+      "targets": [
+        "search_results",
+        null,
+        "log-out-in",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok, can you try to log out and log back in?",
+      "turn_count": 26,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "sure",
+      "turn_count": 27,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "give me a minute",
+      "turn_count": 28,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok, i'm back in",
+      "turn_count": 29,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok, and please try to search for something again?",
+      "turn_count": 30,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yea, still doesn't work",
+      "turn_count": 31,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok, i just tried on the public website, and i think you're right that there might be some issue",
+      "turn_count": 32,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "the website team has been notified.",
+      "turn_count": 33,
+      "targets": [
+        "search_results",
+        null,
+        "notify-team",
+        [
+          "website team"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i have notified the website team so they can do something about it",
+      "turn_count": 34,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "in the meantime, i can go ahead and place the order for the guess jacket for you directly from my end if you'd like",
+      "turn_count": 35,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok, that would be great",
+      "turn_count": 36,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "to do that, could you please start by giving me your credit card number?",
+      "turn_count": 37,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "sure, it's 4532 8910 2345 6789",
+      "turn_count": 38,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thanks! and what is the expiration date on the card?",
+      "turn_count": 39,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "it's 08/26",
+      "turn_count": 40,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "a purchase of guess jacket was made.",
+      "turn_count": 41,
+      "targets": [
+        "search_results",
+        null,
+        "make-purchase",
+        [
+          "guess jacket"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "all set! i have completed the purchase of the guess jacket for you.",
+      "turn_count": 42,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok, that's great",
+      "turn_count": 43,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thanks so much!",
+      "turn_count": 44,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "no problem, thanks for being a valued member of acmebrands",
+      "turn_count": 45,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "have a nice day!",
+      "turn_count": 46,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    }
+  ]
+}

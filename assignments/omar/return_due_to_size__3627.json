@@ -1,0 +1,867 @@
+{
+  "convo_id": 3627,
+  "scenario": {
+    "personal": {
+      "customer_name": "alessandro phoenix",
+      "email": "alessandrophoenix377@email.com",
+      "member_level": "guest",
+      "phone": "(963) 849-7399",
+      "username": "alessandrophoenix377"
+    },
+    "order": {
+      "street_address": "8067 woodshore st",
+      "full_address": "8067 woodshore st  raleigh, ca 5093",
+      "city": "raleigh",
+      "num_products": "1",
+      "order_id": "0679599923",
+      "packaging": "no",
+      "payment_method": "debit card",
+      "products": "[{'brand': 'tommy_hilfiger', 'product_type': 'shirt', 'amount': 64, 'image_url': 'images/tommy_hilfiger-shirt.jpeg'}]",
+      "purchase_date": "2020-03-29",
+      "state": "ca",
+      "zip_code": "5093"
+    },
+    "product": {
+      "names": [
+        "tommy_hilfiger shirt"
+      ],
+      "amounts": [
+        64
+      ]
+    },
+    "flow": "product_defect",
+    "subflow": "return_size"
+  },
+  "original": [
+    [
+      "customer",
+      "Hey"
+    ],
+    [
+      "customer",
+      "Can you help me?"
+    ],
+    [
+      "agent",
+      "Hi"
+    ],
+    [
+      "agent",
+      "Of course I can  help you"
+    ],
+    [
+      "agent",
+      "What is the issue"
+    ],
+    [
+      "customer",
+      "I ordered this amazing Tommy Hilfiger shirt from your site. It looks so cool. But I ordered an XS by mistake. I actually am a large. I need to return the shirt"
+    ],
+    [
+      "customer",
+      "It's your $64 tommy hilfiger shirt"
+    ],
+    [
+      "agent",
+      "I am sorry for the inconvenience"
+    ],
+    [
+      "customer",
+      "it's my fault"
+    ],
+    [
+      "customer",
+      "you don't need to apologize"
+    ],
+    [
+      "customer",
+      "i just clicked the wrong button, you know?"
+    ],
+    [
+      "agent",
+      "Can I get your full name or account id"
+    ],
+    [
+      "customer",
+      "Alessandro Phoenix"
+    ],
+    [
+      "action",
+      "Account has been pulled up for Alessandro Phoenix."
+    ],
+    [
+      "agent",
+      "Now I need to validate your purchase"
+    ],
+    [
+      "customer",
+      "okay"
+    ],
+    [
+      "agent",
+      "Give me your username, email and order id"
+    ],
+    [
+      "customer",
+      "alessandrophoenix377"
+    ],
+    [
+      "customer",
+      "alessandrophoenix377@email.com"
+    ],
+    [
+      "customer",
+      "0679599923"
+    ],
+    [
+      "action",
+      "Purchase validation in progress ..."
+    ],
+    [
+      "agent",
+      "Validated"
+    ],
+    [
+      "agent",
+      "What is you membership level?"
+    ],
+    [
+      "customer",
+      "I'm a guest"
+    ],
+    [
+      "agent",
+      "okay"
+    ],
+    [
+      "agent",
+      "What is the purchase date?"
+    ],
+    [
+      "customer",
+      "I bought the shirt on March 29th"
+    ],
+    [
+      "agent",
+      "Or do you have the receipt with you?"
+    ],
+    [
+      "customer",
+      "Yes"
+    ],
+    [
+      "customer",
+      "But I threw out the packaging"
+    ],
+    [
+      "customer",
+      "sorry"
+    ],
+    [
+      "action",
+      "Membership level of guest has been noted."
+    ],
+    [
+      "agent",
+      "You are eligible. You can make a return"
+    ],
+    [
+      "customer",
+      "okay great"
+    ],
+    [
+      "agent",
+      "I need your full address"
+    ],
+    [
+      "customer",
+      "8067 Woodshore St  Raleigh, CA 5093"
+    ],
+    [
+      "agent",
+      "Good"
+    ],
+    [
+      "action",
+      "Details of 8067 Woodshore St Raleigh, CA 5093 have been entered."
+    ],
+    [
+      "agent",
+      "How would you like to process the return? By mail, In store or Drop off center?"
+    ],
+    [
+      "customer",
+      "I can return it in the store"
+    ],
+    [
+      "action",
+      "Order has been updated with In store."
+    ],
+    [
+      "agent",
+      "All completed"
+    ],
+    [
+      "customer",
+      "so how do I return it?"
+    ],
+    [
+      "agent",
+      "I have initiated the return process. You will just print out the shipping label for your return and bring the shirt to the store"
+    ],
+    [
+      "customer",
+      "okay"
+    ],
+    [
+      "customer",
+      "i can do that"
+    ],
+    [
+      "customer",
+      "thanks for your help"
+    ],
+    [
+      "agent",
+      "The return process should be easy from there"
+    ],
+    [
+      "agent",
+      "You are welcome"
+    ],
+    [
+      "agent",
+      "Would this be all for today?"
+    ],
+    [
+      "customer",
+      "yes"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "customer",
+      "text": "hey",
+      "turn_count": 1,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "can you help me?",
+      "turn_count": 2,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "hi",
+      "turn_count": 3,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "of course i can  help you",
+      "turn_count": 4,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "what is the issue",
+      "turn_count": 5,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i ordered this amazing tommy hilfiger shirt from your site. it looks so cool. but i ordered an xs by mistake. i actually am a large. i need to return the shirt",
+      "turn_count": 6,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "it's your $64 tommy hilfiger shirt",
+      "turn_count": 7,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i am sorry for the inconvenience",
+      "turn_count": 8,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "it's my fault",
+      "turn_count": 9,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "you don't need to apologize",
+      "turn_count": 10,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i just clicked the wrong button, you know?",
+      "turn_count": 11,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can i get your full name or account id",
+      "turn_count": 12,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "alessandro phoenix",
+      "turn_count": 13,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for alessandro phoenix.",
+      "turn_count": 14,
+      "targets": [
+        "return_size",
+        null,
+        "pull-up-account",
+        [
+          "alessandro phoenix"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "now i need to validate your purchase",
+      "turn_count": 15,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay",
+      "turn_count": 16,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "give me your username, email and order id",
+      "turn_count": 17,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "alessandrophoenix377",
+      "turn_count": 18,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "alessandrophoenix377@email.com",
+      "turn_count": 19,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "0679599923",
+      "turn_count": 20,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "purchase validation in progress ...",
+      "turn_count": 21,
+      "targets": [
+        "return_size",
+        null,
+        "validate-purchase",
+        [
+          "alessandrophoenix377",
+          "alessandrophoenix377@email.com",
+          "0679599923"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "validated",
+      "turn_count": 22,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "what is you membership level?",
+      "turn_count": 23,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i'm a guest",
+      "turn_count": 24,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "okay",
+      "turn_count": 25,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "what is the purchase date?",
+      "turn_count": 26,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i bought the shirt on march 29th",
+      "turn_count": 27,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "or do you have the receipt with you?",
+      "turn_count": 28,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yes",
+      "turn_count": 29,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "but i threw out the packaging",
+      "turn_count": 30,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "sorry",
+      "turn_count": 31,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "membership level of guest has been noted.",
+      "turn_count": 32,
+      "targets": [
+        "return_size",
+        null,
+        "membership",
+        [
+          "guest"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "you are eligible. you can make a return",
+      "turn_count": 33,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay great",
+      "turn_count": 34,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i need your full address",
+      "turn_count": 35,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "8067 woodshore st  raleigh, ca 5093",
+      "turn_count": 36,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "good",
+      "turn_count": 37,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "details of 8067 woodshore st raleigh, ca 5093 have been entered.",
+      "turn_count": 38,
+      "targets": [
+        "return_size",
+        null,
+        "enter-details",
+        [
+          "8067 woodshore st raleigh, ca 5093"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "how would you like to process the return? by mail, in store or drop off center?",
+      "turn_count": 39,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i can return it in the store",
+      "turn_count": 40,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "order has been updated with in store.",
+      "turn_count": 41,
+      "targets": [
+        "return_size",
+        null,
+        "update-order",
+        [
+          "in store"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "all completed",
+      "turn_count": 42,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "so how do i return it?",
+      "turn_count": 43,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i have initiated the return process. you will just print out the shipping label for your return and bring the shirt to the store",
+      "turn_count": 44,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay",
+      "turn_count": 45,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i can do that",
+      "turn_count": 46,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thanks for your help",
+      "turn_count": 47,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "the return process should be easy from there",
+      "turn_count": 48,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "you are welcome",
+      "turn_count": 49,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "would this be all for today?",
+      "turn_count": 50,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yes",
+      "turn_count": 51,
+      "targets": [
+        "return_size",
+        null,
+        null,
+        [],
+        -1
+      ]
+    }
+  ]
+}

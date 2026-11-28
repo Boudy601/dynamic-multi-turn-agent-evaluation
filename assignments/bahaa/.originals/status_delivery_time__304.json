@@ -1,0 +1,558 @@
+{
+  "convo_id": 304,
+  "scenario": {
+    "personal": {
+      "account_id": "o5rknk6eoy",
+      "customer_name": "rodriguez domingo",
+      "member_level": "gold",
+      "phone": "(061) 427-6842"
+    },
+    "order": {
+      "street_address": "7127 woodshore st",
+      "full_address": "7127 woodshore st  monterey, ca 30688",
+      "city": "monterey",
+      "num_products": "1",
+      "order_id": "2655303633",
+      "products": "[{'brand': 'tommy_hilfiger', 'product_type': 'boots', 'amount': 74, 'image_url': 'images/tommy_hilfiger-boots.jpeg'}]",
+      "shipping_status": "in transit",
+      "state": "ca",
+      "zip_code": "30688"
+    },
+    "product": {
+      "names": [
+        "tommy_hilfiger boots"
+      ],
+      "amounts": [
+        74
+      ]
+    },
+    "flow": "order_issue",
+    "subflow": "status_delivery_date"
+  },
+  "original": [
+    [
+      "agent",
+      "Hello"
+    ],
+    [
+      "agent",
+      "How can I help you?"
+    ],
+    [
+      "customer",
+      "Hi, my ordered boots doesn't fit me."
+    ],
+    [
+      "customer",
+      "it hurts"
+    ],
+    [
+      "agent",
+      "I am sorry to hear that. I will be glad to help you."
+    ],
+    [
+      "agent",
+      "Could I have your full name or account id to pull up your account?"
+    ],
+    [
+      "customer",
+      "Name: Rodriguez Domingo"
+    ],
+    [
+      "action",
+      "Account has been pulled up for Rodriguez Domingo."
+    ],
+    [
+      "customer",
+      "Order ID: 2655303633"
+    ],
+    [
+      "agent",
+      "Could also have your username and email address?"
+    ],
+    [
+      "customer",
+      "I am sorry I haven't"
+    ],
+    [
+      "agent",
+      "Could you tell me the membership level and the day of purchase?"
+    ],
+    [
+      "customer",
+      "Gold"
+    ],
+    [
+      "agent",
+      "Ok"
+    ],
+    [
+      "agent",
+      "I will need your shipping address"
+    ],
+    [
+      "customer",
+      "ok"
+    ],
+    [
+      "customer",
+      "my adress is 7127 Woodshore St  Monterey, CA 30688"
+    ],
+    [
+      "action",
+      "Purchase validation in progress ..."
+    ],
+    [
+      "action",
+      "Details of 7127 Woodshore St Monterey, CA 30688 have been entered."
+    ],
+    [
+      "agent",
+      "Where you would you like to drop off the package?"
+    ],
+    [
+      "agent",
+      "it can by mail"
+    ],
+    [
+      "agent",
+      "in store"
+    ],
+    [
+      "agent",
+      " or ups drop off center"
+    ],
+    [
+      "customer",
+      "ok How can I drop off the package"
+    ],
+    [
+      "customer",
+      "in store is good for me"
+    ],
+    [
+      "agent",
+      "Just take it to the store in Monterey, CA"
+    ],
+    [
+      "customer",
+      "ok thank you very much"
+    ],
+    [
+      "action",
+      "Order has been updated with In Store."
+    ],
+    [
+      "agent",
+      "Is there anything else I can help you with?"
+    ],
+    [
+      "customer",
+      "no thank you"
+    ],
+    [
+      "customer",
+      "bye"
+    ],
+    [
+      "agent",
+      "Have a nice day"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "hello",
+      "turn_count": 1,
+      "targets": [
+        "status_delivery_time",
+        "retrieve_utterance",
+        null,
+        [],
+        84
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "how can i help you?",
+      "turn_count": 2,
+      "targets": [
+        "status_delivery_time",
+        "retrieve_utterance",
+        null,
+        [],
+        17
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "hi, my ordered boots doesn't fit me.",
+      "turn_count": 3,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "it hurts",
+      "turn_count": 4,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i am sorry to hear that. i will be glad to help you.",
+      "turn_count": 5,
+      "targets": [
+        "status_delivery_time",
+        "retrieve_utterance",
+        null,
+        [],
+        6
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "could i have your full name or account id to pull up your account?",
+      "turn_count": 6,
+      "targets": [
+        "status_delivery_time",
+        "retrieve_utterance",
+        null,
+        [],
+        80
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "name: rodriguez domingo",
+      "turn_count": 7,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for rodriguez domingo.",
+      "turn_count": 8,
+      "targets": [
+        "status_delivery_time",
+        "take_action",
+        "pull-up-account",
+        [
+          "rodriguez domingo"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "order id: <order_id>",
+      "turn_count": 9,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "could also have your username and email address?",
+      "turn_count": 10,
+      "targets": [
+        "status_delivery_time",
+        "retrieve_utterance",
+        null,
+        [],
+        46
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i am sorry i haven't",
+      "turn_count": 11,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "could you tell me the membership level and the day of purchase?",
+      "turn_count": 12,
+      "targets": [
+        "status_delivery_time",
+        "retrieve_utterance",
+        null,
+        [],
+        13
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "gold",
+      "turn_count": 13,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok",
+      "turn_count": 14,
+      "targets": [
+        "status_delivery_time",
+        "retrieve_utterance",
+        null,
+        [],
+        15
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i will need your shipping address",
+      "turn_count": 15,
+      "targets": [
+        "status_delivery_time",
+        "retrieve_utterance",
+        null,
+        [],
+        45
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok",
+      "turn_count": 16,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "my adress is <street_address>  monterey, ca <zip_code>",
+      "turn_count": 17,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "purchase validation in progress ...",
+      "turn_count": 18,
+      "targets": [
+        "status_delivery_time",
+        "take_action",
+        "validate-purchase",
+        [
+          "n/a",
+          "n/a",
+          "2655303633"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "details of <street_address> monterey, ca <zip_code> have been entered.",
+      "turn_count": 19,
+      "targets": [
+        "status_delivery_time",
+        "take_action",
+        "enter-details",
+        [
+          "7127 woodshore st monterey"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "where you would you like to drop off the package?",
+      "turn_count": 20,
+      "targets": [
+        "status_delivery_time",
+        "retrieve_utterance",
+        null,
+        [],
+        60
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "it can by mail",
+      "turn_count": 21,
+      "targets": [
+        "status_delivery_time",
+        "retrieve_utterance",
+        null,
+        [],
+        17
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "in store",
+      "turn_count": 22,
+      "targets": [
+        "status_delivery_time",
+        "retrieve_utterance",
+        null,
+        [],
+        86
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": " or ups drop off center",
+      "turn_count": 23,
+      "targets": [
+        "status_delivery_time",
+        "retrieve_utterance",
+        null,
+        [],
+        8
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok how can i drop off the package",
+      "turn_count": 24,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "in store is good for me",
+      "turn_count": 25,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "just take it to the store in monterey, ca",
+      "turn_count": 26,
+      "targets": [
+        "status_delivery_time",
+        "retrieve_utterance",
+        null,
+        [],
+        5
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok thank you very much",
+      "turn_count": 27,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "order has been updated with in store.",
+      "turn_count": 28,
+      "targets": [
+        "status_delivery_time",
+        "take_action",
+        "update-order",
+        [
+          "in store"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "is there anything else i can help you with?",
+      "turn_count": 29,
+      "targets": [
+        "status_delivery_time",
+        "retrieve_utterance",
+        null,
+        [],
+        34
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no thank you",
+      "turn_count": 30,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "bye",
+      "turn_count": 31,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "have a nice day",
+      "turn_count": 32,
+      "targets": [
+        "status_delivery_time",
+        "retrieve_utterance",
+        null,
+        [],
+        46
+      ]
+    }
+  ]
+}

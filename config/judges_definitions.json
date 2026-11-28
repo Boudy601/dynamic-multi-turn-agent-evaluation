@@ -1,0 +1,218 @@
+{
+  "factual_hallucination": {
+    "level": "L5",
+    "dimension_node_name": "factual_hallucination",
+    "aggregation_role": "Atomic Judge",
+    "evaluation_rule_contract": {
+      "scope": "Verifies factual consistency and truthfulness of all agent surface-text statements against the single versioned context store (merchant product catalog, FAQ, price lists, inventory records, policies, and pre-chat scenario state).",
+      "logic": "Y if the agent: (1) fabricates unverified product attributes, prices, stock availability, or policy rules not present in the context store, (2) distorts, miscalculates, or misquotes numerical values, dates, or conditions from retrieved KB/scenario records, (3) states facts that directly contradict pre-chat customer/order database records, or (4) makes unauthorized promises or guarantees unsupported by merchant documentation; else N."
+    }
+  },
+  "procedure_following": {
+    "level": "L5",
+    "dimension_node_name": "procedure_following",
+    "aggregation_role": "Atomic Judge",
+    "evaluation_rule_contract": {
+      "scope": "Evaluates strict step-by-step adherence to merchant-authored operating procedures (SOPs), including ordered information-gathering, identity authentication rules, conditional branching, and communication formatting constraints.",
+      "logic": "Y if the agent: (1) omits mandatory prerequisites or identity verification steps before disclosing sensitive data or executing actions, (2) executes ordered procedural steps or UI workflows out of sequence, (3) applies the wrong SOP branch for the customer's membership tier, order status, or intent flow, or (4) violates explicit SOP communication rules (e.g., copy-pasting raw system text when natural-language explanation is mandated, or skipping required probing questions); else N."
+    }
+  },
+  "action_accuracy": {
+    "level": "L4",
+    "dimension_node_name": "action_accuracy",
+    "aggregation_role": "Atomic Judge",
+    "evaluation_rule_contract": {
+      "scope": "Validates the execution correctness of backend tool calls, UI/system actions, retrieval queries, API payloads, parameter extraction, and internal routing.",
+      "logic": "Y if the agent: (1) selects the wrong tool, UI toggle, or FAQ answer option for the customer's query, (2) constructs a malformed payload schema or passes invalid/corrupted parameters (e.g., wrong order ID, item category, or dollar amount), (3) fails to invoke a required lookup/search action before answering or acting, (4) executes an unintended state-mutating action, or (5) fails to revert/clean up an erroneous system state (e.g., not hiding an incorrect view when required); else N."
+    }
+  },
+  "composite_hallucination": {
+    "level": "L3",
+    "dimension_node_name": "composite_hallucination",
+    "aggregation_role": "Intermediate Composite",
+    "evaluation_rule_contract": {
+      "scope": "Aggregates high-order fabrication and execution unfaithfulness across both backend tool/API actions and surface-text factual statements.",
+      "logic": "L4_action_accuracy ∨ L5_factual_hallucination"
+    }
+  },
+  "modality_limitation": {
+    "level": "L3",
+    "dimension_node_name": "modality_limitation",
+    "aggregation_role": "Atomic Judge",
+    "evaluation_rule_contract": {
+      "scope": "Evaluates whether the interaction failed due to the agent's inability to properly process supported non-text media inputs or its failure to gracefully handle unsupported customer media attachments (e.g., images, receipts, PDFs, audio, links).",
+      "logic": "Y if the agent: (1) fails to parse, extract information from, or appropriately respond to a supported media attachment, (2) hallucinates or guesses the contents of an unreadable/unsupported attachment instead of acknowledging the modality limitation, or (3) completely ignores a customer-supplied attachment without offering a text-based workaround; else N."
+    }
+  },
+  "missing_data": {
+    "level": "L3",
+    "dimension_node_name": "missing_data",
+    "aggregation_role": "Atomic Judge",
+    "evaluation_rule_contract": {
+      "scope": "Decomposes the dialogue into discrete user asks (excluding greetings and pleasantries) to identify valid queries that could not be resolved because required product, pricing, policy, or procedural records are absent from the merchant context store, accounting for valid business exemptions.",
+      "logic": "Y if at least one discrete, valid user ask cannot be answered because the required grounding information is verifiably absent from the merchant KB/SOP documentation and no policy exemption applies; else N."
+    }
+  },
+  "data_conflict": {
+    "level": "L3",
+    "dimension_node_name": "data_conflict",
+    "aggregation_role": "Atomic Judge",
+    "evaluation_rule_contract": {
+      "scope": "Identifies discrete user queries that are unresolvable or lead to ambiguous execution due to internal contradictions within or across merchant-supplied KB articles, catalogs, or SOP manuals in the context store.",
+      "logic": "Y if merchant documentation in the context store contains mutually contradictory values, policies, or procedural instructions for the customer's specific query; else N."
+    }
+  },
+  "intent_understanding": {
+    "level": "L3",
+    "dimension_node_name": "intent_understanding",
+    "aggregation_role": "Atomic Judge",
+    "evaluation_rule_contract": {
+      "scope": "Evaluates conversational state tracking, discrete intent extraction, entity/referent disambiguation, constraint adherence, and context retention across turns.",
+      "logic": "Y if the agent: (1) misinterprets the core request or maps it to the wrong intent, (2) drops or ignores a sub-goal in a multi-part customer request, (3) fails to disambiguate between multiple entities/orders/items before acting or assumes the wrong referent, (4) contradicts an earlier commitment or violates user-stated constraints established in prior turns, or (5) loops repetitively, re-asks for information already provided, or fails to notice the customer repeating themselves due to being unhelpful; else N."
+    }
+  },
+  "spam_handling": {
+    "level": "L3",
+    "dimension_node_name": "spam_handling",
+    "aggregation_role": "Atomic Judge",
+    "evaluation_rule_contract": {
+      "scope": "Identifies abusive, adversarial (prompt injection/penetration attempts), gibberish, trolling, or completely out-of-scope customer trajectories and evaluates whether the conversation is an invalid/spam interaction.",
+      "logic": "Y if the customer trajectory consists of out-of-scope spam, profanity/abuse, adversarial manipulation, or nonsensical gibberish rather than a valid business inquiry; else N."
+    }
+  },
+  "task_closure": {
+    "level": "—",
+    "dimension_node_name": "task_closure",
+    "aggregation_role": "Atomic Judge",
+    "evaluation_rule_contract": {
+      "scope": "Detects complete, verified resolution of all valid discrete customer asks (or successful execution of the required terminal procedural action) across the conversation trajectory.",
+      "logic": "Y if all valid discrete customer goals are demonstrably resolved (and not prematurely truncated by the agent) or the customer explicitly confirms completion; else N."
+    }
+  },
+  "intent_clearness": {
+    "level": "—",
+    "dimension_node_name": "intent_clearness",
+    "aggregation_role": "Atomic Judge",
+    "evaluation_rule_contract": {
+      "scope": "Assesses whether the customer's underlying goal was sufficiently clear from the outset or successfully disambiguated during the multi-turn interaction.",
+      "logic": "Y if the customer's core intent is unambiguous or becomes clear through conversational clarification; N if the request remains vague, underspecified, or incoherent through the end of the dialogue."
+    }
+  },
+  "alternative_guidance": {
+    "level": "—",
+    "dimension_node_name": "alternative_guidance",
+    "aggregation_role": "Atomic Judge",
+    "evaluation_rule_contract": {
+      "scope": "Checks whether the agent provided constructive fallback options, valid secondary steps, substitute recommendations, or clear policy explanations when direct fulfillment of the primary goal was blocked.",
+      "logic": "Y if direct completion was blocked (by policy, stock, or missing data) and the agent delivered accurate, actionable fallback guidance or alternatives instead of a dead-end refusal; else N."
+    }
+  },
+  "good_handoff": {
+    "level": "—",
+    "dimension_node_name": "good_handoff",
+    "aggregation_role": "Atomic Judge",
+    "evaluation_rule_contract": {
+      "scope": "Evaluates the appropriateness, timing, procedural compliance, and context preservation when escalating or transferring the customer to a live human representative.",
+      "logic": "Y if escalation is warranted (by SOP, capability/knowledge gap, or valid user request) and the agent follows transfer protocol while accurately summarizing/passing conversation context; N if the agent escalates prematurely when it could resolve the issue, refuses a mandatory escalation, or transfers without required context/protocol."
+    }
+  },
+  "Model-Capability Gap (ACG)": {
+    "level": "Aggregate",
+    "dimension_node_name": "Model-Capability Gap (ACG)",
+    "aggregation_role": "Root-Cause Composite",
+    "evaluation_rule_contract": {
+      "scope": "Aggregates all model-side reasoning, procedural, action/retrieval, modality, and conversational understanding failures.",
+      "logic": "⋁{L5_procedure_following, L4_action_accuracy, L3_composite_hallucination, L3_intent_understanding, L3_modality_limitation}"
+    }
+  },
+  "Knowledge-Coverage Gap (BIG)": {
+    "level": "Aggregate",
+    "dimension_node_name": "Knowledge-Coverage Gap (BIG)",
+    "aggregation_role": "Root-Cause Composite",
+    "evaluation_rule_contract": {
+      "scope": "Aggregates all merchant-side knowledge deficiencies, missing KB records, and documentation conflicts.",
+      "logic": "⋁{L3_missing_data, L3_data_conflict}"
+    }
+  },
+  "Full Resolution": {
+    "level": "L2",
+    "dimension_node_name": "Full Resolution",
+    "aggregation_role": "Terminal State (1 of 7)",
+    "evaluation_rule_contract": {
+      "scope": "All valid customer goals were completely resolved without model or knowledge defects, verified by task closure.",
+      "logic": "¬ACG ∧ ¬BIG ∧ task_closure ∧ intent_clearness"
+    }
+  },
+  "Partial Resolution": {
+    "level": "L2",
+    "dimension_node_name": "Partial Resolution",
+    "aggregation_role": "Terminal State (2 of 7)",
+    "evaluation_rule_contract": {
+      "scope": "Execution was free of model and knowledge defects, but the dialogue ended without full direct task closure, mitigated by valid alternative guidance or a proper human handoff.",
+      "logic": "¬ACG ∧ ¬BIG ∧ ¬task_closure ∧ (alternative_guidance ∨ good_handoff)"
+    }
+  },
+  "Invalid Conversation Handled": {
+    "level": "L2",
+    "dimension_node_name": "Invalid Conversation Handled",
+    "aggregation_role": "Terminal State (3 of 7)",
+    "evaluation_rule_contract": {
+      "scope": "Conversation consisted of spam, abuse, adversarial input, or unclear/nonsensical intent and was safely deflected or handled without model failure.",
+      "logic": "(spam_handling ∨ ¬intent_clearness) ∧ ¬ACG ∧ ¬task_closure"
+    }
+  },
+  "Unfinished Conversation Handled": {
+    "level": "L2",
+    "dimension_node_name": "Unfinished Conversation Handled",
+    "aggregation_role": "Terminal State (4 of 7)",
+    "evaluation_rule_contract": {
+      "scope": "Customer abruptly abandoned an otherwise defect-free dialogue; handled gracefully by the agent up to the drop-off turn.",
+      "logic": "¬ACG ∧ ¬BIG ∧ ¬task_closure ∧ ¬spam_handling ∧ intent_clearness ∧ user_dropoff"
+    }
+  },
+  "Model-Capability Gap Only": {
+    "level": "L2",
+    "dimension_node_name": "Model-Capability Gap Only",
+    "aggregation_role": "Terminal State (5 of 7)",
+    "evaluation_rule_contract": {
+      "scope": "Failure attributable strictly to model reasoning, intent tracking, action/retrieval execution, modality handling, procedural breach, or hallucination.",
+      "logic": "ACG ∧ ¬BIG"
+    }
+  },
+  "Knowledge-Coverage Gap Only": {
+    "level": "L2",
+    "dimension_node_name": "Knowledge-Coverage Gap Only",
+    "aggregation_role": "Terminal State (6 of 7)",
+    "evaluation_rule_contract": {
+      "scope": "Failure attributable strictly to absent or contradictory merchant KB/SOP documentation.",
+      "logic": "BIG ∧ ¬ACG"
+    }
+  },
+  "Both Gaps": {
+    "level": "L2",
+    "dimension_node_name": "Both Gaps",
+    "aggregation_role": "Terminal State (7 of 7)",
+    "evaluation_rule_contract": {
+      "scope": "Simultaneous breakdown of model execution/capability and missing or conflicting business documentation.",
+      "logic": "ACG ∧ BIG"
+    }
+  },
+  "Conversation Failure": {
+    "level": "L1",
+    "dimension_node_name": "Conversation Failure",
+    "aggregation_role": "Binary Health KPI",
+    "evaluation_rule_contract": {
+      "scope": "Topline failure classification across all actionable root causes (model-capability and knowledge-coverage gaps).",
+      "logic": "L2_Model-Capability Gap Only ∨ L2_Knowledge-Coverage Gap Only ∨ L2_Both Gaps"
+    }
+  },
+  "Conversation Success": {
+    "level": "L1",
+    "dimension_node_name": "Conversation Success",
+    "aggregation_role": "Binary Health KPI",
+    "evaluation_rule_contract": {
+      "scope": "Topline defect-free interaction classification across resolved, partially resolved, and properly handled invalid/unfinished trajectories.",
+      "logic": "¬L1_Conversation Failure"
+    }
+  }
+}

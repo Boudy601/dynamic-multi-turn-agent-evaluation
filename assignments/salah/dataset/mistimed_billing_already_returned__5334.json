@@ -1,0 +1,812 @@
+{
+  "convo_id": 5334,
+  "scenario": {
+    "personal": {
+      "customer_name": "norman bouchard",
+      "email": "normanbouchard902@email.com",
+      "member_level": "guest",
+      "phone": "(706) 830-4057",
+      "username": "normanbouchard902"
+    },
+    "order": {
+      "street_address": "1036 kennedy st",
+      "full_address": "1036 kennedy st  la fayette, ca 90827",
+      "city": "la fayette",
+      "num_products": "1",
+      "order_id": "9055618082",
+      "products": "[{'brand': 'guess', 'product_type': 'jeans', 'amount': 54, 'image_url': 'images/guess-jeans.jpeg'}]",
+      "state": "ca",
+      "zip_code": "90827"
+    },
+    "product": {
+      "names": [
+        "guess jeans"
+      ],
+      "amounts": [
+        54
+      ]
+    },
+    "flow": "purchase_dispute",
+    "subflow": "mistimed_billing_already_returned"
+  },
+  "original": [
+    [
+      "agent",
+      "Hi, how can I help you"
+    ],
+    [
+      "customer",
+      "I am very upset with this company."
+    ],
+    [
+      "agent",
+      "Sorry this has happened"
+    ],
+    [
+      "agent",
+      "How can I help"
+    ],
+    [
+      "customer",
+      "Well, I see a charge on my billing statement that was supposed to have been reversed."
+    ],
+    [
+      "customer",
+      "I sent the darn jeans back already!!!"
+    ],
+    [
+      "agent",
+      "What is the charge for?"
+    ],
+    [
+      "customer",
+      "$54.00"
+    ],
+    [
+      "agent",
+      "So you returned Jeans and didn't get the credit you were supposed to get?"
+    ],
+    [
+      "customer",
+      "Exactly.  Finally someone is actually helping me!"
+    ],
+    [
+      "agent",
+      "Sorry this happened. I should be able to help"
+    ],
+    [
+      "agent",
+      "Can I have your full name or Account ID please?"
+    ],
+    [
+      "customer",
+      "Did you lay off agents because of the virus?"
+    ],
+    [
+      "agent",
+      "We have had to move many agents to work at home status, so there are some problems"
+    ],
+    [
+      "agent",
+      "People have to get used to the software at home"
+    ],
+    [
+      "customer",
+      "I am sorry to hear that."
+    ],
+    [
+      "customer",
+      "Norman Bouchard"
+    ],
+    [
+      "action",
+      "Account has been pulled up for Norman Bouchard."
+    ],
+    [
+      "agent",
+      "Yes, it's a good company though so they are trying not to fire anyone"
+    ],
+    [
+      "agent",
+      "Ok, I need to look up your order. Can I have your username, email and Order ID?"
+    ],
+    [
+      "customer",
+      "Well, if you can help me, then I will send an email to your supervisor telling them how great you were."
+    ],
+    [
+      "agent",
+      "I hope I can help you then!"
+    ],
+    [
+      "customer",
+      "normanbouchard902"
+    ],
+    [
+      "customer",
+      "normanbouchard902@email.com"
+    ],
+    [
+      "customer",
+      "9055618082"
+    ],
+    [
+      "action",
+      "Purchase validation in progress ..."
+    ],
+    [
+      "agent",
+      "Okay, do you know how many days it's been since you received the refund?"
+    ],
+    [
+      "customer",
+      "I never received a refund.  That's why I'm calling."
+    ],
+    [
+      "agent",
+      "sorry, since you were supposed to receive the credit"
+    ],
+    [
+      "customer",
+      "It's been 3 days."
+    ],
+    [
+      "agent",
+      "okay, that's good news."
+    ],
+    [
+      "agent",
+      "what membership level are you?"
+    ],
+    [
+      "customer",
+      "I'm just a guest.  Membership levels are too over-priced IMHO."
+    ],
+    [
+      "agent",
+      "I understand, they are pretty expensive"
+    ],
+    [
+      "agent",
+      "Okay, it is expected to take up to 7 days for the credit to go into your account. I can't issue you the credit now, because you would likely end up with two credits when the other one goes through"
+    ],
+    [
+      "agent",
+      "The credit should show up within the next four days!"
+    ],
+    [
+      "customer",
+      "Okay.  So then I need to wait."
+    ],
+    [
+      "agent",
+      "Yes, unfortunately that's all you can do at this time. Sorry for the delay"
+    ],
+    [
+      "action",
+      "Membership level of guest has been noted."
+    ],
+    [
+      "customer",
+      "What is your Agent ID #?"
+    ],
+    [
+      "agent",
+      "777211"
+    ],
+    [
+      "customer",
+      "Okay, 777211.  I am going to send your supervisor a note telling them how helpful you were today."
+    ],
+    [
+      "agent",
+      "Thank you very much! You can ask for me if it doesn't go through for some reason and I will issue the credit on the eighth day!"
+    ],
+    [
+      "customer",
+      "That's even better.  I appreciate you!"
+    ],
+    [
+      "agent",
+      "Thank you, Can I do anything else for you today?"
+    ],
+    [
+      "customer",
+      "No, that will be all.  Have a great day."
+    ],
+    [
+      "agent",
+      "You too, Stay safe and healthy!"
+    ],
+    [
+      "agent",
+      "Good bye"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "hi, how can i help you",
+      "turn_count": 1,
+      "targets": [
+        "mistimed_billing_already_returned",
+        "retrieve_utterance",
+        null,
+        [],
+        27
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i am very upset with this company.",
+      "turn_count": 2,
+      "targets": [
+        "mistimed_billing_already_returned",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "sorry this has happened",
+      "turn_count": 3,
+      "targets": [
+        "mistimed_billing_already_returned",
+        "retrieve_utterance",
+        null,
+        [],
+        74
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "how can i help",
+      "turn_count": 4,
+      "targets": [
+        "mistimed_billing_already_returned",
+        "retrieve_utterance",
+        null,
+        [],
+        96
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "well, i see a charge on my billing statement that was supposed to have been reversed.",
+      "turn_count": 5,
+      "targets": [
+        "mistimed_billing_already_returned",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i sent the darn jeans back already!!!",
+      "turn_count": 6,
+      "targets": [
+        "mistimed_billing_already_returned",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "what is the charge for?",
+      "turn_count": 7,
+      "targets": [
+        "mistimed_billing_already_returned",
+        "retrieve_utterance",
+        null,
+        [],
+        35
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "$<amount>.00",
+      "turn_count": 8,
+      "targets": [
+        "mistimed_billing_already_returned",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "so you returned jeans and didn't get the credit you were supposed to get?",
+      "turn_count": 9,
+      "targets": [
+        "mistimed_billing_already_returned",
+        "retrieve_utterance",
+        null,
+        [],
+        6
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "exactly.  finally someone is actually helping me!",
+      "turn_count": 10,
+      "targets": [
+        "mistimed_billing_already_returned",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "sorry this happened. i should be able to help",
+      "turn_count": 11,
+      "targets": [
+        "mistimed_billing_already_returned",
+        "retrieve_utterance",
+        null,
+        [],
+        94
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can i have your full name or account id please?",
+      "turn_count": 12,
+      "targets": [
+        "mistimed_billing_already_returned",
+        "retrieve_utterance",
+        null,
+        [],
+        62
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "did you lay off agents because of the virus?",
+      "turn_count": 13,
+      "targets": [
+        "mistimed_billing_already_returned",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "we have had to move many agents to work at home status, so there are some problems",
+      "turn_count": 14,
+      "targets": [
+        "mistimed_billing_already_returned",
+        "retrieve_utterance",
+        null,
+        [],
+        82
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "people have to get used to the software at home",
+      "turn_count": 15,
+      "targets": [
+        "mistimed_billing_already_returned",
+        "retrieve_utterance",
+        null,
+        [],
+        64
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i am sorry to hear that.",
+      "turn_count": 16,
+      "targets": [
+        "mistimed_billing_already_returned",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "norman bouchard",
+      "turn_count": 17,
+      "targets": [
+        "mistimed_billing_already_returned",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for norman bouchard.",
+      "turn_count": 18,
+      "targets": [
+        "mistimed_billing_already_returned",
+        "take_action",
+        "pull-up-account",
+        [
+          "norman bouchard"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "yes, it's a good company though so they are trying not to fire anyone",
+      "turn_count": 19,
+      "targets": [
+        "mistimed_billing_already_returned",
+        "retrieve_utterance",
+        null,
+        [],
+        14
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok, i need to look up your order. can i have your username, email and order id?",
+      "turn_count": 20,
+      "targets": [
+        "mistimed_billing_already_returned",
+        "retrieve_utterance",
+        null,
+        [],
+        66
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "well, if you can help me, then i will send an email to your supervisor telling them how great you were.",
+      "turn_count": 21,
+      "targets": [
+        "mistimed_billing_already_returned",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i hope i can help you then!",
+      "turn_count": 22,
+      "targets": [
+        "mistimed_billing_already_returned",
+        "retrieve_utterance",
+        null,
+        [],
+        54
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "<username>",
+      "turn_count": 23,
+      "targets": [
+        "mistimed_billing_already_returned",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "<email>",
+      "turn_count": 24,
+      "targets": [
+        "mistimed_billing_already_returned",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "<order_id>",
+      "turn_count": 25,
+      "targets": [
+        "mistimed_billing_already_returned",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "purchase validation in progress ...",
+      "turn_count": 26,
+      "targets": [
+        "mistimed_billing_already_returned",
+        "take_action",
+        "validate-purchase",
+        [
+          "normanbouchard902",
+          "normanbouchard902@email.com",
+          "9055618082"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "okay, do you know how many days it's been since you received the refund?",
+      "turn_count": 27,
+      "targets": [
+        "mistimed_billing_already_returned",
+        "retrieve_utterance",
+        null,
+        [],
+        14
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i never received a refund.  that's why i'm calling.",
+      "turn_count": 28,
+      "targets": [
+        "mistimed_billing_already_returned",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "sorry, since you were supposed to receive the credit",
+      "turn_count": 29,
+      "targets": [
+        "mistimed_billing_already_returned",
+        "retrieve_utterance",
+        null,
+        [],
+        51
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "it's been 3 days.",
+      "turn_count": 30,
+      "targets": [
+        "mistimed_billing_already_returned",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "okay, that's good news.",
+      "turn_count": 31,
+      "targets": [
+        "mistimed_billing_already_returned",
+        "retrieve_utterance",
+        null,
+        [],
+        44
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "what membership level are you?",
+      "turn_count": 32,
+      "targets": [
+        "mistimed_billing_already_returned",
+        "retrieve_utterance",
+        null,
+        [],
+        17
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i'm just a guest.  membership levels are too over-priced imho.",
+      "turn_count": 33,
+      "targets": [
+        "mistimed_billing_already_returned",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i understand, they are pretty expensive",
+      "turn_count": 34,
+      "targets": [
+        "mistimed_billing_already_returned",
+        "retrieve_utterance",
+        null,
+        [],
+        84
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "okay, it is expected to take up to 7 days for the credit to go into your account. i can't issue you the credit now, because you would likely end up with two credits when the other one goes through",
+      "turn_count": 35,
+      "targets": [
+        "mistimed_billing_already_returned",
+        "retrieve_utterance",
+        null,
+        [],
+        9
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "the credit should show up within the next four days!",
+      "turn_count": 36,
+      "targets": [
+        "mistimed_billing_already_returned",
+        "retrieve_utterance",
+        null,
+        [],
+        17
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay.  so then i need to wait.",
+      "turn_count": 37,
+      "targets": [
+        "mistimed_billing_already_returned",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "yes, unfortunately that's all you can do at this time. sorry for the delay",
+      "turn_count": 38,
+      "targets": [
+        "mistimed_billing_already_returned",
+        "retrieve_utterance",
+        null,
+        [],
+        44
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "membership level of guest has been noted.",
+      "turn_count": 39,
+      "targets": [
+        "mistimed_billing_already_returned",
+        "take_action",
+        "membership",
+        [
+          "guest"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "what is your agent id #?",
+      "turn_count": 40,
+      "targets": [
+        "mistimed_billing_already_returned",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "777211",
+      "turn_count": 41,
+      "targets": [
+        "mistimed_billing_already_returned",
+        "retrieve_utterance",
+        null,
+        [],
+        0
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay, 777211.  i am going to send your supervisor a note telling them how helpful you were today.",
+      "turn_count": 42,
+      "targets": [
+        "mistimed_billing_already_returned",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you very much! you can ask for me if it doesn't go through for some reason and i will issue the credit on the eighth day!",
+      "turn_count": 43,
+      "targets": [
+        "mistimed_billing_already_returned",
+        "retrieve_utterance",
+        null,
+        [],
+        24
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "that's even better.  i appreciate you!",
+      "turn_count": 44,
+      "targets": [
+        "mistimed_billing_already_returned",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you, can i do anything else for you today?",
+      "turn_count": 45,
+      "targets": [
+        "mistimed_billing_already_returned",
+        "retrieve_utterance",
+        null,
+        [],
+        98
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no, that will be all.  have a great day.",
+      "turn_count": 46,
+      "targets": [
+        "mistimed_billing_already_returned",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "you too, stay safe and healthy!",
+      "turn_count": 47,
+      "targets": [
+        "mistimed_billing_already_returned",
+        "retrieve_utterance",
+        null,
+        [],
+        3
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "good bye",
+      "turn_count": 48,
+      "targets": [
+        "mistimed_billing_already_returned",
+        "retrieve_utterance",
+        null,
+        [],
+        93
+      ]
+    }
+  ]
+}

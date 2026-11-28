@@ -1,0 +1,739 @@
+{
+  "convo_id": 1739,
+  "scenario": {
+    "personal": {
+      "customer_name": "chloe zhang",
+      "email": "chloezhang651@email.com",
+      "member_level": "gold",
+      "phone": "(082) 278-0311",
+      "username": "chloezhang651"
+    },
+    "order": {
+      "street_address": "9695 brushwick dr",
+      "full_address": "9695 brushwick dr  san lima, tx 32282",
+      "city": "san lima",
+      "num_products": "1",
+      "products": "[{'brand': 'calvin_klein', 'product_type': 'shirt', 'amount': 59, 'image_url': 'images/calvin_klein-shirt.jpeg'}]",
+      "state": "tx",
+      "zip_code": "32282"
+    },
+    "product": {
+      "names": [
+        "calvin_klein shirt"
+      ],
+      "amounts": [
+        59
+      ]
+    },
+    "flow": "troubleshoot_site",
+    "subflow": "slow_speed"
+  },
+  "original": [
+    [
+      "customer",
+      "Hi"
+    ],
+    [
+      "agent",
+      "Hello. How may I help you today?"
+    ],
+    [
+      "customer",
+      "I have an issue and need help"
+    ],
+    [
+      "customer",
+      "This is sooooo annnoying"
+    ],
+    [
+      "agent",
+      "Sure. Can I have your name please?"
+    ],
+    [
+      "customer",
+      "I have a party coming up! It's my best friend's birthday and I haven't seen her in months"
+    ],
+    [
+      "customer",
+      "I want to buy a nice outfit for the party"
+    ],
+    [
+      "customer",
+      "I need to look good"
+    ],
+    [
+      "customer",
+      "But your website is soooooooo slow"
+    ],
+    [
+      "customer",
+      "My name is Chloe Zhang"
+    ],
+    [
+      "agent",
+      "Oh I am sorry to hear that. lets see if we can get that going Chloe. One moment please."
+    ],
+    [
+      "customer",
+      "Okay"
+    ],
+    [
+      "agent",
+      "Can you try visiting a different website to see that one is slow?"
+    ],
+    [
+      "customer",
+      "Yeah okay"
+    ],
+    [
+      "action",
+      "Agent is looking for solutions ..."
+    ],
+    [
+      "customer",
+      "Okay, I tried that"
+    ],
+    [
+      "agent",
+      "Is that one slow or fine?"
+    ],
+    [
+      "customer",
+      "The other website is fine"
+    ],
+    [
+      "customer",
+      "So I think your website is the problem"
+    ],
+    [
+      "customer",
+      "It's so slow I can't buy anything"
+    ],
+    [
+      "agent",
+      "Ok. Can I have you try logging out then back in?"
+    ],
+    [
+      "action",
+      "Agent is looking for solutions ..."
+    ],
+    [
+      "customer",
+      "Yeah I will try that also"
+    ],
+    [
+      "customer",
+      "Okay, I tried that and the website is still really slow"
+    ],
+    [
+      "customer",
+      "Is there anything else that I can do?"
+    ],
+    [
+      "customer",
+      "I really need an outfit for this party"
+    ],
+    [
+      "agent",
+      "Can you try closing all tabs and getting out of all other programs then try?"
+    ],
+    [
+      "customer",
+      "Okay"
+    ],
+    [
+      "customer",
+      "give me a moment"
+    ],
+    [
+      "action",
+      "Agent is looking for solutions ..."
+    ],
+    [
+      "customer",
+      "Oh great!"
+    ],
+    [
+      "customer",
+      "That worked!"
+    ],
+    [
+      "customer",
+      "Now the website is running at a normal speed"
+    ],
+    [
+      "agent",
+      "Oh great. Sometimes those extra programs can really slow things down."
+    ],
+    [
+      "customer",
+      "Yeah that makes sense"
+    ],
+    [
+      "agent",
+      "Hope you have a good time at the party."
+    ],
+    [
+      "customer",
+      "I should have thought of that"
+    ],
+    [
+      "customer",
+      "but i'm not great with computers"
+    ],
+    [
+      "customer",
+      "Yeah I know I will"
+    ],
+    [
+      "agent",
+      "Understandable. Anything else I can help you with?"
+    ],
+    [
+      "customer",
+      "My friend is great!"
+    ],
+    [
+      "customer",
+      "No, that's"
+    ],
+    [
+      "customer",
+      "I'm going to order the outfit now"
+    ],
+    [
+      "agent",
+      "Great. have a nice day."
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "customer",
+      "text": "hi",
+      "turn_count": 1,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "hello. how may i help you today?",
+      "turn_count": 2,
+      "targets": [
+        "slow_speed",
+        "retrieve_utterance",
+        null,
+        [],
+        40
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i have an issue and need help",
+      "turn_count": 3,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "this is sooooo annnoying",
+      "turn_count": 4,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "sure. can i have your name please?",
+      "turn_count": 5,
+      "targets": [
+        "slow_speed",
+        "retrieve_utterance",
+        null,
+        [],
+        2
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i have a party coming up! it's my best friend's birthday and i haven't seen her in months",
+      "turn_count": 6,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i want to buy a nice outfit for the party",
+      "turn_count": 7,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i need to look good",
+      "turn_count": 8,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "but your website is soooooooo slow",
+      "turn_count": 9,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "my name is chloe zhang",
+      "turn_count": 10,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "oh i am sorry to hear that. lets see if we can get that going chloe. one moment please.",
+      "turn_count": 11,
+      "targets": [
+        "slow_speed",
+        "retrieve_utterance",
+        null,
+        [],
+        12
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay",
+      "turn_count": 12,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can you try visiting a different website to see that one is slow?",
+      "turn_count": 13,
+      "targets": [
+        "slow_speed",
+        "retrieve_utterance",
+        null,
+        [],
+        80
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yeah okay",
+      "turn_count": 14,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "agent is looking for solutions ...",
+      "turn_count": 15,
+      "targets": [
+        "slow_speed",
+        "take_action",
+        "try-again",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay, i tried that",
+      "turn_count": 16,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "is that one slow or fine?",
+      "turn_count": 17,
+      "targets": [
+        "slow_speed",
+        "retrieve_utterance",
+        null,
+        [],
+        31
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "the other website is fine",
+      "turn_count": 18,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "so i think your website is the problem",
+      "turn_count": 19,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "it's so slow i can't buy anything",
+      "turn_count": 20,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok. can i have you try logging out then back in?",
+      "turn_count": 21,
+      "targets": [
+        "slow_speed",
+        "retrieve_utterance",
+        null,
+        [],
+        42
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "agent is looking for solutions ...",
+      "turn_count": 22,
+      "targets": [
+        "slow_speed",
+        "take_action",
+        "log-out-in",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yeah i will try that also",
+      "turn_count": 23,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay, i tried that and the website is still really slow",
+      "turn_count": 24,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "is there anything else that i can do?",
+      "turn_count": 25,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i really need an outfit for this party",
+      "turn_count": 26,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can you try closing all tabs and getting out of all other programs then try?",
+      "turn_count": 27,
+      "targets": [
+        "slow_speed",
+        "retrieve_utterance",
+        null,
+        [],
+        60
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay",
+      "turn_count": 28,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "give me a moment",
+      "turn_count": 29,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "agent is looking for solutions ...",
+      "turn_count": 30,
+      "targets": [
+        "slow_speed",
+        "take_action",
+        "instructions",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "oh great!",
+      "turn_count": 31,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "that worked!",
+      "turn_count": 32,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "now the website is running at a normal speed",
+      "turn_count": 33,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "oh great. sometimes those extra programs can really slow things down.",
+      "turn_count": 34,
+      "targets": [
+        "slow_speed",
+        "retrieve_utterance",
+        null,
+        [],
+        9
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yeah that makes sense",
+      "turn_count": 35,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "hope you have a good time at the party.",
+      "turn_count": 36,
+      "targets": [
+        "slow_speed",
+        "retrieve_utterance",
+        null,
+        [],
+        14
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i should have thought of that",
+      "turn_count": 37,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "but i'm not great with computers",
+      "turn_count": 38,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yeah i know i will",
+      "turn_count": 39,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "understandable. anything else i can help you with?",
+      "turn_count": 40,
+      "targets": [
+        "slow_speed",
+        "retrieve_utterance",
+        null,
+        [],
+        28
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "my friend is great!",
+      "turn_count": 41,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no, that's",
+      "turn_count": 42,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i'm going to order the outfit now",
+      "turn_count": 43,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "great. have a nice day.",
+      "turn_count": 44,
+      "targets": [
+        "slow_speed",
+        "retrieve_utterance",
+        null,
+        [],
+        22
+      ]
+    }
+  ]
+}

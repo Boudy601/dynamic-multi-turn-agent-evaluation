@@ -1,0 +1,444 @@
+{
+  "convo_id": 6007,
+  "scenario": {
+    "personal": {
+      "account_id": "jjiuxa3fqw",
+      "customer_name": "sanya afzal",
+      "member_level": "gold",
+      "phone": "(272) 544-6777"
+    },
+    "order": {
+      "street_address": "8508 circle drive",
+      "full_address": "8508 circle drive  san lima, ny 37088",
+      "city": "san lima",
+      "num_products": "1",
+      "order_id": "4152740381",
+      "products": "[{'brand': 'guess', 'product_type': 'boots', 'amount': 64, 'image_url': 'images/guess-boots.jpeg'}]",
+      "shipping_status": "in transit",
+      "state": "ny",
+      "zip_code": "37088"
+    },
+    "product": {
+      "names": [
+        "guess boots"
+      ],
+      "amounts": [
+        64
+      ]
+    },
+    "flow": "order_issue",
+    "subflow": "status_quantity"
+  },
+  "original": [
+    [
+      "agent",
+      "Good afternoon, how can I help you today?"
+    ],
+    [
+      "customer",
+      "hi! I wanted to check the status of my order. My problem is that I had ordered only 1 item but I received an email saying I ordered 2"
+    ],
+    [
+      "agent",
+      "I can look in to this for you. Can I get your full name or Account ID?"
+    ],
+    [
+      "customer",
+      "I just want to make sure that you have it right"
+    ],
+    [
+      "customer",
+      "Sanya Afzal"
+    ],
+    [
+      "agent",
+      "Let me just pull your account up Sanya."
+    ],
+    [
+      "customer",
+      "Thank you"
+    ],
+    [
+      "action",
+      "Account has been pulled up for Sanya Afzal."
+    ],
+    [
+      "agent",
+      "Just to clarify, you ordered 1 item and got an email saying you ordered 2 items?"
+    ],
+    [
+      "customer",
+      "Yes. Thats correct"
+    ],
+    [
+      "agent",
+      "Alright. To verify your identity can I please also get your account ID and Order ID?"
+    ],
+    [
+      "customer",
+      "Account ID: JJIUXA3FQW"
+    ],
+    [
+      "customer",
+      "Order ID: 4152740381"
+    ],
+    [
+      "action",
+      "Identity verification in progress ..."
+    ],
+    [
+      "agent",
+      "Your identity was verified. Just one moment while I check our system to see what happened with your order."
+    ],
+    [
+      "action",
+      "Querying the system for an answer ..."
+    ],
+    [
+      "agent",
+      "It does look like the company made a mistake and is sending you 2 items instead of one."
+    ],
+    [
+      "agent",
+      "Do you have the shipping status?"
+    ],
+    [
+      "customer",
+      "in transit"
+    ],
+    [
+      "action",
+      "Shipping status of in transit has been noted."
+    ],
+    [
+      "agent",
+      "Unfortunately that shipment is already on the way to you so I can't remove the extra item. When you receive the items if you could please call back we will happily start the return process."
+    ],
+    [
+      "customer",
+      "Okay, I understand. Thank you for checking!"
+    ],
+    [
+      "agent",
+      "I'm so sorry about the inconvenience. Is there anything else I can do for you?"
+    ],
+    [
+      "customer",
+      "Thats all. Appreciate your help"
+    ],
+    [
+      "agent",
+      "Glad I could help. Have a great day."
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "good afternoon, how can i help you today?",
+      "turn_count": 1,
+      "targets": [
+        "status_quantity",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "hi! i wanted to check the status of my order. my problem is that i had ordered only 1 item but i received an email saying i ordered 2",
+      "turn_count": 2,
+      "targets": [
+        "status_quantity",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i can look in to this for you. can i get your full name or account id?",
+      "turn_count": 3,
+      "targets": [
+        "status_quantity",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i just want to make sure that you have it right",
+      "turn_count": 4,
+      "targets": [
+        "status_quantity",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "sanya afzal",
+      "turn_count": 5,
+      "targets": [
+        "status_quantity",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "let me just pull your account up sanya.",
+      "turn_count": 6,
+      "targets": [
+        "status_quantity",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thank you",
+      "turn_count": 7,
+      "targets": [
+        "status_quantity",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for sanya afzal.",
+      "turn_count": 8,
+      "targets": [
+        "status_quantity",
+        null,
+        "pull-up-account",
+        [
+          "sanya afzal"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "just to clarify, you ordered 1 item and got an email saying you ordered 2 items?",
+      "turn_count": 9,
+      "targets": [
+        "status_quantity",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yes. thats correct",
+      "turn_count": 10,
+      "targets": [
+        "status_quantity",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "alright. to verify your identity can i please also get your account id and order id?",
+      "turn_count": 11,
+      "targets": [
+        "status_quantity",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "account id: jjiuxa3fqw",
+      "turn_count": 12,
+      "targets": [
+        "status_quantity",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "order id: 4152740381",
+      "turn_count": 13,
+      "targets": [
+        "status_quantity",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "identity verification in progress ...",
+      "turn_count": 14,
+      "targets": [
+        "status_quantity",
+        null,
+        "verify-identity",
+        [
+          "sanya afzal",
+          "jjiuxa3fqw",
+          "4152740381"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "your identity was verified. just one moment while i check our system to see what happened with your order.",
+      "turn_count": 15,
+      "targets": [
+        "status_quantity",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "querying the system for an answer ...",
+      "turn_count": 16,
+      "targets": [
+        "status_quantity",
+        null,
+        "ask-the-oracle",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "it does look like the company made a mistake and is sending you 2 items instead of one.",
+      "turn_count": 17,
+      "targets": [
+        "status_quantity",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "do you have the shipping status?",
+      "turn_count": 18,
+      "targets": [
+        "status_quantity",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "in transit",
+      "turn_count": 19,
+      "targets": [
+        "status_quantity",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "shipping status of in transit has been noted.",
+      "turn_count": 20,
+      "targets": [
+        "status_quantity",
+        null,
+        "shipping-status",
+        [
+          "in transit"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "unfortunately that shipment is already on the way to you so i can't remove the extra item. when you receive the items if you could please call back we will happily start the return process.",
+      "turn_count": 21,
+      "targets": [
+        "status_quantity",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay, i understand. thank you for checking!",
+      "turn_count": 22,
+      "targets": [
+        "status_quantity",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i'm so sorry about the inconvenience. is there anything else i can do for you?",
+      "turn_count": 23,
+      "targets": [
+        "status_quantity",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thats all. appreciate your help",
+      "turn_count": 24,
+      "targets": [
+        "status_quantity",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "glad i could help. have a great day.",
+      "turn_count": 25,
+      "targets": [
+        "status_quantity",
+        null,
+        null,
+        [],
+        -1
+      ]
+    }
+  ]
+}

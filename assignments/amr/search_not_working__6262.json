@@ -1,0 +1,437 @@
+{
+  "convo_id": 6262,
+  "scenario": {
+    "personal": {
+      "customer_name": "joseph banter",
+      "email": "jbanter1@email.com",
+      "member_level": "bronze",
+      "phone": "(566) 613-4095",
+      "username": "jbanter1"
+    },
+    "order": {
+      "street_address": "7586 woodshore st",
+      "full_address": "7586 woodshore st  monterey, ny 52529",
+      "city": "monterey",
+      "num_products": "1",
+      "products": "[{'brand': 'calvin_klein', 'product_type': 'jacket', 'amount': 69, 'image_url': 'images/calvin_klein-jacket.jpeg'}]",
+      "state": "ny",
+      "zip_code": "52529"
+    },
+    "product": {
+      "names": [
+        "calvin_klein jacket"
+      ],
+      "amounts": [
+        69
+      ]
+    },
+    "flow": "troubleshoot_site",
+    "subflow": "search_results"
+  },
+  "original": [
+    [
+      "customer",
+      "the search function is frozen"
+    ],
+    [
+      "agent",
+      "Hello! Thank you for shopping with AcmeBrands."
+    ],
+    [
+      "agent",
+      "I'm so sorry about that! May I get your full name, please?"
+    ],
+    [
+      "customer",
+      "Joseph Banter"
+    ],
+    [
+      "action",
+      "Account has been pulled up for Joseph Banter."
+    ],
+    [
+      "agent",
+      "Thank you, Joseph! To confirm, when you attempt a search, you're getting \"no results found\" no matter what you search for?"
+    ],
+    [
+      "customer",
+      "No i just see a spinning wheel"
+    ],
+    [
+      "agent",
+      "Let's troubleshoot that for you!"
+    ],
+    [
+      "agent",
+      "Would you mind logging out of your account, and logging back in again?"
+    ],
+    [
+      "action",
+      "Agent is looking for solutions ..."
+    ],
+    [
+      "customer",
+      "ok"
+    ],
+    [
+      "customer",
+      "ok i logged in again"
+    ],
+    [
+      "agent",
+      "Great! Any luck with your search?"
+    ],
+    [
+      "customer",
+      "no"
+    ],
+    [
+      "agent",
+      "No worries! Let's try clearing out the cookies from your browser next."
+    ],
+    [
+      "agent",
+      "Are you familiar with how to do thta?"
+    ],
+    [
+      "agent",
+      "*that"
+    ],
+    [
+      "action",
+      "Agent is looking for solutions ..."
+    ],
+    [
+      "customer",
+      "yes"
+    ],
+    [
+      "agent",
+      "Wonderful. Would you give that a try please, and let me know if that resolves the search issue?"
+    ],
+    [
+      "customer",
+      "the search bar is working now. thank you"
+    ],
+    [
+      "agent",
+      "Excellent! Thank you for letting me know."
+    ],
+    [
+      "agent",
+      "Is there anything more I may help you with today?"
+    ],
+    [
+      "customer",
+      "nothing else, thank you"
+    ],
+    [
+      "agent",
+      "Thank you so much for contacting AcmeBrands customer service. Goodbye!"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "customer",
+      "text": "the search function is frozen",
+      "turn_count": 1,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "hello! thank you for shopping with acmebrands.",
+      "turn_count": 2,
+      "targets": [
+        "search_results",
+        "retrieve_utterance",
+        null,
+        [],
+        42
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i'm so sorry about that! may i get your full name, please?",
+      "turn_count": 3,
+      "targets": [
+        "search_results",
+        "retrieve_utterance",
+        null,
+        [],
+        8
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "joseph banter",
+      "turn_count": 4,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for joseph banter.",
+      "turn_count": 5,
+      "targets": [
+        "search_results",
+        "take_action",
+        "pull-up-account",
+        [
+          "joseph banter"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you, joseph! to confirm, when you attempt a search, you're getting \"no results found\" no matter what you search for?",
+      "turn_count": 6,
+      "targets": [
+        "search_results",
+        "retrieve_utterance",
+        null,
+        [],
+        26
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no i just see a spinning wheel",
+      "turn_count": 7,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "let's troubleshoot that for you!",
+      "turn_count": 8,
+      "targets": [
+        "search_results",
+        "retrieve_utterance",
+        null,
+        [],
+        53
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "would you mind logging out of your account, and logging back in again?",
+      "turn_count": 9,
+      "targets": [
+        "search_results",
+        "retrieve_utterance",
+        null,
+        [],
+        17
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "agent is looking for solutions ...",
+      "turn_count": 10,
+      "targets": [
+        "search_results",
+        "take_action",
+        "log-out-in",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok",
+      "turn_count": 11,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok i logged in again",
+      "turn_count": 12,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "great! any luck with your search?",
+      "turn_count": 13,
+      "targets": [
+        "search_results",
+        "retrieve_utterance",
+        null,
+        [],
+        59
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no",
+      "turn_count": 14,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "no worries! let's try clearing out the cookies from your browser next.",
+      "turn_count": 15,
+      "targets": [
+        "search_results",
+        "retrieve_utterance",
+        null,
+        [],
+        27
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "are you familiar with how to do thta?",
+      "turn_count": 16,
+      "targets": [
+        "search_results",
+        "retrieve_utterance",
+        null,
+        [],
+        8
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "*that",
+      "turn_count": 17,
+      "targets": [
+        "search_results",
+        "retrieve_utterance",
+        null,
+        [],
+        75
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "agent is looking for solutions ...",
+      "turn_count": 18,
+      "targets": [
+        "search_results",
+        "take_action",
+        "instructions",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yes",
+      "turn_count": 19,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "wonderful. would you give that a try please, and let me know if that resolves the search issue?",
+      "turn_count": 20,
+      "targets": [
+        "search_results",
+        "retrieve_utterance",
+        null,
+        [],
+        74
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "the search bar is working now. thank you",
+      "turn_count": 21,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "excellent! thank you for letting me know.",
+      "turn_count": 22,
+      "targets": [
+        "search_results",
+        "retrieve_utterance",
+        null,
+        [],
+        16
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "is there anything more i may help you with today?",
+      "turn_count": 23,
+      "targets": [
+        "search_results",
+        "retrieve_utterance",
+        null,
+        [],
+        89
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "nothing else, thank you",
+      "turn_count": 24,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you so much for contacting acmebrands customer service. goodbye!",
+      "turn_count": 25,
+      "targets": [
+        "search_results",
+        "retrieve_utterance",
+        null,
+        [],
+        50
+      ]
+    }
+  ]
+}

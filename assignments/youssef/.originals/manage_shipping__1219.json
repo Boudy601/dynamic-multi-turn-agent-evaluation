@@ -1,0 +1,885 @@
+{
+  "convo_id": 1219,
+  "scenario": {
+    "personal": {
+      "account_id": "eppbusrksd",
+      "customer_name": "crystal minh",
+      "email": "cminh709@email.com",
+      "member_level": "guest",
+      "phone": "(643) 886-8115",
+      "username": "cminh709"
+    },
+    "order": {
+      "street_address": "4077 kennedy st",
+      "full_address": "4077 kennedy st  san mateo, ny 44264",
+      "city": "san mateo",
+      "num_products": "3",
+      "order_id": "1312632602",
+      "products": "[{'brand': 'guess', 'product_type': 'jacket', 'amount': 79, 'image_url': 'images/guess-jacket.jpeg'}, {'brand': 'calvin_klein', 'product_type': 'boots', 'amount': 69, 'image_url': 'images/calvin_klein-boots.jpeg'}, {'brand': 'calvin_klein', 'product_type': 'jacket', 'amount': 74, 'image_url': 'images/calvin_klein-jacket.jpeg'}]",
+      "purchase_date": "2020-01-16",
+      "shipping_status": "delivered",
+      "state": "ny",
+      "zip_code": "44264"
+    },
+    "product": {
+      "names": [
+        "guess jacket",
+        "calvin_klein boots",
+        "calvin_klein jacket"
+      ],
+      "amounts": [
+        79,
+        69,
+        74
+      ]
+    },
+    "flow": "shipping_issue",
+    "subflow": "manage"
+  },
+  "original": [
+    [
+      "customer",
+      "Hi"
+    ],
+    [
+      "agent",
+      "Thank you for contacting Acmebrands how may I help you?"
+    ],
+    [
+      "customer",
+      "I need to fix my info"
+    ],
+    [
+      "agent",
+      "I am happy to assist, do you need to update your account and/or an order?"
+    ],
+    [
+      "customer",
+      "I am moving to a new address this week."
+    ],
+    [
+      "agent",
+      "Great, do you have any pending orders on the way?"
+    ],
+    [
+      "customer",
+      "No"
+    ],
+    [
+      "customer",
+      "I have an order but it was delivered already"
+    ],
+    [
+      "agent",
+      "Can I please get your full name or Account number?"
+    ],
+    [
+      "customer",
+      "Crystal Minh"
+    ],
+    [
+      "agent",
+      "Glad it was delivered and I would be happy to update your new address for you."
+    ],
+    [
+      "action",
+      "Account has been pulled up for Crystal Minh."
+    ],
+    [
+      "customer",
+      "4077 Kennedy St  San Mateo, NY 44264 is where I will be moving to"
+    ],
+    [
+      "agent",
+      "Would verify your old address for me?"
+    ],
+    [
+      "customer",
+      "I'd rather not."
+    ],
+    [
+      "agent",
+      "In order to update we need to verify the current address on file"
+    ],
+    [
+      "customer",
+      "4077 Kennedy St  San Mateo, NY 44264"
+    ],
+    [
+      "agent",
+      "I understand that is the new address correct?"
+    ],
+    [
+      "customer",
+      "Yes"
+    ],
+    [
+      "agent",
+      "In order to update I need to verify the current street address as well as other information"
+    ],
+    [
+      "customer",
+      "Ok"
+    ],
+    [
+      "customer",
+      "4077 Kennedy St  San Mateo, NY 44264"
+    ],
+    [
+      "agent",
+      "What is the old address it is currently on our system?"
+    ],
+    [
+      "customer",
+      "4077 Kennedy St  San Mateo, NY 44264"
+    ],
+    [
+      "agent",
+      "Unfortunately without verification of your current address, I am not able to update the system"
+    ],
+    [
+      "agent",
+      "I only need the street address."
+    ],
+    [
+      "customer",
+      "Why can't you use other information"
+    ],
+    [
+      "customer",
+      "4077 Kennedy St"
+    ],
+    [
+      "agent",
+      "It is company policy and for your security. You are providing me with the new address but I need to confirm the old address which is in our system."
+    ],
+    [
+      "agent",
+      "Next I need to verify your identity but please provide me the old address?"
+    ],
+    [
+      "customer",
+      "4077 Kennedy St"
+    ],
+    [
+      "agent",
+      "Is 4077 the address you will be moving to or is this the current address on file?"
+    ],
+    [
+      "customer",
+      "current address"
+    ],
+    [
+      "agent",
+      "What is the new address?"
+    ],
+    [
+      "customer",
+      "40777 Kennedy St"
+    ],
+    [
+      "agent",
+      "To clarify there is an extra 7 in the new address? In order to update I need to know the current address and the new address. They will be different"
+    ],
+    [
+      "agent",
+      "I cannot update without this verification."
+    ],
+    [
+      "customer",
+      "Yes"
+    ],
+    [
+      "action",
+      "A reason of 4077 Kennedy St has been recorded."
+    ],
+    [
+      "agent",
+      "I will 3 additional verification items: zip code, telephone number, pin number, username, password, email address, or order number"
+    ],
+    [
+      "agent",
+      "You may provide any 3 of your choice."
+    ],
+    [
+      "customer",
+      "44264"
+    ],
+    [
+      "customer",
+      "(643) 886-8115"
+    ],
+    [
+      "customer",
+      "cminh709"
+    ],
+    [
+      "action",
+      "Identity verification in progess ..."
+    ],
+    [
+      "agent",
+      "I will update the new address to 40777 Kennedy St correct?"
+    ],
+    [
+      "customer",
+      "yes"
+    ],
+    [
+      "action",
+      "Account has been updated with 40777 Kennedy St."
+    ],
+    [
+      "agent",
+      "I appreciate your patience, your account has been updated. Is there anything else I may help you with today?"
+    ],
+    [
+      "customer",
+      "Thanks, i'm all set"
+    ],
+    [
+      "agent",
+      "Thank you for contacting us, have a great day."
+    ],
+    [
+      "customer",
+      "u 2"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "customer",
+      "text": "hi",
+      "turn_count": 1,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you for contacting acmebrands how may i help you?",
+      "turn_count": 2,
+      "targets": [
+        "manage",
+        "retrieve_utterance",
+        null,
+        [],
+        48
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i need to fix my info",
+      "turn_count": 3,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i am happy to assist, do you need to update your account and/or an order?",
+      "turn_count": 4,
+      "targets": [
+        "manage",
+        "retrieve_utterance",
+        null,
+        [],
+        45
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i am moving to a new address this week.",
+      "turn_count": 5,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "great, do you have any pending orders on the way?",
+      "turn_count": 6,
+      "targets": [
+        "manage",
+        "retrieve_utterance",
+        null,
+        [],
+        51
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no",
+      "turn_count": 7,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i have an order but it was delivered already",
+      "turn_count": 8,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can i please get your full name or account number?",
+      "turn_count": 9,
+      "targets": [
+        "manage",
+        "retrieve_utterance",
+        null,
+        [],
+        57
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "crystal minh",
+      "turn_count": 10,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "glad it was delivered and i would be happy to update your new address for you.",
+      "turn_count": 11,
+      "targets": [
+        "manage",
+        "retrieve_utterance",
+        null,
+        [],
+        38
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for crystal minh.",
+      "turn_count": 12,
+      "targets": [
+        "manage",
+        "take_action",
+        "pull-up-account",
+        [
+          "crystal minh"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "<street_address>  san mateo, ny <zip_code> is where i will be moving to",
+      "turn_count": 13,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "would verify your old address for me?",
+      "turn_count": 14,
+      "targets": [
+        "manage",
+        "retrieve_utterance",
+        null,
+        [],
+        93
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i'd rather not.",
+      "turn_count": 15,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "in order to update we need to verify the current address on file",
+      "turn_count": 16,
+      "targets": [
+        "manage",
+        "retrieve_utterance",
+        null,
+        [],
+        28
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "<street_address>  san mateo, ny <zip_code>",
+      "turn_count": 17,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i understand that is the new address correct?",
+      "turn_count": 18,
+      "targets": [
+        "manage",
+        "retrieve_utterance",
+        null,
+        [],
+        99
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yes",
+      "turn_count": 19,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "in order to update i need to verify the current street address as well as other information",
+      "turn_count": 20,
+      "targets": [
+        "manage",
+        "retrieve_utterance",
+        null,
+        [],
+        73
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok",
+      "turn_count": 21,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "<street_address>  san mateo, ny <zip_code>",
+      "turn_count": 22,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "what is the old address it is currently on our system?",
+      "turn_count": 23,
+      "targets": [
+        "manage",
+        "retrieve_utterance",
+        null,
+        [],
+        18
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "<street_address>  san mateo, ny <zip_code>",
+      "turn_count": 24,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "unfortunately without verification of your current address, i am not able to update the system",
+      "turn_count": 25,
+      "targets": [
+        "manage",
+        "retrieve_utterance",
+        null,
+        [],
+        79
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i only need the street address.",
+      "turn_count": 26,
+      "targets": [
+        "manage",
+        "retrieve_utterance",
+        null,
+        [],
+        9
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "why can't you use other information",
+      "turn_count": 27,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "<street_address>",
+      "turn_count": 28,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "it is company policy and for your security. you are providing me with the new address but i need to confirm the old address which is in our system.",
+      "turn_count": 29,
+      "targets": [
+        "manage",
+        "retrieve_utterance",
+        null,
+        [],
+        64
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "next i need to verify your identity but please provide me the old address?",
+      "turn_count": 30,
+      "targets": [
+        "manage",
+        "retrieve_utterance",
+        null,
+        [],
+        25
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "<street_address>",
+      "turn_count": 31,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "is 4077 the address you will be moving to or is this the current address on file?",
+      "turn_count": 32,
+      "targets": [
+        "manage",
+        "retrieve_utterance",
+        null,
+        [],
+        51
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "current address",
+      "turn_count": 33,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "what is the new address?",
+      "turn_count": 34,
+      "targets": [
+        "manage",
+        "retrieve_utterance",
+        null,
+        [],
+        6
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "40777 kennedy st",
+      "turn_count": 35,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "to clarify there is an extra 7 in the new address? in order to update i need to know the current address and the new address. they will be different",
+      "turn_count": 36,
+      "targets": [
+        "manage",
+        "retrieve_utterance",
+        null,
+        [],
+        70
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i cannot update without this verification.",
+      "turn_count": 37,
+      "targets": [
+        "manage",
+        "retrieve_utterance",
+        null,
+        [],
+        62
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yes",
+      "turn_count": 38,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "a reason of <street_address> has been recorded.",
+      "turn_count": 39,
+      "targets": [
+        "manage",
+        "take_action",
+        "record-reason",
+        [
+          "4077 kennedy st"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i will 3 additional verification items: zip code, telephone number, pin number, username, password, email address, or order number",
+      "turn_count": 40,
+      "targets": [
+        "manage",
+        "retrieve_utterance",
+        null,
+        [],
+        94
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "you may provide any 3 of your choice.",
+      "turn_count": 41,
+      "targets": [
+        "manage",
+        "retrieve_utterance",
+        null,
+        [],
+        65
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "<zip_code>",
+      "turn_count": 42,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "<phone>",
+      "turn_count": 43,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "<username>",
+      "turn_count": 44,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "identity verification in progess ...",
+      "turn_count": 45,
+      "targets": [
+        "manage",
+        "take_action",
+        "verify-identity",
+        [
+          "44264",
+          "(643) 886-8115",
+          "cminh709"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i will update the new address to 40777 kennedy st correct?",
+      "turn_count": 46,
+      "targets": [
+        "manage",
+        "retrieve_utterance",
+        null,
+        [],
+        59
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yes",
+      "turn_count": 47,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been updated with 40777 kennedy st.",
+      "turn_count": 48,
+      "targets": [
+        "manage",
+        "take_action",
+        "update-account",
+        [
+          "40777 kennedy st"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i appreciate your patience, your account has been updated. is there anything else i may help you with today?",
+      "turn_count": 49,
+      "targets": [
+        "manage",
+        "retrieve_utterance",
+        null,
+        [],
+        77
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thanks, i'm all set",
+      "turn_count": 50,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you for contacting us, have a great day.",
+      "turn_count": 51,
+      "targets": [
+        "manage",
+        "retrieve_utterance",
+        null,
+        [],
+        57
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "u 2",
+      "turn_count": 52,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    }
+  ]
+}

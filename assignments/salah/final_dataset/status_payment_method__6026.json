@@ -1,0 +1,415 @@
+{
+  "convo_id": 6026,
+  "scenario": {
+    "personal": {
+      "account_id": "yizckuvta3",
+      "customer_name": "joyce wu",
+      "member_level": "silver",
+      "phone": "(928) 149-9485"
+    },
+    "order": {
+      "street_address": "5358 brushwick dr",
+      "full_address": "5358 brushwick dr  raleigh, ny 42427",
+      "city": "raleigh",
+      "num_products": "1",
+      "order_id": "2879402151",
+      "payment_method": "paypal",
+      "products": "[{'brand': 'michael_kors', 'product_type': 'jeans', 'amount': 94, 'image_url': 'images/michael_kors-jeans.jpeg'}]",
+      "shipping_status": "in transit",
+      "state": "ny",
+      "zip_code": "42427"
+    },
+    "product": {
+      "names": [
+        "michael_kors jeans"
+      ],
+      "amounts": [
+        94
+      ]
+    },
+    "flow": "order_issue",
+    "subflow": "status_payment_method"
+  },
+  "original": [
+    [
+      "agent",
+      "Hello, how may i help you today?"
+    ],
+    [
+      "customer",
+      "Hello, I would like to check the status of my order as the payment method seems to be wrong"
+    ],
+    [
+      "agent",
+      "i see, you wish to check the status of payment on your order because you believe it to be wrong, i can help with that today"
+    ],
+    [
+      "agent",
+      "first i need your full name to pull up your account"
+    ],
+    [
+      "agent",
+      "i also need your account id"
+    ],
+    [
+      "customer",
+      "Joyce Wu"
+    ],
+    [
+      "agent",
+      "and order id"
+    ],
+    [
+      "action",
+      "Account has been pulled up for Joyce Wu."
+    ],
+    [
+      "agent",
+      "thank you"
+    ],
+    [
+      "agent",
+      "in order to pull up the shipment i now need the account and order id"
+    ],
+    [
+      "customer",
+      "YIZCKUVTA3,  2879402151"
+    ],
+    [
+      "action",
+      "Identity verification in progress ..."
+    ],
+    [
+      "agent",
+      "thank you, and what is the current shipping status?"
+    ],
+    [
+      "customer",
+      "In transit"
+    ],
+    [
+      "action",
+      "Shipping status of In Transit has been noted."
+    ],
+    [
+      "agent",
+      "we can change the payment method immediately"
+    ],
+    [
+      "customer",
+      "Great"
+    ],
+    [
+      "agent",
+      "what would you like the new method to be?"
+    ],
+    [
+      "customer",
+      "Debit card please"
+    ],
+    [
+      "action",
+      "Order has been updated with Debit Card."
+    ],
+    [
+      "agent",
+      "ok, i have updated your order to be paid with the debit card on file, is there anything else i can assist with today?"
+    ],
+    [
+      "customer",
+      "That is all thank you very much"
+    ],
+    [
+      "agent",
+      "Thanks, have a good one!"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "hello, how may i help you today?",
+      "turn_count": 1,
+      "targets": [
+        "status_payment_method",
+        "retrieve_utterance",
+        null,
+        [],
+        89
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "hello, i would like to check the status of my order as the payment method seems to be wrong",
+      "turn_count": 2,
+      "targets": [
+        "status_payment_method",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i see, you wish to check the status of payment on your order because you believe it to be wrong, i can help with that today",
+      "turn_count": 3,
+      "targets": [
+        "status_payment_method",
+        "retrieve_utterance",
+        null,
+        [],
+        25
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "first i need your full name to pull up your account",
+      "turn_count": 4,
+      "targets": [
+        "status_payment_method",
+        "retrieve_utterance",
+        null,
+        [],
+        66
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i also need your account id",
+      "turn_count": 5,
+      "targets": [
+        "status_payment_method",
+        "retrieve_utterance",
+        null,
+        [],
+        6
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "joyce wu",
+      "turn_count": 6,
+      "targets": [
+        "status_payment_method",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "and order id",
+      "turn_count": 7,
+      "targets": [
+        "status_payment_method",
+        "retrieve_utterance",
+        null,
+        [],
+        68
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for joyce wu.",
+      "turn_count": 8,
+      "targets": [
+        "status_payment_method",
+        "take_action",
+        "pull-up-account",
+        [
+          "joyce wu"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you",
+      "turn_count": 9,
+      "targets": [
+        "status_payment_method",
+        "retrieve_utterance",
+        null,
+        [],
+        81
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "in order to pull up the shipment i now need the account and order id",
+      "turn_count": 10,
+      "targets": [
+        "status_payment_method",
+        "retrieve_utterance",
+        null,
+        [],
+        75
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "<account_id>,  <order_id>",
+      "turn_count": 11,
+      "targets": [
+        "status_payment_method",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "identity verification in progress ...",
+      "turn_count": 12,
+      "targets": [
+        "status_payment_method",
+        "take_action",
+        "verify-identity",
+        [
+          "joyce wu",
+          "yizckuvta3",
+          "2879402151"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you, and what is the current shipping status?",
+      "turn_count": 13,
+      "targets": [
+        "status_payment_method",
+        "retrieve_utterance",
+        null,
+        [],
+        39
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "in transit",
+      "turn_count": 14,
+      "targets": [
+        "status_payment_method",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "shipping status of in transit has been noted.",
+      "turn_count": 15,
+      "targets": [
+        "status_payment_method",
+        "take_action",
+        "shipping-status",
+        [
+          "in transit"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "we can change the payment method immediately",
+      "turn_count": 16,
+      "targets": [
+        "status_payment_method",
+        "retrieve_utterance",
+        null,
+        [],
+        95
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "great",
+      "turn_count": 17,
+      "targets": [
+        "status_payment_method",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "what would you like the new method to be?",
+      "turn_count": 18,
+      "targets": [
+        "status_payment_method",
+        "retrieve_utterance",
+        null,
+        [],
+        15
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "debit card please",
+      "turn_count": 19,
+      "targets": [
+        "status_payment_method",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "order has been updated with debit card.",
+      "turn_count": 20,
+      "targets": [
+        "status_payment_method",
+        "take_action",
+        "update-order",
+        [
+          "debit card"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok, i have updated your order to be paid with the debit card on file, is there anything else i can assist with today?",
+      "turn_count": 21,
+      "targets": [
+        "status_payment_method",
+        "retrieve_utterance",
+        null,
+        [],
+        92
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "that is all thank you very much",
+      "turn_count": 22,
+      "targets": [
+        "status_payment_method",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thanks, have a good one!",
+      "turn_count": 23,
+      "targets": [
+        "status_payment_method",
+        "retrieve_utterance",
+        null,
+        [],
+        53
+      ]
+    }
+  ]
+}

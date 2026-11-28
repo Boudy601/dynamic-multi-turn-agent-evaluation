@@ -1,0 +1,387 @@
+{
+  "convo_id": 7562,
+  "scenario": {
+    "personal": {
+      "customer_name": "joseph banter",
+      "email": "josephb7@email.com",
+      "member_level": "silver",
+      "phone": "(316) 504-1885",
+      "username": "josephb7"
+    },
+    "order": {
+      "street_address": "9448 lexington ave",
+      "full_address": "9448 lexington ave  jacksonville, tx 71716",
+      "city": "jacksonville",
+      "num_products": "1",
+      "products": "[{'brand': 'guess', 'product_type': 'jacket', 'amount': 69, 'image_url': 'images/guess-jacket.jpeg'}]",
+      "state": "tx",
+      "zip_code": "71716"
+    },
+    "product": {
+      "names": [
+        "guess jacket"
+      ],
+      "amounts": [
+        69
+      ]
+    },
+    "flow": "troubleshoot_site",
+    "subflow": "slow_speed"
+  },
+  "original": [
+    [
+      "agent",
+      "Hello, thank you for contacting AcmeCorp, how may I help you today?"
+    ],
+    [
+      "customer",
+      "Hi the website is unusable because it is running sooooooooo slow....."
+    ],
+    [
+      "customer",
+      "What is going on?"
+    ],
+    [
+      "customer",
+      "Maintenance?"
+    ],
+    [
+      "agent",
+      "I do apologize, so the website in general is slow or is it the search/cart option?"
+    ],
+    [
+      "customer",
+      "slow in general"
+    ],
+    [
+      "agent",
+      "Lets try a few things. First can you try going to another website to check the connection?"
+    ],
+    [
+      "customer",
+      "ok"
+    ],
+    [
+      "action",
+      "Agent is looking for solutions ..."
+    ],
+    [
+      "customer",
+      "no issues"
+    ],
+    [
+      "agent",
+      "Next can you close all tabs in the browser and make sure all background programs are not running please?"
+    ],
+    [
+      "action",
+      "Agent is looking for solutions ..."
+    ],
+    [
+      "customer",
+      "Yes"
+    ],
+    [
+      "customer",
+      "that works"
+    ],
+    [
+      "customer",
+      "thank you :)"
+    ],
+    [
+      "agent",
+      "Great, is there anything else I may help you with."
+    ],
+    [
+      "agent",
+      "Your welcome."
+    ],
+    [
+      "customer",
+      "No that was it"
+    ],
+    [
+      "customer",
+      "Have a fab day!"
+    ],
+    [
+      "agent",
+      "Thank you for contacting AcmeCorp, please be safe and stay well."
+    ],
+    [
+      "customer",
+      "Ty"
+    ],
+    [
+      "agent",
+      "You too, thank you"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "hello, thank you for contacting acmecorp, how may i help you today?",
+      "turn_count": 1,
+      "targets": [
+        "slow_speed",
+        "retrieve_utterance",
+        null,
+        [],
+        86
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "hi the website is unusable because it is running sooooooooo slow.....",
+      "turn_count": 2,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "what is going on?",
+      "turn_count": 3,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "maintenance?",
+      "turn_count": 4,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i do apologize, so the website in general is slow or is it the search/cart option?",
+      "turn_count": 5,
+      "targets": [
+        "slow_speed",
+        "retrieve_utterance",
+        null,
+        [],
+        28
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "slow in general",
+      "turn_count": 6,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "lets try a few things. first can you try going to another website to check the connection?",
+      "turn_count": 7,
+      "targets": [
+        "slow_speed",
+        "retrieve_utterance",
+        null,
+        [],
+        77
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok",
+      "turn_count": 8,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "agent is looking for solutions ...",
+      "turn_count": 9,
+      "targets": [
+        "slow_speed",
+        "take_action",
+        "try-again",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no issues",
+      "turn_count": 10,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "next can you close all tabs in the browser and make sure all background programs are not running please?",
+      "turn_count": 11,
+      "targets": [
+        "slow_speed",
+        "retrieve_utterance",
+        null,
+        [],
+        28
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "agent is looking for solutions ...",
+      "turn_count": 12,
+      "targets": [
+        "slow_speed",
+        "take_action",
+        "instructions",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yes",
+      "turn_count": 13,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "that works",
+      "turn_count": 14,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thank you :)",
+      "turn_count": 15,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "great, is there anything else i may help you with.",
+      "turn_count": 16,
+      "targets": [
+        "slow_speed",
+        "retrieve_utterance",
+        null,
+        [],
+        54
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "your welcome.",
+      "turn_count": 17,
+      "targets": [
+        "slow_speed",
+        "retrieve_utterance",
+        null,
+        [],
+        45
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no that was it",
+      "turn_count": 18,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "have a fab day!",
+      "turn_count": 19,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you for contacting acmecorp, please be safe and stay well.",
+      "turn_count": 20,
+      "targets": [
+        "slow_speed",
+        "retrieve_utterance",
+        null,
+        [],
+        52
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ty",
+      "turn_count": 21,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "you too, thank you",
+      "turn_count": 22,
+      "targets": [
+        "slow_speed",
+        "retrieve_utterance",
+        null,
+        [],
+        49
+      ]
+    }
+  ]
+}

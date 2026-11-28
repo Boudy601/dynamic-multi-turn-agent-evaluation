@@ -1,0 +1,716 @@
+{
+  "convo_id": 5468,
+  "scenario": {
+    "personal": {
+      "customer_name": "albert sanders",
+      "email": "asanders426@email.com",
+      "member_level": "bronze",
+      "phone": "(707) 434-5591",
+      "username": "asanders426"
+    },
+    "order": {
+      "street_address": "0690 1st ave",
+      "full_address": "0690 1st ave  san mateo, ny 74959",
+      "city": "san mateo",
+      "num_products": "1",
+      "order_id": "7548523106",
+      "products": "[{'brand': 'tommy_hilfiger', 'product_type': 'shirt', 'amount': 79, 'image_url': 'images/tommy_hilfiger-shirt.jpeg'}]",
+      "state": "ny",
+      "zip_code": "74959"
+    },
+    "product": {
+      "names": [
+        "tommy_hilfiger shirt"
+      ],
+      "amounts": [
+        79
+      ]
+    },
+    "flow": "purchase_dispute",
+    "subflow": "out_of_stock_one_item"
+  },
+  "original": [
+    [
+      "customer",
+      "hello"
+    ],
+    [
+      "agent",
+      "Hi,"
+    ],
+    [
+      "agent",
+      "how can I help you"
+    ],
+    [
+      "customer",
+      "The item I ordered is out of stock"
+    ],
+    [
+      "customer",
+      "can you see if you can get this delivered?"
+    ],
+    [
+      "agent",
+      "yes, I can help with that"
+    ],
+    [
+      "agent",
+      "Have you ordered other items already?"
+    ],
+    [
+      "customer",
+      "no"
+    ],
+    [
+      "customer",
+      "just this one item"
+    ],
+    [
+      "agent",
+      "What item is it?"
+    ],
+    [
+      "customer",
+      "a tommy hilfiger shirt"
+    ],
+    [
+      "agent",
+      "Can I have your full name or Account ID please?"
+    ],
+    [
+      "customer",
+      "Albert Sanders"
+    ],
+    [
+      "action",
+      "Account has been pulled up for Albert Sanders."
+    ],
+    [
+      "agent",
+      "Also, I will write up a report to let our purchasing department know so they can do a better job"
+    ],
+    [
+      "action",
+      "The purchasing department has been notified."
+    ],
+    [
+      "customer",
+      "ok, but what are you going to do about my order"
+    ],
+    [
+      "action",
+      "A reason of tommy hilfiger shirt has been recorded."
+    ],
+    [
+      "customer",
+      "I would like to have this delivered as soon as possible"
+    ],
+    [
+      "agent",
+      "I'm going to see if I can place the order for you"
+    ],
+    [
+      "customer",
+      "ok"
+    ],
+    [
+      "agent",
+      "it's on back order, but I can order it and it will ship to you as soon as it becomes available"
+    ],
+    [
+      "customer",
+      "what happens to my previous order then?"
+    ],
+    [
+      "agent",
+      "Did you already order the out of stock item?"
+    ],
+    [
+      "customer",
+      "yes"
+    ],
+    [
+      "customer",
+      "oh wait. no"
+    ],
+    [
+      "customer",
+      "the order didn't go through"
+    ],
+    [
+      "agent",
+      "Ok great!"
+    ],
+    [
+      "agent",
+      "Let me order it now so it will be expedited"
+    ],
+    [
+      "customer",
+      "ok. thank you"
+    ],
+    [
+      "agent",
+      "Should i just use the credit card on file in your account?"
+    ],
+    [
+      "customer",
+      "yes, please do"
+    ],
+    [
+      "action",
+      "A purchase of tommy hilfiger shirt was made."
+    ],
+    [
+      "agent",
+      "Ok, you will get the Shirt as soon as we get it in stock. Since I ordered it, you will have priority."
+    ],
+    [
+      "customer",
+      "great"
+    ],
+    [
+      "customer",
+      "thank you so much for your help"
+    ],
+    [
+      "agent",
+      "You're welcome!"
+    ],
+    [
+      "agent",
+      "Can I help with anything else?"
+    ],
+    [
+      "customer",
+      "no, that was all"
+    ],
+    [
+      "agent",
+      "ok, have a great day!"
+    ],
+    [
+      "customer",
+      "you too, bye"
+    ],
+    [
+      "agent",
+      "bye"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "customer",
+      "text": "hello",
+      "turn_count": 1,
+      "targets": [
+        "out_of_stock_one_item",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "hi,",
+      "turn_count": 2,
+      "targets": [
+        "out_of_stock_one_item",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "how can i help you",
+      "turn_count": 3,
+      "targets": [
+        "out_of_stock_one_item",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "the item i ordered is out of stock",
+      "turn_count": 4,
+      "targets": [
+        "out_of_stock_one_item",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "can you see if you can get this delivered?",
+      "turn_count": 5,
+      "targets": [
+        "out_of_stock_one_item",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "yes, i can help with that",
+      "turn_count": 6,
+      "targets": [
+        "out_of_stock_one_item",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "have you ordered other items already?",
+      "turn_count": 7,
+      "targets": [
+        "out_of_stock_one_item",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no",
+      "turn_count": 8,
+      "targets": [
+        "out_of_stock_one_item",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "just this one item",
+      "turn_count": 9,
+      "targets": [
+        "out_of_stock_one_item",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "what item is it?",
+      "turn_count": 10,
+      "targets": [
+        "out_of_stock_one_item",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "a tommy hilfiger shirt",
+      "turn_count": 11,
+      "targets": [
+        "out_of_stock_one_item",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can i have your full name or account id please?",
+      "turn_count": 12,
+      "targets": [
+        "out_of_stock_one_item",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "albert sanders",
+      "turn_count": 13,
+      "targets": [
+        "out_of_stock_one_item",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for albert sanders.",
+      "turn_count": 14,
+      "targets": [
+        "out_of_stock_one_item",
+        null,
+        "pull-up-account",
+        [
+          "albert sanders"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "also, i will write up a report to let our purchasing department know so they can do a better job",
+      "turn_count": 15,
+      "targets": [
+        "out_of_stock_one_item",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "the purchasing department has been notified.",
+      "turn_count": 16,
+      "targets": [
+        "out_of_stock_one_item",
+        null,
+        "notify-team",
+        [
+          "purchasing department"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok, but what are you going to do about my order",
+      "turn_count": 17,
+      "targets": [
+        "out_of_stock_one_item",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "a reason of tommy hilfiger shirt has been recorded.",
+      "turn_count": 18,
+      "targets": [
+        "out_of_stock_one_item",
+        null,
+        "record-reason",
+        [
+          "tommy hilfiger shirt"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i would like to have this delivered as soon as possible",
+      "turn_count": 19,
+      "targets": [
+        "out_of_stock_one_item",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i'm going to see if i can place the order for you",
+      "turn_count": 20,
+      "targets": [
+        "out_of_stock_one_item",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok",
+      "turn_count": 21,
+      "targets": [
+        "out_of_stock_one_item",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "it's on back order, but i can order it and it will ship to you as soon as it becomes available",
+      "turn_count": 22,
+      "targets": [
+        "out_of_stock_one_item",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "what happens to my previous order then?",
+      "turn_count": 23,
+      "targets": [
+        "out_of_stock_one_item",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "did you already order the out of stock item?",
+      "turn_count": 24,
+      "targets": [
+        "out_of_stock_one_item",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yes",
+      "turn_count": 25,
+      "targets": [
+        "out_of_stock_one_item",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "oh wait. no",
+      "turn_count": 26,
+      "targets": [
+        "out_of_stock_one_item",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "the order didn't go through",
+      "turn_count": 27,
+      "targets": [
+        "out_of_stock_one_item",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok great!",
+      "turn_count": 28,
+      "targets": [
+        "out_of_stock_one_item",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "let me order it now so it will be expedited",
+      "turn_count": 29,
+      "targets": [
+        "out_of_stock_one_item",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok. thank you",
+      "turn_count": 30,
+      "targets": [
+        "out_of_stock_one_item",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "should i just use the credit card on file in your account?",
+      "turn_count": 31,
+      "targets": [
+        "out_of_stock_one_item",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yes, please do",
+      "turn_count": 32,
+      "targets": [
+        "out_of_stock_one_item",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "a purchase of tommy hilfiger shirt was made.",
+      "turn_count": 33,
+      "targets": [
+        "out_of_stock_one_item",
+        null,
+        "make-purchase",
+        [
+          "tommy hilfiger shirt"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok, you will get the shirt as soon as we get it in stock. since i ordered it, you will have priority.",
+      "turn_count": 34,
+      "targets": [
+        "out_of_stock_one_item",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "great",
+      "turn_count": 35,
+      "targets": [
+        "out_of_stock_one_item",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thank you so much for your help",
+      "turn_count": 36,
+      "targets": [
+        "out_of_stock_one_item",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "you're welcome!",
+      "turn_count": 37,
+      "targets": [
+        "out_of_stock_one_item",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can i help with anything else?",
+      "turn_count": 38,
+      "targets": [
+        "out_of_stock_one_item",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no, that was all",
+      "turn_count": 39,
+      "targets": [
+        "out_of_stock_one_item",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok, have a great day!",
+      "turn_count": 40,
+      "targets": [
+        "out_of_stock_one_item",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "you too, bye",
+      "turn_count": 41,
+      "targets": [
+        "out_of_stock_one_item",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "bye",
+      "turn_count": 42,
+      "targets": [
+        "out_of_stock_one_item",
+        null,
+        null,
+        [],
+        -1
+      ]
+    }
+  ]
+}

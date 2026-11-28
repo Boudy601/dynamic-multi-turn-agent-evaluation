@@ -1,0 +1,318 @@
+{
+  "convo_id": 8208,
+  "scenario": {
+    "personal": {
+      "account_id": "gruxhy4szi",
+      "customer_name": "sanya afzal",
+      "member_level": "gold",
+      "phone": "(549) 916-7171"
+    },
+    "order": {
+      "street_address": "7046 lexington ave",
+      "full_address": "7046 lexington ave  monterey, mi 30163",
+      "city": "monterey",
+      "num_products": "1",
+      "order_id": "1056196582",
+      "products": "[{'brand': 'michael_kors', 'product_type': 'jacket', 'amount': 49, 'image_url': 'images/michael_kors-jacket.jpeg'}]",
+      "shipping_status": "order received",
+      "state": "mi",
+      "zip_code": "30163"
+    },
+    "product": {
+      "names": [
+        "michael_kors jacket"
+      ],
+      "amounts": [
+        49
+      ]
+    },
+    "flow": "order_issue",
+    "subflow": "status_delivery_time"
+  },
+  "original": [
+    [
+      "agent",
+      "Hello, how can I help you?"
+    ],
+    [
+      "customer",
+      "Hi I have an order in but I need to change the delivery time if possible"
+    ],
+    [
+      "agent",
+      "Okay, let's look into that. I'll need your full name, account ID, and order ID."
+    ],
+    [
+      "customer",
+      "Great, it's Sanya Afzal, GRUXHY4SZI, 1056196582"
+    ],
+    [
+      "action",
+      "Account has been pulled up for Sanya Afzal."
+    ],
+    [
+      "action",
+      "Identity verification in progress ..."
+    ],
+    [
+      "agent",
+      "Thank you. What is the reason for you changing the delivery time specifically?"
+    ],
+    [
+      "customer",
+      "I will not be back in town as early as I thought I would be, I will be one day later than planned"
+    ],
+    [
+      "action",
+      "Querying the system for an answer ..."
+    ],
+    [
+      "agent",
+      "What is the current shipping status of the order?"
+    ],
+    [
+      "customer",
+      "It says order received"
+    ],
+    [
+      "action",
+      "Shipping status of Order Received has been noted."
+    ],
+    [
+      "action",
+      "Order has been updated with change time."
+    ],
+    [
+      "agent",
+      "Great, your delivery will now come later."
+    ],
+    [
+      "agent",
+      "Is there anything else you need today?"
+    ],
+    [
+      "customer",
+      "Ah thank you so much, have a great day"
+    ],
+    [
+      "agent",
+      "You're welcome, you have a nice day too."
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "hello, how can i help you?",
+      "turn_count": 1,
+      "targets": [
+        "status_delivery_time",
+        "retrieve_utterance",
+        null,
+        [],
+        47
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "hi i have an order in but i need to change the delivery time if possible",
+      "turn_count": 2,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "okay, let's look into that. i'll need your full name, account id, and order id.",
+      "turn_count": 3,
+      "targets": [
+        "status_delivery_time",
+        "retrieve_utterance",
+        null,
+        [],
+        8
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "great, it's sanya afzal, <account_id>, <order_id>",
+      "turn_count": 4,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for sanya afzal.",
+      "turn_count": 5,
+      "targets": [
+        "status_delivery_time",
+        "take_action",
+        "pull-up-account",
+        [
+          "sanya afzal"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "identity verification in progress ...",
+      "turn_count": 6,
+      "targets": [
+        "status_delivery_time",
+        "take_action",
+        "verify-identity",
+        [
+          "sanya afzal",
+          "gruxhy4szi",
+          "1056196582"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you. what is the reason for you changing the delivery time specifically?",
+      "turn_count": 7,
+      "targets": [
+        "status_delivery_time",
+        "retrieve_utterance",
+        null,
+        [],
+        73
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i will not be back in town as early as i thought i would be, i will be one day later than planned",
+      "turn_count": 8,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "querying the system for an answer ...",
+      "turn_count": 9,
+      "targets": [
+        "status_delivery_time",
+        "take_action",
+        "ask-the-oracle",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "what is the current shipping status of the order?",
+      "turn_count": 10,
+      "targets": [
+        "status_delivery_time",
+        "retrieve_utterance",
+        null,
+        [],
+        38
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "it says order received",
+      "turn_count": 11,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "shipping status of order received has been noted.",
+      "turn_count": 12,
+      "targets": [
+        "status_delivery_time",
+        "take_action",
+        "shipping-status",
+        [
+          "order received"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "order has been updated with change time.",
+      "turn_count": 13,
+      "targets": [
+        "status_delivery_time",
+        "take_action",
+        "update-order",
+        [
+          "change time"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "great, your delivery will now come later.",
+      "turn_count": 14,
+      "targets": [
+        "status_delivery_time",
+        "retrieve_utterance",
+        null,
+        [],
+        99
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "is there anything else you need today?",
+      "turn_count": 15,
+      "targets": [
+        "status_delivery_time",
+        "retrieve_utterance",
+        null,
+        [],
+        89
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ah thank you so much, have a great day",
+      "turn_count": 16,
+      "targets": [
+        "status_delivery_time",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "you're welcome, you have a nice day too.",
+      "turn_count": 17,
+      "targets": [
+        "status_delivery_time",
+        "retrieve_utterance",
+        null,
+        [],
+        39
+      ]
+    }
+  ]
+}

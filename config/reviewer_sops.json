@@ -1,0 +1,71 @@
+{
+  "bahaa": [
+    "status_mystery_fee",
+    "status_delivery_time",
+    "status_payment_method",
+    "status_quantity",
+    "manage_upgrade",
+    "manage_downgrade",
+    "manage_create",
+    "manage_cancel"
+  ],
+  "youssef": [
+    "status_service_added",
+    "status_service_removed",
+    "status_shipping_question",
+    "status_credit_missing",
+    "manage_change_address",
+    "manage_change_name",
+    "manage_change_phone",
+    "manage_payment_method"
+  ],
+  "omar": [
+    "bad_price_competitor",
+    "bad_price_yesterday",
+    "out_of_stock_general",
+    "out_of_stock_one_item",
+    "promo_code_invalid",
+    "promo_code_out_of_date",
+    "mistimed_billing_already_returned",
+    "mistimed_billing_never_bought"
+  ],
+  "amr": [
+    "shipping_status",
+    "manage_shipping",
+    "missing_item",
+    "shipping_cost",
+    "invalid_credit_card",
+    "cart_not_updating",
+    "search_not_working",
+    "website_too_slow"
+  ],
+  "islam": [
+    "boots_faq",
+    "shirt_faq",
+    "jeans_faq",
+    "jacket_faq",
+    "pricing_faq",
+    "membership_faq",
+    "timing_faq",
+    "policy_faq"
+  ],
+  "moaz": [
+    "initiate_refund",
+    "update_refund",
+    "refund_status",
+    "return_due_to_stain",
+    "return_due_to_color",
+    "return_due_to_size",
+    "recover_username",
+    "recover_password"
+  ],
+  "salah": [
+    "status_active",
+    "status_due_amount",
+    "status_due_date",
+    "manage_pay_bill",
+    "manage_extension",
+    "manage_dispute_bill",
+    "reset_two_factor_auth"
+  ]
+}

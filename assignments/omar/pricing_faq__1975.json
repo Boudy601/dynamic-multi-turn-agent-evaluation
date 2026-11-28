@@ -1,0 +1,699 @@
+{
+  "convo_id": 1975,
+  "scenario": {
+    "personal": {
+      "customer_name": "albert sanders",
+      "member_level": "guest",
+      "phone": "(634) 811-2214"
+    },
+    "order": {
+      "street_address": "9045 lexington ave",
+      "full_address": "9045 lexington ave  san mateo, tx 77072",
+      "city": "san mateo",
+      "num_products": "3",
+      "products": "[{'brand': 'guess', 'product_type': 'jacket', 'amount': 84, 'image_url': 'images/guess-jacket.jpeg'}, {'brand': 'tommy_hilfiger', 'product_type': 'shirt', 'amount': 99, 'image_url': 'images/tommy_hilfiger-shirt.jpeg'}, {'brand': 'calvin_klein', 'product_type': 'jacket', 'amount': 89, 'image_url': 'images/calvin_klein-jacket.jpeg'}]",
+      "state": "tx",
+      "zip_code": "77072"
+    },
+    "product": {
+      "names": [
+        "guess jacket",
+        "tommy_hilfiger shirt",
+        "calvin_klein jacket"
+      ],
+      "amounts": [
+        84,
+        99,
+        89
+      ]
+    },
+    "flow": "storewide_query",
+    "subflow": "pricing_1"
+  },
+  "original": [
+    [
+      "agent",
+      "Hi, and thanks for choosing AcmeBrands! How can I help you today?"
+    ],
+    [
+      "customer",
+      "Hi, I want to find out about gift wrapping my items. Like the cost etc"
+    ],
+    [
+      "agent",
+      "I'd be happy to assist you with that."
+    ],
+    [
+      "agent",
+      "Let me check that information for you."
+    ],
+    [
+      "action",
+      "Searching the FAQ pages ..."
+    ],
+    [
+      "action",
+      "System Action: search pricing"
+    ],
+    [
+      "action",
+      "FAQ answer related to pricing (question1) was selected."
+    ],
+    [
+      "agent",
+      "Gift wrapping costs $4.99 per item, as long as the item isn't oversized."
+    ],
+    [
+      "agent",
+      "You can also add a personalized gift message of up to 300 characters, though you'll need to enter a separate message for each individual item you want wrapped."
+    ],
+    [
+      "customer",
+      "Is that per address?"
+    ],
+    [
+      "agent",
+      "It is $4.99 per item purchased, when available."
+    ],
+    [
+      "customer",
+      "I have 3 items but they're going to the same address so what would the total be?"
+    ],
+    [
+      "agent",
+      "The total for gift wrapping would be $14.97."
+    ],
+    [
+      "customer",
+      "I want them wrapped separately"
+    ],
+    [
+      "agent",
+      "They will be wrapped separately."
+    ],
+    [
+      "customer",
+      "what if they all were wrapped in the same box?"
+    ],
+    [
+      "agent",
+      "We only wrap individual items separately."
+    ],
+    [
+      "customer",
+      "are you sure? my friend got hers wrapped in the same box and she said it was  cheaper"
+    ],
+    [
+      "agent",
+      "I'm afraid we only wrap separately."
+    ],
+    [
+      "customer",
+      "can you double check? they did it for her."
+    ],
+    [
+      "customer",
+      "can you ask your supervisor?"
+    ],
+    [
+      "agent",
+      "I have double checked, and my information shows that it is fixed at $4.99 per item."
+    ],
+    [
+      "agent",
+      "I will escalate this to my manager."
+    ],
+    [
+      "action",
+      "The manager has been notified."
+    ],
+    [
+      "customer",
+      "thank you!"
+    ],
+    [
+      "agent",
+      "Is there anything else I can help you with?"
+    ],
+    [
+      "customer",
+      "how will I find out the answer?"
+    ],
+    [
+      "agent",
+      "The manager will contact you."
+    ],
+    [
+      "customer",
+      "you didn't even ask my name!"
+    ],
+    [
+      "customer",
+      "how will they notify me?"
+    ],
+    [
+      "agent",
+      "I will pull up your account so that it is on record. What is your full name?"
+    ],
+    [
+      "customer",
+      "Albert Sanders"
+    ],
+    [
+      "action",
+      "Account has been pulled up for Albert Sanders."
+    ],
+    [
+      "agent",
+      "Your account has been pulled up. Can I help you with anything else today?"
+    ],
+    [
+      "customer",
+      "what phone number do you have for me?"
+    ],
+    [
+      "agent",
+      "I am unable to see that information, but my manager will have access to your full account."
+    ],
+    [
+      "customer",
+      "how? I'm a guest"
+    ],
+    [
+      "agent",
+      "Guest simply means that you do not have a paid membership, but you still have an account in our system."
+    ],
+    [
+      "customer",
+      "(634) 811-2214 please add this number to my account. what you are telling me does not make sense."
+    ],
+    [
+      "customer",
+      "thank you! I don't have high hopes of getting a call though."
+    ],
+    [
+      "agent",
+      "You will, I assure you. Have a nice day!"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "hi, and thanks for choosing acmebrands! how can i help you today?",
+      "turn_count": 1,
+      "targets": [
+        "pricing_1",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "hi, i want to find out about gift wrapping my items. like the cost etc",
+      "turn_count": 2,
+      "targets": [
+        "pricing_1",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i'd be happy to assist you with that.",
+      "turn_count": 3,
+      "targets": [
+        "pricing_1",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "let me check that information for you.",
+      "turn_count": 4,
+      "targets": [
+        "pricing_1",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "searching the faq pages ...",
+      "turn_count": 5,
+      "targets": [
+        "pricing_1",
+        null,
+        "search-faq",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "system action: search pricing",
+      "turn_count": 6,
+      "targets": [
+        "pricing_1",
+        null,
+        "search-pricing",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "faq answer related to pricing (question1) was selected.",
+      "turn_count": 7,
+      "targets": [
+        "pricing_1",
+        null,
+        "select-faq",
+        [
+          "pricing_1"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "gift wrapping costs $4.99 per item, as long as the item isn't oversized.",
+      "turn_count": 8,
+      "targets": [
+        "pricing_1",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "you can also add a personalized gift message of up to 300 characters, though you'll need to enter a separate message for each individual item you want wrapped.",
+      "turn_count": 9,
+      "targets": [
+        "pricing_1",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "is that per address?",
+      "turn_count": 10,
+      "targets": [
+        "pricing_1",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "it is $4.99 per item purchased, when available.",
+      "turn_count": 11,
+      "targets": [
+        "pricing_1",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i have 3 items but they're going to the same address so what would the total be?",
+      "turn_count": 12,
+      "targets": [
+        "pricing_1",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "the total for gift wrapping would be $14.97.",
+      "turn_count": 13,
+      "targets": [
+        "pricing_1",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i want them wrapped separately",
+      "turn_count": 14,
+      "targets": [
+        "pricing_1",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "they will be wrapped separately.",
+      "turn_count": 15,
+      "targets": [
+        "pricing_1",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "what if they all were wrapped in the same box?",
+      "turn_count": 16,
+      "targets": [
+        "pricing_1",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "we only wrap individual items separately.",
+      "turn_count": 17,
+      "targets": [
+        "pricing_1",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "are you sure? my friend got hers wrapped in the same box and she said it was  cheaper",
+      "turn_count": 18,
+      "targets": [
+        "pricing_1",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i'm afraid we only wrap separately.",
+      "turn_count": 19,
+      "targets": [
+        "pricing_1",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "can you double check? they did it for her.",
+      "turn_count": 20,
+      "targets": [
+        "pricing_1",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "can you ask your supervisor?",
+      "turn_count": 21,
+      "targets": [
+        "pricing_1",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i have double checked, and my information shows that it is fixed at $4.99 per item.",
+      "turn_count": 22,
+      "targets": [
+        "pricing_1",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i will escalate this to my manager.",
+      "turn_count": 23,
+      "targets": [
+        "pricing_1",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "the manager has been notified.",
+      "turn_count": 24,
+      "targets": [
+        "pricing_1",
+        null,
+        "notify-team",
+        [
+          "manager"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thank you!",
+      "turn_count": 25,
+      "targets": [
+        "pricing_1",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "is there anything else i can help you with?",
+      "turn_count": 26,
+      "targets": [
+        "pricing_1",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "how will i find out the answer?",
+      "turn_count": 27,
+      "targets": [
+        "pricing_1",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "the manager will contact you.",
+      "turn_count": 28,
+      "targets": [
+        "pricing_1",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "you didn't even ask my name!",
+      "turn_count": 29,
+      "targets": [
+        "pricing_1",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "how will they notify me?",
+      "turn_count": 30,
+      "targets": [
+        "pricing_1",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i will pull up your account so that it is on record. what is your full name?",
+      "turn_count": 31,
+      "targets": [
+        "pricing_1",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "albert sanders",
+      "turn_count": 32,
+      "targets": [
+        "pricing_1",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for albert sanders.",
+      "turn_count": 33,
+      "targets": [
+        "pricing_1",
+        null,
+        "pull-up-account",
+        [
+          "albert sanders"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "your account has been pulled up. can i help you with anything else today?",
+      "turn_count": 34,
+      "targets": [
+        "pricing_1",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "what phone number do you have for me?",
+      "turn_count": 35,
+      "targets": [
+        "pricing_1",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i am unable to see that information, but my manager will have access to your full account.",
+      "turn_count": 36,
+      "targets": [
+        "pricing_1",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "how? i'm a guest",
+      "turn_count": 37,
+      "targets": [
+        "pricing_1",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "guest simply means that you do not have a paid membership, but you still have an account in our system.",
+      "turn_count": 38,
+      "targets": [
+        "pricing_1",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "(634) 811-2214 please add this number to my account. what you are telling me does not make sense.",
+      "turn_count": 39,
+      "targets": [
+        "pricing_1",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thank you! i don't have high hopes of getting a call though.",
+      "turn_count": 40,
+      "targets": [
+        "pricing_1",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "you will, i assure you. have a nice day!",
+      "turn_count": 41,
+      "targets": [
+        "pricing_1",
+        null,
+        null,
+        [],
+        -1
+      ]
+    }
+  ]
+}

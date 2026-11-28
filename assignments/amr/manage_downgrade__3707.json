@@ -1,0 +1,958 @@
+{
+  "convo_id": 3707,
+  "scenario": {
+    "personal": {
+      "account_id": "8ufppfph9u",
+      "customer_name": "albert sanders",
+      "member_level": "guest",
+      "phone": "(933) 938-6331"
+    },
+    "order": {
+      "street_address": "6266 lincoln ave",
+      "full_address": "6266 lincoln ave  la fayette, ny 3987",
+      "city": "la fayette",
+      "num_products": "1",
+      "order_id": "5773256933",
+      "products": "[{'brand': 'calvin_klein', 'product_type': 'boots', 'amount': 69, 'image_url': 'images/calvin_klein-boots.jpeg'}]",
+      "shipping_status": "out for delivery",
+      "state": "ny",
+      "zip_code": "3987"
+    },
+    "product": {
+      "names": [
+        "calvin_klein boots"
+      ],
+      "amounts": [
+        69
+      ]
+    },
+    "flow": "order_issue",
+    "subflow": "manage_downgrade"
+  },
+  "original": [
+    [
+      "agent",
+      "Hi! How can I help you today?"
+    ],
+    [
+      "agent",
+      "Are you there?"
+    ],
+    [
+      "customer",
+      "hi"
+    ],
+    [
+      "customer",
+      "sorry"
+    ],
+    [
+      "customer",
+      "yes i am here"
+    ],
+    [
+      "customer",
+      "I want to change my order"
+    ],
+    [
+      "customer",
+      "I ordered quick shipping"
+    ],
+    [
+      "customer",
+      "but then I decided that's too expensive"
+    ],
+    [
+      "customer",
+      "I want to move my shipping to next week delivery"
+    ],
+    [
+      "customer",
+      "so that I can avoid paying the fee"
+    ],
+    [
+      "agent",
+      "No problem, just a moment!"
+    ],
+    [
+      "customer",
+      "okay"
+    ],
+    [
+      "customer",
+      "Do you need anything from me to do this?"
+    ],
+    [
+      "agent",
+      "I will, but firstly the best thing I can do is refund you for the shipping."
+    ],
+    [
+      "agent",
+      "Will that be fine?"
+    ],
+    [
+      "customer",
+      "Okay"
+    ],
+    [
+      "customer",
+      "yes, so I still get the item quickly but I don't have to pay?"
+    ],
+    [
+      "customer",
+      "That's A-okay with me :)"
+    ],
+    [
+      "agent",
+      "Oh no, my apologies! I can delay the delivery."
+    ],
+    [
+      "customer",
+      "oh, okay"
+    ],
+    [
+      "customer",
+      "sure that's good too"
+    ],
+    [
+      "agent",
+      "I need your first name or account ID please"
+    ],
+    [
+      "customer",
+      "8UFPPFPH9U"
+    ],
+    [
+      "agent",
+      "Again, my apologies."
+    ],
+    [
+      "action",
+      "Account has been pulled up for 8UFPPFPH9U."
+    ],
+    [
+      "agent",
+      "I need to validate the purchase, to do this I'm going to need your username, email address, and order ID please."
+    ],
+    [
+      "customer",
+      "okay"
+    ],
+    [
+      "customer",
+      "my email is asandersisgreat@gmail.com"
+    ],
+    [
+      "customer",
+      "My username is asandersiscool"
+    ],
+    [
+      "customer",
+      "my order id is 5773256933"
+    ],
+    [
+      "agent",
+      "Great! One moment please."
+    ],
+    [
+      "agent",
+      "Actually I am going to need your full name as well."
+    ],
+    [
+      "customer",
+      "Albert Sanders"
+    ],
+    [
+      "customer",
+      "but you can call me Al :)"
+    ],
+    [
+      "action",
+      "Identity verification in progess ..."
+    ],
+    [
+      "agent",
+      "Haha, that is cool."
+    ],
+    [
+      "customer",
+      "so can you change the shipping?"
+    ],
+    [
+      "agent",
+      "Al, what what is the shipping status at the moment?"
+    ],
+    [
+      "customer",
+      "it's out for delivery"
+    ],
+    [
+      "agent",
+      "I see, since its out for delivery I cannot change the date as I thought before, what is your membership level?"
+    ],
+    [
+      "customer",
+      "it's guest"
+    ],
+    [
+      "action",
+      "Shipping status of out for delivery has been noted."
+    ],
+    [
+      "action",
+      "Agent is looking for solutions ..."
+    ],
+    [
+      "agent",
+      "Unfortunately Al, as a guest member you are not eligible for any shipping refunds."
+    ],
+    [
+      "customer",
+      "oh okay"
+    ],
+    [
+      "customer",
+      "I guess that makes sense."
+    ],
+    [
+      "agent",
+      "I am truly sorry for the inconvenience."
+    ],
+    [
+      "customer",
+      "I made the mistake by ordering the quicker shipping"
+    ],
+    [
+      "customer",
+      "it's okay"
+    ],
+    [
+      "customer",
+      "thanks for trying"
+    ],
+    [
+      "agent",
+      "I understand, I wish we could help."
+    ],
+    [
+      "customer",
+      "no problem"
+    ],
+    [
+      "agent",
+      "Is there anything else I can do for you today?"
+    ],
+    [
+      "customer",
+      "thanks anyway"
+    ],
+    [
+      "customer",
+      "no that's it"
+    ],
+    [
+      "agent",
+      "Great, again you have my sincere apologies, have a good day"
+    ],
+    [
+      "customer",
+      "you also"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "hi! how can i help you today?",
+      "turn_count": 1,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "are you there?",
+      "turn_count": 2,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "hi",
+      "turn_count": 3,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "sorry",
+      "turn_count": 4,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yes i am here",
+      "turn_count": 5,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i want to change my order",
+      "turn_count": 6,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i ordered quick shipping",
+      "turn_count": 7,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "but then i decided that's too expensive",
+      "turn_count": 8,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i want to move my shipping to next week delivery",
+      "turn_count": 9,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "so that i can avoid paying the fee",
+      "turn_count": 10,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "no problem, just a moment!",
+      "turn_count": 11,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay",
+      "turn_count": 12,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "do you need anything from me to do this?",
+      "turn_count": 13,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i will, but firstly the best thing i can do is refund you for the shipping.",
+      "turn_count": 14,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "will that be fine?",
+      "turn_count": 15,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay",
+      "turn_count": 16,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yes, so i still get the item quickly but i don't have to pay?",
+      "turn_count": 17,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "that's a-okay with me :)",
+      "turn_count": 18,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "oh no, my apologies! i can delay the delivery.",
+      "turn_count": 19,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "oh, okay",
+      "turn_count": 20,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "sure that's good too",
+      "turn_count": 21,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i need your first name or account id please",
+      "turn_count": 22,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "8ufppfph9u",
+      "turn_count": 23,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "again, my apologies.",
+      "turn_count": 24,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for 8ufppfph9u.",
+      "turn_count": 25,
+      "targets": [
+        "manage_downgrade",
+        null,
+        "pull-up-account",
+        [
+          "8ufppfph9u"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i need to validate the purchase, to do this i'm going to need your username, email address, and order id please.",
+      "turn_count": 26,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay",
+      "turn_count": 27,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "my email is asandersisgreat@gmail.com",
+      "turn_count": 28,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "my username is asandersiscool",
+      "turn_count": 29,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "my order id is 5773256933",
+      "turn_count": 30,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "great! one moment please.",
+      "turn_count": 31,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "actually i am going to need your full name as well.",
+      "turn_count": 32,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "albert sanders",
+      "turn_count": 33,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "but you can call me al :)",
+      "turn_count": 34,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "identity verification in progess ...",
+      "turn_count": 35,
+      "targets": [
+        "manage_downgrade",
+        null,
+        "verify-identity",
+        [
+          "albert sanders",
+          "8ufppfph9u",
+          "5773256933"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "haha, that is cool.",
+      "turn_count": 36,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "so can you change the shipping?",
+      "turn_count": 37,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "al, what what is the shipping status at the moment?",
+      "turn_count": 38,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "it's out for delivery",
+      "turn_count": 39,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i see, since its out for delivery i cannot change the date as i thought before, what is your membership level?",
+      "turn_count": 40,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "it's guest",
+      "turn_count": 41,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "shipping status of out for delivery has been noted.",
+      "turn_count": 42,
+      "targets": [
+        "manage_downgrade",
+        null,
+        "shipping-status",
+        [
+          "out for delivery"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "agent is looking for solutions ...",
+      "turn_count": 43,
+      "targets": [
+        "manage_downgrade",
+        null,
+        "membership-privileges",
+        [
+          "guest"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "unfortunately al, as a guest member you are not eligible for any shipping refunds.",
+      "turn_count": 44,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "oh okay",
+      "turn_count": 45,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i guess that makes sense.",
+      "turn_count": 46,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i am truly sorry for the inconvenience.",
+      "turn_count": 47,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i made the mistake by ordering the quicker shipping",
+      "turn_count": 48,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "it's okay",
+      "turn_count": 49,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thanks for trying",
+      "turn_count": 50,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i understand, i wish we could help.",
+      "turn_count": 51,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no problem",
+      "turn_count": 52,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "is there anything else i can do for you today?",
+      "turn_count": 53,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thanks anyway",
+      "turn_count": 54,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no that's it",
+      "turn_count": 55,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "great, again you have my sincere apologies, have a good day",
+      "turn_count": 56,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "you also",
+      "turn_count": 57,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    }
+  ]
+}

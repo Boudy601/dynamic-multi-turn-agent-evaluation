@@ -1,0 +1,639 @@
+{
+  "convo_id": 3154,
+  "scenario": {
+    "personal": {
+      "account_id": "rnxg4y1mv2",
+      "customer_name": "alessandro phoenix",
+      "member_level": "gold",
+      "phone": "(404) 218-0925"
+    },
+    "order": {
+      "street_address": "4822 kennedy st",
+      "full_address": "4822 kennedy st  jacksonville, tx 71050",
+      "city": "jacksonville",
+      "order_id": "4856820616",
+      "state": "tx",
+      "zip_code": "71050"
+    },
+    "product": {
+      "names": [],
+      "amounts": []
+    },
+    "flow": "subscription_inquiry",
+    "subflow": "manage_pay_bill"
+  },
+  "original": [
+    [
+      "agent",
+      "hello, how may i assist you today?"
+    ],
+    [
+      "customer",
+      "I've had  a premium subscription that I want to continue.   How do I pay the fee so my benefits do not get dropped?"
+    ],
+    [
+      "agent",
+      "if i am understanding, you wish to make a payment on your subscription today?"
+    ],
+    [
+      "customer",
+      "Yes.  Iwant to keep premium service."
+    ],
+    [
+      "agent",
+      "i can help with that today"
+    ],
+    [
+      "agent",
+      "first i need your full name and account id"
+    ],
+    [
+      "customer",
+      "My name is Alessandro Phoenix.   Hold one minute while I get my Account ID."
+    ],
+    [
+      "agent",
+      "i will also need your order id while you are at it please"
+    ],
+    [
+      "action",
+      "Account has been pulled up for Allesandro Phoenix."
+    ],
+    [
+      "customer",
+      "Is it correct the Account ID is the top right and the order ID is on the left?"
+    ],
+    [
+      "agent",
+      "they should be labeled"
+    ],
+    [
+      "agent",
+      "but if you can't tell, just provide both numbers"
+    ],
+    [
+      "agent",
+      "the account id will be mostly letters if that helps"
+    ],
+    [
+      "customer",
+      "Go it.    Had to get my magnifying glass due to the small print.  Account ID is RNXG4Y1MV2.    Order ID is 4856820616."
+    ],
+    [
+      "action",
+      "Identity verification in progess ..."
+    ],
+    [
+      "agent",
+      "i think i may have your name spelled incorrectly, may i have it again?"
+    ],
+    [
+      "customer",
+      "My name is Alessandro Phoenix"
+    ],
+    [
+      "action",
+      "Identity verification in progess ..."
+    ],
+    [
+      "agent",
+      "I'm having issues verifying the name, one moment please"
+    ],
+    [
+      "action",
+      "Identity verification in progess ..."
+    ],
+    [
+      "agent",
+      "there we go, my aplogies"
+    ],
+    [
+      "agent",
+      "do you know the amount due you would like to pay? if not i can get it for you"
+    ],
+    [
+      "customer",
+      "I need you to give me the amount."
+    ],
+    [
+      "action",
+      "Querying the system for subscription status ..."
+    ],
+    [
+      "agent",
+      "it looks like the standard annual subscription amount due is $99"
+    ],
+    [
+      "action",
+      "Details of 99 have been entered."
+    ],
+    [
+      "agent",
+      "that is what you will need to pay today to keep your premium service active"
+    ],
+    [
+      "customer",
+      "Okay, $99 sounds good. I would like to pay that now."
+    ],
+    [
+      "agent",
+      "great, do you have a credit card number you would like to use for this payment?"
+    ],
+    [
+      "customer",
+      "I don't have my card handy right now. Can you use the one on my account?"
+    ],
+    [
+      "agent",
+      "no problem at all, i will use the credit card on the account"
+    ],
+    [
+      "action",
+      "Account has been updated with renew subscription."
+    ],
+    [
+      "agent",
+      "i have renewed your subscription and processed the $99 payment, so your premium service is all set"
+    ],
+    [
+      "customer",
+      "Thank you so much for your help!"
+    ],
+    [
+      "agent",
+      "you're very welcome! is there anything else i can help you with today?"
+    ],
+    [
+      "customer",
+      "That is all for today."
+    ],
+    [
+      "agent",
+      "have a good one"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "hello, how may i assist you today?",
+      "turn_count": 1,
+      "targets": [
+        "manage_pay_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i've had  a premium subscription that i want to continue.   how do i pay the fee so my benefits do not get dropped?",
+      "turn_count": 2,
+      "targets": [
+        "manage_pay_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "if i am understanding, you wish to make a payment on your subscription today?",
+      "turn_count": 3,
+      "targets": [
+        "manage_pay_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yes.  iwant to keep premium service.",
+      "turn_count": 4,
+      "targets": [
+        "manage_pay_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i can help with that today",
+      "turn_count": 5,
+      "targets": [
+        "manage_pay_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "first i need your full name and account id",
+      "turn_count": 6,
+      "targets": [
+        "manage_pay_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "my name is alessandro phoenix.   hold one minute while i get my account id.",
+      "turn_count": 7,
+      "targets": [
+        "manage_pay_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i will also need your order id while you are at it please",
+      "turn_count": 8,
+      "targets": [
+        "manage_pay_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for allesandro phoenix.",
+      "turn_count": 9,
+      "targets": [
+        "manage_pay_bill",
+        null,
+        "pull-up-account",
+        [
+          "alessandro phoenix"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "is it correct the account id is the top right and the order id is on the left?",
+      "turn_count": 10,
+      "targets": [
+        "manage_pay_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "they should be labeled",
+      "turn_count": 11,
+      "targets": [
+        "manage_pay_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "but if you can't tell, just provide both numbers",
+      "turn_count": 12,
+      "targets": [
+        "manage_pay_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "the account id will be mostly letters if that helps",
+      "turn_count": 13,
+      "targets": [
+        "manage_pay_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "go it.    had to get my magnifying glass due to the small print.  account id is rnxg4y1mv2.    order id is 4856820616.",
+      "turn_count": 14,
+      "targets": [
+        "manage_pay_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "identity verification in progess ...",
+      "turn_count": 15,
+      "targets": [
+        "manage_pay_bill",
+        null,
+        "verify-identity",
+        [
+          "alessandro phoenix",
+          "rnxg4y1mv2",
+          "4856820616"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i think i may have your name spelled incorrectly, may i have it again?",
+      "turn_count": 16,
+      "targets": [
+        "manage_pay_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "my name is alessandro phoenix",
+      "turn_count": 17,
+      "targets": [
+        "manage_pay_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "identity verification in progess ...",
+      "turn_count": 18,
+      "targets": [
+        "manage_pay_bill",
+        null,
+        "verify-identity",
+        [
+          "alesandro phoenix",
+          "rnxg4y1mv2",
+          "4856820616"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i'm having issues verifying the name, one moment please",
+      "turn_count": 19,
+      "targets": [
+        "manage_pay_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "identity verification in progess ...",
+      "turn_count": 20,
+      "targets": [
+        "manage_pay_bill",
+        null,
+        "verify-identity",
+        [
+          "alessandro phoenix",
+          "rnxg4y1mv2",
+          "4856820616"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "there we go, my aplogies",
+      "turn_count": 21,
+      "targets": [
+        "manage_pay_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "do you know the amount due you would like to pay? if not i can get it for you",
+      "turn_count": 22,
+      "targets": [
+        "manage_pay_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i need you to give me the amount.",
+      "turn_count": 23,
+      "targets": [
+        "manage_pay_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "querying the system for subscription status ...",
+      "turn_count": 24,
+      "targets": [
+        "manage_pay_bill",
+        null,
+        "subscription-status",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "it looks like the standard annual subscription amount due is $99",
+      "turn_count": 25,
+      "targets": [
+        "manage_pay_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "details of 99 have been entered.",
+      "turn_count": 26,
+      "targets": [
+        "manage_pay_bill",
+        null,
+        "enter-details",
+        [
+          "99"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "that is what you will need to pay today to keep your premium service active",
+      "turn_count": 27,
+      "targets": [
+        "manage_pay_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay, $99 sounds good. i would like to pay that now.",
+      "turn_count": 28,
+      "targets": [
+        "manage_pay_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "great, do you have a credit card number you would like to use for this payment?",
+      "turn_count": 29,
+      "targets": [
+        "manage_pay_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i don't have my card handy right now. can you use the one on my account?",
+      "turn_count": 30,
+      "targets": [
+        "manage_pay_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "no problem at all, i will use the credit card on the account",
+      "turn_count": 31,
+      "targets": [
+        "manage_pay_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been updated with renew subscription.",
+      "turn_count": 32,
+      "targets": [
+        "manage_pay_bill",
+        null,
+        "update-account",
+        [
+          "renew subscription"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i have renewed your subscription and processed the $99 payment, so your premium service is all set",
+      "turn_count": 33,
+      "targets": [
+        "manage_pay_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thank you so much for your help!",
+      "turn_count": 34,
+      "targets": [
+        "manage_pay_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "you're very welcome! is there anything else i can help you with today?",
+      "turn_count": 35,
+      "targets": [
+        "manage_pay_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "that is all for today.",
+      "turn_count": 36,
+      "targets": [
+        "manage_pay_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "have a good one",
+      "turn_count": 37,
+      "targets": [
+        "manage_pay_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    }
+  ]
+}

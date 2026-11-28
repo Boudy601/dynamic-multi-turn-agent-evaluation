@@ -1,0 +1,522 @@
+{
+  "convo_id": 4307,
+  "scenario": {
+    "personal": {
+      "account_id": "uizjvgjyhi",
+      "customer_name": "crystal minh",
+      "member_level": "guest",
+      "phone": "(451) 762-6025"
+    },
+    "order": {
+      "street_address": "0316 lincoln ave",
+      "full_address": "0316 lincoln ave  baltimore, ny 45051",
+      "city": "baltimore",
+      "num_products": "1",
+      "order_id": "9677080461",
+      "products": "[{'brand': 'tommy_hilfiger', 'product_type': 'jeans', 'amount': 64, 'image_url': 'images/tommy_hilfiger-jeans.jpeg'}]",
+      "shipping_status": "delivered",
+      "state": "ny",
+      "zip_code": "45051"
+    },
+    "product": {
+      "names": [
+        "tommy_hilfiger jeans"
+      ],
+      "amounts": [
+        64
+      ]
+    },
+    "flow": "order_issue",
+    "subflow": "manage_downgrade"
+  },
+  "original": [
+    [
+      "customer",
+      "Good morning sunshine"
+    ],
+    [
+      "customer",
+      "I mean good afternoon"
+    ],
+    [
+      "customer",
+      "Bueller? Bueller?"
+    ],
+    [
+      "agent",
+      "Hello, how can I help you?"
+    ],
+    [
+      "customer",
+      "I want my order to be shipped next week instead of this week to avoid shipping cost"
+    ],
+    [
+      "customer",
+      "Can you do that?"
+    ],
+    [
+      "agent",
+      "Sure,"
+    ],
+    [
+      "agent",
+      "Can I have your name"
+    ],
+    [
+      "customer",
+      "Chrystal meth minh"
+    ],
+    [
+      "action",
+      "Account has been pulled up for Crystal Minh."
+    ],
+    [
+      "agent",
+      "Can I have your account id and order id"
+    ],
+    [
+      "customer",
+      "Order ID: 9677080461"
+    ],
+    [
+      "agent",
+      "And the account ID?"
+    ],
+    [
+      "customer",
+      "Account ID: UIZJVGJYHI"
+    ],
+    [
+      "action",
+      "Identity verification in progress ..."
+    ],
+    [
+      "agent",
+      "What is the chipping status?>"
+    ],
+    [
+      "customer",
+      "Delivered"
+    ],
+    [
+      "customer",
+      "Dammit I feel stupid"
+    ],
+    [
+      "agent",
+      "It's okay"
+    ],
+    [
+      "customer",
+      "Anyways I  guess it's already done."
+    ],
+    [
+      "agent",
+      "What is your memnership status?"
+    ],
+    [
+      "customer",
+      "Guest"
+    ],
+    [
+      "agent",
+      "Yeah, I am sorry there is nothing else I can do then."
+    ],
+    [
+      "customer",
+      "No"
+    ],
+    [
+      "agent",
+      "Okay, sorry have a nice day!"
+    ],
+    [
+      "customer",
+      "I feel stupid lo"
+    ],
+    [
+      "agent",
+      "Its okay, mistakes happen"
+    ],
+    [
+      "customer",
+      "Quarantine life makes your crazy"
+    ],
+    [
+      "customer",
+      "Later alligator"
+    ],
+    [
+      "agent",
+      "lol bye"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "customer",
+      "text": "good morning sunshine",
+      "turn_count": 1,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i mean good afternoon",
+      "turn_count": 2,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "bueller? bueller?",
+      "turn_count": 3,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "hello, how can i help you?",
+      "turn_count": 4,
+      "targets": [
+        "manage_downgrade",
+        "retrieve_utterance",
+        null,
+        [],
+        68
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i want my order to be shipped next week instead of this week to avoid shipping cost",
+      "turn_count": 5,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "can you do that?",
+      "turn_count": 6,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "sure,",
+      "turn_count": 7,
+      "targets": [
+        "manage_downgrade",
+        "retrieve_utterance",
+        null,
+        [],
+        84
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can i have your name",
+      "turn_count": 8,
+      "targets": [
+        "manage_downgrade",
+        "retrieve_utterance",
+        null,
+        [],
+        89
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "chrystal meth minh",
+      "turn_count": 9,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for crystal minh.",
+      "turn_count": 10,
+      "targets": [
+        "manage_downgrade",
+        "take_action",
+        "pull-up-account",
+        [
+          "crystal minh"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can i have your account id and order id",
+      "turn_count": 11,
+      "targets": [
+        "manage_downgrade",
+        "retrieve_utterance",
+        null,
+        [],
+        25
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "order id: <order_id>",
+      "turn_count": 12,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "and the account id?",
+      "turn_count": 13,
+      "targets": [
+        "manage_downgrade",
+        "retrieve_utterance",
+        null,
+        [],
+        5
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "account id: <account_id>",
+      "turn_count": 14,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "identity verification in progress ...",
+      "turn_count": 15,
+      "targets": [
+        "manage_downgrade",
+        "take_action",
+        "verify-identity",
+        [
+          "crystal minh",
+          "uizjvgjyhi",
+          "9677080461"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "what is the chipping status?>",
+      "turn_count": 16,
+      "targets": [
+        "manage_downgrade",
+        "retrieve_utterance",
+        null,
+        [],
+        6
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "delivered",
+      "turn_count": 17,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "dammit i feel stupid",
+      "turn_count": 18,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "it's okay",
+      "turn_count": 19,
+      "targets": [
+        "manage_downgrade",
+        "retrieve_utterance",
+        null,
+        [],
+        79
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "anyways i  guess it's already done.",
+      "turn_count": 20,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "what is your memnership status?",
+      "turn_count": 21,
+      "targets": [
+        "manage_downgrade",
+        "retrieve_utterance",
+        null,
+        [],
+        96
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "guest",
+      "turn_count": 22,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "yeah, i am sorry there is nothing else i can do then.",
+      "turn_count": 23,
+      "targets": [
+        "manage_downgrade",
+        "retrieve_utterance",
+        null,
+        [],
+        54
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no",
+      "turn_count": 24,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "okay, sorry have a nice day!",
+      "turn_count": 25,
+      "targets": [
+        "manage_downgrade",
+        "retrieve_utterance",
+        null,
+        [],
+        36
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i feel stupid lo",
+      "turn_count": 26,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "its okay, mistakes happen",
+      "turn_count": 27,
+      "targets": [
+        "manage_downgrade",
+        "retrieve_utterance",
+        null,
+        [],
+        40
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "quarantine life makes your crazy",
+      "turn_count": 28,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "later alligator",
+      "turn_count": 29,
+      "targets": [
+        "manage_downgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "lol bye",
+      "turn_count": 30,
+      "targets": [
+        "manage_downgrade",
+        "retrieve_utterance",
+        null,
+        [],
+        51
+      ]
+    }
+  ]
+}

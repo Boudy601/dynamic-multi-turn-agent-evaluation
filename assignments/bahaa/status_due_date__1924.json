@@ -1,0 +1,1239 @@
+{
+  "convo_id": 1924,
+  "scenario": {
+    "personal": {
+      "account_id": "pcoquarnih",
+      "customer_name": "rodriguez domingo",
+      "member_level": "guest",
+      "phone": "(159) 799-5897"
+    },
+    "order": {
+      "street_address": "5396 lexington ave",
+      "full_address": "5396 lexington ave  baltimore, wa 78240",
+      "city": "baltimore",
+      "order_id": "9730817887",
+      "state": "wa",
+      "zip_code": "78240"
+    },
+    "product": {
+      "names": [],
+      "amounts": []
+    },
+    "flow": "subscription_inquiry",
+    "subflow": "status_due_date"
+  },
+  "original": [
+    [
+      "agent",
+      "hello how may i help you today"
+    ],
+    [
+      "customer",
+      "hi there"
+    ],
+    [
+      "customer",
+      "i would like to see what the status is of my subscription"
+    ],
+    [
+      "customer",
+      "i signed up for the premium level and want to make sure I am still current with it"
+    ],
+    [
+      "customer",
+      "because i want to see if all the benefits are still goo"
+    ],
+    [
+      "customer",
+      "*good"
+    ],
+    [
+      "agent",
+      "Ok, so if understand correctly, you want to check your membership status is still premium"
+    ],
+    [
+      "agent",
+      "in order to see if you still have benefits"
+    ],
+    [
+      "customer",
+      "i do yes but i am also not sure on when the annual fee is due?"
+    ],
+    [
+      "customer",
+      "im not sure if i put it on auto pay"
+    ],
+    [
+      "agent",
+      "i can check that for you as well, and you can make payment if need be"
+    ],
+    [
+      "customer",
+      "and if i didnt i dont want to lose my status with the premium level"
+    ],
+    [
+      "agent",
+      "first i need to pull up your account"
+    ],
+    [
+      "customer",
+      "oh ok"
+    ],
+    [
+      "agent",
+      "may i have your full name and account #?"
+    ],
+    [
+      "customer",
+      "not sure if the annual fee has been paid yet"
+    ],
+    [
+      "customer",
+      "sure"
+    ],
+    [
+      "agent",
+      "understood, we can get that solved today"
+    ],
+    [
+      "customer",
+      "Rodriguez Domingo"
+    ],
+    [
+      "agent",
+      "i will also need your order id for the next step of verification"
+    ],
+    [
+      "customer",
+      "cool ok good to know!"
+    ],
+    [
+      "action",
+      "Account has been pulled up for rodriguez domingo."
+    ],
+    [
+      "customer",
+      "acct ID PCOQUARNIH"
+    ],
+    [
+      "customer",
+      "and order ID is..."
+    ],
+    [
+      "customer",
+      "9730817887"
+    ],
+    [
+      "customer",
+      "and what else did you need? im sorry"
+    ],
+    [
+      "action",
+      "Identity verification in progess ..."
+    ],
+    [
+      "agent",
+      "thats all for now, thanks"
+    ],
+    [
+      "customer",
+      "oh good"
+    ],
+    [
+      "action",
+      "Querying the system for subscription status ..."
+    ],
+    [
+      "agent",
+      "Ok"
+    ],
+    [
+      "customer",
+      "If the annual fee is due currently I want to make sure to pay it"
+    ],
+    [
+      "agent",
+      "It looks like your subscription is not active, with a payment due tomorrow of $49"
+    ],
+    [
+      "customer",
+      "oh shoot! good thing I checked. ok I for sure would like to pay that today"
+    ],
+    [
+      "action",
+      "A link will be sent."
+    ],
+    [
+      "agent",
+      "i sent you a link that allows you to check your suubscription status and payment in the future"
+    ],
+    [
+      "agent",
+      "you will need to log in using your username, do you know your username? if not i can give it to you"
+    ],
+    [
+      "agent",
+      "after that i can get this payment processed for you"
+    ],
+    [
+      "customer",
+      "oh ok great, so if I pay today , will I retain all the premium subscription benefits?"
+    ],
+    [
+      "agent",
+      "yes, that is correct"
+    ],
+    [
+      "customer",
+      "actually if you have my username that would be great, I do not have it in front of me right now"
+    ],
+    [
+      "customer",
+      "what is it?"
+    ],
+    [
+      "agent",
+      "rdomingo1"
+    ],
+    [
+      "customer",
+      "great thanks. logging in now"
+    ],
+    [
+      "customer",
+      "ok im in"
+    ],
+    [
+      "agent",
+      "no need, thats just for the future"
+    ],
+    [
+      "agent",
+      "to check the status"
+    ],
+    [
+      "agent",
+      "sorry for the confusion"
+    ],
+    [
+      "agent",
+      "now you said you wanted to make a payment? i can process that for you now"
+    ],
+    [
+      "customer",
+      "thats ok I just thought you wanted to take the payment now?"
+    ],
+    [
+      "agent",
+      "yes, i will do it from my end to ensure it goes through"
+    ],
+    [
+      "customer",
+      "ok yes please do"
+    ],
+    [
+      "agent",
+      "in the future you can use the link though"
+    ],
+    [
+      "agent",
+      "ok"
+    ],
+    [
+      "customer",
+      "I see"
+    ],
+    [
+      "agent",
+      "the amount is $49"
+    ],
+    [
+      "customer",
+      "ok"
+    ],
+    [
+      "action",
+      "Details of $49 have been entered."
+    ],
+    [
+      "agent",
+      "do you have a credit card number you want to use?"
+    ],
+    [
+      "customer",
+      "yes"
+    ],
+    [
+      "agent",
+      "or do you want to use the one on file"
+    ],
+    [
+      "agent",
+      "ok, may i have it please"
+    ],
+    [
+      "customer",
+      "the one on file would be perfect"
+    ],
+    [
+      "agent",
+      "understood"
+    ],
+    [
+      "customer",
+      "can you just use the one on file?"
+    ],
+    [
+      "action",
+      "Account has been updated with renew subscription."
+    ],
+    [
+      "agent",
+      "yes, I have used the one on your account and paid the fee in full"
+    ],
+    [
+      "customer",
+      "great!"
+    ],
+    [
+      "agent",
+      "is there anything else i can help you with today"
+    ],
+    [
+      "customer",
+      "that was easy"
+    ],
+    [
+      "customer",
+      "no I think I am done"
+    ],
+    [
+      "customer",
+      "but thanks for the help!"
+    ],
+    [
+      "agent",
+      "have a good day?"
+    ],
+    [
+      "customer",
+      "have a good one too!"
+    ],
+    [
+      "customer",
+      "bye"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "hello how may i help you today",
+      "turn_count": 1,
+      "targets": [
+        "status_due_date",
+        "retrieve_utterance",
+        null,
+        [],
+        2
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "hi there",
+      "turn_count": 2,
+      "targets": [
+        "status_due_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i would like to see what the status is of my subscription",
+      "turn_count": 3,
+      "targets": [
+        "status_due_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i signed up for the premium level and want to make sure i am still current with it",
+      "turn_count": 4,
+      "targets": [
+        "status_due_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "because i want to see if all the benefits are still goo",
+      "turn_count": 5,
+      "targets": [
+        "status_due_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "*good",
+      "turn_count": 6,
+      "targets": [
+        "status_due_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok, so if understand correctly, you want to check your membership status is still premium",
+      "turn_count": 7,
+      "targets": [
+        "status_due_date",
+        "retrieve_utterance",
+        null,
+        [],
+        91
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "in order to see if you still have benefits",
+      "turn_count": 8,
+      "targets": [
+        "status_due_date",
+        "retrieve_utterance",
+        null,
+        [],
+        36
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i do yes but i am also not sure on when the annual fee is due?",
+      "turn_count": 9,
+      "targets": [
+        "status_due_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "im not sure if i put it on auto pay",
+      "turn_count": 10,
+      "targets": [
+        "status_due_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i can check that for you as well, and you can make payment if need be",
+      "turn_count": 11,
+      "targets": [
+        "status_due_date",
+        "retrieve_utterance",
+        null,
+        [],
+        89
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "and if i didnt i dont want to lose my status with the premium level",
+      "turn_count": 12,
+      "targets": [
+        "status_due_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "first i need to pull up your account",
+      "turn_count": 13,
+      "targets": [
+        "status_due_date",
+        "retrieve_utterance",
+        null,
+        [],
+        33
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "oh ok",
+      "turn_count": 14,
+      "targets": [
+        "status_due_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "may i have your full name and account #?",
+      "turn_count": 15,
+      "targets": [
+        "status_due_date",
+        "retrieve_utterance",
+        null,
+        [],
+        27
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "not sure if the annual fee has been paid yet",
+      "turn_count": 16,
+      "targets": [
+        "status_due_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "sure",
+      "turn_count": 17,
+      "targets": [
+        "status_due_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "understood, we can get that solved today",
+      "turn_count": 18,
+      "targets": [
+        "status_due_date",
+        "retrieve_utterance",
+        null,
+        [],
+        88
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "rodriguez domingo",
+      "turn_count": 19,
+      "targets": [
+        "status_due_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i will also need your order id for the next step of verification",
+      "turn_count": 20,
+      "targets": [
+        "status_due_date",
+        "retrieve_utterance",
+        null,
+        [],
+        15
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "cool ok good to know!",
+      "turn_count": 21,
+      "targets": [
+        "status_due_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for rodriguez domingo.",
+      "turn_count": 22,
+      "targets": [
+        "status_due_date",
+        "take_action",
+        "pull-up-account",
+        [
+          "rodriguez domingo"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "acct id <account_id>",
+      "turn_count": 23,
+      "targets": [
+        "status_due_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "and order id is...",
+      "turn_count": 24,
+      "targets": [
+        "status_due_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "<order_id>",
+      "turn_count": 25,
+      "targets": [
+        "status_due_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "and what else did you need? im sorry",
+      "turn_count": 26,
+      "targets": [
+        "status_due_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "identity verification in progess ...",
+      "turn_count": 27,
+      "targets": [
+        "status_due_date",
+        "take_action",
+        "verify-identity",
+        [
+          "rodriguez domingo",
+          "pcoquarnih",
+          "9730817887"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thats all for now, thanks",
+      "turn_count": 28,
+      "targets": [
+        "status_due_date",
+        "retrieve_utterance",
+        null,
+        [],
+        78
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "oh good",
+      "turn_count": 29,
+      "targets": [
+        "status_due_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "querying the system for subscription status ...",
+      "turn_count": 30,
+      "targets": [
+        "status_due_date",
+        "take_action",
+        "subscription-status",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok",
+      "turn_count": 31,
+      "targets": [
+        "status_due_date",
+        "retrieve_utterance",
+        null,
+        [],
+        76
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "if the annual fee is due currently i want to make sure to pay it",
+      "turn_count": 32,
+      "targets": [
+        "status_due_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "it looks like your subscription is not active, with a payment due tomorrow of $49",
+      "turn_count": 33,
+      "targets": [
+        "status_due_date",
+        "retrieve_utterance",
+        null,
+        [],
+        16
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "oh shoot! good thing i checked. ok i for sure would like to pay that today",
+      "turn_count": 34,
+      "targets": [
+        "status_due_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "a link will be sent.",
+      "turn_count": 35,
+      "targets": [
+        "status_due_date",
+        "take_action",
+        "send-link",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i sent you a link that allows you to check your suubscription status and payment in the future",
+      "turn_count": 36,
+      "targets": [
+        "status_due_date",
+        "retrieve_utterance",
+        null,
+        [],
+        38
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "you will need to log in using your username, do you know your username? if not i can give it to you",
+      "turn_count": 37,
+      "targets": [
+        "status_due_date",
+        "retrieve_utterance",
+        null,
+        [],
+        83
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "after that i can get this payment processed for you",
+      "turn_count": 38,
+      "targets": [
+        "status_due_date",
+        "retrieve_utterance",
+        null,
+        [],
+        14
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "oh ok great, so if i pay today , will i retain all the premium subscription benefits?",
+      "turn_count": 39,
+      "targets": [
+        "status_due_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "yes, that is correct",
+      "turn_count": 40,
+      "targets": [
+        "status_due_date",
+        "retrieve_utterance",
+        null,
+        [],
+        54
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "actually if you have my username that would be great, i do not have it in front of me right now",
+      "turn_count": 41,
+      "targets": [
+        "status_due_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "what is it?",
+      "turn_count": 42,
+      "targets": [
+        "status_due_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "rdomingo1",
+      "turn_count": 43,
+      "targets": [
+        "status_due_date",
+        "retrieve_utterance",
+        null,
+        [],
+        26
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "great thanks. logging in now",
+      "turn_count": 44,
+      "targets": [
+        "status_due_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok im in",
+      "turn_count": 45,
+      "targets": [
+        "status_due_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "no need, thats just for the future",
+      "turn_count": 46,
+      "targets": [
+        "status_due_date",
+        "retrieve_utterance",
+        null,
+        [],
+        19
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "to check the status",
+      "turn_count": 47,
+      "targets": [
+        "status_due_date",
+        "retrieve_utterance",
+        null,
+        [],
+        25
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "sorry for the confusion",
+      "turn_count": 48,
+      "targets": [
+        "status_due_date",
+        "retrieve_utterance",
+        null,
+        [],
+        22
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "now you said you wanted to make a payment? i can process that for you now",
+      "turn_count": 49,
+      "targets": [
+        "status_due_date",
+        "retrieve_utterance",
+        null,
+        [],
+        91
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thats ok i just thought you wanted to take the payment now?",
+      "turn_count": 50,
+      "targets": [
+        "status_due_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "yes, i will do it from my end to ensure it goes through",
+      "turn_count": 51,
+      "targets": [
+        "status_due_date",
+        "retrieve_utterance",
+        null,
+        [],
+        89
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok yes please do",
+      "turn_count": 52,
+      "targets": [
+        "status_due_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "in the future you can use the link though",
+      "turn_count": 53,
+      "targets": [
+        "status_due_date",
+        "retrieve_utterance",
+        null,
+        [],
+        39
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok",
+      "turn_count": 54,
+      "targets": [
+        "status_due_date",
+        "retrieve_utterance",
+        null,
+        [],
+        61
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i see",
+      "turn_count": 55,
+      "targets": [
+        "status_due_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "the amount is $49",
+      "turn_count": 56,
+      "targets": [
+        "status_due_date",
+        "retrieve_utterance",
+        null,
+        [],
+        83
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok",
+      "turn_count": 57,
+      "targets": [
+        "status_due_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "details of $49 have been entered.",
+      "turn_count": 58,
+      "targets": [
+        "status_due_date",
+        "take_action",
+        "enter-details",
+        [
+          "49"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "do you have a credit card number you want to use?",
+      "turn_count": 59,
+      "targets": [
+        "status_due_date",
+        "retrieve_utterance",
+        null,
+        [],
+        30
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yes",
+      "turn_count": 60,
+      "targets": [
+        "status_due_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "or do you want to use the one on file",
+      "turn_count": 61,
+      "targets": [
+        "status_due_date",
+        "retrieve_utterance",
+        null,
+        [],
+        68
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok, may i have it please",
+      "turn_count": 62,
+      "targets": [
+        "status_due_date",
+        "retrieve_utterance",
+        null,
+        [],
+        88
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "the one on file would be perfect",
+      "turn_count": 63,
+      "targets": [
+        "status_due_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "understood",
+      "turn_count": 64,
+      "targets": [
+        "status_due_date",
+        "retrieve_utterance",
+        null,
+        [],
+        99
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "can you just use the one on file?",
+      "turn_count": 65,
+      "targets": [
+        "status_due_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been updated with renew subscription.",
+      "turn_count": 66,
+      "targets": [
+        "status_due_date",
+        "take_action",
+        "update-account",
+        [
+          "extend subscription"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "yes, i have used the one on your account and paid the fee in full",
+      "turn_count": 67,
+      "targets": [
+        "status_due_date",
+        "retrieve_utterance",
+        null,
+        [],
+        64
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "great!",
+      "turn_count": 68,
+      "targets": [
+        "status_due_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "is there anything else i can help you with today",
+      "turn_count": 69,
+      "targets": [
+        "status_due_date",
+        "retrieve_utterance",
+        null,
+        [],
+        17
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "that was easy",
+      "turn_count": 70,
+      "targets": [
+        "status_due_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no i think i am done",
+      "turn_count": 71,
+      "targets": [
+        "status_due_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "but thanks for the help!",
+      "turn_count": 72,
+      "targets": [
+        "status_due_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "have a good day?",
+      "turn_count": 73,
+      "targets": [
+        "status_due_date",
+        "retrieve_utterance",
+        null,
+        [],
+        45
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "have a good one too!",
+      "turn_count": 74,
+      "targets": [
+        "status_due_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "bye",
+      "turn_count": 75,
+      "targets": [
+        "status_due_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    }
+  ]
+}

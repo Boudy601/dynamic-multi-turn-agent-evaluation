@@ -1,0 +1,526 @@
+{
+  "convo_id": 10260,
+  "scenario": {
+    "personal": {
+      "account_id": "0kru4omfl8",
+      "customer_name": "norman bouchard",
+      "member_level": "guest",
+      "phone": "(780) 798-1872"
+    },
+    "order": {
+      "street_address": "1319 circle drive",
+      "full_address": "1319 circle drive  la fayette, tx 26724",
+      "city": "la fayette",
+      "num_products": "1",
+      "order_id": "0006921597",
+      "products": "[{'brand': 'tommy_hilfiger', 'product_type': 'boots', 'amount': 49, 'image_url': 'images/tommy_hilfiger-boots.jpeg'}]",
+      "shipping_status": "in transit",
+      "state": "tx",
+      "zip_code": "26724"
+    },
+    "product": {
+      "names": [
+        "tommy_hilfiger boots"
+      ],
+      "amounts": [
+        49
+      ]
+    },
+    "flow": "order_issue",
+    "subflow": "status_mystery_fee"
+  },
+  "original": [
+    [
+      "customer",
+      "Hello. I have an issue with my order"
+    ],
+    [
+      "customer",
+      "I need someone to help me fix it, please"
+    ],
+    [
+      "agent",
+      "hi there what is the problem?"
+    ],
+    [
+      "customer",
+      "So this is the issue"
+    ],
+    [
+      "customer",
+      "I looked at my account today and I saw that you had added an extra fee of $45 to my order. I can't figure out why. I don't want to pay an extra fee"
+    ],
+    [
+      "customer",
+      "Can you tell me what's going on?"
+    ],
+    [
+      "agent",
+      "let's take a look. what is your name please?"
+    ],
+    [
+      "customer",
+      "Norman Bouchard"
+    ],
+    [
+      "customer",
+      "Call me Norm"
+    ],
+    [
+      "action",
+      "Account has been pulled up for Norman Bouchard."
+    ],
+    [
+      "action",
+      "Account has been pulled up for ."
+    ],
+    [
+      "agent",
+      "Hi there Norm"
+    ],
+    [
+      "agent",
+      "CAn I have your account & order ID please?"
+    ],
+    [
+      "customer",
+      "0KRU4OMFL8"
+    ],
+    [
+      "customer",
+      "0006921597"
+    ],
+    [
+      "action",
+      "Identity verification in progress ..."
+    ],
+    [
+      "action",
+      "Querying the system for an answer ..."
+    ],
+    [
+      "agent",
+      "Are you one of our members, Norm?"
+    ],
+    [
+      "customer",
+      "I'm only a Guest, I'm afraid"
+    ],
+    [
+      "action",
+      "Membership level of guest has been noted."
+    ],
+    [
+      "agent",
+      "I checked our system, and it shows this wasn't a billing error on our end"
+    ],
+    [
+      "agent",
+      "Because you're on a Guest membership, the extra fee has to stay and I'm unable to remove it"
+    ],
+    [
+      "agent",
+      "It looks like there was a temporary price surge at the time your order was placed, which added that extra charge"
+    ],
+    [
+      "agent",
+      "I'm very sorry for the inconvenience, Norm"
+    ],
+    [
+      "customer",
+      "Really? That's quite frustrating, I didn't expect an extra $45 charge"
+    ],
+    [
+      "agent",
+      "I completely understand why you're frustrated, and I'm really sorry I can't waive that fee for a Guest account"
+    ],
+    [
+      "customer",
+      "Well, I suppose if there's nothing that can be done, I'll have to accept it"
+    ],
+    [
+      "agent",
+      "Thank you for understanding. Is there anything else I can help you with today?"
+    ],
+    [
+      "customer",
+      "No, that's all. Have a good day"
+    ],
+    [
+      "agent",
+      "You too, take care!"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "customer",
+      "text": "hello. i have an issue with my order",
+      "turn_count": 1,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i need someone to help me fix it, please",
+      "turn_count": 2,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "hi there what is the problem?",
+      "turn_count": 3,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "so this is the issue",
+      "turn_count": 4,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i looked at my account today and i saw that you had added an extra fee of $45 to my order. i can't figure out why. i don't want to pay an extra fee",
+      "turn_count": 5,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "can you tell me what's going on?",
+      "turn_count": 6,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "let's take a look. what is your name please?",
+      "turn_count": 7,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "norman bouchard",
+      "turn_count": 8,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "call me norm",
+      "turn_count": 9,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for norman bouchard.",
+      "turn_count": 10,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        "pull-up-account",
+        [
+          "norman bouchard"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for .",
+      "turn_count": 11,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        "pull-up-account",
+        [
+          "norman bouchard"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "hi there norm",
+      "turn_count": 12,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can i have your account & order id please?",
+      "turn_count": 13,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "0kru4omfl8",
+      "turn_count": 14,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "0006921597",
+      "turn_count": 15,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "identity verification in progress ...",
+      "turn_count": 16,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        "verify-identity",
+        [
+          "norman bouchard",
+          "0kru4omfl8",
+          "0006921597"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "querying the system for an answer ...",
+      "turn_count": 17,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        "ask-the-oracle",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "are you one of our members, norm?",
+      "turn_count": 18,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i'm only a guest, i'm afraid",
+      "turn_count": 19,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "membership level of guest has been noted.",
+      "turn_count": 20,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        "membership",
+        [
+          "guest"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i checked our system, and it shows this wasn't a billing error on our end",
+      "turn_count": 21,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "because you're on a guest membership, the extra fee has to stay and i'm unable to remove it",
+      "turn_count": 22,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "it looks like there was a temporary price surge at the time your order was placed, which added that extra charge",
+      "turn_count": 23,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i'm very sorry for the inconvenience, norm",
+      "turn_count": 24,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "really? that's quite frustrating, i didn't expect an extra $45 charge",
+      "turn_count": 25,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i completely understand why you're frustrated, and i'm really sorry i can't waive that fee for a guest account",
+      "turn_count": 26,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "well, i suppose if there's nothing that can be done, i'll have to accept it",
+      "turn_count": 27,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you for understanding. is there anything else i can help you with today?",
+      "turn_count": 28,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no, that's all. have a good day",
+      "turn_count": 29,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "you too, take care!",
+      "turn_count": 30,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    }
+  ]
+}

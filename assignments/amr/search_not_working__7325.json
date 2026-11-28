@@ -1,0 +1,291 @@
+{
+  "convo_id": 7325,
+  "scenario": {
+    "personal": {
+      "customer_name": "david williams",
+      "email": "davidw56@email.com",
+      "member_level": "guest",
+      "phone": "(718) 653-7187",
+      "username": "davidw56"
+    },
+    "order": {
+      "street_address": "9199 woodshore st",
+      "full_address": "9199 woodshore st  monterey, wa 86957",
+      "city": "monterey",
+      "num_products": "1",
+      "products": "[{'brand': 'guess', 'product_type': 'boots', 'amount': 64, 'image_url': 'images/guess-boots.jpeg'}]",
+      "state": "wa",
+      "zip_code": "86957"
+    },
+    "product": {
+      "names": [
+        "guess boots"
+      ],
+      "amounts": [
+        64
+      ]
+    },
+    "flow": "troubleshoot_site",
+    "subflow": "search_results"
+  },
+  "original": [
+    [
+      "agent",
+      "Welcome to AcmeBrands. How may I help you?"
+    ],
+    [
+      "customer",
+      "HI! Every time I search on your website it says 0 results found."
+    ],
+    [
+      "agent",
+      "OK. I will look into that. One moment."
+    ],
+    [
+      "action",
+      "Agent is looking for solutions ..."
+    ],
+    [
+      "agent",
+      "Please try logging out and then back in again. Let me know if that does the trick."
+    ],
+    [
+      "customer",
+      "ok one sec"
+    ],
+    [
+      "agent",
+      "ok"
+    ],
+    [
+      "customer",
+      "that did not work"
+    ],
+    [
+      "agent",
+      "OK. Let's try something else."
+    ],
+    [
+      "action",
+      "Agent is looking for solutions ..."
+    ],
+    [
+      "agent",
+      "Try cleaning out the cookies and let me know if that does it."
+    ],
+    [
+      "customer",
+      "ok hold on"
+    ],
+    [
+      "agent",
+      "ok"
+    ],
+    [
+      "customer",
+      "oh that actually worked.  Thank you"
+    ],
+    [
+      "agent",
+      "Great! Anything else I can help with?"
+    ],
+    [
+      "customer",
+      "No thank you"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "welcome to acmebrands. how may i help you?",
+      "turn_count": 1,
+      "targets": [
+        "search_results",
+        "retrieve_utterance",
+        null,
+        [],
+        8
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "hi! every time i search on your website it says 0 results found.",
+      "turn_count": 2,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok. i will look into that. one moment.",
+      "turn_count": 3,
+      "targets": [
+        "search_results",
+        "retrieve_utterance",
+        null,
+        [],
+        72
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "agent is looking for solutions ...",
+      "turn_count": 4,
+      "targets": [
+        "search_results",
+        "take_action",
+        "log-out-in",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "please try logging out and then back in again. let me know if that does the trick.",
+      "turn_count": 5,
+      "targets": [
+        "search_results",
+        "retrieve_utterance",
+        null,
+        [],
+        53
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok one sec",
+      "turn_count": 6,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok",
+      "turn_count": 7,
+      "targets": [
+        "search_results",
+        "retrieve_utterance",
+        null,
+        [],
+        71
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "that did not work",
+      "turn_count": 8,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok. let's try something else.",
+      "turn_count": 9,
+      "targets": [
+        "search_results",
+        "retrieve_utterance",
+        null,
+        [],
+        73
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "agent is looking for solutions ...",
+      "turn_count": 10,
+      "targets": [
+        "search_results",
+        "take_action",
+        "instructions",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "try cleaning out the cookies and let me know if that does it.",
+      "turn_count": 11,
+      "targets": [
+        "search_results",
+        "retrieve_utterance",
+        null,
+        [],
+        67
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok hold on",
+      "turn_count": 12,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok",
+      "turn_count": 13,
+      "targets": [
+        "search_results",
+        "retrieve_utterance",
+        null,
+        [],
+        31
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "oh that actually worked.  thank you",
+      "turn_count": 14,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "great! anything else i can help with?",
+      "turn_count": 15,
+      "targets": [
+        "search_results",
+        "retrieve_utterance",
+        null,
+        [],
+        22
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no thank you",
+      "turn_count": 16,
+      "targets": [
+        "search_results",
+        null,
+        null,
+        [],
+        -1
+      ]
+    }
+  ]
+}

@@ -1,0 +1,430 @@
+{
+  "convo_id": 8620,
+  "scenario": {
+    "personal": {
+      "account_id": "z9ypvzdfvy",
+      "customer_name": "joseph banter",
+      "member_level": "silver",
+      "phone": "(674) 186-6300"
+    },
+    "order": {
+      "street_address": "4315 lexington ave",
+      "full_address": "4315 lexington ave  san lima, mi 57711",
+      "city": "san lima",
+      "num_products": "1",
+      "order_id": "6136684420",
+      "products": "[{'brand': 'tommy_hilfiger', 'product_type': 'jacket', 'amount': 59, 'image_url': 'images/tommy_hilfiger-jacket.jpeg'}]",
+      "shipping_status": "order received",
+      "state": "mi",
+      "zip_code": "57711"
+    },
+    "product": {
+      "names": [
+        "tommy_hilfiger jacket"
+      ],
+      "amounts": [
+        59
+      ]
+    },
+    "flow": "order_issue",
+    "subflow": "manage_upgrade"
+  },
+  "original": [
+    [
+      "agent",
+      "Hi! How can I help you today?"
+    ],
+    [
+      "customer",
+      "Hello, can you help me with upgrading my shipping"
+    ],
+    [
+      "customer",
+      "I want to get my order as soon as possible"
+    ],
+    [
+      "agent",
+      "Sure, I can help you with that. Can I please have your full name, account ID, and order ID?"
+    ],
+    [
+      "customer",
+      "My name is Joseph Banter"
+    ],
+    [
+      "customer",
+      "Account ID: Z9YPVZDFVY"
+    ],
+    [
+      "customer",
+      "Order ID: 6136684420"
+    ],
+    [
+      "action",
+      "Account has been pulled up for Joseph Banter."
+    ],
+    [
+      "action",
+      "Identity verification in progress ..."
+    ],
+    [
+      "agent",
+      "And what is the shipping status on your order?"
+    ],
+    [
+      "customer",
+      "Oh! it looks like it's received."
+    ],
+    [
+      "customer",
+      "Maybe my wife got it at home."
+    ],
+    [
+      "agent",
+      "Okay, that means it hasn't shipped yet. It will say delivered once you receive it on your end :)"
+    ],
+    [
+      "customer",
+      "ahhhhh"
+    ],
+    [
+      "agent",
+      "What is your membership level?"
+    ],
+    [
+      "customer",
+      "Silver"
+    ],
+    [
+      "action",
+      "Membership level of Silver has been noted."
+    ],
+    [
+      "agent",
+      "Okay, it will be $20 to upgrade the shipping. Would you like me to charge the card on file?"
+    ],
+    [
+      "customer",
+      "yes please"
+    ],
+    [
+      "action",
+      "Order has been updated with tomorrow."
+    ],
+    [
+      "agent",
+      "Okay, your order will be shipped out within the next 24 hours! Is there anything else I can help you with?"
+    ],
+    [
+      "customer",
+      "that's it thank you!!!"
+    ],
+    [
+      "customer",
+      "I really appreciate it"
+    ],
+    [
+      "agent",
+      "You're very welcome! Have a great day."
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "hi! how can i help you today?",
+      "turn_count": 1,
+      "targets": [
+        "manage_upgrade",
+        "retrieve_utterance",
+        null,
+        [],
+        68
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "hello, can you help me with upgrading my shipping",
+      "turn_count": 2,
+      "targets": [
+        "manage_upgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i want to get my order as soon as possible",
+      "turn_count": 3,
+      "targets": [
+        "manage_upgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "sure, i can help you with that. can i please have your full name, account id, and order id?",
+      "turn_count": 4,
+      "targets": [
+        "manage_upgrade",
+        "retrieve_utterance",
+        null,
+        [],
+        62
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "my name is joseph banter",
+      "turn_count": 5,
+      "targets": [
+        "manage_upgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "account id: <account_id>",
+      "turn_count": 6,
+      "targets": [
+        "manage_upgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "order id: <order_id>",
+      "turn_count": 7,
+      "targets": [
+        "manage_upgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for joseph banter.",
+      "turn_count": 8,
+      "targets": [
+        "manage_upgrade",
+        "take_action",
+        "pull-up-account",
+        [
+          "joseph banter"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "identity verification in progress ...",
+      "turn_count": 9,
+      "targets": [
+        "manage_upgrade",
+        "take_action",
+        "verify-identity",
+        [
+          "joseph banter",
+          "z9ypvzdfvy",
+          "6136684420"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "and what is the shipping status on your order?",
+      "turn_count": 10,
+      "targets": [
+        "manage_upgrade",
+        "retrieve_utterance",
+        null,
+        [],
+        20
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "oh! it looks like it's received.",
+      "turn_count": 11,
+      "targets": [
+        "manage_upgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "maybe my wife got it at home.",
+      "turn_count": 12,
+      "targets": [
+        "manage_upgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "okay, that means it hasn't shipped yet. it will say delivered once you receive it on your end :)",
+      "turn_count": 13,
+      "targets": [
+        "manage_upgrade",
+        "retrieve_utterance",
+        null,
+        [],
+        48
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ahhhhh",
+      "turn_count": 14,
+      "targets": [
+        "manage_upgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "what is your membership level?",
+      "turn_count": 15,
+      "targets": [
+        "manage_upgrade",
+        "retrieve_utterance",
+        null,
+        [],
+        19
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "silver",
+      "turn_count": 16,
+      "targets": [
+        "manage_upgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "membership level of silver has been noted.",
+      "turn_count": 17,
+      "targets": [
+        "manage_upgrade",
+        "take_action",
+        "membership",
+        [
+          "silver"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "okay, it will be $20 to upgrade the shipping. would you like me to charge the card on file?",
+      "turn_count": 18,
+      "targets": [
+        "manage_upgrade",
+        "retrieve_utterance",
+        null,
+        [],
+        51
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yes please",
+      "turn_count": 19,
+      "targets": [
+        "manage_upgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "order has been updated with tomorrow.",
+      "turn_count": 20,
+      "targets": [
+        "manage_upgrade",
+        "take_action",
+        "update-order",
+        [
+          "tomorrow"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "okay, your order will be shipped out within the next 24 hours! is there anything else i can help you with?",
+      "turn_count": 21,
+      "targets": [
+        "manage_upgrade",
+        "retrieve_utterance",
+        null,
+        [],
+        68
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "that's it thank you!!!",
+      "turn_count": 22,
+      "targets": [
+        "manage_upgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i really appreciate it",
+      "turn_count": 23,
+      "targets": [
+        "manage_upgrade",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "you're very welcome! have a great day.",
+      "turn_count": 24,
+      "targets": [
+        "manage_upgrade",
+        "retrieve_utterance",
+        null,
+        [],
+        87
+      ]
+    }
+  ]
+}

@@ -1,0 +1,623 @@
+{
+  "convo_id": 3736,
+  "scenario": {
+    "personal": {
+      "customer_name": "norman bouchard",
+      "email": "nbouchard290@email.com",
+      "member_level": "gold",
+      "password": "civownby",
+      "phone": "(783) 062-8185",
+      "pin_number": "852046",
+      "username": "nbouchard290"
+    },
+    "order": {
+      "street_address": "6766 brushwick dr",
+      "full_address": "6766 brushwick dr  san mateo, wa 57934",
+      "city": "san mateo",
+      "num_products": "1",
+      "products": "[{'brand': 'guess', 'product_type': 'shirt', 'amount': 89, 'image_url': 'images/guess-shirt.jpeg'}]",
+      "state": "wa",
+      "zip_code": "57934"
+    },
+    "product": {
+      "names": [
+        "guess shirt"
+      ],
+      "amounts": [
+        89
+      ]
+    },
+    "flow": "manage_account",
+    "subflow": "manage_change_phone"
+  },
+  "original": [
+    [
+      "customer",
+      "Hi"
+    ],
+    [
+      "agent",
+      "Hi, how can I help you"
+    ],
+    [
+      "customer",
+      "I want to change the phone number on my account"
+    ],
+    [
+      "customer",
+      "the current phone number on my account is wrong"
+    ],
+    [
+      "agent",
+      "Ok, I can help with that"
+    ],
+    [
+      "agent",
+      "one moment please"
+    ],
+    [
+      "agent",
+      "Can I get your full name or Account ID please"
+    ],
+    [
+      "customer",
+      "Norman Bouchard"
+    ],
+    [
+      "action",
+      "Account has been pulled up for Norman Bouchard."
+    ],
+    [
+      "agent",
+      "Can I have the current phone number, the one that is wrong"
+    ],
+    [
+      "customer",
+      "(783) 062-8185"
+    ],
+    [
+      "action",
+      "A reason of (783) 062-8185 has been recorded."
+    ],
+    [
+      "agent",
+      "Next I will need to verify your identity with a few pieces of information"
+    ],
+    [
+      "agent",
+      "Your Zipcode, correct telephone number, PIN, Username, password, email, and Order ID"
+    ],
+    [
+      "agent",
+      "I just need 3 of any of those"
+    ],
+    [
+      "customer",
+      "my zipcode is 57934"
+    ],
+    [
+      "customer",
+      "password CIvOwNBY"
+    ],
+    [
+      "customer",
+      "PIN 852046"
+    ],
+    [
+      "action",
+      "Identity verification in progess ..."
+    ],
+    [
+      "agent",
+      "Thank you those worked"
+    ],
+    [
+      "agent",
+      "Ok, what is the correct phone number you want to put on your account?"
+    ],
+    [
+      "customer",
+      "it's off by one"
+    ],
+    [
+      "customer",
+      "it should be 8184"
+    ],
+    [
+      "customer",
+      "instead of 8185"
+    ],
+    [
+      "agent",
+      "(783) 062-8184?"
+    ],
+    [
+      "customer",
+      "yes"
+    ],
+    [
+      "action",
+      "Account has been updated with (783) 062-8184."
+    ],
+    [
+      "agent",
+      "Ok, the new correct number is now set in your account."
+    ],
+    [
+      "agent",
+      "Sorry for the inconvenience"
+    ],
+    [
+      "customer",
+      "thank you"
+    ],
+    [
+      "agent",
+      "you're welcome"
+    ],
+    [
+      "agent",
+      "Can I help with anything else today?"
+    ],
+    [
+      "customer",
+      "no, that was all"
+    ],
+    [
+      "agent",
+      "Ok, have a great day!"
+    ],
+    [
+      "customer",
+      "you too. bye"
+    ],
+    [
+      "agent",
+      "Bye"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "customer",
+      "text": "hi",
+      "turn_count": 1,
+      "targets": [
+        "manage_change_phone",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "hi, how can i help you",
+      "turn_count": 2,
+      "targets": [
+        "manage_change_phone",
+        "retrieve_utterance",
+        null,
+        [],
+        23
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i want to change the phone number on my account",
+      "turn_count": 3,
+      "targets": [
+        "manage_change_phone",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "the current phone number on my account is wrong",
+      "turn_count": 4,
+      "targets": [
+        "manage_change_phone",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok, i can help with that",
+      "turn_count": 5,
+      "targets": [
+        "manage_change_phone",
+        "retrieve_utterance",
+        null,
+        [],
+        79
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "one moment please",
+      "turn_count": 6,
+      "targets": [
+        "manage_change_phone",
+        "retrieve_utterance",
+        null,
+        [],
+        57
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can i get your full name or account id please",
+      "turn_count": 7,
+      "targets": [
+        "manage_change_phone",
+        "retrieve_utterance",
+        null,
+        [],
+        52
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "norman bouchard",
+      "turn_count": 8,
+      "targets": [
+        "manage_change_phone",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for norman bouchard.",
+      "turn_count": 9,
+      "targets": [
+        "manage_change_phone",
+        "take_action",
+        "pull-up-account",
+        [
+          "norman bouchard"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can i have the current phone number, the one that is wrong",
+      "turn_count": 10,
+      "targets": [
+        "manage_change_phone",
+        "retrieve_utterance",
+        null,
+        [],
+        91
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "<phone>",
+      "turn_count": 11,
+      "targets": [
+        "manage_change_phone",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "a reason of <phone> has been recorded.",
+      "turn_count": 12,
+      "targets": [
+        "manage_change_phone",
+        "take_action",
+        "record-reason",
+        [
+          "(783) 062-8185"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "next i will need to verify your identity with a few pieces of information",
+      "turn_count": 13,
+      "targets": [
+        "manage_change_phone",
+        "retrieve_utterance",
+        null,
+        [],
+        40
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "your zipcode, correct telephone number, pin, username, password, email, and order id",
+      "turn_count": 14,
+      "targets": [
+        "manage_change_phone",
+        "retrieve_utterance",
+        null,
+        [],
+        32
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i just need 3 of any of those",
+      "turn_count": 15,
+      "targets": [
+        "manage_change_phone",
+        "retrieve_utterance",
+        null,
+        [],
+        81
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "my zipcode is <zip_code>",
+      "turn_count": 16,
+      "targets": [
+        "manage_change_phone",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "password civownby",
+      "turn_count": 17,
+      "targets": [
+        "manage_change_phone",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "pin <pin_number>",
+      "turn_count": 18,
+      "targets": [
+        "manage_change_phone",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "identity verification in progess ...",
+      "turn_count": 19,
+      "targets": [
+        "manage_change_phone",
+        "take_action",
+        "verify-identity",
+        [
+          "57934",
+          "civownby",
+          "852046"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you those worked",
+      "turn_count": 20,
+      "targets": [
+        "manage_change_phone",
+        "retrieve_utterance",
+        null,
+        [],
+        11
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok, what is the correct phone number you want to put on your account?",
+      "turn_count": 21,
+      "targets": [
+        "manage_change_phone",
+        "retrieve_utterance",
+        null,
+        [],
+        23
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "it's off by one",
+      "turn_count": 22,
+      "targets": [
+        "manage_change_phone",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "it should be 8184",
+      "turn_count": 23,
+      "targets": [
+        "manage_change_phone",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "instead of 8185",
+      "turn_count": 24,
+      "targets": [
+        "manage_change_phone",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "(783) 062-8184?",
+      "turn_count": 25,
+      "targets": [
+        "manage_change_phone",
+        "retrieve_utterance",
+        null,
+        [],
+        68
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yes",
+      "turn_count": 26,
+      "targets": [
+        "manage_change_phone",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been updated with <phone>.",
+      "turn_count": 27,
+      "targets": [
+        "manage_change_phone",
+        "take_action",
+        "update-account",
+        [
+          "(783) 062-8184"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok, the new correct number is now set in your account.",
+      "turn_count": 28,
+      "targets": [
+        "manage_change_phone",
+        "retrieve_utterance",
+        null,
+        [],
+        99
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "sorry for the inconvenience",
+      "turn_count": 29,
+      "targets": [
+        "manage_change_phone",
+        "retrieve_utterance",
+        null,
+        [],
+        15
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thank you",
+      "turn_count": 30,
+      "targets": [
+        "manage_change_phone",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "you're welcome",
+      "turn_count": 31,
+      "targets": [
+        "manage_change_phone",
+        "retrieve_utterance",
+        null,
+        [],
+        71
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can i help with anything else today?",
+      "turn_count": 32,
+      "targets": [
+        "manage_change_phone",
+        "retrieve_utterance",
+        null,
+        [],
+        31
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no, that was all",
+      "turn_count": 33,
+      "targets": [
+        "manage_change_phone",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok, have a great day!",
+      "turn_count": 34,
+      "targets": [
+        "manage_change_phone",
+        "retrieve_utterance",
+        null,
+        [],
+        41
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "you too. bye",
+      "turn_count": 35,
+      "targets": [
+        "manage_change_phone",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "bye",
+      "turn_count": 36,
+      "targets": [
+        "manage_change_phone",
+        "retrieve_utterance",
+        null,
+        [],
+        19
+      ]
+    }
+  ]
+}

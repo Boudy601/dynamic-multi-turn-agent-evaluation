@@ -1,0 +1,891 @@
+{
+  "convo_id": 2815,
+  "scenario": {
+    "personal": {
+      "account_id": "hxerja0sol",
+      "customer_name": "rodriguez domingo",
+      "member_level": "guest",
+      "phone": "(993) 634-9554"
+    },
+    "order": {
+      "street_address": "0740 kennedy st",
+      "full_address": "0740 kennedy st  la fayette, tx 68540",
+      "city": "la fayette",
+      "order_id": "7158418695",
+      "state": "tx",
+      "zip_code": "68540"
+    },
+    "product": {
+      "names": [],
+      "amounts": []
+    },
+    "flow": "subscription_inquiry",
+    "subflow": "manage_extension"
+  },
+  "original": [
+    [
+      "agent",
+      "Hello, how may I assist you today?"
+    ],
+    [
+      "customer",
+      "Hi"
+    ],
+    [
+      "customer",
+      "I need your help"
+    ],
+    [
+      "customer",
+      "I just signed up for a premium subscription service"
+    ],
+    [
+      "customer",
+      "I really love it"
+    ],
+    [
+      "agent",
+      "I'd love to help. What do you need today?"
+    ],
+    [
+      "customer",
+      "But my car broke down"
+    ],
+    [
+      "customer",
+      "and I have a ton of bills right now"
+    ],
+    [
+      "customer",
+      "so I can't afford the fees"
+    ],
+    [
+      "agent",
+      "Oh no, I'm so sorry about your car problems."
+    ],
+    [
+      "customer",
+      "Can I have an extension so that I have more time to get the money to pay?"
+    ],
+    [
+      "agent",
+      "Let me take a look at your account."
+    ],
+    [
+      "agent",
+      "Can I get your full name or account ID?"
+    ],
+    [
+      "customer",
+      "Rodriguez Domingo"
+    ],
+    [
+      "action",
+      "Account has been pulled up for Rodriguez Domingo."
+    ],
+    [
+      "agent",
+      "Thank you Rodriguez. Please give me a minute to look in to this for you."
+    ],
+    [
+      "customer",
+      "okay"
+    ],
+    [
+      "agent",
+      "I want to look and see when you bill is due and if I can get you an extension."
+    ],
+    [
+      "customer",
+      "Okay"
+    ],
+    [
+      "agent",
+      "Do you have an Order ID?"
+    ],
+    [
+      "customer",
+      "7158418695"
+    ],
+    [
+      "agent",
+      "Do you also have your Account ID?"
+    ],
+    [
+      "customer",
+      "sure"
+    ],
+    [
+      "customer",
+      "HXERJA0SOL"
+    ],
+    [
+      "action",
+      "Identity verification in progess ..."
+    ],
+    [
+      "agent",
+      "Thank you Rodriguez. What membership level do you have?"
+    ],
+    [
+      "customer",
+      "I'm a guest"
+    ],
+    [
+      "action",
+      "Membership level of guest has been noted."
+    ],
+    [
+      "action",
+      "Searching the FAQ pages ..."
+    ],
+    [
+      "action",
+      "System Action: search pricing"
+    ],
+    [
+      "action",
+      "System Action: search membership"
+    ],
+    [
+      "action",
+      "FAQ answer related to membership (question1) was selected."
+    ],
+    [
+      "agent",
+      "There are no fees for our guests so you don't have any fees to worry about!"
+    ],
+    [
+      "customer",
+      "Oh okay"
+    ],
+    [
+      "agent",
+      "Is there anything else I can help you with today?"
+    ],
+    [
+      "customer",
+      "So I don't actually have a premium subscription service?"
+    ],
+    [
+      "customer",
+      "I thought that I had one"
+    ],
+    [
+      "agent",
+      "Oh, I thought you were referring to your membership. I am so very sorry!!"
+    ],
+    [
+      "agent",
+      "Please be patient while I pull up your subscription."
+    ],
+    [
+      "customer",
+      "Okay"
+    ],
+    [
+      "agent",
+      "I see you do have a premium subscription. But since you are a guest I do not have authority to offer you an extension. If I can get your phone number I would be happy to escalate this to a manager."
+    ],
+    [
+      "customer",
+      "Oh okay"
+    ],
+    [
+      "customer",
+      "That would be good"
+    ],
+    [
+      "customer",
+      "I really really need this extension"
+    ],
+    [
+      "customer",
+      "My phone number is (993) 634-9554"
+    ],
+    [
+      "action",
+      "Details of (993) 634-9554 have been entered."
+    ],
+    [
+      "agent",
+      "I will have my manager call you and I am sure they will be able to help you out!"
+    ],
+    [
+      "action",
+      "The manager has been notified."
+    ],
+    [
+      "customer",
+      "Okay"
+    ],
+    [
+      "customer",
+      "I will look forward to that"
+    ],
+    [
+      "agent",
+      "Is there anything else I can help you with today?"
+    ],
+    [
+      "customer",
+      "No that was it"
+    ],
+    [
+      "agent",
+      "Thanks, you have a great day. And good luck with your car. You will hear from a manager soon!"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "hello, how may i assist you today?",
+      "turn_count": 1,
+      "targets": [
+        "manage_extension",
+        "retrieve_utterance",
+        null,
+        [],
+        36
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "hi",
+      "turn_count": 2,
+      "targets": [
+        "manage_extension",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i need your help",
+      "turn_count": 3,
+      "targets": [
+        "manage_extension",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i just signed up for a premium subscription service",
+      "turn_count": 4,
+      "targets": [
+        "manage_extension",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i really love it",
+      "turn_count": 5,
+      "targets": [
+        "manage_extension",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i'd love to help. what do you need today?",
+      "turn_count": 6,
+      "targets": [
+        "manage_extension",
+        "retrieve_utterance",
+        null,
+        [],
+        5
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "but my car broke down",
+      "turn_count": 7,
+      "targets": [
+        "manage_extension",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "and i have a ton of bills right now",
+      "turn_count": 8,
+      "targets": [
+        "manage_extension",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "so i can't afford the fees",
+      "turn_count": 9,
+      "targets": [
+        "manage_extension",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "oh no, i'm so sorry about your car problems.",
+      "turn_count": 10,
+      "targets": [
+        "manage_extension",
+        "retrieve_utterance",
+        null,
+        [],
+        6
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "can i have an extension so that i have more time to get the money to pay?",
+      "turn_count": 11,
+      "targets": [
+        "manage_extension",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "let me take a look at your account.",
+      "turn_count": 12,
+      "targets": [
+        "manage_extension",
+        "retrieve_utterance",
+        null,
+        [],
+        86
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can i get your full name or account id?",
+      "turn_count": 13,
+      "targets": [
+        "manage_extension",
+        "retrieve_utterance",
+        null,
+        [],
+        89
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "rodriguez domingo",
+      "turn_count": 14,
+      "targets": [
+        "manage_extension",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for rodriguez domingo.",
+      "turn_count": 15,
+      "targets": [
+        "manage_extension",
+        "take_action",
+        "pull-up-account",
+        [
+          "rodriguez domingo"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you rodriguez. please give me a minute to look in to this for you.",
+      "turn_count": 16,
+      "targets": [
+        "manage_extension",
+        "retrieve_utterance",
+        null,
+        [],
+        73
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay",
+      "turn_count": 17,
+      "targets": [
+        "manage_extension",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i want to look and see when you bill is due and if i can get you an extension.",
+      "turn_count": 18,
+      "targets": [
+        "manage_extension",
+        "retrieve_utterance",
+        null,
+        [],
+        56
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay",
+      "turn_count": 19,
+      "targets": [
+        "manage_extension",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "do you have an order id?",
+      "turn_count": 20,
+      "targets": [
+        "manage_extension",
+        "retrieve_utterance",
+        null,
+        [],
+        93
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "<order_id>",
+      "turn_count": 21,
+      "targets": [
+        "manage_extension",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "do you also have your account id?",
+      "turn_count": 22,
+      "targets": [
+        "manage_extension",
+        "retrieve_utterance",
+        null,
+        [],
+        46
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "sure",
+      "turn_count": 23,
+      "targets": [
+        "manage_extension",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "<account_id>",
+      "turn_count": 24,
+      "targets": [
+        "manage_extension",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "identity verification in progess ...",
+      "turn_count": 25,
+      "targets": [
+        "manage_extension",
+        "take_action",
+        "verify-identity",
+        [
+          "rodriguez domingo",
+          "hxerja0sol",
+          "7158418695"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you rodriguez. what membership level do you have?",
+      "turn_count": 26,
+      "targets": [
+        "manage_extension",
+        "retrieve_utterance",
+        null,
+        [],
+        62
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i'm a guest",
+      "turn_count": 27,
+      "targets": [
+        "manage_extension",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "membership level of guest has been noted.",
+      "turn_count": 28,
+      "targets": [
+        "manage_extension",
+        "take_action",
+        "membership",
+        [
+          "guest"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "searching the faq pages ...",
+      "turn_count": 29,
+      "targets": [
+        "manage_extension",
+        "take_action",
+        "search-faq",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "system action: search pricing",
+      "turn_count": 30,
+      "targets": [
+        "manage_extension",
+        "take_action",
+        "search-pricing",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "system action: search membership",
+      "turn_count": 31,
+      "targets": [
+        "manage_extension",
+        "take_action",
+        "search-membership",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "faq answer related to membership (question1) was selected.",
+      "turn_count": 32,
+      "targets": [
+        "manage_extension",
+        "take_action",
+        "select-faq",
+        [
+          "membership_1"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "there are no fees for our guests so you don't have any fees to worry about!",
+      "turn_count": 33,
+      "targets": [
+        "manage_extension",
+        "retrieve_utterance",
+        null,
+        [],
+        67
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "oh okay",
+      "turn_count": 34,
+      "targets": [
+        "manage_extension",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "is there anything else i can help you with today?",
+      "turn_count": 35,
+      "targets": [
+        "manage_extension",
+        "retrieve_utterance",
+        null,
+        [],
+        25
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "so i don't actually have a premium subscription service?",
+      "turn_count": 36,
+      "targets": [
+        "manage_extension",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i thought that i had one",
+      "turn_count": 37,
+      "targets": [
+        "manage_extension",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "oh, i thought you were referring to your membership. i am so very sorry!!",
+      "turn_count": 38,
+      "targets": [
+        "manage_extension",
+        "retrieve_utterance",
+        null,
+        [],
+        60
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "please be patient while i pull up your subscription.",
+      "turn_count": 39,
+      "targets": [
+        "manage_extension",
+        "retrieve_utterance",
+        null,
+        [],
+        8
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay",
+      "turn_count": 40,
+      "targets": [
+        "manage_extension",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i see you do have a premium subscription. but since you are a guest i do not have authority to offer you an extension. if i can get your phone number i would be happy to escalate this to a manager.",
+      "turn_count": 41,
+      "targets": [
+        "manage_extension",
+        "retrieve_utterance",
+        null,
+        [],
+        52
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "oh okay",
+      "turn_count": 42,
+      "targets": [
+        "manage_extension",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "that would be good",
+      "turn_count": 43,
+      "targets": [
+        "manage_extension",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i really really need this extension",
+      "turn_count": 44,
+      "targets": [
+        "manage_extension",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "my phone number is <phone>",
+      "turn_count": 45,
+      "targets": [
+        "manage_extension",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "details of <phone> have been entered.",
+      "turn_count": 46,
+      "targets": [
+        "manage_extension",
+        "take_action",
+        "enter-details",
+        [
+          "(993) 634-9554"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i will have my manager call you and i am sure they will be able to help you out!",
+      "turn_count": 47,
+      "targets": [
+        "manage_extension",
+        "retrieve_utterance",
+        null,
+        [],
+        10
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "the manager has been notified.",
+      "turn_count": 48,
+      "targets": [
+        "manage_extension",
+        "take_action",
+        "notify-team",
+        [
+          "manager"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay",
+      "turn_count": 49,
+      "targets": [
+        "manage_extension",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i will look forward to that",
+      "turn_count": 50,
+      "targets": [
+        "manage_extension",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "is there anything else i can help you with today?",
+      "turn_count": 51,
+      "targets": [
+        "manage_extension",
+        "retrieve_utterance",
+        null,
+        [],
+        57
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no that was it",
+      "turn_count": 52,
+      "targets": [
+        "manage_extension",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thanks, you have a great day. and good luck with your car. you will hear from a manager soon!",
+      "turn_count": 53,
+      "targets": [
+        "manage_extension",
+        "retrieve_utterance",
+        null,
+        [],
+        85
+      ]
+    }
+  ]
+}

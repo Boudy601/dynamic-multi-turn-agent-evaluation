@@ -1,0 +1,453 @@
+{
+  "convo_id": 6473,
+  "scenario": {
+    "personal": {
+      "customer_name": "crystal minh",
+      "email": "crystalm023@email.com",
+      "member_level": "guest",
+      "phone": "(869) 240-1731",
+      "username": "crystalm023"
+    },
+    "order": {
+      "street_address": "1053 lexington ave",
+      "full_address": "1053 lexington ave  raleigh, wa 25385",
+      "city": "raleigh",
+      "num_products": "1",
+      "products": "[{'brand': 'calvin_klein', 'product_type': 'shirt', 'amount': 49, 'image_url': 'images/calvin_klein-shirt.jpeg'}]",
+      "state": "wa",
+      "zip_code": "25385"
+    },
+    "product": {
+      "names": [
+        "calvin_klein shirt"
+      ],
+      "amounts": [
+        49
+      ]
+    },
+    "flow": "troubleshoot_site",
+    "subflow": "slow_speed"
+  },
+  "original": [
+    [
+      "agent",
+      "Thank you for contacting Acme.  How may I help you today?"
+    ],
+    [
+      "customer",
+      "Good evening.. It seems your website is extremely slow"
+    ],
+    [
+      "customer",
+      "Is it doen?"
+    ],
+    [
+      "agent",
+      "We have had some trouble with the website today, but it seems to be pretty easy to fix"
+    ],
+    [
+      "agent",
+      "May I ask that you log out of the site and then log back in.  That has been working for other users"
+    ],
+    [
+      "customer",
+      "I can try"
+    ],
+    [
+      "customer",
+      "No.. it is still slow"
+    ],
+    [
+      "action",
+      "Agent is looking for solutions ..."
+    ],
+    [
+      "agent",
+      "I see.  Is it just our website that's running slowly, or are other sites currently moving slow for you?"
+    ],
+    [
+      "action",
+      "Agent is looking for solutions ..."
+    ],
+    [
+      "customer",
+      "It is just your website"
+    ],
+    [
+      "agent",
+      "Oh, shucks.  Is it running slow even with all of your other tabs and programs closed down (aside from this chat window)?  If so, I can let the IT team know, and then I can take down your order manually, if you'd like?"
+    ],
+    [
+      "action",
+      "Agent is looking for solutions ..."
+    ],
+    [
+      "customer",
+      "Ok. It is a CK shirt"
+    ],
+    [
+      "agent",
+      "Okay.  If you have your credit card number and expiration date handy, I can put this order in for you while we're here"
+    ],
+    [
+      "customer",
+      "and my credit card is 3467 7890 6654 7890"
+    ],
+    [
+      "customer",
+      "the date is 07/24"
+    ],
+    [
+      "action",
+      "A purchase of Calvin Klein Shirt was made."
+    ],
+    [
+      "agent",
+      "Okay, I'll go ahead and make that purchase for you.  May I have the package sent to the same address we have on file with this credit card?"
+    ],
+    [
+      "customer",
+      "Yes please"
+    ],
+    [
+      "agent",
+      "Okay, in that case, you're all set."
+    ],
+    [
+      "customer",
+      "Thanks a lot"
+    ],
+    [
+      "customer",
+      "Have a great day"
+    ],
+    [
+      "agent",
+      "Very sorry about the website problems, I hope we can get this figured out soon."
+    ],
+    [
+      "agent",
+      "You too, good bye"
+    ],
+    [
+      "customer",
+      "bye"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "thank you for contacting acme.  how may i help you today?",
+      "turn_count": 1,
+      "targets": [
+        "slow_speed",
+        "retrieve_utterance",
+        null,
+        [],
+        19
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "good evening.. it seems your website is extremely slow",
+      "turn_count": 2,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "is it doen?",
+      "turn_count": 3,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "we have had some trouble with the website today, but it seems to be pretty easy to fix",
+      "turn_count": 4,
+      "targets": [
+        "slow_speed",
+        "retrieve_utterance",
+        null,
+        [],
+        57
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "may i ask that you log out of the site and then log back in.  that has been working for other users",
+      "turn_count": 5,
+      "targets": [
+        "slow_speed",
+        "retrieve_utterance",
+        null,
+        [],
+        52
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i can try",
+      "turn_count": 6,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no.. it is still slow",
+      "turn_count": 7,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "agent is looking for solutions ...",
+      "turn_count": 8,
+      "targets": [
+        "slow_speed",
+        "take_action",
+        "log-out-in",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i see.  is it just our website that's running slowly, or are other sites currently moving slow for you?",
+      "turn_count": 9,
+      "targets": [
+        "slow_speed",
+        "retrieve_utterance",
+        null,
+        [],
+        97
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "agent is looking for solutions ...",
+      "turn_count": 10,
+      "targets": [
+        "slow_speed",
+        "take_action",
+        "try-again",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "it is just your website",
+      "turn_count": 11,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "oh, shucks.  is it running slow even with all of your other tabs and programs closed down (aside from this chat window)?  if so, i can let the it team know, and then i can take down your order manually, if you'd like?",
+      "turn_count": 12,
+      "targets": [
+        "slow_speed",
+        "retrieve_utterance",
+        null,
+        [],
+        73
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "agent is looking for solutions ...",
+      "turn_count": 13,
+      "targets": [
+        "slow_speed",
+        "take_action",
+        "instructions",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok. it is a ck shirt",
+      "turn_count": 14,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "okay.  if you have your credit card number and expiration date handy, i can put this order in for you while we're here",
+      "turn_count": 15,
+      "targets": [
+        "slow_speed",
+        "retrieve_utterance",
+        null,
+        [],
+        12
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "and my credit card is 3467 7890 6654 7890",
+      "turn_count": 16,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "the date is 07/24",
+      "turn_count": 17,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "a purchase of calvin klein shirt was made.",
+      "turn_count": 18,
+      "targets": [
+        "slow_speed",
+        "take_action",
+        "make-purchase",
+        [
+          "calvin klein shirt"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "okay, i'll go ahead and make that purchase for you.  may i have the package sent to the same address we have on file with this credit card?",
+      "turn_count": 19,
+      "targets": [
+        "slow_speed",
+        "retrieve_utterance",
+        null,
+        [],
+        55
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yes please",
+      "turn_count": 20,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "okay, in that case, you're all set.",
+      "turn_count": 21,
+      "targets": [
+        "slow_speed",
+        "retrieve_utterance",
+        null,
+        [],
+        17
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thanks a lot",
+      "turn_count": 22,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "have a great day",
+      "turn_count": 23,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "very sorry about the website problems, i hope we can get this figured out soon.",
+      "turn_count": 24,
+      "targets": [
+        "slow_speed",
+        "retrieve_utterance",
+        null,
+        [],
+        39
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "you too, good bye",
+      "turn_count": 25,
+      "targets": [
+        "slow_speed",
+        "retrieve_utterance",
+        null,
+        [],
+        32
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "bye",
+      "turn_count": 26,
+      "targets": [
+        "slow_speed",
+        null,
+        null,
+        [],
+        -1
+      ]
+    }
+  ]
+}

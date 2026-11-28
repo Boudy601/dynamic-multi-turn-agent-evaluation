@@ -1,0 +1,469 @@
+{
+  "convo_id": 1219,
+  "scenario": {
+    "personal": {
+      "account_id": "eppbusrksd",
+      "customer_name": "crystal minh",
+      "email": "cminh709@email.com",
+      "member_level": "guest",
+      "phone": "(643) 886-8115",
+      "username": "cminh709"
+    },
+    "order": {
+      "street_address": "4077 kennedy st",
+      "full_address": "4077 kennedy st  san mateo, ny 44264",
+      "city": "san mateo",
+      "num_products": "3",
+      "order_id": "1312632602",
+      "products": "[{'brand': 'guess', 'product_type': 'jacket', 'amount': 79, 'image_url': 'images/guess-jacket.jpeg'}, {'brand': 'calvin_klein', 'product_type': 'boots', 'amount': 69, 'image_url': 'images/calvin_klein-boots.jpeg'}, {'brand': 'calvin_klein', 'product_type': 'jacket', 'amount': 74, 'image_url': 'images/calvin_klein-jacket.jpeg'}]",
+      "purchase_date": "2020-01-16",
+      "shipping_status": "delivered",
+      "state": "ny",
+      "zip_code": "44264"
+    },
+    "product": {
+      "names": [
+        "guess jacket",
+        "calvin_klein boots",
+        "calvin_klein jacket"
+      ],
+      "amounts": [
+        79,
+        69,
+        74
+      ]
+    },
+    "flow": "shipping_issue",
+    "subflow": "manage"
+  },
+  "original": [
+    [
+      "customer",
+      "Hi"
+    ],
+    [
+      "agent",
+      "Thank you for contacting Acmebrands how may I help you?"
+    ],
+    [
+      "customer",
+      "I need to fix my info"
+    ],
+    [
+      "agent",
+      "I am happy to assist, do you need to update your account and/or an order?"
+    ],
+    [
+      "customer",
+      "I am moving to a new address this week."
+    ],
+    [
+      "agent",
+      "Great, do you have any pending orders on the way?"
+    ],
+    [
+      "customer",
+      "No"
+    ],
+    [
+      "customer",
+      "I have an order but it was delivered already"
+    ],
+    [
+      "agent",
+      "Can I please get your full name or Account number?"
+    ],
+    [
+      "customer",
+      "Crystal Minh"
+    ],
+    [
+      "agent",
+      "Glad it was delivered and I would be happy to update your new address for you."
+    ],
+    [
+      "action",
+      "Account has been pulled up for Crystal Minh."
+    ],
+    [
+      "customer",
+      "4077 Kennedy St  San Mateo, NY 44264 is where I will be moving to"
+    ],
+    [
+      "agent",
+      "Got it, thank you. Since you mentioned your order has already been delivered, let me note that shipping status first."
+    ],
+    [
+      "action",
+      "Shipping status of delivered has been noted."
+    ],
+    [
+      "agent",
+      "Next, to validate your purchase, could you please provide your username, email address, and Order ID?"
+    ],
+    [
+      "customer",
+      "Sure, my username is cminh709"
+    ],
+    [
+      "customer",
+      "Email is cminh709@email.com"
+    ],
+    [
+      "customer",
+      "And my Order ID is 1312632602"
+    ],
+    [
+      "action",
+      "Purchase validation in progress ..."
+    ],
+    [
+      "agent",
+      "Thank you, your purchase has been validated. I will go ahead and update your order with the address change now."
+    ],
+    [
+      "action",
+      "Order has been updated with change address."
+    ],
+    [
+      "agent",
+      "I appreciate your patience, your order has been updated in our system. Is there anything else I may help you with today? Please also feel free to fill out the survey at the end of our chat."
+    ],
+    [
+      "customer",
+      "Thanks, i'm all set"
+    ],
+    [
+      "agent",
+      "Thank you for contacting us, have a great day."
+    ],
+    [
+      "customer",
+      "u 2"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "customer",
+      "text": "hi",
+      "turn_count": 1,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you for contacting acmebrands how may i help you?",
+      "turn_count": 2,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i need to fix my info",
+      "turn_count": 3,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i am happy to assist, do you need to update your account and/or an order?",
+      "turn_count": 4,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i am moving to a new address this week.",
+      "turn_count": 5,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "great, do you have any pending orders on the way?",
+      "turn_count": 6,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no",
+      "turn_count": 7,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i have an order but it was delivered already",
+      "turn_count": 8,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can i please get your full name or account number?",
+      "turn_count": 9,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "crystal minh",
+      "turn_count": 10,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "glad it was delivered and i would be happy to update your new address for you.",
+      "turn_count": 11,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for crystal minh.",
+      "turn_count": 12,
+      "targets": [
+        "manage",
+        null,
+        "pull-up-account",
+        [
+          "crystal minh"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "4077 kennedy st  san mateo, ny 44264 is where i will be moving to",
+      "turn_count": 13,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "got it, thank you. since you mentioned your order has already been delivered, let me note that shipping status first.",
+      "turn_count": 14,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "shipping status of delivered has been noted.",
+      "turn_count": 15,
+      "targets": [
+        "manage",
+        null,
+        "shipping-status",
+        [
+          "delivered"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "next, to validate your purchase, could you please provide your username, email address, and order id?",
+      "turn_count": 16,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "sure, my username is cminh709",
+      "turn_count": 17,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "email is cminh709@email.com",
+      "turn_count": 18,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "and my order id is 1312632602",
+      "turn_count": 19,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "purchase validation in progress ...",
+      "turn_count": 20,
+      "targets": [
+        "manage",
+        null,
+        "validate-purchase",
+        [
+          "cminh709",
+          "cminh709@email.com",
+          "1312632602"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you, your purchase has been validated. i will go ahead and update your order with the address change now.",
+      "turn_count": 21,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "order has been updated with change address.",
+      "turn_count": 22,
+      "targets": [
+        "manage",
+        null,
+        "update-order",
+        [
+          "change address"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i appreciate your patience, your order has been updated in our system. is there anything else i may help you with today? please also feel free to fill out the survey at the end of our chat.",
+      "turn_count": 23,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thanks, i'm all set",
+      "turn_count": 24,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you for contacting us, have a great day.",
+      "turn_count": 25,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "u 2",
+      "turn_count": 26,
+      "targets": [
+        "manage",
+        null,
+        null,
+        [],
+        -1
+      ]
+    }
+  ]
+}

@@ -1,0 +1,305 @@
+{
+  "convo_id": 5307,
+  "scenario": {
+    "personal": {
+      "customer_name": "joseph banter",
+      "email": "josephbanter671@email.com",
+      "member_level": "silver",
+      "phone": "(805) 601-2213",
+      "username": "josephbanter671"
+    },
+    "order": {
+      "street_address": "7797 circle drive",
+      "full_address": "7797 circle drive  san mateo, ny 94832",
+      "city": "san mateo",
+      "state": "ny",
+      "zip_code": "94832"
+    },
+    "product": {
+      "names": [],
+      "amounts": []
+    },
+    "flow": "account_access",
+    "subflow": "reset_2fa"
+  },
+  "original": [
+    [
+      "agent",
+      "Hello, how can I help you today?"
+    ],
+    [
+      "customer",
+      "Hello, I would like to get on my account to review some things but I cannot access it due to losing my phone and not being able to do the two-factor authentication"
+    ],
+    [
+      "agent",
+      "I see, let me see if I can help you with that."
+    ],
+    [
+      "agent",
+      "Can I get your name or account ID?"
+    ],
+    [
+      "customer",
+      "Joseph Banter"
+    ],
+    [
+      "action",
+      "Account has been pulled up for Joseph Banter."
+    ],
+    [
+      "agent",
+      "Mr. Banter, I'll need your email so that I can send you a reset code."
+    ],
+    [
+      "customer",
+      "josephbanter671@email.com"
+    ],
+    [
+      "action",
+      "Details of josephbanter671@email.com have been entered."
+    ],
+    [
+      "agent",
+      "It's a good idea to follow best practices for security I'm going to send you a link about this topic."
+    ],
+    [
+      "action",
+      "A link will be sent."
+    ],
+    [
+      "customer",
+      "Ok great thanks"
+    ],
+    [
+      "agent",
+      "Okay a code has been sent to your email, are you satisfied this resolution?"
+    ],
+    [
+      "customer",
+      "Yes I am"
+    ],
+    [
+      "agent",
+      "Can I help with anything else?"
+    ],
+    [
+      "customer",
+      "That is all"
+    ],
+    [
+      "agent",
+      "Have a great day."
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "hello, how can i help you today?",
+      "turn_count": 1,
+      "targets": [
+        "reset_2fa",
+        "retrieve_utterance",
+        null,
+        [],
+        75
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "hello, i would like to get on my account to review some things but i cannot access it due to losing my phone and not being able to do the two-factor authentication",
+      "turn_count": 2,
+      "targets": [
+        "reset_2fa",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i see, let me see if i can help you with that.",
+      "turn_count": 3,
+      "targets": [
+        "reset_2fa",
+        "retrieve_utterance",
+        null,
+        [],
+        10
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can i get your name or account id?",
+      "turn_count": 4,
+      "targets": [
+        "reset_2fa",
+        "retrieve_utterance",
+        null,
+        [],
+        89
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "joseph banter",
+      "turn_count": 5,
+      "targets": [
+        "reset_2fa",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for joseph banter.",
+      "turn_count": 6,
+      "targets": [
+        "reset_2fa",
+        "take_action",
+        "pull-up-account",
+        [
+          "joseph banter"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "mr. banter, i'll need your email so that i can send you a reset code.",
+      "turn_count": 7,
+      "targets": [
+        "reset_2fa",
+        "retrieve_utterance",
+        null,
+        [],
+        50
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "<email>",
+      "turn_count": 8,
+      "targets": [
+        "reset_2fa",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "details of <email> have been entered.",
+      "turn_count": 9,
+      "targets": [
+        "reset_2fa",
+        "take_action",
+        "enter-details",
+        [
+          "josephbanter671@email.com"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "it's a good idea to follow best practices for security i'm going to send you a link about this topic.",
+      "turn_count": 10,
+      "targets": [
+        "reset_2fa",
+        "retrieve_utterance",
+        null,
+        [],
+        96
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "a link will be sent.",
+      "turn_count": 11,
+      "targets": [
+        "reset_2fa",
+        "take_action",
+        "send-link",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok great thanks",
+      "turn_count": 12,
+      "targets": [
+        "reset_2fa",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "okay a code has been sent to your email, are you satisfied this resolution?",
+      "turn_count": 13,
+      "targets": [
+        "reset_2fa",
+        "retrieve_utterance",
+        null,
+        [],
+        5
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yes i am",
+      "turn_count": 14,
+      "targets": [
+        "reset_2fa",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can i help with anything else?",
+      "turn_count": 15,
+      "targets": [
+        "reset_2fa",
+        "retrieve_utterance",
+        null,
+        [],
+        26
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "that is all",
+      "turn_count": 16,
+      "targets": [
+        "reset_2fa",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "have a great day.",
+      "turn_count": 17,
+      "targets": [
+        "reset_2fa",
+        "retrieve_utterance",
+        null,
+        [],
+        68
+      ]
+    }
+  ]
+}

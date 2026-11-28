@@ -1,0 +1,400 @@
+{
+  "convo_id": 9472,
+  "scenario": {
+    "personal": {
+      "account_id": "ujshifq7xe",
+      "customer_name": "joseph banter",
+      "member_level": "bronze",
+      "phone": "(155) 396-5410"
+    },
+    "order": {
+      "street_address": "4324 kennedy st",
+      "full_address": "4324 kennedy st  baltimore, wa 43570",
+      "city": "baltimore",
+      "num_products": "2",
+      "order_id": "1086743837",
+      "products": "[{'brand': 'tommy_hilfiger', 'product_type': 'jacket', 'amount': 94, 'image_url': 'images/tommy_hilfiger-jacket.jpeg'}, {'brand': 'michael_kors', 'product_type': 'jacket', 'amount': 69, 'image_url': 'images/michael_kors-jacket.jpeg'}]",
+      "shipping_status": "order received",
+      "state": "wa",
+      "zip_code": "43570"
+    },
+    "product": {
+      "names": [
+        "tommy_hilfiger jacket",
+        "michael_kors jacket"
+      ],
+      "amounts": [
+        94,
+        69
+      ]
+    },
+    "flow": "order_issue",
+    "subflow": "manage_cancel"
+  },
+  "original": [
+    [
+      "agent",
+      "hi!"
+    ],
+    [
+      "agent",
+      "how can I help you?"
+    ],
+    [
+      "customer",
+      "I recently ordered 2 jackets and need to have one of them removed from my order."
+    ],
+    [
+      "agent",
+      "ok sure!"
+    ],
+    [
+      "agent",
+      "Can I have your name please?"
+    ],
+    [
+      "customer",
+      "Joseph Banter"
+    ],
+    [
+      "agent",
+      "thanks! and your account and order ID please"
+    ],
+    [
+      "action",
+      "Account has been pulled up for Joseph Banter."
+    ],
+    [
+      "customer",
+      "Account ID: UJSHIFQ7XE"
+    ],
+    [
+      "customer",
+      "Order ID: 1086743837"
+    ],
+    [
+      "action",
+      "Identity verification in progress ..."
+    ],
+    [
+      "agent",
+      "thanks! could you check the shipping status of the order for me?"
+    ],
+    [
+      "customer",
+      "It says order received."
+    ],
+    [
+      "action",
+      "Shipping status of order received has been submitted."
+    ],
+    [
+      "agent",
+      "ok, perfect! and how much was the jacket you want removed?"
+    ],
+    [
+      "customer",
+      "$94"
+    ],
+    [
+      "action",
+      "A refund has been made for the amount of $94."
+    ],
+    [
+      "agent",
+      "excellent, I've gone ahead and removed the unwanted jacket from your order and processed a refund of $94."
+    ],
+    [
+      "customer",
+      "Thank you!"
+    ],
+    [
+      "agent",
+      "was there anything else I could assist you with?"
+    ],
+    [
+      "customer",
+      "Nope that's all"
+    ],
+    [
+      "agent",
+      "ok! have a great day!"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "hi!",
+      "turn_count": 1,
+      "targets": [
+        "manage_cancel",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "how can i help you?",
+      "turn_count": 2,
+      "targets": [
+        "manage_cancel",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i recently ordered 2 jackets and need to have one of them removed from my order.",
+      "turn_count": 3,
+      "targets": [
+        "manage_cancel",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok sure!",
+      "turn_count": 4,
+      "targets": [
+        "manage_cancel",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can i have your name please?",
+      "turn_count": 5,
+      "targets": [
+        "manage_cancel",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "joseph banter",
+      "turn_count": 6,
+      "targets": [
+        "manage_cancel",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thanks! and your account and order id please",
+      "turn_count": 7,
+      "targets": [
+        "manage_cancel",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for joseph banter.",
+      "turn_count": 8,
+      "targets": [
+        "manage_cancel",
+        null,
+        "pull-up-account",
+        [
+          "joseph banter"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "account id: ujshifq7xe",
+      "turn_count": 9,
+      "targets": [
+        "manage_cancel",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "order id: 1086743837",
+      "turn_count": 10,
+      "targets": [
+        "manage_cancel",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "identity verification in progress ...",
+      "turn_count": 11,
+      "targets": [
+        "manage_cancel",
+        null,
+        "verify-identity",
+        [
+          "joseph banter",
+          "ujshifq7xe",
+          "1086743837"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thanks! could you check the shipping status of the order for me?",
+      "turn_count": 12,
+      "targets": [
+        "manage_cancel",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "it says order received.",
+      "turn_count": 13,
+      "targets": [
+        "manage_cancel",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "shipping status of order received has been submitted.",
+      "turn_count": 14,
+      "targets": [
+        "manage_cancel",
+        null,
+        "shipping-status",
+        [
+          "order received"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok, perfect! and how much was the jacket you want removed?",
+      "turn_count": 15,
+      "targets": [
+        "manage_cancel",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "$94",
+      "turn_count": 16,
+      "targets": [
+        "manage_cancel",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "a refund has been made for the amount of $94.",
+      "turn_count": 17,
+      "targets": [
+        "manage_cancel",
+        null,
+        "offer-refund",
+        [
+          "94"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "excellent, i've gone ahead and removed the unwanted jacket from your order and processed a refund of $94.",
+      "turn_count": 18,
+      "targets": [
+        "manage_cancel",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thank you!",
+      "turn_count": 19,
+      "targets": [
+        "manage_cancel",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "was there anything else i could assist you with?",
+      "turn_count": 20,
+      "targets": [
+        "manage_cancel",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "nope that's all",
+      "turn_count": 21,
+      "targets": [
+        "manage_cancel",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok! have a great day!",
+      "turn_count": 22,
+      "targets": [
+        "manage_cancel",
+        null,
+        null,
+        [],
+        -1
+      ]
+    }
+  ]
+}

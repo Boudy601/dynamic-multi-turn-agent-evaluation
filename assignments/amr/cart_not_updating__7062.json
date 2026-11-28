@@ -1,0 +1,339 @@
+{
+  "convo_id": 7062,
+  "scenario": {
+    "personal": {
+      "customer_name": "crystal minh",
+      "email": "cminh935@email.com",
+      "member_level": "guest",
+      "phone": "(226) 780-0175",
+      "username": "cminh935"
+    },
+    "order": {
+      "street_address": "8890 primrose ave",
+      "full_address": "8890 primrose ave  raleigh, ny 29392",
+      "city": "raleigh",
+      "num_products": "1",
+      "products": "[{'brand': 'guess', 'product_type': 'jacket', 'amount': 59, 'image_url': 'images/guess-jacket.jpeg'}]",
+      "state": "ny",
+      "zip_code": "29392"
+    },
+    "product": {
+      "names": [
+        "guess jacket"
+      ],
+      "amounts": [
+        59
+      ]
+    },
+    "flow": "troubleshoot_site",
+    "subflow": "shopping_cart"
+  },
+  "original": [
+    [
+      "agent",
+      "Hello. What can I help you with?"
+    ],
+    [
+      "customer",
+      "HI! I have been trying to make a purchase but whenever I add an item into the cart, the cart does not update"
+    ],
+    [
+      "customer",
+      "So I just cannot add anything into the cart"
+    ],
+    [
+      "agent",
+      "I am sorry for the inconvenience. Do you have time to go through a few potential fixes with me?"
+    ],
+    [
+      "customer",
+      "Sure, am open to ideas"
+    ],
+    [
+      "agent",
+      "Great. Let me get your name please."
+    ],
+    [
+      "customer",
+      "Crystal Minh"
+    ],
+    [
+      "agent",
+      "Thank you Crystal. First let's try refreshing the page and adding the item again."
+    ],
+    [
+      "action",
+      "Try Again option has been selected."
+    ],
+    [
+      "customer",
+      "Okay. Lets try that"
+    ],
+    [
+      "customer",
+      "nope. that did not work unfortunately"
+    ],
+    [
+      "agent",
+      "Okay, try logging completely out of your account, then log back in again."
+    ],
+    [
+      "action",
+      "Log Out/In option has been selected."
+    ],
+    [
+      "customer",
+      "Okay"
+    ],
+    [
+      "customer",
+      "Okay. So it worked."
+    ],
+    [
+      "customer",
+      "Thank you"
+    ],
+    [
+      "agent",
+      "Great! Was there anything else you needed help with?"
+    ],
+    [
+      "customer",
+      "Thats all. Thank you"
+    ],
+    [
+      "agent",
+      "You are welcome. Have a good one!"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "hello. what can i help you with?",
+      "turn_count": 1,
+      "targets": [
+        "shopping_cart",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "hi! i have been trying to make a purchase but whenever i add an item into the cart, the cart does not update",
+      "turn_count": 2,
+      "targets": [
+        "shopping_cart",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "so i just cannot add anything into the cart",
+      "turn_count": 3,
+      "targets": [
+        "shopping_cart",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i am sorry for the inconvenience. do you have time to go through a few potential fixes with me?",
+      "turn_count": 4,
+      "targets": [
+        "shopping_cart",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "sure, am open to ideas",
+      "turn_count": 5,
+      "targets": [
+        "shopping_cart",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "great. let me get your name please.",
+      "turn_count": 6,
+      "targets": [
+        "shopping_cart",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "crystal minh",
+      "turn_count": 7,
+      "targets": [
+        "shopping_cart",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you crystal. first let's try refreshing the page and adding the item again.",
+      "turn_count": 8,
+      "targets": [
+        "shopping_cart",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "try again option has been selected.",
+      "turn_count": 9,
+      "targets": [
+        "shopping_cart",
+        null,
+        "try-again",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay. lets try that",
+      "turn_count": 10,
+      "targets": [
+        "shopping_cart",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "nope. that did not work unfortunately",
+      "turn_count": 11,
+      "targets": [
+        "shopping_cart",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "okay, try logging completely out of your account, then log back in again.",
+      "turn_count": 12,
+      "targets": [
+        "shopping_cart",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "log out/in option has been selected.",
+      "turn_count": 13,
+      "targets": [
+        "shopping_cart",
+        null,
+        "log-out-in",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay",
+      "turn_count": 14,
+      "targets": [
+        "shopping_cart",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay. so it worked.",
+      "turn_count": 15,
+      "targets": [
+        "shopping_cart",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thank you",
+      "turn_count": 16,
+      "targets": [
+        "shopping_cart",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "great! was there anything else you needed help with?",
+      "turn_count": 17,
+      "targets": [
+        "shopping_cart",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thats all. thank you",
+      "turn_count": 18,
+      "targets": [
+        "shopping_cart",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "you are welcome. have a good one!",
+      "turn_count": 19,
+      "targets": [
+        "shopping_cart",
+        null,
+        null,
+        [],
+        -1
+      ]
+    }
+  ]
+}

@@ -1,0 +1,317 @@
+{
+  "convo_id": 444,
+  "scenario": {
+    "personal": {
+      "customer_name": "david williams",
+      "email": "dwilliams711@email.com",
+      "member_level": "guest",
+      "phone": "(436) 842-9443",
+      "username": "dwilliams711"
+    },
+    "order": {
+      "street_address": "2542 kennedy st",
+      "full_address": "2542 kennedy st  brighton, tx 57847",
+      "city": "brighton",
+      "num_products": "1",
+      "order_id": "4194513554",
+      "packaging": "yes",
+      "payment_method": "paypal",
+      "products": "[{'brand': 'tommy_hilfiger', 'product_type': 'jeans', 'amount': 69, 'image_url': 'images/tommy_hilfiger-jeans.jpeg'}]",
+      "purchase_date": "2019-08-25",
+      "state": "tx",
+      "zip_code": "57847"
+    },
+    "product": {
+      "names": [
+        "tommy_hilfiger jeans"
+      ],
+      "amounts": [
+        69
+      ]
+    },
+    "flow": "product_defect",
+    "subflow": "refund_status"
+  },
+  "original": [
+    [
+      "customer",
+      "Hello, Anyone here?"
+    ],
+    [
+      "agent",
+      "Hi, thanks for contacting Acme, how can I help you today?"
+    ],
+    [
+      "customer",
+      "Yes, I'm David Williams"
+    ],
+    [
+      "agent",
+      "Hi David, how can I help you?"
+    ],
+    [
+      "customer",
+      "I returned a pair of Tommy Hilfiger jeans from a previous order and wanted to check on my refund status and how the refund was initiated."
+    ],
+    [
+      "agent",
+      "Sure, I would be happy to check that for you. Let me pull up your account first."
+    ],
+    [
+      "action",
+      "Account has been pulled up for David Williams."
+    ],
+    [
+      "agent",
+      "To look up your order, could you please provide your username, email address, and order ID?"
+    ],
+    [
+      "customer",
+      "Sure, my username is dwilliams711"
+    ],
+    [
+      "customer",
+      "My email is dwilliams711@email.com and the order ID is 4194513554"
+    ],
+    [
+      "action",
+      "Purchase validation in progress ..."
+    ],
+    [
+      "agent",
+      "Thank you for that information, David. I checked your order and your refund status is currently in progress."
+    ],
+    [
+      "agent",
+      "Also, the payment method showing for how your refund was initiated is online."
+    ],
+    [
+      "customer",
+      "Oh great, that's really helpful to know. Everything looks good to me."
+    ],
+    [
+      "agent",
+      "You're very welcome! Is there anything else I can help you with today?"
+    ],
+    [
+      "customer",
+      "No, that's all for today."
+    ],
+    [
+      "agent",
+      "Have a great rest of your day, and thank you for choosing Acme. Bye now!"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "customer",
+      "text": "hello, anyone here?",
+      "turn_count": 1,
+      "targets": [
+        "refund_status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "hi, thanks for contacting acme, how can i help you today?",
+      "turn_count": 2,
+      "targets": [
+        "refund_status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yes, i'm david williams",
+      "turn_count": 3,
+      "targets": [
+        "refund_status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "hi david, how can i help you?",
+      "turn_count": 4,
+      "targets": [
+        "refund_status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i returned a pair of tommy hilfiger jeans from a previous order and wanted to check on my refund status and how the refund was initiated.",
+      "turn_count": 5,
+      "targets": [
+        "refund_status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "sure, i would be happy to check that for you. let me pull up your account first.",
+      "turn_count": 6,
+      "targets": [
+        "refund_status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for david williams.",
+      "turn_count": 7,
+      "targets": [
+        "refund_status",
+        null,
+        "pull-up-account",
+        [
+          "david williams"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "to look up your order, could you please provide your username, email address, and order id?",
+      "turn_count": 8,
+      "targets": [
+        "refund_status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "sure, my username is dwilliams711",
+      "turn_count": 9,
+      "targets": [
+        "refund_status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "my email is dwilliams711@email.com and the order id is 4194513554",
+      "turn_count": 10,
+      "targets": [
+        "refund_status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "purchase validation in progress ...",
+      "turn_count": 11,
+      "targets": [
+        "refund_status",
+        null,
+        "validate-purchase",
+        [
+          "dwilliams711",
+          "dwilliams711@email.com",
+          "4194513554"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you for that information, david. i checked your order and your refund status is currently in progress.",
+      "turn_count": 12,
+      "targets": [
+        "refund_status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "also, the payment method showing for how your refund was initiated is online.",
+      "turn_count": 13,
+      "targets": [
+        "refund_status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "oh great, that's really helpful to know. everything looks good to me.",
+      "turn_count": 14,
+      "targets": [
+        "refund_status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "you're very welcome! is there anything else i can help you with today?",
+      "turn_count": 15,
+      "targets": [
+        "refund_status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no, that's all for today.",
+      "turn_count": 16,
+      "targets": [
+        "refund_status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "have a great rest of your day, and thank you for choosing acme. bye now!",
+      "turn_count": 17,
+      "targets": [
+        "refund_status",
+        null,
+        null,
+        [],
+        -1
+      ]
+    }
+  ]
+}

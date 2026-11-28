@@ -1,0 +1,453 @@
+{
+  "convo_id": 4394,
+  "scenario": {
+    "personal": {
+      "customer_name": "crystal minh",
+      "email": "crystalm806@email.com",
+      "member_level": "silver",
+      "phone": "(751) 700-4829",
+      "username": "crystalm806"
+    },
+    "order": {
+      "street_address": "8137 2nd ave",
+      "full_address": "8137 2nd ave  newark, ca 41798",
+      "city": "newark",
+      "num_products": "1",
+      "products": "[{'brand': 'calvin_klein', 'product_type': 'shirt', 'amount': 89, 'image_url': 'images/calvin_klein-shirt.jpeg'}]",
+      "state": "ca",
+      "zip_code": "41798"
+    },
+    "product": {
+      "names": [
+        "calvin_klein shirt"
+      ],
+      "amounts": [
+        89
+      ]
+    },
+    "flow": "troubleshoot_site",
+    "subflow": "credit_card"
+  },
+  "original": [
+    [
+      "agent",
+      "Hello, how may I help you today?"
+    ],
+    [
+      "customer",
+      "hi"
+    ],
+    [
+      "customer",
+      "I want to buy something from your store"
+    ],
+    [
+      "customer",
+      "but my credit card keep getting rejected"
+    ],
+    [
+      "agent",
+      "I am so sorry to hear that. Please give me a moment to look into that for you."
+    ],
+    [
+      "action",
+      "Agent is looking for solutions ..."
+    ],
+    [
+      "agent",
+      "Can you please go back to the checkout page and try entering your credit card information again?"
+    ],
+    [
+      "customer",
+      "I did, did not work"
+    ],
+    [
+      "action",
+      "Agent is looking for solutions ..."
+    ],
+    [
+      "agent",
+      "Can you please try logging out of your account and logging back in?"
+    ],
+    [
+      "customer",
+      "I tried that, that did not work eitehr"
+    ],
+    [
+      "customer",
+      "either not eitehr"
+    ],
+    [
+      "agent",
+      "I apologize for the inconvenience."
+    ],
+    [
+      "agent",
+      "Can you please double check the expiration date on your credit card?"
+    ],
+    [
+      "customer",
+      "it is good"
+    ],
+    [
+      "action",
+      "Details of troubleshoot have been entered."
+    ],
+    [
+      "agent",
+      "I apologize. There seems to be an issue with our payment processing system. Would you like me to make your purchase for you?"
+    ],
+    [
+      "customer",
+      "no, I will just wait until you solve the issue"
+    ],
+    [
+      "customer",
+      "and buy next tie"
+    ],
+    [
+      "customer",
+      "time"
+    ],
+    [
+      "customer",
+      "not tie"
+    ],
+    [
+      "customer",
+      "thanks"
+    ],
+    [
+      "agent",
+      "Ok, no problem. Again, I sincerely apologize for the inconvenience you experienced. We will try to resolve the issue as soon as possible."
+    ],
+    [
+      "agent",
+      "Is there anything else I can help you with today?"
+    ],
+    [
+      "customer",
+      "no"
+    ],
+    [
+      "agent",
+      "Thank you. Have a great day!"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "hello, how may i help you today?",
+      "turn_count": 1,
+      "targets": [
+        "credit_card",
+        "retrieve_utterance",
+        null,
+        [],
+        91
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "hi",
+      "turn_count": 2,
+      "targets": [
+        "credit_card",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i want to buy something from your store",
+      "turn_count": 3,
+      "targets": [
+        "credit_card",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "but my credit card keep getting rejected",
+      "turn_count": 4,
+      "targets": [
+        "credit_card",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i am so sorry to hear that. please give me a moment to look into that for you.",
+      "turn_count": 5,
+      "targets": [
+        "credit_card",
+        "retrieve_utterance",
+        null,
+        [],
+        10
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "agent is looking for solutions ...",
+      "turn_count": 6,
+      "targets": [
+        "credit_card",
+        "take_action",
+        "try-again",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can you please go back to the checkout page and try entering your credit card information again?",
+      "turn_count": 7,
+      "targets": [
+        "credit_card",
+        "retrieve_utterance",
+        null,
+        [],
+        42
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i did, did not work",
+      "turn_count": 8,
+      "targets": [
+        "credit_card",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "agent is looking for solutions ...",
+      "turn_count": 9,
+      "targets": [
+        "credit_card",
+        "take_action",
+        "log-out-in",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can you please try logging out of your account and logging back in?",
+      "turn_count": 10,
+      "targets": [
+        "credit_card",
+        "retrieve_utterance",
+        null,
+        [],
+        21
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i tried that, that did not work eitehr",
+      "turn_count": 11,
+      "targets": [
+        "credit_card",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "either not eitehr",
+      "turn_count": 12,
+      "targets": [
+        "credit_card",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i apologize for the inconvenience.",
+      "turn_count": 13,
+      "targets": [
+        "credit_card",
+        "retrieve_utterance",
+        null,
+        [],
+        84
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can you please double check the expiration date on your credit card?",
+      "turn_count": 14,
+      "targets": [
+        "credit_card",
+        "retrieve_utterance",
+        null,
+        [],
+        44
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "it is good",
+      "turn_count": 15,
+      "targets": [
+        "credit_card",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "details of troubleshoot have been entered.",
+      "turn_count": 16,
+      "targets": [
+        "credit_card",
+        "take_action",
+        "enter-details",
+        [
+          "troubleshoot"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i apologize. there seems to be an issue with our payment processing system. would you like me to make your purchase for you?",
+      "turn_count": 17,
+      "targets": [
+        "credit_card",
+        "retrieve_utterance",
+        null,
+        [],
+        75
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no, i will just wait until you solve the issue",
+      "turn_count": 18,
+      "targets": [
+        "credit_card",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "and buy next tie",
+      "turn_count": 19,
+      "targets": [
+        "credit_card",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "time",
+      "turn_count": 20,
+      "targets": [
+        "credit_card",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "not tie",
+      "turn_count": 21,
+      "targets": [
+        "credit_card",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thanks",
+      "turn_count": 22,
+      "targets": [
+        "credit_card",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok, no problem. again, i sincerely apologize for the inconvenience you experienced. we will try to resolve the issue as soon as possible.",
+      "turn_count": 23,
+      "targets": [
+        "credit_card",
+        "retrieve_utterance",
+        null,
+        [],
+        93
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "is there anything else i can help you with today?",
+      "turn_count": 24,
+      "targets": [
+        "credit_card",
+        "retrieve_utterance",
+        null,
+        [],
+        87
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no",
+      "turn_count": 25,
+      "targets": [
+        "credit_card",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you. have a great day!",
+      "turn_count": 26,
+      "targets": [
+        "credit_card",
+        "retrieve_utterance",
+        null,
+        [],
+        47
+      ]
+    }
+  ]
+}

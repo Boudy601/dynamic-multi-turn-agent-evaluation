@@ -1,0 +1,1085 @@
+{
+  "convo_id": 8032,
+  "scenario": {
+    "personal": {
+      "account_id": "oqaiml1vz3",
+      "customer_name": "david williams",
+      "email": "davidw19@email.com",
+      "member_level": "bronze",
+      "phone": "(794) 175-1350",
+      "username": "davidw19"
+    },
+    "order": {
+      "street_address": "4777 2nd ave",
+      "full_address": "4777 2nd ave  la fayette, tx 9163",
+      "city": "la fayette",
+      "num_products": "1",
+      "order_id": "8054805576",
+      "products": "[{'brand': 'calvin_klein', 'product_type': 'shirt', 'amount': 69, 'image_url': 'images/calvin_klein-shirt.jpeg'}]",
+      "state": "tx",
+      "zip_code": "9163"
+    },
+    "product": {
+      "names": [
+        "calvin_klein shirt"
+      ],
+      "amounts": [
+        69
+      ]
+    },
+    "flow": "purchase_dispute",
+    "subflow": "bad_price_yesterday"
+  },
+  "original": [
+    [
+      "agent",
+      "Thank you for contacting Acme.  How may I help you today?"
+    ],
+    [
+      "customer",
+      "Yes I am not thrilled with seeing that I am paying $20 more for the same exact shirt"
+    ],
+    [
+      "agent",
+      "Oh, I'm sorry to hear that"
+    ],
+    [
+      "customer",
+      "I saw on your site for $49 yesterday now you want $69"
+    ],
+    [
+      "agent",
+      "Yes, unfortunately, our pricing algorithm takes a lot of different factors into account, and sometimes changes the prices quite dramatically"
+    ],
+    [
+      "agent",
+      "However, if I may take a look at your account, there might be something that I can do"
+    ],
+    [
+      "customer",
+      "Unfortunately you are not speaking my language dear"
+    ],
+    [
+      "customer",
+      "I don't know what that all means I am 89 years old"
+    ],
+    [
+      "customer",
+      "Tomorrows my birthday"
+    ],
+    [
+      "agent",
+      "Oh, sorry about that.  Essentially, a computer sets out prices for us, and sometimes it leads to terrible surprises such as this one"
+    ],
+    [
+      "customer",
+      "I don't like these darn computers are you real"
+    ],
+    [
+      "agent",
+      "But given the circumstances, I can pull a few strings and get you yesterday's price"
+    ],
+    [
+      "customer",
+      "ok now I understand that dear"
+    ],
+    [
+      "customer",
+      "It's my birthday tomorrow"
+    ],
+    [
+      "agent",
+      "Happy birthday, lets see if we can get you that new shirt just in time"
+    ],
+    [
+      "agent",
+      "may I just gather a few bits of information from you so that I can take a look at your account"
+    ],
+    [
+      "customer",
+      "This would make an old guy like me feel good my daughter didnt send the tie this year"
+    ],
+    [
+      "customer",
+      "information?"
+    ],
+    [
+      "customer",
+      "I am David Williams"
+    ],
+    [
+      "agent",
+      "(ooh, I'm sorry to hear about that.  I'm sure she needed it for facemasks, and it was nothing personal)"
+    ],
+    [
+      "agent",
+      "Thanks, Mr. Williams"
+    ],
+    [
+      "customer",
+      "over at 4777 2nd Ave  La Fayette, TX 9163"
+    ],
+    [
+      "customer",
+      "Yeah proby right"
+    ],
+    [
+      "agent",
+      "may I also ask your account ID and the order ID of any recent purchase.  They should both be visible on your screen"
+    ],
+    [
+      "action",
+      "Account has been pulled up for David Williams."
+    ],
+    [
+      "customer",
+      "yes dear it is the one with the numbers"
+    ],
+    [
+      "customer",
+      "OQAIML1VZ3"
+    ],
+    [
+      "action",
+      "A reason of yesterday has been recorded."
+    ],
+    [
+      "customer",
+      "sorry letters"
+    ],
+    [
+      "agent",
+      "Yes, your account ID is the one with numbers and Upper-case letters"
+    ],
+    [
+      "agent",
+      "and the Order ID should be the one that's nothing but numbers"
+    ],
+    [
+      "customer",
+      "and here is the number I got with the order 8054805576"
+    ],
+    [
+      "customer",
+      "I hope that helps"
+    ],
+    [
+      "agent",
+      "That's perfect, thanks"
+    ],
+    [
+      "customer",
+      "I want to go in the store so I wont bother you guys but you know I cant"
+    ],
+    [
+      "action",
+      "Identity verification in progress ..."
+    ],
+    [
+      "agent",
+      "Yes, I understand, but this is no bother to us at all"
+    ],
+    [
+      "customer",
+      "You must be quite busy I imagine"
+    ],
+    [
+      "agent",
+      "So what I can do for you, is that I can give you a short code, it'll just be a nonsense string of letters"
+    ],
+    [
+      "agent",
+      "We are a little busy, but I can work from home, so that's a good thing"
+    ],
+    [
+      "agent",
+      "I do appreciate your concern, though"
+    ],
+    [
+      "customer",
+      "Thank you dear"
+    ],
+    [
+      "customer",
+      "I am thinking if I can get it for that price I saw"
+    ],
+    [
+      "agent",
+      "and as for your order, this string of letters that I give you, if you just copy that into the box that asks for either \"Promo code\" or \"Coupon code\" when you check out, it will automatically knock $20 off the price for you"
+    ],
+    [
+      "customer",
+      "it would make an old guy have a happy birthday"
+    ],
+    [
+      "customer",
+      "Okay so write these letters down?"
+    ],
+    [
+      "customer",
+      "You going to give me some letters"
+    ],
+    [
+      "agent",
+      "Yes, that would be the easiest way"
+    ],
+    [
+      "agent",
+      "One second, please"
+    ],
+    [
+      "action",
+      "A promo code has been created."
+    ],
+    [
+      "customer",
+      "ok I'm ready"
+    ],
+    [
+      "agent",
+      "there we are, the full code is:"
+    ],
+    [
+      "agent",
+      "1GXVN"
+    ],
+    [
+      "agent",
+      "(that's the number \"one\" at the beginning)"
+    ],
+    [
+      "customer",
+      "Okay I have it here now"
+    ],
+    [
+      "customer",
+      "1GXVN"
+    ],
+    [
+      "agent",
+      "Yes, that's perfect"
+    ],
+    [
+      "customer",
+      "Thank you dear"
+    ],
+    [
+      "agent",
+      "You're very welcome.  I hope you have a great birthday tomorrow, even if you can't go out to celebrate"
+    ],
+    [
+      "customer",
+      "I will give them this code to get my own birthday gift"
+    ],
+    [
+      "customer",
+      "Thank you kindly"
+    ],
+    [
+      "agent",
+      "You're welcome.  Is there anything else I could help with while we're here?"
+    ],
+    [
+      "customer",
+      "Just have yourself a blessed day"
+    ],
+    [
+      "agent",
+      "You too"
+    ],
+    [
+      "customer",
+      "Thank you"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "thank you for contacting acme.  how may i help you today?",
+      "turn_count": 1,
+      "targets": [
+        "bad_price_yesterday",
+        "retrieve_utterance",
+        null,
+        [],
+        80
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yes i am not thrilled with seeing that i am paying $20 more for the same exact shirt",
+      "turn_count": 2,
+      "targets": [
+        "bad_price_yesterday",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "oh, i'm sorry to hear that",
+      "turn_count": 3,
+      "targets": [
+        "bad_price_yesterday",
+        "retrieve_utterance",
+        null,
+        [],
+        60
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i saw on your site for $49 yesterday now you want $<amount>",
+      "turn_count": 4,
+      "targets": [
+        "bad_price_yesterday",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "yes, unfortunately, our pricing algorithm takes a lot of different factors into account, and sometimes changes the prices quite dramatically",
+      "turn_count": 5,
+      "targets": [
+        "bad_price_yesterday",
+        "retrieve_utterance",
+        null,
+        [],
+        57
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "however, if i may take a look at your account, there might be something that i can do",
+      "turn_count": 6,
+      "targets": [
+        "bad_price_yesterday",
+        "retrieve_utterance",
+        null,
+        [],
+        14
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "unfortunately you are not speaking my language dear",
+      "turn_count": 7,
+      "targets": [
+        "bad_price_yesterday",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i don't know what that all means i am 89 years old",
+      "turn_count": 8,
+      "targets": [
+        "bad_price_yesterday",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "tomorrows my birthday",
+      "turn_count": 9,
+      "targets": [
+        "bad_price_yesterday",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "oh, sorry about that.  essentially, a computer sets out prices for us, and sometimes it leads to terrible surprises such as this one",
+      "turn_count": 10,
+      "targets": [
+        "bad_price_yesterday",
+        "retrieve_utterance",
+        null,
+        [],
+        8
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i don't like these darn computers are you real",
+      "turn_count": 11,
+      "targets": [
+        "bad_price_yesterday",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "but given the circumstances, i can pull a few strings and get you yesterday's price",
+      "turn_count": 12,
+      "targets": [
+        "bad_price_yesterday",
+        "retrieve_utterance",
+        null,
+        [],
+        63
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok now i understand that dear",
+      "turn_count": 13,
+      "targets": [
+        "bad_price_yesterday",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "it's my birthday tomorrow",
+      "turn_count": 14,
+      "targets": [
+        "bad_price_yesterday",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "happy birthday, lets see if we can get you that new shirt just in time",
+      "turn_count": 15,
+      "targets": [
+        "bad_price_yesterday",
+        "retrieve_utterance",
+        null,
+        [],
+        13
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "may i just gather a few bits of information from you so that i can take a look at your account",
+      "turn_count": 16,
+      "targets": [
+        "bad_price_yesterday",
+        "retrieve_utterance",
+        null,
+        [],
+        88
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "this would make an old guy like me feel good my daughter didnt send the tie this year",
+      "turn_count": 17,
+      "targets": [
+        "bad_price_yesterday",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "information?",
+      "turn_count": 18,
+      "targets": [
+        "bad_price_yesterday",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i am david williams",
+      "turn_count": 19,
+      "targets": [
+        "bad_price_yesterday",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "(ooh, i'm sorry to hear about that.  i'm sure she needed it for facemasks, and it was nothing personal)",
+      "turn_count": 20,
+      "targets": [
+        "bad_price_yesterday",
+        "retrieve_utterance",
+        null,
+        [],
+        84
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thanks, mr. williams",
+      "turn_count": 21,
+      "targets": [
+        "bad_price_yesterday",
+        "retrieve_utterance",
+        null,
+        [],
+        6
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "over at <street_address>  la fayette, tx <zip_code>",
+      "turn_count": 22,
+      "targets": [
+        "bad_price_yesterday",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yeah proby right",
+      "turn_count": 23,
+      "targets": [
+        "bad_price_yesterday",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "may i also ask your account id and the order id of any recent purchase.  they should both be visible on your screen",
+      "turn_count": 24,
+      "targets": [
+        "bad_price_yesterday",
+        "retrieve_utterance",
+        null,
+        [],
+        40
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for david williams.",
+      "turn_count": 25,
+      "targets": [
+        "bad_price_yesterday",
+        "take_action",
+        "pull-up-account",
+        [
+          "david williams"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "yes dear it is the one with the numbers",
+      "turn_count": 26,
+      "targets": [
+        "bad_price_yesterday",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "<account_id>",
+      "turn_count": 27,
+      "targets": [
+        "bad_price_yesterday",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "a reason of yesterday has been recorded.",
+      "turn_count": 28,
+      "targets": [
+        "bad_price_yesterday",
+        "take_action",
+        "record-reason",
+        [
+          "yesterday"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "sorry letters",
+      "turn_count": 29,
+      "targets": [
+        "bad_price_yesterday",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "yes, your account id is the one with numbers and upper-case letters",
+      "turn_count": 30,
+      "targets": [
+        "bad_price_yesterday",
+        "retrieve_utterance",
+        null,
+        [],
+        1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "and the order id should be the one that's nothing but numbers",
+      "turn_count": 31,
+      "targets": [
+        "bad_price_yesterday",
+        "retrieve_utterance",
+        null,
+        [],
+        24
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "and here is the number i got with the order <order_id>",
+      "turn_count": 32,
+      "targets": [
+        "bad_price_yesterday",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i hope that helps",
+      "turn_count": 33,
+      "targets": [
+        "bad_price_yesterday",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "that's perfect, thanks",
+      "turn_count": 34,
+      "targets": [
+        "bad_price_yesterday",
+        "retrieve_utterance",
+        null,
+        [],
+        84
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i want to go in the store so i wont bother you guys but you know i cant",
+      "turn_count": 35,
+      "targets": [
+        "bad_price_yesterday",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "identity verification in progress ...",
+      "turn_count": 36,
+      "targets": [
+        "bad_price_yesterday",
+        "take_action",
+        "verify-identity",
+        [
+          "david williams",
+          "oqaiml1vz3",
+          "8054805576"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "yes, i understand, but this is no bother to us at all",
+      "turn_count": 37,
+      "targets": [
+        "bad_price_yesterday",
+        "retrieve_utterance",
+        null,
+        [],
+        81
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "you must be quite busy i imagine",
+      "turn_count": 38,
+      "targets": [
+        "bad_price_yesterday",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "so what i can do for you, is that i can give you a short code, it'll just be a nonsense string of letters",
+      "turn_count": 39,
+      "targets": [
+        "bad_price_yesterday",
+        "retrieve_utterance",
+        null,
+        [],
+        95
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "we are a little busy, but i can work from home, so that's a good thing",
+      "turn_count": 40,
+      "targets": [
+        "bad_price_yesterday",
+        "retrieve_utterance",
+        null,
+        [],
+        41
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i do appreciate your concern, though",
+      "turn_count": 41,
+      "targets": [
+        "bad_price_yesterday",
+        "retrieve_utterance",
+        null,
+        [],
+        90
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thank you dear",
+      "turn_count": 42,
+      "targets": [
+        "bad_price_yesterday",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i am thinking if i can get it for that price i saw",
+      "turn_count": 43,
+      "targets": [
+        "bad_price_yesterday",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "and as for your order, this string of letters that i give you, if you just copy that into the box that asks for either \"promo code\" or \"coupon code\" when you check out, it will automatically knock $20 off the price for you",
+      "turn_count": 44,
+      "targets": [
+        "bad_price_yesterday",
+        "retrieve_utterance",
+        null,
+        [],
+        92
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "it would make an old guy have a happy birthday",
+      "turn_count": 45,
+      "targets": [
+        "bad_price_yesterday",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay so write these letters down?",
+      "turn_count": 46,
+      "targets": [
+        "bad_price_yesterday",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "you going to give me some letters",
+      "turn_count": 47,
+      "targets": [
+        "bad_price_yesterday",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "yes, that would be the easiest way",
+      "turn_count": 48,
+      "targets": [
+        "bad_price_yesterday",
+        "retrieve_utterance",
+        null,
+        [],
+        50
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "one second, please",
+      "turn_count": 49,
+      "targets": [
+        "bad_price_yesterday",
+        "retrieve_utterance",
+        null,
+        [],
+        86
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "a promo code has been created.",
+      "turn_count": 50,
+      "targets": [
+        "bad_price_yesterday",
+        "take_action",
+        "promo-code",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok i'm ready",
+      "turn_count": 51,
+      "targets": [
+        "bad_price_yesterday",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "there we are, the full code is:",
+      "turn_count": 52,
+      "targets": [
+        "bad_price_yesterday",
+        "retrieve_utterance",
+        null,
+        [],
+        36
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "1gxvn",
+      "turn_count": 53,
+      "targets": [
+        "bad_price_yesterday",
+        "retrieve_utterance",
+        null,
+        [],
+        96
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "(that's the number \"one\" at the beginning)",
+      "turn_count": 54,
+      "targets": [
+        "bad_price_yesterday",
+        "retrieve_utterance",
+        null,
+        [],
+        57
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay i have it here now",
+      "turn_count": 55,
+      "targets": [
+        "bad_price_yesterday",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "1gxvn",
+      "turn_count": 56,
+      "targets": [
+        "bad_price_yesterday",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "yes, that's perfect",
+      "turn_count": 57,
+      "targets": [
+        "bad_price_yesterday",
+        "retrieve_utterance",
+        null,
+        [],
+        70
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thank you dear",
+      "turn_count": 58,
+      "targets": [
+        "bad_price_yesterday",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "you're very welcome.  i hope you have a great birthday tomorrow, even if you can't go out to celebrate",
+      "turn_count": 59,
+      "targets": [
+        "bad_price_yesterday",
+        "retrieve_utterance",
+        null,
+        [],
+        48
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i will give them this code to get my own birthday gift",
+      "turn_count": 60,
+      "targets": [
+        "bad_price_yesterday",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thank you kindly",
+      "turn_count": 61,
+      "targets": [
+        "bad_price_yesterday",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "you're welcome.  is there anything else i could help with while we're here?",
+      "turn_count": 62,
+      "targets": [
+        "bad_price_yesterday",
+        "retrieve_utterance",
+        null,
+        [],
+        95
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "just have yourself a blessed day",
+      "turn_count": 63,
+      "targets": [
+        "bad_price_yesterday",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "you too",
+      "turn_count": 64,
+      "targets": [
+        "bad_price_yesterday",
+        "retrieve_utterance",
+        null,
+        [],
+        93
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thank you",
+      "turn_count": 65,
+      "targets": [
+        "bad_price_yesterday",
+        null,
+        null,
+        [],
+        -1
+      ]
+    }
+  ]
+}

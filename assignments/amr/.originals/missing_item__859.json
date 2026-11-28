@@ -1,0 +1,420 @@
+{
+  "convo_id": 859,
+  "scenario": {
+    "personal": {
+      "account_id": "rawqpt3pdl",
+      "customer_name": "david williams",
+      "email": "davidw88@email.com",
+      "member_level": "bronze",
+      "phone": "(708) 631-8018",
+      "username": "davidw88"
+    },
+    "order": {
+      "street_address": "5388 circle drive",
+      "full_address": "5388 circle drive  raleigh, tx 15259",
+      "city": "raleigh",
+      "num_products": "1",
+      "order_id": "1255651822",
+      "products": "[{'brand': 'calvin_klein', 'product_type': 'jeans', 'amount': 84, 'image_url': 'images/calvin_klein-jeans.jpeg'}]",
+      "purchase_date": "2020-01-05",
+      "state": "tx",
+      "zip_code": "15259"
+    },
+    "product": {
+      "names": [
+        "calvin_klein jeans"
+      ],
+      "amounts": [
+        84
+      ]
+    },
+    "flow": "shipping_issue",
+    "subflow": "missing"
+  },
+  "original": [
+    [
+      "agent",
+      "Hello. Can I help you with anything today?"
+    ],
+    [
+      "customer",
+      "package was never received"
+    ],
+    [
+      "agent",
+      "Im sorry to hear that. May I have your name or account ID please? Lets track this down."
+    ],
+    [
+      "customer",
+      "David Williams RAWQPT3PDL"
+    ],
+    [
+      "agent",
+      "Thanks David. One moment while I pull up your account. Can you provide me with your username and email address?"
+    ],
+    [
+      "action",
+      "Account has been pulled up for David Williams."
+    ],
+    [
+      "customer",
+      "davidw88@email.com davidw88"
+    ],
+    [
+      "action",
+      "Purchase validation in progress ..."
+    ],
+    [
+      "agent",
+      "Do you have your order ID also?"
+    ],
+    [
+      "customer",
+      "1255651822"
+    ],
+    [
+      "action",
+      "Purchase validation in progress ..."
+    ],
+    [
+      "agent",
+      "Thanks David. How long have you been waiting for your order?"
+    ],
+    [
+      "customer",
+      "9 days"
+    ],
+    [
+      "agent",
+      "Im sorry to hear that. Lets get a new one shipped out to you."
+    ],
+    [
+      "customer",
+      "okay"
+    ],
+    [
+      "agent",
+      "Can you provide me your address?"
+    ],
+    [
+      "customer",
+      "5388 Circle Drive  Raleigh, TX 15259"
+    ],
+    [
+      "action",
+      "Order has been updated with 5388 Circle Drive Raleigh, TX 15259."
+    ],
+    [
+      "agent",
+      "What item was this for?"
+    ],
+    [
+      "customer",
+      "Jeans"
+    ],
+    [
+      "action",
+      "Order has been updated with Jeans."
+    ],
+    [
+      "agent",
+      "Ok you should receive this order soon. Sorry about the first order."
+    ],
+    [
+      "agent",
+      "Thanks have a great day."
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "hello. can i help you with anything today?",
+      "turn_count": 1,
+      "targets": [
+        "missing",
+        "retrieve_utterance",
+        null,
+        [],
+        88
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "package was never received",
+      "turn_count": 2,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "im sorry to hear that. may i have your name or account id please? lets track this down.",
+      "turn_count": 3,
+      "targets": [
+        "missing",
+        "retrieve_utterance",
+        null,
+        [],
+        41
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "david williams <account_id>",
+      "turn_count": 4,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thanks david. one moment while i pull up your account. can you provide me with your username and email address?",
+      "turn_count": 5,
+      "targets": [
+        "missing",
+        "retrieve_utterance",
+        null,
+        [],
+        76
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for david williams.",
+      "turn_count": 6,
+      "targets": [
+        "missing",
+        "take_action",
+        "pull-up-account",
+        [
+          "david williams"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "<email> <username>",
+      "turn_count": 7,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "purchase validation in progress ...",
+      "turn_count": 8,
+      "targets": [
+        "missing",
+        "take_action",
+        "validate-purchase",
+        [
+          "davidw88",
+          "davidw88@email.com",
+          "rawqpt3pdl"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "do you have your order id also?",
+      "turn_count": 9,
+      "targets": [
+        "missing",
+        "retrieve_utterance",
+        null,
+        [],
+        36
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "<order_id>",
+      "turn_count": 10,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "purchase validation in progress ...",
+      "turn_count": 11,
+      "targets": [
+        "missing",
+        "take_action",
+        "validate-purchase",
+        [
+          "davidw88",
+          "davidw88@email.com",
+          "1255651822"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thanks david. how long have you been waiting for your order?",
+      "turn_count": 12,
+      "targets": [
+        "missing",
+        "retrieve_utterance",
+        null,
+        [],
+        42
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "9 days",
+      "turn_count": 13,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "im sorry to hear that. lets get a new one shipped out to you.",
+      "turn_count": 14,
+      "targets": [
+        "missing",
+        "retrieve_utterance",
+        null,
+        [],
+        97
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay",
+      "turn_count": 15,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can you provide me your address?",
+      "turn_count": 16,
+      "targets": [
+        "missing",
+        "retrieve_utterance",
+        null,
+        [],
+        78
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "<street_address>  raleigh, tx <zip_code>",
+      "turn_count": 17,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "order has been updated with <street_address> raleigh, tx <zip_code>.",
+      "turn_count": 18,
+      "targets": [
+        "missing",
+        "take_action",
+        "update-order",
+        [
+          "5388 circle drive raleigh, tx 15259"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "what item was this for?",
+      "turn_count": 19,
+      "targets": [
+        "missing",
+        "retrieve_utterance",
+        null,
+        [],
+        38
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "jeans",
+      "turn_count": 20,
+      "targets": [
+        "missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "order has been updated with jeans.",
+      "turn_count": 21,
+      "targets": [
+        "missing",
+        "take_action",
+        "update-order",
+        [
+          "jeans"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok you should receive this order soon. sorry about the first order.",
+      "turn_count": 22,
+      "targets": [
+        "missing",
+        "retrieve_utterance",
+        null,
+        [],
+        69
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thanks have a great day.",
+      "turn_count": 23,
+      "targets": [
+        "missing",
+        "retrieve_utterance",
+        null,
+        [],
+        75
+      ]
+    }
+  ]
+}

@@ -1,0 +1,477 @@
+{
+  "convo_id": 1413,
+  "scenario": {
+    "personal": {
+      "account_id": "64vmt99fke",
+      "customer_name": "joyce wu",
+      "member_level": "guest",
+      "phone": "(485) 483-1200"
+    },
+    "order": {
+      "street_address": "3895 primrose ave",
+      "full_address": "3895 primrose ave  baltimore, mi 65442",
+      "city": "baltimore",
+      "num_products": "1",
+      "order_id": "3135346547",
+      "products": "[{'brand': 'guess', 'product_type': 'shirt', 'amount': 49, 'image_url': 'images/guess-shirt.jpeg'}]",
+      "state": "mi",
+      "zip_code": "65442"
+    },
+    "product": {
+      "names": [
+        "guess shirt"
+      ],
+      "amounts": [
+        49
+      ]
+    },
+    "flow": "subscription_inquiry",
+    "subflow": "manage_dispute_bill"
+  },
+  "original": [
+    [
+      "agent",
+      "Good afternoon, how can I help you?"
+    ],
+    [
+      "customer",
+      "Hi. I need your help in sorting out a problem I have"
+    ],
+    [
+      "agent",
+      "Gladly, tell me what you need."
+    ],
+    [
+      "customer",
+      "I am looking at my march bill and I see that I was charged twice for a shirt that I bought. Can you help with this?"
+    ],
+    [
+      "agent",
+      "Of couse!"
+    ],
+    [
+      "agent",
+      "Give me your full name and account ID. please"
+    ],
+    [
+      "customer",
+      "my name is joyce wu and the account id is 64vmt99fke"
+    ],
+    [
+      "action",
+      "Account has been pulled up for Joyce Wu."
+    ],
+    [
+      "action",
+      "Account has been pulled up for 64vmt99fke."
+    ],
+    [
+      "agent",
+      "Ok, would you give me the order ID. please"
+    ],
+    [
+      "customer",
+      "order id is 3135346547"
+    ],
+    [
+      "action",
+      "Identity verification in progess ..."
+    ],
+    [
+      "agent",
+      "Thank you. Could you also tell me your membership level please?"
+    ],
+    [
+      "customer",
+      "my membeship level is guest"
+    ],
+    [
+      "action",
+      "Membership level of guest has been noted."
+    ],
+    [
+      "agent",
+      "Ok let me check the error."
+    ],
+    [
+      "action",
+      "Querying the system for an answer ..."
+    ],
+    [
+      "customer",
+      "why was I charged twice?"
+    ],
+    [
+      "customer",
+      "are you there"
+    ],
+    [
+      "agent",
+      "Yes, sorry for the wait. I checked our system and it does not show a billing error on your account, so I am not able to refund that charge. I really apologize for the inconvenience."
+    ],
+    [
+      "customer",
+      "I would like to speak with your manager"
+    ],
+    [
+      "agent",
+      "I understand your frustration and I am sorry. I do not have any other options for this charge, and I am not able to connect you with a manager from here."
+    ],
+    [
+      "customer",
+      "That is not good. I ugently need to resolve this issue right now"
+    ],
+    [
+      "agent",
+      "I understand, and I apologize that I cannot do more on this one. Is there anything else I can help you with today?"
+    ],
+    [
+      "customer",
+      "no, that's all. thanks for your help"
+    ],
+    [
+      "agent",
+      "Not problem. Have a nice day, goodbye!"
+    ],
+    [
+      "customer",
+      "goodbye"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "good afternoon, how can i help you?",
+      "turn_count": 1,
+      "targets": [
+        "manage_dispute_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "hi. i need your help in sorting out a problem i have",
+      "turn_count": 2,
+      "targets": [
+        "manage_dispute_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "gladly, tell me what you need.",
+      "turn_count": 3,
+      "targets": [
+        "manage_dispute_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i am looking at my march bill and i see that i was charged twice for a shirt that i bought. can you help with this?",
+      "turn_count": 4,
+      "targets": [
+        "manage_dispute_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "of couse!",
+      "turn_count": 5,
+      "targets": [
+        "manage_dispute_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "give me your full name and account id. please",
+      "turn_count": 6,
+      "targets": [
+        "manage_dispute_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "my name is joyce wu and the account id is 64vmt99fke",
+      "turn_count": 7,
+      "targets": [
+        "manage_dispute_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for joyce wu.",
+      "turn_count": 8,
+      "targets": [
+        "manage_dispute_bill",
+        null,
+        "pull-up-account",
+        [
+          "joyce wu"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for 64vmt99fke.",
+      "turn_count": 9,
+      "targets": [
+        "manage_dispute_bill",
+        null,
+        "pull-up-account",
+        [
+          "64vmt99fke"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok, would you give me the order id. please",
+      "turn_count": 10,
+      "targets": [
+        "manage_dispute_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "order id is 3135346547",
+      "turn_count": 11,
+      "targets": [
+        "manage_dispute_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "identity verification in progess ...",
+      "turn_count": 12,
+      "targets": [
+        "manage_dispute_bill",
+        null,
+        "verify-identity",
+        [
+          "joyce wu",
+          "64vmt99fke",
+          "3135346547"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you. could you also tell me your membership level please?",
+      "turn_count": 13,
+      "targets": [
+        "manage_dispute_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "my membeship level is guest",
+      "turn_count": 14,
+      "targets": [
+        "manage_dispute_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "membership level of guest has been noted.",
+      "turn_count": 15,
+      "targets": [
+        "manage_dispute_bill",
+        null,
+        "membership",
+        [
+          "guest"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok let me check the error.",
+      "turn_count": 16,
+      "targets": [
+        "manage_dispute_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "querying the system for an answer ...",
+      "turn_count": 17,
+      "targets": [
+        "manage_dispute_bill",
+        null,
+        "ask-the-oracle",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "why was i charged twice?",
+      "turn_count": 18,
+      "targets": [
+        "manage_dispute_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "are you there",
+      "turn_count": 19,
+      "targets": [
+        "manage_dispute_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "yes, sorry for the wait. i checked our system and it does not show a billing error on your account, so i am not able to refund that charge. i really apologize for the inconvenience.",
+      "turn_count": 20,
+      "targets": [
+        "manage_dispute_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i would like to speak with your manager",
+      "turn_count": 21,
+      "targets": [
+        "manage_dispute_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i understand your frustration and i am sorry. i do not have any other options for this charge, and i am not able to connect you with a manager from here.",
+      "turn_count": 22,
+      "targets": [
+        "manage_dispute_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "that is not good. i ugently need to resolve this issue right now",
+      "turn_count": 23,
+      "targets": [
+        "manage_dispute_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i understand, and i apologize that i cannot do more on this one. is there anything else i can help you with today?",
+      "turn_count": 24,
+      "targets": [
+        "manage_dispute_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no, that's all. thanks for your help",
+      "turn_count": 25,
+      "targets": [
+        "manage_dispute_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "not problem. have a nice day, goodbye!",
+      "turn_count": 26,
+      "targets": [
+        "manage_dispute_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "goodbye",
+      "turn_count": 27,
+      "targets": [
+        "manage_dispute_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    }
+  ]
+}

@@ -1,0 +1,485 @@
+{
+  "convo_id": 10471,
+  "scenario": {
+    "personal": {
+      "account_id": "cfiadflrov",
+      "customer_name": "joyce wu",
+      "member_level": "gold",
+      "phone": "(879) 703-8532"
+    },
+    "order": {
+      "street_address": "8298 circle drive",
+      "full_address": "8298 circle drive  brighton, ny 61208",
+      "city": "brighton",
+      "order_id": "7621529023",
+      "state": "ny",
+      "zip_code": "61208"
+    },
+    "product": {
+      "names": [],
+      "amounts": []
+    },
+    "flow": "subscription_inquiry",
+    "subflow": "status_due_date"
+  },
+  "original": [
+    [
+      "agent",
+      "Hello, how may I help you today?"
+    ],
+    [
+      "customer",
+      "Hi, I would like to make sure that my subscription is still active. IS that possible?"
+    ],
+    [
+      "agent",
+      "I can certainly help you with that."
+    ],
+    [
+      "agent",
+      "Can you please tell me your full name or account ID?"
+    ],
+    [
+      "customer",
+      "My name is Joyce Wu"
+    ],
+    [
+      "action",
+      "Account has been pulled up for Joyce Wu."
+    ],
+    [
+      "agent",
+      "Thank you."
+    ],
+    [
+      "agent",
+      "May I also have your account ID and order ID?"
+    ],
+    [
+      "customer",
+      "My account ID is CFIADFLROV and my order ID is 7621529023"
+    ],
+    [
+      "action",
+      "Identity verification in progress ..."
+    ],
+    [
+      "agent",
+      "Thank you. Please give me a moment to review your account."
+    ],
+    [
+      "action",
+      "Querying the system for subscription status ..."
+    ],
+    [
+      "customer",
+      "Thanks"
+    ],
+    [
+      "agent",
+      "Your subscription is currently inactive and has a payment of $49 due tomorrow."
+    ],
+    [
+      "customer",
+      "Can I go ahead and pay that now?"
+    ],
+    [
+      "agent",
+      "I will provide you with a link to your account so that you can conveniently check your subscription status in the future."
+    ],
+    [
+      "action",
+      "A link will be sent."
+    ],
+    [
+      "customer",
+      "Great!"
+    ],
+    [
+      "agent",
+      "Yes, I can help you pay for your subscription."
+    ],
+    [
+      "action",
+      "Details of 49 have been entered."
+    ],
+    [
+      "agent",
+      "I've charged your subscription fee of $49 to your credit card on file."
+    ],
+    [
+      "customer",
+      "Thank you so much!"
+    ],
+    [
+      "agent",
+      "Your subscription is now active."
+    ],
+    [
+      "customer",
+      "Awesome!"
+    ],
+    [
+      "agent",
+      "You are welcome."
+    ],
+    [
+      "agent",
+      "Is there anything else I can help you with today?"
+    ],
+    [
+      "customer",
+      "No, that is all"
+    ],
+    [
+      "agent",
+      "Thank you. Have a great day!"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "hello, how may i help you today?",
+      "turn_count": 1,
+      "targets": [
+        "status_due_date",
+        "retrieve_utterance",
+        null,
+        [],
+        44
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "hi, i would like to make sure that my subscription is still active. is that possible?",
+      "turn_count": 2,
+      "targets": [
+        "status_due_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i can certainly help you with that.",
+      "turn_count": 3,
+      "targets": [
+        "status_due_date",
+        "retrieve_utterance",
+        null,
+        [],
+        68
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can you please tell me your full name or account id?",
+      "turn_count": 4,
+      "targets": [
+        "status_due_date",
+        "retrieve_utterance",
+        null,
+        [],
+        14
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "my name is joyce wu",
+      "turn_count": 5,
+      "targets": [
+        "status_due_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for joyce wu.",
+      "turn_count": 6,
+      "targets": [
+        "status_due_date",
+        "take_action",
+        "pull-up-account",
+        [
+          "joyce wu"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you.",
+      "turn_count": 7,
+      "targets": [
+        "status_due_date",
+        "retrieve_utterance",
+        null,
+        [],
+        78
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "may i also have your account id and order id?",
+      "turn_count": 8,
+      "targets": [
+        "status_due_date",
+        "retrieve_utterance",
+        null,
+        [],
+        97
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "my account id is <account_id> and my order id is <order_id>",
+      "turn_count": 9,
+      "targets": [
+        "status_due_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "identity verification in progress ...",
+      "turn_count": 10,
+      "targets": [
+        "status_due_date",
+        "take_action",
+        "verify-identity",
+        [
+          "joyce wu",
+          "cfiadflrov",
+          "7621529023"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you. please give me a moment to review your account.",
+      "turn_count": 11,
+      "targets": [
+        "status_due_date",
+        "retrieve_utterance",
+        null,
+        [],
+        18
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "querying the system for subscription status ...",
+      "turn_count": 12,
+      "targets": [
+        "status_due_date",
+        "take_action",
+        "subscription-status",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thanks",
+      "turn_count": 13,
+      "targets": [
+        "status_due_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "your subscription is currently inactive and has a payment of $49 due tomorrow.",
+      "turn_count": 14,
+      "targets": [
+        "status_due_date",
+        "retrieve_utterance",
+        null,
+        [],
+        84
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "can i go ahead and pay that now?",
+      "turn_count": 15,
+      "targets": [
+        "status_due_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i will provide you with a link to your account so that you can conveniently check your subscription status in the future.",
+      "turn_count": 16,
+      "targets": [
+        "status_due_date",
+        "retrieve_utterance",
+        null,
+        [],
+        93
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "a link will be sent.",
+      "turn_count": 17,
+      "targets": [
+        "status_due_date",
+        "take_action",
+        "send-link",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "great!",
+      "turn_count": 18,
+      "targets": [
+        "status_due_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "yes, i can help you pay for your subscription.",
+      "turn_count": 19,
+      "targets": [
+        "status_due_date",
+        "retrieve_utterance",
+        null,
+        [],
+        3
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "details of 49 have been entered.",
+      "turn_count": 20,
+      "targets": [
+        "status_due_date",
+        "take_action",
+        "enter-details",
+        [
+          "49"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i've charged your subscription fee of $49 to your credit card on file.",
+      "turn_count": 21,
+      "targets": [
+        "status_due_date",
+        "retrieve_utterance",
+        null,
+        [],
+        62
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thank you so much!",
+      "turn_count": 22,
+      "targets": [
+        "status_due_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "your subscription is now active.",
+      "turn_count": 23,
+      "targets": [
+        "status_due_date",
+        "retrieve_utterance",
+        null,
+        [],
+        39
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "awesome!",
+      "turn_count": 24,
+      "targets": [
+        "status_due_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "you are welcome.",
+      "turn_count": 25,
+      "targets": [
+        "status_due_date",
+        "retrieve_utterance",
+        null,
+        [],
+        97
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "is there anything else i can help you with today?",
+      "turn_count": 26,
+      "targets": [
+        "status_due_date",
+        "retrieve_utterance",
+        null,
+        [],
+        47
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no, that is all",
+      "turn_count": 27,
+      "targets": [
+        "status_due_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you. have a great day!",
+      "turn_count": 28,
+      "targets": [
+        "status_due_date",
+        "retrieve_utterance",
+        null,
+        [],
+        15
+      ]
+    }
+  ]
+}

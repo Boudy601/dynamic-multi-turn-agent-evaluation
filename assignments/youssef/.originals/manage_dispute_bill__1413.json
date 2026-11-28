@@ -1,0 +1,831 @@
+{
+  "convo_id": 1413,
+  "scenario": {
+    "personal": {
+      "account_id": "64vmt99fke",
+      "customer_name": "joyce wu",
+      "member_level": "guest",
+      "phone": "(485) 483-1200"
+    },
+    "order": {
+      "street_address": "3895 primrose ave",
+      "full_address": "3895 primrose ave  baltimore, mi 65442",
+      "city": "baltimore",
+      "num_products": "1",
+      "order_id": "3135346547",
+      "products": "[{'brand': 'guess', 'product_type': 'shirt', 'amount': 49, 'image_url': 'images/guess-shirt.jpeg'}]",
+      "state": "mi",
+      "zip_code": "65442"
+    },
+    "product": {
+      "names": [
+        "guess shirt"
+      ],
+      "amounts": [
+        49
+      ]
+    },
+    "flow": "subscription_inquiry",
+    "subflow": "manage_dispute_bill"
+  },
+  "original": [
+    [
+      "agent",
+      "Good afternoon, how can I help you?"
+    ],
+    [
+      "customer",
+      "Hi. I need your help in sorting out a problem I have"
+    ],
+    [
+      "agent",
+      "Gladly, tell me what you need."
+    ],
+    [
+      "customer",
+      "I am looking at my march bill and I see that I was charged twice for a shirt that I bought. Can you help with this?"
+    ],
+    [
+      "agent",
+      "Of couse!"
+    ],
+    [
+      "agent",
+      "Give me your full name and account ID. please"
+    ],
+    [
+      "customer",
+      "my name is joyce wu and the account id is 64vmt99fke"
+    ],
+    [
+      "action",
+      "Account has been pulled up for Joyce Wu."
+    ],
+    [
+      "action",
+      "Account has been pulled up for 64vmt99fke."
+    ],
+    [
+      "agent",
+      "Ok, would you give me the order ID. please"
+    ],
+    [
+      "customer",
+      "order id is 3135346547"
+    ],
+    [
+      "action",
+      "Identity verification in progess ..."
+    ],
+    [
+      "agent",
+      "Ok let me check the error."
+    ],
+    [
+      "action",
+      "Querying the system for an answer ..."
+    ],
+    [
+      "agent",
+      "It would indicate the level of your membership"
+    ],
+    [
+      "agent",
+      "please"
+    ],
+    [
+      "customer",
+      "my membeship level is guest"
+    ],
+    [
+      "customer",
+      "why was I charged twice?"
+    ],
+    [
+      "customer",
+      "are you there"
+    ],
+    [
+      "action",
+      "Membership level of guest has been noted."
+    ],
+    [
+      "agent",
+      "Yes, but it was due to a change in prices on the date of purchase. I really apologize for the inconvenience but there is nothing I can do."
+    ],
+    [
+      "customer",
+      "I would like to speak with your manager"
+    ],
+    [
+      "agent",
+      "I understand, a moment please"
+    ],
+    [
+      "action",
+      "Agent is looking for solutions ..."
+    ],
+    [
+      "customer",
+      "I need a manager please"
+    ],
+    [
+      "action",
+      "Agent is looking for solutions ..."
+    ],
+    [
+      "action",
+      "The Passing request to the Manager. has been notified."
+    ],
+    [
+      "agent",
+      "You will be contacted shortly. Sorry for the inconvenience. is all I can do at the moment."
+    ],
+    [
+      "customer",
+      "I need a manager right away to resolve my problem"
+    ],
+    [
+      "agent",
+      "The Manager will contact you separately. Sir, I must count the chat because I can no longer offer any option to your condition."
+    ],
+    [
+      "customer",
+      "when will the manager contact me. I need a time"
+    ],
+    [
+      "agent",
+      "The waiting time varies between 2 to 4 hours. In that interval you will be contacted."
+    ],
+    [
+      "customer",
+      "That is not good. I ugently need to resolve this issue right now"
+    ],
+    [
+      "agent",
+      "Sorry but I can only offer the information indicated to me. If you wait that time you can solve your doubts with the Manager."
+    ],
+    [
+      "agent",
+      "I will apologize but it is all I can offer at the moment."
+    ],
+    [
+      "customer",
+      "Please give me a phone number for the manager"
+    ],
+    [
+      "agent",
+      "No problem. The number is as follows: 800 534 7568"
+    ],
+    [
+      "customer",
+      "thanks and have a good day"
+    ],
+    [
+      "agent",
+      "Have a nice day too"
+    ],
+    [
+      "customer",
+      "what is the manager's name"
+    ],
+    [
+      "agent",
+      "Joseph"
+    ],
+    [
+      "customer",
+      "and his last name"
+    ],
+    [
+      "agent",
+      "Smith"
+    ],
+    [
+      "customer",
+      "thanks that's all goodbye"
+    ],
+    [
+      "agent",
+      "Not problem. Goodbye !"
+    ],
+    [
+      "customer",
+      "goodbye"
+    ],
+    [
+      "customer",
+      "thanks for your help"
+    ],
+    [
+      "customer",
+      "I will call the manager and get the problem resolved"
+    ],
+    [
+      "agent",
+      "No problem. A pleasure to help you!"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "good afternoon, how can i help you?",
+      "turn_count": 1,
+      "targets": [
+        "manage_dispute_bill",
+        "retrieve_utterance",
+        null,
+        [],
+        4
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "hi. i need your help in sorting out a problem i have",
+      "turn_count": 2,
+      "targets": [
+        "manage_dispute_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "gladly, tell me what you need.",
+      "turn_count": 3,
+      "targets": [
+        "manage_dispute_bill",
+        "retrieve_utterance",
+        null,
+        [],
+        38
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i am looking at my march bill and i see that i was charged twice for a shirt that i bought. can you help with this?",
+      "turn_count": 4,
+      "targets": [
+        "manage_dispute_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "of couse!",
+      "turn_count": 5,
+      "targets": [
+        "manage_dispute_bill",
+        "retrieve_utterance",
+        null,
+        [],
+        73
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "give me your full name and account id. please",
+      "turn_count": 7,
+      "targets": [
+        "manage_dispute_bill",
+        "retrieve_utterance",
+        null,
+        [],
+        77
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "my name is joyce wu and the account id is <account_id>",
+      "turn_count": 8,
+      "targets": [
+        "manage_dispute_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for joyce wu.",
+      "turn_count": 9,
+      "targets": [
+        "manage_dispute_bill",
+        "take_action",
+        "pull-up-account",
+        [
+          "joyce wu"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for <account_id>.",
+      "turn_count": 10,
+      "targets": [
+        "manage_dispute_bill",
+        "take_action",
+        "pull-up-account",
+        [
+          "64vmt99fke"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok, would you give me the order id. please",
+      "turn_count": 11,
+      "targets": [
+        "manage_dispute_bill",
+        "retrieve_utterance",
+        null,
+        [],
+        60
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "order id is <order_id>",
+      "turn_count": 12,
+      "targets": [
+        "manage_dispute_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "identity verification in progess ...",
+      "turn_count": 13,
+      "targets": [
+        "manage_dispute_bill",
+        "take_action",
+        "verify-identity",
+        [
+          "joyce wu",
+          "64vmt99fke",
+          "3135346547"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok let me check the error.",
+      "turn_count": 14,
+      "targets": [
+        "manage_dispute_bill",
+        "retrieve_utterance",
+        null,
+        [],
+        83
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "querying the system for an answer ...",
+      "turn_count": 15,
+      "targets": [
+        "manage_dispute_bill",
+        "take_action",
+        "ask-the-oracle",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "it would indicate the level of your membership",
+      "turn_count": 16,
+      "targets": [
+        "manage_dispute_bill",
+        "retrieve_utterance",
+        null,
+        [],
+        94
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "please",
+      "turn_count": 17,
+      "targets": [
+        "manage_dispute_bill",
+        "retrieve_utterance",
+        null,
+        [],
+        77
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "my membeship level is guest",
+      "turn_count": 18,
+      "targets": [
+        "manage_dispute_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "why was i charged twice?",
+      "turn_count": 19,
+      "targets": [
+        "manage_dispute_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "are you there",
+      "turn_count": 20,
+      "targets": [
+        "manage_dispute_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "membership level of guest has been noted.",
+      "turn_count": 21,
+      "targets": [
+        "manage_dispute_bill",
+        "take_action",
+        "membership",
+        [
+          "guest"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "yes, but it was due to a change in prices on the date of purchase. i really apologize for the inconvenience but there is nothing i can do.",
+      "turn_count": 22,
+      "targets": [
+        "manage_dispute_bill",
+        "retrieve_utterance",
+        null,
+        [],
+        51
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i would like to speak with your manager",
+      "turn_count": 23,
+      "targets": [
+        "manage_dispute_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i understand, a moment please",
+      "turn_count": 24,
+      "targets": [
+        "manage_dispute_bill",
+        "retrieve_utterance",
+        null,
+        [],
+        12
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "agent is looking for solutions ...",
+      "turn_count": 25,
+      "targets": [
+        "manage_dispute_bill",
+        "take_action",
+        "instructions",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i need a manager please",
+      "turn_count": 26,
+      "targets": [
+        "manage_dispute_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "agent is looking for solutions ...",
+      "turn_count": 27,
+      "targets": [
+        "manage_dispute_bill",
+        "take_action",
+        "instructions",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "the passing request to the manager. has been notified.",
+      "turn_count": 28,
+      "targets": [
+        "manage_dispute_bill",
+        "take_action",
+        "notify-team",
+        [
+          "passing request to the manager"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "you will be contacted shortly. sorry for the inconvenience. is all i can do at the moment.",
+      "turn_count": 29,
+      "targets": [
+        "manage_dispute_bill",
+        "retrieve_utterance",
+        null,
+        [],
+        77
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i need a manager right away to resolve my problem",
+      "turn_count": 30,
+      "targets": [
+        "manage_dispute_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "the manager will contact you separately. sir, i must count the chat because i can no longer offer any option to your condition.",
+      "turn_count": 31,
+      "targets": [
+        "manage_dispute_bill",
+        "retrieve_utterance",
+        null,
+        [],
+        3
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "when will the manager contact me. i need a time",
+      "turn_count": 32,
+      "targets": [
+        "manage_dispute_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "the waiting time varies between 2 to 4 hours. in that interval you will be contacted.",
+      "turn_count": 33,
+      "targets": [
+        "manage_dispute_bill",
+        "retrieve_utterance",
+        null,
+        [],
+        84
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "that is not good. i ugently need to resolve this issue right now",
+      "turn_count": 34,
+      "targets": [
+        "manage_dispute_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "sorry but i can only offer the information indicated to me. if you wait that time you can solve your doubts with the manager.",
+      "turn_count": 35,
+      "targets": [
+        "manage_dispute_bill",
+        "retrieve_utterance",
+        null,
+        [],
+        3
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i will apologize but it is all i can offer at the moment.",
+      "turn_count": 36,
+      "targets": [
+        "manage_dispute_bill",
+        "retrieve_utterance",
+        null,
+        [],
+        16
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "please give me a phone number for the manager",
+      "turn_count": 37,
+      "targets": [
+        "manage_dispute_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "no problem. the number is as follows: 800 534 7568",
+      "turn_count": 38,
+      "targets": [
+        "manage_dispute_bill",
+        "retrieve_utterance",
+        null,
+        [],
+        15
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thanks and have a good day",
+      "turn_count": 39,
+      "targets": [
+        "manage_dispute_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "have a nice day too",
+      "turn_count": 40,
+      "targets": [
+        "manage_dispute_bill",
+        "retrieve_utterance",
+        null,
+        [],
+        95
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "what is the manager's name",
+      "turn_count": 41,
+      "targets": [
+        "manage_dispute_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "joseph",
+      "turn_count": 42,
+      "targets": [
+        "manage_dispute_bill",
+        "retrieve_utterance",
+        null,
+        [],
+        40
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "and his last name",
+      "turn_count": 43,
+      "targets": [
+        "manage_dispute_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "smith",
+      "turn_count": 44,
+      "targets": [
+        "manage_dispute_bill",
+        "retrieve_utterance",
+        null,
+        [],
+        0
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thanks that's all goodbye",
+      "turn_count": 45,
+      "targets": [
+        "manage_dispute_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "not problem. goodbye !",
+      "turn_count": 46,
+      "targets": [
+        "manage_dispute_bill",
+        "retrieve_utterance",
+        null,
+        [],
+        13
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "goodbye",
+      "turn_count": 47,
+      "targets": [
+        "manage_dispute_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thanks for your help",
+      "turn_count": 48,
+      "targets": [
+        "manage_dispute_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i will call the manager and get the problem resolved",
+      "turn_count": 49,
+      "targets": [
+        "manage_dispute_bill",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "no problem. a pleasure to help you!",
+      "turn_count": 50,
+      "targets": [
+        "manage_dispute_bill",
+        "retrieve_utterance",
+        null,
+        [],
+        21
+      ]
+    }
+  ]
+}

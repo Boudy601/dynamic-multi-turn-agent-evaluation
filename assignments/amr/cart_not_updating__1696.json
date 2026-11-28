@@ -1,0 +1,291 @@
+{
+  "convo_id": 1696,
+  "scenario": {
+    "personal": {
+      "customer_name": "chloe zhang",
+      "email": "chloezhang133@email.com",
+      "member_level": "guest",
+      "phone": "(981) 832-8610",
+      "username": "chloezhang133"
+    },
+    "order": {
+      "street_address": "4542 lincoln ave",
+      "full_address": "4542 lincoln ave  raleigh, wa 22557",
+      "city": "raleigh",
+      "num_products": "1",
+      "products": "[{'brand': 'calvin_klein', 'product_type': 'shirt', 'amount': 74, 'image_url': 'images/calvin_klein-shirt.jpeg'}]",
+      "state": "wa",
+      "zip_code": "22557"
+    },
+    "product": {
+      "names": [
+        "calvin_klein shirt"
+      ],
+      "amounts": [
+        74
+      ]
+    },
+    "flow": "troubleshoot_site",
+    "subflow": "shopping_cart"
+  },
+  "original": [
+    [
+      "customer",
+      "Hello"
+    ],
+    [
+      "agent",
+      "Hi. How can I help you?"
+    ],
+    [
+      "customer",
+      "The cart is not working for me."
+    ],
+    [
+      "customer",
+      "The cart is not updating automatically"
+    ],
+    [
+      "agent",
+      "Ok"
+    ],
+    [
+      "agent",
+      "Try refreshing the page and see if the cart will update then"
+    ],
+    [
+      "customer",
+      "I've already done that. It doesn't help"
+    ],
+    [
+      "action",
+      "Agent is looking for solutions ..."
+    ],
+    [
+      "agent",
+      "Ok try logging out and then logging back in and then adding the item and see if that works"
+    ],
+    [
+      "action",
+      "Agent is looking for solutions ..."
+    ],
+    [
+      "customer",
+      "I'll try it out"
+    ],
+    [
+      "customer",
+      "It worked. Thank you"
+    ],
+    [
+      "agent",
+      "I'm glad it worked"
+    ],
+    [
+      "agent",
+      "Is there anything else I can do for you?"
+    ],
+    [
+      "customer",
+      "That's it. Thank you"
+    ],
+    [
+      "agent",
+      "Ok, I'll end this chat now"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "customer",
+      "text": "hello",
+      "turn_count": 1,
+      "targets": [
+        "shopping_cart",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "hi. how can i help you?",
+      "turn_count": 2,
+      "targets": [
+        "shopping_cart",
+        "retrieve_utterance",
+        null,
+        [],
+        78
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "the cart is not working for me.",
+      "turn_count": 3,
+      "targets": [
+        "shopping_cart",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "the cart is not updating automatically",
+      "turn_count": 4,
+      "targets": [
+        "shopping_cart",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok",
+      "turn_count": 5,
+      "targets": [
+        "shopping_cart",
+        "retrieve_utterance",
+        null,
+        [],
+        16
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "try refreshing the page and see if the cart will update then",
+      "turn_count": 6,
+      "targets": [
+        "shopping_cart",
+        "retrieve_utterance",
+        null,
+        [],
+        7
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i've already done that. it doesn't help",
+      "turn_count": 7,
+      "targets": [
+        "shopping_cart",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "agent is looking for solutions ...",
+      "turn_count": 8,
+      "targets": [
+        "shopping_cart",
+        "take_action",
+        "try-again",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok try logging out and then logging back in and then adding the item and see if that works",
+      "turn_count": 9,
+      "targets": [
+        "shopping_cart",
+        "retrieve_utterance",
+        null,
+        [],
+        19
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "agent is looking for solutions ...",
+      "turn_count": 10,
+      "targets": [
+        "shopping_cart",
+        "take_action",
+        "log-out-in",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i'll try it out",
+      "turn_count": 11,
+      "targets": [
+        "shopping_cart",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "it worked. thank you",
+      "turn_count": 12,
+      "targets": [
+        "shopping_cart",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i'm glad it worked",
+      "turn_count": 13,
+      "targets": [
+        "shopping_cart",
+        "retrieve_utterance",
+        null,
+        [],
+        36
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "is there anything else i can do for you?",
+      "turn_count": 14,
+      "targets": [
+        "shopping_cart",
+        "retrieve_utterance",
+        null,
+        [],
+        32
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "that's it. thank you",
+      "turn_count": 15,
+      "targets": [
+        "shopping_cart",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok, i'll end this chat now",
+      "turn_count": 16,
+      "targets": [
+        "shopping_cart",
+        "retrieve_utterance",
+        null,
+        [],
+        18
+      ]
+    }
+  ]
+}

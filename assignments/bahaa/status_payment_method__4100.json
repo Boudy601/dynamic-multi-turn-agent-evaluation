@@ -1,0 +1,349 @@
+{
+  "convo_id": 4100,
+  "scenario": {
+    "personal": {
+      "account_id": "gtn8g83zrg",
+      "customer_name": "albert sanders",
+      "member_level": "silver",
+      "phone": "(608) 100-1721"
+    },
+    "order": {
+      "street_address": "8019 circle drive",
+      "full_address": "8019 circle drive  san lima, ny 53036",
+      "city": "san lima",
+      "num_products": "1",
+      "order_id": "0685072006",
+      "payment_method": "credit card",
+      "products": "[{'brand': 'calvin_klein', 'product_type': 'jeans', 'amount': 94, 'image_url': 'images/calvin_klein-jeans.jpeg'}]",
+      "shipping_status": "out for delivery",
+      "state": "ny",
+      "zip_code": "53036"
+    },
+    "product": {
+      "names": [
+        "calvin_klein jeans"
+      ],
+      "amounts": [
+        94
+      ]
+    },
+    "flow": "order_issue",
+    "subflow": "status_payment_method"
+  },
+  "original": [
+    [
+      "agent",
+      "Hello! hOw can i help you?"
+    ],
+    [
+      "customer",
+      "Hi, can you please check my order.  I think the wrong payment method was used."
+    ],
+    [
+      "agent",
+      "sure"
+    ],
+    [
+      "agent",
+      "waht is your name, order id and aaccount id"
+    ],
+    [
+      "customer",
+      " Albert Sanders"
+    ],
+    [
+      "customer",
+      "Account ID: GTN8G83ZRG"
+    ],
+    [
+      "action",
+      "Account has been pulled up for Albert Sanders."
+    ],
+    [
+      "customer",
+      "Order ID: 0685072006"
+    ],
+    [
+      "action",
+      "Identity verification in progress ..."
+    ],
+    [
+      "agent",
+      "Wht is your order status please?"
+    ],
+    [
+      "customer",
+      "out for delivery"
+    ],
+    [
+      "action",
+      "Shipping status of out for delivery has been noted."
+    ],
+    [
+      "agent",
+      "The payment method went through and any updates will only be reflected in thefuture orders"
+    ],
+    [
+      "customer",
+      "You show it was charged t the credit card on file?  Then, I will check with the bank as I don't see it."
+    ],
+    [
+      "agent",
+      "yeah! it was charged"
+    ],
+    [
+      "customer",
+      "OK, thanks."
+    ],
+    [
+      "agent",
+      "do you need anything else?"
+    ],
+    [
+      "customer",
+      "No, thank you."
+    ],
+    [
+      "customer",
+      "No, all good."
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "hello! how can i help you?",
+      "turn_count": 1,
+      "targets": [
+        "status_payment_method",
+        "retrieve_utterance",
+        null,
+        [],
+        33
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "hi, can you please check my order.  i think the wrong payment method was used.",
+      "turn_count": 2,
+      "targets": [
+        "status_payment_method",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "sure",
+      "turn_count": 3,
+      "targets": [
+        "status_payment_method",
+        "retrieve_utterance",
+        null,
+        [],
+        91
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "waht is your name, order id and aaccount id",
+      "turn_count": 4,
+      "targets": [
+        "status_payment_method",
+        "retrieve_utterance",
+        null,
+        [],
+        99
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": " albert sanders",
+      "turn_count": 5,
+      "targets": [
+        "status_payment_method",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "account id: <account_id>",
+      "turn_count": 6,
+      "targets": [
+        "status_payment_method",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for albert sanders.",
+      "turn_count": 7,
+      "targets": [
+        "status_payment_method",
+        "take_action",
+        "pull-up-account",
+        [
+          "albert sanders"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "order id: <order_id>",
+      "turn_count": 8,
+      "targets": [
+        "status_payment_method",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "identity verification in progress ...",
+      "turn_count": 9,
+      "targets": [
+        "status_payment_method",
+        "take_action",
+        "verify-identity",
+        [
+          "albert sanders",
+          "gtn8g83zrg",
+          "0685072006"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "wht is your order status please?",
+      "turn_count": 10,
+      "targets": [
+        "status_payment_method",
+        "retrieve_utterance",
+        null,
+        [],
+        56
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "out for delivery",
+      "turn_count": 11,
+      "targets": [
+        "status_payment_method",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "shipping status of out for delivery has been noted.",
+      "turn_count": 12,
+      "targets": [
+        "status_payment_method",
+        "take_action",
+        "shipping-status",
+        [
+          "out for delivery"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "the payment method went through and any updates will only be reflected in thefuture orders",
+      "turn_count": 13,
+      "targets": [
+        "status_payment_method",
+        "retrieve_utterance",
+        null,
+        [],
+        40
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "you show it was charged t the credit card on file?  then, i will check with the bank as i don't see it.",
+      "turn_count": 14,
+      "targets": [
+        "status_payment_method",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "yeah! it was charged",
+      "turn_count": 15,
+      "targets": [
+        "status_payment_method",
+        "retrieve_utterance",
+        null,
+        [],
+        76
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok, thanks.",
+      "turn_count": 16,
+      "targets": [
+        "status_payment_method",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "do you need anything else?",
+      "turn_count": 17,
+      "targets": [
+        "status_payment_method",
+        "retrieve_utterance",
+        null,
+        [],
+        18
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no, thank you.",
+      "turn_count": 18,
+      "targets": [
+        "status_payment_method",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no, all good.",
+      "turn_count": 19,
+      "targets": [
+        "status_payment_method",
+        null,
+        null,
+        [],
+        -1
+      ]
+    }
+  ]
+}

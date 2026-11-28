@@ -1,0 +1,868 @@
+{
+  "convo_id": 1916,
+  "scenario": {
+    "personal": {
+      "customer_name": "joseph banter",
+      "member_level": "silver"
+    },
+    "order": {
+      "street_address": "9042 circle drive",
+      "full_address": "9042 circle drive  newark, wa 16191",
+      "city": "newark",
+      "num_products": "1",
+      "products": "[{'brand': 'calvin_klein', 'product_type': 'boots', 'amount': 79, 'image_url': 'images/calvin_klein-boots.jpeg'}]",
+      "state": "wa",
+      "zip_code": "16191"
+    },
+    "product": {
+      "names": [
+        "calvin_klein boots"
+      ],
+      "amounts": [
+        79
+      ]
+    },
+    "flow": "manage_account",
+    "subflow": "status_credit_missing"
+  },
+  "original": [
+    [
+      "agent",
+      "Hello, how can I help you today?"
+    ],
+    [
+      "customer",
+      "Hi! I believe I am due $0 in credits that are not showing up in my account."
+    ],
+    [
+      "agent",
+      "Happy to help, may I have your full name please?"
+    ],
+    [
+      "customer",
+      "Typo above! I meant $40 in credits"
+    ],
+    [
+      "customer",
+      "My name is Joseph Banter"
+    ],
+    [
+      "action",
+      "Account has been pulled up for Joseph Banter."
+    ],
+    [
+      "customer",
+      "I think the $40 credits are related to a subscription refund."
+    ],
+    [
+      "agent",
+      "thank you, let me check."
+    ],
+    [
+      "agent",
+      "To verify your identity, I also need your zip code and phone number please."
+    ],
+    [
+      "customer",
+      "my zip is 16191"
+    ],
+    [
+      "customer",
+      "my phone number is 9192225566"
+    ],
+    [
+      "action",
+      "Identity verification in progess ..."
+    ],
+    [
+      "agent",
+      "Can I have your account id and order id too?"
+    ],
+    [
+      "customer",
+      "My account ID is 4567 and my order ID is 123"
+    ],
+    [
+      "action",
+      "Identity verification in progess ..."
+    ],
+    [
+      "agent",
+      "Do you mean your subscription bill was billed incorrectly so there is a refund?"
+    ],
+    [
+      "customer",
+      "I had a refund and from that I am due $40 credits that are missing."
+    ],
+    [
+      "agent",
+      "Can you confirm your account id and order id again because they seem don't work."
+    ],
+    [
+      "customer",
+      "Where can I find that info?"
+    ],
+    [
+      "customer",
+      "My member level is silver."
+    ],
+    [
+      "agent",
+      "you can find the order id from the order statement."
+    ],
+    [
+      "customer",
+      "I do not have the order statement."
+    ],
+    [
+      "customer",
+      "Is there any other way to pull up my account?"
+    ],
+    [
+      "agent",
+      "Okay, can you give me your username and email address?"
+    ],
+    [
+      "customer",
+      "It was a pair of $79 calvin klein boots"
+    ],
+    [
+      "customer",
+      "I don't know my username or password"
+    ],
+    [
+      "customer",
+      "My address is 9042 circle drive in newark, WA 16191. Hopefully you can look me up with my address?"
+    ],
+    [
+      "agent",
+      "How about your email address please?"
+    ],
+    [
+      "customer",
+      "I don't have an email address"
+    ],
+    [
+      "agent",
+      "Just a second, I am checking."
+    ],
+    [
+      "customer",
+      "Ok, tahnks!"
+    ],
+    [
+      "customer",
+      "sorry for the typo...thanks!"
+    ],
+    [
+      "customer",
+      "Were you able to find it?"
+    ],
+    [
+      "agent",
+      "yes, I am still checking, sorry for waiting."
+    ],
+    [
+      "customer",
+      "I am just looking to see that you can sort of the missing $40 credits to my account"
+    ],
+    [
+      "customer",
+      "My timer is running out so I am hoping for a quick resolution so that my timer does not expire"
+    ],
+    [
+      "agent",
+      "sure,"
+    ],
+    [
+      "action",
+      "Identity verification in progess ..."
+    ],
+    [
+      "action",
+      "Querying the system for an answer ..."
+    ],
+    [
+      "agent",
+      "silver member can only get refund up to $10."
+    ],
+    [
+      "customer",
+      "Ok, thanks!"
+    ],
+    [
+      "action",
+      "Searching the FAQ pages ..."
+    ],
+    [
+      "action",
+      "Membership level of  has been noted."
+    ],
+    [
+      "action",
+      "Membership level of silver has been noted."
+    ],
+    [
+      "action",
+      "A refund has been made for the amount of $10."
+    ],
+    [
+      "customer",
+      "Ok, Thanks!"
+    ],
+    [
+      "agent",
+      "a refund has been offered"
+    ],
+    [
+      "agent",
+      "Is there anything else that I can help you?"
+    ],
+    [
+      "customer",
+      "no, thanks!"
+    ],
+    [
+      "agent",
+      "Have a nice day!"
+    ],
+    [
+      "customer",
+      "Bye!"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "hello, how can i help you today?",
+      "turn_count": 1,
+      "targets": [
+        "status_credit_missing",
+        "retrieve_utterance",
+        null,
+        [],
+        74
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "hi! i believe i am due $0 in credits that are not showing up in my account.",
+      "turn_count": 2,
+      "targets": [
+        "status_credit_missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "happy to help, may i have your full name please?",
+      "turn_count": 3,
+      "targets": [
+        "status_credit_missing",
+        "retrieve_utterance",
+        null,
+        [],
+        3
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "typo above! i meant $40 in credits",
+      "turn_count": 4,
+      "targets": [
+        "status_credit_missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "my name is joseph banter",
+      "turn_count": 5,
+      "targets": [
+        "status_credit_missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for joseph banter.",
+      "turn_count": 6,
+      "targets": [
+        "status_credit_missing",
+        "take_action",
+        "pull-up-account",
+        [
+          "joseph banter"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i think the $40 credits are related to a subscription refund.",
+      "turn_count": 7,
+      "targets": [
+        "status_credit_missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you, let me check.",
+      "turn_count": 8,
+      "targets": [
+        "status_credit_missing",
+        "retrieve_utterance",
+        null,
+        [],
+        90
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "to verify your identity, i also need your zip code and phone number please.",
+      "turn_count": 9,
+      "targets": [
+        "status_credit_missing",
+        "retrieve_utterance",
+        null,
+        [],
+        66
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "my zip is <zip_code>",
+      "turn_count": 10,
+      "targets": [
+        "status_credit_missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "my phone number is 9192225566",
+      "turn_count": 11,
+      "targets": [
+        "status_credit_missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "identity verification in progess ...",
+      "turn_count": 12,
+      "targets": [
+        "status_credit_missing",
+        "take_action",
+        "verify-identity",
+        [
+          "joseph banter",
+          "16191",
+          "9192225566"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can i have your account id and order id too?",
+      "turn_count": 13,
+      "targets": [
+        "status_credit_missing",
+        "retrieve_utterance",
+        null,
+        [],
+        6
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "my account id is 4567 and my order id is 123",
+      "turn_count": 14,
+      "targets": [
+        "status_credit_missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "identity verification in progess ...",
+      "turn_count": 15,
+      "targets": [
+        "status_credit_missing",
+        "take_action",
+        "verify-identity",
+        [
+          "joseph banter",
+          "4567",
+          "123"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "do you mean your subscription bill was billed incorrectly so there is a refund?",
+      "turn_count": 16,
+      "targets": [
+        "status_credit_missing",
+        "retrieve_utterance",
+        null,
+        [],
+        1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i had a refund and from that i am due $40 credits that are missing.",
+      "turn_count": 17,
+      "targets": [
+        "status_credit_missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can you confirm your account id and order id again because they seem don't work.",
+      "turn_count": 18,
+      "targets": [
+        "status_credit_missing",
+        "retrieve_utterance",
+        null,
+        [],
+        61
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "where can i find that info?",
+      "turn_count": 19,
+      "targets": [
+        "status_credit_missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "my member level is silver.",
+      "turn_count": 20,
+      "targets": [
+        "status_credit_missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "you can find the order id from the order statement.",
+      "turn_count": 21,
+      "targets": [
+        "status_credit_missing",
+        "retrieve_utterance",
+        null,
+        [],
+        21
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i do not have the order statement.",
+      "turn_count": 22,
+      "targets": [
+        "status_credit_missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "is there any other way to pull up my account?",
+      "turn_count": 23,
+      "targets": [
+        "status_credit_missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "okay, can you give me your username and email address?",
+      "turn_count": 24,
+      "targets": [
+        "status_credit_missing",
+        "retrieve_utterance",
+        null,
+        [],
+        30
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "it was a pair of $<amount> calvin klein boots",
+      "turn_count": 25,
+      "targets": [
+        "status_credit_missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i don't know my username or password",
+      "turn_count": 26,
+      "targets": [
+        "status_credit_missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "my address is <street_address> in newark, wa <zip_code>. hopefully you can look me up with my address?",
+      "turn_count": 27,
+      "targets": [
+        "status_credit_missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "how about your email address please?",
+      "turn_count": 28,
+      "targets": [
+        "status_credit_missing",
+        "retrieve_utterance",
+        null,
+        [],
+        39
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i don't have an email address",
+      "turn_count": 29,
+      "targets": [
+        "status_credit_missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "just a second, i am checking.",
+      "turn_count": 30,
+      "targets": [
+        "status_credit_missing",
+        "retrieve_utterance",
+        null,
+        [],
+        13
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok, tahnks!",
+      "turn_count": 31,
+      "targets": [
+        "status_credit_missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "sorry for the typo...thanks!",
+      "turn_count": 32,
+      "targets": [
+        "status_credit_missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "were you able to find it?",
+      "turn_count": 33,
+      "targets": [
+        "status_credit_missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "yes, i am still checking, sorry for waiting.",
+      "turn_count": 34,
+      "targets": [
+        "status_credit_missing",
+        "retrieve_utterance",
+        null,
+        [],
+        20
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i am just looking to see that you can sort of the missing $40 credits to my account",
+      "turn_count": 35,
+      "targets": [
+        "status_credit_missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "my timer is running out so i am hoping for a quick resolution so that my timer does not expire",
+      "turn_count": 36,
+      "targets": [
+        "status_credit_missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "sure,",
+      "turn_count": 37,
+      "targets": [
+        "status_credit_missing",
+        "retrieve_utterance",
+        null,
+        [],
+        8
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "identity verification in progess ...",
+      "turn_count": 38,
+      "targets": [
+        "status_credit_missing",
+        "take_action",
+        "verify-identity",
+        [
+          "joseph banter",
+          "4567",
+          "123"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "querying the system for an answer ...",
+      "turn_count": 39,
+      "targets": [
+        "status_credit_missing",
+        "take_action",
+        "ask-the-oracle",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "silver member can only get refund up to $10.",
+      "turn_count": 40,
+      "targets": [
+        "status_credit_missing",
+        "retrieve_utterance",
+        null,
+        [],
+        46
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok, thanks!",
+      "turn_count": 41,
+      "targets": [
+        "status_credit_missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "searching the faq pages ...",
+      "turn_count": 42,
+      "targets": [
+        "status_credit_missing",
+        "take_action",
+        "search-faq",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "membership level of  has been noted.",
+      "turn_count": 43,
+      "targets": [
+        "status_credit_missing",
+        "take_action",
+        "membership",
+        [
+          "silver"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "membership level of silver has been noted.",
+      "turn_count": 44,
+      "targets": [
+        "status_credit_missing",
+        "take_action",
+        "membership",
+        [
+          "silver"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "a refund has been made for the amount of $10.",
+      "turn_count": 45,
+      "targets": [
+        "status_credit_missing",
+        "take_action",
+        "offer-refund",
+        [
+          "10"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok, thanks!",
+      "turn_count": 46,
+      "targets": [
+        "status_credit_missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "a refund has been offered",
+      "turn_count": 47,
+      "targets": [
+        "status_credit_missing",
+        "retrieve_utterance",
+        null,
+        [],
+        76
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "is there anything else that i can help you?",
+      "turn_count": 48,
+      "targets": [
+        "status_credit_missing",
+        "retrieve_utterance",
+        null,
+        [],
+        97
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no, thanks!",
+      "turn_count": 49,
+      "targets": [
+        "status_credit_missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "have a nice day!",
+      "turn_count": 50,
+      "targets": [
+        "status_credit_missing",
+        "retrieve_utterance",
+        null,
+        [],
+        17
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "bye!",
+      "turn_count": 51,
+      "targets": [
+        "status_credit_missing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    }
+  ]
+}

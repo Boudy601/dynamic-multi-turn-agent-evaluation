@@ -1,0 +1,364 @@
+{
+  "convo_id": 4325,
+  "scenario": {
+    "personal": {
+      "account_id": "sfuof7min2",
+      "customer_name": "norman bouchard",
+      "member_level": "bronze",
+      "phone": "(959) 015-6590"
+    },
+    "order": {
+      "street_address": "1096 lexington ave",
+      "full_address": "1096 lexington ave  monterey, wa 98338",
+      "city": "monterey",
+      "num_products": "1",
+      "order_id": "4979335864",
+      "products": "[{'brand': 'tommy_hilfiger', 'product_type': 'shirt', 'amount': 89, 'image_url': 'images/tommy_hilfiger-shirt.jpeg'}]",
+      "shipping_status": "delivered",
+      "state": "wa",
+      "zip_code": "98338"
+    },
+    "product": {
+      "names": [
+        "tommy_hilfiger shirt"
+      ],
+      "amounts": [
+        89
+      ]
+    },
+    "flow": "order_issue",
+    "subflow": "status_mystery_fee"
+  },
+  "original": [
+    [
+      "agent",
+      "Hi, there!  How may I help you?"
+    ],
+    [
+      "customer",
+      "Hi there, sorry to bother you with this. i think I'm in the right department. Um I want to check the status of an order  because it seems like I was charged extra for something I didn't have on it?"
+    ],
+    [
+      "agent",
+      "Okay, I can definitely help you with that.  May I have your full name or Account ID please?"
+    ],
+    [
+      "customer",
+      "Norman Bouchard and SFUOF7MIN2"
+    ],
+    [
+      "action",
+      "Account has been pulled up for Norman Bouchard."
+    ],
+    [
+      "agent",
+      "May I have your Order ID?"
+    ],
+    [
+      "customer",
+      "4979335864"
+    ],
+    [
+      "customer",
+      "Not too sure how it could have happened"
+    ],
+    [
+      "action",
+      "Identity verification in progress ..."
+    ],
+    [
+      "agent",
+      "Let me see if I can get to the bottom of this for you."
+    ],
+    [
+      "customer",
+      "Thank you I appreciate it"
+    ],
+    [
+      "action",
+      "Querying the system for an answer ..."
+    ],
+    [
+      "agent",
+      "Yes, your account does show that an error was made."
+    ],
+    [
+      "customer",
+      "Oh no"
+    ],
+    [
+      "agent",
+      "Since this was an error on our end, I can remove that extra fee for you. Could you confirm the amount you were overcharged?"
+    ],
+    [
+      "customer",
+      "Oh awesome, thank you! It looks like it was an extra $15."
+    ],
+    [
+      "action",
+      "Order has been updated."
+    ],
+    [
+      "agent",
+      "I have gone ahead and removed the $15 fee from your order. Can I help you with anything else?"
+    ],
+    [
+      "customer",
+      "Nah should be fine, thanks so much for fixing that!"
+    ],
+    [
+      "agent",
+      "You are welcome.  Have a wonderful day."
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "hi, there!  how may i help you?",
+      "turn_count": 1,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "hi there, sorry to bother you with this. i think i'm in the right department. um i want to check the status of an order  because it seems like i was charged extra for something i didn't have on it?",
+      "turn_count": 2,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "okay, i can definitely help you with that.  may i have your full name or account id please?",
+      "turn_count": 3,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "norman bouchard and sfuof7min2",
+      "turn_count": 4,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for norman bouchard.",
+      "turn_count": 5,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        "pull-up-account",
+        [
+          "norman bouchard"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "may i have your order id?",
+      "turn_count": 6,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "4979335864",
+      "turn_count": 7,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "not too sure how it could have happened",
+      "turn_count": 8,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "identity verification in progress ...",
+      "turn_count": 9,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        "verify-identity",
+        [
+          "norman bouchard",
+          "sfuof7min2",
+          "4979335864"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "let me see if i can get to the bottom of this for you.",
+      "turn_count": 10,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thank you i appreciate it",
+      "turn_count": 11,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "querying the system for an answer ...",
+      "turn_count": 12,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        "ask-the-oracle",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "yes, your account does show that an error was made.",
+      "turn_count": 13,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "oh no",
+      "turn_count": 14,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "since this was an error on our end, i can remove that extra fee for you. could you confirm the amount you were overcharged?",
+      "turn_count": 15,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "oh awesome, thank you! it looks like it was an extra $15.",
+      "turn_count": 16,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "order has been updated.",
+      "turn_count": 17,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        "update-order",
+        [
+          "15"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i have gone ahead and removed the $15 fee from your order. can i help you with anything else?",
+      "turn_count": 18,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "nah should be fine, thanks so much for fixing that!",
+      "turn_count": 19,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "you are welcome.  have a wonderful day.",
+      "turn_count": 20,
+      "targets": [
+        "status_mystery_fee",
+        null,
+        null,
+        [],
+        -1
+      ]
+    }
+  ]
+}

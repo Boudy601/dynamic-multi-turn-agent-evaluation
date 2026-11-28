@@ -1,0 +1,380 @@
+{
+  "convo_id": 304,
+  "scenario": {
+    "personal": {
+      "account_id": "o5rknk6eoy",
+      "customer_name": "rodriguez domingo",
+      "member_level": "gold",
+      "phone": "(061) 427-6842"
+    },
+    "order": {
+      "street_address": "7127 woodshore st",
+      "full_address": "7127 woodshore st  monterey, ca 30688",
+      "city": "monterey",
+      "num_products": "1",
+      "order_id": "2655303633",
+      "products": "[{'brand': 'tommy_hilfiger', 'product_type': 'boots', 'amount': 74, 'image_url': 'images/tommy_hilfiger-boots.jpeg'}]",
+      "shipping_status": "in transit",
+      "state": "ca",
+      "zip_code": "30688"
+    },
+    "product": {
+      "names": [
+        "tommy_hilfiger boots"
+      ],
+      "amounts": [
+        74
+      ]
+    },
+    "flow": "order_issue",
+    "subflow": "status_delivery_date"
+  },
+  "original": [
+    [
+      "agent",
+      "Hello"
+    ],
+    [
+      "agent",
+      "How can I help you?"
+    ],
+    [
+      "customer",
+      "Hi, my ordered boots doesn't fit me."
+    ],
+    [
+      "customer",
+      "it hurts"
+    ],
+    [
+      "agent",
+      "I am sorry to hear that. I will be glad to help you."
+    ],
+    [
+      "agent",
+      "Could I have your full name or account id to pull up your account?"
+    ],
+    [
+      "customer",
+      "Name: Rodriguez Domingo"
+    ],
+    [
+      "action",
+      "Account has been pulled up for Rodriguez Domingo."
+    ],
+    [
+      "customer",
+      "Order ID: 2655303633"
+    ],
+    [
+      "agent",
+      "Thank you. Could I also get your Account ID so I can verify your identity and look up the order?"
+    ],
+    [
+      "customer",
+      "Account ID: o5rknk6eoy. Also sorry, I got my orders mixed up—for this order I actually need to change the delivery time from morning to evening."
+    ],
+    [
+      "action",
+      "Identity verified for Rodriguez Domingo."
+    ],
+    [
+      "action",
+      "Oracle returned: No"
+    ],
+    [
+      "agent",
+      "Thanks for clarifying. I checked our system and it looks like the morning delivery window was not a company error on our end, so let me check the shipping status to see if we can still change it."
+    ],
+    [
+      "action",
+      "Shipping status is: in transit"
+    ],
+    [
+      "agent",
+      "Good news—your boots are currently in transit, so I can update the delivery time to the evening for you."
+    ],
+    [
+      "action",
+      "Order has been updated with evening."
+    ],
+    [
+      "agent",
+      "Your delivery time has been updated to the evening. Is there anything else I can help you with?"
+    ],
+    [
+      "customer",
+      "no thank you"
+    ],
+    [
+      "customer",
+      "bye"
+    ],
+    [
+      "agent",
+      "Have a nice day"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "hello",
+      "turn_count": 1,
+      "targets": [
+        "status_delivery_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "how can i help you?",
+      "turn_count": 2,
+      "targets": [
+        "status_delivery_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "hi, my ordered boots doesn't fit me.",
+      "turn_count": 3,
+      "targets": [
+        "status_delivery_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "it hurts",
+      "turn_count": 4,
+      "targets": [
+        "status_delivery_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i am sorry to hear that. i will be glad to help you.",
+      "turn_count": 5,
+      "targets": [
+        "status_delivery_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "could i have your full name or account id to pull up your account?",
+      "turn_count": 6,
+      "targets": [
+        "status_delivery_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "name: rodriguez domingo",
+      "turn_count": 7,
+      "targets": [
+        "status_delivery_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "account has been pulled up for rodriguez domingo.",
+      "turn_count": 8,
+      "targets": [
+        "status_delivery_date",
+        null,
+        "pull-up-account",
+        [
+          "rodriguez domingo"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "order id: 2655303633",
+      "turn_count": 9,
+      "targets": [
+        "status_delivery_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thank you. could i also get your account id so i can verify your identity and look up the order?",
+      "turn_count": 10,
+      "targets": [
+        "status_delivery_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "account id: o5rknk6eoy. also sorry, i got my orders mixed up—for this order i actually need to change the delivery time from morning to evening.",
+      "turn_count": 11,
+      "targets": [
+        "status_delivery_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "identity verified for rodriguez domingo.",
+      "turn_count": 12,
+      "targets": [
+        "status_delivery_date",
+        null,
+        "verify-identity",
+        [
+          "rodriguez domingo",
+          "o5rknk6eoy",
+          "2655303633"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "oracle returned: no",
+      "turn_count": 13,
+      "targets": [
+        "status_delivery_date",
+        null,
+        "ask-the-oracle",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thanks for clarifying. i checked our system and it looks like the morning delivery window was not a company error on our end, so let me check the shipping status to see if we can still change it.",
+      "turn_count": 14,
+      "targets": [
+        "status_delivery_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "shipping status is: in transit",
+      "turn_count": 15,
+      "targets": [
+        "status_delivery_date",
+        null,
+        "shipping-status",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "good news—your boots are currently in transit, so i can update the delivery time to the evening for you.",
+      "turn_count": 16,
+      "targets": [
+        "status_delivery_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "order has been updated with evening.",
+      "turn_count": 17,
+      "targets": [
+        "status_delivery_date",
+        null,
+        "update-order",
+        [
+          "evening"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "your delivery time has been updated to the evening. is there anything else i can help you with?",
+      "turn_count": 18,
+      "targets": [
+        "status_delivery_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no thank you",
+      "turn_count": 19,
+      "targets": [
+        "status_delivery_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "bye",
+      "turn_count": 20,
+      "targets": [
+        "status_delivery_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "have a nice day",
+      "turn_count": 21,
+      "targets": [
+        "status_delivery_date",
+        null,
+        null,
+        [],
+        -1
+      ]
+    }
+  ]
+}

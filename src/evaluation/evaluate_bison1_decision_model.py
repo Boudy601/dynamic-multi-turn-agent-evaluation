@@ -4,9 +4,11 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
 import random
+import subprocess
 import sys
 import time
 import urllib.error
@@ -57,7 +59,8 @@ DEFAULT_PAIR_COUNT = -1
 DEFAULT_SEED = 42
 DEFAULT_CLEAN_CONFIDENCE_THRESHOLD = 0.85
 DEFAULT_TIMEOUT_SECONDS = 60.0
-DEFAULT_LOG_DIR = PROJECT_ROOT / "logs"
+DEFAULT_REPORT_DIR = PROJECT_ROOT / "reports" / "evaluation"
+REVIEWS_FILE = PROJECT_ROOT / "assignments" / "reviews.json"
 
 DETECTION_INSTRUCTIONS = (
 "Check this chat against the attached SOP and User Scenario to determine whether "
@@ -106,11 +109,17 @@ class CaseResult:
     pair_filename: str
     chat_id: str
     sop_id: str
+    sop_name: str
+    source_path: str
     variant: str
     expected_violation: bool
     probability: float
+    clean_confidence: float
     predicted_violation: bool
     correct: bool
+    outcome: str  # "TP", "FP", "TN", or "FN"
+    review_status: str
+    review_reason: str
     latency_seconds: float
     raw_response: dict[str, Any]
 
@@ -304,12 +313,63 @@ def extract_noul_probability(payload: Mapping[str, Any], question_key: str) -> f
     )
 
 
+def load_review_lookup(reviews_path: Path = REVIEWS_FILE) -> dict[tuple[str, str], dict[str, Any]]:
+    """Load per-(reviewer, chat_id) review metadata if reviews.json exists."""
+    if not reviews_path.is_file():
+        return {}
+    raw = load_json(reviews_path)
+    if not isinstance(raw, Mapping):
+        return {}
+    lookup: dict[tuple[str, str], dict[str, Any]] = {}
+    for reviewer, entries in raw.items():
+        if not isinstance(reviewer, str) or not isinstance(entries, Mapping):
+            continue
+        for chat_id, entry in entries.items():
+            if isinstance(entry, Mapping):
+                lookup[(reviewer, str(chat_id))] = dict(entry)
+    return lookup
+
+
+def collect_git_metadata() -> dict[str, Any]:
+    """Return current git commit, branch, and dirty flag for run provenance."""
+    def _git(*args: str) -> str | None:
+        try:
+            return subprocess.check_output(
+                ["git", *args],
+                cwd=PROJECT_ROOT,
+                text=True,
+                stderr=subprocess.DEVNULL,
+            ).strip()
+        except (OSError, subprocess.CalledProcessError):
+            return None
+
+    commit = _git("rev-parse", "HEAD")
+    branch = _git("rev-parse", "--abbrev-ref", "HEAD")
+    dirty_status = _git("status", "--short", "-uno")
+    return {
+        "git_commit": commit,
+        "git_branch": branch,
+        "git_dirty": bool(dirty_status) if dirty_status is not None else None,
+    }
+
+
+def classify_outcome(expected_violation: bool, predicted_violation: bool) -> str:
+    if expected_violation and predicted_violation:
+        return "TP"
+    if expected_violation and not predicted_violation:
+        return "FN"
+    if not expected_violation and predicted_violation:
+        return "FP"
+    return "TN"
+
+
 def evaluate_case(
     api_key: str,
     model: str,
     case: EvaluationCase,
     clean_confidence_threshold: float,
     timeout_seconds: float,
+    review_lookup: Mapping[tuple[str, str], Mapping[str, Any]] | None = None,
 ) -> CaseResult:
     """Send a single chat evaluation request to the Baseten System One endpoint."""
     body = json.dumps(
@@ -349,16 +409,27 @@ def evaluate_case(
     # Predict clean (NO) only when confidence in NO (1 - p_violation) meets the threshold.
     clean_confidence = 1.0 - prob
     predicted = clean_confidence < clean_confidence_threshold
+    review_entry = (review_lookup or {}).get((case.reviewer, case.chat_id), {})
+    try:
+        rel_source = case.source_path.relative_to(PROJECT_ROOT).as_posix()
+    except ValueError:
+        rel_source = str(case.source_path)
     return CaseResult(
         reviewer=case.reviewer,
         pair_filename=case.pair_filename,
         chat_id=case.chat_id,
         sop_id=case.sop_id,
+        sop_name=case.sop_name,
+        source_path=rel_source,
         variant=case.variant,
         expected_violation=case.expected_violation,
         probability=prob,
+        clean_confidence=round(clean_confidence, 6),
         predicted_violation=predicted,
         correct=(predicted == case.expected_violation),
+        outcome=classify_outcome(case.expected_violation, predicted),
+        review_status=str(review_entry.get("status", "")),
+        review_reason=str(review_entry.get("reason", "")),
         latency_seconds=latency,
         raw_response=payload,
     )
@@ -419,7 +490,8 @@ def parse_args() -> argparse.Namespace:
         default=DEFAULT_CLEAN_CONFIDENCE_THRESHOLD,
         help=(
             "Minimum confidence (1 - p_violation) required to predict NO (clean). "
-            "Default: 0.7 (p <= 0.30 -> NO, else YES)."
+            f"Default: {DEFAULT_CLEAN_CONFIDENCE_THRESHOLD} "
+            f"(p <= {1.0 - DEFAULT_CLEAN_CONFIDENCE_THRESHOLD:.2f} -> NO, else YES)."
         ),
     )
     parser.add_argument("--model", default=DEFAULT_MODEL)
@@ -452,6 +524,8 @@ def main() -> int:
         f"(seed={args.seed}, clean_confidence>={args.clean_confidence_threshold:.2f})."
     )
 
+    review_lookup = load_review_lookup()
+    run_timestamp = datetime.now(timezone.utc)
     results: list[CaseResult] = []
     for idx, case in enumerate(cases, start=1):
         result = evaluate_case(
@@ -460,6 +534,7 @@ def main() -> int:
             case=case,
             clean_confidence_threshold=args.clean_confidence_threshold,
             timeout_seconds=args.timeout,
+            review_lookup=review_lookup,
         )
         results.append(result)
         mark = "PASS" if result.correct else "FAIL"
@@ -507,11 +582,21 @@ def main() -> int:
             )
 
     output_path = args.output or (
-        DEFAULT_LOG_DIR
-        / f"decision_model_eval_{datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')}.json"
+        DEFAULT_REPORT_DIR
+        / f"bison1_eval_{run_timestamp.strftime('%Y%m%dT%H%M%SZ')}.json"
     )
     output_path.parent.mkdir(parents=True, exist_ok=True)
+    instructions_sha256 = hashlib.sha256(DETECTION_INSTRUCTIONS.encode("utf-8")).hexdigest()
+    metadata = {
+        "run_id": output_path.stem,
+        "created_at_utc": run_timestamp.isoformat(timespec="seconds"),
+        "script_path": Path(__file__).resolve().relative_to(PROJECT_ROOT).as_posix(),
+        "endpoint_url": SYSTEMONE_URL,
+        "instructions_sha256": instructions_sha256,
+        **collect_git_metadata(),
+    }
     report = {
+        "metadata": metadata,
         "config": {
             "model": args.model,
             "reviewers": reviewers,

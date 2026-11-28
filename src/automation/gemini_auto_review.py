@@ -15,7 +15,6 @@ import urllib.error
 import urllib.parse
 import urllib.request
 from dataclasses import dataclass
-from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Mapping, Sequence
 
@@ -404,32 +403,100 @@ el.dispatchEvent(new InputEvent('input', { bubbles: true, inputType: 'insertText
 return { ok: true, method: 'textContent' };
 """
 
-_CLICK_NEW_CHAT_JS = """
+_HAS_INPUT_TEXT_JS = """
 const selectors = [
-  'button[aria-label*="New chat" i]',
-  'a[aria-label*="New chat" i]',
-  'a[href="/app"]',
-  '[data-test-id="new-chat-button"] button',
-  '[data-test-id="new-chat-button"]'
+  'rich-textarea div[contenteditable="true"]',
+  'div.ql-editor[contenteditable="true"]',
+  'div[contenteditable="true"][role="textbox"]',
+  'textarea[aria-label*="prompt" i]',
+  'textarea'
 ];
 for (const sel of selectors) {
   const el = document.querySelector(sel);
-  if (el && el.offsetParent !== null && !el.disabled && el.getAttribute('aria-disabled') !== 'true') {
-    return sel;
+  if (el && el.offsetParent !== null) {
+    const val = (el.tagName === 'TEXTAREA' || el.tagName === 'INPUT')
+      ? (el.value || '')
+      : (el.innerText || el.textContent || '');
+    return val.trim().length > 0;
+  }
+}
+return false;
+"""
+
+_IS_CLEAN_NEW_CHAT_JS = """
+const isVisible = el => el && el.offsetParent !== null;
+const dialog = document.querySelector('[role="dialog"], .mat-mdc-dialog-container, mat-dialog-container');
+if (dialog && isVisible(dialog)) return false;
+
+const path = (window.location.pathname || '').replace(/\\/+$/, '');
+const inConversation = /\\/app\\/[^/]+$/.test(path);
+if (inConversation) return false;
+
+const outer = Array.from(document.querySelectorAll('model-response')).filter(isVisible);
+const fallback = Array.from(document.querySelectorAll(
+  'model-response, .model-response-container, message-content, [data-message-author-role="model"]'
+)).filter(isVisible);
+const count = outer.length ? outer.length : fallback.length;
+if (count > 0) return false;
+
+const selectors = [
+  'rich-textarea div[contenteditable="true"]',
+  'div.ql-editor[contenteditable="true"]',
+  'div[contenteditable="true"][role="textbox"]',
+  'textarea[aria-label*="prompt" i]',
+  'textarea'
+];
+return selectors.some(sel => {
+  const el = document.querySelector(sel);
+  return el && isVisible(el);
+});
+"""
+
+_CLICK_NEW_CHAT_JS = """
+const isVisible = el => el && el.offsetParent !== null;
+const selectors = [
+  'button[aria-label*="New chat" i]',
+  'a[aria-label*="New chat" i]',
+  '[data-test-id="new-chat-button"] button',
+  '[data-test-id="new-chat-button"]',
+  'a[href="/app"]'
+];
+for (const sel of selectors) {
+  const matches = Array.from(document.querySelectorAll(sel));
+  const el = matches.find(cand =>
+    isVisible(cand) && !cand.disabled && cand.getAttribute('aria-disabled') !== 'true'
+  );
+  if (el) {
+    if (matches.length === 1) return sel;
+    el.click();
+    return '__CLICKED__';
   }
 }
 return null;
 """
 
 _FIND_SEND_SELECTOR_JS = """
+const isVisible = el => el && el.offsetParent !== null;
+const isRealSendButton = el => {
+  if (!el || !isVisible(el) || el.disabled || el.getAttribute('aria-disabled') === 'true') {
+    return false;
+  }
+  const label = ((el.getAttribute('aria-label') || '') + ' ' + (el.innerText || '')).toLowerCase();
+  if (label.includes('feedback') || label.includes('help') || label.includes('share')) {
+    return false;
+  }
+  return true;
+};
 const selectors = [
-  'button[aria-label*="Send" i]',
   'button.send-button',
-  'button[data-test-id="send-button"]'
+  'button[data-test-id="send-button"]',
+  'button[aria-label="Send message" i]',
+  'button[aria-label="Send" i]',
+  'button[aria-label*="Send" i]'
 ];
 for (const sel of selectors) {
-  const el = document.querySelector(sel);
-  if (el && !el.disabled && el.getAttribute('aria-disabled') !== 'true' && el.offsetParent !== null) {
+  const matches = Array.from(document.querySelectorAll(sel)).filter(isRealSendButton);
+  if (matches.length === 1) {
     return sel;
   }
 }
@@ -437,18 +504,32 @@ return null;
 """
 
 _CLICK_SEND_JS = """
+const isVisible = el => el && el.offsetParent !== null;
+const isRealSendButton = el => {
+  if (!el || !isVisible(el) || el.disabled || el.getAttribute('aria-disabled') === 'true') {
+    return false;
+  }
+  const label = ((el.getAttribute('aria-label') || '') + ' ' + (el.innerText || '')).toLowerCase();
+  if (label.includes('feedback') || label.includes('help') || label.includes('share')) {
+    return false;
+  }
+  return true;
+};
 const selectors = [
-  'button[aria-label*="Send" i]',
   'button.send-button',
   'button[data-test-id="send-button"]',
+  'button[aria-label="Send message" i]',
+  'button[aria-label="Send" i]',
+  'button[aria-label*="Send" i]',
   'mat-icon[data-mat-icon-name="send"]'
 ];
 for (const sel of selectors) {
-  let el = document.querySelector(sel);
-  if (el && el.tagName !== 'BUTTON') el = el.closest('button');
-  if (el && !el.disabled && el.getAttribute('aria-disabled') !== 'true' && el.offsetParent !== null) {
-    el.click();
-    return true;
+  for (let el of document.querySelectorAll(sel)) {
+    if (el && el.tagName !== 'BUTTON') el = el.closest('button');
+    if (isRealSendButton(el)) {
+      el.click();
+      return true;
+    }
   }
 }
 return false;
@@ -729,10 +810,24 @@ def ensure_gemini_ready(
             driver.get_via_this_page(gemini_url)
         else:
             driver.google_get(gemini_url)
-    elif not already_on_new_chat:
-        new_chat_sel = driver.run_js(_CLICK_NEW_CHAT_JS)
-        if not human_click_selector(driver, new_chat_sel):
-            driver.get_via_this_page(gemini_url)
+    else:
+        settled_clean = False
+        if already_on_new_chat:
+            for _ in range(8):
+                if driver.run_js(_IS_CLEAN_NEW_CHAT_JS):
+                    settled_clean = True
+                    break
+                time.sleep(0.5)
+        if not settled_clean:
+            new_chat_sel = driver.run_js(_CLICK_NEW_CHAT_JS)
+            if new_chat_sel == "__CLICKED__":
+                pass
+            elif not human_click_selector(driver, new_chat_sel):
+                driver.get_via_this_page(gemini_url)
+            for _ in range(12):
+                if driver.run_js(_IS_CLEAN_NEW_CHAT_JS):
+                    break
+                time.sleep(0.5)
 
     driver.short_random_sleep()
     for _ in range(16):
@@ -798,9 +893,37 @@ def submit_and_wait_response(
         raise AutomationError(f"Failed to set prompt in Gemini: {inject_res}")
 
     time.sleep(random.uniform(1.0, 2.2))
+    # Re-verify prompt wasn't cleared by a delayed route transition after chat deletion
+    if not driver.run_js(_HAS_INPUT_TEXT_JS):
+        before = driver.run_js(_RESPONSE_STATE_JS) or {"count": 0}
+        initial_count = int(before.get("count", 0))
+        inject_res = driver.run_js(_SET_PROMPT_JS, {"b64": prompt_b64})
+        if not (inject_res or {}).get("ok"):
+            raise AutomationError(f"Failed to re-set prompt in Gemini: {inject_res}")
+        time.sleep(0.8)
+
     send_sel = driver.run_js(_FIND_SEND_SELECTOR_JS)
-    if not human_click_selector(driver, send_sel) and not driver.run_js(_CLICK_SEND_JS):
+    clicked = human_click_selector(driver, send_sel) or bool(driver.run_js(_CLICK_SEND_JS))
+    if not clicked:
         raise AutomationError("Could not find or click Gemini Send button.")
+
+    # Confirm the click actually submitted the prompt instead of hanging silently until timeout
+    submitted = False
+    for attempt in range(8):
+        time.sleep(0.5)
+        state = driver.run_js(_RESPONSE_STATE_JS) or {}
+        if (
+            not driver.run_js(_HAS_INPUT_TEXT_JS)
+            or bool(state.get("isGenerating", False))
+            or int(state.get("count", 0)) > initial_count
+        ):
+            submitted = True
+            break
+        if attempt == 3:
+            driver.run_js(_CLICK_SEND_JS)
+    if not submitted:
+        raise AutomationError("Gemini Send button click did not submit the prompt.")
+    print("  Prompt submitted; waiting for Gemini response...")
 
     deadline = time.monotonic() + timeout_seconds
     stable_ticks = 0
@@ -840,12 +963,6 @@ def submit_and_wait_response(
     )
 
 
-def write_log_entry(log_path: Path, entry: Mapping[str, Any]) -> None:
-    log_path.parent.mkdir(parents=True, exist_ok=True)
-    with log_path.open("a", encoding="utf-8") as file:
-        file.write(json.dumps(entry, ensure_ascii=False) + "\n")
-
-
 def delete_current_gemini_chat(driver: Any) -> bool:
     """Best-effort delete of the active Gemini conversation from the sidebar."""
     opened = driver.run_js(_OPEN_CHAT_MENU_JS) or {}
@@ -859,10 +976,19 @@ def delete_current_gemini_chat(driver: Any) -> bool:
     if not driver.run_js(_CLICK_DELETE_MENU_ITEM_JS):
         return False
 
+    confirmed = False
     for _ in range(8):
         time.sleep(0.3)
         if driver.run_js(_CONFIRM_DELETE_DIALOG_JS):
-            time.sleep(0.6)
+            confirmed = True
+            break
+    if not confirmed:
+        return False
+
+    # Wait for Gemini to finish deleting and settle onto a clean /app new-chat view
+    for _ in range(16):
+        time.sleep(0.5)
+        if driver.run_js(_IS_CLEAN_NEW_CHAT_JS):
             return True
     return False
 
@@ -931,15 +1057,10 @@ def run_batch(args: argparse.Namespace) -> int:
         print(f"No matching pending chats found for reviewer '{args.reviewer}'.")
         return 0
 
-    timestamp = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
-    log_path = (
-        PROJECT_ROOT / "logs" / f"gemini_auto_review_{args.reviewer}_{timestamp}.jsonl"
-    )
     print(
         f"Processing {len(queue)} chat(s) for '{args.reviewer}' "
         f"(model='{args.model}', thinking='{args.thinking}', dry_run={args.dry_run})."
     )
-    print(f"Log file: {log_path}")
 
     browser_profile: str = args.profile
     browser_args: list[str] | None = None
@@ -1001,28 +1122,7 @@ def run_batch(args: argparse.Namespace) -> int:
                 just_deleted = False
                 stats["failed"] += 1
                 print(f"  ERROR: {exc}", file=sys.stderr)
-                write_log_entry(
-                    log_path,
-                    {
-                        "reviewer": args.reviewer,
-                        "chat_id": chat_id,
-                        "sop_name": sop_name,
-                        "outcome": "failed",
-                        "error": str(exc),
-                    },
-                )
                 continue
-
-            log_record: dict[str, Any] = {
-                "reviewer": args.reviewer,
-                "chat_id": chat_id,
-                "sop_name": sop_name,
-                "model": args.model,
-                "thinking": args.thinking,
-                "outcome": parsed.outcome,
-                "summary": parsed.summary,
-                "raw_text": parsed.raw_text,
-            }
 
             if parsed.outcome == "no_error":
                 stats["no_error"] += 1
@@ -1031,7 +1131,6 @@ def run_batch(args: argparse.Namespace) -> int:
                     client.save_review(args.reviewer, chat_id, "no_error")
             elif parsed.outcome == "edited" and parsed.messages is not None:
                 stats["edited"] += 1
-                log_record["updated_turn_count"] = len(parsed.messages)
                 print(
                     f"  Result: Violations fixed ({len(parsed.messages)} turns) -> "
                     f"updating chat & marking no_error + edited."
@@ -1053,7 +1152,6 @@ def run_batch(args: argparse.Namespace) -> int:
                     "Leaving chat pending."
                 )
 
-            write_log_entry(log_path, log_record)
             if (
                 not args.keep_gemini_chats
                 and parsed.outcome in {"no_error", "edited"}

@@ -72,4 +72,4 @@ Common options:
 - `--limit N`: Process at most `N` pending chats.
 - `--model <name> --thinking <level>`: Choose any Gemini model and thinking effort level (defaults to `--model Neon --thinking Low`; e.g. `--model Hydrogen --thinking High`, or `--thinking ""` to leave thinking unchanged). Session stays persisted in `profiles/gemini_reviewer` after your first Google sign-in.
 - `--keep-gemini-chats`: Keep Gemini conversations in the web sidebar instead of deleting them after saving.
-- `--dry-run`: Run Gemini and log to `logs/` without modifying server state.
+- `--dry-run`: Run Gemini without modifying server state.

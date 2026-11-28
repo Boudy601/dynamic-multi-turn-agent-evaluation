@@ -48,8 +48,12 @@
       "System Action: search pricing"
     ],
     [
+      "action",
+      "FAQ answer related to pricing (2) was selected."
+    ],
+    [
       "agent",
-      "tiching and engraving costs depend on how much text is added. Stiching costs 30 cents per character for the first 15 characters, 20 cents per character for the next 15 characters, and 10 cents per character for any additional characters."
+      "The cost for stitching depends on the length of the text you want added. It's 30 cents per character for the first 15 characters, 20 cents per character for the next 15 characters, and 10 cents per character for anything beyond that."
     ],
     [
       "agent",
@@ -74,7 +78,7 @@
       "text": "i would like to know the price of stitching my name onto one of your items?",
       "turn_count": 1,
       "targets": [
-        "pricing",
+        "pricing_2",
         null,
         null,
         [],
@@ -86,11 +90,11 @@
       "text": "okay, let me check.",
       "turn_count": 2,
       "targets": [
-        "pricing",
-        "retrieve_utterance",
+        "pricing_2",
+        null,
         null,
         [],
-        86
+        -1
       ]
     },
     {
@@ -98,8 +102,8 @@
       "text": "searching the faq pages ...",
       "turn_count": 3,
       "targets": [
-        "pricing",
-        "take_action",
+        "pricing_2",
+        null,
         "search-faq",
         [],
         -1
@@ -110,43 +114,57 @@
       "text": "system action: search pricing",
       "turn_count": 4,
       "targets": [
-        "pricing",
-        "take_action",
+        "pricing_2",
+        null,
         "search-pricing",
         [],
         -1
       ]
     },
     {
-      "speaker": "agent",
-      "text": "tiching and engraving costs depend on how much text is added. stiching costs 30 cents per character for the first 15 characters, 20 cents per character for the next 15 characters, and 10 cents per character for any additional characters.",
+      "speaker": "action",
+      "text": "faq answer related to pricing (2) was selected.",
       "turn_count": 5,
       "targets": [
-        "pricing",
-        "retrieve_utterance",
+        "pricing_2",
+        null,
+        "select-faq",
+        [
+          "pricing_2"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "the cost for stitching depends on the length of the text you want added. it's 30 cents per character for the first 15 characters, 20 cents per character for the next 15 characters, and 10 cents per character for anything beyond that.",
+      "turn_count": 6,
+      "targets": [
+        "pricing_2",
+        null,
         null,
         [],
-        40
+        -1
       ]
     },
     {
       "speaker": "agent",
       "text": "do you have any other questions?",
-      "turn_count": 6,
+      "turn_count": 7,
       "targets": [
-        "pricing",
-        "retrieve_utterance",
+        "pricing_2",
+        null,
         null,
         [],
-        92
+        -1
       ]
     },
     {
       "speaker": "customer",
       "text": "thank you for the information, that will be everything",
-      "turn_count": 7,
+      "turn_count": 8,
       "targets": [
-        "pricing",
+        "pricing_2",
         null,
         null,
         [],
@@ -156,26 +174,27 @@
     {
       "speaker": "agent",
       "text": "okay, have a wonderful rest of your day.",
-      "turn_count": 8,
+      "turn_count": 9,
       "targets": [
-        "pricing",
-        "retrieve_utterance",
+        "pricing_2",
+        null,
         null,
         [],
-        66
+        -1
       ]
     },
     {
       "speaker": "customer",
       "text": "you too",
-      "turn_count": 9,
+      "turn_count": 10,
       "targets": [
-        "pricing",
+        "pricing_2",
         null,
         null,
         [],
         -1
       ]
     }
-  ]
+  ],
+  "edited_at": "2026-11-28T18:00:32+00:00"
 }

@@ -1,0 +1,371 @@
+{
+  "convo_id": 7386,
+  "scenario": {
+    "personal": {
+      "customer_name": "alessandro phoenix",
+      "member_level": "gold",
+      "phone": "(162) 330-0405"
+    },
+    "order": {
+      "street_address": "9053 primrose ave",
+      "full_address": "9053 primrose ave  jacksonville, ca 31231",
+      "city": "jacksonville",
+      "num_products": "1",
+      "products": "[{'brand': 'tommy_hilfiger', 'product_type': 'boots', 'amount': 69, 'image_url': 'images/tommy_hilfiger-boots.jpeg'}]",
+      "state": "ca",
+      "zip_code": "31231"
+    },
+    "product": {
+      "names": [
+        "tommy_hilfiger boots"
+      ],
+      "amounts": [
+        69
+      ]
+    },
+    "flow": "single_item_query",
+    "subflow": "boots_how_4"
+  },
+  "original": [
+    [
+      "agent",
+      "Hello, how may I assist you today?"
+    ],
+    [
+      "customer",
+      "Hi, yes I was wanting to know if you could tell me more about the tommy hilfiger jeans you guys sell?"
+    ],
+    [
+      "agent",
+      "Sure, what's your question?"
+    ],
+    [
+      "customer",
+      "More specifically what is the fabric content, are they stretchy?"
+    ],
+    [
+      "action",
+      "Searching the FAQ pages ..."
+    ],
+    [
+      "action",
+      "System Action: search jeans"
+    ],
+    [
+      "agent",
+      "Hmm, just a moment please."
+    ],
+    [
+      "customer",
+      "no problem"
+    ],
+    [
+      "agent",
+      "I apologize for the delay, I am still trying to find your answer."
+    ],
+    [
+      "customer",
+      "I appreciate it."
+    ],
+    [
+      "action",
+      "FAQ answer related to jeans (other1) was selected."
+    ],
+    [
+      "agent",
+      "Although it's not exactly what you're asking, I can tell you that the jeans do not shrink or become misshapen with washing. In regards to the fabric content, I honestly do not know. I am sorry about that."
+    ],
+    [
+      "action",
+      "System Action: search jeans"
+    ],
+    [
+      "action",
+      "System Action: search shirt"
+    ],
+    [
+      "customer",
+      "Thank you for looking in to it! I appreciate the effort."
+    ],
+    [
+      "agent",
+      "Are you sure it's not the material of a shirt or jacket that you are curious about?"
+    ],
+    [
+      "customer",
+      "No, I was looking into the jeans. I know some jeans have a blend of materials and I didn't know if this was one of the pairs."
+    ],
+    [
+      "agent",
+      "Gotcha. Nope, I am not sure."
+    ],
+    [
+      "agent",
+      "Can I help with anything else today?"
+    ],
+    [
+      "customer",
+      "That is all. Thank you"
+    ],
+    [
+      "agent",
+      "Have a great day!"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "hello, how may i assist you today?",
+      "turn_count": 1,
+      "targets": [
+        "boots",
+        "retrieve_utterance",
+        null,
+        [],
+        54
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "hi, yes i was wanting to know if you could tell me more about the tommy hilfiger jeans you guys sell?",
+      "turn_count": 2,
+      "targets": [
+        "boots",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "sure, what's your question?",
+      "turn_count": 3,
+      "targets": [
+        "boots",
+        "retrieve_utterance",
+        null,
+        [],
+        43
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "more specifically what is the fabric content, are they stretchy?",
+      "turn_count": 4,
+      "targets": [
+        "boots",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "searching the faq pages ...",
+      "turn_count": 5,
+      "targets": [
+        "boots",
+        "take_action",
+        "search-faq",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "system action: search jeans",
+      "turn_count": 6,
+      "targets": [
+        "boots",
+        "take_action",
+        "search-jeans",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "hmm, just a moment please.",
+      "turn_count": 7,
+      "targets": [
+        "boots",
+        "retrieve_utterance",
+        null,
+        [],
+        25
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no problem",
+      "turn_count": 8,
+      "targets": [
+        "boots",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i apologize for the delay, i am still trying to find your answer.",
+      "turn_count": 9,
+      "targets": [
+        "boots",
+        "retrieve_utterance",
+        null,
+        [],
+        72
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i appreciate it.",
+      "turn_count": 10,
+      "targets": [
+        "boots",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "faq answer related to jeans (other1) was selected.",
+      "turn_count": 11,
+      "targets": [
+        "boots",
+        "take_action",
+        "select-faq",
+        [
+          "jeans_other_1"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "although it's not exactly what you're asking, i can tell you that the jeans do not shrink or become misshapen with washing. in regards to the fabric content, i honestly do not know. i am sorry about that.",
+      "turn_count": 12,
+      "targets": [
+        "boots",
+        "retrieve_utterance",
+        null,
+        [],
+        64
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "system action: search jeans",
+      "turn_count": 13,
+      "targets": [
+        "boots",
+        "take_action",
+        "search-jeans",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "system action: search shirt",
+      "turn_count": 14,
+      "targets": [
+        "boots",
+        "take_action",
+        "search-shirt",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thank you for looking in to it! i appreciate the effort.",
+      "turn_count": 15,
+      "targets": [
+        "boots",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "are you sure it's not the material of a shirt or jacket that you are curious about?",
+      "turn_count": 16,
+      "targets": [
+        "boots",
+        "retrieve_utterance",
+        null,
+        [],
+        33
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no, i was looking into the jeans. i know some jeans have a blend of materials and i didn't know if this was one of the pairs.",
+      "turn_count": 17,
+      "targets": [
+        "boots",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "gotcha. nope, i am not sure.",
+      "turn_count": 18,
+      "targets": [
+        "boots",
+        "retrieve_utterance",
+        null,
+        [],
+        28
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "can i help with anything else today?",
+      "turn_count": 19,
+      "targets": [
+        "boots",
+        "retrieve_utterance",
+        null,
+        [],
+        7
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "that is all. thank you",
+      "turn_count": 20,
+      "targets": [
+        "boots",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "have a great day!",
+      "turn_count": 21,
+      "targets": [
+        "boots",
+        "retrieve_utterance",
+        null,
+        [],
+        81
+      ]
+    }
+  ]
+}

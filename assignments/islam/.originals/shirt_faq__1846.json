@@ -1,0 +1,403 @@
+{
+  "convo_id": 1846,
+  "scenario": {
+    "personal": {
+      "customer_name": "joyce wu",
+      "member_level": "silver",
+      "phone": "(377) 221-1747"
+    },
+    "order": {
+      "street_address": "4684 lincoln ave",
+      "full_address": "4684 lincoln ave  baltimore, mi 21885",
+      "city": "baltimore",
+      "num_products": "1",
+      "products": "[{'brand': 'michael_kors', 'product_type': 'shirt', 'amount': 64, 'image_url': 'images/michael_kors-shirt.jpeg'}]",
+      "state": "mi",
+      "zip_code": "21885"
+    },
+    "product": {
+      "names": [
+        "michael_kors shirt"
+      ],
+      "amounts": [
+        64
+      ]
+    },
+    "flow": "single_item_query",
+    "subflow": "shirt_other_3"
+  },
+  "original": [
+    [
+      "agent",
+      "Thank you for contacting Acme.  How may I help you today?"
+    ],
+    [
+      "customer",
+      "Hey. I'm thinking about buying a michael kors shirt"
+    ],
+    [
+      "customer",
+      "I want to know if the buttons are brown or black though"
+    ],
+    [
+      "agent",
+      "Excellent choice.  Let me see what I can find"
+    ],
+    [
+      "agent",
+      "This will just take a second as I dig up the details"
+    ],
+    [
+      "customer",
+      "ok"
+    ],
+    [
+      "agent",
+      "My name is Ford Prefect, by the way, how may I address you today?"
+    ],
+    [
+      "action",
+      "Searching the FAQ pages ..."
+    ],
+    [
+      "action",
+      "System Action: search shirt"
+    ],
+    [
+      "customer",
+      "Joyce Wu"
+    ],
+    [
+      "agent",
+      "Thanks, Ms Wu"
+    ],
+    [
+      "agent",
+      "and, yes, I have some information about the Michael Kors shirt right here"
+    ],
+    [
+      "customer",
+      "great"
+    ],
+    [
+      "agent",
+      "although the designers offer lots of choices, our purchasing team has chosen the dark brown buttons, which are quite stylish"
+    ],
+    [
+      "agent",
+      "They are almost, but not quite, black"
+    ],
+    [
+      "customer",
+      "hm, all right"
+    ],
+    [
+      "customer",
+      "sounds nice"
+    ],
+    [
+      "customer",
+      "Thanks"
+    ],
+    [
+      "agent",
+      "I'm glad to hear it"
+    ],
+    [
+      "agent",
+      "and you're welcome.  May I help with anything else?"
+    ],
+    [
+      "action",
+      "FAQ answer related to shirt (other3) was selected."
+    ],
+    [
+      "customer",
+      "No, that's it"
+    ],
+    [
+      "agent",
+      "Excellent, have a great day"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "thank you for contacting acme.  how may i help you today?",
+      "turn_count": 1,
+      "targets": [
+        "shirt",
+        "retrieve_utterance",
+        null,
+        [],
+        95
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "hey. i'm thinking about buying a michael kors shirt",
+      "turn_count": 2,
+      "targets": [
+        "shirt",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i want to know if the buttons are brown or black though",
+      "turn_count": 3,
+      "targets": [
+        "shirt",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "excellent choice.  let me see what i can find",
+      "turn_count": 4,
+      "targets": [
+        "shirt",
+        "retrieve_utterance",
+        null,
+        [],
+        99
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "this will just take a second as i dig up the details",
+      "turn_count": 5,
+      "targets": [
+        "shirt",
+        "retrieve_utterance",
+        null,
+        [],
+        47
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok",
+      "turn_count": 6,
+      "targets": [
+        "shirt",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "my name is ford prefect, by the way, how may i address you today?",
+      "turn_count": 7,
+      "targets": [
+        "shirt",
+        "retrieve_utterance",
+        null,
+        [],
+        63
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "searching the faq pages ...",
+      "turn_count": 8,
+      "targets": [
+        "shirt",
+        "take_action",
+        "search-faq",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "system action: search shirt",
+      "turn_count": 9,
+      "targets": [
+        "shirt",
+        "take_action",
+        "search-shirt",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "joyce wu",
+      "turn_count": 10,
+      "targets": [
+        "shirt",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thanks, ms wu",
+      "turn_count": 11,
+      "targets": [
+        "shirt",
+        "retrieve_utterance",
+        null,
+        [],
+        75
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "and, yes, i have some information about the michael kors shirt right here",
+      "turn_count": 12,
+      "targets": [
+        "shirt",
+        "retrieve_utterance",
+        null,
+        [],
+        95
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "great",
+      "turn_count": 13,
+      "targets": [
+        "shirt",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "although the designers offer lots of choices, our purchasing team has chosen the dark brown buttons, which are quite stylish",
+      "turn_count": 14,
+      "targets": [
+        "shirt",
+        "retrieve_utterance",
+        null,
+        [],
+        97
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "they are almost, but not quite, black",
+      "turn_count": 15,
+      "targets": [
+        "shirt",
+        "retrieve_utterance",
+        null,
+        [],
+        41
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "hm, all right",
+      "turn_count": 16,
+      "targets": [
+        "shirt",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "sounds nice",
+      "turn_count": 17,
+      "targets": [
+        "shirt",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thanks",
+      "turn_count": 18,
+      "targets": [
+        "shirt",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i'm glad to hear it",
+      "turn_count": 19,
+      "targets": [
+        "shirt",
+        "retrieve_utterance",
+        null,
+        [],
+        89
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "and you're welcome.  may i help with anything else?",
+      "turn_count": 20,
+      "targets": [
+        "shirt",
+        "retrieve_utterance",
+        null,
+        [],
+        2
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "faq answer related to shirt (other3) was selected.",
+      "turn_count": 21,
+      "targets": [
+        "shirt",
+        "take_action",
+        "select-faq",
+        [
+          "shirt_other_3"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no, that's it",
+      "turn_count": 22,
+      "targets": [
+        "shirt",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "excellent, have a great day",
+      "turn_count": 23,
+      "targets": [
+        "shirt",
+        "retrieve_utterance",
+        null,
+        [],
+        36
+      ]
+    }
+  ]
+}

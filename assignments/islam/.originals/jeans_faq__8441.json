@@ -1,0 +1,275 @@
+{
+  "convo_id": 8441,
+  "scenario": {
+    "personal": {
+      "customer_name": "norman bouchard",
+      "member_level": "guest",
+      "phone": "(357) 132-0529"
+    },
+    "order": {
+      "street_address": "7890 lincoln ave",
+      "full_address": "7890 lincoln ave  monterey, ny 62681",
+      "city": "monterey",
+      "num_products": "1",
+      "products": "[{'brand': 'michael_kors', 'product_type': 'jeans', 'amount': 64, 'image_url': 'images/michael_kors-jeans.jpeg'}]",
+      "state": "ny",
+      "zip_code": "62681"
+    },
+    "product": {
+      "names": [
+        "michael_kors jeans"
+      ],
+      "amounts": [
+        64
+      ]
+    },
+    "flow": "single_item_query",
+    "subflow": "jeans_how_3"
+  },
+  "original": [
+    [
+      "customer",
+      "hi"
+    ],
+    [
+      "agent",
+      "Hello, how may I help you?"
+    ],
+    [
+      "customer",
+      "I want to know about these pants I'm looking at"
+    ],
+    [
+      "customer",
+      "How long is the outseam?"
+    ],
+    [
+      "agent",
+      "Sure, could I get your name?"
+    ],
+    [
+      "customer",
+      "Norman Bouchard"
+    ],
+    [
+      "action",
+      "Searching the FAQ pages ..."
+    ],
+    [
+      "action",
+      "System Action: search jeans"
+    ],
+    [
+      "action",
+      "FAQ answer related to jeans (how3) was selected."
+    ],
+    [
+      "agent",
+      "Thanks, Norman. The standard outseam is 42 inches. THey are longer than usual so you can tailor them."
+    ],
+    [
+      "customer",
+      "great, those should fit. i'll order them now. thanks for your help."
+    ],
+    [
+      "agent",
+      "Is there anything else I can help with?"
+    ],
+    [
+      "customer",
+      "no"
+    ],
+    [
+      "customer",
+      "cya later"
+    ],
+    [
+      "agent",
+      "Have a good day!"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "customer",
+      "text": "hi",
+      "turn_count": 1,
+      "targets": [
+        "jeans",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "hello, how may i help you?",
+      "turn_count": 2,
+      "targets": [
+        "jeans",
+        "retrieve_utterance",
+        null,
+        [],
+        78
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i want to know about these pants i'm looking at",
+      "turn_count": 3,
+      "targets": [
+        "jeans",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "how long is the outseam?",
+      "turn_count": 4,
+      "targets": [
+        "jeans",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "sure, could i get your name?",
+      "turn_count": 5,
+      "targets": [
+        "jeans",
+        "retrieve_utterance",
+        null,
+        [],
+        26
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "norman bouchard",
+      "turn_count": 6,
+      "targets": [
+        "jeans",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "searching the faq pages ...",
+      "turn_count": 7,
+      "targets": [
+        "jeans",
+        "take_action",
+        "search-faq",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "system action: search jeans",
+      "turn_count": 8,
+      "targets": [
+        "jeans",
+        "take_action",
+        "search-jeans",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "faq answer related to jeans (how3) was selected.",
+      "turn_count": 9,
+      "targets": [
+        "jeans",
+        "take_action",
+        "select-faq",
+        [
+          "jeans_how_3"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "thanks, norman. the standard outseam is 42 inches. they are longer than usual so you can tailor them.",
+      "turn_count": 10,
+      "targets": [
+        "jeans",
+        "retrieve_utterance",
+        null,
+        [],
+        0
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "great, those should fit. i'll order them now. thanks for your help.",
+      "turn_count": 11,
+      "targets": [
+        "jeans",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "is there anything else i can help with?",
+      "turn_count": 12,
+      "targets": [
+        "jeans",
+        "retrieve_utterance",
+        null,
+        [],
+        1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "no",
+      "turn_count": 13,
+      "targets": [
+        "jeans",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "cya later",
+      "turn_count": 14,
+      "targets": [
+        "jeans",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "have a good day!",
+      "turn_count": 15,
+      "targets": [
+        "jeans",
+        "retrieve_utterance",
+        null,
+        [],
+        24
+      ]
+    }
+  ]
+}

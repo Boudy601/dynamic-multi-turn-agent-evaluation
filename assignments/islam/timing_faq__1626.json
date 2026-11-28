@@ -38,6 +38,10 @@
       "System Action: search timing"
     ],
     [
+      "action",
+      "FAQ answer related to timing (1) was selected."
+    ],
+    [
       "agent",
       "The AcmeBrands spring collection will come in on April 3rd"
     ],
@@ -72,7 +76,7 @@
       "text": "when does the spring collection drops? i ask because i am thinking about buying stuff",
       "turn_count": 1,
       "targets": [
-        "timing",
+        "timing_1",
         null,
         null,
         [],
@@ -84,11 +88,11 @@
       "text": "sure let me check that for you",
       "turn_count": 2,
       "targets": [
-        "timing",
-        "retrieve_utterance",
+        "timing_1",
+        null,
         null,
         [],
-        94
+        -1
       ]
     },
     {
@@ -96,8 +100,8 @@
       "text": "searching the faq pages ...",
       "turn_count": 3,
       "targets": [
-        "timing",
-        "take_action",
+        "timing_1",
+        null,
         "search-faq",
         [],
         -1
@@ -108,31 +112,45 @@
       "text": "system action: search timing",
       "turn_count": 4,
       "targets": [
-        "timing",
-        "take_action",
+        "timing_1",
+        null,
         "search-timing",
         [],
         -1
       ]
     },
     {
-      "speaker": "agent",
-      "text": "the acmebrands spring collection will come in on april 3rd",
+      "speaker": "action",
+      "text": "faq answer related to timing (1) was selected.",
       "turn_count": 5,
       "targets": [
-        "timing",
-        "retrieve_utterance",
+        "timing_1",
+        null,
+        "select-faq",
+        [
+          "timing_1"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "the acmebrands spring collection will come in on april 3rd",
+      "turn_count": 6,
+      "targets": [
+        "timing_1",
+        null,
         null,
         [],
-        59
+        -1
       ]
     },
     {
       "speaker": "customer",
       "text": "ok",
-      "turn_count": 6,
+      "turn_count": 7,
       "targets": [
-        "timing",
+        "timing_1",
         null,
         null,
         [],
@@ -142,21 +160,21 @@
     {
       "speaker": "agent",
       "text": "it's always the 3rd day of the month for the appropriate season.",
-      "turn_count": 7,
+      "turn_count": 8,
       "targets": [
-        "timing",
-        "retrieve_utterance",
+        "timing_1",
+        null,
         null,
         [],
-        27
+        -1
       ]
     },
     {
       "speaker": "customer",
       "text": "ok",
-      "turn_count": 8,
+      "turn_count": 9,
       "targets": [
-        "timing",
+        "timing_1",
         null,
         null,
         [],
@@ -166,21 +184,21 @@
     {
       "speaker": "agent",
       "text": "do you have any other questions?",
-      "turn_count": 9,
+      "turn_count": 10,
       "targets": [
-        "timing",
-        "retrieve_utterance",
+        "timing_1",
+        null,
         null,
         [],
-        35
+        -1
       ]
     },
     {
       "speaker": "customer",
       "text": "that is all. thank you",
-      "turn_count": 10,
+      "turn_count": 11,
       "targets": [
-        "timing",
+        "timing_1",
         null,
         null,
         [],
@@ -190,14 +208,15 @@
     {
       "speaker": "agent",
       "text": "have a great day",
-      "turn_count": 11,
+      "turn_count": 12,
       "targets": [
-        "timing",
-        "retrieve_utterance",
+        "timing_1",
+        null,
         null,
         [],
-        58
+        -1
       ]
     }
-  ]
+  ],
+  "edited_at": "2026-11-28T18:00:32+00:00"
 }

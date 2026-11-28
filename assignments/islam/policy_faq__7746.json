@@ -51,91 +51,27 @@
     ],
     [
       "action",
-      "System Action: search membership"
+      "System Action: search policy"
     ],
     [
       "action",
-      "System Action: search timing"
+      "FAQ Answer selected: Late on a subscription payment."
     ],
     [
       "agent",
-      "You need to get an extension for paying the bill."
+      "If you're late on a subscription payment, your subscription benefits and ability to place new orders may be paused until the overdue balance is paid. However, depending on your membership level, you may be eligible for a payment extension or grace period if you reach out to us."
+    ],
+    [
+      "customer",
+      "Got it, thanks! I was thinking of buying some things and wasn't sure if being late would stop me from ordering. I'm a gold member, by the way."
     ],
     [
       "agent",
-      "Can you please let me know your Account ID and Order ID to verify your identity?"
+      "As a gold member, if you ever do fall behind on a subscription payment, you can contact us to arrange a payment extension so your account stays in good standing and you can keep ordering without interruption. You'll just want to make sure any past-due payment is either settled or extended before checking out."
     ],
     [
       "customer",
-      "I don't think so."
-    ],
-    [
-      "customer",
-      "I don't have an Account ID or an Order ID."
-    ],
-    [
-      "agent",
-      "what is your membership level then?"
-    ],
-    [
-      "customer",
-      "I was thinking of buying some things and I just wondered what happens if I'm late on a payment."
-    ],
-    [
-      "customer",
-      "I'm a gold member"
-    ],
-    [
-      "agent",
-      "I might have misread because you said you are late paying the subscription fee."
-    ],
-    [
-      "agent",
-      "Give me a second, please."
-    ],
-    [
-      "customer",
-      "I guess I probably am late."
-    ],
-    [
-      "customer",
-      "But I wanted to buy some things and didn't know what would happen."
-    ],
-    [
-      "customer",
-      "Sorry to be such a bother."
-    ],
-    [
-      "agent",
-      "Do you mean you will be late for paying the next bill?"
-    ],
-    [
-      "action",
-      "Membership level of gold has been noted."
-    ],
-    [
-      "customer",
-      "I'm really sorry but I probably am already late."
-    ],
-    [
-      "agent",
-      "I will give an extension since you are a gold member."
-    ],
-    [
-      "customer",
-      "So I can go ahead and order things?"
-    ],
-    [
-      "customer",
-      "That would be great."
-    ],
-    [
-      "agent",
-      "Yes, sure."
-    ],
-    [
-      "customer",
-      "You've been a big help. Thanks"
+      "That's really helpful to know, thanks!"
     ],
     [
       "agent",
@@ -152,10 +88,6 @@
     [
       "customer",
       "You too"
-    ],
-    [
-      "action",
-      "Account has been updated with extend subscription."
     ]
   ],
   "delexed": [
@@ -164,11 +96,11 @@
       "text": "hello, how can i help you today?",
       "turn_count": 1,
       "targets": [
-        "policy",
-        "retrieve_utterance",
+        "policy_4",
+        null,
         null,
         [],
-        0
+        -1
       ]
     },
     {
@@ -176,7 +108,7 @@
       "text": "hi, i was wondering what happens if i'm late paying my subscription fee?",
       "turn_count": 2,
       "targets": [
-        "policy",
+        "policy_4",
         null,
         null,
         [],
@@ -188,11 +120,11 @@
       "text": "glad to help. may i have your name please?",
       "turn_count": 3,
       "targets": [
-        "policy",
-        "retrieve_utterance",
+        "policy_4",
+        null,
         null,
         [],
-        40
+        -1
       ]
     },
     {
@@ -200,7 +132,7 @@
       "text": "alessandro phoenix",
       "turn_count": 4,
       "targets": [
-        "policy",
+        "policy_4",
         null,
         null,
         [],
@@ -212,11 +144,11 @@
       "text": "thanks alessandro. give me a second.",
       "turn_count": 5,
       "targets": [
-        "policy",
-        "retrieve_utterance",
+        "policy_4",
+        null,
         null,
         [],
-        8
+        -1
       ]
     },
     {
@@ -224,8 +156,8 @@
       "text": "account has been pulled up for alessandro phoenix.",
       "turn_count": 6,
       "targets": [
-        "policy",
-        "take_action",
+        "policy_4",
+        null,
         "pull-up-account",
         [
           "alessandro phoenix"
@@ -238,8 +170,8 @@
       "text": "searching the faq pages ...",
       "turn_count": 7,
       "targets": [
-        "policy",
-        "take_action",
+        "policy_4",
+        null,
         "search-faq",
         [],
         -1
@@ -247,204 +179,48 @@
     },
     {
       "speaker": "action",
-      "text": "system action: search membership",
+      "text": "system action: search policy",
       "turn_count": 8,
       "targets": [
-        "policy",
-        "take_action",
-        "search-membership",
+        "policy_4",
+        null,
+        "search-policy",
         [],
         -1
       ]
     },
     {
       "speaker": "action",
-      "text": "system action: search timing",
+      "text": "faq answer selected: late on a subscription payment.",
       "turn_count": 9,
       "targets": [
-        "policy",
-        "take_action",
-        "search-timing",
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "you need to get an extension for paying the bill.",
-      "turn_count": 10,
-      "targets": [
-        "policy",
-        "retrieve_utterance",
+        "policy_4",
         null,
-        [],
-        24
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "can you please let me know your account id and order id to verify your identity?",
-      "turn_count": 11,
-      "targets": [
-        "policy",
-        "retrieve_utterance",
-        null,
-        [],
-        47
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "i don't think so.",
-      "turn_count": 12,
-      "targets": [
-        "policy",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "i don't have an account id or an order id.",
-      "turn_count": 13,
-      "targets": [
-        "policy",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "what is your membership level then?",
-      "turn_count": 14,
-      "targets": [
-        "policy",
-        "retrieve_utterance",
-        null,
-        [],
-        43
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "i was thinking of buying some things and i just wondered what happens if i'm late on a payment.",
-      "turn_count": 15,
-      "targets": [
-        "policy",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "i'm a gold member",
-      "turn_count": 16,
-      "targets": [
-        "policy",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "i might have misread because you said you are late paying the subscription fee.",
-      "turn_count": 17,
-      "targets": [
-        "policy",
-        "retrieve_utterance",
-        null,
-        [],
-        1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "give me a second, please.",
-      "turn_count": 18,
-      "targets": [
-        "policy",
-        "retrieve_utterance",
-        null,
-        [],
-        4
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "i guess i probably am late.",
-      "turn_count": 19,
-      "targets": [
-        "policy",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "but i wanted to buy some things and didn't know what would happen.",
-      "turn_count": 20,
-      "targets": [
-        "policy",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "sorry to be such a bother.",
-      "turn_count": 21,
-      "targets": [
-        "policy",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "do you mean you will be late for paying the next bill?",
-      "turn_count": 22,
-      "targets": [
-        "policy",
-        "retrieve_utterance",
-        null,
-        [],
-        51
-      ]
-    },
-    {
-      "speaker": "action",
-      "text": "membership level of gold has been noted.",
-      "turn_count": 23,
-      "targets": [
-        "policy",
-        "take_action",
-        "membership",
+        "select-faq",
         [
-          "gold"
+          "late on a subscription payment"
         ],
         -1
       ]
     },
     {
-      "speaker": "customer",
-      "text": "i'm really sorry but i probably am already late.",
-      "turn_count": 24,
+      "speaker": "agent",
+      "text": "if you're late on a subscription payment, your subscription benefits and ability to place new orders may be paused until the overdue balance is paid. however, depending on your membership level, you may be eligible for a payment extension or grace period if you reach out to us.",
+      "turn_count": 10,
       "targets": [
-        "policy",
+        "policy_4",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "got it, thanks! i was thinking of buying some things and wasn't sure if being late would stop me from ordering. i'm a gold member, by the way.",
+      "turn_count": 11,
+      "targets": [
+        "policy_4",
         null,
         null,
         [],
@@ -453,22 +229,10 @@
     },
     {
       "speaker": "agent",
-      "text": "i will give an extension since you are a gold member.",
-      "turn_count": 25,
+      "text": "as a gold member, if you ever do fall behind on a subscription payment, you can contact us to arrange a payment extension so your account stays in good standing and you can keep ordering without interruption. you'll just want to make sure any past-due payment is either settled or extended before checking out.",
+      "turn_count": 12,
       "targets": [
-        "policy",
-        "retrieve_utterance",
-        null,
-        [],
-        92
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "so i can go ahead and order things?",
-      "turn_count": 26,
-      "targets": [
-        "policy",
+        "policy_4",
         null,
         null,
         [],
@@ -477,34 +241,10 @@
     },
     {
       "speaker": "customer",
-      "text": "that would be great.",
-      "turn_count": 27,
+      "text": "that's really helpful to know, thanks!",
+      "turn_count": 13,
       "targets": [
-        "policy",
-        null,
-        null,
-        [],
-        -1
-      ]
-    },
-    {
-      "speaker": "agent",
-      "text": "yes, sure.",
-      "turn_count": 28,
-      "targets": [
-        "policy",
-        "retrieve_utterance",
-        null,
-        [],
-        17
-      ]
-    },
-    {
-      "speaker": "customer",
-      "text": "you've been a big help. thanks",
-      "turn_count": 29,
-      "targets": [
-        "policy",
+        "policy_4",
         null,
         null,
         [],
@@ -514,21 +254,21 @@
     {
       "speaker": "agent",
       "text": "you are welcome. is there anything else that i can help you with?",
-      "turn_count": 30,
+      "turn_count": 14,
       "targets": [
-        "policy",
-        "retrieve_utterance",
+        "policy_4",
+        null,
         null,
         [],
-        2
+        -1
       ]
     },
     {
       "speaker": "customer",
       "text": "that was it, thanks",
-      "turn_count": 31,
+      "turn_count": 15,
       "targets": [
-        "policy",
+        "policy_4",
         null,
         null,
         [],
@@ -538,40 +278,27 @@
     {
       "speaker": "agent",
       "text": "have a nice day!",
-      "turn_count": 32,
+      "turn_count": 16,
       "targets": [
-        "policy",
-        "retrieve_utterance",
+        "policy_4",
+        null,
         null,
         [],
-        72
+        -1
       ]
     },
     {
       "speaker": "customer",
       "text": "you too",
-      "turn_count": 33,
+      "turn_count": 17,
       "targets": [
-        "policy",
+        "policy_4",
         null,
         null,
         [],
         -1
       ]
-    },
-    {
-      "speaker": "action",
-      "text": "account has been updated with extend subscription.",
-      "turn_count": 34,
-      "targets": [
-        "policy",
-        "take_action",
-        "update-account",
-        [
-          "extend subscription"
-        ],
-        -1
-      ]
     }
-  ]
+  ],
+  "edited_at": "2026-11-28T18:00:32+00:00"
 }

@@ -1,0 +1,181 @@
+{
+  "convo_id": 7348,
+  "scenario": {
+    "personal": {
+      "customer_name": "norman bouchard",
+      "member_level": "bronze",
+      "phone": "(000) 659-3267"
+    },
+    "order": {
+      "street_address": "8056 1st ave",
+      "full_address": "8056 1st ave  newark, ny 86528",
+      "city": "newark",
+      "num_products": "3",
+      "products": "[{'brand': 'calvin_klein', 'product_type': 'shirt', 'amount': 49, 'image_url': 'images/calvin_klein-shirt.jpeg'}, {'brand': 'michael_kors', 'product_type': 'shirt', 'amount': 49, 'image_url': 'images/michael_kors-shirt.jpeg'}, {'brand': 'michael_kors', 'product_type': 'jacket', 'amount': 54, 'image_url': 'images/michael_kors-jacket.jpeg'}]",
+      "state": "ny",
+      "zip_code": "86528"
+    },
+    "product": {
+      "names": [
+        "calvin_klein shirt",
+        "michael_kors shirt",
+        "michael_kors jacket"
+      ],
+      "amounts": [
+        49,
+        49,
+        54
+      ]
+    },
+    "flow": "storewide_query",
+    "subflow": "pricing_2"
+  },
+  "original": [
+    [
+      "customer",
+      "I would like to know the price of stitching my name onto one of your items?"
+    ],
+    [
+      "agent",
+      "Okay, let me check."
+    ],
+    [
+      "action",
+      "Searching the FAQ pages ..."
+    ],
+    [
+      "action",
+      "System Action: search pricing"
+    ],
+    [
+      "agent",
+      "tiching and engraving costs depend on how much text is added. Stiching costs 30 cents per character for the first 15 characters, 20 cents per character for the next 15 characters, and 10 cents per character for any additional characters."
+    ],
+    [
+      "agent",
+      "Do you have any other questions?"
+    ],
+    [
+      "customer",
+      "Thank you for the information, that will be everything"
+    ],
+    [
+      "agent",
+      "Okay, have a wonderful rest of your day."
+    ],
+    [
+      "customer",
+      "you too"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "customer",
+      "text": "i would like to know the price of stitching my name onto one of your items?",
+      "turn_count": 1,
+      "targets": [
+        "pricing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "okay, let me check.",
+      "turn_count": 2,
+      "targets": [
+        "pricing",
+        "retrieve_utterance",
+        null,
+        [],
+        86
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "searching the faq pages ...",
+      "turn_count": 3,
+      "targets": [
+        "pricing",
+        "take_action",
+        "search-faq",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "system action: search pricing",
+      "turn_count": 4,
+      "targets": [
+        "pricing",
+        "take_action",
+        "search-pricing",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "tiching and engraving costs depend on how much text is added. stiching costs 30 cents per character for the first 15 characters, 20 cents per character for the next 15 characters, and 10 cents per character for any additional characters.",
+      "turn_count": 5,
+      "targets": [
+        "pricing",
+        "retrieve_utterance",
+        null,
+        [],
+        40
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "do you have any other questions?",
+      "turn_count": 6,
+      "targets": [
+        "pricing",
+        "retrieve_utterance",
+        null,
+        [],
+        92
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thank you for the information, that will be everything",
+      "turn_count": 7,
+      "targets": [
+        "pricing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "okay, have a wonderful rest of your day.",
+      "turn_count": 8,
+      "targets": [
+        "pricing",
+        "retrieve_utterance",
+        null,
+        [],
+        66
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "you too",
+      "turn_count": 9,
+      "targets": [
+        "pricing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    }
+  ]
+}

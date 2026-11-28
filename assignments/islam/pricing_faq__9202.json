@@ -52,6 +52,10 @@
       "System Action: search pricing"
     ],
     [
+      "action",
+      "FAQ answer related to pricing (3) was selected."
+    ],
+    [
       "agent",
       "so it depends on the weight. In the continental US, if it;s 5 lbs or less it's $54.99"
     ],
@@ -90,11 +94,11 @@
       "text": "hi, how can i help you?",
       "turn_count": 1,
       "targets": [
-        "pricing",
-        "retrieve_utterance",
+        "pricing_3",
+        null,
         null,
         [],
-        49
+        -1
       ]
     },
     {
@@ -102,7 +106,7 @@
       "text": "i would like to know the price of overnight shipping",
       "turn_count": 2,
       "targets": [
-        "pricing",
+        "pricing_3",
         null,
         null,
         [],
@@ -114,11 +118,11 @@
       "text": "sure, one moment!",
       "turn_count": 3,
       "targets": [
-        "pricing",
-        "retrieve_utterance",
+        "pricing_3",
+        null,
         null,
         [],
-        21
+        -1
       ]
     },
     {
@@ -126,8 +130,8 @@
       "text": "searching the faq pages ...",
       "turn_count": 4,
       "targets": [
-        "pricing",
-        "take_action",
+        "pricing_3",
+        null,
         "search-faq",
         [],
         -1
@@ -138,31 +142,45 @@
       "text": "system action: search pricing",
       "turn_count": 5,
       "targets": [
-        "pricing",
-        "take_action",
+        "pricing_3",
+        null,
         "search-pricing",
         [],
         -1
       ]
     },
     {
-      "speaker": "agent",
-      "text": "so it depends on the weight. in the continental us, if it;s 5 lbs or less it's $54.99",
+      "speaker": "action",
+      "text": "faq answer related to pricing (3) was selected.",
       "turn_count": 6,
       "targets": [
-        "pricing",
-        "retrieve_utterance",
+        "pricing_3",
+        null,
+        "select-faq",
+        [
+          "pricing_3"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "so it depends on the weight. in the continental us, if it;s 5 lbs or less it's $54.99",
+      "turn_count": 7,
+      "targets": [
+        "pricing_3",
+        null,
         null,
         [],
-        75
+        -1
       ]
     },
     {
       "speaker": "customer",
       "text": "okay, thank you for the information",
-      "turn_count": 7,
+      "turn_count": 8,
       "targets": [
-        "pricing",
+        "pricing_3",
         null,
         null,
         [],
@@ -172,21 +190,21 @@
     {
       "speaker": "agent",
       "text": "for 5-10 lbs it's $69.99",
-      "turn_count": 8,
+      "turn_count": 9,
       "targets": [
-        "pricing",
-        "retrieve_utterance",
+        "pricing_3",
+        null,
         null,
         [],
-        87
+        -1
       ]
     },
     {
       "speaker": "customer",
       "text": "okay",
-      "turn_count": 9,
+      "turn_count": 10,
       "targets": [
-        "pricing",
+        "pricing_3",
         null,
         null,
         [],
@@ -196,33 +214,33 @@
     {
       "speaker": "agent",
       "text": "and more than 10 lbs it;s $69.99",
-      "turn_count": 10,
+      "turn_count": 11,
       "targets": [
-        "pricing",
-        "retrieve_utterance",
+        "pricing_3",
+        null,
         null,
         [],
-        59
+        -1
       ]
     },
     {
       "speaker": "agent",
       "text": "was there anything else i could help you with?",
-      "turn_count": 11,
+      "turn_count": 12,
       "targets": [
-        "pricing",
-        "retrieve_utterance",
+        "pricing_3",
+        null,
         null,
         [],
-        90
+        -1
       ]
     },
     {
       "speaker": "customer",
       "text": "that is everything",
-      "turn_count": 12,
+      "turn_count": 13,
       "targets": [
-        "pricing",
+        "pricing_3",
         null,
         null,
         [],
@@ -232,14 +250,15 @@
     {
       "speaker": "agent",
       "text": "ok great, have a wonderful day",
-      "turn_count": 13,
+      "turn_count": 14,
       "targets": [
-        "pricing",
-        "retrieve_utterance",
+        "pricing_3",
+        null,
         null,
         [],
-        16
+        -1
       ]
     }
-  ]
+  ],
+  "edited_at": "2026-11-28T18:00:32+00:00"
 }

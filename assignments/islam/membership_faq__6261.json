@@ -58,6 +58,10 @@
       "System Action: search membership"
     ],
     [
+      "action",
+      "FAQ answer related to membership (question1) was selected."
+    ],
+    [
       "agent",
       "So here is what I have found so far."
     ],
@@ -100,10 +104,6 @@
     [
       "customer",
       "you too"
-    ],
-    [
-      "action",
-      "FAQ answer related to membership (question3) was selected."
     ]
   ],
   "delexed": [
@@ -112,11 +112,11 @@
       "text": "hello, how may i help you today?",
       "turn_count": 1,
       "targets": [
-        "membership",
-        "retrieve_utterance",
+        "membership_1",
+        null,
         null,
         [],
-        50
+        -1
       ]
     },
     {
@@ -124,7 +124,7 @@
       "text": "hi",
       "turn_count": 2,
       "targets": [
-        "membership",
+        "membership_1",
         null,
         null,
         [],
@@ -136,7 +136,7 @@
       "text": "what are all the mempbership levels?",
       "turn_count": 3,
       "targets": [
-        "membership",
+        "membership_1",
         null,
         null,
         [],
@@ -148,7 +148,7 @@
       "text": "i am thinking of purchasing one",
       "turn_count": 4,
       "targets": [
-        "membership",
+        "membership_1",
         null,
         null,
         [],
@@ -160,11 +160,11 @@
       "text": "sure, let's see what we can find out for you.",
       "turn_count": 5,
       "targets": [
-        "membership",
-        "retrieve_utterance",
+        "membership_1",
+        null,
         null,
         [],
-        28
+        -1
       ]
     },
     {
@@ -172,7 +172,7 @@
       "text": "i need to shop during this dang quarantine :0",
       "turn_count": 6,
       "targets": [
-        "membership",
+        "membership_1",
         null,
         null,
         [],
@@ -184,7 +184,7 @@
       "text": "thank you",
       "turn_count": 7,
       "targets": [
-        "membership",
+        "membership_1",
         null,
         null,
         [],
@@ -196,8 +196,8 @@
       "text": "searching the faq pages ...",
       "turn_count": 8,
       "targets": [
-        "membership",
-        "take_action",
+        "membership_1",
+        null,
         "search-faq",
         [],
         -1
@@ -208,79 +208,93 @@
       "text": "system action: search membership",
       "turn_count": 9,
       "targets": [
-        "membership",
-        "take_action",
+        "membership_1",
+        null,
         "search-membership",
         [],
         -1
       ]
     },
     {
-      "speaker": "agent",
-      "text": "so here is what i have found so far.",
+      "speaker": "action",
+      "text": "faq answer related to membership (question1) was selected.",
       "turn_count": 10,
       "targets": [
-        "membership",
-        "retrieve_utterance",
+        "membership_1",
+        null,
+        "select-faq",
+        [
+          "membership_1"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "so here is what i have found so far.",
+      "turn_count": 11,
+      "targets": [
+        "membership_1",
+        null,
         null,
         [],
-        75
+        -1
       ]
     },
     {
       "speaker": "agent",
       "text": "there are 3 membership levels, they are bronze, silver and gold.",
-      "turn_count": 11,
+      "turn_count": 12,
       "targets": [
-        "membership",
-        "retrieve_utterance",
+        "membership_1",
+        null,
         null,
         [],
-        30
+        -1
       ]
     },
     {
       "speaker": "agent",
       "text": "all 3 memberships are invited to the annual holiday superparty with open bar and free flights from anywhere in the us.",
-      "turn_count": 12,
+      "turn_count": 13,
       "targets": [
-        "membership",
-        "retrieve_utterance",
+        "membership_1",
+        null,
         null,
         [],
-        45
+        -1
       ]
     },
     {
       "speaker": "agent",
       "text": "bronze members save on shipping fees and promo codes, silver get bronze perks but can have an agent make purchases for them and can cancel orders at any time.",
-      "turn_count": 13,
+      "turn_count": 14,
       "targets": [
-        "membership",
-        "retrieve_utterance",
+        "membership_1",
+        null,
         null,
         [],
-        43
+        -1
       ]
     },
     {
       "speaker": "agent",
       "text": "finally, gold members get unlimited refunds and both bronze and silver perks.",
-      "turn_count": 14,
+      "turn_count": 15,
       "targets": [
-        "membership",
-        "retrieve_utterance",
+        "membership_1",
+        null,
         null,
         [],
-        52
+        -1
       ]
     },
     {
       "speaker": "customer",
       "text": "thats great info, thank you!",
-      "turn_count": 15,
+      "turn_count": 16,
       "targets": [
-        "membership",
+        "membership_1",
         null,
         null,
         [],
@@ -290,21 +304,21 @@
     {
       "speaker": "agent",
       "text": "my pleasure, is there anything else i can help you with?",
-      "turn_count": 16,
+      "turn_count": 17,
       "targets": [
-        "membership",
-        "retrieve_utterance",
+        "membership_1",
+        null,
         null,
         [],
-        32
+        -1
       ]
     },
     {
       "speaker": "customer",
       "text": "that is all",
-      "turn_count": 17,
+      "turn_count": 18,
       "targets": [
-        "membership",
+        "membership_1",
         null,
         null,
         [],
@@ -314,9 +328,9 @@
     {
       "speaker": "customer",
       "text": "thank you have a great day!",
-      "turn_count": 18,
+      "turn_count": 19,
       "targets": [
-        "membership",
+        "membership_1",
         null,
         null,
         [],
@@ -326,40 +340,27 @@
     {
       "speaker": "agent",
       "text": "you have a wonderful rest of your day!",
-      "turn_count": 19,
+      "turn_count": 20,
       "targets": [
-        "membership",
-        "retrieve_utterance",
+        "membership_1",
+        null,
         null,
         [],
-        26
+        -1
       ]
     },
     {
       "speaker": "customer",
       "text": "you too",
-      "turn_count": 20,
+      "turn_count": 21,
       "targets": [
-        "membership",
+        "membership_1",
         null,
         null,
         [],
         -1
       ]
-    },
-    {
-      "speaker": "action",
-      "text": "faq answer related to membership (question3) was selected.",
-      "turn_count": 21,
-      "targets": [
-        "membership",
-        "take_action",
-        "select-faq",
-        [
-          "membership_3"
-        ],
-        -1
-      ]
     }
-  ]
+  ],
+  "edited_at": "2026-11-28T18:00:32+00:00"
 }

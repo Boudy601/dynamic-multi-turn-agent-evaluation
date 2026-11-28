@@ -1,0 +1,245 @@
+{
+  "convo_id": 9202,
+  "scenario": {
+    "personal": {
+      "customer_name": "alessandro phoenix",
+      "member_level": "gold",
+      "phone": "(881) 232-5327"
+    },
+    "order": {
+      "street_address": "4454 brushwick dr",
+      "full_address": "4454 brushwick dr  baltimore, ca 58103",
+      "city": "baltimore",
+      "num_products": "3",
+      "products": "[{'brand': 'guess', 'product_type': 'shirt', 'amount': 89, 'image_url': 'images/guess-shirt.jpeg'}, {'brand': 'tommy_hilfiger', 'product_type': 'jeans', 'amount': 74, 'image_url': 'images/tommy_hilfiger-jeans.jpeg'}, {'brand': 'guess', 'product_type': 'jeans', 'amount': 89, 'image_url': 'images/guess-jeans.jpeg'}]",
+      "state": "ca",
+      "zip_code": "58103"
+    },
+    "product": {
+      "names": [
+        "guess shirt",
+        "tommy_hilfiger jeans",
+        "guess jeans"
+      ],
+      "amounts": [
+        89,
+        74,
+        89
+      ]
+    },
+    "flow": "storewide_query",
+    "subflow": "pricing_3"
+  },
+  "original": [
+    [
+      "agent",
+      "Hi, how can I help you?"
+    ],
+    [
+      "customer",
+      "I would like to know the price of overnight shipping"
+    ],
+    [
+      "agent",
+      "sure, one moment!"
+    ],
+    [
+      "action",
+      "Searching the FAQ pages ..."
+    ],
+    [
+      "action",
+      "System Action: search pricing"
+    ],
+    [
+      "agent",
+      "so it depends on the weight. In the continental US, if it;s 5 lbs or less it's $54.99"
+    ],
+    [
+      "customer",
+      "Okay, Thank you for the information"
+    ],
+    [
+      "agent",
+      "for 5-10 lbs it's $69.99"
+    ],
+    [
+      "customer",
+      "Okay"
+    ],
+    [
+      "agent",
+      "and more than 10 lbs it;s $69.99"
+    ],
+    [
+      "agent",
+      "was there anything else I could help you with?"
+    ],
+    [
+      "customer",
+      "That is everything"
+    ],
+    [
+      "agent",
+      "ok great, have a wonderful day"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "hi, how can i help you?",
+      "turn_count": 1,
+      "targets": [
+        "pricing",
+        "retrieve_utterance",
+        null,
+        [],
+        49
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i would like to know the price of overnight shipping",
+      "turn_count": 2,
+      "targets": [
+        "pricing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "sure, one moment!",
+      "turn_count": 3,
+      "targets": [
+        "pricing",
+        "retrieve_utterance",
+        null,
+        [],
+        21
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "searching the faq pages ...",
+      "turn_count": 4,
+      "targets": [
+        "pricing",
+        "take_action",
+        "search-faq",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "system action: search pricing",
+      "turn_count": 5,
+      "targets": [
+        "pricing",
+        "take_action",
+        "search-pricing",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "so it depends on the weight. in the continental us, if it;s 5 lbs or less it's $54.99",
+      "turn_count": 6,
+      "targets": [
+        "pricing",
+        "retrieve_utterance",
+        null,
+        [],
+        75
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay, thank you for the information",
+      "turn_count": 7,
+      "targets": [
+        "pricing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "for 5-10 lbs it's $69.99",
+      "turn_count": 8,
+      "targets": [
+        "pricing",
+        "retrieve_utterance",
+        null,
+        [],
+        87
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "okay",
+      "turn_count": 9,
+      "targets": [
+        "pricing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "and more than 10 lbs it;s $69.99",
+      "turn_count": 10,
+      "targets": [
+        "pricing",
+        "retrieve_utterance",
+        null,
+        [],
+        59
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "was there anything else i could help you with?",
+      "turn_count": 11,
+      "targets": [
+        "pricing",
+        "retrieve_utterance",
+        null,
+        [],
+        90
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "that is everything",
+      "turn_count": 12,
+      "targets": [
+        "pricing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "ok great, have a wonderful day",
+      "turn_count": 13,
+      "targets": [
+        "pricing",
+        "retrieve_utterance",
+        null,
+        [],
+        16
+      ]
+    }
+  ]
+}

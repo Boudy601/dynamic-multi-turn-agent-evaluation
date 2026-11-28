@@ -1,0 +1,227 @@
+{
+  "convo_id": 9566,
+  "scenario": {
+    "personal": {
+      "customer_name": "rodriguez domingo",
+      "member_level": "bronze",
+      "phone": "(160) 369-5192"
+    },
+    "order": {
+      "street_address": "7868 brushwick dr",
+      "full_address": "7868 brushwick dr  brighton, ny 90009",
+      "city": "brighton",
+      "num_products": "1",
+      "products": "[{'brand': 'tommy_hilfiger', 'product_type': 'jacket', 'amount': 79, 'image_url': 'images/tommy_hilfiger-jacket.jpeg'}]",
+      "state": "ny",
+      "zip_code": "90009"
+    },
+    "product": {
+      "names": [
+        "tommy_hilfiger jacket"
+      ],
+      "amounts": [
+        79
+      ]
+    },
+    "flow": "single_item_query",
+    "subflow": "jacket_other_4"
+  },
+  "original": [
+    [
+      "agent",
+      "Hello"
+    ],
+    [
+      "customer",
+      "Hey. I'm looking at that Tommy Hilfiger jacket but have a question first."
+    ],
+    [
+      "agent",
+      "What's the question?"
+    ],
+    [
+      "customer",
+      "What is the material it is made out of?"
+    ],
+    [
+      "action",
+      "Searching the FAQ pages ..."
+    ],
+    [
+      "action",
+      "System Action: search jacket"
+    ],
+    [
+      "action",
+      "FAQ answer related to jacket (other4) was selected."
+    ],
+    [
+      "agent",
+      "The outer part of the jacket is made of synthetic materials.  These materials include polyester, nylon and tricot. The inside is lined with cotton."
+    ],
+    [
+      "customer",
+      "Oh too bad. I was looking for something in crushed velvet. Okay thanks for checking!"
+    ],
+    [
+      "agent",
+      "You are welcome"
+    ],
+    [
+      "agent",
+      "Have a nice day!"
+    ],
+    [
+      "customer",
+      "You too!"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "hello",
+      "turn_count": 1,
+      "targets": [
+        "jacket",
+        "retrieve_utterance",
+        null,
+        [],
+        42
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "hey. i'm looking at that tommy hilfiger jacket but have a question first.",
+      "turn_count": 2,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "what's the question?",
+      "turn_count": 3,
+      "targets": [
+        "jacket",
+        "retrieve_utterance",
+        null,
+        [],
+        95
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "what is the material it is made out of?",
+      "turn_count": 4,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "searching the faq pages ...",
+      "turn_count": 5,
+      "targets": [
+        "jacket",
+        "take_action",
+        "search-faq",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "system action: search jacket",
+      "turn_count": 6,
+      "targets": [
+        "jacket",
+        "take_action",
+        "search-jacket",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "faq answer related to jacket (other4) was selected.",
+      "turn_count": 8,
+      "targets": [
+        "jacket",
+        "take_action",
+        "select-faq",
+        [
+          "jacket_other_4"
+        ],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "the outer part of the jacket is made of synthetic materials.  these materials include polyester, nylon and tricot. the inside is lined with cotton.",
+      "turn_count": 9,
+      "targets": [
+        "jacket",
+        "retrieve_utterance",
+        null,
+        [],
+        99
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "oh too bad. i was looking for something in crushed velvet. okay thanks for checking!",
+      "turn_count": 10,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "you are welcome",
+      "turn_count": 11,
+      "targets": [
+        "jacket",
+        "retrieve_utterance",
+        null,
+        [],
+        45
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "have a nice day!",
+      "turn_count": 12,
+      "targets": [
+        "jacket",
+        "retrieve_utterance",
+        null,
+        [],
+        63
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "you too!",
+      "turn_count": 13,
+      "targets": [
+        "jacket",
+        null,
+        null,
+        [],
+        -1
+      ]
+    }
+  ]
+}

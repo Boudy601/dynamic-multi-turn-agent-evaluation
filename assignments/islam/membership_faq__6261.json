@@ -1,0 +1,365 @@
+{
+  "convo_id": 6261,
+  "scenario": {
+    "personal": {
+      "customer_name": "sanya afzal",
+      "member_level": "bronze",
+      "phone": "(847) 397-2924"
+    },
+    "order": {
+      "street_address": "9330 2nd ave",
+      "full_address": "9330 2nd ave  newark, tx 8344",
+      "city": "newark",
+      "state": "tx",
+      "zip_code": "8344"
+    },
+    "product": {
+      "names": [],
+      "amounts": []
+    },
+    "flow": "storewide_query",
+    "subflow": "membership_1"
+  },
+  "original": [
+    [
+      "agent",
+      "Hello, how may I help you today?"
+    ],
+    [
+      "customer",
+      "Hi"
+    ],
+    [
+      "customer",
+      "what are all the mempbership levels?"
+    ],
+    [
+      "customer",
+      "I am thinking of purchasing one"
+    ],
+    [
+      "agent",
+      "Sure, let's see what we can find out for you."
+    ],
+    [
+      "customer",
+      "I need to shop during this dang quarantine :0"
+    ],
+    [
+      "customer",
+      "Thank you"
+    ],
+    [
+      "action",
+      "Searching the FAQ pages ..."
+    ],
+    [
+      "action",
+      "System Action: search membership"
+    ],
+    [
+      "agent",
+      "So here is what I have found so far."
+    ],
+    [
+      "agent",
+      "There are 3 membership levels, they are Bronze, Silver and Gold."
+    ],
+    [
+      "agent",
+      "All 3 memberships are invited to the annual holiday superparty with open bar and free flights from anywhere in the US."
+    ],
+    [
+      "agent",
+      "Bronze members save on shipping fees and promo codes, silver get bronze perks but can have an agent make purchases for them and can cancel orders at any time."
+    ],
+    [
+      "agent",
+      "Finally, Gold members get unlimited refunds and both Bronze and Silver perks."
+    ],
+    [
+      "customer",
+      "Thats great info, thank you!"
+    ],
+    [
+      "agent",
+      "My pleasure, is there anything else I can help you with?"
+    ],
+    [
+      "customer",
+      "That is all"
+    ],
+    [
+      "customer",
+      "thank you have a great day!"
+    ],
+    [
+      "agent",
+      "You have a wonderful rest of your day!"
+    ],
+    [
+      "customer",
+      "you too"
+    ],
+    [
+      "action",
+      "FAQ answer related to membership (question3) was selected."
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "agent",
+      "text": "hello, how may i help you today?",
+      "turn_count": 1,
+      "targets": [
+        "membership",
+        "retrieve_utterance",
+        null,
+        [],
+        50
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "hi",
+      "turn_count": 2,
+      "targets": [
+        "membership",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "what are all the mempbership levels?",
+      "turn_count": 3,
+      "targets": [
+        "membership",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i am thinking of purchasing one",
+      "turn_count": 4,
+      "targets": [
+        "membership",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "sure, let's see what we can find out for you.",
+      "turn_count": 5,
+      "targets": [
+        "membership",
+        "retrieve_utterance",
+        null,
+        [],
+        28
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i need to shop during this dang quarantine :0",
+      "turn_count": 6,
+      "targets": [
+        "membership",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thank you",
+      "turn_count": 7,
+      "targets": [
+        "membership",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "searching the faq pages ...",
+      "turn_count": 8,
+      "targets": [
+        "membership",
+        "take_action",
+        "search-faq",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "system action: search membership",
+      "turn_count": 9,
+      "targets": [
+        "membership",
+        "take_action",
+        "search-membership",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "so here is what i have found so far.",
+      "turn_count": 10,
+      "targets": [
+        "membership",
+        "retrieve_utterance",
+        null,
+        [],
+        75
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "there are 3 membership levels, they are bronze, silver and gold.",
+      "turn_count": 11,
+      "targets": [
+        "membership",
+        "retrieve_utterance",
+        null,
+        [],
+        30
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "all 3 memberships are invited to the annual holiday superparty with open bar and free flights from anywhere in the us.",
+      "turn_count": 12,
+      "targets": [
+        "membership",
+        "retrieve_utterance",
+        null,
+        [],
+        45
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "bronze members save on shipping fees and promo codes, silver get bronze perks but can have an agent make purchases for them and can cancel orders at any time.",
+      "turn_count": 13,
+      "targets": [
+        "membership",
+        "retrieve_utterance",
+        null,
+        [],
+        43
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "finally, gold members get unlimited refunds and both bronze and silver perks.",
+      "turn_count": 14,
+      "targets": [
+        "membership",
+        "retrieve_utterance",
+        null,
+        [],
+        52
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thats great info, thank you!",
+      "turn_count": 15,
+      "targets": [
+        "membership",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "my pleasure, is there anything else i can help you with?",
+      "turn_count": 16,
+      "targets": [
+        "membership",
+        "retrieve_utterance",
+        null,
+        [],
+        32
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "that is all",
+      "turn_count": 17,
+      "targets": [
+        "membership",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "thank you have a great day!",
+      "turn_count": 18,
+      "targets": [
+        "membership",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "you have a wonderful rest of your day!",
+      "turn_count": 19,
+      "targets": [
+        "membership",
+        "retrieve_utterance",
+        null,
+        [],
+        26
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "you too",
+      "turn_count": 20,
+      "targets": [
+        "membership",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "faq answer related to membership (question3) was selected.",
+      "turn_count": 21,
+      "targets": [
+        "membership",
+        "take_action",
+        "select-faq",
+        [
+          "membership_3"
+        ],
+        -1
+      ]
+    }
+  ]
+}

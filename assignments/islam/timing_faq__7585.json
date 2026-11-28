@@ -1,0 +1,301 @@
+{
+  "convo_id": 7585,
+  "scenario": {
+    "personal": {
+      "customer_name": "chloe zhang",
+      "member_level": "guest",
+      "phone": "(692) 549-8967"
+    },
+    "order": {
+      "street_address": "0294 woodshore st",
+      "full_address": "0294 woodshore st  newark, ca 32032",
+      "city": "newark",
+      "state": "ca",
+      "zip_code": "32032"
+    },
+    "product": {
+      "names": [],
+      "amounts": []
+    },
+    "flow": "storewide_query",
+    "subflow": "timing_2"
+  },
+  "original": [
+    [
+      "customer",
+      "When does the local store close?"
+    ],
+    [
+      "agent",
+      "Hello. Thanks for contacting the customer support team, how may I help you today?"
+    ],
+    [
+      "agent",
+      "I can look into that for you."
+    ],
+    [
+      "agent",
+      "May I please get your name?"
+    ],
+    [
+      "customer",
+      "Chloe"
+    ],
+    [
+      "action",
+      "Searching the FAQ pages ..."
+    ],
+    [
+      "agent",
+      "Just a minute, Chloe."
+    ],
+    [
+      "customer",
+      "ok"
+    ],
+    [
+      "action",
+      "System Action: search timing"
+    ],
+    [
+      "agent",
+      "Store hours may vary a little, but generally our ours are 8am to 11 pm. Of course, you can always use the website 24 hours a day."
+    ],
+    [
+      "agent",
+      "Does that answer your question, Chloe?"
+    ],
+    [
+      "customer",
+      "i think so"
+    ],
+    [
+      "agent",
+      "Is there anything else that I can help with today?"
+    ],
+    [
+      "customer",
+      "that's all."
+    ],
+    [
+      "agent",
+      "We appreciate you shopping with Acme, have a tremendous day!"
+    ],
+    [
+      "customer",
+      "you too"
+    ],
+    [
+      "action",
+      "FAQ answer related to timing (question2) was selected."
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "customer",
+      "text": "when does the local store close?",
+      "turn_count": 1,
+      "targets": [
+        "timing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "hello. thanks for contacting the customer support team, how may i help you today?",
+      "turn_count": 2,
+      "targets": [
+        "timing",
+        "retrieve_utterance",
+        null,
+        [],
+        64
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "i can look into that for you.",
+      "turn_count": 3,
+      "targets": [
+        "timing",
+        "retrieve_utterance",
+        null,
+        [],
+        41
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "may i please get your name?",
+      "turn_count": 4,
+      "targets": [
+        "timing",
+        "retrieve_utterance",
+        null,
+        [],
+        13
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "chloe",
+      "turn_count": 5,
+      "targets": [
+        "timing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "searching the faq pages ...",
+      "turn_count": 6,
+      "targets": [
+        "timing",
+        "take_action",
+        "search-faq",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "just a minute, chloe.",
+      "turn_count": 7,
+      "targets": [
+        "timing",
+        "retrieve_utterance",
+        null,
+        [],
+        27
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok",
+      "turn_count": 8,
+      "targets": [
+        "timing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "system action: search timing",
+      "turn_count": 9,
+      "targets": [
+        "timing",
+        "take_action",
+        "search-timing",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "store hours may vary a little, but generally our ours are 8am to 11 pm. of course, you can always use the website 24 hours a day.",
+      "turn_count": 10,
+      "targets": [
+        "timing",
+        "retrieve_utterance",
+        null,
+        [],
+        64
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "does that answer your question, chloe?",
+      "turn_count": 11,
+      "targets": [
+        "timing",
+        "retrieve_utterance",
+        null,
+        [],
+        7
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "i think so",
+      "turn_count": 12,
+      "targets": [
+        "timing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "is there anything else that i can help with today?",
+      "turn_count": 13,
+      "targets": [
+        "timing",
+        "retrieve_utterance",
+        null,
+        [],
+        83
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "that's all.",
+      "turn_count": 14,
+      "targets": [
+        "timing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "we appreciate you shopping with acme, have a tremendous day!",
+      "turn_count": 15,
+      "targets": [
+        "timing",
+        "retrieve_utterance",
+        null,
+        [],
+        96
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "you too",
+      "turn_count": 16,
+      "targets": [
+        "timing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "faq answer related to timing (question2) was selected.",
+      "turn_count": 17,
+      "targets": [
+        "timing",
+        "take_action",
+        "select-faq",
+        [
+          "timing_2"
+        ],
+        -1
+      ]
+    }
+  ]
+}

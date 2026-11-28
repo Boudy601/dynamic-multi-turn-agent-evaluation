@@ -1,0 +1,203 @@
+{
+  "convo_id": 1626,
+  "scenario": {
+    "personal": {
+      "customer_name": "alessandro phoenix",
+      "member_level": "gold",
+      "phone": "(478) 037-6447"
+    },
+    "order": {
+      "street_address": "4546 lincoln ave",
+      "full_address": "4546 lincoln ave  brighton, ca 28157",
+      "city": "brighton",
+      "state": "ca",
+      "zip_code": "28157"
+    },
+    "product": {
+      "names": [],
+      "amounts": []
+    },
+    "flow": "storewide_query",
+    "subflow": "timing_1"
+  },
+  "original": [
+    [
+      "customer",
+      "when does the spring collection drops? i ask because i am thinking about buying stuff"
+    ],
+    [
+      "agent",
+      "sure let me check that for you"
+    ],
+    [
+      "action",
+      "Searching the FAQ pages ..."
+    ],
+    [
+      "action",
+      "System Action: search timing"
+    ],
+    [
+      "agent",
+      "The AcmeBrands spring collection will come in on April 3rd"
+    ],
+    [
+      "customer",
+      "ok"
+    ],
+    [
+      "agent",
+      "it's always the 3rd day of the month for the appropriate season."
+    ],
+    [
+      "customer",
+      "ok"
+    ],
+    [
+      "agent",
+      "Do you have any other questions?"
+    ],
+    [
+      "customer",
+      "that is all. thank you"
+    ],
+    [
+      "agent",
+      "have a great day"
+    ]
+  ],
+  "delexed": [
+    {
+      "speaker": "customer",
+      "text": "when does the spring collection drops? i ask because i am thinking about buying stuff",
+      "turn_count": 1,
+      "targets": [
+        "timing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "sure let me check that for you",
+      "turn_count": 2,
+      "targets": [
+        "timing",
+        "retrieve_utterance",
+        null,
+        [],
+        94
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "searching the faq pages ...",
+      "turn_count": 3,
+      "targets": [
+        "timing",
+        "take_action",
+        "search-faq",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "action",
+      "text": "system action: search timing",
+      "turn_count": 4,
+      "targets": [
+        "timing",
+        "take_action",
+        "search-timing",
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "the acmebrands spring collection will come in on april 3rd",
+      "turn_count": 5,
+      "targets": [
+        "timing",
+        "retrieve_utterance",
+        null,
+        [],
+        59
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok",
+      "turn_count": 6,
+      "targets": [
+        "timing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "it's always the 3rd day of the month for the appropriate season.",
+      "turn_count": 7,
+      "targets": [
+        "timing",
+        "retrieve_utterance",
+        null,
+        [],
+        27
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "ok",
+      "turn_count": 8,
+      "targets": [
+        "timing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "do you have any other questions?",
+      "turn_count": 9,
+      "targets": [
+        "timing",
+        "retrieve_utterance",
+        null,
+        [],
+        35
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "that is all. thank you",
+      "turn_count": 10,
+      "targets": [
+        "timing",
+        null,
+        null,
+        [],
+        -1
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "have a great day",
+      "turn_count": 11,
+      "targets": [
+        "timing",
+        "retrieve_utterance",
+        null,
+        [],
+        58
+      ]
+    }
+  ]
+}

@@ -596,6 +596,31 @@ class ReviewRequestHandler(BaseHTTPRequestHandler):
             raise ApiError("Request body must be a JSON object")
         return data
 
+    def _chat_messages_with_expected(
+        self,
+        record: Mapping[str, Any],
+        sop_name: str,
+        guideline_aliases: Mapping[str, Any],
+        sop_guideline: Any,
+    ) -> list[dict[str, Any]]:
+        messages = message_list(record)
+        for message in messages:
+            if message["speaker"].casefold() != "action":
+                continue
+            function_name = message.get("function_name")
+            if not isinstance(function_name, str):
+                message["expected_parameters"] = None
+                continue
+            message["expected_parameters"] = expected_action_parameters(
+                record,
+                sop_name,
+                function_name,
+                self.app.action_schema,
+                guideline_aliases,
+                sop_guideline,
+            )
+        return messages
+
     def _reviewer_chats(self, reviewer: str) -> list[dict[str, Any]]:
         _, reviewer_chats = read_assignment_folders(
             self.app.assignments_dir, self.app.resolver
@@ -605,25 +630,13 @@ class ReviewRequestHandler(BaseHTTPRequestHandler):
         chats = []
         guideline_aliases = self.app.resolver[1]
         for chat in reviewer_chats.get(reviewer, []):
-            messages = message_list(chat.record)
+            sop_name = self.app.canonical_names[chat.sop_id]
             sop_guideline = resolve_chat_guideline(
                 chat.record, 0, self.app.resolver
             )
-            for message in messages:
-                if message["speaker"].casefold() != "action":
-                    continue
-                function_name = message.get("function_name")
-                if not isinstance(function_name, str):
-                    message["expected_parameters"] = None
-                    continue
-                message["expected_parameters"] = expected_action_parameters(
-                    chat.record,
-                    self.app.canonical_names[chat.sop_id],
-                    function_name,
-                    self.app.action_schema,
-                    guideline_aliases,
-                    sop_guideline,
-                )
+            messages = self._chat_messages_with_expected(
+                chat.record, sop_name, guideline_aliases, sop_guideline
+            )
             chat_path = (
                 self.app.assignments_dir
                 / reviewer
@@ -637,6 +650,16 @@ class ReviewRequestHandler(BaseHTTPRequestHandler):
             )
             review_entry = reviewer_reviews.get(chat.chat_id, {})
             has_original = backup_path.exists()
+            original_messages = (
+                self._chat_messages_with_expected(
+                    load_json(backup_path),
+                    sop_name,
+                    guideline_aliases,
+                    sop_guideline,
+                )
+                if has_original
+                else None
+            )
             edited = has_original or bool(review_entry.get("edited", False))
             edited_at = ""
             if edited:
@@ -652,7 +675,7 @@ class ReviewRequestHandler(BaseHTTPRequestHandler):
             chats.append({
                 "chat_id": chat.chat_id,
                 "sop_id": chat.sop_id,
-                "sop_name": self.app.canonical_names[chat.sop_id],
+                "sop_name": sop_name,
                 "message_count": chat.message_count,
                 "has_original": has_original,
                 "edited": edited,
@@ -668,7 +691,7 @@ class ReviewRequestHandler(BaseHTTPRequestHandler):
                     for action_key, params in (
                         _resolve_subflow_actions(
                             chat.record,
-                            self.app.canonical_names[chat.sop_id],
+                            sop_name,
                             self.app.action_schema,
                             guideline_aliases,
                             sop_guideline,
@@ -677,6 +700,7 @@ class ReviewRequestHandler(BaseHTTPRequestHandler):
                     ).items()
                 },
                 "messages": messages,
+                "original_messages": original_messages,
             })
         return sorted(
             chats,

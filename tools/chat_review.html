@@ -155,6 +155,7 @@
           <button id="view-sop" class="context-button" type="button" disabled>View SOP</button>
           <button id="view-scenario" class="context-button" type="button" disabled>View User Scenario</button>
           <button id="copy-prompt" class="context-button" type="button" disabled>Copy Prompt</button>
+          <button id="copy-old-prompt" class="context-button" type="button" hidden>Copy Old Prompt</button>
           <button id="edit-chat" class="context-button" type="button" disabled>Replace from Model</button>
           <button id="revert-chat" class="context-button danger" type="button" hidden>Revert to Original</button>
           <button id="remove-chat" class="context-button danger" type="button" disabled>Remove Chat</button>
@@ -633,6 +634,7 @@
       const viewSopButton = document.getElementById("view-sop");
       const viewScenarioButton = document.getElementById("view-scenario");
       const copyPromptButton = document.getElementById("copy-prompt");
+      const copyOldPromptButton = document.getElementById("copy-old-prompt");
       const editChatButton = document.getElementById("edit-chat");
       const revertChatButton = document.getElementById("revert-chat");
       const removeChatButton = document.getElementById("remove-chat");
@@ -650,6 +652,9 @@
         viewSopButton.disabled = true;
         viewScenarioButton.disabled = true;
         copyPromptButton.disabled = true;
+        copyPromptButton.textContent = "Copy Prompt";
+        copyOldPromptButton.hidden = true;
+        copyOldPromptButton.disabled = true;
         editChatButton.disabled = true;
         revertChatButton.hidden = true;
         removeChatButton.disabled = true;
@@ -680,7 +685,11 @@
       verifyAiButton.hidden = chat.reviewed_by !== "ai" || chat.status === "pending";
       viewSopButton.disabled = false;
       viewScenarioButton.disabled = false;
+      const hasOldChat = Boolean(chat.has_original && Array.isArray(chat.original_messages));
       copyPromptButton.disabled = false;
+      copyPromptButton.textContent = hasOldChat ? "Copy New Prompt" : "Copy Prompt";
+      copyOldPromptButton.hidden = !hasOldChat;
+      copyOldPromptButton.disabled = !hasOldChat;
       editChatButton.disabled = false;
       revertChatButton.hidden = !chat.has_original;
       removeChatButton.disabled = false;
@@ -887,8 +896,8 @@
         button.disabled = false;
       }
     });
-    function buildEvaluationPrompt(chat) {
-      const chatLines = chat.messages.map((message, index) => {
+    function buildEvaluationPrompt(chat, messages = chat.messages) {
+      const chatLines = messages.map((message, index) => {
         const header = `${index + 1}. [${message.speaker.toUpperCase()}] ${message.text}`;
         if (String(message.speaker).toLowerCase() !== "action") return header;
         const params = Array.isArray(message.parameters) && message.parameters.length
@@ -1179,9 +1188,20 @@
     document.getElementById("copy-prompt").addEventListener("click", async () => {
       const chat = currentChat();
       if (!chat) return;
+      const hasOldChat = Boolean(chat.has_original && Array.isArray(chat.original_messages));
       try {
-        await copyTextToClipboard(buildEvaluationPrompt(chat));
-        showNotice("Prompt copied to clipboard.");
+        await copyTextToClipboard(buildEvaluationPrompt(chat, chat.messages));
+        showNotice(hasOldChat ? "New prompt copied to clipboard." : "Prompt copied to clipboard.");
+      } catch (error) {
+        showNotice(error.message, true);
+      }
+    });
+    document.getElementById("copy-old-prompt").addEventListener("click", async () => {
+      const chat = currentChat();
+      if (!chat || !Array.isArray(chat.original_messages)) return;
+      try {
+        await copyTextToClipboard(buildEvaluationPrompt(chat, chat.original_messages));
+        showNotice("Old prompt copied to clipboard.");
       } catch (error) {
         showNotice(error.message, true);
       }
